@@ -1,4 +1,5 @@
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -132,6 +133,59 @@ class CandidatePipelineTests(unittest.TestCase):
                 {"ready_for_review", "do_not_publish", "max_rounds_reached"},
             )
             self.assertTrue((run_root / "reports" / "final-decision.json").exists())
+
+    def test_build_candidates_cli_supports_llm_assisted_with_mock_provider(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            env = os.environ.copy()
+            env["KIU_LLM_PROVIDER"] = "mock"
+            env["KIU_LLM_MOCK_RESPONSE"] = (
+                "A publishable rationale should keep the refusal contract explicit and tie user confidence to a"
+                " demonstrable understanding gap.[^anchor:circle-source-note] The dotcom refusal trace remains the"
+                " canonical reminder that enthusiasm without decision-grade understanding is still outside the circle,"
+                " and the evaluator should preserve that refusal stance even when narrative pressure or recent price"
+                " action makes immediate action feel socially validated.[^trace:canonical/dotcom-refusal.yaml]"
+            )
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "phase3-llm",
+                    "--drafting-mode",
+                    "llm-assisted",
+                    "--llm-budget-tokens",
+                    "4000",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+                env=env,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            run_root = output_root / "poor-charlies-almanack-v0.1" / "phase3-llm"
+            bundle_root = run_root / "bundle"
+            skill_markdown = (
+                bundle_root / "skills" / "circle-of-competence" / "SKILL.md"
+            ).read_text(encoding="utf-8")
+            round_report = json.loads(
+                (
+                    run_root
+                    / "reports"
+                    / "rounds"
+                    / "circle-of-competence-round-01.json"
+                ).read_text(encoding="utf-8")
+            )
+
+            self.assertIn("publishable rationale should keep the refusal contract explicit", skill_markdown)
+            self.assertEqual(round_report["llm_drafting"]["provider"], "mock")
+            self.assertEqual(round_report["llm_rejections"], [])
 
     def test_preflight_rejects_workflow_script_candidate_inside_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

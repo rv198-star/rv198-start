@@ -42,6 +42,12 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional automation profile override.",
     )
+    parser.add_argument(
+        "--llm-budget-tokens",
+        type=int,
+        default=100000,
+        help="Token budget ceiling for llm-assisted drafting.",
+    )
     return parser.parse_args()
 
 
@@ -66,6 +72,7 @@ def main() -> int:
         candidates=candidates,
         source_bundle=source_bundle,
         run_root=run_root,
+        llm_budget_tokens=args.llm_budget_tokens,
     )
     materialize_refined_candidates(bundle_root, refined)
 

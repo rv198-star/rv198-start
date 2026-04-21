@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
+import re
 
 import yaml
 
@@ -17,9 +18,12 @@ from kiu_pipeline.baseline import build_candidate_baseline
 from kiu_pipeline.load import load_source_bundle
 from kiu_pipeline.mutate import mutate_candidate
 from kiu_pipeline.refiner import refine_candidate
+from kiu_pipeline.refiner.providers import MockLLMProvider
+from kiu_pipeline.normalize import normalize_graph
+from kiu_pipeline.render import load_generated_candidates, render_generated_run
 from kiu_pipeline.reports import write_final_decision, write_round_report
 from kiu_pipeline.scoring import decide_terminal_state, score_candidate
-from kiu_pipeline.seed import derive_candidate_metadata
+from kiu_pipeline.seed import derive_candidate_metadata, mine_candidate_seeds
 
 
 class RefinerConfigTests(unittest.TestCase):
@@ -245,6 +249,46 @@ class RefinerLoopTests(unittest.TestCase):
             "nearest_skill_id": "circle-of-competence",
         }
 
+    def _extract_section(self, markdown: str, section_name: str) -> str:
+        pattern = rf"## {re.escape(section_name)}\n(.*?)(?:\n## |\Z)"
+        match = re.search(pattern, markdown, re.DOTALL)
+        self.assertIsNotNone(match)
+        return match.group(1).strip()
+
+    def _build_generated_candidate(
+        self,
+        tmp_dir: str,
+        *,
+        drafting_mode: str,
+    ) -> tuple[Path, dict, object]:
+        bundle = deepcopy(self.bundle)
+        config = bundle.profile["autonomous_refiner"]
+        config["min_rounds"] = 1
+        config["max_rounds"] = 1
+        config["targets"] = {
+            "overall_quality": 0.0,
+            "boundary_quality": 0.0,
+            "min_positive_delta": -1.0,
+        }
+
+        graph = normalize_graph(bundle.graph_doc)
+        seeds = mine_candidate_seeds(
+            bundle,
+            graph,
+            drafting_mode=drafting_mode,
+        )
+        run_root = render_generated_run(
+            source_bundle=bundle,
+            seeds=seeds,
+            output_root=Path(tmp_dir),
+            run_id="llm-drafting",
+        )
+        candidates = load_generated_candidates(run_root / "bundle")
+        candidate = next(
+            item for item in candidates if item["candidate"]["candidate_id"] == "circle-of-competence"
+        )
+        return run_root, candidate, bundle
+
     def test_refine_candidate_reaches_ready_for_review_when_targets_are_met(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             result = refine_candidate(
@@ -275,6 +319,78 @@ class RefinerLoopTests(unittest.TestCase):
             )
 
             self.assertEqual(result["candidate"]["terminal_state"], "do_not_publish")
+
+    def test_refine_candidate_llm_assisted_updates_rationale_and_records_prompt_audit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            run_root, candidate, bundle = self._build_generated_candidate(
+                tmp_dir,
+                drafting_mode="llm-assisted",
+            )
+            provider = MockLLMProvider(
+                responses=[
+                    (
+                        "Circle discipline only works when the refusal threshold is explicit and tied to actual decision size. "
+                        "The draft should force a `study_more` or `decline` verdict when the user cannot connect product familiarity, "
+                        "industry structure, and downside path into one coherent model.[^anchor:circle-source-note] "
+                        "That density matters because the canonical dotcom refusal trace shows that vague interest is not actionable understanding, "
+                        "and the evaluator should preserve that refusal stance even when social proof or narrative momentum makes action feel urgent.[^trace:canonical/dotcom-refusal.yaml]"
+                    )
+                ]
+            )
+
+            result = refine_candidate(
+                candidate=candidate,
+                source_bundle=bundle,
+                run_root=run_root,
+                llm_provider=provider,
+                llm_budget_tokens=4000,
+            )
+
+            rationale = self._extract_section(result["skill_markdown"], "Rationale")
+            self.assertIn("refusal threshold is explicit", rationale)
+            self.assertIn("[^anchor:circle-source-note]", rationale)
+
+            round_report = json.loads(
+                (run_root / "reports" / "rounds" / "circle-of-competence-round-01.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(round_report["llm_drafting"]["provider"], "mock")
+            self.assertEqual(round_report["llm_drafting"]["field"], "Rationale")
+            self.assertEqual(round_report["llm_rejections"], [])
+
+    def test_refine_candidate_records_llm_rejection_when_precheck_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            run_root, candidate, bundle = self._build_generated_candidate(
+                tmp_dir,
+                drafting_mode="llm-assisted",
+            )
+            original_rationale = self._extract_section(candidate["skill_markdown"], "Rationale")
+            provider = MockLLMProvider(responses=["Too short to survive validation."])
+
+            result = refine_candidate(
+                candidate=candidate,
+                source_bundle=bundle,
+                run_root=run_root,
+                llm_provider=provider,
+                llm_budget_tokens=4000,
+            )
+
+            rationale = self._extract_section(result["skill_markdown"], "Rationale")
+            self.assertEqual(rationale, original_rationale)
+
+            round_report = json.loads(
+                (run_root / "reports" / "rounds" / "circle-of-competence-round-01.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertTrue(round_report["llm_rejections"])
+            self.assertTrue(
+                any(
+                    "rationale_below_density_threshold" in rejection
+                    for rejection in round_report["llm_rejections"]
+                )
+            )
 
 
 if __name__ == "__main__":
