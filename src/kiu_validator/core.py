@@ -37,6 +37,11 @@ ANCHOR_REQUIRED_STATUSES = {"under_evaluation", "published"}
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_VALIDATION_PROFILE = {
     "trigger_registry": "shared_profiles/default/triggers.yaml",
+    "min_eval_cases_for_published": {
+        "real_decisions": 5,
+        "synthetic_adversarial": 5,
+        "out_of_distribution": 2,
+    },
     "content_density": {
         "rationale": {
             "warning_min_chars": 180,
@@ -247,7 +252,7 @@ def _validate_skill(
         skill_errors,
         f"{skill_id}: eval summary",
     )
-    all_eval_subsets_pass = _validate_eval_summary(
+    all_eval_subsets_pass, eval_case_counts = _validate_eval_summary(
         skill_id,
         eval_summary,
         skill_errors,
@@ -273,6 +278,15 @@ def _validate_skill(
         skill_errors.append(f"{skill_id}: published skill must reference at least 3 usage traces")
     if status == "published" and not all_eval_subsets_pass:
         skill_errors.append(f"{skill_id}: published skill must pass all evaluation subsets")
+    if status == "published":
+        required_eval_cases = profile.get("min_eval_cases_for_published", {})
+        for subset_name, minimum in required_eval_cases.items():
+            actual = eval_case_counts.get(subset_name, 0)
+            if actual < int(minimum):
+                skill_errors.append(
+                    f"{skill_id}: published requires {subset_name}>={minimum}, got {actual} "
+                    f"(need {int(minimum) - actual} more)"
+                )
     if status == "published" and not has_revision_loop:
         skill_errors.append(
             f"{skill_id}: published skills must have gone through at least one revision cycle "
@@ -289,6 +303,7 @@ def _validate_skill(
         "has_revision_loop": has_revision_loop,
         "usage_trace_count": usage_trace_count,
         "all_eval_subsets_pass": all_eval_subsets_pass,
+        "eval_case_counts": eval_case_counts,
         "relations": relations,
     }
 
@@ -450,9 +465,9 @@ def _validate_eval_summary(
     errors: list[str],
     bundle_version: str | None,
     skill_revision: int | None,
-) -> bool:
+) -> tuple[bool, dict[str, int]]:
     if not summary:
-        return False
+        return False, {}
 
     if summary.get("bundle_version") != bundle_version:
         errors.append(f"{skill_id}: eval summary bundle_version mismatch")
@@ -470,6 +485,14 @@ def _validate_eval_summary(
     ):
         if subset_name not in subsets:
             errors.append(f"{skill_id}: eval summary missing subset {subset_name}")
+    subset_counts = {
+        subset_name: _subset_case_count(subsets.get(subset_name, {}))
+        for subset_name in (
+            "real_decisions",
+            "synthetic_adversarial",
+            "out_of_distribution",
+        )
+    }
     return all(
         subsets.get(subset_name, {}).get("status") == "pass"
         for subset_name in (
@@ -477,7 +500,7 @@ def _validate_eval_summary(
             "synthetic_adversarial",
             "out_of_distribution",
         )
-    )
+    ), subset_counts
 
 
 def _validate_revisions(
@@ -526,6 +549,10 @@ def _normalize_validation_profile(profile: dict[str, Any]) -> dict[str, Any]:
         rationale_cfg["warning_min_chars"] = rationale_alias["warning_min_chars"]
     if "min_anchor_refs" not in rationale_cfg and "min_anchor_refs" in rationale_alias:
         rationale_cfg["min_anchor_refs"] = rationale_alias["min_anchor_refs"]
+    legacy_min_eval_cases = normalized.get("published_min_eval_cases", {})
+    published_cfg = normalized.setdefault("min_eval_cases_for_published", {})
+    for subset_name, minimum in legacy_min_eval_cases.items():
+        published_cfg.setdefault(subset_name, minimum)
     return normalized
 
 
@@ -647,6 +674,21 @@ def _dense_char_count(text: str) -> int:
 
 def _count_anchor_refs(text: str) -> int:
     return len(re.findall(r"\[\^(?:anchor|trace):[^\]]+\]", text))
+
+
+def _subset_case_count(subset: dict[str, Any]) -> int:
+    if not isinstance(subset, dict):
+        return 0
+    total = subset.get("total")
+    if total is not None:
+        try:
+            return int(total)
+        except (TypeError, ValueError):
+            return 0
+    cases = subset.get("cases")
+    if isinstance(cases, list):
+        return len(cases)
+    return 0
 
 
 def _detect_relation_cycles(skills: list[dict[str, Any]], warnings: list[str]) -> None:

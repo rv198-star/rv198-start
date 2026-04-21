@@ -1,4 +1,5 @@
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -39,6 +40,14 @@ class ProfileResolverTests(unittest.TestCase):
         self.assertEqual(bundle.profile["domain"], "investing")
         self.assertIn("published_min_eval_cases", bundle.profile)
         self.assertEqual(bundle.profile["refinement_scheduler"]["targets"]["overall_quality"], 0.82)
+
+    def test_resolve_profile_returns_isolated_copy_from_cache(self) -> None:
+        first = resolve_profile(self.bundle_path)
+        first["refinement_scheduler"]["max_rounds"] = 99
+
+        second = resolve_profile(self.bundle_path)
+
+        self.assertEqual(second["refinement_scheduler"]["max_rounds"], 5)
 
     def test_legacy_refiner_key_emits_deprecation_warning_and_normalizes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -93,6 +102,23 @@ class ProfileResolverTests(unittest.TestCase):
             self.assertTrue(
                 any("autonomous_refiner is deprecated" in str(item.message) for item in captured)
             )
+
+    def test_show_profile_cli_prints_resolved_profile(self) -> None:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "scripts" / "show_profile.py"),
+                str(self.bundle_path),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        profile = yaml.safe_load(result.stdout)
+        self.assertEqual(profile["domain"], "investing")
+        self.assertIn("refinement_scheduler", profile)
 
     def test_missing_domain_profile_fails_resolution(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

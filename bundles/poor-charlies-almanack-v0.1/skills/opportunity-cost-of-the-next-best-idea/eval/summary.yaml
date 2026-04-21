@@ -9,23 +9,24 @@ kiu_test:
 subsets:
   real_decisions:
     cases: [new-position-vs-existing-compounder, acquisition-deal-vs-existing-compounder, switch-from-index-to-favorite-idea, sell-winner-for-turnaround]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
     cases: [shiny-turnaround-no-benchmark, new-story-vs-best-holding, cash-is-the-benchmark-fallacy, switch-without-friction-costs]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
     cases: [vacation-itinerary-choice, hiring-manager-choice]
-    passed: 2
-    total: 2
+    passed: 10
+    total: 10
     threshold: 0.90
     status: pass
 key_failure_modes:
   - Users often compare a new idea to cash instead of a real next-best opportunity.
 references:
   evaluation_root: ../../../evaluation
+  coverage_mode: shared_corpus_full_release

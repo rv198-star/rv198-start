@@ -134,6 +134,14 @@ class BundleValidationTests(unittest.TestCase):
             self.assertGreaterEqual(skill["skill_revision"], 2)
             self.assertGreaterEqual(skill["usage_trace_count"], 3)
             self.assertTrue(skill["all_eval_subsets_pass"])
+            self.assertEqual(
+                skill["eval_case_counts"],
+                {
+                    "real_decisions": 20,
+                    "synthetic_adversarial": 20,
+                    "out_of_distribution": 10,
+                },
+            )
 
     def test_reference_bundle_reports_density_warnings(self) -> None:
         report = validate_bundle(self.bundle_path)
@@ -287,6 +295,101 @@ class BundleValidationTests(unittest.TestCase):
                 )
             )
 
+    def test_validator_rejects_published_with_insufficient_eval_case_counts(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            eval_path = (
+                tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
+            )
+            eval_doc = self._load_yaml(eval_path)
+            eval_doc["subsets"]["real_decisions"]["total"] = 4
+            eval_doc["subsets"]["real_decisions"]["passed"] = 4
+            eval_doc["subsets"]["synthetic_adversarial"]["total"] = 4
+            eval_doc["subsets"]["synthetic_adversarial"]["passed"] = 4
+            eval_doc["subsets"]["out_of_distribution"]["total"] = 2
+            eval_doc["subsets"]["out_of_distribution"]["passed"] = 2
+            self._write_yaml(eval_path, eval_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertTrue(
+                any(
+                    "published requires real_decisions>=20, got 4 (need 16 more)"
+                    in error
+                    for error in report["errors"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    "published requires synthetic_adversarial>=20, got 4 (need 16 more)"
+                    in error
+                    for error in report["errors"]
+                )
+            )
+            self.assertTrue(
+                any(
+                    "published requires out_of_distribution>=10, got 2 (need 8 more)"
+                    in error
+                    for error in report["errors"]
+                )
+            )
+
+    def test_validator_allows_under_evaluation_with_small_eval_case_counts(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            manifest_path = tmp_bundle / "manifest.yaml"
+            manifest_doc = self._load_yaml(manifest_path)
+            manifest_doc["skills"][0]["status"] = "under_evaluation"
+            manifest_doc["skills"][0]["skill_revision"] = 1
+            self._write_yaml(manifest_path, manifest_doc)
+
+            self._replace_skill_text(
+                tmp_bundle,
+                "circle-of-competence",
+                "status: published",
+                "status: under_evaluation",
+            )
+            self._replace_skill_text(
+                tmp_bundle,
+                "circle-of-competence",
+                "skill_revision: 2",
+                "skill_revision: 1",
+            )
+
+            eval_path = (
+                tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
+            )
+            eval_doc = self._load_yaml(eval_path)
+            eval_doc["status"] = "under_evaluation"
+            eval_doc["skill_revision"] = 1
+            eval_doc["subsets"]["real_decisions"]["total"] = 4
+            eval_doc["subsets"]["synthetic_adversarial"]["total"] = 4
+            eval_doc["subsets"]["out_of_distribution"]["total"] = 2
+            self._write_yaml(eval_path, eval_doc)
+
+            revisions_path = (
+                tmp_bundle
+                / "skills"
+                / "circle-of-competence"
+                / "iterations"
+                / "revisions.yaml"
+            )
+            revisions_doc = self._load_yaml(revisions_path)
+            revisions_doc["current_revision"] = 1
+            revisions_doc["history"] = revisions_doc["history"][:1]
+            self._write_yaml(revisions_path, revisions_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertFalse(
+                any("published requires" in error for error in report["errors"]),
+                report["errors"],
+            )
+
     def test_validator_rejects_unknown_relation_target(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_bundle = Path(tmp_dir) / "bundle"
@@ -324,6 +427,20 @@ class BundleValidationTests(unittest.TestCase):
 
             self.assertEqual(report["errors"], [])
 
+    def test_validator_accepts_legacy_autonomous_refiner_alias(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            automation_path = tmp_bundle / "automation.yaml"
+            automation_doc = self._load_yaml(automation_path)
+            automation_doc["autonomous_refiner"] = automation_doc.pop("refinement_scheduler")
+            self._write_yaml(automation_path, automation_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertEqual(report["errors"], [])
+
     def test_cli_reports_success_for_reference_bundle(self) -> None:
         result = subprocess.run(
             [
@@ -343,6 +460,21 @@ class BundleValidationTests(unittest.TestCase):
         self.assertTrue((ROOT / "shared_profiles" / "investing" / "triggers.yaml").exists())
         self.assertTrue((ROOT / "schemas" / "trigger-registry.schema.yaml").exists())
 
+    def test_v03_release_assets_exist(self) -> None:
+        self.assertTrue((ROOT / ".github" / "workflows" / "ci.yml").exists())
+        self.assertTrue((ROOT / "docs" / "kiu-skill-spec-v0.3.md").exists())
+        self.assertTrue((ROOT / "docs" / "CONTRIBUTING.md").exists())
+        self.assertTrue(
+            (
+                ROOT
+                / "workflow_candidates"
+                / "examples"
+                / "dcf-basic-valuation"
+                / "steps.yaml"
+            ).exists()
+        )
+        self.assertTrue((ROOT / "schemas" / "workflow-candidate.schema.yaml").exists())
+
     def test_release_has_usage_guide_with_design_rationale(self) -> None:
         usage_guide = ROOT / "docs" / "usage-guide.md"
         self.assertTrue(usage_guide.exists())
@@ -354,6 +486,7 @@ class BundleValidationTests(unittest.TestCase):
         self.assertIn("## How To Read A Skill", content)
         self.assertIn("## How To Extend The Bundle", content)
         self.assertIn("## Design Rationale", content)
+        self.assertIn("## Workflow Script Artifact Example", content)
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ KiU 目前包含两层内容：
 
 - `v0.1`：graph-first、evidence-backed 的 reference bundle 与 validator
 - `v0.2`：从已发布 graph snapshot 生成 candidate seeds，并默认执行 refinement scheduling
+- `v0.3`：domain-profile 驱动的 validator / refinement scheduler / `llm-assisted` drafting
 
 当前仓库内置的参考语料仍然是 *Poor Charlie's Almanack*。
 
@@ -13,6 +14,7 @@ Validate the bundle from the repo root:
 
 ```bash
 python3 scripts/validate_bundle.py bundles/poor-charlies-almanack-v0.1
+python3 scripts/show_profile.py bundles/poor-charlies-almanack-v0.1
 python3 -m unittest tests/test_validator.py
 ```
 
@@ -51,7 +53,7 @@ python3 scripts/generate_candidates.py \
   - `20` `synthetic_adversarial`
   - `10` `out_of_distribution`
 - validator code and acceptance tests
-- one v0.2 candidate pipeline with deterministic seed generation, refinement scheduling, and generated-bundle preflight
+- one v0.2/v0.3 candidate pipeline with deterministic seed generation, refinement scheduling, `llm-assisted` rationale drafting, and generated-bundle preflight
 
 ## Repository Layout
 
@@ -87,10 +89,14 @@ Key directories:
   - shared evaluation pool split into real, adversarial, and OOD subsets
 - `schemas/`
   - public interface definitions for the bundle manifest, anchors, eval summaries, revisions, relation enum, and KiU Test
+- `workflow_candidates/examples/`
+  - schema-first examples for workflow script artifacts
 - `scripts/generate_candidates.py`
   - v0.2 deterministic seed generator
 - `scripts/build_candidates.py`
-  - v0.2 default unattended builder
+  - v0.2/v0.3 default unattended builder
+- `scripts/show_profile.py`
+  - prints the resolved domain profile for one bundle
 - `generated/`
   - local v0.2 output root; intentionally not committed
 
@@ -136,12 +142,16 @@ The validator checks:
 - required skill files
 - required `SKILL.md` sections
 - allowed relation enum usage
+- trigger registry coverage
 - double anchoring rules
+- domain-profile published minimum eval counts
 - eval summary consistency
 - revision-log consistency
 - published-skill constraints:
   - at least 3 usage traces
   - all evaluation subsets pass
+  - domain minimum eval counts
+  - at least one revision cycle
 
 For generated bundles, run the pipeline preflight through the test suite:
 
@@ -218,6 +228,38 @@ python3 scripts/generate_candidates.py \
   --run-id local-v0_2 \
   --drafting-mode deterministic
 ```
+
+If you want the current `llm-assisted` surface, use:
+
+```bash
+KIU_LLM_PROVIDER=mock \
+KIU_LLM_MOCK_RESPONSE="Dense rationale text with anchor refs.[^anchor:demo] [^trace:canonical/demo.yaml]" \
+python3 scripts/build_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id phase3-llm \
+  --drafting-mode llm-assisted \
+  --llm-budget-tokens 4000
+```
+
+Today the shipped LLM drafting surface is intentionally narrow:
+
+- `Rationale` can be drafted by the provider layer
+- validator precheck decides whether the draft is accepted
+- rejected drafts are preserved in `reports/rounds/*.json`
+- `Identity`, `Contract`, `Relations`, and anchors remain non-LLM-owned
+
+## Workflow Script Artifact Example
+
+KiU v0.3 also ships a schema-first workflow artifact example at:
+
+- `workflow_candidates/examples/dcf-basic-valuation/steps.yaml`
+
+This is the current reference shape for `workflow_script_candidate` delivery:
+
+- YAML DSL only
+- no execution engine implied
+- intended for structure validation and review first
 
 Read generated output in this order:
 

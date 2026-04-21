@@ -9,23 +9,24 @@ kiu_test:
 subsets:
   real_decisions:
     cases: [concentrated-bank-warrant-sizing, pre-ipo-biotech-sizing-under-uncertainty, illiquid-microcap-full-position, commodity-cyclical-no-buffer]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
     cases: [perfect-thesis-zero-cash-buffer, levered-small-cap-no-liquidity, binary-trial-all-in, zero-buffer-concentrated-reit]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
     cases: [graduate-school-choice, wedding-budget-decision]
-    passed: 2
-    total: 2
+    passed: 10
+    total: 10
     threshold: 0.90
     status: pass
 key_failure_modes:
   - Users often present confidence but omit liquidity, reversibility, and ruin inputs.
 references:
   evaluation_root: ../../../evaluation
+  coverage_mode: shared_corpus_full_release

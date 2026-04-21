@@ -1,0 +1,28 @@
+schema_id: kiu.workflow-candidate/v0.3
+title: KiU Workflow Candidate
+type: object
+required:
+  - workflow_id
+  - version
+  - intake
+  - steps
+  - output
+properties:
+  workflow_id:
+    type: string
+  version:
+    type: string
+  intake:
+    type: array
+    items:
+      type: object
+      required: [name, type]
+  steps:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [id, op, args]
+  output:
+    type: object
+    required: [type]

@@ -9,23 +9,24 @@ kiu_test:
 subsets:
   real_decisions:
     cases: [anti-ruin-expansion-check, debt-funded-repurchase-inversion, acquisition-integration-pre-mortem, turnaround-failure-mode-list]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
     cases: [guaranteed-success-roadmap, already-decided-launch-plan, missing-objective-inversion, checklist-without-tradeoffs]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
     cases: [product-launch-copy-tactics, marathon-training-plan]
-    passed: 2
-    total: 2
+    passed: 10
+    total: 10
     threshold: 0.90
     status: pass
 key_failure_modes:
   - Inversion can become vague advice unless it outputs explicit avoid-rules.
 references:
   evaluation_root: ../../../evaluation
+  coverage_mode: shared_corpus_full_release

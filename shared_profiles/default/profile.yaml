@@ -13,6 +13,10 @@ published_min_eval_cases:
   real_decisions: 5
   synthetic_adversarial: 5
   out_of_distribution: 2
+min_eval_cases_for_published:
+  real_decisions: 5
+  synthetic_adversarial: 5
+  out_of_distribution: 2
 trigger_registry: shared_profiles/default/triggers.yaml
 refinement_scheduler:
   weights:

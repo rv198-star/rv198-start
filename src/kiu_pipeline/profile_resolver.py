@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from copy import deepcopy
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 import warnings
@@ -14,7 +16,12 @@ REFINEMENT_SCHEDULER_KEY = "refinement_scheduler"
 
 
 def resolve_profile(bundle_path: str | Path) -> dict[str, Any]:
-    bundle_root = Path(bundle_path)
+    return deepcopy(_resolve_profile_cached(str(Path(bundle_path).resolve())))
+
+
+@lru_cache(maxsize=32)
+def _resolve_profile_cached(bundle_root_raw: str) -> dict[str, Any]:
+    bundle_root = Path(bundle_root_raw)
     manifest = _load_yaml(bundle_root / "manifest.yaml")
     domain = manifest.get("domain")
     if not domain:

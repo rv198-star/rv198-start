@@ -1,0 +1,28 @@
+workflow_id: dcf-basic-valuation
+version: 0.1
+intake:
+  - name: projected_free_cash_flows
+    type: number[]
+  - name: discount_rate
+    type: number
+  - name: terminal_value
+    type: number
+steps:
+  - id: discount_cash_flows
+    op: discount_series
+    args:
+      values: projected_free_cash_flows
+      rate: discount_rate
+  - id: discount_terminal_value
+    op: discount_scalar
+    args:
+      value: terminal_value
+      rate: discount_rate
+  - id: combine_present_value
+    op: add
+    args:
+      left: discount_cash_flows.result
+      right: discount_terminal_value.result
+output:
+  type: number
+  meaning: intrinsic_value_estimate

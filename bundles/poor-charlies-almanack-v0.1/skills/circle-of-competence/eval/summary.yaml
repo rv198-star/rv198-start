@@ -9,23 +9,24 @@ kiu_test:
 subsets:
   real_decisions:
     cases: [biotech-founder-quantum-etf, semiconductor-engineer-chipmaker-bet, consumer-brand-fan-luxury-stock, founder-buyout-outside-circle]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
     cases: [tsla-surface-familiarity, ai-tourist-deepfake-expert, doctor-crypto-miner-confidence, private-equity-brochure-overconfidence]
-    passed: 4
-    total: 4
+    passed: 20
+    total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
     cases: [career-offer-choice, house-buying-decision]
-    passed: 2
-    total: 2
+    passed: 10
+    total: 10
     threshold: 0.90
     status: pass
 key_failure_modes:
   - Surface familiarity can look like depth unless the contract asks for missing knowledge explicitly.
 references:
   evaluation_root: ../../../evaluation
+  coverage_mode: shared_corpus_full_release
