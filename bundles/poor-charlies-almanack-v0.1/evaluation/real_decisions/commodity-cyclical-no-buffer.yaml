@@ -1,0 +1,10 @@
+case_id: commodity-cyclical-no-buffer
+subset: real_decisions
+primary_skill: margin-of-safety-sizing
+related_skills:
+- bias-self-audit
+situation: A cyclical commodity bet is proposed at large size with no cash buffer
+  and wide earnings uncertainty.
+expected_behavior: fire
+expected_verdict: size_down
+note: Wide uncertainty with no buffer should push the result toward a small band.

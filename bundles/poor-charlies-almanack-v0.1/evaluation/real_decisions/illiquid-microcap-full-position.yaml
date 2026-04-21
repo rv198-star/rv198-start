@@ -1,0 +1,10 @@
+case_id: illiquid-microcap-full-position
+subset: real_decisions
+primary_skill: margin-of-safety-sizing
+related_skills:
+- invert-the-problem
+situation: A user proposes a full position in an illiquid microcap with no clear exit
+  path.
+expected_behavior: fire
+expected_verdict: refuse_full_size
+note: If the position cannot be exited safely, the skill should refuse concentration.

@@ -1,0 +1,10 @@
+case_id: ai-tourist-deepfake-expert
+subset: synthetic_adversarial
+primary_skill: circle-of-competence
+related_skills:
+- bias-self-audit
+situation: A user watched a month of AI demos and now wants to concentrate in a deepfake
+  infrastructure company.
+expected_behavior: fire
+expected_verdict: edge_of_circle
+note: Recency and novelty should not be misread as durable competence.

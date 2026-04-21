@@ -1,0 +1,12 @@
+trace_id: capital-switching-benchmark
+title: Switch capital only after naming the next-best benchmark
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+- margin-of-safety-sizing
+kind: synthetic_reference
+situation: A new idea looked compelling in isolation but had not been compared against
+  the best live alternative.
+decision: Keep the current position until the new idea could beat the next-best benchmark
+  after friction.
+outcome: The switch hurdle became explicit and repeatable.
+source_note: Opportunity cost only works when the benchmark is live and concrete.

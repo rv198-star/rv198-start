@@ -1,0 +1,10 @@
+case_id: consumer-brand-fan-luxury-stock
+subset: real_decisions
+primary_skill: circle-of-competence
+related_skills:
+- bias-self-audit
+situation: A luxury-brand superfan wants to size a large equity position based on
+  product love and channel checks alone.
+expected_behavior: fire
+expected_verdict: edge_of_circle
+note: Customer enthusiasm is not a substitute for capital-allocation depth.

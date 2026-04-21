@@ -1,6 +1,6 @@
 skill_id: margin-of-safety-sizing
 bundle_version: 0.1.0
-current_revision: 1
+current_revision: 2
 history:
   - revision: 1
     date: 2026-04-21
@@ -10,5 +10,13 @@ history:
     evidence_changes:
       - Added See's Candies and Salomon traces.
       - Added sample real, adversarial, and OOD evaluation cases.
+  - revision: 2
+    date: 2026-04-21
+    summary: Promoted to published after release-scale sizing coverage was attached.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: published
+    evidence_changes:
+      - Added irreversible-bet-precheck as a third canonical trace.
+      - Expanded attached evaluation coverage to 4 real, 4 adversarial, and 2 OOD cases.
 open_gaps:
-  - Add cases that distinguish temporary mark-to-market pain from permanent capital impairment.
+  - Add future cases that separate temporary volatility from permanent impairment across new corpora.

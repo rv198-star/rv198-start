@@ -12,11 +12,12 @@ history:
       - Added one case per evaluation subset.
   - revision: 2
     date: 2026-04-21
-    summary: Tightened exclusions and promoted after the reference evaluation set remained green.
+    summary: Tightened exclusions, expanded to release-scale evaluation coverage, and published the full v0.1 skill.
     graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
     effective_status: published
     evidence_changes:
       - Added explicit passive-index exclusion.
+      - Expanded attached evaluation cases from sample coverage to 4/4/2 release coverage.
       - Preserved graph/source binding against the current graph snapshot.
 open_gaps:
-  - Expand beyond the reference evaluation set before claiming broad coverage.
+  - Extend the same contract to future cross-corpus investing bundles.

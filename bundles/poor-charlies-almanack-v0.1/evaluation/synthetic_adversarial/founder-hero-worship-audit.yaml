@@ -1,0 +1,10 @@
+case_id: founder-hero-worship-audit
+subset: synthetic_adversarial
+primary_skill: bias-self-audit
+related_skills:
+- circle-of-competence
+situation: A user wants to buy because the founder feels visionary and critics seem
+  boring.
+expected_behavior: fire
+expected_verdict: high_bias_risk
+note: Hero worship should be named as a bias trigger, not dressed up as conviction.

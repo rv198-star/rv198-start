@@ -1,0 +1,13 @@
+trace_id: airline-bankruptcy-checklist
+title: Invert the airline bankruptcy path before sizing up
+related_skills:
+- invert-the-problem
+- bias-self-audit
+kind: historical_reference
+situation: A seemingly recoverable airline thesis looked attractive until the team
+  listed the failure chain first.
+decision: Map the ruin path, then refuse to proceed until each failure mode had a
+  countermeasure.
+outcome: The analysis prevented a commitment based on narrative optimism alone.
+source_note: This trace anchors inversion as a practical pre-mortem rather than a
+  slogan.

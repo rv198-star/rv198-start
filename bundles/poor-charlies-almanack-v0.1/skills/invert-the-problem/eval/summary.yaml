@@ -1,30 +1,30 @@
 skill_id: invert-the-problem
 bundle_version: 0.1.0
-skill_revision: 1
-status: under_evaluation
+skill_revision: 2
+status: published
 kiu_test:
   trigger_test: pass
   fire_test: pass
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [concentrated-bank-warrant-sizing]
-    passed: 1
-    total: 1
+    cases: [anti-ruin-expansion-check, debt-funded-repurchase-inversion, acquisition-integration-pre-mortem, turnaround-failure-mode-list]
+    passed: 4
+    total: 4
     threshold: 0.70
-    status: sample_pass
+    status: pass
   synthetic_adversarial:
-    cases: [perfect-thesis-zero-cash-buffer]
-    passed: 1
-    total: 1
+    cases: [guaranteed-success-roadmap, already-decided-launch-plan, missing-objective-inversion, checklist-without-tradeoffs]
+    passed: 4
+    total: 4
     threshold: 0.85
-    status: sample_pass
+    status: pass
   out_of_distribution:
-    cases: [product-launch-copy-tactics]
-    passed: 1
-    total: 1
+    cases: [product-launch-copy-tactics, marathon-training-plan]
+    passed: 2
+    total: 2
     threshold: 0.90
-    status: sample_pass
+    status: pass
 key_failure_modes:
   - Inversion can become vague advice unless it outputs explicit avoid-rules.
 references:

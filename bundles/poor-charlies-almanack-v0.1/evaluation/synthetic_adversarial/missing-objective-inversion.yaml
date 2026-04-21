@@ -1,0 +1,10 @@
+case_id: missing-objective-inversion
+subset: synthetic_adversarial
+primary_skill: invert-the-problem
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: A user asks to invert a problem without naming any actual objective or
+  constraint set.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: The skill should reject inversion requests that lack a concrete target.

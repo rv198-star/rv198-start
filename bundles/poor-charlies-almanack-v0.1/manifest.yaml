@@ -17,20 +17,20 @@ skills:
     skill_revision: 2
   - skill_id: invert-the-problem
     path: skills/invert-the-problem
-    status: under_evaluation
-    skill_revision: 1
+    status: published
+    skill_revision: 2
   - skill_id: margin-of-safety-sizing
     path: skills/margin-of-safety-sizing
-    status: under_evaluation
-    skill_revision: 1
+    status: published
+    skill_revision: 2
   - skill_id: bias-self-audit
     path: skills/bias-self-audit
-    status: under_evaluation
-    skill_revision: 1
+    status: published
+    skill_revision: 2
   - skill_id: opportunity-cost-of-the-next-best-idea
     path: skills/opportunity-cost-of-the-next-best-idea
-    status: under_evaluation
-    skill_revision: 1
+    status: published
+    skill_revision: 2
 shared_assets:
   traces: traces
   evaluation: evaluation

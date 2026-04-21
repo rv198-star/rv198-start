@@ -1,0 +1,10 @@
+case_id: zero-buffer-concentrated-reit
+subset: synthetic_adversarial
+primary_skill: margin-of-safety-sizing
+related_skills:
+- bias-self-audit
+situation: A user wants a concentrated REIT position while keeping no liquidity reserve
+  for personal obligations.
+expected_behavior: fire
+expected_verdict: size_down
+note: No personal buffer should constrain position size even if the asset seems stable.

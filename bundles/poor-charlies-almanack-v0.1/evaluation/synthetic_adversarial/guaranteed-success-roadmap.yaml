@@ -1,0 +1,10 @@
+case_id: guaranteed-success-roadmap
+subset: synthetic_adversarial
+primary_skill: invert-the-problem
+related_skills:
+- bias-self-audit
+situation: A user asks only for the perfect success roadmap and resists listing any
+  ways the plan could fail.
+expected_behavior: fire
+expected_verdict: enumerate_failure_modes_first
+note: The trap is success-only framing with no failure inventory.

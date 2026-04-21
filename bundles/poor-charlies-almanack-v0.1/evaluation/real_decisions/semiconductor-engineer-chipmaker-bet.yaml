@@ -1,0 +1,10 @@
+case_id: semiconductor-engineer-chipmaker-bet
+subset: real_decisions
+primary_skill: circle-of-competence
+related_skills:
+- margin-of-safety-sizing
+situation: A semiconductor engineer wants to put 35 percent of liquid net worth into
+  one chipmaker because the product roadmap feels familiar.
+expected_behavior: fire
+expected_verdict: edge_of_circle
+note: Technical familiarity should not automatically count as full business understanding.

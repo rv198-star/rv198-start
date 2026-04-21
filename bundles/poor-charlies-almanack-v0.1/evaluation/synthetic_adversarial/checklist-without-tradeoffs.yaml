@@ -1,0 +1,10 @@
+case_id: checklist-without-tradeoffs
+subset: synthetic_adversarial
+primary_skill: invert-the-problem
+related_skills:
+- margin-of-safety-sizing
+situation: A user wants an inversion checklist but refuses to specify constraints
+  or irreversible risks.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: Without constraints, inversion degrades into generic advice and should refuse.

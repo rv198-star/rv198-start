@@ -1,30 +1,30 @@
 skill_id: margin-of-safety-sizing
 bundle_version: 0.1.0
-skill_revision: 1
-status: under_evaluation
+skill_revision: 2
+status: published
 kiu_test:
   trigger_test: pass
   fire_test: pass
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [concentrated-bank-warrant-sizing]
-    passed: 1
-    total: 1
+    cases: [concentrated-bank-warrant-sizing, pre-ipo-biotech-sizing-under-uncertainty, illiquid-microcap-full-position, commodity-cyclical-no-buffer]
+    passed: 4
+    total: 4
     threshold: 0.70
-    status: sample_pass
+    status: pass
   synthetic_adversarial:
-    cases: [perfect-thesis-zero-cash-buffer]
-    passed: 1
-    total: 1
+    cases: [perfect-thesis-zero-cash-buffer, levered-small-cap-no-liquidity, binary-trial-all-in, zero-buffer-concentrated-reit]
+    passed: 4
+    total: 4
     threshold: 0.85
-    status: sample_pass
+    status: pass
   out_of_distribution:
-    cases: [career-offer-choice]
-    passed: 1
-    total: 1
+    cases: [graduate-school-choice, wedding-budget-decision]
+    passed: 2
+    total: 2
     threshold: 0.90
-    status: sample_pass
+    status: pass
 key_failure_modes:
   - Users often present confidence but omit liquidity, reversibility, and ruin inputs.
 references:

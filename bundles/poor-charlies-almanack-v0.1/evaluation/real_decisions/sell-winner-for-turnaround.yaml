@@ -1,0 +1,11 @@
+case_id: sell-winner-for-turnaround
+subset: real_decisions
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- bias-self-audit
+situation: A manager wants to sell a winner to fund a turnaround story that only looks
+  attractive in isolation.
+expected_behavior: fire
+expected_verdict: benchmark_against_next_best
+note: The turnaround must beat the existing winner after friction and uncertainty
+  are included.

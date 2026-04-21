@@ -1,0 +1,10 @@
+case_id: acquisition-integration-pre-mortem
+subset: real_decisions
+primary_skill: invert-the-problem
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: An acquisition team runs a pre-mortem before signing and identifies the
+  easiest ways integration could fail.
+expected_behavior: fire
+expected_verdict: pre_mortem_required
+note: The skill should output avoid-rules rather than a generic integration checklist.

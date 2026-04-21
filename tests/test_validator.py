@@ -44,8 +44,16 @@ class BundleValidationTests(unittest.TestCase):
 
         self.assertGreaterEqual(report["graph"]["node_count"], 10)
         self.assertGreaterEqual(report["graph"]["edge_count"], 5)
-        self.assertGreaterEqual(report["shared_assets"]["trace_count"], 6)
-        self.assertGreaterEqual(report["shared_assets"]["evaluation_count"], 9)
+        self.assertGreaterEqual(report["shared_assets"]["trace_count"], 12)
+        self.assertEqual(report["shared_assets"]["evaluation_count"], 50)
+        self.assertEqual(
+            report["shared_assets"]["evaluation_breakdown"],
+            {
+                "real_decisions": 20,
+                "synthetic_adversarial": 20,
+                "out_of_distribution": 10,
+            },
+        )
 
     def test_one_skill_demonstrates_revision_plus_one_loop(self) -> None:
         report = validate_bundle(self.bundle_path)
@@ -59,6 +67,16 @@ class BundleValidationTests(unittest.TestCase):
         self.assertEqual(circle["skill_revision"], 2)
         self.assertGreaterEqual(circle["revision_entry_count"], 2)
         self.assertTrue(circle["has_revision_loop"])
+
+    def test_full_release_marks_all_five_skills_as_published(self) -> None:
+        report = validate_bundle(self.bundle_path)
+
+        self.assertEqual(len(report["skills"]), 5)
+        for skill in report["skills"]:
+            self.assertEqual(skill["status"], "published")
+            self.assertGreaterEqual(skill["skill_revision"], 2)
+            self.assertGreaterEqual(skill["usage_trace_count"], 3)
+            self.assertTrue(skill["all_eval_subsets_pass"])
 
     def test_validator_rejects_missing_source_anchor_layer(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -117,6 +135,18 @@ class BundleValidationTests(unittest.TestCase):
 
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("VALID", result.stdout)
+
+    def test_release_has_usage_guide_with_design_rationale(self) -> None:
+        usage_guide = ROOT / "docs" / "usage-guide.md"
+        self.assertTrue(usage_guide.exists())
+
+        content = usage_guide.read_text(encoding="utf-8")
+        self.assertIn("# KiU v0.1 Usage Guide", content)
+        self.assertIn("## Quick Start", content)
+        self.assertIn("## Repository Layout", content)
+        self.assertIn("## How To Read A Skill", content)
+        self.assertIn("## How To Extend The Bundle", content)
+        self.assertIn("## Design Rationale", content)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,10 @@
+case_id: anchoring-on-cost-basis
+subset: synthetic_adversarial
+primary_skill: bias-self-audit
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: A user refuses to sell or re-evaluate a position because the original cost
+  basis still feels morally important.
+expected_behavior: fire
+expected_verdict: anchoring_bias_detected
+note: Cost basis attachment should be surfaced as a bias rather than treated as analysis.

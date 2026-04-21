@@ -1,0 +1,11 @@
+case_id: switch-from-index-to-favorite-idea
+subset: real_decisions
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- circle-of-competence
+situation: A user wants to sell a broad index position to fund a favorite stock idea
+  without naming the best existing alternative.
+expected_behavior: fire
+expected_verdict: missing_benchmark
+note: The index should not be treated as an empty baseline when a next-best benchmark
+  is required.

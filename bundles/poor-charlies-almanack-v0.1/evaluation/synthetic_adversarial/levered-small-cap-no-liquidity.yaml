@@ -1,0 +1,10 @@
+case_id: levered-small-cap-no-liquidity
+subset: synthetic_adversarial
+primary_skill: margin-of-safety-sizing
+related_skills:
+- invert-the-problem
+situation: A user wants a concentrated levered position in a small-cap with limited
+  exit liquidity.
+expected_behavior: fire
+expected_verdict: refuse_full_size
+note: Leverage plus illiquidity should collapse the sizing band.

@@ -1,0 +1,10 @@
+case_id: private-equity-brochure-overconfidence
+subset: synthetic_adversarial
+primary_skill: circle-of-competence
+related_skills:
+- bias-self-audit
+situation: An investor wants to back a private equity vehicle after reading the sponsor
+  brochure and talking to one partner.
+expected_behavior: fire
+expected_verdict: outside_circle
+note: Relationship comfort should not bypass competence checks.

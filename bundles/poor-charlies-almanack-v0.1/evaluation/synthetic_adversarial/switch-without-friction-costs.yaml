@@ -1,0 +1,10 @@
+case_id: switch-without-friction-costs
+subset: synthetic_adversarial
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- bias-self-audit
+situation: A user wants to rotate positions but ignores taxes, slippage, and the cost
+  of breaking compounding.
+expected_behavior: fire
+expected_verdict: missing_benchmark
+note: Switch costs must be part of the benchmark comparison.

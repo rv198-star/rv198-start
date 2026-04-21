@@ -1,0 +1,9 @@
+case_id: marathon-training-plan
+subset: out_of_distribution
+primary_skill: invert-the-problem
+related_skills:
+- bias-self-audit
+situation: A runner wants a twelve-week marathon training plan.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: The request is tactical coaching rather than a KiU investing judgment.

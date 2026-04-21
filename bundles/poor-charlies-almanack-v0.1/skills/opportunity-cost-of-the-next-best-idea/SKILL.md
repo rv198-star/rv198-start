@@ -4,9 +4,9 @@
 ```yaml
 skill_id: opportunity-cost-of-the-next-best-idea
 title: Opportunity Cost of the Next Best Idea
-status: under_evaluation
+status: published
 bundle_version: 0.1.0
-skill_revision: 1
+skill_revision: 2
 ```
 
 ## Contract
@@ -69,11 +69,11 @@ Current trace attachments: 3.
 
 Representative cases:
 - `traces/canonical/costco-next-best-idea.yaml`
-- `traces/canonical/google-omission.yaml`
+- `traces/canonical/capital-switching-benchmark.yaml`
 - `traces/canonical/dexter-shoe-consideration.yaml`
 
 ## Evaluation Summary
-The reference eval set proves the contract shape, but publication is deferred until more real switching cases are attached. The current weak point is users failing to name a real next-best benchmark. See `eval/summary.yaml`.
+The full v0.1 evaluation corpus is attached and published. The dominant failure mode remains users evaluating a new idea against cash or vibes rather than against a live next-best benchmark. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 1 establishes the benchmark-first contract and the refusal rule for missing next-best alternatives. See `iterations/revisions.yaml`.
+Revision 2 promotes the skill to `published` after adding a third benchmark trace and expanding the attached evaluation set to release scale. See `iterations/revisions.yaml`.

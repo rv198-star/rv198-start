@@ -1,0 +1,12 @@
+trace_id: irreversible-bet-precheck
+title: Run an irreversible-bet precheck before concentration
+related_skills:
+- invert-the-problem
+- margin-of-safety-sizing
+kind: synthetic_reference
+situation: A concentrated position looked attractive but could not be unwound cleanly
+  if the thesis broke.
+decision: List the irreversible failure points first and shrink size until survival
+  remained intact.
+outcome: The resulting sizing plan optimized survival before upside.
+source_note: This trace links inversion directly to sizing discipline.

@@ -1,0 +1,10 @@
+case_id: new-story-vs-best-holding
+subset: synthetic_adversarial
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- bias-self-audit
+situation: A new macro story is pitched as exciting but no one names which current
+  holding it actually beats.
+expected_behavior: fire
+expected_verdict: missing_benchmark
+note: Excitement without a live benchmark is not enough.

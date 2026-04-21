@@ -1,0 +1,10 @@
+case_id: cash-is-the-benchmark-fallacy
+subset: synthetic_adversarial
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- margin-of-safety-sizing
+situation: A user compares a new idea only against idle cash even though better live
+  alternatives exist.
+expected_behavior: fire
+expected_verdict: missing_benchmark
+note: Cash cannot replace the explicit next-best alternative in this contract.

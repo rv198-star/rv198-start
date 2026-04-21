@@ -4,9 +4,9 @@
 ```yaml
 skill_id: invert-the-problem
 title: Invert the Problem
-status: under_evaluation
+status: published
 bundle_version: 0.1.0
-skill_revision: 1
+skill_revision: 2
 ```
 
 ## Contract
@@ -61,14 +61,15 @@ contradicts: []
 ```
 
 ## Usage Summary
-Current trace attachments: 2.
+Current trace attachments: 3.
 
 Representative cases:
 - `traces/canonical/anti-ruin-checklist.yaml`
 - `traces/canonical/pilot-pre-mortem.yaml`
+- `traces/canonical/airline-bankruptcy-checklist.yaml`
 
 ## Evaluation Summary
-KiU Test is structurally green in the reference bundle, but the evaluation sample is still too small for publication. See `eval/summary.yaml`.
+KiU Test is green and the full v0.1 shared evaluation corpus is attached. The published summary covers four real-decision cases, four adversarial traps, and two OOD refusals for inversion-style dispatch. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 1 is the initial under-evaluation release. The next loop should expand adversarial cases that test whether inversion gets misused as generic advice. See `iterations/revisions.yaml`.
+Revision 2 promotes the skill to `published` after adding a third canonical trace and expanding the eval set from sample coverage to release coverage. See `iterations/revisions.yaml`.

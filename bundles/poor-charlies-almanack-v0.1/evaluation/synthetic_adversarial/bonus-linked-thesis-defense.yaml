@@ -1,0 +1,9 @@
+case_id: bonus-linked-thesis-defense
+subset: synthetic_adversarial
+primary_skill: bias-self-audit
+related_skills:
+- margin-of-safety-sizing
+situation: A manager defends a thesis that directly affects this year's bonus pool.
+expected_behavior: fire
+expected_verdict: incentive_bias_detected
+note: Compensation-linked conviction should raise severity automatically.

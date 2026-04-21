@@ -1,0 +1,10 @@
+case_id: binary-trial-all-in
+subset: synthetic_adversarial
+primary_skill: margin-of-safety-sizing
+related_skills:
+- circle-of-competence
+situation: A user wants to go all in before a binary biotech trial result because
+  the upside looks huge.
+expected_behavior: fire
+expected_verdict: refuse_full_size
+note: Binary outcomes with no survivability margin should be rejected.

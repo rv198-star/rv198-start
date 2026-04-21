@@ -4,9 +4,9 @@
 ```yaml
 skill_id: margin-of-safety-sizing
 title: Margin of Safety Sizing
-status: under_evaluation
+status: published
 bundle_version: 0.1.0
-skill_revision: 1
+skill_revision: 2
 ```
 
 ## Contract
@@ -70,10 +70,10 @@ Current trace attachments: 3.
 Representative cases:
 - `traces/canonical/sees-candies-discipline.yaml`
 - `traces/canonical/salomon-exposure-cap.yaml`
-- `traces/canonical/anti-ruin-checklist.yaml`
+- `traces/canonical/irreversible-bet-precheck.yaml`
 
 ## Evaluation Summary
-The sample evaluation set is structurally complete but still under threshold by volume. The current key weakness is users presenting conviction without explicit downside math. See `eval/summary.yaml`.
+The full v0.1 evaluation corpus is attached and published. The dominant failure mode remains users presenting conviction without downside, liquidity, or ruin math. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 1 defines the initial sizing bands and refusal boundary. The next loop should test more cases that separate valuation confidence from survival confidence. See `iterations/revisions.yaml`.
+Revision 2 promotes the skill to `published` after expanding the sizing cases from a sample gate to a release-scale corpus. See `iterations/revisions.yaml`.

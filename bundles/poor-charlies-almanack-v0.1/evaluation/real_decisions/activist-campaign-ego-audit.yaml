@@ -1,0 +1,10 @@
+case_id: activist-campaign-ego-audit
+subset: real_decisions
+primary_skill: bias-self-audit
+related_skills:
+- invert-the-problem
+situation: An activist investor becomes publicly committed to a thesis and dismisses
+  contrary evidence.
+expected_behavior: fire
+expected_verdict: high_bias_risk
+note: Public commitment should raise the severity of the self-audit.

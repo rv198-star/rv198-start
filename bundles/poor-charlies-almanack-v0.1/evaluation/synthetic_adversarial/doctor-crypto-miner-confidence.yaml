@@ -1,0 +1,10 @@
+case_id: doctor-crypto-miner-confidence
+subset: synthetic_adversarial
+primary_skill: circle-of-competence
+related_skills:
+- margin-of-safety-sizing
+situation: A physician claims confidence in a crypto-mining stock because the energy
+  narrative feels intuitive.
+expected_behavior: fire
+expected_verdict: outside_circle
+note: Intuition about one driver should not substitute for full business understanding.

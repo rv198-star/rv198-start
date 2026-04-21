@@ -1,0 +1,10 @@
+case_id: executive-stock-grant-attachment-audit
+subset: real_decisions
+primary_skill: bias-self-audit
+related_skills:
+- circle-of-competence
+situation: An executive with large stock grants is convinced the company remains obviously
+  undervalued.
+expected_behavior: fire
+expected_verdict: high_bias_risk
+note: Identity and compensation incentives should trigger an explicit bias review.

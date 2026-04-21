@@ -4,9 +4,9 @@
 ```yaml
 skill_id: bias-self-audit
 title: Bias Self Audit
-status: under_evaluation
+status: published
 bundle_version: 0.1.0
-skill_revision: 1
+skill_revision: 2
 ```
 
 ## Contract
@@ -69,11 +69,11 @@ Current trace attachments: 3.
 
 Representative cases:
 - `traces/canonical/us-air-regret.yaml`
+- `traces/canonical/incentive-caused-delusion-audit.yaml`
 - `traces/canonical/pilot-pre-mortem.yaml`
-- `traces/canonical/dotcom-refusal.yaml`
 
 ## Evaluation Summary
-The reference evaluation set is sufficient to keep the skill under active review but not yet sufficient for publication. The main remaining question is how aggressively the skill should refuse low-stakes scenarios. See `eval/summary.yaml`.
+The full v0.1 evaluation corpus is attached and published. The remaining calibration question is not whether the skill is ready to ship, but how strict later versions should become around low-stakes refusals. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 1 establishes the first audit output schema and the initial refusal boundary for low-stakes or non-investing requests. See `iterations/revisions.yaml`.
+Revision 2 promotes the skill to `published` after adding a stronger incentive-bias trace and expanding the evaluation set to release scale. See `iterations/revisions.yaml`.

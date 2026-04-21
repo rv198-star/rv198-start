@@ -1,0 +1,10 @@
+case_id: turnaround-failure-mode-list
+subset: real_decisions
+primary_skill: invert-the-problem
+related_skills:
+- margin-of-safety-sizing
+situation: A turnaround pitch is evaluated by first listing what would make the recovery
+  impossible.
+expected_behavior: fire
+expected_verdict: build_failure_mode_list
+note: The skill should expose single-point failure before capital is deployed.

@@ -1,0 +1,10 @@
+case_id: anti-ruin-expansion-check
+subset: real_decisions
+primary_skill: invert-the-problem
+related_skills:
+- margin-of-safety-sizing
+situation: A company plans a debt-funded expansion and the operator starts by asking
+  what would make the expansion fail permanently.
+expected_behavior: fire
+expected_verdict: enumerate_failure_modes_first
+note: The right first move is to identify ruin conditions before optimizing growth.

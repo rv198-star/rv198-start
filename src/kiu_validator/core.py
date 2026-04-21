@@ -97,9 +97,19 @@ def validate_bundle(bundle_path: str | Path) -> dict[str, Any]:
 
     traces_root = root / "traces"
     evaluation_root = root / "evaluation"
+    evaluation_breakdown = {
+        "real_decisions": len(list((evaluation_root / "real_decisions").rglob("*.yaml"))),
+        "synthetic_adversarial": len(
+            list((evaluation_root / "synthetic_adversarial").rglob("*.yaml"))
+        ),
+        "out_of_distribution": len(
+            list((evaluation_root / "out_of_distribution").rglob("*.yaml"))
+        ),
+    }
     shared_assets = {
         "trace_count": len(list(traces_root.rglob("*.yaml"))),
         "evaluation_count": len(list(evaluation_root.rglob("*.yaml"))),
+        "evaluation_breakdown": evaluation_breakdown,
     }
 
     return {
@@ -193,7 +203,7 @@ def _validate_skill(
         skill_errors,
         f"{skill_id}: eval summary",
     )
-    _validate_eval_summary(
+    all_eval_subsets_pass = _validate_eval_summary(
         skill_id,
         eval_summary,
         skill_errors,
@@ -214,6 +224,11 @@ def _validate_skill(
         identity.get("skill_revision"),
         computed_graph_hash,
     )
+    usage_trace_count = _validate_usage_summary(skill_id, sections, skill_dir, skill_errors)
+    if status == "published" and usage_trace_count < 3:
+        skill_errors.append(f"{skill_id}: published skill must reference at least 3 usage traces")
+    if status == "published" and not all_eval_subsets_pass:
+        skill_errors.append(f"{skill_id}: published skill must pass all evaluation subsets")
 
     errors.extend(skill_errors)
     return {
@@ -222,6 +237,8 @@ def _validate_skill(
         "skill_revision": identity.get("skill_revision"),
         "revision_entry_count": revision_entry_count,
         "has_revision_loop": has_revision_loop,
+        "usage_trace_count": usage_trace_count,
+        "all_eval_subsets_pass": all_eval_subsets_pass,
     }
 
 
@@ -330,9 +347,9 @@ def _validate_eval_summary(
     errors: list[str],
     bundle_version: str | None,
     skill_revision: int | None,
-) -> None:
+) -> bool:
     if not summary:
-        return
+        return False
 
     if summary.get("bundle_version") != bundle_version:
         errors.append(f"{skill_id}: eval summary bundle_version mismatch")
@@ -350,7 +367,14 @@ def _validate_eval_summary(
     ):
         if subset_name not in subsets:
             errors.append(f"{skill_id}: eval summary missing subset {subset_name}")
-
+    return all(
+        subsets.get(subset_name, {}).get("status") == "pass"
+        for subset_name in (
+            "real_decisions",
+            "synthetic_adversarial",
+            "out_of_distribution",
+        )
+    )
 
 def _validate_revisions(
     skill_id: str,
@@ -413,6 +437,21 @@ def _parse_sections(markdown: str) -> dict[str, str]:
         end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown)
         sections[name] = markdown[start:end].strip()
     return sections
+
+
+def _validate_usage_summary(
+    skill_id: str,
+    sections: dict[str, str],
+    skill_dir: Path,
+    errors: list[str],
+) -> int:
+    usage_summary = sections.get("Usage Summary", "")
+    trace_refs = re.findall(r"traces/[\w./-]+\.yaml", usage_summary)
+    for trace_ref in trace_refs:
+        resolved = (skill_dir / ".." / ".." / trace_ref).resolve()
+        if not resolved.exists():
+            errors.append(f"{skill_id}: missing trace reference {trace_ref}")
+    return len(trace_refs)
 
 
 def _extract_yaml_section(section_text: str, errors: list[str], label: str) -> dict[str, Any]:

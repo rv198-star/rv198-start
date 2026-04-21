@@ -1,0 +1,10 @@
+case_id: conference-crowd-following-audit
+subset: real_decisions
+primary_skill: bias-self-audit
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: A manager wants to act on the most popular idea from a respected investment
+  conference.
+expected_behavior: fire
+expected_verdict: social_proof_detected
+note: The audit should name social proof and commitment pressure explicitly.

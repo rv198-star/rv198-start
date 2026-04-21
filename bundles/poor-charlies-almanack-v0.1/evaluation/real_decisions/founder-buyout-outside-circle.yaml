@@ -1,0 +1,10 @@
+case_id: founder-buyout-outside-circle
+subset: real_decisions
+primary_skill: circle-of-competence
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: A founder considers backing a leveraged roll-up in an unfamiliar industry
+  because trusted friends are involved.
+expected_behavior: fire
+expected_verdict: outside_circle
+note: Trusted social proof should not erase a missing circle of competence.

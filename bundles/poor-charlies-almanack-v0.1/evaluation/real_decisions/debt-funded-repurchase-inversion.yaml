@@ -1,0 +1,10 @@
+case_id: debt-funded-repurchase-inversion
+subset: real_decisions
+primary_skill: invert-the-problem
+related_skills:
+- bias-self-audit
+situation: A board debates a debt-funded repurchase and uses inversion to list what
+  would make the plan disastrous.
+expected_behavior: fire
+expected_verdict: surface_failure_chain
+note: Inversion should turn a neat upside story into a concrete avoid-list.

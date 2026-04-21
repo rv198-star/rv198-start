@@ -1,0 +1,11 @@
+case_id: already-decided-launch-plan
+subset: synthetic_adversarial
+primary_skill: invert-the-problem
+related_skills:
+- margin-of-safety-sizing
+situation: A team has already committed publicly to a launch date and asks inversion
+  for validation rather than diagnosis.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: Inversion should refuse when the decision is already locked and only validation
+  is requested.

@@ -1,6 +1,6 @@
 skill_id: bias-self-audit
 bundle_version: 0.1.0
-current_revision: 1
+current_revision: 2
 history:
   - revision: 1
     date: 2026-04-21
@@ -10,5 +10,13 @@ history:
     evidence_changes:
       - Added US Air anti-pattern trace.
       - Added shared adversarial and OOD cases for audit boundary testing.
+  - revision: 2
+    date: 2026-04-21
+    summary: Promoted to published after adding stronger incentive-bias evidence and release-scale evaluation coverage.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: published
+    evidence_changes:
+      - Added incentive-caused-delusion-audit as a canonical trace.
+      - Expanded attached evaluation coverage to 4 real, 4 adversarial, and 2 OOD cases.
 open_gaps:
-  - Add more low-stakes examples to calibrate when the audit should refuse to fire.
+  - Refine low-stakes refusal calibration in later bundle versions without weakening the current published contract.

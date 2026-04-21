@@ -1,30 +1,30 @@
 skill_id: bias-self-audit
 bundle_version: 0.1.0
-skill_revision: 1
-status: under_evaluation
+skill_revision: 2
+status: published
 kiu_test:
   trigger_test: pass
   fire_test: pass
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [biotech-founder-quantum-etf]
-    passed: 1
-    total: 1
+    cases: [executive-stock-grant-attachment-audit, activist-campaign-ego-audit, conference-crowd-following-audit, succession-decision-incentive-audit]
+    passed: 4
+    total: 4
     threshold: 0.70
-    status: sample_pass
+    status: pass
   synthetic_adversarial:
-    cases: [tsla-surface-familiarity]
-    passed: 1
-    total: 1
+    cases: [founder-hero-worship-audit, tribal-community-stock-pitch, bonus-linked-thesis-defense, anchoring-on-cost-basis]
+    passed: 4
+    total: 4
     threshold: 0.85
-    status: sample_pass
+    status: pass
   out_of_distribution:
-    cases: [family-health-decision]
-    passed: 1
-    total: 1
+    cases: [family-health-decision, pet-surgery-choice]
+    passed: 2
+    total: 2
     threshold: 0.90
-    status: sample_pass
+    status: pass
 key_failure_modes:
   - Low-stakes cases can trigger false positives unless reversibility is represented explicitly.
 references:

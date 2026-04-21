@@ -1,30 +1,30 @@
 skill_id: opportunity-cost-of-the-next-best-idea
 bundle_version: 0.1.0
-skill_revision: 1
-status: under_evaluation
+skill_revision: 2
+status: published
 kiu_test:
   trigger_test: pass
   fire_test: pass
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [new-position-vs-existing-compounder]
-    passed: 1
-    total: 1
+    cases: [new-position-vs-existing-compounder, acquisition-deal-vs-existing-compounder, switch-from-index-to-favorite-idea, sell-winner-for-turnaround]
+    passed: 4
+    total: 4
     threshold: 0.70
-    status: sample_pass
+    status: pass
   synthetic_adversarial:
-    cases: [shiny-turnaround-no-benchmark]
-    passed: 1
-    total: 1
+    cases: [shiny-turnaround-no-benchmark, new-story-vs-best-holding, cash-is-the-benchmark-fallacy, switch-without-friction-costs]
+    passed: 4
+    total: 4
     threshold: 0.85
-    status: sample_pass
+    status: pass
   out_of_distribution:
-    cases: [career-offer-choice]
-    passed: 1
-    total: 1
+    cases: [vacation-itinerary-choice, hiring-manager-choice]
+    passed: 2
+    total: 2
     threshold: 0.90
-    status: sample_pass
+    status: pass
 key_failure_modes:
   - Users often compare a new idea to cash instead of a real next-best opportunity.
 references:

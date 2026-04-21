@@ -1,0 +1,10 @@
+case_id: pre-ipo-biotech-sizing-under-uncertainty
+subset: real_decisions
+primary_skill: margin-of-safety-sizing
+related_skills:
+- circle-of-competence
+situation: An investor wants a concentrated pre-IPO biotech allocation with binary
+  trial risk and limited liquidity.
+expected_behavior: fire
+expected_verdict: size_down
+note: Binary risk and illiquidity should compress sizing bands.

@@ -8,21 +8,21 @@ kiu_test:
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [biotech-founder-quantum-etf]
-    passed: 1
-    total: 1
+    cases: [biotech-founder-quantum-etf, semiconductor-engineer-chipmaker-bet, consumer-brand-fan-luxury-stock, founder-buyout-outside-circle]
+    passed: 4
+    total: 4
     threshold: 0.70
     status: pass
   synthetic_adversarial:
-    cases: [tsla-surface-familiarity]
-    passed: 1
-    total: 1
+    cases: [tsla-surface-familiarity, ai-tourist-deepfake-expert, doctor-crypto-miner-confidence, private-equity-brochure-overconfidence]
+    passed: 4
+    total: 4
     threshold: 0.85
     status: pass
   out_of_distribution:
-    cases: [career-offer-choice]
-    passed: 1
-    total: 1
+    cases: [career-offer-choice, house-buying-decision]
+    passed: 2
+    total: 2
     threshold: 0.90
     status: pass
 key_failure_modes:

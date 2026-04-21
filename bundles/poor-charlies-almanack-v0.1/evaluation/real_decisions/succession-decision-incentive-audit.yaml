@@ -1,0 +1,10 @@
+case_id: succession-decision-incentive-audit
+subset: real_decisions
+primary_skill: bias-self-audit
+related_skills:
+- invert-the-problem
+situation: A family office successor wants to defend a legacy holding because selling
+  feels like rejecting the founder.
+expected_behavior: fire
+expected_verdict: identity_bias_detected
+note: Legacy identity can distort decision quality even when the facts change.

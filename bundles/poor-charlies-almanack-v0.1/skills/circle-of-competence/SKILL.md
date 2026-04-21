@@ -73,7 +73,7 @@ Representative cases:
 - `traces/canonical/crypto-rejection.yaml`
 
 ## Evaluation Summary
-KiU Test is green and the reference evaluation summary is published. The current shared eval set covers one case per subset with the main failure mode centered on surface familiarity masquerading as expertise. See `eval/summary.yaml`.
+KiU Test is green and the full v0.1 shared evaluation corpus is now attached. The published summary covers four real-decision cases, four adversarial traps, and two OOD refusals, with the main failure mode still centered on surface familiarity masquerading as expertise. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 2 promoted the skill from `under_evaluation` to `published` after tightening exclusions for passive indexing and preserving the graph/source anchor binding against the current graph hash. See `iterations/revisions.yaml`.
+Revision 2 closes the v0.1 publication loop: tightened exclusions for passive indexing, preserved the graph/source anchor binding, and expanded the attached eval set to full-release scale. See `iterations/revisions.yaml`.

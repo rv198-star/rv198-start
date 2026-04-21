@@ -1,0 +1,10 @@
+case_id: tribal-community-stock-pitch
+subset: synthetic_adversarial
+primary_skill: bias-self-audit
+related_skills:
+- opportunity-cost-of-the-next-best-idea
+situation: A stock idea is defended mainly because the user community treats dissent
+  as betrayal.
+expected_behavior: fire
+expected_verdict: social_proof_detected
+note: Community belonging should surface as a bias cluster.

@@ -1,0 +1,10 @@
+case_id: acquisition-deal-vs-existing-compounder
+subset: real_decisions
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills:
+- margin-of-safety-sizing
+situation: Capital for a new acquisition would come from selling part of an existing
+  compounder with known reinvestment economics.
+expected_behavior: fire
+expected_verdict: benchmark_against_next_best
+note: The skill should make the live benchmark explicit before redeployment.
