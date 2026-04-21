@@ -6,6 +6,7 @@ Start here:
 
 - [Usage Guide](docs/usage-guide.md)
 - [KiU Skill Spec v0.1](docs/kiu-skill-spec-v0.1.md)
+- [KiU v0.2 Candidate Pipeline](docs/kiu-v0.2-pipeline.md)
 - [Reference Bundle](bundles/poor-charlies-almanack-v0.1/manifest.yaml)
 
 Validate locally:
@@ -13,4 +14,14 @@ Validate locally:
 ```bash
 python3 scripts/validate_bundle.py bundles/poor-charlies-almanack-v0.1
 python3 -m unittest tests/test_validator.py
+```
+
+Generate v0.2 candidate bundle drafts:
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id local-v0_2 \
+  --drafting-mode deterministic
 ```

@@ -1,0 +1,39 @@
+profile_version: kiu.pipeline-profile/v0.2
+source_bundle_id: poor-charlies-almanack-v0.1
+seed_node_types:
+  - skill_principle
+max_candidates: 8
+candidate_kinds:
+  general_agentic:
+    workflow_certainty: medium
+    context_certainty: high
+  workflow_script:
+    workflow_certainty: high
+    context_certainty: high
+routing_rules:
+  - when:
+      workflow_certainty: high
+      context_certainty: high
+    recommended_execution_mode: workflow_script
+    disposition: workflow_script_candidate
+  - when:
+      workflow_certainty: medium
+      context_certainty: high
+    recommended_execution_mode: llm_agentic
+    disposition: skill_candidate
+seed_overrides:
+  n_circle_principle:
+    candidate_kind: general_agentic
+    gold_match_hint: circle-of-competence
+  n_invert_principle:
+    candidate_kind: general_agentic
+    gold_match_hint: invert-the-problem
+  n_margin_principle:
+    candidate_kind: general_agentic
+    gold_match_hint: margin-of-safety-sizing
+  n_bias_principle:
+    candidate_kind: general_agentic
+    gold_match_hint: bias-self-audit
+  n_opportunity_principle:
+    candidate_kind: general_agentic
+    gold_match_hint: opportunity-cost-of-the-next-best-idea

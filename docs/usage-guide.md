@@ -2,7 +2,12 @@
 
 ## Quick Start
 
-KiU v0.1 is a graph-first bundle for evidence-backed skills. The current release ships one complete reference bundle based on *Poor Charlie's Almanack*.
+KiU 目前包含两层内容：
+
+- `v0.1`：graph-first、evidence-backed 的 reference bundle 与 validator
+- `v0.2`：从已发布 graph snapshot 生成 candidate bundle 的 deterministic pipeline
+
+当前仓库内置的参考语料仍然是 *Poor Charlie's Almanack*。
 
 Validate the bundle from the repo root:
 
@@ -16,7 +21,17 @@ Expected result:
 - the validator prints `VALID`
 - the test suite reports all tests passing
 
-## What This Release Contains
+Generate a v0.2 candidate run:
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id local-v0_2 \
+  --drafting-mode deterministic
+```
+
+## What This Repo Contains
 
 - one published bundle: `bundles/poor-charlies-almanack-v0.1/`
 - five published P0 skills
@@ -27,6 +42,7 @@ Expected result:
   - `20` `synthetic_adversarial`
   - `10` `out_of_distribution`
 - validator code and acceptance tests
+- one v0.2 candidate pipeline with deterministic output and generated-bundle preflight
 
 ## Repository Layout
 
@@ -44,6 +60,7 @@ Expected result:
 ├── schemas/
 ├── scripts/
 ├── src/
+├── generated/  # ignored local output
 └── tests/
 ```
 
@@ -61,6 +78,10 @@ Key directories:
   - shared evaluation pool split into real, adversarial, and OOD subsets
 - `schemas/`
   - public interface definitions for the bundle manifest, anchors, eval summaries, revisions, relation enum, and KiU Test
+- `scripts/generate_candidates.py`
+  - v0.2 deterministic graph-to-candidate generator
+- `generated/`
+  - local v0.2 output root; intentionally not committed
 
 ## How To Read A Skill
 
@@ -111,6 +132,19 @@ The validator checks:
   - at least 3 usage traces
   - all evaluation subsets pass
 
+For generated bundles, run the pipeline preflight through the test suite:
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_pipeline.py
+```
+
+That check covers:
+
+- generated candidate bundle rendering
+- `candidate.yaml` presence
+- metrics report emission
+- rejection of `workflow_script_candidate` inside `bundle/skills/`
+
 ## How To Extend The Bundle
 
 To add or revise a skill in this release shape:
@@ -150,6 +184,39 @@ git add .
 git commit -m "Describe the release change"
 ```
 
+## How To Use The v0.2 Pipeline
+
+v0.2 consumes an existing source bundle and its `automation.yaml`.
+
+Run:
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id local-v0_2 \
+  --drafting-mode deterministic
+```
+
+Read generated output in this order:
+
+1. `generated/<bundle-id>/<run-id>/reports/metrics.json`
+2. `generated/<bundle-id>/<run-id>/bundle/manifest.yaml`
+3. one generated `bundle/skills/<skill-id>/`
+4. if present, `workflow_candidates/<candidate-id>/candidate.yaml`
+
+The most important v0.2 metadata is in `candidate.yaml`:
+
+- `workflow_certainty`
+- `context_certainty`
+- `recommended_execution_mode`
+- `disposition`
+
+Interpretation:
+
+- `skill_candidate` means the seed remains in KiU candidate space
+- `workflow_script_candidate` means the seed should be treated as deterministic workflow logic, not as a formal KiU skill candidate
+
 ## Design Rationale
 
 ### 1. Graph-first, not graph-only
@@ -187,13 +254,23 @@ This release does not try to solve extraction automation, runtime dispatch, or M
 
 That keeps the first release falsifiable and small enough to review.
 
+### 7. v0.2 adds candidate generation, not automatic publication
+
+The pipeline exists to reduce drafting overhead while preserving evidence discipline. It is intentionally constrained:
+
+- graph snapshot is still the upstream truth
+- generated output is still only `under_evaluation`
+- `high/high` workflow-context certainty is routed away from KiU skill publication
+- human review remains mandatory before a candidate can be published
+
 ## Recommended Reading Order
 
 If someone is new to the project, this order works well:
 
 1. `docs/kiu-skill-spec-v0.1.md`
 2. `docs/usage-guide.md`
-3. `bundles/poor-charlies-almanack-v0.1/manifest.yaml`
-4. one published skill directory
-5. `src/kiu_validator/core.py`
-6. `tests/test_validator.py`
+3. `docs/kiu-v0.2-pipeline.md`
+4. `bundles/poor-charlies-almanack-v0.1/manifest.yaml`
+5. one published skill directory
+6. `src/kiu_validator/core.py`
+7. `tests/test_validator.py`
