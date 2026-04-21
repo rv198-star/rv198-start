@@ -42,6 +42,10 @@ def validate_generated_bundle(bundle_root: str | Path) -> dict[str, Any]:
             errors.append(f"{skill_id}: candidate.yaml missing drafting_mode")
         if "recommended_execution_mode" not in candidate_doc:
             errors.append(f"{skill_id}: candidate.yaml missing recommended_execution_mode")
+        if "loop_mode" not in candidate_doc:
+            errors.append(f"{skill_id}: candidate.yaml missing loop_mode")
+        if "terminal_state" not in candidate_doc:
+            errors.append(f"{skill_id}: candidate.yaml missing terminal_state")
 
     report["errors"] = errors
     report["summary"] = {

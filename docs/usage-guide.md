@@ -5,7 +5,7 @@
 KiU 目前包含两层内容：
 
 - `v0.1`：graph-first、evidence-backed 的 reference bundle 与 validator
-- `v0.2`：从已发布 graph snapshot 生成 candidate bundle 的 deterministic pipeline
+- `v0.2`：从已发布 graph snapshot 生成 candidate seeds，并默认执行 autonomous refinement
 
 当前仓库内置的参考语料仍然是 *Poor Charlie's Almanack*。
 
@@ -21,7 +21,16 @@ Expected result:
 - the validator prints `VALID`
 - the test suite reports all tests passing
 
-Generate a v0.2 candidate run:
+Build a v0.2 autonomous candidate run:
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id phase2-smoke
+```
+
+Generate deterministic seed output only:
 
 ```bash
 /Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
@@ -42,7 +51,7 @@ Generate a v0.2 candidate run:
   - `20` `synthetic_adversarial`
   - `10` `out_of_distribution`
 - validator code and acceptance tests
-- one v0.2 candidate pipeline with deterministic output and generated-bundle preflight
+- one v0.2 candidate pipeline with deterministic seed generation, autonomous refinement, and generated-bundle preflight
 
 ## Repository Layout
 
@@ -79,7 +88,9 @@ Key directories:
 - `schemas/`
   - public interface definitions for the bundle manifest, anchors, eval summaries, revisions, relation enum, and KiU Test
 - `scripts/generate_candidates.py`
-  - v0.2 deterministic graph-to-candidate generator
+  - v0.2 deterministic seed generator
+- `scripts/build_candidates.py`
+  - v0.2 default autonomous builder
 - `generated/`
   - local v0.2 output root; intentionally not committed
 
@@ -144,6 +155,7 @@ That check covers:
 - `candidate.yaml` presence
 - metrics report emission
 - rejection of `workflow_script_candidate` inside `bundle/skills/`
+- autonomous build terminal state emission
 
 ## How To Extend The Bundle
 
@@ -191,6 +203,15 @@ v0.2 consumes an existing source bundle and its `automation.yaml`.
 Run:
 
 ```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id phase2-smoke
+```
+
+If you only want the deterministic seed bundle:
+
+```bash
 /Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
@@ -201,9 +222,11 @@ Run:
 Read generated output in this order:
 
 1. `generated/<bundle-id>/<run-id>/reports/metrics.json`
-2. `generated/<bundle-id>/<run-id>/bundle/manifest.yaml`
-3. one generated `bundle/skills/<skill-id>/`
-4. if present, `workflow_candidates/<candidate-id>/candidate.yaml`
+2. `generated/<bundle-id>/<run-id>/reports/scorecard.json`
+3. `generated/<bundle-id>/<run-id>/reports/final-decision.json`
+4. `generated/<bundle-id>/<run-id>/bundle/manifest.yaml`
+5. one generated `bundle/skills/<skill-id>/`
+6. if present, `workflow_candidates/<candidate-id>/candidate.yaml`
 
 The most important v0.2 metadata is in `candidate.yaml`:
 
@@ -211,11 +234,18 @@ The most important v0.2 metadata is in `candidate.yaml`:
 - `context_certainty`
 - `recommended_execution_mode`
 - `disposition`
+- `current_round`
+- `terminal_state`
+- `overall_quality`
+- `net_positive_value`
 
 Interpretation:
 
 - `skill_candidate` means the seed remains in KiU candidate space
 - `workflow_script_candidate` means the seed should be treated as deterministic workflow logic, not as a formal KiU skill candidate
+- `ready_for_review` means the autonomous loop reached its quality threshold
+- `do_not_publish` means the autonomous loop found insufficient 净新增价值
+- `max_rounds_reached` means the loop hit its round cap before converging
 
 ## Design Rationale
 
@@ -259,9 +289,10 @@ That keeps the first release falsifiable and small enough to review.
 The pipeline exists to reduce drafting overhead while preserving evidence discipline. It is intentionally constrained:
 
 - graph snapshot is still the upstream truth
-- generated output is still only `under_evaluation`
+- generated output is still only `under_evaluation` or `ready_for_review`
 - `high/high` workflow-context certainty is routed away from KiU skill publication
-- human review remains mandatory before a candidate can be published
+- autonomous refinement is the default
+- human review remains an optional gate before publication
 
 ## Recommended Reading Order
 

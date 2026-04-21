@@ -37,3 +37,25 @@ seed_overrides:
   n_opportunity_principle:
     candidate_kind: general_agentic
     gold_match_hint: opportunity-cost-of-the-next-best-idea
+autonomous_refiner:
+  enabled_by_default: true
+  min_rounds: 2
+  max_rounds: 5
+  patience: 2
+  targets:
+    overall_quality: 0.82
+    boundary_quality: 0.85
+    min_positive_delta: 0.03
+  weights:
+    boundary_quality: 0.45
+    eval_aggregate: 0.35
+    cross_subset_stability: 0.20
+  bonuses:
+    clarity: 0.03
+    coverage: 0.01
+  mutable_surfaces:
+    - skill_markdown
+    - anchors
+    - eval_summary
+    - revisions
+    - trace_references

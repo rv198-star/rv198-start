@@ -106,6 +106,61 @@ def render_generated_run(
     return run_root
 
 
+def load_generated_candidates(bundle_root: str | Path) -> list[dict[str, Any]]:
+    bundle_root = Path(bundle_root)
+    manifest = yaml.safe_load((bundle_root / "manifest.yaml").read_text(encoding="utf-8"))
+    candidates: list[dict[str, Any]] = []
+    for entry in manifest.get("skills", []):
+        skill_dir = bundle_root / entry["path"]
+        candidates.append(
+            {
+                "skill_id": entry["skill_id"],
+                "skill_dir": skill_dir,
+                "skill_markdown": (skill_dir / "SKILL.md").read_text(encoding="utf-8"),
+                "anchors": yaml.safe_load((skill_dir / "anchors.yaml").read_text(encoding="utf-8")),
+                "eval_summary": yaml.safe_load(
+                    (skill_dir / "eval" / "summary.yaml").read_text(encoding="utf-8")
+                ),
+                "revisions": yaml.safe_load(
+                    (skill_dir / "iterations" / "revisions.yaml").read_text(encoding="utf-8")
+                ),
+                "candidate": yaml.safe_load(
+                    (skill_dir / "candidate.yaml").read_text(encoding="utf-8")
+                ),
+                "nearest_skill_id": entry["skill_id"],
+            }
+        )
+    return candidates
+
+
+def materialize_refined_candidates(
+    bundle_root: str | Path,
+    refined_candidates: list[dict[str, Any]],
+) -> None:
+    bundle_root = Path(bundle_root)
+    manifest_path = bundle_root / "manifest.yaml"
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    skill_revision_map = {
+        candidate["candidate"]["candidate_id"]: candidate["revisions"]["current_revision"]
+        for candidate in refined_candidates
+    }
+    for entry in manifest.get("skills", []):
+        if entry["skill_id"] in skill_revision_map:
+            entry["skill_revision"] = skill_revision_map[entry["skill_id"]]
+            entry["status"] = "under_evaluation"
+    _write_yaml(manifest_path, manifest)
+
+    for candidate in refined_candidates:
+        skill_dir = candidate.get("skill_dir") or (
+            bundle_root / "skills" / candidate["candidate"]["candidate_id"]
+        )
+        (skill_dir / "SKILL.md").write_text(candidate["skill_markdown"], encoding="utf-8")
+        _write_yaml(skill_dir / "anchors.yaml", candidate["anchors"])
+        _write_yaml(skill_dir / "eval" / "summary.yaml", candidate["eval_summary"])
+        _write_yaml(skill_dir / "iterations" / "revisions.yaml", candidate["revisions"])
+        _write_yaml(skill_dir / "candidate.yaml", candidate["candidate"])
+
+
 def _copy_shared_assets(source_root: Path, bundle_root: Path) -> None:
     for relative in ("graph", "traces", "evaluation", "sources"):
         shutil.copytree(source_root / relative, bundle_root / relative)

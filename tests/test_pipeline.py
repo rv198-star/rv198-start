@@ -95,6 +95,44 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(report["errors"], [])
             self.assertEqual(report["summary"]["skill_candidates"], 5)
 
+    def test_build_candidates_cli_runs_autonomous_refiner_and_emits_terminal_state(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "phase2-e2e",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            run_root = output_root / "poor-charlies-almanack-v0.1" / "phase2-e2e"
+            bundle_root = run_root / "bundle"
+            candidate_doc = yaml.safe_load(
+                (
+                    bundle_root
+                    / "skills"
+                    / "circle-of-competence"
+                    / "candidate.yaml"
+                ).read_text(encoding="utf-8")
+            )
+
+            self.assertIn(
+                candidate_doc["terminal_state"],
+                {"ready_for_review", "do_not_publish", "max_rounds_reached"},
+            )
+            self.assertTrue((run_root / "reports" / "final-decision.json").exists())
+
     def test_preflight_rejects_workflow_script_candidate_inside_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_bundle = Path(tmp_dir) / "bundle"

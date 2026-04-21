@@ -3,9 +3,10 @@
 ## 目标
 
 KiU v0.2 不做 graph 构建，不做自动发布，也不做 runtime dispatcher。  
-这一版只解决一件事：
+这一版解决两件连续的事：
 
-> 把已经发布的 graph snapshot 稳定地转成一批可审阅、可追踪、可继续 loop 的 skill candidates。
+1. 把已经发布的 graph snapshot 稳定地转成 candidate seeds
+2. 默认以无人介入多轮迭代把这些 seeds 推向接近完成品的 candidate bundle
 
 当前 dogfood 目标是 `bundles/poor-charlies-almanack-v0.1`。
 
@@ -55,17 +56,17 @@ v0.2 明确把“候选生成”和“正式发布”切开。
 
 其中 `candidate.yaml` 是 v0.2 新增的机器侧记录，负责保存路由与执行建议。
 
-### 4. deterministic 优先，llm-assisted 只保留接口
+### 4. autonomous refiner 是默认上层入口
 
-当前实现首先保证 deterministic 可重复运行：
+当前实现包含两层：
 
-- 同一 source bundle
-- 同一 automation profile
-- 同一 run id
+- `scripts/generate_candidates.py`
+  - 底层 deterministic seed generator
+- `scripts/build_candidates.py`
+  - 默认推荐入口
+  - 先生成 seeds，再执行 autonomous multi-round refinement
 
-会生成同形态输出。
-
-`llm-assisted` 先作为 drafting mode 元数据入口保留，但不把成功路径建立在 LLM 调用之上。
+推荐入口默认是无人介入的 autonomous mode。人工 gate 只作为可选补充存在，不是默认依赖。
 
 ## 目录结构
 
@@ -89,7 +90,11 @@ generated/<source-bundle-id>/<run-id>/
 │   ├── candidate.yaml
 │   └── README.md
 └── reports/
-    └── metrics.json
+    ├── metrics.json
+    ├── scorecard.json
+    ├── final-decision.json
+    └── rounds/
+        └── <candidate-id>-round-01.json
 ```
 
 ## automation.yaml
@@ -101,12 +106,27 @@ generated/<source-bundle-id>/<run-id>/
 - `candidate_kinds`
 - `routing_rules`
 - `seed_overrides`
+- `autonomous_refiner`
+  - `min_rounds / max_rounds / patience`
+  - `targets`
+  - `weights`
+  - `bonuses`
+  - `mutable_surfaces`
 
 在 `poor-charlies-almanack-v0.1` 里，五个 principle 节点都映射到五个 gold skills，用来做第一轮 dogfood。
 
 ## 使用方式
 
 在仓库根目录运行：
+
+```bash
+/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+  --source-bundle bundles/poor-charlies-almanack-v0.1 \
+  --output-root generated \
+  --run-id phase2-smoke
+```
+
+如果你只想看 deterministic seed，不跑 refinement：
 
 ```bash
 /Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
@@ -132,23 +152,44 @@ generated/<source-bundle-id>/<run-id>/
 - candidate seed 挖掘
 - workflow/context 双轴路由
 - deterministic candidate bundle 渲染
+- autonomous multi-round refinement
+- nearest-skill / bundle baseline scoring
+- terminal-state decision
 - generated bundle preflight
-- metrics 报告
+- metrics / scorecard / final decision / round reports
 
 本版故意不做：
 
 - graph 抽取
 - 自动发布
 - dispatcher / runtime 执行
-- 自动修订闭环
+- 多分支 beam search
+- 真正的 LLM-assisted content drafting
+
+## 终态语义
+
+自动 refinement 目前有三种合法终态：
+
+- `ready_for_review`
+  - 已达到质量阈值，接近完成品，但不自动发布
+- `do_not_publish`
+  - 没有足够净新增价值，自动流程停止并保留审计记录
+- `max_rounds_reached`
+  - 到达轮数上限但仍未收敛
+
+这些终态会写入：
+
+- `bundle/skills/<skill-id>/candidate.yaml`
+- `reports/final-decision.json`
+- `reports/scorecard.json`
 
 ## 下一步建议
 
 v0.2 后续可以继续补三块：
 
 1. `llm-assisted` drafting
-   - 用于丰富 rationale、evidence summary、candidate diff，而不是替代 deterministic 结构
-2. candidate diff / review UI
-   - 更清楚地展示 generated candidate 与 gold/reference skill 的差异
+   - 用于在 autonomous refiner 中丰富 rationale、evidence summary 和 revision notes
+2. better net-positive-value measurement
+   - 让 bundle-level 基线更细，不止用当前的质量代理分
 3. loop-aware revision patching
    - 把 eval 失败模式更系统地反写到 revision log 和 graph patch 建议中
