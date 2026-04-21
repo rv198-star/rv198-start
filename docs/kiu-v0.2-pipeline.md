@@ -56,7 +56,7 @@ v0.2 明确把“候选生成”和“正式发布”切开。
 
 其中 `candidate.yaml` 是 v0.2 新增的机器侧记录，负责保存路由与执行建议。
 
-### 4. autonomous refiner 是默认上层入口
+### 4. refinement scheduler 是默认上层入口
 
 当前实现包含两层：
 
@@ -64,9 +64,9 @@ v0.2 明确把“候选生成”和“正式发布”切开。
   - 底层 deterministic seed generator
 - `scripts/build_candidates.py`
   - 默认推荐入口
-  - 先生成 seeds，再执行 autonomous multi-round refinement
+  - 先生成 seeds，再执行 multi-round refinement scheduling
 
-推荐入口默认是无人介入的 autonomous mode。人工 gate 只作为可选补充存在，不是默认依赖。
+推荐入口默认是无人介入的 default unattended mode。人工 gate 只作为可选补充存在，不是默认依赖。
 
 ## 目录结构
 
@@ -106,7 +106,7 @@ generated/<source-bundle-id>/<run-id>/
 - `candidate_kinds`
 - `routing_rules`
 - `seed_overrides`
-- `autonomous_refiner`
+- `refinement_scheduler`
   - `min_rounds / max_rounds / patience`
   - `targets`
   - `weights`
@@ -120,7 +120,7 @@ generated/<source-bundle-id>/<run-id>/
 在仓库根目录运行：
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id phase2-smoke
@@ -129,7 +129,7 @@ generated/<source-bundle-id>/<run-id>/
 如果你只想看 deterministic seed，不跑 refinement：
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id local-v0_2 \
@@ -139,8 +139,8 @@ generated/<source-bundle-id>/<run-id>/
 生成后验证：
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/validate_bundle.py generated/poor-charlies-almanack-v0.1/local-v0_2/bundle
-/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_pipeline.py
+python3 scripts/validate_bundle.py generated/poor-charlies-almanack-v0.1/local-v0_2/bundle
+python3 -m unittest tests/test_pipeline.py
 ```
 
 ## 当前范围
@@ -152,7 +152,7 @@ generated/<source-bundle-id>/<run-id>/
 - candidate seed 挖掘
 - workflow/context 双轴路由
 - deterministic candidate bundle 渲染
-- autonomous multi-round refinement
+- multi-round refinement scheduling
 - nearest-skill / bundle baseline scoring
 - terminal-state decision
 - generated bundle preflight
@@ -188,7 +188,7 @@ generated/<source-bundle-id>/<run-id>/
 v0.2 后续可以继续补三块：
 
 1. `llm-assisted` drafting
-   - 用于在 autonomous refiner 中丰富 rationale、evidence summary 和 revision notes
+   - 用于在 refinement scheduler 中丰富 rationale、evidence summary 和 revision notes
 2. better net-positive-value measurement
    - 让 bundle-level 基线更细，不止用当前的质量代理分
 3. loop-aware revision patching

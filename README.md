@@ -16,10 +16,10 @@ python3 scripts/validate_bundle.py bundles/poor-charlies-almanack-v0.1
 python3 -m unittest tests/test_validator.py
 ```
 
-Build v0.2 autonomous candidate bundles:
+Build v0.2 refinement-scheduled candidate bundles:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id phase2-smoke
@@ -28,7 +28,7 @@ Build v0.2 autonomous candidate bundles:
 Generate deterministic seed bundles only:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id local-v0_2 \

@@ -5,7 +5,7 @@
 KiU 目前包含两层内容：
 
 - `v0.1`：graph-first、evidence-backed 的 reference bundle 与 validator
-- `v0.2`：从已发布 graph snapshot 生成 candidate seeds，并默认执行 autonomous refinement
+- `v0.2`：从已发布 graph snapshot 生成 candidate seeds，并默认执行 refinement scheduling
 
 当前仓库内置的参考语料仍然是 *Poor Charlie's Almanack*。
 
@@ -21,10 +21,10 @@ Expected result:
 - the validator prints `VALID`
 - the test suite reports all tests passing
 
-Build a v0.2 autonomous candidate run:
+Build a v0.2 refinement-scheduled candidate run:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id phase2-smoke
@@ -33,7 +33,7 @@ Build a v0.2 autonomous candidate run:
 Generate deterministic seed output only:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id local-v0_2 \
@@ -51,7 +51,7 @@ Generate deterministic seed output only:
   - `20` `synthetic_adversarial`
   - `10` `out_of_distribution`
 - validator code and acceptance tests
-- one v0.2 candidate pipeline with deterministic seed generation, autonomous refinement, and generated-bundle preflight
+- one v0.2 candidate pipeline with deterministic seed generation, refinement scheduling, and generated-bundle preflight
 
 ## Repository Layout
 
@@ -90,7 +90,7 @@ Key directories:
 - `scripts/generate_candidates.py`
   - v0.2 deterministic seed generator
 - `scripts/build_candidates.py`
-  - v0.2 default autonomous builder
+  - v0.2 default unattended builder
 - `generated/`
   - local v0.2 output root; intentionally not committed
 
@@ -146,7 +146,7 @@ The validator checks:
 For generated bundles, run the pipeline preflight through the test suite:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_pipeline.py
+python3 -m unittest tests/test_pipeline.py
 ```
 
 That check covers:
@@ -155,7 +155,7 @@ That check covers:
 - `candidate.yaml` presence
 - metrics report emission
 - rejection of `workflow_script_candidate` inside `bundle/skills/`
-- autonomous build terminal state emission
+- unattended build terminal state emission
 
 ## How To Extend The Bundle
 
@@ -203,7 +203,7 @@ v0.2 consumes an existing source bundle and its `automation.yaml`.
 Run:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py \
+python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id phase2-smoke
@@ -212,7 +212,7 @@ Run:
 If you only want the deterministic seed bundle:
 
 ```bash
-/Volumes/Data/miniconda3/bin/python3 scripts/generate_candidates.py \
+python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
   --output-root generated \
   --run-id local-v0_2 \
@@ -243,8 +243,8 @@ Interpretation:
 
 - `skill_candidate` means the seed remains in KiU candidate space
 - `workflow_script_candidate` means the seed should be treated as deterministic workflow logic, not as a formal KiU skill candidate
-- `ready_for_review` means the autonomous loop reached its quality threshold
-- `do_not_publish` means the autonomous loop found insufficient 净新增价值
+- `ready_for_review` means the refinement-scheduler loop reached its quality threshold
+- `do_not_publish` means the refinement-scheduler loop found insufficient 净新增价值
 - `max_rounds_reached` means the loop hit its round cap before converging
 
 ## Design Rationale
@@ -291,7 +291,7 @@ The pipeline exists to reduce drafting overhead while preserving evidence discip
 - graph snapshot is still the upstream truth
 - generated output is still only `under_evaluation` or `ready_for_review`
 - `high/high` workflow-context certainty is routed away from KiU skill publication
-- autonomous refinement is the default
+- refinement scheduling is the default
 - human review remains an optional gate before publication
 
 ## Recommended Reading Order

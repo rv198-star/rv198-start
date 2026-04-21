@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build Phase 2 autonomous multi-round candidate refinement so KiU can produce near-finished skills by default without requiring human intervention.
+**Goal:** Build Phase 2 unattended multi-round candidate refinement so KiU can produce near-finished skills by default without requiring human intervention.
 
-**Architecture:** Keep Phase 1 deterministic seed generation intact, then layer an autonomous refiner on top that scores candidates against nearest-skill and bundle baselines, mutates the full candidate unit round by round, and records terminal decisions plus round reports. The new top-level CLI should call seed generation, refinement, validation, and reporting as one autonomous pipeline.
+**Architecture:** Keep Phase 1 deterministic seed generation intact, then layer an refinement scheduler on top that scores candidates against nearest-skill and bundle baselines, mutates the full candidate unit round by round, and records terminal decisions plus round reports. The new top-level CLI should call seed generation, refinement, validation, and reporting as one unattended pipeline.
 
 **Tech Stack:** Python 3.12, `unittest`, YAML/JSON file outputs, existing `kiu_pipeline` and `kiu_validator` modules.
 
@@ -41,9 +41,9 @@
 - [ ] **Step 1: Write the failing test**
 
 ```python
-def test_load_source_bundle_reads_autonomous_refiner_profile(self) -> None:
+def test_load_source_bundle_reads_refinement_scheduler_profile(self) -> None:
     bundle = load_source_bundle(self.bundle_path)
-    refiner = bundle.profile["autonomous_refiner"]
+    refiner = bundle.profile["refinement_scheduler"]
     self.assertTrue(refiner["enabled_by_default"])
     self.assertEqual(refiner["max_rounds"], 5)
 
@@ -57,23 +57,23 @@ def test_seed_metadata_initializes_loop_fields(self) -> None:
         routing_profile={
             "candidate_kinds": {"general_agentic": {"workflow_certainty": "medium", "context_certainty": "high"}},
             "routing_rules": [{"when": {"workflow_certainty": "medium", "context_certainty": "high"}, "recommended_execution_mode": "llm_agentic", "disposition": "skill_candidate"}],
-            "autonomous_refiner": {"enabled_by_default": True},
+            "refinement_scheduler": {"enabled_by_default": True},
         },
     )
-    self.assertEqual(metadata["loop_mode"], "autonomous_refiner")
+    self.assertEqual(metadata["loop_mode"], "refinement_scheduler")
     self.assertEqual(metadata["current_round"], 0)
     self.assertEqual(metadata["terminal_state"], "pending")
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerConfigTests -v`
-Expected: FAIL because `autonomous_refiner` config and loop metadata fields are missing.
+Run: `python3 -m unittest tests.test_refiner.RefinerConfigTests -v`
+Expected: FAIL because `refinement_scheduler` config and loop metadata fields are missing.
 
 - [ ] **Step 3: Write minimal implementation**
 
 ```yaml
-autonomous_refiner:
+refinement_scheduler:
   enabled_by_default: true
   min_rounds: 2
   max_rounds: 5
@@ -110,7 +110,7 @@ return {
     "disposition": disposition,
     "gold_match_hint": gold_match_hint,
     "drafting_mode": drafting_mode,
-    "loop_mode": "autonomous_refiner",
+    "loop_mode": "refinement_scheduler",
     "current_round": 0,
     "terminal_state": "pending",
     "human_gate": "skipped",
@@ -119,14 +119,14 @@ return {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerConfigTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerConfigTests -v`
 Expected: PASS
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add bundles/poor-charlies-almanack-v0.1/automation.yaml src/kiu_pipeline/models.py src/kiu_pipeline/load.py src/kiu_pipeline/seed.py tests/test_refiner.py
-git commit -m "feat: add autonomous refiner config metadata"
+git commit -m "feat: add refinement scheduler config metadata"
 ```
 
 ### Task 2: Add Baseline And Scoring Engine
@@ -173,7 +173,7 @@ def test_decide_terminal_state_returns_do_not_publish_without_positive_value(sel
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerScoringTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerScoringTests -v`
 Expected: FAIL because scoring and decision modules do not exist.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -213,14 +213,14 @@ def decide_terminal_state(*, round_index, config, scorecard, history, structural
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerScoringTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerScoringTests -v`
 Expected: PASS
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add src/kiu_pipeline/baseline.py src/kiu_pipeline/scoring.py tests/test_refiner.py
-git commit -m "feat: add autonomous refiner scoring"
+git commit -m "feat: add refinement scheduler scoring"
 ```
 
 ### Task 3: Add Candidate Mutation And Reports
@@ -263,7 +263,7 @@ def test_write_round_reports_emits_scorecard_and_final_decision(self) -> None:
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerMutationTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerMutationTests -v`
 Expected: FAIL because mutate and report helpers do not exist.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -292,7 +292,7 @@ def write_round_report(run_root, round_index, doc):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerMutationTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerMutationTests -v`
 Expected: PASS
 
 - [ ] **Step 5: Commit**
@@ -337,14 +337,14 @@ def test_refine_candidate_returns_do_not_publish_when_no_positive_value(self) ->
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerLoopTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerLoopTests -v`
 Expected: FAIL because refiner module does not exist.
 
 - [ ] **Step 3: Write minimal implementation**
 
 ```python
 def refine_candidate(*, candidate, source_bundle, nearest_skill_id, run_root):
-    config = source_bundle.profile["autonomous_refiner"]
+    config = source_bundle.profile["refinement_scheduler"]
     history = []
     current = candidate
     for round_index in range(1, config["max_rounds"] + 1):
@@ -366,14 +366,14 @@ def refine_candidate(*, candidate, source_bundle, nearest_skill_id, run_root):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_refiner.RefinerLoopTests -v`
+Run: `python3 -m unittest tests.test_refiner.RefinerLoopTests -v`
 Expected: PASS
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add src/kiu_pipeline/refiner.py src/kiu_pipeline/render.py tests/test_refiner.py
-git commit -m "feat: add autonomous refinement loop"
+git commit -m "feat: add refinement scheduling loop"
 ```
 
 ### Task 5: Add End-To-End CLI And Bundle-Level Batch Execution
@@ -388,7 +388,7 @@ git commit -m "feat: add autonomous refinement loop"
 - [ ] **Step 1: Write the failing test**
 
 ```python
-def test_build_candidates_cli_runs_autonomous_refiner_and_emits_terminal_state(self) -> None:
+def test_build_candidates_cli_runs_refinement_scheduler_and_emits_terminal_state(self) -> None:
     result = subprocess.run(
         [
             sys.executable,
@@ -412,7 +412,7 @@ def test_build_candidates_cli_runs_autonomous_refiner_and_emits_terminal_state(s
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_pipeline.CandidatePipelineTests.test_build_candidates_cli_runs_autonomous_refiner_and_emits_terminal_state -v`
+Run: `python3 -m unittest tests.test_pipeline.CandidatePipelineTests.test_build_candidates_cli_runs_refinement_scheduler_and_emits_terminal_state -v`
 Expected: FAIL because `build_candidates.py` does not exist.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -433,14 +433,14 @@ def main() -> int:
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests.test_pipeline.CandidatePipelineTests.test_build_candidates_cli_runs_autonomous_refiner_and_emits_terminal_state -v`
+Run: `python3 -m unittest tests.test_pipeline.CandidatePipelineTests.test_build_candidates_cli_runs_refinement_scheduler_and_emits_terminal_state -v`
 Expected: PASS
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add scripts/build_candidates.py src/kiu_pipeline/render.py src/kiu_pipeline/preflight.py tests/test_pipeline.py
-git commit -m "feat: add autonomous build candidates cli"
+git commit -m "feat: add unattended build candidates cli"
 ```
 
 ### Task 6: Update Documentation And Run Full Verification
@@ -457,7 +457,7 @@ git commit -m "feat: add autonomous build candidates cli"
 ```markdown
 ## Phase 2 Autonomous Refiner
 
-Default build mode now runs autonomous multi-round refinement after deterministic seed generation.
+Default build mode now runs multi-round refinement scheduling after deterministic seed generation.
 
 Terminal states:
 - `ready_for_review`
@@ -467,27 +467,27 @@ Terminal states:
 
 - [ ] **Step 2: Run targeted tests**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_refiner.py`
+Run: `python3 -m unittest tests/test_refiner.py`
 Expected: all tests PASS
 
 - [ ] **Step 3: Run pipeline tests**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_pipeline.py`
+Run: `python3 -m unittest tests/test_pipeline.py`
 Expected: all tests PASS
 
 - [ ] **Step 4: Run validator tests**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 -m unittest tests/test_validator.py`
+Run: `python3 -m unittest tests/test_validator.py`
 Expected: all tests PASS
 
 - [ ] **Step 5: Run CLI smoke**
 
-Run: `/Volumes/Data/miniconda3/bin/python3 scripts/build_candidates.py --source-bundle bundles/poor-charlies-almanack-v0.1 --output-root generated --run-id phase2-smoke`
+Run: `python3 scripts/build_candidates.py --source-bundle bundles/poor-charlies-almanack-v0.1 --output-root generated --run-id phase2-smoke`
 Expected: exit 0 and emit `reports/final-decision.json`
 
 - [ ] **Step 6: Commit**
 
 ```bash
 git add docs/kiu-v0.2-pipeline.md docs/usage-guide.md
-git commit -m "docs: document autonomous refiner"
+git commit -m "docs: document refinement scheduler"
 ```

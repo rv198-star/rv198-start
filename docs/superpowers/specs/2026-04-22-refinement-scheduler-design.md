@@ -44,7 +44,7 @@ Phase 2 明确不做以下事情：
 
 ### 4.1 默认自动，不默认人工
 
-系统默认以 autonomous mode 运行，自动完成多轮迭代。人工只在以下场景作为可选 gate 出现：
+系统默认以 default unattended mode 运行，自动完成多轮迭代。人工只在以下场景作为可选 gate 出现：
 
 - 终态为 `ready_for_review`
 - 终态为 `do_not_publish`
@@ -107,7 +107,7 @@ Phase 2 引入一个新的上层编排入口，推荐命名为：
 
 - `scripts/build_candidates.py`
 
-该脚本是推荐入口，默认执行 autonomous refiner。Phase 1 现有的：
+该脚本是推荐入口，默认执行 refinement scheduler。Phase 1 现有的：
 
 - `scripts/generate_candidates.py`
 
@@ -116,7 +116,7 @@ Phase 2 引入一个新的上层编排入口，推荐命名为：
 推荐入口默认行为：
 
 1. 调用 deterministic seed generation
-2. 进入 autonomous refinement loop
+2. 进入 refinement scheduling loop
 3. 产出最终 candidate bundle
 4. 生成 round-by-round reports
 5. 根据终态决定 `ready_for_review` / `do_not_publish` / `max_rounds_reached`
@@ -318,10 +318,10 @@ Phase 2 引入一个新的上层编排入口，推荐命名为：
 
 ## 11. automation profile 扩展
 
-Phase 2 需要在每个 bundle 的 `automation.yaml` 中新增 autonomous loop 配置。建议结构：
+Phase 2 需要在每个 bundle 的 `automation.yaml` 中新增 refinement-scheduler loop 配置。建议结构：
 
 ```yaml
-autonomous_refiner:
+refinement_scheduler:
   enabled_by_default: true
   min_rounds: 2
   max_rounds: 5
@@ -383,7 +383,7 @@ Phase 2 必须至少覆盖以下测试：
 
 1. 扩展 `automation.yaml` 和 `candidate.yaml` schema
 2. 新增 scoring / baseline / reports 模块
-3. 实现 single-candidate autonomous refiner
+3. 实现 single-candidate refinement scheduler
 4. 用测试驱动接入 CLI
 5. 扩展为 bundle 级批量运行
 6. 补 optional `human_gate`

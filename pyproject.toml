@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kiu"
+version = "0.3.0.dev0"
+description = "Knowledge in Use skill bundle schemas, validator, and candidate pipeline."
+requires-python = ">=3.10"
