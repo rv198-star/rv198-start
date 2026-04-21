@@ -1,0 +1,8 @@
+case_id: product-launch-copy-tactics
+subset: out_of_distribution
+primary_skill: invert-the-problem
+related_skills: [opportunity-cost-of-the-next-best-idea]
+situation: A product marketer wants copywriting tactics for a launch email.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: The user is requesting tactical marketing advice rather than a KiU investing judgment.

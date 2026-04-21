@@ -1,0 +1,30 @@
+schema_id: kiu.bundle.schema/v0.1
+title: KiU Bundle Manifest
+type: object
+required:
+  - bundle_id
+  - bundle_version
+  - schema_version
+  - relation_enum_version
+  - graph
+  - skills
+properties:
+  bundle_id:
+    type: string
+  bundle_version:
+    type: string
+  schema_version:
+    type: string
+  relation_enum_version:
+    type: string
+  graph:
+    type: object
+    required: [path, graph_version, graph_hash]
+  skills:
+    type: array
+    items:
+      type: object
+      required: [skill_id, path, status, skill_revision]
+  shared_assets:
+    type: object
+    required: [traces, evaluation, sources]

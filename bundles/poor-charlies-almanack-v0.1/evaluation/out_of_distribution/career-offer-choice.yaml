@@ -1,0 +1,8 @@
+case_id: career-offer-choice
+subset: out_of_distribution
+primary_skill: circle-of-competence
+related_skills: [margin-of-safety-sizing, opportunity-cost-of-the-next-best-idea]
+situation: A software engineer is deciding whether to take a higher-paying job offer.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: This is a career decision rather than an investing decision.

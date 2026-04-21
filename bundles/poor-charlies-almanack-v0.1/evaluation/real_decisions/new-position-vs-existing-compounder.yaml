@@ -1,0 +1,8 @@
+case_id: new-position-vs-existing-compounder
+subset: real_decisions
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills: [circle-of-competence]
+situation: A manager wants to sell part of an existing compounder to fund a new but less understood idea.
+expected_behavior: fire
+expected_verdict: benchmark_against_next_best
+note: The new idea should be compared with the best current alternative rather than with cash.

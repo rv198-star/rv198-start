@@ -1,0 +1,8 @@
+trace_id: anti-ruin-checklist
+title: Inversion starts with ruin conditions
+related_skills: [invert-the-problem, margin-of-safety-sizing]
+kind: synthetic_reference
+situation: A decision path was too broad to optimize directly, so the operator asked what would guarantee failure.
+decision: Build an avoid-list first, then remove the largest failure modes.
+outcome: The resulting plan became shorter, safer, and easier to review.
+source_note: Inversion makes success easier by making failure explicit.

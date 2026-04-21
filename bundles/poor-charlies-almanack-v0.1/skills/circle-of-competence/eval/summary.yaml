@@ -1,0 +1,31 @@
+skill_id: circle-of-competence
+bundle_version: 0.1.0
+skill_revision: 2
+status: published
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases: [biotech-founder-quantum-etf]
+    passed: 1
+    total: 1
+    threshold: 0.70
+    status: pass
+  synthetic_adversarial:
+    cases: [tsla-surface-familiarity]
+    passed: 1
+    total: 1
+    threshold: 0.85
+    status: pass
+  out_of_distribution:
+    cases: [career-offer-choice]
+    passed: 1
+    total: 1
+    threshold: 0.90
+    status: pass
+key_failure_modes:
+  - Surface familiarity can look like depth unless the contract asks for missing knowledge explicitly.
+references:
+  evaluation_root: ../../../evaluation

@@ -1,0 +1,8 @@
+case_id: tsla-surface-familiarity
+subset: synthetic_adversarial
+primary_skill: circle-of-competence
+related_skills: [bias-self-audit]
+situation: A five-year TSLA holder who drives the car daily wants to raise the position to 50 percent of net worth.
+expected_behavior: fire
+expected_verdict: edge_of_circle
+note: Consumer familiarity should not be accepted as business mastery.

@@ -1,0 +1,14 @@
+skill_id: invert-the-problem
+bundle_version: 0.1.0
+current_revision: 1
+history:
+  - revision: 1
+    date: 2026-04-21
+    summary: Initial contract, anchor binding, and sample evaluation coverage.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: under_evaluation
+    evidence_changes:
+      - Added anti-ruin and pre-mortem traces.
+      - Added one case per shared evaluation subset.
+open_gaps:
+  - Add a second adversarial case where inversion is incorrectly applied after the decision is already locked.

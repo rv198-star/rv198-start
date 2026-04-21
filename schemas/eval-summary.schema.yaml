@@ -1,0 +1,20 @@
+schema_id: kiu.skill.eval-summary/v0.1
+title: KiU Evaluation Summary
+type: object
+required:
+  - skill_id
+  - bundle_version
+  - skill_revision
+  - status
+  - kiu_test
+  - subsets
+properties:
+  kiu_test:
+    type: object
+    required: [trigger_test, fire_test, boundary_test]
+  subsets:
+    type: object
+    required:
+      - real_decisions
+      - synthetic_adversarial
+      - out_of_distribution

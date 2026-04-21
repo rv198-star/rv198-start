@@ -1,0 +1,7 @@
+relation_enum_version: kiu.relation-enum/v1
+relations:
+  - depends_on
+  - delegates_to
+  - constrained_by
+  - complements
+  - contradicts

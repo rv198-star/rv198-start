@@ -1,0 +1,14 @@
+skill_id: bias-self-audit
+bundle_version: 0.1.0
+current_revision: 1
+history:
+  - revision: 1
+    date: 2026-04-21
+    summary: Initial self-audit contract, evidence anchors, and reference evaluation coverage.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: under_evaluation
+    evidence_changes:
+      - Added US Air anti-pattern trace.
+      - Added shared adversarial and OOD cases for audit boundary testing.
+open_gaps:
+  - Add more low-stakes examples to calibrate when the audit should refuse to fire.

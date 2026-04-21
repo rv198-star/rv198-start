@@ -1,0 +1,8 @@
+case_id: perfect-thesis-zero-cash-buffer
+subset: synthetic_adversarial
+primary_skill: margin-of-safety-sizing
+related_skills: [invert-the-problem]
+situation: A user claims near-perfect conviction and wants to use all available liquidity with no buffer.
+expected_behavior: fire
+expected_verdict: refuse_full_size
+note: The trap is conviction without explicit survival math.

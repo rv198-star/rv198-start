@@ -1,0 +1,31 @@
+skill_id: bias-self-audit
+bundle_version: 0.1.0
+skill_revision: 1
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases: [biotech-founder-quantum-etf]
+    passed: 1
+    total: 1
+    threshold: 0.70
+    status: sample_pass
+  synthetic_adversarial:
+    cases: [tsla-surface-familiarity]
+    passed: 1
+    total: 1
+    threshold: 0.85
+    status: sample_pass
+  out_of_distribution:
+    cases: [family-health-decision]
+    passed: 1
+    total: 1
+    threshold: 0.90
+    status: sample_pass
+key_failure_modes:
+  - Low-stakes cases can trigger false positives unless reversibility is represented explicitly.
+references:
+  evaluation_root: ../../../evaluation

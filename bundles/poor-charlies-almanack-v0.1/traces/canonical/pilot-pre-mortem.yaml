@@ -1,0 +1,8 @@
+trace_id: pilot-pre-mortem
+title: Pre-mortem before a concentrated bet
+related_skills: [invert-the-problem, bias-self-audit]
+kind: synthetic_reference
+situation: A team wanted a large commitment and ran a pre-mortem on why it might blow up.
+decision: Delay commitment until single-point failures and bias incentives were exposed.
+outcome: The team reduced irreversible risk before acting.
+source_note: This trace shows inversion handing work to a bias audit rather than acting alone.

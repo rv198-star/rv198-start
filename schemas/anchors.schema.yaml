@@ -1,0 +1,22 @@
+schema_id: kiu.skill.anchors/v0.1
+title: KiU Skill Anchors
+type: object
+required:
+  - skill_id
+  - bundle_version
+  - skill_revision
+  - graph_version
+  - graph_hash
+  - graph_anchor_sets
+  - source_anchor_sets
+properties:
+  graph_anchor_sets:
+    type: array
+    items:
+      type: object
+      required: [anchor_id, node_ids, edge_ids, community_ids]
+  source_anchor_sets:
+    type: array
+    items:
+      type: object
+      required: [anchor_id, kind, path, line_start, line_end, snippet]

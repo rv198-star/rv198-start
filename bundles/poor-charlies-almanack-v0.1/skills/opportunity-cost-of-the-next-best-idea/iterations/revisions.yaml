@@ -1,0 +1,14 @@
+skill_id: opportunity-cost-of-the-next-best-idea
+bundle_version: 0.1.0
+current_revision: 1
+history:
+  - revision: 1
+    date: 2026-04-21
+    summary: Initial benchmark-first contract with shared trace and evaluation bindings.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: under_evaluation
+    evidence_changes:
+      - Added Costco and Dexter benchmark traces.
+      - Added real and adversarial cases for missing next-best alternatives.
+open_gaps:
+  - Add more real redeployment cases with explicit tax and friction data.

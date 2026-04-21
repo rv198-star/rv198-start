@@ -1,0 +1,8 @@
+case_id: shiny-turnaround-no-benchmark
+subset: synthetic_adversarial
+primary_skill: opportunity-cost-of-the-next-best-idea
+related_skills: [bias-self-audit]
+situation: A shiny turnaround story is pitched without comparing it to any live next-best idea.
+expected_behavior: fire
+expected_verdict: missing_benchmark
+note: The skill should reject isolated attractiveness.

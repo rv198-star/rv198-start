@@ -1,0 +1,20 @@
+schema_id: kiu.skill.revisions/v0.1
+title: KiU Revision Log
+type: object
+required:
+  - skill_id
+  - bundle_version
+  - current_revision
+  - history
+properties:
+  history:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+        - revision
+        - date
+        - summary
+        - graph_hash
+        - effective_status

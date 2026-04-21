@@ -1,0 +1,8 @@
+case_id: concentrated-bank-warrant-sizing
+subset: real_decisions
+primary_skill: margin-of-safety-sizing
+related_skills: [invert-the-problem, bias-self-audit]
+situation: An investor wants to concentrate heavily in a cyclical bank warrant with uncertain downside and weak liquidity.
+expected_behavior: fire
+expected_verdict: size_down
+note: The skill should demand downside ranges before approving concentration.

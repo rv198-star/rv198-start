@@ -1,0 +1,8 @@
+case_id: biotech-founder-quantum-etf
+subset: real_decisions
+primary_skill: circle-of-competence
+related_skills: [bias-self-audit]
+situation: A biotech founder wants to put 30 percent of net worth into a quantum ETF after reading a few popular articles.
+expected_behavior: fire
+expected_verdict: outside_circle
+note: High education and trend conviction should not be mistaken for domain depth.

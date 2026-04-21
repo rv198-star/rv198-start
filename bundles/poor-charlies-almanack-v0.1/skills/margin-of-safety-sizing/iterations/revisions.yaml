@@ -1,0 +1,14 @@
+skill_id: margin-of-safety-sizing
+bundle_version: 0.1.0
+current_revision: 1
+history:
+  - revision: 1
+    date: 2026-04-21
+    summary: Initial sizing contract with graph/source anchors and reference eval coverage.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: under_evaluation
+    evidence_changes:
+      - Added See's Candies and Salomon traces.
+      - Added sample real, adversarial, and OOD evaluation cases.
+open_gaps:
+  - Add cases that distinguish temporary mark-to-market pain from permanent capital impairment.

@@ -1,0 +1,29 @@
+skill_id: margin-of-safety-sizing
+bundle_version: 0.1.0
+skill_revision: 1
+graph_version: kiu.graph/v0.1
+graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+graph_anchor_sets:
+  - anchor_id: margin-core
+    node_ids: [n_margin_principle, n_margin_see_candies_trace, n_salomon_cap_trace]
+    edge_ids: [e_margin_sees_supports, e_margin_salomon_supports]
+    community_ids: [c_risk_control]
+source_anchor_sets:
+  - anchor_id: margin-source-note
+    kind: source_excerpt
+    path: ../../sources/margin-of-safety-sizing.md
+    line_start: 1
+    line_end: 8
+    snippet: Source note explaining why uncertainty should shrink size.
+  - anchor_id: margin-trace
+    kind: scenario_trace
+    path: ../../traces/canonical/salomon-exposure-cap.yaml
+    line_start: 1
+    line_end: 8
+    snippet: Exposure cap trace for survival-first sizing.
+  - anchor_id: margin-eval
+    kind: evaluation_case
+    path: ../../evaluation/synthetic_adversarial/perfect-thesis-zero-cash-buffer.yaml
+    line_start: 1
+    line_end: 8
+    snippet: Adversarial sizing case with no liquidity buffer.

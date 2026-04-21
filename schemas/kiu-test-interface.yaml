@@ -1,0 +1,21 @@
+interface_id: kiu.test.interface/v0.1
+gates:
+  - name: Trigger Test
+    contract_field: trigger
+    pass_condition: machine_matchable_patterns_present
+  - name: Fire Test
+    contract_field: judgment_schema
+    pass_condition: outputs_structured_judgment
+  - name: Boundary Test
+    contract_field: boundary
+    pass_condition: explicit_fail_and_refusal_modes_present
+evaluation_subsets:
+  - subset: real_decisions
+    expected_behavior: align_with_known_outcome
+    threshold: ">= 0.70"
+  - subset: synthetic_adversarial
+    expected_behavior: reject_or_constrain_trap_case
+    threshold: ">= 0.85"
+  - subset: out_of_distribution
+    expected_behavior: do_not_fire
+    threshold: ">= 0.90"

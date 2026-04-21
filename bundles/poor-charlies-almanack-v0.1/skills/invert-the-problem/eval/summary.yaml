@@ -1,0 +1,31 @@
+skill_id: invert-the-problem
+bundle_version: 0.1.0
+skill_revision: 1
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases: [concentrated-bank-warrant-sizing]
+    passed: 1
+    total: 1
+    threshold: 0.70
+    status: sample_pass
+  synthetic_adversarial:
+    cases: [perfect-thesis-zero-cash-buffer]
+    passed: 1
+    total: 1
+    threshold: 0.85
+    status: sample_pass
+  out_of_distribution:
+    cases: [product-launch-copy-tactics]
+    passed: 1
+    total: 1
+    threshold: 0.90
+    status: sample_pass
+key_failure_modes:
+  - Inversion can become vague advice unless it outputs explicit avoid-rules.
+references:
+  evaluation_root: ../../../evaluation

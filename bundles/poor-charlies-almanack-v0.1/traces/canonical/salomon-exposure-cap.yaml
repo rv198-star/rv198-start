@@ -1,0 +1,8 @@
+trace_id: salomon-exposure-cap
+title: Exposure cap prevents ruin
+related_skills: [margin-of-safety-sizing, invert-the-problem]
+kind: historical_reference
+situation: A leveraged, reputation-sensitive position carried hidden ruin risk.
+decision: Cap exposure and focus on survival before upside.
+outcome: The organization preserved optionality under stress.
+source_note: Sizing is a boundary tool, not only a conviction tool.
