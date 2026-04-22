@@ -203,6 +203,14 @@ class ReferenceBenchmarkCliTests(unittest.TestCase):
                 0.0,
             )
             self.assertGreater(
+                payload["scorecard"]["details"]["graphify_core_absorbed"]["tri_state_effectiveness_ratio"],
+                0.0,
+            )
+            self.assertGreater(
+                payload["generated_run"]["source_tri_state_effectiveness"]["candidate_coverage_ratio"],
+                0.5,
+            )
+            self.assertGreater(
                 payload["comparison"]["output_count"]["generated_throughput_vs_reference"],
                 0.0,
             )

@@ -1449,11 +1449,16 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertGreaterEqual(review_doc["source_bundle"]["score_100"], 85.0)
             self.assertIn("graph_report_present", review_doc["source_bundle"]["notes"])
             self.assertIn("provenance_graph_complete", review_doc["source_bundle"]["notes"])
+            self.assertIn("tri_state_effective", review_doc["source_bundle"]["notes"])
             self.assertNotIn("tri_state_coverage_partial", review_doc["source_bundle"]["notes"])
             extraction_kind_counts = review_doc["source_bundle"]["provenance"]["extraction_kind_counts"]
             self.assertGreater(extraction_kind_counts["EXTRACTED"], 0)
             self.assertGreater(extraction_kind_counts["INFERRED"], 0)
             self.assertGreater(extraction_kind_counts["AMBIGUOUS"], 0)
+            tri_state_effectiveness = review_doc["source_bundle"]["tri_state_effectiveness"]
+            self.assertGreater(tri_state_effectiveness["candidate_coverage_ratio"], 0.5)
+            self.assertGreater(tri_state_effectiveness["inferred_edge_reference_ratio"], 0.0)
+            self.assertGreater(tri_state_effectiveness["ambiguous_node_reference_ratio"], 0.0)
             self.assertGreater(review_doc["usage_outputs"]["score_100"], 0.0)
 
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:

@@ -34,6 +34,7 @@ def review_generated_run(
     source_bundle = _score_source_bundle(
         report=source_report,
         source_bundle_path=source_bundle_path,
+        run_root=run_root,
     )
     generated_bundle = _score_generated_bundle(
         generated_report=generated_report,
@@ -65,6 +66,7 @@ def _score_source_bundle(
     *,
     report: dict[str, Any],
     source_bundle_path: str | Path,
+    run_root: str | Path | None = None,
 ) -> dict[str, Any]:
     errors = report.get("errors", [])
     warnings = report.get("warnings", [])
@@ -80,6 +82,10 @@ def _score_source_bundle(
         manifest=manifest,
         skills=skills,
         artifact_doc=artifact_doc,
+    )
+    tri_state_effectiveness = _inspect_tri_state_effectiveness(
+        source_bundle_path=source_bundle_path,
+        run_root=run_root,
     )
 
     structural_cleanliness = max(0.0, 1.0 - 0.25 * len(errors))
@@ -104,10 +110,7 @@ def _score_source_bundle(
         )
         provenance_factor = _ratio([node_prov, edge_prov])
         extraction_kind_counts = artifact_doc["provenance"]["extraction_kind_counts"]
-        tri_state_ratio = min(
-            len([key for key, value in extraction_kind_counts.items() if value > 0]) / 3.0,
-            1.0,
-        )
+        tri_state_density_ratio = _score_tri_state_density(extraction_kind_counts)
         graph_navigation_factor = _ratio(
             [
                 1.0 if graph.get("community_count", 0) > 0 else 0.0,
@@ -129,10 +132,11 @@ def _score_source_bundle(
         score = round(
             100.0
             * (
-                0.25 * structural_cleanliness
+                0.20 * structural_cleanliness
                 + 0.05 * warning_cleanliness
-                + 0.30 * provenance_factor
-                + 0.10 * tri_state_ratio
+                + 0.25 * provenance_factor
+                + 0.10 * tri_state_density_ratio
+                + 0.10 * tri_state_effectiveness["overall_ratio"]
                 + 0.10 * graph_navigation_factor
                 + 0.10 * ingestion_factor
                 + 0.10 * evidence_pool_factor
@@ -147,8 +151,10 @@ def _score_source_bundle(
             notes.append("provenance_graph_complete")
         if ingestion_factor == 1.0:
             notes.append("source_ingestion_trace_present")
-        if tri_state_ratio < 1.0:
-            notes.append("tri_state_coverage_partial")
+        if tri_state_effectiveness["overall_ratio"] > 0.0:
+            notes.append("tri_state_effective")
+        if tri_state_density_ratio < 1.0:
+            notes.append("tri_state_density_partial")
         if evidence_pool_factor == 1.0:
             notes.append("shared_evidence_pool_present")
         return {
@@ -160,6 +166,8 @@ def _score_source_bundle(
             "shared_assets": shared,
             "source_bundle_kind": source_bundle_kind,
             "provenance": artifact_doc["provenance"],
+            "tri_state_density_ratio": round(tri_state_density_ratio, 4),
+            "tri_state_effectiveness": tri_state_effectiveness,
             "graph_report_present": artifact_doc["graph_report_present"],
             "source_chunks_present": artifact_doc["source_chunks_present"],
             "source_snapshot_present": artifact_doc["source_snapshot_present"],
@@ -220,6 +228,7 @@ def _score_source_bundle(
         "shared_assets": shared,
         "source_bundle_kind": source_bundle_kind,
         "provenance": artifact_doc["provenance"],
+        "tri_state_effectiveness": tri_state_effectiveness,
         "graph_report_present": artifact_doc["graph_report_present"],
         "source_chunks_present": artifact_doc["source_chunks_present"],
         "source_snapshot_present": artifact_doc["source_snapshot_present"],
@@ -411,6 +420,116 @@ def _inspect_source_bundle_artifacts(
     }
 
 
+def _inspect_tri_state_effectiveness(
+    *,
+    source_bundle_path: str | Path,
+    run_root: str | Path | None,
+) -> dict[str, Any]:
+    if run_root is None:
+        return {
+            "candidate_count": 0,
+            "candidates_using_tri_state": 0,
+            "candidate_coverage_ratio": 0.0,
+            "inferred_edge_reference_ratio": 0.0,
+            "ambiguous_node_reference_ratio": 0.0,
+            "ambiguous_edge_reference_ratio": 0.0,
+            "overall_ratio": 0.0,
+        }
+
+    root = Path(source_bundle_path)
+    manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8")) or {}
+    graph_path = root / manifest.get("graph", {}).get("path", "graph/graph.json")
+    graph_doc = _load_json(graph_path)
+
+    inferred_edge_ids = {
+        edge["id"]
+        for edge in graph_doc.get("edges", [])
+        if isinstance(edge, dict) and edge.get("extraction_kind") == "INFERRED" and edge.get("id")
+    }
+    ambiguous_edge_ids = {
+        edge["id"]
+        for edge in graph_doc.get("edges", [])
+        if isinstance(edge, dict) and edge.get("extraction_kind") == "AMBIGUOUS" and edge.get("id")
+    }
+    ambiguous_node_ids = {
+        node["id"]
+        for node in graph_doc.get("nodes", [])
+        if isinstance(node, dict) and node.get("extraction_kind") == "AMBIGUOUS" and node.get("id")
+    }
+
+    run_path = Path(run_root)
+    candidate_paths = sorted((run_path / "bundle" / "skills").glob("*/candidate.yaml"))
+    candidate_paths.extend(sorted((run_path / "workflow_candidates").glob("*/candidate.yaml")))
+
+    referenced_inferred_edge_ids: set[str] = set()
+    referenced_ambiguous_edge_ids: set[str] = set()
+    referenced_ambiguous_node_ids: set[str] = set()
+    candidates_using_tri_state = 0
+
+    for candidate_path in candidate_paths:
+        loaded = yaml.safe_load(candidate_path.read_text(encoding="utf-8")) or {}
+        seed = loaded.get("seed", {}) if isinstance(loaded, dict) else {}
+        primary_node_id = seed.get("primary_node_id")
+        supporting_node_ids = [
+            node_id
+            for node_id in seed.get("supporting_node_ids", [])
+            if isinstance(node_id, str) and node_id
+        ]
+        supporting_edge_ids = [
+            edge_id
+            for edge_id in seed.get("supporting_edge_ids", [])
+            if isinstance(edge_id, str) and edge_id
+        ]
+        candidate_node_ids = {
+            node_id
+            for node_id in [primary_node_id, *supporting_node_ids]
+            if isinstance(node_id, str) and node_id
+        }
+
+        matched_inferred_edge_ids = set(supporting_edge_ids) & inferred_edge_ids
+        matched_ambiguous_edge_ids = set(supporting_edge_ids) & ambiguous_edge_ids
+        matched_ambiguous_node_ids = candidate_node_ids & ambiguous_node_ids
+
+        referenced_inferred_edge_ids.update(matched_inferred_edge_ids)
+        referenced_ambiguous_edge_ids.update(matched_ambiguous_edge_ids)
+        referenced_ambiguous_node_ids.update(matched_ambiguous_node_ids)
+
+        if matched_inferred_edge_ids or matched_ambiguous_edge_ids or matched_ambiguous_node_ids:
+            candidates_using_tri_state += 1
+
+    candidate_count = len(candidate_paths)
+    candidate_coverage_ratio = _safe_ratio(candidates_using_tri_state, candidate_count)
+    inferred_edge_reference_ratio = _safe_ratio(
+        len(referenced_inferred_edge_ids),
+        len(inferred_edge_ids),
+    )
+    ambiguous_node_reference_ratio = _safe_ratio(
+        len(referenced_ambiguous_node_ids),
+        len(ambiguous_node_ids),
+    )
+    ambiguous_edge_reference_ratio = _safe_ratio(
+        len(referenced_ambiguous_edge_ids),
+        len(ambiguous_edge_ids),
+    )
+    overall_ratio = _ratio(
+        [
+            candidate_coverage_ratio,
+            inferred_edge_reference_ratio,
+            ambiguous_node_reference_ratio,
+            ambiguous_edge_reference_ratio,
+        ]
+    )
+    return {
+        "candidate_count": candidate_count,
+        "candidates_using_tri_state": candidates_using_tri_state,
+        "candidate_coverage_ratio": round(candidate_coverage_ratio, 4),
+        "inferred_edge_reference_ratio": round(inferred_edge_reference_ratio, 4),
+        "ambiguous_node_reference_ratio": round(ambiguous_node_reference_ratio, 4),
+        "ambiguous_edge_reference_ratio": round(ambiguous_edge_reference_ratio, 4),
+        "overall_ratio": round(overall_ratio, 4),
+    }
+
+
 def _detect_source_bundle_kind(
     *,
     manifest: dict[str, Any],
@@ -428,6 +547,16 @@ def _detect_source_bundle_kind(
     ):
         return "raw_book_source_bundle"
     return "published_source_bundle"
+
+
+def _score_tri_state_density(extraction_kind_counts: dict[str, int]) -> float:
+    total = sum(int(value or 0) for value in extraction_kind_counts.values())
+    if total <= 0:
+        return 0.0
+    inferred_ratio = min(_safe_ratio(extraction_kind_counts.get("INFERRED"), total) / 0.08, 1.0)
+    ambiguous_ratio = min(_safe_ratio(extraction_kind_counts.get("AMBIGUOUS"), total) / 0.10, 1.0)
+    extracted_ratio = 1.0 if int(extraction_kind_counts.get("EXTRACTED", 0) or 0) > 0 else 0.0
+    return _ratio([extracted_ratio, inferred_ratio, ambiguous_ratio])
 
 
 def _graph_entity_stats(entities: list[dict[str, Any]], *, entity_type: str) -> dict[str, Any]:

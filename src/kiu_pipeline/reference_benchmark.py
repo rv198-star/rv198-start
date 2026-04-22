@@ -202,6 +202,10 @@ def _scan_generated_run(run_root: Path, source_bundle_path: Path) -> dict[str, A
         "bundle_quality_grade": production_quality.get("bundle_quality_grade"),
         "usage_sample_count": review_doc.get("usage_outputs", {}).get("sample_count"),
         "review_notes": review_doc.get("generated_bundle", {}).get("notes", []),
+        "source_tri_state_effectiveness": review_doc.get("source_bundle", {}).get(
+            "tri_state_effectiveness",
+            {},
+        ),
         "pipeline_artifacts": _discover_pipeline_artifacts(
             source_bundle_path=source_bundle_path,
             run_root=run_root,
@@ -500,20 +504,42 @@ def _build_scorecard(
         ]
     )
     extraction_kind_counts = kiu_bundle.get("provenance", {}).get("extraction_kind_counts", {})
-    tri_state_ratio = min(len([key for key, value in extraction_kind_counts.items() if value > 0]) / 3.0, 1.0)
+    tri_state_density_ratio = _tri_state_density_ratio(extraction_kind_counts)
     communities_ratio = 1.0 if kiu_bundle.get("graph", {}).get("community_count", 0) > 0 else 0.0
     graph_report_ratio = 1.0 if kiu_bundle.get("graph_report_present") else 0.0
-    graphify_score = round(
-        100.0
-        * (
-            0.30 * node_prov
-            + 0.30 * edge_prov
-            + 0.15 * tri_state_ratio
-            + 0.15 * communities_ratio
-            + 0.10 * graph_report_ratio
-        ),
-        1,
-    )
+    tri_state_effectiveness_ratio = 0.0
+    if generated_run is not None:
+        tri_state_effectiveness_ratio = min(
+            float(
+                generated_run.get("source_tri_state_effectiveness", {}).get("overall_ratio", 0.0)
+                or 0.0
+            ),
+            1.0,
+        )
+        graphify_score = round(
+            100.0
+            * (
+                0.25 * node_prov
+                + 0.25 * edge_prov
+                + 0.15 * tri_state_density_ratio
+                + 0.15 * tri_state_effectiveness_ratio
+                + 0.10 * communities_ratio
+                + 0.10 * graph_report_ratio
+            ),
+            1,
+        )
+    else:
+        graphify_score = round(
+            100.0
+            * (
+                0.30 * node_prov
+                + 0.30 * edge_prov
+                + 0.20 * tri_state_density_ratio
+                + 0.10 * communities_ratio
+                + 0.10 * graph_report_ratio
+            ),
+            1,
+        )
 
     pipeline_artifacts = generated_run.get("pipeline_artifacts", {}) if generated_run is not None else {}
     stage_presence_ratio = _average(
@@ -568,7 +594,8 @@ def _build_scorecard(
             "graphify_core_absorbed": {
                 "node_provenance_ratio": round(node_prov, 4),
                 "edge_provenance_ratio": round(edge_prov, 4),
-                "tri_state_ratio": round(tri_state_ratio, 4),
+                "tri_state_density_ratio": round(tri_state_density_ratio, 4),
+                "tri_state_effectiveness_ratio": round(tri_state_effectiveness_ratio, 4),
                 "communities_ratio": communities_ratio,
                 "graph_report_ratio": graph_report_ratio,
             },
@@ -614,6 +641,16 @@ def _graph_entity_stats(entities: list[dict[str, Any]], *, entity_type: str) -> 
             count,
         )
     return stats
+
+
+def _tri_state_density_ratio(extraction_kind_counts: dict[str, int]) -> float:
+    total = sum(int(value or 0) for value in extraction_kind_counts.values())
+    if total <= 0:
+        return 0.0
+    inferred_ratio = min(_safe_ratio(extraction_kind_counts.get("INFERRED"), total) / 0.08, 1.0)
+    ambiguous_ratio = min(_safe_ratio(extraction_kind_counts.get("AMBIGUOUS"), total) / 0.10, 1.0)
+    extracted_ratio = 1.0 if int(extraction_kind_counts.get("EXTRACTED", 0) or 0) > 0 else 0.0
+    return _average([extracted_ratio, inferred_ratio, ambiguous_ratio])
 
 
 def _count_extraction_kinds(graph_doc: dict[str, Any]) -> dict[str, int]:
