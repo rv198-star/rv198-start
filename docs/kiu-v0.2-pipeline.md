@@ -70,10 +70,10 @@ v0.2 明确把“候选生成”和“正式发布”切开。
 
 ## 目录结构
 
-一次 pipeline 运行输出到：
+一次 pipeline 运行默认输出到：
 
 ```text
-generated/<source-bundle-id>/<run-id>/
+/tmp/kiu-local-artifacts/generated/<source-bundle-id>/<run-id>/
 ├── bundle/
 │   ├── manifest.yaml
 │   ├── graph/
@@ -91,11 +91,19 @@ generated/<source-bundle-id>/<run-id>/
 │   └── README.md
 └── reports/
     ├── metrics.json
+    ├── production-quality.json
     ├── scorecard.json
     ├── final-decision.json
     └── rounds/
         └── <candidate-id>-round-01.json
 ```
+
+source fixture 脚手架默认写到：
+
+- `/tmp/kiu-local-artifacts/sources/<fixture-name>/bundle`
+
+如果你希望改到另一处固定本地目录，设置 `KIU_LOCAL_OUTPUT_ROOT=/your/path`。
+只有在需要显式覆盖时，才传 `--output-root /your/path`。
 
 ## automation.yaml
 
@@ -122,7 +130,6 @@ generated/<source-bundle-id>/<run-id>/
 ```bash
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase2-smoke
 ```
 
@@ -131,7 +138,6 @@ python3 scripts/build_candidates.py \
 ```bash
 python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id local-v0_2 \
   --drafting-mode deterministic
 ```
@@ -139,7 +145,7 @@ python3 scripts/generate_candidates.py \
 生成后验证：
 
 ```bash
-python3 scripts/validate_bundle.py generated/poor-charlies-almanack-v0.1/local-v0_2/bundle
+python3 scripts/validate_bundle.py /tmp/kiu-local-artifacts/generated/poor-charlies-almanack-v0.1/local-v0_2/bundle
 python3 -m unittest tests/test_pipeline.py
 ```
 

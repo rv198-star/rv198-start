@@ -30,6 +30,7 @@ class ProfileResolverTests(unittest.TestCase):
         self.assertEqual(profile["domain"], "investing")
         self.assertEqual(profile["resolved_from"], ["default", "investing", "bundle"])
         self.assertEqual(profile["refinement_scheduler"]["weights"]["boundary_quality"], 0.45)
+        self.assertEqual(profile["refinement_scheduler"]["targets"]["production_quality"], 0.82)
         self.assertEqual(profile["published_min_eval_cases"]["real_decisions"], 20)
         self.assertEqual(profile["rationale_density"]["min_anchor_refs"], 2)
 

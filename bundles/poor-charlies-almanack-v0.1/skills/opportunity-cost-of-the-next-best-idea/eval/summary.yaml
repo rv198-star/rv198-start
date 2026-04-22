@@ -1,6 +1,6 @@
 skill_id: opportunity-cost-of-the-next-best-idea
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 status: published
 kiu_test:
   trigger_test: pass
@@ -30,6 +30,8 @@ subsets:
     status: pass
 key_failure_modes:
   - Users often compare a new idea to cash instead of a real next-best opportunity.
+  - Users can keep the benchmark so vague that switching costs and foregone compounding never enter the comparison.
+  - Story strength can overwhelm ranking discipline unless the next-best alternative remains live and explicit.
 references:
   evaluation_root: ../../../evaluation
   coverage_mode: shared_corpus_full_release

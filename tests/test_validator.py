@@ -147,7 +147,7 @@ class BundleValidationTests(unittest.TestCase):
         )
 
         self.assertEqual(circle["status"], "published")
-        self.assertEqual(circle["skill_revision"], 3)
+        self.assertEqual(circle["skill_revision"], 4)
         self.assertGreaterEqual(circle["revision_entry_count"], 2)
         self.assertTrue(circle["has_revision_loop"])
 
@@ -168,6 +168,108 @@ class BundleValidationTests(unittest.TestCase):
                     "out_of_distribution": 10,
                 },
             )
+
+    def test_circle_of_competence_is_v04_reference_skill(self) -> None:
+        report = validate_bundle(self.bundle_path)
+        circle = next(
+            skill
+            for skill in report["skills"]
+            if skill["skill_id"] == "circle-of-competence"
+        )
+
+        self.assertEqual(circle["skill_revision"], 4)
+        self.assertEqual(circle["revision_entry_count"], 4)
+        self.assertEqual(
+            set(circle["relations"]["constrained_by"]),
+            {"margin-of-safety-sizing"},
+        )
+        self.assertEqual(
+            set(circle["relations"]["complements"]),
+            {"invert-the-problem", "opportunity-cost-of-the-next-best-idea"},
+        )
+
+        skill_path = (
+            self.bundle_path / "skills" / "circle-of-competence" / "SKILL.md"
+        )
+        skill_doc = skill_path.read_text(encoding="utf-8")
+        self.assertIn("[^trace:canonical/dotcom-refusal.yaml]", skill_doc)
+        self.assertIn("[^trace:canonical/google-omission.yaml]", skill_doc)
+        self.assertIn("[^trace:canonical/crypto-rejection.yaml]", skill_doc)
+        self.assertIn("Revision 4", skill_doc)
+
+        eval_summary = self._load_yaml(
+            self.bundle_path
+            / "skills"
+            / "circle-of-competence"
+            / "eval"
+            / "summary.yaml"
+        )
+        self.assertEqual(eval_summary["skill_revision"], 4)
+        self.assertGreaterEqual(len(eval_summary["key_failure_modes"]), 2)
+
+        revisions = self._load_yaml(
+            self.bundle_path
+            / "skills"
+            / "circle-of-competence"
+            / "iterations"
+            / "revisions.yaml"
+        )
+        self.assertEqual(revisions["current_revision"], 4)
+        self.assertEqual(len(revisions["history"]), 4)
+
+    def test_all_published_investing_skills_are_v04_content_rewrites(self) -> None:
+        expected_trace_refs = {
+            "circle-of-competence": [
+                "[^trace:canonical/dotcom-refusal.yaml]",
+                "[^trace:canonical/google-omission.yaml]",
+                "[^trace:canonical/crypto-rejection.yaml]",
+            ],
+            "invert-the-problem": [
+                "[^trace:canonical/anti-ruin-checklist.yaml]",
+                "[^trace:canonical/pilot-pre-mortem.yaml]",
+                "[^trace:canonical/airline-bankruptcy-checklist.yaml]",
+            ],
+            "margin-of-safety-sizing": [
+                "[^trace:canonical/sees-candies-discipline.yaml]",
+                "[^trace:canonical/salomon-exposure-cap.yaml]",
+                "[^trace:canonical/irreversible-bet-precheck.yaml]",
+            ],
+            "bias-self-audit": [
+                "[^trace:canonical/us-air-regret.yaml]",
+                "[^trace:canonical/incentive-caused-delusion-audit.yaml]",
+                "[^trace:canonical/pilot-pre-mortem.yaml]",
+            ],
+            "opportunity-cost-of-the-next-best-idea": [
+                "[^trace:canonical/costco-next-best-idea.yaml]",
+                "[^trace:canonical/capital-switching-benchmark.yaml]",
+                "[^trace:canonical/dexter-shoe-consideration.yaml]",
+            ],
+        }
+
+        report = validate_bundle(self.bundle_path)
+
+        for skill in report["skills"]:
+            skill_id = skill["skill_id"]
+            self.assertEqual(skill["skill_revision"], 4, skill_id)
+
+            skill_doc = (
+                self.bundle_path / "skills" / skill_id / "SKILL.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("Revision 4", skill_doc, skill_id)
+            for trace_ref in expected_trace_refs[skill_id]:
+                self.assertIn(trace_ref, skill_doc, f"{skill_id}: missing {trace_ref}")
+
+            eval_summary = self._load_yaml(
+                self.bundle_path / "skills" / skill_id / "eval" / "summary.yaml"
+            )
+            self.assertEqual(eval_summary["skill_revision"], 4, skill_id)
+            self.assertGreaterEqual(len(eval_summary["key_failure_modes"]), 2, skill_id)
+
+            revisions = self._load_yaml(
+                self.bundle_path / "skills" / skill_id / "iterations" / "revisions.yaml"
+            )
+            self.assertEqual(revisions["current_revision"], 4, skill_id)
+            self.assertEqual(len(revisions["history"]), 4, skill_id)
 
     def test_density_hard_gate_blocks_publish(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -365,7 +467,7 @@ class BundleValidationTests(unittest.TestCase):
             self._replace_skill_text(
                 tmp_bundle,
                 "circle-of-competence",
-                "skill_revision: 3",
+                "skill_revision: 4",
                 "skill_revision: 1",
             )
 
@@ -564,7 +666,7 @@ class BundleValidationTests(unittest.TestCase):
             self._replace_skill_text(
                 tmp_bundle,
                 "circle-of-competence",
-                "skill_revision: 3",
+                "skill_revision: 4",
                 "skill_revision: 1",
             )
 

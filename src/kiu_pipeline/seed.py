@@ -21,9 +21,10 @@ def mine_candidate_seeds(
         candidate_kind = override.get("candidate_kind", "general_agentic")
         gold_match_hint = override.get("gold_match_hint")
         source_skill = bundle.skills.get(gold_match_hint) if gold_match_hint else None
+        seed_content = override.get("skill_seed") or node.get("skill_seed", {})
         support = _collect_support(node["id"], graph)
         metadata = derive_candidate_metadata(
-            candidate_id=gold_match_hint or _slugify(node["label"]),
+            candidate_id=override.get("candidate_id") or gold_match_hint or _slugify(node["label"]),
             seed_node_id=node["id"],
             candidate_kind=candidate_kind,
             graph_hash=bundle.manifest["graph"]["graph_hash"],
@@ -50,6 +51,7 @@ def mine_candidate_seeds(
                 source_skill=source_skill,
                 score=score,
                 metadata=metadata,
+                seed_content=seed_content,
             )
         )
     seeds.sort(key=lambda seed: (-seed.score, seed.candidate_id))

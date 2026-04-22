@@ -1,0 +1,391 @@
+fixture_id: financial-statement-analysis
+title: Financial Statement Analysis Example Source Bundle
+domain: financial-statement-analysis
+inherits: default
+language: zh-CN
+bundle_version: 0.1.0
+source_markdown: examples/财务报表分析_Markdown版.md
+nodes:
+  - id: n_business_not_ticker
+    label: Buy The Business Not The Ticker
+    candidate_id: buy-the-business-not-the-ticker
+    line_start: 1167
+    line_end: 1197
+    skill_seed:
+      title: 买的是企业不是代码
+      contract:
+        trigger:
+          patterns:
+            - investment_thesis_focuses_on_ticker_moves
+            - business_model_is_unexamined
+          exclusions:
+            - business_model_is_already_articulated
+        intake:
+          required:
+            - name: target_business
+              type: text
+              description: 被分析企业的商业模式、行业位置与盈利来源。
+            - name: thesis_statement
+              type: text
+              description: 当前投资理由、关注点和触发买入的依据。
+            - name: known_facts
+              type: text
+              description: 已确认的经营事实与可验证信息。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[business_first,ticker_first,insufficient_business_context]
+              next_action: enum[inspect_business,validate_facts,stop_speculation]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - business_description_is_missing
+          do_not_fire_when:
+            - discussion_is_pure_trade_execution
+      rationale: |
+        这个技能要求分析者先回答“我买的是一家什么企业”，而不是把股票代码、涨跌叙事或市场情绪误当成理解本身。原文把“你所购买的不是一只股票，而是一家企业”“如果你打算投资一家企业，请先了解它是做什么的”放在最前面，本质上是在提醒分析者：任何估值、比较和买卖动作，都应该建立在对商业模式与盈利来源的最小理解之上。[^anchor:buy-the-business-not-the-ticker-n_business_not_ticker]
+
+        如果连企业是如何赚钱的、价值来自哪里都没有被说清楚，那么后续关于价格高低、成长速度或估值倍数的讨论都只是悬空的。这个技能因此是价值判断链条的入口：先把企业当成经营实体来理解，再去检查价格、会计信息和增长预期是否支持当前结论，而不是反过来让行情牵着分析过程走。[^anchor:buy-the-business-not-the-ticker-n_challenge_price_with_value]
+      evidence_summary: |
+        原文在“高质量基本面分析应当遵循的信条”中把“买的是企业不是股票代码”与“先了解企业做什么”列为前两条原则，这说明企业理解是后续全部价值判断的前置条件。[^anchor:buy-the-business-not-the-ticker-n_business_not_ticker]
+
+        与后文“价格要由价值来挑战”一起看，可以看到一条完整链路：先理解企业，再用价值框架挑战价格，而不是直接从行情出发。[^anchor:buy-the-business-not-the-ticker-n_challenge_price_with_value]
+      relations:
+        depends_on: []
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - challenge-price-with-value
+        contradicts: []
+      usage_notes:
+        - 适用于“理由全是走势图、情绪或题材，但几乎没有商业模式描述”的投资讨论。
+        - 如果当前只是执行交易计划，这个技能应退出，不去重复做企业理解层面的判断。
+      traces:
+        - trace_id: business-not-ticker-bubble-screen
+          title: 热门代码筛选器掩盖了企业理解缺口
+          related_skills:
+            - buy-the-business-not-the-ticker
+          kind: synthetic_reference
+          situation: 投资者因为代码近期强势就想买入，却说不清企业靠什么赚钱。
+          decision: 先停掉买入冲动，回到商业模式、行业位置和盈利来源。
+          outcome: 排除了几个纯叙事标的，把注意力转回可解释的企业经营事实。
+          source_note: 代码和行情不能代替企业理解。
+        - trace_id: business-not-ticker-channel-check
+          title: 渠道调研先于股价讨论
+          related_skills:
+            - buy-the-business-not-the-ticker
+            - lock-onto-accounting-value
+          kind: field_case
+          situation: 团队先做渠道与产品调研，再决定是否进入财报深挖，而不是先看股价涨跌。
+          decision: 把企业经营理解放在估值动作之前。
+          outcome: 后续会计与估值分析有了清晰对象，不再被市场噪音带偏。
+          source_note: 企业理解是后续价值分析的入口条件。
+      evaluation_cases:
+        real_decisions:
+          - case_id: fin-business-before-ticker
+            situation: 投资备忘录只写了“最近很强、机构都在买”，几乎没有业务模式描述。
+            expected_behavior: fire
+            expected_verdict: ticker_first
+            note: 应先补齐企业做什么、怎么赚钱、靠什么形成价值。
+        synthetic_adversarial:
+          - case_id: fin-business-code-momentum
+            situation: 分析员拿股票代码当作标的身份本身，用情绪和题材替代企业理解。
+            expected_behavior: fire
+            expected_verdict: ticker_first
+            note: 股票代码不是经营事实。
+        out_of_distribution:
+          - case_id: fin-business-trade-execution
+            situation: 投资委员会已经通过企业研究，本轮只是执行既定交易节奏与仓位管理。
+            expected_behavior: do_not_fire
+            expected_verdict: insufficient_business_context
+            note: 纯执行场景不应反复触发企业理解技能。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pending
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pending
+        key_failure_modes:
+          - 当输入里既有一点企业描述、又大量混入行情语言时，技能还需要更稳定地区分主导信号。
+      revision_seed:
+        summary: 初版 seed 已把“先看企业、后谈代码和行情”的入口判断落成可执行 contract，并挂上最小 traces/eval。
+        evidence_changes:
+          - 增加 2 个代表性 traces，覆盖情绪筛选与先做企业调研两类正反案例。
+          - 为三个 subset 各绑定 1 个 case，避免 Eval 继续停留在全空状态。
+        open_gaps:
+          - 需要补充“企业理解已足够，但价格明显透支”的复合场景，与价值挑战技能联动。
+  - id: n_challenge_price_with_value
+    label: Challenge Price With Value
+    candidate_id: challenge-price-with-value
+    line_start: 1199
+    line_end: 1210
+    skill_seed:
+      title: 用价值挑战价格
+      contract:
+        trigger:
+          patterns:
+            - price_is_used_as_reason_for_value
+            - valuation_uses_market_price_as_input
+          exclusions:
+            - value_model_is_independent_from_market_price
+        intake:
+          required:
+            - name: valuation_basis
+              type: text
+              description: 当前价值估计所依据的经营事实、会计数字和假设。
+            - name: market_price_context
+              type: text
+              description: 市场价格、倍数、目标价或情绪叙事。
+            - name: linkage_statement
+              type: text
+              description: 当前分析里价格和价值是如何被连接起来的。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[price_challenged_by_value,circular_pricing_detected,insufficient_valuation_inputs]
+              next_action: enum[rebuild_value_model,remove_price_feedback,hold_independent_assumption]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - independent_value_basis_is_missing
+          do_not_fire_when:
+            - question_only_checks_quote_or_liquidity
+      rationale: |
+        这个技能的任务，是阻止分析者把“现在市场给了什么价格”偷偷塞回“企业应该值多少钱”的计算过程。原文明确指出：如果计算价值的目的是检验价格的合理性，就不要在计算过程中把价格当成参数，否则就会形成循环引用，用价格去挑战价格，看起来做了估值，实际上只是把当前市场偏见又包装了一遍。[^anchor:challenge-price-with-value-n_challenge_price_with_value]
+
+        当分析者因为股价上涨而上调盈利预测，再把新的盈利预测乘以市场已经给出的倍数去推出更高目标价时，整个论证已经从“价值检验价格”滑向了“价格驱动价值假设”。这个技能因此要求先建立独立价值基准，再去判断市场价格是否偏离；如果没有独立基准，就不能声称自己已经完成了价值判断。[^anchor:challenge-price-with-value-n_lock_onto_accounting_value]
+      evidence_summary: |
+        直接证据来自原文对“不要在计算价值时把价格作为参数”的警告，以及 Apple 目标价示例中对循环引用错误的拆解。[^anchor:challenge-price-with-value-n_challenge_price_with_value]
+
+        同时，后文把财务报表中的“硬信息”视为价值起点，这意味着独立价值基准应来自企业事实和会计数字，而不是市场即时价格。[^anchor:challenge-price-with-value-n_lock_onto_accounting_value]
+      relations:
+        depends_on:
+          - buy-the-business-not-the-ticker
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - lock-onto-accounting-value
+        contradicts: []
+      usage_notes:
+        - 适合拦截“因为市场已经给高估值，所以未来也该更值钱”的循环论证。
+        - 如果当前讨论只是报价查询或流动性判断，不应误触发为价值分析。
+      traces:
+        - trace_id: price-vs-value-apple-loop
+          title: 用市场给出的高倍数继续推高目标价
+          related_skills:
+            - challenge-price-with-value
+          kind: narrative_reference
+          situation: 分析员先因股价上涨而提高盈利预测，再用历史高倍数推导更高目标价。
+          decision: 删除价格反馈链条，改回用独立经营事实和会计基础重建估值。
+          outcome: 目标价不再跟随市场情绪自我放大。
+          source_note: 价格不能既做被检验对象，又做价值计算参数。
+        - trace_id: price-vs-value-multiple-anchor
+          title: 用理想倍数而不是市场倍数检验价格
+          related_skills:
+            - challenge-price-with-value
+            - lock-onto-accounting-value
+          kind: analytical_reference
+          situation: 团队先确定独立盈利质量与风险补偿，再选择不受当前市场情绪污染的倍数区间。
+          decision: 让价值模型先独立站住，再拿市场价格来比较。
+          outcome: 讨论从“市场为什么这么贵”变成“这个价格是否被事实支持”。
+          source_note: 价值模型必须先于价格判断而存在。
+      evaluation_cases:
+        real_decisions:
+          - case_id: fin-price-value-circular-target
+            situation: 研究员因为股价不断上涨，就同步提高盈利预测和目标倍数，最后得出“更值得买”的结论。
+            expected_behavior: fire
+            expected_verdict: circular_pricing_detected
+            note: 应要求拆除价格反馈链路，回到独立价值模型。
+        synthetic_adversarial:
+          - case_id: fin-price-value-story-multiple
+            situation: 团队认为“热门赛道就该更贵”，直接用市场高倍数证明当前价格合理。
+            expected_behavior: fire
+            expected_verdict: circular_pricing_detected
+            note: 赛道热度和市场倍数不能代替价值依据。
+        out_of_distribution:
+          - case_id: fin-price-value-quote-check
+            situation: 交易员只是在确认最新成交价、盘口深度和成交量，并未试图做价值判断。
+            expected_behavior: do_not_fire
+            expected_verdict: insufficient_valuation_inputs
+            note: 纯行情查询不应被包装成价值分析。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pass
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pass
+        key_failure_modes:
+          - 对“价格只是辅助 sanity check、并未实质进入模型”的场景还需要更细的边界例子。
+      revision_seed:
+        summary: 初版 seed 已把“用价值挑战价格、拒绝循环定价”的判断链写入 contract，并配齐可复用的最小证据集。
+        evidence_changes:
+          - 加入 Apple 循环定价反例与独立倍数校验正例，形成一对稳定 trace。
+          - 每个 subset 都绑定真实可解析 case，保证 eval summary 不再是占位零值。
+        open_gaps:
+          - 需要补充“价格只是 sanity check 而非模型参数”的灰区样本。
+  - id: n_lock_onto_accounting_value
+    label: Lock Onto Accounting Value
+    candidate_id: lock-onto-accounting-value
+    line_start: 1215
+    line_end: 1237
+    skill_seed:
+      title: 锁定会计价值锚点
+      contract:
+        trigger:
+          patterns:
+            - valuation_starts_from_hard_accounting_numbers
+          exclusions:
+            - valuation_depends_only_on_story_or_long_term_guess
+        intake:
+          required:
+            - name: accounting_anchor
+              type: text
+              description: 本次分析采用的账面价值、盈利或其他财报锚点。
+            - name: incremental_value_logic
+              type: text
+              description: 超出会计锚点之外的额外价值是如何被估计的。
+            - name: information_quality
+              type: text
+              description: 当前会计信息、预测信息和主观推测的可靠度区分。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[accounting_anchor_present,speculation_overweight,insufficient_reporting_data]
+              next_action: enum[separate_hard_and_soft_inputs,stress_test_quality,stop_story_only_valuation]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - financial_statement_anchor_is_missing
+          do_not_fire_when:
+            - topic_is_non_investment_macro_commentary
+      rationale: |
+        这个技能强调估值起点必须锁在财务报表里那些相对更硬、更可校验的数字上，再讨论额外价值和未来增长。原文把“根据你已知的事实去估计价值，而不要依靠投机”进一步具体化为“锁定财务报表中隐藏的价值”，并说明账面价值与盈利是估值模型的可靠起点，因为它们来自会计原则和审计约束，能够先把大量无端猜测排除掉。[^anchor:lock-onto-accounting-value-n_lock_onto_accounting_value]
+
+        这并不意味着财报数字天然完美，而是说分析者必须先把硬信息和软假设分层处理：先说明哪些价值来自已确认的报表事实，哪些只是建立在预测和推断上的额外价值，再决定这些软信息应占多大权重。只有这样，估值结论才能在市场情绪波动时维持职业谨慎，而不是被故事和远期幻想牵着走。[^anchor:lock-onto-accounting-value-n_challenge_price_with_value]
+      evidence_summary: |
+        直接证据来自原文把账面价值和盈利视为估值起点，并用“价值 = 基准价值 + 额外价值”的框架要求分析者先锁定会计锚点，再估计未被捕获的部分。[^anchor:lock-onto-accounting-value-n_lock_onto_accounting_value]
+
+        与前文“不要混淆事实与猜测”“不要让价格进入价值模型”合并看，可以得到一条更完整的纪律：先锁定硬信息，再讨论额外价值，最后才把价格拿来接受检验。[^anchor:lock-onto-accounting-value-n_challenge_price_with_value]
+      relations:
+        depends_on:
+          - challenge-price-with-value
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - buy-the-business-not-the-ticker
+        contradicts: []
+      usage_notes:
+        - 适用于“故事很多、报表锚点很少”的分析场景，用来强制区分硬信息和软假设。
+        - 如果讨论对象根本不是投资估值，而只是宏观评论或纯行业八卦，这个技能应退出。
+      traces:
+        - trace_id: accounting-anchor-book-value-start
+          title: 先用账面价值站住，再讨论额外价值
+          related_skills:
+            - lock-onto-accounting-value
+          kind: analytical_reference
+          situation: 团队先选取账面价值作为基准，再逐项判断哪些额外价值可以被合理加入。
+          decision: 把硬信息和推测信息分层组织，避免一次性混写成故事。
+          outcome: 估值讨论变得更可审计，也更容易暴露高估假设。
+          source_note: 会计锚点不是终点，但必须是起点。
+        - trace_id: accounting-anchor-earnings-quality-check
+          title: 盈利锚点必须先过质量检查
+          related_skills:
+            - lock-onto-accounting-value
+            - challenge-price-with-value
+          kind: field_case
+          situation: 研究员想直接拿净利润倍数估值，但先发现利润质量和会计口径仍有疑点。
+          decision: 先做盈利质量校验，再决定能否把该数字作为估值锚点。
+          outcome: 团队避免把低质量会计数字直接放大为价值结论。
+          source_note: 锁定会计价值并不等于盲目信任报表数字。
+      evaluation_cases:
+        real_decisions:
+          - case_id: fin-accounting-anchor-hard-info
+            situation: 估值备忘录先明确账面价值与盈利锚点，再把增长假设作为单独附层处理。
+            expected_behavior: fire
+            expected_verdict: accounting_anchor_present
+            note: 应识别这种“先硬后软”的分析结构是健康起点。
+        synthetic_adversarial:
+          - case_id: fin-accounting-anchor-story-only
+            situation: 团队完全基于远期故事和 TAM 想象定价，没有任何财报锚点或会计质量讨论。
+            expected_behavior: fire
+            expected_verdict: speculation_overweight
+            note: 应判定为软假设压倒硬信息。
+        out_of_distribution:
+          - case_id: fin-accounting-anchor-macro-chat
+            situation: 讨论只是在点评宏观政策和行业情绪，未进入任何企业级估值分析。
+            expected_behavior: do_not_fire
+            expected_verdict: insufficient_reporting_data
+            note: 没有企业财报锚点时，不应假装进入会计价值分析。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pass
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pass
+        key_failure_modes:
+          - 对“财报锚点存在但质量很差”的情形，还需要更多质量分层样本来避免机械接受。
+      revision_seed:
+        summary: 初版 seed 已把会计锚点原则、代表性 traces 与最小 evaluation cases 一起挂入候选技能，形成可运行的最小判断闭环。
+        evidence_changes:
+          - 增加“账面价值起点”和“盈利质量先审”两类 trace，覆盖锚点选择与质量控制。
+          - 用三个最小 case 区分健康锚点、故事主导和非估值语境。
+        open_gaps:
+          - 继续补充“财报锚点存在但受一次性项目污染”的复杂案例。
+edges:
+  - id: e_business_supports_price
+    type: supports
+    from: n_business_not_ticker
+    to: n_challenge_price_with_value
+  - id: e_price_supports_accounting
+    type: supports
+    from: n_challenge_price_with_value
+    to: n_lock_onto_accounting_value
+communities:
+  - id: c_value_discipline
+    label: Value Discipline
+    node_ids:
+      - n_business_not_ticker
+      - n_challenge_price_with_value
+      - n_lock_onto_accounting_value

@@ -36,7 +36,6 @@ Build a v0.2 refinement-scheduled candidate run:
 ```bash
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase2-smoke
 ```
 
@@ -45,10 +44,17 @@ Generate deterministic seed output only:
 ```bash
 python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id local-v0_2 \
   --drafting-mode deterministic
 ```
+
+默认情况下，pipeline 不把测试产物写回仓库，而是写到固定本地目录：
+
+- `/tmp/kiu-local-artifacts/generated/`
+- `/tmp/kiu-local-artifacts/sources/<fixture-name>/bundle`
+
+如果你需要改成另一处固定目录，设置 `KIU_LOCAL_OUTPUT_ROOT=/your/path` 即可。
+只有在你明确希望写到仓库内路径时，才传 `--output-root generated` 之类的显式覆盖。
 
 ## What This Repo Contains
 
@@ -79,7 +85,6 @@ python3 scripts/generate_candidates.py \
 ├── schemas/
 ├── scripts/
 ├── src/
-├── generated/  # ignored local output
 └── tests/
 ```
 
@@ -105,8 +110,10 @@ Key directories:
   - v0.2/v0.3 default unattended builder
 - `scripts/show_profile.py`
   - prints the resolved domain profile for one bundle
+- `/tmp/kiu-local-artifacts/generated/`
+  - default local v0.2/v0.4 output root; intentionally outside the repo
 - `generated/`
-  - local v0.2 output root; intentionally not committed
+  - optional repo-local override path; ignored if you choose to use it explicitly
 
 ## How To Read A Skill
 
@@ -223,7 +230,6 @@ Run:
 ```bash
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase2-smoke
 ```
 
@@ -232,10 +238,19 @@ If you only want the deterministic seed bundle:
 ```bash
 python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id local-v0_2 \
   --drafting-mode deterministic
 ```
+
+默认输出位置：
+
+- source scaffolding: `/tmp/kiu-local-artifacts/sources/<fixture-name>/bundle`
+- generated runs: `/tmp/kiu-local-artifacts/generated/`
+
+覆盖方式：
+
+- 环境变量：`KIU_LOCAL_OUTPUT_ROOT=/your/path`
+- 单次命令：`--output-root /your/path`
 
 If you want the current `llm-assisted` surface, use:
 
@@ -244,7 +259,6 @@ KIU_LLM_PROVIDER=mock \
 KIU_LLM_MOCK_RESPONSE="Dense rationale text with anchor refs.[^anchor:demo] [^trace:canonical/demo.yaml]" \
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase3-llm \
   --drafting-mode llm-assisted \
   --llm-budget-tokens 4000
@@ -271,10 +285,10 @@ This is the current reference shape for `workflow_script_candidate` delivery:
 
 Read generated output in this order:
 
-1. `generated/<bundle-id>/<run-id>/reports/metrics.json`
-2. `generated/<bundle-id>/<run-id>/reports/scorecard.json`
-3. `generated/<bundle-id>/<run-id>/reports/final-decision.json`
-4. `generated/<bundle-id>/<run-id>/bundle/manifest.yaml`
+1. `/tmp/kiu-local-artifacts/generated/<bundle-id>/<run-id>/reports/metrics.json`
+2. `/tmp/kiu-local-artifacts/generated/<bundle-id>/<run-id>/reports/scorecard.json`
+3. `/tmp/kiu-local-artifacts/generated/<bundle-id>/<run-id>/reports/final-decision.json`
+4. `/tmp/kiu-local-artifacts/generated/<bundle-id>/<run-id>/bundle/manifest.yaml`
 5. one generated `bundle/skills/<skill-id>/`
 6. if present, `workflow_candidates/<candidate-id>/candidate.yaml`
 

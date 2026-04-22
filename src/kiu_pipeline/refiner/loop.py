@@ -8,6 +8,7 @@ from typing import Any
 from ..baseline import build_candidate_baseline
 from ..models import SourceBundle
 from ..mutate import mutate_candidate
+from ..quality import assess_candidate_output
 from ..reports import write_final_decision, write_round_report, write_scorecard
 from ..scoring import (
     DEFAULT_WEIGHTS,
@@ -85,6 +86,20 @@ def refine_candidate(
             bonuses=bonuses,
             weights=weights,
         )
+        quality_assessment = assess_candidate_output(
+            candidate=current,
+            profile=source_bundle.profile,
+            loop_scorecard=scorecard,
+        )
+        scorecard.update(
+            {
+                "artifact_quality": quality_assessment["artifact_quality"],
+                "artifact_grade": quality_assessment["artifact_grade"],
+                "production_quality": quality_assessment["production_quality"],
+                "quality_grade": quality_assessment["quality_grade"],
+                "release_ready": quality_assessment["release_ready"],
+            }
+        )
         history.append(scorecard)
         structural_valid = _structural_gate(current)
 
@@ -104,6 +119,7 @@ def refine_candidate(
                 },
                 llm_doc=llm_doc,
                 llm_rejections=llm_rejections,
+                quality_assessment=quality_assessment,
             )
             write_final_decision(
                 run_root,
@@ -112,6 +128,8 @@ def refine_candidate(
                     "terminal_state": "do_not_publish",
                     "reason": llm_stop_reason,
                     "overall_quality": current["candidate"].get("overall_quality"),
+                    "production_quality": current["candidate"].get("production_quality"),
+                    "quality_grade": current["candidate"].get("quality_grade"),
                     "net_positive_value": current["candidate"].get("net_positive_value"),
                 },
             )
@@ -135,6 +153,7 @@ def refine_candidate(
             decision=decision,
             llm_doc=llm_doc,
             llm_rejections=llm_rejections,
+            quality_assessment=quality_assessment,
         )
         if not decision["continue_loop"]:
             write_final_decision(
@@ -144,6 +163,8 @@ def refine_candidate(
                     "terminal_state": decision["terminal_state"],
                     "reason": decision["reason"],
                     "overall_quality": current["candidate"].get("overall_quality"),
+                    "production_quality": current["candidate"].get("production_quality"),
+                    "quality_grade": current["candidate"].get("quality_grade"),
                     "net_positive_value": current["candidate"].get("net_positive_value"),
                 },
             )
@@ -157,6 +178,8 @@ def refine_candidate(
             "terminal_state": "max_rounds_reached",
             "reason": "max_rounds_reached",
             "overall_quality": current["candidate"].get("overall_quality"),
+            "production_quality": current["candidate"].get("production_quality"),
+            "quality_grade": current["candidate"].get("quality_grade"),
             "net_positive_value": current["candidate"].get("net_positive_value"),
         },
     )
@@ -192,6 +215,8 @@ def refine_bundle_candidates(
                 "candidate_id": result["candidate"]["candidate_id"],
                 "terminal_state": state,
                 "overall_quality": result["candidate"].get("overall_quality"),
+                "production_quality": result["candidate"].get("production_quality"),
+                "quality_grade": result["candidate"].get("quality_grade"),
                 "net_positive_value": result["candidate"].get("net_positive_value"),
             }
         )
@@ -290,12 +315,14 @@ def _write_round(
     decision: dict[str, Any],
     llm_doc: dict[str, Any] | None,
     llm_rejections: list[str],
+    quality_assessment: dict[str, Any],
 ) -> None:
     doc = {
         "candidate_id": current["candidate"]["candidate_id"],
         "mutation_plan": mutation_plan,
         "scorecard": scorecard,
         "decision": decision,
+        "quality_assessment": quality_assessment,
     }
     if llm_doc is not None or llm_rejections:
         doc["llm_drafting"] = llm_doc

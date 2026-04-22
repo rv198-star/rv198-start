@@ -6,7 +6,7 @@ skill_id: margin-of-safety-sizing
 title: Margin of Safety Sizing
 status: published
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 ```
 
 ## Contract
@@ -47,10 +47,10 @@ boundary:
 ```
 
 ## Rationale
-This skill makes margin of safety operational at the sizing layer rather than leaving it trapped inside valuation talk. The evaluator must ask how wrong the thesis can be, how quickly liquidity can disappear, and whether leverage or irreversibility can turn a recoverable mistake into ruin. If the downside path includes forced selling, refinancing dependence, or zero cash buffer, the correct answer is to cut size or decline the bet even when the upside narrative still sounds compelling.[^anchor:margin-source-note] The Salomon exposure-cap trace and the no-buffer adversarial evaluation both show that survival comes from limiting exposure before certainty arrives, not from averaging down after the balance sheet has already lost flexibility.[^anchor:margin-trace] [^anchor:margin-eval]
+This skill makes margin of safety operational at the sizing layer rather than leaving it trapped inside valuation talk. The evaluator should ask how wrong the thesis can be, what happens to liquidity under stress, whether leverage or correlation can force selling, and how much optionality survives if the user is early, late, or simply mistaken. If the downside path includes refinancing dependence, concentrated illiquidity, or zero cash buffer, the correct output is to shrink size or refuse the position even when the upside narrative remains emotionally persuasive.[^anchor:margin-source-note] The zero-buffer adversarial case shows why conviction alone is not a sizing input, and the Salomon trace shows that survival is protected by capping exposure before the balance sheet loses flexibility, not by improvising after pressure arrives.[^anchor:margin-eval] [^trace:canonical/salomon-exposure-cap.yaml]
 
 ## Evidence Summary
-The bundle anchors this skill to the margin source note, the Salomon exposure-cap trace, and the zero-buffer adversarial case. Together they tie sizing discipline to survival, liquidity, and balance-sheet resilience instead of treating margin of safety as a purely verbal comfort phrase.[^anchor:margin-source-note] [^trace:canonical/salomon-exposure-cap.yaml] [^anchor:margin-eval]
+Three canonical traces define the sizing discipline. `sees-candies-discipline` shows that quality only earns concentration when downside resilience and business durability are both explicit.[^trace:canonical/sees-candies-discipline.yaml] `salomon-exposure-cap` shows that exposure limits are a survival tool for leveraged or reputation-sensitive situations, not a sign of weak conviction.[^trace:canonical/salomon-exposure-cap.yaml] `irreversible-bet-precheck` shows how irreversibility and unwind friction should compress size even before the user reaches a hard refusal.[^trace:canonical/irreversible-bet-precheck.yaml] The source note and shared adversarial evaluation tie these traces back to one claim: margin of safety is about preserving survival and optionality under uncertainty, not decorating a bullish thesis with cautious language.[^anchor:margin-source-note] [^anchor:margin-eval]
 
 ## Relations
 ```yaml
@@ -60,6 +60,7 @@ delegates_to: []
 constrained_by:
   - invert-the-problem
 complements:
+  - bias-self-audit
   - opportunity-cost-of-the-next-best-idea
 contradicts: []
 ```
@@ -73,7 +74,7 @@ Representative cases:
 - `traces/canonical/irreversible-bet-precheck.yaml`
 
 ## Evaluation Summary
-The full v0.1 evaluation corpus is attached and published. The dominant failure mode remains users presenting conviction without downside, liquidity, or ruin math. See `eval/summary.yaml`.
+The full v0.1 shared evaluation corpus remains attached through release-scale bindings. The current summary covers 20 real decisions, 20 adversarial traps, and 10 OOD refusals; the main failure cluster is still conviction without downside, liquidity, or ruin math, especially when users confuse valuation upside with permission to size aggressively. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 3 is the v0.3.1 hard-gate repair: the rationale and evidence text now spell out survival-first sizing logic, and the eval summary binds the full shared corpus through release-scale glob references. See `iterations/revisions.yaml`.
+Revision 4 upgrades margin-of-safety-sizing to the v0.4 content standard: the rationale now makes survival and optionality the explicit output criterion, the evidence summary names three canonical traces directly, and the relations now show how sizing interacts with bias review and live-alternative benchmarking. The remaining gap is to propagate the same rewrite depth across the rest of the published bundle. See `iterations/revisions.yaml`.

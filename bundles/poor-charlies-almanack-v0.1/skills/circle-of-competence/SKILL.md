@@ -6,7 +6,7 @@ skill_id: circle-of-competence
 title: Circle of Competence
 status: published
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 ```
 
 ## Contract
@@ -47,10 +47,10 @@ boundary:
 ```
 
 ## Rationale
-This skill turns "stay in your circle" into a refusal protocol rather than a vibe-based humility slogan. The evaluator has to test what the user can actually explain about the business model, unit economics, industry structure, management incentives, and failure modes, then compare that demonstrated depth with the amount of capital and irreversibility at stake. If the explanation stays at product familiarity, social proof, or borrowed confidence, the correct output is `study_more` or `decline`, not a softened yes.[^anchor:circle-source-note] The dotcom refusal trace shows that saying no is a positive judgment when the knowledge gap is real, and the shared surface-familiarity evaluation shows why brand recognition is not evidence of investable understanding.[^anchor:circle-trace] [^anchor:circle-eval]
+This skill is a boundary-enforcement routine for capital allocation, not a generic humility slogan. The evaluator should force the user to explain revenue drivers, cost structure, industry structure, management incentives, likely failure modes, and what evidence would falsify the thesis, then compare that demonstrated explanatory depth with the percentage of capital and irreversibility at stake. If the claimed understanding collapses into product love, ticker familiarity, expert-name borrowing, or vague confidence about a trend, the correct judgment is `outside_circle` or `edge_of_circle`, followed by `study_more` or `decline`, because missing knowledge is still doing real work in the decision.[^anchor:circle-source-note] The biotech-founder real-decision case and the surface-familiarity adversarial case show that education, ownership, and daily product use can all generate false confidence without producing business understanding, while the refusal traces show that disciplined non-action is itself a positive output when capital at risk is material.[^anchor:circle-eval] [^trace:canonical/dotcom-refusal.yaml]
 
 ## Evidence Summary
-The strongest evidence chain combines the circle source note, the dotcom refusal trace, and the shared surface-familiarity evaluation. Together they show that the skill is calibrated to reject action when explanation depth is thin, even if the story feels familiar or socially validated.[^anchor:circle-source-note] [^trace:canonical/dotcom-refusal.yaml] [^anchor:circle-eval]
+Three canonical traces make the skill concrete. `dotcom-refusal` shows the clean refusal pattern: when the category cannot be explained with cash-flow and industry clarity, the right move is to pass rather than improvise conviction.[^trace:canonical/dotcom-refusal.yaml] `google-omission` shows the harder case: even when the eventual outcome is excellent, a pass can still be correct if the durable economics were not truly understood at decision time; that keeps the skill anchored to process quality instead of hindsight envy.[^trace:canonical/google-omission.yaml] `crypto-rejection` shows the extreme boundary case: when there is no intelligible business model to analyze, the absence of a value engine is itself a reason to refuse participation.[^trace:canonical/crypto-rejection.yaml] The source note and shared adversarial evaluation connect these traces back to the same core judgment: do not let familiarity, narrative heat, or outcome regret masquerade as demonstrated competence.[^anchor:circle-source-note] [^anchor:circle-eval]
 
 ## Relations
 ```yaml
@@ -60,6 +60,7 @@ delegates_to:
 constrained_by:
   - margin-of-safety-sizing
 complements:
+  - invert-the-problem
   - opportunity-cost-of-the-next-best-idea
 contradicts: []
 ```
@@ -73,7 +74,7 @@ Representative cases:
 - `traces/canonical/crypto-rejection.yaml`
 
 ## Evaluation Summary
-KiU Test is green and the full v0.1 shared evaluation corpus is now attached. The published summary covers four real-decision cases, four adversarial traps, and two OOD refusals, with the main failure mode still centered on surface familiarity masquerading as expertise. See `eval/summary.yaml`.
+KiU Test is green and the full v0.1 shared evaluation corpus remains attached through release-scale bindings. The current summary covers 20 real decisions, 20 adversarial traps, and 10 OOD refusals; the dominant failure cluster is still false-positive confidence from product familiarity, elite credentials outside domain, and hindsight regret over omitted winners. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 3 is the v0.3.1 hard-gate repair: the rationale and evidence text were densified to published quality, and the eval summary now binds the full shared corpus through release-scale glob references. See `iterations/revisions.yaml`.
+Revision 4 turns this skill into the v0.4 reference pattern: the rationale now tests demonstrated explanatory depth instead of generic humility, the evidence summary names three canonical traces explicitly, and the relations now connect circle discipline to inversion and next-best benchmarking. The remaining gap is to propagate the same depth and evidence explicitness to the other four published investing skills. See `iterations/revisions.yaml`.

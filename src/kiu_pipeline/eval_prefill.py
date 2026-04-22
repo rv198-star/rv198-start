@@ -10,8 +10,15 @@ def build_prefilled_eval_summary(
     skill_revision: int,
 ) -> dict:
     source_skill = seed.source_skill
-    source_summary = source_skill.eval_summary if source_skill else {}
+    source_summary = source_skill.eval_summary if source_skill else seed.seed_content.get(
+        "eval_summary",
+        {},
+    )
     subsets = source_summary.get("subsets", {})
+    references = dict(source_summary.get("references", {}))
+    references.setdefault("evaluation_root", "../../../evaluation")
+    references["prefill_mode"] = seed.metadata.get("drafting_mode", "deterministic")
+    references["gold_skill_id"] = seed.gold_match_hint
 
     return {
         "skill_id": seed.candidate_id,
@@ -36,11 +43,7 @@ def build_prefilled_eval_summary(
             "key_failure_modes",
             ["Auto-seeded candidate still needs human review before publication."],
         ),
-        "references": {
-            "evaluation_root": "../../../evaluation",
-            "prefill_mode": seed.metadata.get("drafting_mode", "deterministic"),
-            "gold_skill_id": seed.gold_match_hint,
-        },
+        "references": references,
     }
 
 

@@ -88,6 +88,19 @@ def decide_terminal_state(
     min_rounds = config.get("min_rounds", 2)
     max_rounds = config.get("max_rounds", 5)
     patience = config.get("patience", 2)
+    artifact_quality_target = targets.get("artifact_quality")
+    production_quality_target = targets.get("production_quality")
+    content_quality_ready = True
+    if artifact_quality_target is not None:
+        content_quality_ready = (
+            content_quality_ready
+            and scorecard.get("artifact_quality", 0.0) >= artifact_quality_target
+        )
+    if production_quality_target is not None:
+        content_quality_ready = (
+            content_quality_ready
+            and scorecard.get("production_quality", 0.0) >= production_quality_target
+        )
 
     if (
         round_index >= min_rounds
@@ -95,6 +108,7 @@ def decide_terminal_state(
         and scorecard["boundary_quality"] >= targets.get("boundary_quality", 1.0)
         and scorecard["delta_vs_nearest"] >= targets.get("min_positive_delta", 0.0)
         and scorecard["delta_vs_bundle"] >= targets.get("min_positive_delta", 0.0)
+        and content_quality_ready
     ):
         return {
             "terminal_state": "ready_for_review",
@@ -114,6 +128,13 @@ def decide_terminal_state(
             "terminal_state": "do_not_publish",
             "continue_loop": False,
             "reason": "stalled_progress",
+        }
+
+    if round_index >= min_rounds and not content_quality_ready and round_index < max_rounds:
+        return {
+            "terminal_state": "pending",
+            "continue_loop": True,
+            "reason": "content_quality_below_release_bar",
         }
 
     if round_index >= max_rounds:

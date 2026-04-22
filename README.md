@@ -35,16 +35,18 @@ Build a refinement-scheduled candidate bundle:
 ```bash
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase2-smoke
 ```
+
+By default, pipeline output is written outside the repo to `/tmp/kiu-local-artifacts/generated/`.
+Set `KIU_LOCAL_OUTPUT_ROOT=/your/path` to override the fixed local root, or pass
+`--output-root` if you intentionally want another location such as `generated/`.
 
 Generate deterministic seed bundles only:
 
 ```bash
 python3 scripts/generate_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id local-v0_2 \
   --drafting-mode deterministic
 ```
@@ -56,7 +58,6 @@ KIU_LLM_PROVIDER=mock \
 KIU_LLM_MOCK_RESPONSE="Replace me with a dense rationale.[^anchor:demo] [^trace:canonical/demo.yaml]" \
 python3 scripts/build_candidates.py \
   --source-bundle bundles/poor-charlies-almanack-v0.1 \
-  --output-root generated \
   --run-id phase3-llm \
   --drafting-mode llm-assisted \
   --llm-budget-tokens 4000

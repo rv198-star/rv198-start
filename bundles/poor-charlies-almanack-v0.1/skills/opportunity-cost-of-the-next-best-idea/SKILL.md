@@ -6,7 +6,7 @@ skill_id: opportunity-cost-of-the-next-best-idea
 title: Opportunity Cost of the Next Best Idea
 status: published
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 ```
 
 ## Contract
@@ -47,10 +47,10 @@ boundary:
 ```
 
 ## Rationale
-This skill prevents capital allocation from being judged in isolation. Every new idea must be compared against a live next-best use of capital after tax, friction, compounding runway, and attention cost are included; otherwise the user is really comparing the new idea to cash or to nothing at all. If the benchmark is missing or obviously weaker than the current best alternative, the skill should redirect the user back to explicit ranking rather than letting novelty win by default.[^anchor:opportunity-source-note] The Costco next-best trace and the adversarial no-benchmark evaluation both show that most bad switches happen not because the new idea is terrible, but because the old alternative was never kept alive as a real comparator.[^anchor:opportunity-trace] [^anchor:opportunity-eval]
+This skill prevents capital allocation from being judged in isolation. Every new idea must be compared against a live next-best use of capital after tax, friction, compounding runway, attention cost, and switching risk are included; otherwise the user is not making a ranking decision at all, only reacting to novelty. If the benchmark is missing, stale, or obviously weaker than the true next-best alternative, the correct output is to pause and rebuild the comparison set rather than letting the new story win by default.[^anchor:opportunity-source-note] The no-benchmark adversarial case shows how isolated attractiveness can masquerade as edge, while the Costco benchmark trace shows that disciplined switching requires a live comparator that the user is genuinely willing to keep if the newcomer does not clear the hurdle.[^anchor:opportunity-eval] [^trace:canonical/costco-next-best-idea.yaml]
 
 ## Evidence Summary
-The evidence chain ties the opportunity-cost source note to the Costco benchmark trace and the no-benchmark adversarial evaluation. Together they show that benchmark discipline is what stops story-driven redeployment and keeps the skill anchored in live alternatives rather than abstract enthusiasm.[^anchor:opportunity-source-note] [^trace:canonical/costco-next-best-idea.yaml] [^anchor:opportunity-eval]
+Three canonical traces define the benchmark discipline. `costco-next-best-idea` shows the primary pattern: compare the new idea against the best live deployable alternative, not against idle cash.[^trace:canonical/costco-next-best-idea.yaml] `capital-switching-benchmark` shows how taxes, friction, and switching costs must be included before capital is redeployed.[^trace:canonical/capital-switching-benchmark.yaml] `dexter-shoe-consideration` shows the negative lesson: a deal can look cheap in isolation and still lose once real internal alternatives are kept alive as comparators.[^trace:canonical/dexter-shoe-consideration.yaml] The source note and shared adversarial evaluation connect these traces back to one claim: opportunity cost is only real when the benchmark is live, explicit, and decision-relevant.[^anchor:opportunity-source-note] [^anchor:opportunity-eval]
 
 ## Relations
 ```yaml
@@ -60,6 +60,7 @@ delegates_to: []
 constrained_by:
   - margin-of-safety-sizing
 complements:
+  - invert-the-problem
   - bias-self-audit
 contradicts: []
 ```
@@ -73,7 +74,7 @@ Representative cases:
 - `traces/canonical/dexter-shoe-consideration.yaml`
 
 ## Evaluation Summary
-The full v0.1 evaluation corpus is attached and published. The dominant failure mode remains users evaluating a new idea against cash or vibes rather than against a live next-best benchmark. See `eval/summary.yaml`.
+The full v0.1 shared evaluation corpus remains attached through release-scale bindings. The current summary covers 20 real decisions, 20 adversarial traps, and 10 OOD refusals; the dominant failure cluster is still users comparing a new idea against cash, vibes, or generic optimism rather than against a live next-best benchmark with switching costs included. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 3 is the v0.3.1 hard-gate repair: the rationale and evidence text now make the live-benchmark contract explicit, and the eval summary binds the full shared corpus through release-scale glob references. See `iterations/revisions.yaml`.
+Revision 4 upgrades opportunity-cost-of-the-next-best-idea to the v0.4 content standard: the rationale now makes live ranking and switching friction explicit, the evidence summary names three canonical traces directly, and the relations now connect benchmark comparison to inversion and bias review instead of leaving it isolated. The remaining gap is to propagate the same rewrite depth across the rest of the published bundle. See `iterations/revisions.yaml`.

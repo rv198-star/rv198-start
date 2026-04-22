@@ -1,6 +1,6 @@
 skill_id: margin-of-safety-sizing
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 graph_version: kiu.graph/v0.1
 graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
 graph_anchor_sets:

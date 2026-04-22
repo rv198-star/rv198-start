@@ -169,9 +169,10 @@ def _copy_shared_assets(source_root: Path, bundle_root: Path) -> None:
 
 
 def _copy_bundle_profile(source_root: Path, bundle_root: Path) -> None:
-    automation_path = source_root / "automation.yaml"
-    if automation_path.exists():
-        shutil.copy2(automation_path, bundle_root / "automation.yaml")
+    for relative in ("automation.yaml", "triggers.yaml", "materials.yaml"):
+        source_path = source_root / relative
+        if source_path.exists():
+            shutil.copy2(source_path, bundle_root / relative)
 
 
 def _render_skill_candidate(
@@ -232,6 +233,7 @@ def _build_revision_log(
     seed: CandidateSeed,
     skill_revision: int,
 ) -> dict[str, Any]:
+    revision_seed = seed.seed_content.get("revision_seed", {})
     return {
         "skill_id": seed.candidate_id,
         "bundle_version": BUNDLE_VERSION,
@@ -240,23 +242,32 @@ def _build_revision_log(
             {
                 "revision": skill_revision,
                 "date": date.today().isoformat(),
-                "summary": (
-                    "Initial v0.2 deterministic candidate seed produced from the"
-                    " released graph snapshot and source bundle."
+                "summary": revision_seed.get(
+                    "summary",
+                    (
+                        "Initial v0.2 deterministic candidate seed produced from the"
+                        " released graph snapshot and source bundle."
+                    ),
                 ),
                 "graph_hash": source_bundle.manifest["graph"]["graph_hash"],
                 "effective_status": "under_evaluation",
-                "evidence_changes": [
-                    "Attached graph-derived seed anchors.",
-                    "Preserved available source/scenario anchors from the gold reference skill.",
-                    "Prefilled evaluation summary from the shared evaluation corpus.",
-                ],
+                "evidence_changes": revision_seed.get(
+                    "evidence_changes",
+                    [
+                        "Attached graph-derived seed anchors.",
+                        "Preserved available source/scenario anchors from the gold reference skill.",
+                        "Prefilled evaluation summary from the shared evaluation corpus.",
+                    ],
+                ),
             }
         ],
-        "open_gaps": [
-            "Review whether the contract should be tightened before publication.",
-            "Confirm that representative traces still match the intended trigger boundary.",
-        ],
+        "open_gaps": revision_seed.get(
+            "open_gaps",
+            [
+                "Review whether the contract should be tightened before publication.",
+                "Confirm that representative traces still match the intended trigger boundary.",
+            ],
+        ),
     }
 
 

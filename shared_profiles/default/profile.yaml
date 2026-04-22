@@ -24,7 +24,16 @@ refinement_scheduler:
     boundary_quality: 0.45
     eval_aggregate: 0.35
     cross_subset_stability: 0.20
+  release_quality:
+    weights:
+      artifact_quality: 0.65
+      loop_quality: 0.35
+    thresholds:
+      artifact_quality: 0.74
+      production_quality: 0.78
   targets:
     overall_quality: 0.80
     boundary_quality: 0.82
     min_positive_delta: 0.02
+    artifact_quality: 0.74
+    production_quality: 0.78

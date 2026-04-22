@@ -15,23 +15,23 @@ skills:
   - skill_id: circle-of-competence
     path: skills/circle-of-competence
     status: published
-    skill_revision: 3
+    skill_revision: 4
   - skill_id: invert-the-problem
     path: skills/invert-the-problem
     status: published
-    skill_revision: 3
+    skill_revision: 4
   - skill_id: margin-of-safety-sizing
     path: skills/margin-of-safety-sizing
     status: published
-    skill_revision: 3
+    skill_revision: 4
   - skill_id: bias-self-audit
     path: skills/bias-self-audit
     status: published
-    skill_revision: 3
+    skill_revision: 4
   - skill_id: opportunity-cost-of-the-next-best-idea
     path: skills/opportunity-cost-of-the-next-best-idea
     status: published
-    skill_revision: 3
+    skill_revision: 4
 shared_assets:
   traces: traces
   evaluation: evaluation

@@ -1,0 +1,391 @@
+fixture_id: effective-requirements-analysis
+title: Effective Requirements Analysis Example Source Bundle
+domain: requirements-analysis
+inherits: default
+language: zh-CN
+bundle_version: 0.1.0
+source_markdown: examples/有效需求分析（第2版）.md
+nodes:
+  - id: n_problem_first_requirements
+    label: Problem-First Requirements Analysis
+    candidate_id: problem-first-requirements-analysis
+    line_start: 100
+    line_end: 128
+    skill_seed:
+      title: 问题先行需求分析
+      contract:
+        trigger:
+          patterns:
+            - requirement_request_jumps_to_solution
+            - business_goal_is_implicit
+          exclusions:
+            - problem_definition_is_already_confirmed
+        intake:
+          required:
+            - name: business_context
+              type: text
+              description: 当前业务场景、业务目标和关键角色。
+            - name: stated_requirement
+              type: text
+              description: 用户当前提出的需求表述或功能诉求。
+            - name: observed_pain_point
+              type: text
+              description: 触发该需求的真实痛点、阻力或失败后果。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[problem_first,solution_first,insufficient_context]
+              next_action: enum[clarify_problem,refine_goal,proceed_with_solution]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - problem_statement_is_missing
+          do_not_fire_when:
+            - request_is_pure_delivery_execution
+      rationale: |
+        这个技能的核心不是评价某个功能方案“好不好”，而是先判断当前表达的是不是已经落在了错误抽象层。源文明确区分了“问题级需求”和“方案级需求”：孩子说“要吃饼干”看似是在提一个明确方案，但真正的问题是“饿了”，因此分析动作应该先回到待解决的问题，再去比较能否用更低成本、更高可行性的方式满足它。[^anchor:problem-first-requirements-analysis-n_problem_first_requirements]
+
+        在企业软件场景里，这意味着分析者不能被页面、报表、按钮和接口名字牵着走，而要先确认业务目的、干系人收益和阻力点。如果问题没有被说清，直接展开方案讨论只会把后续子系统划分、接口定义和实施优先级全部建立在模糊前提上。只有先把“为什么做”说清楚，后面的业务拆解和方案选择才有稳定边界。[^anchor:problem-first-requirements-analysis-n_business_subsystem_decomposition]
+      evidence_summary: |
+        核心证据一来自原文对“问题级需求/方案级需求”的直接区分，以及“饼干/面包”案例所揭示的替代解空间：真正应该锁定的是业务问题，而不是用户口头给出的第一个方案。[^anchor:problem-first-requirements-analysis-n_problem_first_requirements]
+
+        核心证据二来自后文对子系统划分的论述：只有先站在业务视角定义问题，后续的业务拆分才不会退化成技术实现视角的误切。[^anchor:problem-first-requirements-analysis-n_business_subsystem_decomposition]
+      relations:
+        depends_on: []
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - business-subsystem-decomposition
+        contradicts: []
+      usage_notes:
+        - 先拿“用户坚持要某个功能，但说不清要改善什么业务结果”的案例做 trigger smoke test。
+        - 如果业务目标已经稳定且只是执行实现细节，这个技能应当主动退出。
+      traces:
+        - trace_id: problem-first-midnight-snack
+          title: 半夜要饼干其实是在表达饥饿
+          related_skills:
+            - problem-first-requirements-analysis
+          kind: narrative_reference
+          situation: 用户坚持要一个具体功能，但真正的目标只是尽快缓解当前痛点。
+          decision: 先追问问题本体，再把“指定功能”改写为“希望达成的业务结果”。
+          outcome: 团队用更简单的替代方案满足了诉求，没有继续在原始方案上堆功能。
+          source_note: 方案级表述不应直接等同于真实需求。
+        - trace_id: problem-first-crm-dashboard
+          title: CRM 总经理大屏请求被重写为经营异常预警
+          related_skills:
+            - problem-first-requirements-analysis
+            - business-subsystem-decomposition
+          kind: field_case
+          situation: 销售团队先提出要做“总经理驾驶舱”，但没人能说明要支持哪类决策。
+          decision: 把需求改写为“识别高风险客户与回款异常”，再回推所需信息与流程。
+          outcome: 原本笼统的大屏需求被拆成预警、责任归属和跟进闭环三个更小问题。
+          source_note: 先锚定问题，再谈方案和展示形式。
+      evaluation_cases:
+        real_decisions:
+          - case_id: req-problem-first-crm-dashboard
+            situation: 业务负责人要求直接开发经营驾驶舱，但无法说明要提升什么经营动作。
+            expected_behavior: fire
+            expected_verdict: solution_first
+            note: 应先回到问题级需求，确认要支持的经营决策。
+        synthetic_adversarial:
+          - case_id: req-problem-first-feature-list-trap
+            situation: 团队拿着一长串功能清单开会，并把“用户已经想清楚方案”当成分析完成。
+            expected_behavior: fire
+            expected_verdict: solution_first
+            note: 功能列表不是问题定义，技能应阻止直接进入排期。
+        out_of_distribution:
+          - case_id: req-problem-first-execution-only
+            situation: 需求问题、业务目标和责任边界都已经确认，本轮只是安排接口联调时间表。
+            expected_behavior: do_not_fire
+            expected_verdict: insufficient_context
+            note: 纯交付执行场景不应重复触发问题澄清技能。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pending
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pending
+        key_failure_modes:
+          - 当输入只剩功能名词、没有业务目标时，系统仍可能被表面方案牵着走。
+          - 对“已确认问题、仅执行交付”的场景还需要更多负例来收紧 do_not_fire_when。
+      revision_seed:
+        summary: 初版 seed 已把“问题级/方案级需求”的判断 contract、双层锚点、代表性 trace 与最小 case 集挂到同一 graph snapshot。
+        evidence_changes:
+          - 从原文问题级需求段落生成主锚点，并补上与业务拆分相关的支持锚点。
+          - 绑定 2 个 canonical traces 与 3 个最小 evaluation cases，避免 Usage/Eval 继续为空。
+        open_gaps:
+          - 继续补充“业务目标已稳定但方案仍在优化”的反例，防止过度触发。
+  - id: n_business_subsystem_decomposition
+    label: Business-First Subsystem Decomposition
+    candidate_id: business-subsystem-decomposition
+    line_start: 1438
+    line_end: 1506
+    skill_seed:
+      title: 业务优先子系统拆分
+      contract:
+        trigger:
+          patterns:
+            - system_scope_is_complex_and_crosses_multiple_business_lines
+          exclusions:
+            - business_scope_is_trivially_single_purpose
+        intake:
+          required:
+            - name: business_scope
+              type: text
+              description: 系统覆盖的业务范围、角色和主要职责。
+            - name: decomposition_candidate
+              type: text
+              description: 当前打算采用的模块或子系统划分方式。
+            - name: user_participation_signal
+              type: text
+              description: 用户是否能基于该划分方式参与讨论与确认完整性。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[business_split_needed,no_split_needed,technical_split_bias]
+              next_action: enum[redraw_by_business,keep_single_scope,validate_interfaces]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - subsystem_cut_is_based_on_technical_layers_only
+          do_not_fire_when:
+            - business_scope_is_trivially_single_purpose
+      rationale: |
+        这个技能要解决的不是“有没有拆分子系统”，而是“拆分依据是否站在业务而不是实现结构之上”。原文反复强调，在需求分析阶段更推荐按业务划分，而不是按技术实现划分，因为只有业务视角的边界才方便用户参与、验证完整性，并暴露不同业务之间真正的服务关系。[^anchor:business-subsystem-decomposition-n_business_subsystem_decomposition]
+
+        一旦拆分逻辑退回到技术层、页面层或代码模块层，用户就很难判断边界是否合理，后续接口、职责和范围控制也会一起失真。这个技能因此既是复杂度控制手段，也是保证用户能对需求结构形成全局理解的前置判断；它和“问题先行需求分析”互相支撑，因为只有先定义清楚业务问题，才能稳定地切出业务子系统。[^anchor:business-subsystem-decomposition-n_problem_first_requirements]
+      evidence_summary: |
+        原文用“驾驶位需求”和 PowerPoint“替换字体”两个例子说明：站在用户/业务维度看到的结构，与站在技术/实现维度看到的结构完全不同，后者会直接降低用户参与和完整性校验能力。[^anchor:business-subsystem-decomposition-n_business_subsystem_decomposition]
+
+        同时，后续业务接口分析章节要求在拆分完成后显式标识服务关系，这进一步证明业务拆分的输出必须能支撑接口价值定义，而不是只支撑代码模块划分。[^anchor:business-subsystem-decomposition-n_business_interface_analysis]
+      relations:
+        depends_on:
+          - problem-first-requirements-analysis
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - business-interface-analysis
+        contradicts: []
+      usage_notes:
+        - 适合在“系统很大，但当前模块划分全是技术层名词”时优先触发。
+        - 如果业务范围天然单一，这个技能应给出“不必拆分”的结论，而不是机械要求分层。
+      traces:
+        - trace_id: subsystem-seat-vs-entertainment
+          title: 驾驶位需求与后排娱乐需求不该被塞进同一个子系统
+          related_skills:
+            - business-subsystem-decomposition
+          kind: narrative_reference
+          situation: 团队按硬件位置划模块，导致驾驶控制需求与车载娱乐需求混在一起讨论。
+          decision: 改为按驾驶、安全、娱乐等业务意图重新划分子系统。
+          outcome: 用户更容易确认边界，遗漏需求也明显减少。
+          source_note: 用户的思考入口通常是业务角色，而不是实现结构。
+        - trace_id: subsystem-ppt-font-replace
+          title: 替换字体功能被错误放进查找替换菜单
+          related_skills:
+            - business-subsystem-decomposition
+            - business-interface-analysis
+          kind: narrative_reference
+          situation: 功能组织完全按程序员抽象分类，导致用户找不到真正需要的能力。
+          decision: 重新按用户任务路径而非底层实现进行归类。
+          outcome: 信息架构变得更可解释，培训成本下降。
+          source_note: 技术视角的分组常常破坏用户可理解性。
+      evaluation_cases:
+        real_decisions:
+          - case_id: req-subsystem-tech-layer-bias
+            situation: 团队把 ERP 系统拆成前端层、中台层、数据层，用户无法据此确认业务边界是否完整。
+            expected_behavior: fire
+            expected_verdict: technical_split_bias
+            note: 应改回按采购、库存、结算等业务职责切分。
+        synthetic_adversarial:
+          - case_id: req-subsystem-module-name-illusion
+            situation: 模块名字看起来很多，但本质只是数据库、接口、页面三层重新命名。
+            expected_behavior: fire
+            expected_verdict: technical_split_bias
+            note: 名称变化不能掩盖拆分依据仍是技术层的事实。
+        out_of_distribution:
+          - case_id: req-subsystem-single-purpose-tool
+            situation: 团队只在做一个单一用途的小工具，用户角色和流程都非常集中。
+            expected_behavior: do_not_fire
+            expected_verdict: no_split_needed
+            note: 业务范围简单时不应强行做子系统划分。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pass
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pass
+        key_failure_modes:
+          - 对“技术实现约束确实存在，但业务拆分仍未完成”的混合场景还需要更多细粒度案例。
+      revision_seed:
+        summary: 初版 seed 已把业务视角拆分原则、典型反例和最小评测集绑定到候选技能，避免继续停留在抽象口号层。
+        evidence_changes:
+          - 加入“驾驶位 vs 后排娱乐”“替换字体入口”两个 trace，强化业务视角和实现视角的对比。
+          - 将三类最小 case 直接绑定到 eval summary，保证总数与共享语料一致。
+        open_gaps:
+          - 继续补充“先按业务拆分，再受限于遗留系统做技术映射”的灰区样本。
+  - id: n_business_interface_analysis
+    label: Business Interface Analysis
+    candidate_id: business-interface-analysis
+    line_start: 1692
+    line_end: 1738
+    skill_seed:
+      title: 业务接口分析
+      contract:
+        trigger:
+          patterns:
+            - subsystems_have_service_exchange_without_value_definition
+          exclusions:
+            - integration_contract_is_already_business_complete
+        intake:
+          required:
+            - name: provider_subsystem
+              type: text
+              description: 提供接口的一方及其业务职责。
+            - name: consumer_subsystem
+              type: text
+              description: 使用接口的一方及其业务目的。
+            - name: interaction_context
+              type: text
+              description: 交互时机、频率、约束和核心数据包。
+        judgment_schema:
+          output:
+            type: structured
+            schema:
+              verdict: enum[needs_business_interface_analysis,business_contract_complete,protocol_only]
+              next_action: enum[clarify_why_and_what,confirm_constraints,delegate_to_system_design]
+              confidence: enum[low,medium,high]
+          reasoning_chain_required: true
+        boundary:
+          fails_when:
+            - interface_why_or_frequency_is_missing
+          do_not_fire_when:
+            - question_is_about_low_level_protocol_only
+      rationale: |
+        业务接口分析的价值，在于把“子系统之间要交互什么”从技术接口设计之前就定义清楚。原文明确区分了业务接口分析与系统接口设计：前者回答 Why、What 和约束，强调由谁提供、谁来使用、为了实现什么业务价值、以怎样的频率发生；后者才进入协议、实现和技术方案。[^anchor:business-interface-analysis-n_business_interface_analysis]
+
+        如果没有先把这些业务层信息说清楚，系统接口再完整也只是实现了一个缺乏业务意义的连接点。这个技能因此依赖业务子系统划分的结果，又反过来检验拆分是否真的有清晰服务关系；当问题只剩下通信协议或数据格式实现时，它应主动停止，把问题交回系统设计阶段，而不是继续假装自己还能提供价值。[^anchor:business-interface-analysis-n_business_subsystem_decomposition]
+      evidence_summary: |
+        核心证据来自原文对业务接口分析对象的定义：需要明确接口由哪个业务子系统实现、哪些业务子系统会使用、用途与业务价值是什么、频率如何，以及交互过程与设计约束。[^anchor:business-interface-analysis-n_business_interface_analysis]
+
+        与子系统划分章节联合看可以发现，接口分析并不是另起一套技术设计，而是业务拆分完成后的价值关系校验。[^anchor:business-interface-analysis-n_business_subsystem_decomposition]
+      relations:
+        depends_on:
+          - business-subsystem-decomposition
+        delegates_to: []
+        constrained_by: []
+        complements:
+          - problem-first-requirements-analysis
+        contradicts: []
+      usage_notes:
+        - 当接口讨论只剩协议名和字段名，但没人能说清“谁为什么使用它”时，这个技能应立即介入。
+        - 如果 Why/What/约束已经稳定，剩下只是 API 设计细节，就应当退出并交给系统设计。
+      traces:
+        - trace_id: interface-material-feedback-ownership
+          title: 物资使用反馈接口应由掌握规则的一方提供
+          related_skills:
+            - business-interface-analysis
+          kind: narrative_reference
+          situation: 两个业务子系统都声称应该提供同一个反馈接口，但责任归属并不清楚。
+          decision: 按“知行合一”原则，让掌握规则和格式的一方提供接口。
+          outcome: 接口职责与数据口径保持一致，后续测试也更容易定义。
+          source_note: 业务接口首先是责任与价值分配，不是协议选择。
+        - trace_id: interface-frequency-before-protocol
+          title: 先定义业务频率再决定接口实现方式
+          related_skills:
+            - business-interface-analysis
+            - business-subsystem-decomposition
+          kind: field_case
+          situation: 团队先争论同步还是异步协议，却没人知道接口一天调用几次、在什么场景触发。
+          decision: 先补齐业务目的、触发时机与频率，再回到系统接口设计。
+          outcome: 原本抽象的技术争论收敛成可验证的设计约束。
+          source_note: 业务语义缺失时，技术方案讨论只会空转。
+      evaluation_cases:
+        real_decisions:
+          - case_id: req-interface-provider-ownership
+            situation: 两个子系统都能实现接口，但只有其中一方真正定义了业务规则与数据口径。
+            expected_behavior: fire
+            expected_verdict: needs_business_interface_analysis
+            note: 应要求明确接口提供方、使用方与业务价值。
+        synthetic_adversarial:
+          - case_id: req-interface-protocol-debate
+            situation: 会议一直争论 HTTP 还是 MQ，但没人说明接口服务什么业务目的。
+            expected_behavior: fire
+            expected_verdict: needs_business_interface_analysis
+            note: 协议争论不能替代业务接口定义。
+        out_of_distribution:
+          - case_id: req-interface-api-shape-only
+            situation: 业务用途、频率、责任边界都确认完毕，当前只是在细化字段格式和鉴权方式。
+            expected_behavior: do_not_fire
+            expected_verdict: protocol_only
+            note: 纯系统接口设计问题不应继续占用业务接口分析技能。
+      eval_prefill:
+        kiu_test:
+          trigger_test: pass
+          fire_test: pass
+          boundary_test: pass
+        subsets:
+          real_decisions:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          synthetic_adversarial:
+            passed: 1
+            threshold: 0.5
+            status: pass
+          out_of_distribution:
+            passed: 1
+            threshold: 1.0
+            status: pass
+        key_failure_modes:
+          - 当业务价值已清楚但接口数量很多时，技能还需要更好地区分“逐个分析”和“抽样分析”的边界。
+      revision_seed:
+        summary: 初版 seed 已把业务接口分析与系统接口设计的边界写入 contract，并补足最小 traces/eval 绑定。
+        evidence_changes:
+          - 增加“由掌握规则的一方提供接口”的 canonical trace，强化责任归属判断。
+          - 将 Why/What/约束三件事对应到三个最小 case，避免评测继续为空。
+        open_gaps:
+          - 需要补充高频接口和低频接口在表达粒度上的不同要求。
+edges:
+  - id: e_requirements_problem_supports_subsystem
+    type: supports
+    from: n_problem_first_requirements
+    to: n_business_subsystem_decomposition
+  - id: e_subsystem_supports_interface
+    type: supports
+    from: n_business_subsystem_decomposition
+    to: n_business_interface_analysis
+communities:
+  - id: c_requirements_business_analysis
+    label: Requirements Business Analysis
+    node_ids:
+      - n_problem_first_requirements
+      - n_business_subsystem_decomposition
+      - n_business_interface_analysis

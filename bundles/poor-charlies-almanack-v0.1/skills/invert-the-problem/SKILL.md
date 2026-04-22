@@ -6,7 +6,7 @@ skill_id: invert-the-problem
 title: Invert the Problem
 status: published
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 ```
 
 ## Contract
@@ -44,19 +44,21 @@ boundary:
 ```
 
 ## Rationale
-Inversion should not be used as decorative "think backwards" advice. The skill is a failure-enumerator that asks what conditions would reliably destroy capital, compress options, or hide the real objective before anyone optimizes a shiny plan. If the user already knows the desired action and only wants a confidence ritual, the correct move is not to generate a generic checklist but to surface the ruin path, missing objective, or irreversible downside first.[^anchor:invert-source-note] The anti-ruin trace shows the value of explicit avoid-rules, and the adversarial no-buffer evaluation shows why a forward-only thesis can look coherent while still leaving the survival constraint undefended.[^anchor:invert-trace] [^anchor:invert-eval]
+Inversion is a failure-map, not decorative "think backwards" advice. The evaluator should force the user to name the ruin conditions, single-point failures, hidden assumptions, irreversible losses, and objective confusions that would make the plan fail before anyone optimizes a forward path. If the user already knows the answer and only wants a confidence ritual, the skill should not reward that posture with a generic checklist; it should expose the missing avoid-rules, the undefended downside, or the fact that the objective is still too vague to optimize safely.[^anchor:invert-source-note] The zero-buffer adversarial case shows why a coherent forward thesis can still fail the survival test, while the anti-ruin trace shows that inversion earns its keep only when it produces explicit no-go conditions that change the action path.[^anchor:invert-eval] [^trace:canonical/anti-ruin-checklist.yaml]
 
 ## Evidence Summary
-The evidence chain combines the inversion source note, the anti-ruin checklist trace, and the adversarial zero-buffer evaluation. Together they show that inversion earns its keep when it converts vague planning into explicit failure conditions and do-not-cross rules, not when it merely restates the original plan.[^anchor:invert-source-note] [^trace:canonical/anti-ruin-checklist.yaml] [^anchor:invert-eval]
+Three canonical traces define the operating pattern. `anti-ruin-checklist` shows the basic move: list the failure conditions first, then remove the largest ones before discussing upside.[^trace:canonical/anti-ruin-checklist.yaml] `pilot-pre-mortem` shows inversion handing work to a later audit by delaying commitment until incentives and single-point failures become visible.[^trace:canonical/pilot-pre-mortem.yaml] `airline-bankruptcy-checklist` shows why this skill must block narrative optimism when the ruin chain is still intact.[^trace:canonical/airline-bankruptcy-checklist.yaml] The source note and shared adversarial evaluation tie those traces to one claim: inversion is valuable when it changes the decision boundary through explicit avoid-rules, not when it merely restates the original plan with different words.[^anchor:invert-source-note] [^anchor:invert-eval]
 
 ## Relations
 ```yaml
 depends_on: []
 delegates_to:
   - bias-self-audit
-constrained_by: []
+constrained_by:
+  - circle-of-competence
 complements:
   - margin-of-safety-sizing
+  - opportunity-cost-of-the-next-best-idea
 contradicts: []
 ```
 
@@ -69,7 +71,7 @@ Representative cases:
 - `traces/canonical/airline-bankruptcy-checklist.yaml`
 
 ## Evaluation Summary
-KiU Test is green and the full v0.1 shared evaluation corpus is attached. The published summary covers four real-decision cases, four adversarial traps, and two OOD refusals for inversion-style dispatch. See `eval/summary.yaml`.
+KiU Test is green and the full v0.1 shared evaluation corpus remains attached through release-scale bindings. The current summary covers 20 real decisions, 20 adversarial traps, and 10 OOD refusals; the main failure cluster is forward planning that sounds coherent but never names the ruin path, plus already-decided actions trying to use inversion as post-hoc decoration. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 3 is the v0.3.1 hard-gate repair: the rationale and evidence text now carry explicit failure-first logic with anchor refs, and the eval summary points to the full shared corpus through glob bindings. See `iterations/revisions.yaml`.
+Revision 4 upgrades inversion to the v0.4 content standard: the rationale now enforces failure-map outputs instead of generic brainstorming, the evidence summary names three canonical traces explicitly, and the relations now show how inversion is bounded by domain competence and complements later sizing and benchmark work. The remaining gap is to mirror the same depth across the rest of the published bundle. See `iterations/revisions.yaml`.

@@ -53,3 +53,4 @@ class CandidateSeed:
     source_skill: SourceSkill | None
     score: int
     metadata: dict[str, Any]
+    seed_content: dict[str, Any]

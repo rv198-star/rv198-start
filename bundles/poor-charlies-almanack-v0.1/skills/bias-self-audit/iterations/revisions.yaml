@@ -1,6 +1,6 @@
 skill_id: bias-self-audit
 bundle_version: 0.1.0
-current_revision: 3
+current_revision: 4
 history:
   - revision: 1
     date: 2026-04-21
@@ -26,5 +26,14 @@ history:
     evidence_changes:
       - Densified rationale and evidence text with explicit bias-naming and mitigation requirements.
       - Rebound evaluation coverage from sample IDs to 20/20/10 shared-corpus glob references.
+  - revision: 4
+    date: 2026-04-22
+    summary: Promoted bias-self-audit to the v0.4 content standard with explicit countermeasure logic and three-trace evidence binding.
+    graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+    effective_status: published
+    evidence_changes:
+      - Rewrote rationale around named distortions, mitigation actions, and pre-commitment slowdown.
+      - Rewrote evidence summary to name three canonical audit traces directly.
+      - Expanded eval failure modes and bumped release metadata to revision 4.
 open_gaps:
   - Refine low-stakes refusal calibration in later bundle versions without weakening the current published contract.

@@ -20,6 +20,7 @@ from kiu_pipeline.mutate import mutate_candidate
 from kiu_pipeline.refiner import refine_candidate
 from kiu_pipeline.refiner.providers import MockLLMProvider
 from kiu_pipeline.normalize import normalize_graph
+from kiu_pipeline.quality import assess_candidate_artifact, assess_candidate_output
 from kiu_pipeline.render import load_generated_candidates, render_generated_run
 from kiu_pipeline.reports import write_final_decision, write_round_report
 from kiu_pipeline.scoring import decide_terminal_state, score_candidate
@@ -121,6 +122,37 @@ class RefinerScoringTests(unittest.TestCase):
         )
 
         self.assertEqual(decision["terminal_state"], "do_not_publish")
+
+    def test_decide_terminal_state_does_not_ready_when_production_quality_below_gate(self) -> None:
+        decision = decide_terminal_state(
+            round_index=2,
+            config={
+                "min_rounds": 2,
+                "max_rounds": 5,
+                "patience": 2,
+                "targets": {
+                    "overall_quality": 0.82,
+                    "boundary_quality": 0.85,
+                    "min_positive_delta": 0.03,
+                    "artifact_quality": 0.74,
+                    "production_quality": 0.78,
+                },
+            },
+            scorecard={
+                "overall_quality": 0.84,
+                "boundary_quality": 0.87,
+                "delta_vs_nearest": 0.05,
+                "delta_vs_bundle": 0.05,
+                "net_positive_value": 0.05,
+                "artifact_quality": 0.58,
+                "production_quality": 0.69,
+            },
+            history=[{"overall_quality": 0.81}, {"overall_quality": 0.84}],
+            structural_valid=True,
+        )
+
+        self.assertEqual(decision["terminal_state"], "pending")
+        self.assertEqual(decision["reason"], "content_quality_below_release_bar")
 
     def test_build_candidate_baseline_compares_nearest_skill_and_bundle(self) -> None:
         bundle = load_source_bundle(ROOT / "bundles" / "poor-charlies-almanack-v0.1")
@@ -392,6 +424,160 @@ class RefinerLoopTests(unittest.TestCase):
                 )
             )
 
+
+class ArtifactQualityAssessmentTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.bundle = load_source_bundle(ROOT / "bundles" / "poor-charlies-almanack-v0.1")
+
+    def test_assess_candidate_artifact_flags_placeholder_candidate_as_poor(self) -> None:
+        candidate = {
+            "skill_markdown": (
+                "# Synthetic Placeholder\n\n"
+                "## Identity\n"
+                "```yaml\n"
+                "skill_id: synthetic-placeholder\n"
+                "title: Synthetic Placeholder\n"
+                "status: under_evaluation\n"
+                "bundle_version: 0.2.0\n"
+                "skill_revision: 1\n"
+                "```\n\n"
+                "## Contract\n"
+                "```yaml\n"
+                "trigger:\n"
+                "  patterns:\n"
+                "  - candidate_seed::n_synthetic\n"
+                "  exclusions: []\n"
+                "intake:\n"
+                "  required:\n"
+                "  - name: scenario\n"
+                "    type: structured\n"
+                "    description: Scenario data required to review this candidate.\n"
+                "judgment_schema:\n"
+                "  output:\n"
+                "    type: structured\n"
+                "    schema:\n"
+                "      verdict: enum[pending_review]\n"
+                "  reasoning_chain_required: true\n"
+                "boundary:\n"
+                "  fails_when:\n"
+                "  - evidence_is_too_sparse_for_candidate_review\n"
+                "  do_not_fire_when:\n"
+                "  - candidate_has_not_been_reviewed_by_human\n"
+                "```\n\n"
+                "## Rationale\n"
+                "This candidate was seeded from the graph snapshot and still needs human review.\n\n"
+                "## Evidence Summary\n"
+                "The current draft is anchored to the released graph snapshot and awaits evidence enrichment.\n\n"
+                "## Relations\n"
+                "```yaml\n"
+                "depends_on: []\n"
+                "delegates_to: []\n"
+                "constrained_by: []\n"
+                "complements: []\n"
+                "contradicts: []\n"
+                "```\n\n"
+                "## Usage Summary\n"
+                "Current trace attachments: 0.\n\n"
+                "Representative cases are still pending curation.\n\n"
+                "## Evaluation Summary\n"
+                "This candidate was prefilled by the deterministic pipeline and remains under evaluation.\n\n"
+                "## Revision Summary\n"
+                "Revision 1 is the initial pipeline seed.\n"
+            ),
+            "anchors": {
+                "graph_anchor_sets": [{"anchor_id": "synthetic-support", "node_ids": ["n_synthetic"]}],
+                "source_anchor_sets": [
+                    {
+                        "anchor_id": "synthetic-source",
+                        "kind": "source_excerpt",
+                        "path": "../../sources/demo.md",
+                        "line_start": 1,
+                        "line_end": 2,
+                        "snippet": "placeholder snippet",
+                    }
+                ],
+            },
+            "eval_summary": {
+                "skill_id": "synthetic-placeholder",
+                "bundle_version": "0.2.0",
+                "skill_revision": 1,
+                "status": "under_evaluation",
+                "kiu_test": {
+                    "trigger_test": "pending",
+                    "fire_test": "pending",
+                    "boundary_test": "pending",
+                },
+                "subsets": {
+                    "real_decisions": {"cases": [], "passed": 0, "total": 0, "threshold": 0.0, "status": "pending"},
+                    "synthetic_adversarial": {"cases": [], "passed": 0, "total": 0, "threshold": 0.0, "status": "pending"},
+                    "out_of_distribution": {"cases": [], "passed": 0, "total": 0, "threshold": 0.0, "status": "pending"},
+                },
+                "key_failure_modes": [],
+            },
+            "revisions": {
+                "skill_id": "synthetic-placeholder",
+                "bundle_version": "0.2.0",
+                "current_revision": 1,
+                "history": [
+                    {
+                        "revision": 1,
+                        "date": "2026-04-22",
+                        "summary": "Initial placeholder seed.",
+                        "graph_hash": "sha256:test",
+                        "effective_status": "under_evaluation",
+                        "evidence_changes": ["Initial placeholder seed."],
+                    }
+                ],
+                "open_gaps": ["Everything important is still missing."],
+            },
+            "candidate": {
+                "candidate_id": "synthetic-placeholder",
+                "drafting_mode": "deterministic",
+            },
+        }
+
+        assessment = assess_candidate_artifact(candidate=candidate, profile=self.bundle.profile)
+
+        self.assertLess(assessment["artifact_quality"], 0.62)
+        self.assertEqual(assessment["quality_grade"], "poor")
+        self.assertTrue(
+            any("placeholder_contract" == blocker for blocker in assessment["blockers"]),
+            assessment,
+        )
+
+    def test_assess_candidate_output_prefers_refined_candidate_scorecard_when_present(self) -> None:
+        candidate = {
+            "skill_markdown": "# Demo\n\n## Contract\n```yaml\ntrigger: {patterns: [real_trigger], exclusions: []}\nintake: {required: [{name: a}, {name: b}, {name: c}]}\njudgment_schema: {output: {schema: {verdict: 'enum[yes,no]'}}}\nboundary: {fails_when: [x], do_not_fire_when: [y]}\n```\n\n## Rationale\n足够长的理由文本，并且带一个锚点引用。[^anchor:demo]\n\n## Evidence Summary\n证据摘要也带锚点。[^anchor:demo]\n\n## Relations\n```yaml\ndepends_on: []\ndelegates_to: []\nconstrained_by: []\ncomplements: []\ncontradicts: []\n```\n\n## Usage Summary\nCurrent trace attachments: 2.\n\n- note\n\nRepresentative cases:\n- `traces/canonical/demo-a.yaml`\n- `traces/canonical/demo-b.yaml`\n\n## Evaluation Summary\nok\n\n## Revision Summary\nok\n",
+            "anchors": {
+                "graph_anchor_sets": [{"anchor_id": "g1", "node_ids": ["n1"]}],
+                "source_anchor_sets": [{"anchor_id": "s1", "path": "../../sources/demo.md"}],
+            },
+            "eval_summary": {
+                "kiu_test": {
+                    "trigger_test": "pending",
+                    "fire_test": "pending",
+                    "boundary_test": "pending",
+                },
+                "subsets": {
+                    "real_decisions": {"cases": ["a"], "passed": 0, "total": 1, "threshold": 0.5, "status": "pending"},
+                    "synthetic_adversarial": {"cases": ["b"], "passed": 0, "total": 1, "threshold": 0.5, "status": "pending"},
+                    "out_of_distribution": {"cases": ["c"], "passed": 0, "total": 1, "threshold": 1.0, "status": "pending"},
+                },
+                "key_failure_modes": ["demo"],
+            },
+            "revisions": {"history": [{"revision": 1}], "open_gaps": ["demo"]},
+            "candidate": {
+                "candidate_id": "demo",
+                "overall_quality": 0.91,
+                "boundary_quality": 0.92,
+                "eval_aggregate": 0.9,
+                "cross_subset_stability": 0.89,
+            },
+        }
+
+        assessment = assess_candidate_output(candidate=candidate, profile=self.bundle.profile)
+
+        self.assertEqual(assessment["loop_overall_quality"], 0.91)
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,7 +6,7 @@ skill_id: bias-self-audit
 title: Bias Self Audit
 status: published
 bundle_version: 0.1.0
-skill_revision: 3
+skill_revision: 4
 ```
 
 ## Contract
@@ -47,10 +47,10 @@ boundary:
 ```
 
 ## Rationale
-This skill exists to convert "watch your biases" from empty hygiene language into a required audit step before commitment. The evaluator should name the likely distortion cluster, tie it to incentives, identity, sunk cost, or social proof, and then require a concrete countermeasure such as disconfirming evidence, an outside base rate, or a reduced position. If the user cannot specify what bias is currently active, the safe assumption is that confidence has outrun self-observation.[^anchor:bias-source-note] The US Air regret trace and the shared surface-familiarity adversarial case both show that a persuasive story can hide ego, imitation, or attachment until the decision is already effectively locked in.[^anchor:bias-trace] [^anchor:bias-eval]
+This skill converts "watch your biases" from empty hygiene language into a pre-commitment audit log. The evaluator should name the active distortion cluster, tie it to incentives, identity, sunk cost, social proof, or time pressure, and then require a concrete countermeasure such as disconfirming evidence, an external base rate, an outside reviewer, or a smaller position. If the user cannot specify what bias is active right now, the safe assumption is that confidence has outrun self-observation and that the decision should slow down before more commitment is made.[^anchor:bias-source-note] The shared adversarial familiarity case shows how confidence can hide attachment behind a persuasive story, while the US Air trace shows why retrospective regret is too late if no explicit audit existed before capital was committed.[^anchor:bias-eval] [^trace:canonical/us-air-regret.yaml]
 
 ## Evidence Summary
-The strongest evidence chain combines the bias source note, the US Air anti-pattern trace, and the adversarial familiarity case. Together they show that the skill is strongest when it forces named distortions and counter-measures before an irreversible commitment, not after the narrative has already taken over.[^anchor:bias-source-note] [^trace:canonical/us-air-regret.yaml] [^anchor:bias-eval]
+Three canonical traces define the audit pattern. `us-air-regret` shows the anti-pattern: a neat thesis can conceal overconfidence and incentive blindness until the mistake is already locked in.[^trace:canonical/us-air-regret.yaml] `incentive-caused-delusion-audit` shows the positive pattern: pause the decision and force a written audit when compensation or identity exposure is distorting interpretation.[^trace:canonical/incentive-caused-delusion-audit.yaml] `pilot-pre-mortem` shows why bias review often belongs after inversion has exposed the failure chain but before the team treats the thesis as settled.[^trace:canonical/pilot-pre-mortem.yaml] The source note and shared adversarial evaluation connect these traces back to one claim: bias is only actionable when the distortion and mitigation are named explicitly before commitment hardens.[^anchor:bias-source-note] [^anchor:bias-eval]
 
 ## Relations
 ```yaml
@@ -60,6 +60,7 @@ constrained_by:
   - circle-of-competence
 complements:
   - invert-the-problem
+  - margin-of-safety-sizing
   - opportunity-cost-of-the-next-best-idea
 contradicts: []
 ```
@@ -73,7 +74,7 @@ Representative cases:
 - `traces/canonical/pilot-pre-mortem.yaml`
 
 ## Evaluation Summary
-The full v0.1 evaluation corpus is attached and published. The remaining calibration question is not whether the skill is ready to ship, but how strict later versions should become around low-stakes refusals. See `eval/summary.yaml`.
+The full v0.1 shared evaluation corpus remains attached through release-scale bindings. The current summary covers 20 real decisions, 20 adversarial traps, and 10 OOD refusals; the main calibration issue is still low-stakes false positives, plus cases where users can describe the thesis fluently but still cannot name the incentive or identity pressure acting on them. See `eval/summary.yaml`.
 
 ## Revision Summary
-Revision 3 is the v0.3.1 hard-gate repair: the rationale and evidence text now make the audit contract explicit, and the eval summary binds the full shared corpus through release-scale glob references. See `iterations/revisions.yaml`.
+Revision 4 upgrades bias-self-audit to the v0.4 content standard: the rationale now demands named distortions and countermeasures, the evidence summary names three canonical traces explicitly, and the relations now show how bias review fits between inversion, sizing, and benchmark comparison. The remaining gap is to propagate the same rewrite depth across the rest of the published bundle. See `iterations/revisions.yaml`.
