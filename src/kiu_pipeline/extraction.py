@@ -66,6 +66,61 @@ def build_empty_extraction_result(source_chunks_doc: dict[str, Any]) -> dict[str
     }
 
 
+def build_section_heading_extraction_result(source_chunks_doc: dict[str, Any]) -> dict[str, Any]:
+    result = build_empty_extraction_result(source_chunks_doc)
+    section_map = source_chunks_doc.get("section_map", [])
+    source_file = source_chunks_doc.get("source_file")
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+
+    previous_node_id: str | None = None
+    for index, entry in enumerate(section_map, start=1):
+        title = entry.get("title")
+        line_start = entry.get("line_start")
+        if not isinstance(title, str) or not title:
+            continue
+        if not isinstance(line_start, int) or line_start < 1:
+            continue
+        node_id = f"section::{index:04d}"
+        nodes.append(
+            {
+                "id": node_id,
+                "type": "source_section",
+                "label": title,
+                "source_file": source_file,
+                "source_location": {
+                    "line_start": line_start,
+                    "line_end": line_start,
+                },
+                "extraction_kind": "EXTRACTED",
+            }
+        )
+        if previous_node_id is not None:
+            edges.append(
+                {
+                    "id": f"section-edge::{index - 1:04d}-{index:04d}",
+                    "type": "next_section",
+                    "from": previous_node_id,
+                    "to": node_id,
+                    "source_file": source_file,
+                    "source_location": {
+                        "line_start": line_start,
+                        "line_end": line_start,
+                    },
+                    "extraction_kind": "EXTRACTED",
+                    "confidence": 1.0,
+                }
+            )
+        previous_node_id = node_id
+
+    result["deterministic_pass"] = "section-headings"
+    result["nodes"] = nodes
+    result["edges"] = edges
+    if not nodes:
+        result["warnings"] = ["no_section_headings_extracted"]
+    return result
+
+
 def validate_extraction_result_doc(doc: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if doc.get("schema_version") != EXTRACTION_RESULTS_SCHEMA_VERSION:

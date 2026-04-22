@@ -18,7 +18,7 @@ if str(SRC) not in sys.path:
 from kiu_pipeline.preflight import validate_generated_bundle
 from kiu_pipeline.seed import derive_candidate_metadata
 from kiu_pipeline.load import extract_yaml_section, parse_sections
-from kiu_pipeline.extraction import validate_source_chunks_doc
+from kiu_pipeline.extraction import validate_extraction_result_doc, validate_source_chunks_doc
 from kiu_pipeline.local_paths import resolve_output_root
 from kiu_pipeline.regression import DEFAULT_V06_CHECK_IDS
 
@@ -547,6 +547,58 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(extraction_result["nodes"], [])
             self.assertEqual(extraction_result["edges"], [])
             self.assertEqual(extraction_result["warnings"], [])
+
+    def test_extract_graph_candidates_cli_supports_section_headings_pass(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_chunks_path = tmp_root / "source-chunks.json"
+            extraction_output_path = tmp_root / "extraction-result.json"
+
+            build_chunks = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_source_chunks.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "demo-source-bundle",
+                    "--source-id",
+                    "effective-requirements-analysis",
+                    "--output",
+                    str(source_chunks_path),
+                    "--max-chars",
+                    "240",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build_chunks.returncode, 0, build_chunks.stdout + build_chunks.stderr)
+
+            extract = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "extract_graph_candidates.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--output",
+                    str(extraction_output_path),
+                    "--deterministic-pass",
+                    "section-headings",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(extract.returncode, 0, extract.stdout + extract.stderr)
+            extraction_result = json.loads(extraction_output_path.read_text(encoding="utf-8"))
+            self.assertEqual(validate_extraction_result_doc(extraction_result), [])
+            self.assertGreaterEqual(len(extraction_result["nodes"]), 3)
+            self.assertGreaterEqual(len(extraction_result["edges"]), 2)
+            self.assertEqual(extraction_result["nodes"][0]["extraction_kind"], "EXTRACTED")
+            self.assertEqual(extraction_result["edges"][0]["confidence"], 1.0)
 
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
