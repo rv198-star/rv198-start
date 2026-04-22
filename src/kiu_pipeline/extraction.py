@@ -136,6 +136,7 @@ def build_heuristic_extraction_result(source_chunks_doc: dict[str, Any]) -> dict
     edges: list[dict[str, Any]] = []
     node_ids: set[str] = set()
     section_node_by_title: dict[str, str] = {}
+    section_nodes_by_id: dict[str, dict[str, Any]] = {}
 
     def add_node(node: dict[str, Any]) -> None:
         node_id = node["id"]
@@ -169,6 +170,7 @@ def build_heuristic_extraction_result(source_chunks_doc: dict[str, Any]) -> dict
             }
         )
         section_node_by_title[title] = node_id
+        section_nodes_by_id[node_id] = nodes[-1]
         path = entry.get("path", [])
         if isinstance(path, list) and len(path) > 1:
             parent_title = path[-2]
@@ -223,6 +225,12 @@ def build_heuristic_extraction_result(source_chunks_doc: dict[str, Any]) -> dict
         if isinstance(section_title, str):
             section_node_id = section_node_by_title.get(section_title)
         if section_node_id:
+            if section_node_id in section_nodes_by_id:
+                _merge_routing_hints(
+                    section_nodes_by_id[section_node_id],
+                    chunk_id=chunk_id,
+                    hints=_derive_routing_hints(chunk_text),
+                )
             edges.append(
                 {
                     "id": f"supported-by::{section_node_id}->{evidence_id}",
@@ -462,6 +470,88 @@ def _extract_terms(text: str) -> list[str]:
         if term and term not in terms:
             terms.append(term)
     return terms
+
+
+def _derive_routing_hints(text: str) -> dict[str, Any]:
+    workflow_matches: list[str] = []
+    for label, pattern in (
+        ("第一步", r"第一步"),
+        ("第二步", r"第二步"),
+        ("下一步", r"下一步"),
+        ("步骤", r"步骤"),
+        ("清单", r"清单"),
+        ("检查", r"检查"),
+        ("预检", r"预检"),
+        ("checklist", r"checklist"),
+        ("preflight", r"preflight"),
+        ("先-再", r"先[^。；\n]{0,24}(再|然后|后)"),
+        ("如果-则", r"如果[^。；\n]{0,30}(则|就|需要)"),
+    ):
+        if re.search(pattern, text, flags=re.IGNORECASE):
+            workflow_matches.append(label)
+
+    context_matches = [
+        keyword
+        for keyword in (
+            "场景",
+            "边界",
+            "接口",
+            "输入",
+            "输出",
+            "职责",
+            "目标",
+            "约束",
+            "业务",
+            "失败条件",
+        )
+        if keyword in text
+    ]
+
+    matched_keywords = sorted(set([*workflow_matches, *context_matches]))
+    if not matched_keywords:
+        return {}
+    return {
+        "workflow_cues": len(workflow_matches),
+        "context_cues": len(context_matches),
+        "matched_keywords": matched_keywords,
+    }
+
+
+def _merge_routing_hints(
+    node: dict[str, Any],
+    *,
+    chunk_id: str,
+    hints: dict[str, Any],
+) -> None:
+    if not hints:
+        return
+    existing = node.get("routing_hints")
+    if not isinstance(existing, dict):
+        existing = {
+            "workflow_cues": 0,
+            "context_cues": 0,
+            "matched_keywords": [],
+            "evidence_chunk_ids": [],
+        }
+    existing["workflow_cues"] = int(existing.get("workflow_cues", 0) or 0) + int(
+        hints.get("workflow_cues", 0) or 0
+    )
+    existing["context_cues"] = int(existing.get("context_cues", 0) or 0) + int(
+        hints.get("context_cues", 0) or 0
+    )
+    keywords = [
+        keyword
+        for keyword in [*existing.get("matched_keywords", []), *hints.get("matched_keywords", [])]
+        if isinstance(keyword, str) and keyword
+    ]
+    existing["matched_keywords"] = sorted(set(keywords))
+    chunk_ids = [
+        evidence_chunk_id
+        for evidence_chunk_id in [*existing.get("evidence_chunk_ids", []), chunk_id]
+        if isinstance(evidence_chunk_id, str) and evidence_chunk_id
+    ]
+    existing["evidence_chunk_ids"] = sorted(set(chunk_ids))
+    node["routing_hints"] = existing
 
 
 def _build_llm_extraction_prompt(

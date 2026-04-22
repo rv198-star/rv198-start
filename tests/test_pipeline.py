@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 
 import yaml
 
@@ -20,7 +21,9 @@ from kiu_pipeline.seed import derive_candidate_metadata
 from kiu_pipeline.load import extract_yaml_section, parse_sections
 from kiu_pipeline.extraction import validate_extraction_result_doc, validate_source_chunks_doc
 from kiu_pipeline.local_paths import resolve_output_root
+from kiu_pipeline.normalize import normalize_graph
 from kiu_pipeline.regression import DEFAULT_V06_CHECK_IDS
+from kiu_pipeline.seed import mine_candidate_seeds
 
 
 class CandidatePipelineTests(unittest.TestCase):
@@ -821,6 +824,325 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertIn("source_file", graph_doc["nodes"][0])
             self.assertIn("extraction_kind", graph_doc["edges"][0])
             self.assertIn("confidence", graph_doc["edges"][0])
+
+    def test_mine_candidate_seeds_infers_workflow_candidate_from_extraction_routing_hints(self) -> None:
+        bundle = SimpleNamespace(
+            profile={
+                "seed_node_types": ["principle_signal"],
+                "candidate_kinds": {
+                    "general_agentic": {
+                        "workflow_certainty": "medium",
+                        "context_certainty": "high",
+                    },
+                    "workflow_script": {
+                        "workflow_certainty": "high",
+                        "context_certainty": "high",
+                    },
+                },
+                "routing_rules": [
+                    {
+                        "when": {
+                            "workflow_certainty": "high",
+                            "context_certainty": "high",
+                        },
+                        "recommended_execution_mode": "workflow_script",
+                        "disposition": "workflow_script_candidate",
+                    },
+                    {
+                        "when": {
+                            "workflow_certainty": "medium",
+                            "context_certainty": "high",
+                        },
+                        "recommended_execution_mode": "llm_agentic",
+                        "disposition": "skill_candidate",
+                    },
+                ],
+            },
+            skills={},
+            manifest={
+                "bundle_id": "synthetic-extraction-bundle",
+                "graph": {"graph_hash": "sha256:synthetic"},
+            },
+        )
+        graph = normalize_graph(
+            {
+                "graph_version": "kiu.graph/v0.2",
+                "source_snapshot": "synthetic-source",
+                "graph_hash": "sha256:synthetic",
+                "nodes": [
+                    {
+                        "id": "principle::0001",
+                        "type": "principle_signal",
+                        "label": "Problem-First Requirements Analysis",
+                        "source_file": "sources/synthetic.md",
+                        "source_location": {"line_start": 5, "line_end": 5},
+                        "extraction_kind": "EXTRACTED",
+                        "routing_hints": {
+                            "workflow_cues": 2,
+                            "context_cues": 1,
+                            "matched_keywords": ["第一步", "先"],
+                            "evidence_chunk_ids": ["synthetic:0001"],
+                        },
+                    },
+                    {
+                        "id": "evidence::0001",
+                        "type": "chunk_evidence",
+                        "label": "需求分析的第一步是确认业务问题，先确认目标再决定方案。",
+                        "source_file": "sources/synthetic.md",
+                        "source_location": {"line_start": 6, "line_end": 8},
+                        "extraction_kind": "EXTRACTED",
+                    },
+                ],
+                "edges": [
+                    {
+                        "id": "supported-by::principle::0001->evidence::0001",
+                        "type": "supported_by_evidence",
+                        "from": "principle::0001",
+                        "to": "evidence::0001",
+                        "source_file": "sources/synthetic.md",
+                        "source_location": {"line_start": 6, "line_end": 8},
+                        "extraction_kind": "EXTRACTED",
+                        "confidence": 1.0,
+                    }
+                ],
+                "communities": [],
+            }
+        )
+
+        seeds = mine_candidate_seeds(bundle, graph)
+
+        self.assertEqual(len(seeds), 1)
+        self.assertEqual(seeds[0].candidate_kind, "workflow_script")
+        self.assertEqual(seeds[0].metadata["disposition"], "workflow_script_candidate")
+        self.assertEqual(seeds[0].metadata["recommended_execution_mode"], "workflow_script")
+        self.assertEqual(
+            seeds[0].metadata["routing_evidence"]["inference_mode"],
+            "extraction_derived",
+        )
+        self.assertEqual(
+            seeds[0].metadata["routing_evidence"]["workflow_cues"],
+            2,
+        )
+
+    def test_scaffold_extraction_bundle_cli_connects_extracted_graph_to_candidate_pipeline(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_chunks_path = tmp_root / "source-chunks.json"
+            extraction_output_path = tmp_root / "extraction-result.json"
+            graph_output_path = tmp_root / "graph.json"
+            source_root = tmp_root / "sources"
+            output_root = tmp_root / "generated"
+
+            build_chunks = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_source_chunks.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "demo-source-bundle",
+                    "--source-id",
+                    "effective-requirements-analysis",
+                    "--output",
+                    str(source_chunks_path),
+                    "--max-chars",
+                    "240",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build_chunks.returncode, 0, build_chunks.stdout + build_chunks.stderr)
+
+            extract = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "extract_graph_candidates.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--output",
+                    str(extraction_output_path),
+                    "--deterministic-pass",
+                    "heuristic-extractors",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(extract.returncode, 0, extract.stdout + extract.stderr)
+
+            materialize = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "materialize_extraction_graph.py"),
+                    "--extraction-result",
+                    str(extraction_output_path),
+                    "--output",
+                    str(graph_output_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(materialize.returncode, 0, materialize.stdout + materialize.stderr)
+
+            scaffold = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "scaffold_extraction_bundle.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--graph",
+                    str(graph_output_path),
+                    "--output-root",
+                    str(source_root),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(scaffold.returncode, 0, scaffold.stdout + scaffold.stderr)
+            scaffold_payload = json.loads(scaffold.stdout)
+            bundle_root = Path(scaffold_payload["bundle_root"])
+
+            manifest = yaml.safe_load((bundle_root / "manifest.yaml").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["graph"]["graph_version"], "kiu.graph/v0.2")
+            self.assertEqual(manifest["domain"], "default")
+
+            build = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_candidates.py"),
+                    "--source-bundle",
+                    str(bundle_root),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "heuristic-extraction-smoke",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build.returncode, 0, build.stdout + build.stderr)
+
+            run_root = output_root / manifest["bundle_id"] / "heuristic-extraction-smoke"
+            metrics = json.loads((run_root / "reports" / "metrics.json").read_text(encoding="utf-8"))
+            self.assertGreaterEqual(metrics["summary"]["workflow_script_candidates"], 2)
+
+            workflow_dirs = [path for path in (run_root / "workflow_candidates").glob("*") if path.is_dir()]
+            self.assertEqual(len(workflow_dirs), metrics["summary"]["workflow_script_candidates"])
+
+            candidate_doc = yaml.safe_load(
+                (workflow_dirs[0] / "candidate.yaml").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                candidate_doc["routing_evidence"]["inference_mode"],
+                "extraction_derived",
+            )
+
+    def test_build_graph_report_cli_emits_navigation_report_for_extraction_bundle(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_chunks_path = tmp_root / "source-chunks.json"
+            extraction_output_path = tmp_root / "extraction-result.json"
+            graph_output_path = tmp_root / "graph.json"
+            source_root = tmp_root / "sources"
+
+            build_chunks = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_source_chunks.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "demo-source-bundle",
+                    "--source-id",
+                    "effective-requirements-analysis",
+                    "--output",
+                    str(source_chunks_path),
+                    "--max-chars",
+                    "240",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build_chunks.returncode, 0, build_chunks.stdout + build_chunks.stderr)
+
+            extract = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "extract_graph_candidates.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--output",
+                    str(extraction_output_path),
+                    "--deterministic-pass",
+                    "heuristic-extractors",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(extract.returncode, 0, extract.stdout + extract.stderr)
+
+            materialize = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "materialize_extraction_graph.py"),
+                    "--extraction-result",
+                    str(extraction_output_path),
+                    "--output",
+                    str(graph_output_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(materialize.returncode, 0, materialize.stdout + materialize.stderr)
+
+            scaffold = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "scaffold_extraction_bundle.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--graph",
+                    str(graph_output_path),
+                    "--output-root",
+                    str(source_root),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(scaffold.returncode, 0, scaffold.stdout + scaffold.stderr)
+            bundle_root = Path(json.loads(scaffold.stdout)["bundle_root"])
+
+            build_report = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_graph_report.py"),
+                    "--bundle",
+                    str(bundle_root),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build_report.returncode, 0, build_report.stdout + build_report.stderr)
+
+            manifest = yaml.safe_load((bundle_root / "manifest.yaml").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["graph_report"]["path"], "GRAPH_REPORT.md")
+
+            report_text = (bundle_root / "GRAPH_REPORT.md").read_text(encoding="utf-8")
+            self.assertIn("## God Nodes", report_text)
+            self.assertIn("## Communities", report_text)
+            self.assertIn("## Suggested Questions", report_text)
+            self.assertIn("Problem-First Requirements Analysis", report_text)
 
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
