@@ -1,46 +1,46 @@
 skill_id: blast-radius-check
 bundle_version: 0.1.0
 skill_revision: 1
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:eba843df43446d3e25b4ea15e40f18509bb2b4cad7e4a5d495182fb6652a6c05
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:2f62e81613b1deecac445a36c53e1406adf61d7c3fadf9883693124727368961
 graph_anchor_sets:
-  - anchor_id: blast-radius-core
-    node_ids:
-      - n_blast_radius_principle
-      - n_reversibility_gate
-      - n_flag_guard_trace
-      - n_phased_rollout_trace
-      - n_irreversible_migration_trace
-    edge_ids:
-      - e_blast_flag_supports
-      - e_blast_phased_supports
-      - e_blast_migration_supports
-      - e_blast_reversibility_constrained_by
-    community_ids:
-      - c_release_safety
-      - c_pre_post_shared_frame
+- anchor_id: blast-radius-core
+  node_ids:
+  - n_blast_radius_principle
+  - n_reversibility_gate
+  - n_flag_guard_trace
+  - n_phased_rollout_trace
+  - n_irreversible_migration_trace
+  edge_ids:
+  - e_blast_flag_supports
+  - e_blast_phased_supports
+  - e_blast_migration_supports
+  - e_blast_reversibility_constrained_by
+  community_ids:
+  - c_release_safety
+  - c_pre_post_shared_frame
 source_anchor_sets:
-  - anchor_id: blast-radius-source-core
-    kind: source_excerpt
-    path: ../../sources/engineering-postmortem-notes.md
-    line_start: 9
-    line_end: 14
-    snippet: 高风险变更必须先说清影响面、保护措施、回滚路径和可逆性。
-  - anchor_id: blast-radius-trace-flag
-    kind: scenario_trace
-    path: ../../traces/canonical/blast-radius-flag-guard.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 先补齐 blast radius 说明，再要求 feature flag 与快速关闭开关。
-  - anchor_id: blast-radius-trace-migration
-    kind: scenario_trace
-    path: ../../traces/canonical/irreversible-migration-precheck.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 把可逆性单独拎出来审查，补齐备份、回放演练和 abort condition。
-  - anchor_id: blast-radius-eval-real
-    kind: evaluation_case
-    path: ../../evaluation/real_decisions/blast-radius-customer-import.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 真实案例要求先界定影响面、回滚路径和 abort condition，再决定是否上线。
+- anchor_id: blast-radius-source-core
+  kind: source_excerpt
+  path: ../../sources/engineering-postmortem-notes.md
+  line_start: 9
+  line_end: 14
+  snippet: 高风险变更必须先说清影响面、保护措施、回滚路径和可逆性。
+- anchor_id: blast-radius-trace-flag
+  kind: scenario_trace
+  path: ../../traces/canonical/blast-radius-flag-guard.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 先补齐 blast radius 说明，再要求 feature flag 与快速关闭开关。
+- anchor_id: blast-radius-trace-migration
+  kind: scenario_trace
+  path: ../../traces/canonical/irreversible-migration-precheck.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 把可逆性单独拎出来审查，补齐备份、回放演练和 abort condition。
+- anchor_id: blast-radius-eval-real
+  kind: evaluation_case
+  path: ../../evaluation/real_decisions/blast-radius-customer-import.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 真实案例要求先界定影响面、回滚路径和 abort condition，再决定是否上线。

@@ -19,6 +19,7 @@ from kiu_pipeline.preflight import validate_generated_bundle
 from kiu_pipeline.seed import derive_candidate_metadata
 from kiu_pipeline.load import extract_yaml_section, parse_sections
 from kiu_pipeline.local_paths import resolve_output_root
+from kiu_pipeline.regression import DEFAULT_V06_CHECK_IDS
 
 
 class CandidatePipelineTests(unittest.TestCase):
@@ -420,6 +421,131 @@ class CandidatePipelineTests(unittest.TestCase):
                 "workflow_boundary_preserved",
                 report["generated_bundle"]["notes"],
             )
+
+    def test_v06_regression_baseline_cli_runs_selected_checks_and_emits_report(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "baseline"
+            expected_checks = [
+                "validate-investing-merge",
+                "validate-engineering-merge",
+                "build-investing",
+                "review-investing",
+                "build-engineering",
+                "review-engineering",
+            ]
+
+            self.assertEqual(
+                DEFAULT_V06_CHECK_IDS,
+                (
+                    "unit-tests",
+                    "validate-investing-merge",
+                    "validate-engineering-merge",
+                    "build-investing",
+                    "review-investing",
+                    "build-engineering",
+                    "review-engineering",
+                ),
+            )
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_v06_regression_baseline.py"),
+                    "--output-root",
+                    str(output_root),
+                    "--python-executable",
+                    sys.executable,
+                    "--only",
+                    expected_checks[0],
+                    "--only",
+                    expected_checks[1],
+                    "--only",
+                    expected_checks[2],
+                    "--only",
+                    expected_checks[3],
+                    "--only",
+                    expected_checks[4],
+                    "--only",
+                    expected_checks[5],
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+
+            report_path = Path(payload["report_path"])
+            self.assertTrue(report_path.exists())
+
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(report["summary"]["failed"], 0)
+            self.assertEqual(report["summary"]["passed"], len(expected_checks))
+            self.assertEqual(report["selected_check_ids"], expected_checks)
+            self.assertEqual(
+                [entry["check_id"] for entry in report["results"]],
+                expected_checks,
+            )
+            self.assertTrue(report["runs"]["investing"]["three_layer_review_exists"])
+            self.assertTrue(report["runs"]["engineering"]["three_layer_review_exists"])
+
+    def test_extract_graph_candidates_cli_emits_empty_valid_shell(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_chunks_path = tmp_root / "source-chunks.json"
+            output_path = tmp_root / "extraction-result.json"
+            source_chunks_doc = {
+                "schema_version": "kiu.source-chunks/v0.1",
+                "bundle_id": "demo-source-bundle",
+                "source_id": "effective-requirements-analysis",
+                "source_file": "examples/有效需求分析（第2版）.md",
+                "language": "zh-CN",
+                "chunks": [
+                    {
+                        "chunk_id": "chunk-001",
+                        "source_id": "effective-requirements-analysis",
+                        "source_file": "examples/有效需求分析（第2版）.md",
+                        "chapter": "第1章",
+                        "section": "1.1",
+                        "line_start": 1,
+                        "line_end": 5,
+                        "chunk_text": "需求分析必须先搞清业务目标与边界。",
+                        "token_estimate": 18,
+                        "language": "zh-CN",
+                    }
+                ],
+            }
+            source_chunks_path.write_text(
+                json.dumps(source_chunks_doc, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "extract_graph_candidates.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--output",
+                    str(output_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertEqual(payload["output_path"], str(output_path))
+
+            extraction_result = json.loads(output_path.read_text(encoding="utf-8"))
+            self.assertEqual(extraction_result["schema_version"], "kiu.extraction-results/v0.1")
+            self.assertEqual(extraction_result["input_chunk_count"], 1)
+            self.assertEqual(extraction_result["chunk_ids"], ["chunk-001"])
+            self.assertEqual(extraction_result["nodes"], [])
+            self.assertEqual(extraction_result["edges"], [])
+            self.assertEqual(extraction_result["warnings"], [])
 
     def test_example_fixtures_can_generate_independent_candidate_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

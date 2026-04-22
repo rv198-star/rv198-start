@@ -1,3 +1,5 @@
+import hashlib
+import json
 import shutil
 import subprocess
 import sys
@@ -32,6 +34,30 @@ class BundleValidationTests(unittest.TestCase):
             yaml.safe_dump(doc, sort_keys=False, allow_unicode=True),
             encoding="utf-8",
         )
+
+    def _canonical_graph_hash(self, graph_doc: dict) -> str:
+        canonical_doc = dict(graph_doc)
+        canonical_doc.pop("graph_hash", None)
+        encoded = json.dumps(canonical_doc, sort_keys=True, ensure_ascii=False).encode("utf-8")
+        return "sha256:" + hashlib.sha256(encoded).hexdigest()
+
+    def _rewrite_bundle_graph_bindings(self, bundle_root: Path, graph_hash: str, graph_version: str) -> None:
+        manifest = self._load_yaml(bundle_root / "manifest.yaml")
+        manifest["graph"]["graph_hash"] = graph_hash
+        manifest["graph"]["graph_version"] = graph_version
+        self._write_yaml(bundle_root / "manifest.yaml", manifest)
+
+        for skill_entry in manifest["skills"]:
+            skill_dir = bundle_root / skill_entry["path"]
+            anchors = self._load_yaml(skill_dir / "anchors.yaml")
+            anchors["graph_hash"] = graph_hash
+            anchors["graph_version"] = graph_version
+            self._write_yaml(skill_dir / "anchors.yaml", anchors)
+
+            revisions = self._load_yaml(skill_dir / "iterations" / "revisions.yaml")
+            for entry in revisions.get("history", []):
+                entry["graph_hash"] = graph_hash
+            self._write_yaml(skill_dir / "iterations" / "revisions.yaml", revisions)
 
     def _replace_skill_text(
         self,
@@ -439,6 +465,139 @@ class BundleValidationTests(unittest.TestCase):
 
             self.assertTrue(
                 any("graph_hash" in error for error in report["errors"])
+            )
+
+    def test_migrate_graph_v01_to_v02_cli_updates_bundle_and_keeps_valid(self) -> None:
+        for bundle_path in (self.bundle_path, self.engineering_bundle_path):
+            with self.subTest(bundle=bundle_path.name):
+                with tempfile.TemporaryDirectory() as tmp_dir:
+                    tmp_bundle = Path(tmp_dir) / "bundle"
+                    shutil.copytree(bundle_path, tmp_bundle)
+
+                    result = subprocess.run(
+                        [
+                            sys.executable,
+                            str(ROOT / "scripts" / "migrate_graph_v01_to_v02.py"),
+                            str(tmp_bundle),
+                        ],
+                        capture_output=True,
+                        text=True,
+                        check=False,
+                    )
+
+                    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+                    manifest = self._load_yaml(tmp_bundle / "manifest.yaml")
+                    graph_doc = json.loads(
+                        (tmp_bundle / manifest["graph"]["path"]).read_text(encoding="utf-8")
+                    )
+                    self.assertEqual(manifest["graph"]["graph_version"], "kiu.graph/v0.2")
+                    self.assertEqual(graph_doc["graph_version"], "kiu.graph/v0.2")
+                    self.assertTrue(graph_doc["graph_hash"].startswith("sha256:"))
+                    self.assertEqual(manifest["graph"]["graph_hash"], graph_doc["graph_hash"])
+                    self.assertIn("source_file", graph_doc["nodes"][0])
+                    self.assertIn("source_location", graph_doc["nodes"][0])
+                    self.assertIn("extraction_kind", graph_doc["nodes"][0])
+                    self.assertIn("confidence", graph_doc["edges"][0])
+
+                    first_skill = manifest["skills"][0]["skill_id"]
+                    anchors = self._load_yaml(
+                        tmp_bundle / "skills" / first_skill / "anchors.yaml"
+                    )
+                    self.assertEqual(anchors["graph_version"], "kiu.graph/v0.2")
+                    self.assertEqual(anchors["graph_hash"], graph_doc["graph_hash"])
+
+                    revisions = self._load_yaml(
+                        tmp_bundle / "skills" / first_skill / "iterations" / "revisions.yaml"
+                    )
+                    self.assertEqual(
+                        revisions["history"][0]["graph_hash"],
+                        graph_doc["graph_hash"],
+                    )
+
+                    report = validate_bundle(tmp_bundle)
+                    self.assertEqual(report["errors"], [], report["errors"])
+
+    def test_validator_rejects_v02_extracted_edge_without_source_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            migrated = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "migrate_graph_v01_to_v02.py"),
+                    str(tmp_bundle),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(migrated.returncode, 0, migrated.stdout + migrated.stderr)
+
+            manifest = self._load_yaml(tmp_bundle / "manifest.yaml")
+            graph_path = tmp_bundle / manifest["graph"]["path"]
+            graph_doc = json.loads(graph_path.read_text(encoding="utf-8"))
+            graph_doc["edges"][0]["source_file"] = None
+            graph_doc["graph_hash"] = self._canonical_graph_hash(graph_doc)
+            graph_path.write_text(
+                json.dumps(graph_doc, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            self._rewrite_bundle_graph_bindings(
+                tmp_bundle,
+                graph_hash=graph_doc["graph_hash"],
+                graph_version=graph_doc["graph_version"],
+            )
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertTrue(
+                any("EXTRACTED edge missing source_file" in error for error in report["errors"]),
+                report["errors"],
+            )
+
+    def test_validator_warns_when_published_bundle_has_many_ambiguous_edges(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            migrated = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "migrate_graph_v01_to_v02.py"),
+                    str(tmp_bundle),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(migrated.returncode, 0, migrated.stdout + migrated.stderr)
+
+            manifest = self._load_yaml(tmp_bundle / "manifest.yaml")
+            graph_path = tmp_bundle / manifest["graph"]["path"]
+            graph_doc = json.loads(graph_path.read_text(encoding="utf-8"))
+            for edge in graph_doc["edges"][:3]:
+                edge["extraction_kind"] = "AMBIGUOUS"
+                edge["confidence"] = 0.5
+                edge["source_file"] = None
+            graph_doc["graph_hash"] = self._canonical_graph_hash(graph_doc)
+            graph_path.write_text(
+                json.dumps(graph_doc, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            self._rewrite_bundle_graph_bindings(
+                tmp_bundle,
+                graph_hash=graph_doc["graph_hash"],
+                graph_version=graph_doc["graph_version"],
+            )
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertEqual(report["errors"], [])
+            self.assertTrue(
+                any("ambiguous_edge_ratio" in warning for warning in report["warnings"]),
+                report["warnings"],
             )
 
     def test_validator_rejects_unknown_trigger_symbol(self) -> None:

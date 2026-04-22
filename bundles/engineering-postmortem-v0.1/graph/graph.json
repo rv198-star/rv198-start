@@ -1,31 +1,193 @@
 {
-  "graph_version": "kiu.graph/v0.1",
-  "graph_hash": "sha256:eba843df43446d3e25b4ea15e40f18509bb2b4cad7e4a5d495182fb6652a6c05",
+  "graph_version": "kiu.graph/v0.2",
+  "graph_hash": "sha256:2f62e81613b1deecac445a36c53e1406adf61d7c3fadf9883693124727368961",
   "source_snapshot": "engineering-postmortem-v0.1",
   "nodes": [
-    { "id": "n_postmortem_principle", "type": "skill_principle", "label": "Blameless postmortem" },
-    { "id": "n_blast_radius_principle", "type": "skill_principle", "label": "Blast radius check" },
-    { "id": "n_reversibility_gate", "type": "control_principle", "label": "Reversibility gate" },
-    { "id": "n_blameless_db_trace", "type": "usage_trace", "label": "DB index rollback blame" },
-    { "id": "n_timeline_gap_trace", "type": "usage_trace", "label": "Timeline gap incident" },
-    { "id": "n_runbook_reset_trace", "type": "usage_trace", "label": "Runbook ownership reset" },
-    { "id": "n_flag_guard_trace", "type": "usage_trace", "label": "Feature flag guard" },
-    { "id": "n_phased_rollout_trace", "type": "usage_trace", "label": "Phased rollout holdback" },
-    { "id": "n_irreversible_migration_trace", "type": "usage_trace", "label": "Irreversible migration precheck" }
+    {
+      "id": "n_postmortem_principle",
+      "type": "skill_principle",
+      "label": "Blameless postmortem",
+      "source_file": "sources/engineering-postmortem-notes.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_blast_radius_principle",
+      "type": "skill_principle",
+      "label": "Blast radius check",
+      "source_file": "sources/engineering-postmortem-notes.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_reversibility_gate",
+      "type": "control_principle",
+      "label": "Reversibility gate",
+      "source_file": "sources/engineering-postmortem-notes.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_blameless_db_trace",
+      "type": "usage_trace",
+      "label": "DB index rollback blame",
+      "source_file": "traces/canonical/blameless-db-index-rollout.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_timeline_gap_trace",
+      "type": "usage_trace",
+      "label": "Timeline gap incident",
+      "source_file": "traces/canonical/incident-timeline-gap.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_runbook_reset_trace",
+      "type": "usage_trace",
+      "label": "Runbook ownership reset",
+      "source_file": "traces/canonical/runbook-ownership-reset.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_flag_guard_trace",
+      "type": "usage_trace",
+      "label": "Feature flag guard",
+      "source_file": "traces/canonical/blast-radius-flag-guard.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_phased_rollout_trace",
+      "type": "usage_trace",
+      "label": "Phased rollout holdback",
+      "source_file": "traces/canonical/phased-rollout-holdback.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_irreversible_migration_trace",
+      "type": "usage_trace",
+      "label": "Irreversible migration precheck",
+      "source_file": "traces/canonical/irreversible-migration-precheck.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    }
   ],
   "edges": [
-    { "id": "e_postmortem_db_supports", "type": "supports", "from": "n_postmortem_principle", "to": "n_blameless_db_trace" },
-    { "id": "e_postmortem_timeline_supports", "type": "supports", "from": "n_postmortem_principle", "to": "n_timeline_gap_trace" },
-    { "id": "e_postmortem_runbook_supports", "type": "supports", "from": "n_postmortem_principle", "to": "n_runbook_reset_trace" },
-    { "id": "e_blast_flag_supports", "type": "supports", "from": "n_blast_radius_principle", "to": "n_flag_guard_trace" },
-    { "id": "e_blast_phased_supports", "type": "supports", "from": "n_blast_radius_principle", "to": "n_phased_rollout_trace" },
-    { "id": "e_blast_migration_supports", "type": "supports", "from": "n_blast_radius_principle", "to": "n_irreversible_migration_trace" },
-    { "id": "e_blast_reversibility_constrained_by", "type": "constrained_by", "from": "n_blast_radius_principle", "to": "n_reversibility_gate" },
-    { "id": "e_postmortem_blast_complements", "type": "complements", "from": "n_postmortem_principle", "to": "n_blast_radius_principle" }
+    {
+      "id": "e_postmortem_db_supports",
+      "type": "supports",
+      "from": "n_postmortem_principle",
+      "to": "n_blameless_db_trace",
+      "source_file": "traces/canonical/blameless-db-index-rollout.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_postmortem_timeline_supports",
+      "type": "supports",
+      "from": "n_postmortem_principle",
+      "to": "n_timeline_gap_trace",
+      "source_file": "traces/canonical/incident-timeline-gap.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_postmortem_runbook_supports",
+      "type": "supports",
+      "from": "n_postmortem_principle",
+      "to": "n_runbook_reset_trace",
+      "source_file": "traces/canonical/runbook-ownership-reset.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_blast_flag_supports",
+      "type": "supports",
+      "from": "n_blast_radius_principle",
+      "to": "n_flag_guard_trace",
+      "source_file": "traces/canonical/blast-radius-flag-guard.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_blast_phased_supports",
+      "type": "supports",
+      "from": "n_blast_radius_principle",
+      "to": "n_phased_rollout_trace",
+      "source_file": "traces/canonical/phased-rollout-holdback.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_blast_migration_supports",
+      "type": "supports",
+      "from": "n_blast_radius_principle",
+      "to": "n_irreversible_migration_trace",
+      "source_file": "traces/canonical/irreversible-migration-precheck.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_blast_reversibility_constrained_by",
+      "type": "constrained_by",
+      "from": "n_blast_radius_principle",
+      "to": "n_reversibility_gate",
+      "source_file": "sources/engineering-postmortem-notes.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_postmortem_blast_complements",
+      "type": "complements",
+      "from": "n_postmortem_principle",
+      "to": "n_blast_radius_principle",
+      "source_file": "sources/engineering-postmortem-notes.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    }
   ],
   "communities": [
-    { "id": "c_learning_loop", "label": "Learning loop", "node_ids": ["n_postmortem_principle", "n_blameless_db_trace", "n_timeline_gap_trace", "n_runbook_reset_trace"] },
-    { "id": "c_release_safety", "label": "Release safety", "node_ids": ["n_blast_radius_principle", "n_reversibility_gate", "n_flag_guard_trace", "n_phased_rollout_trace", "n_irreversible_migration_trace"] },
-    { "id": "c_pre_post_shared_frame", "label": "Pre-change and postmortem shared frame", "node_ids": ["n_postmortem_principle", "n_blast_radius_principle", "n_reversibility_gate"] }
+    {
+      "id": "c_learning_loop",
+      "label": "Learning loop",
+      "node_ids": [
+        "n_postmortem_principle",
+        "n_blameless_db_trace",
+        "n_timeline_gap_trace",
+        "n_runbook_reset_trace"
+      ]
+    },
+    {
+      "id": "c_release_safety",
+      "label": "Release safety",
+      "node_ids": [
+        "n_blast_radius_principle",
+        "n_reversibility_gate",
+        "n_flag_guard_trace",
+        "n_phased_rollout_trace",
+        "n_irreversible_migration_trace"
+      ]
+    },
+    {
+      "id": "c_pre_post_shared_frame",
+      "label": "Pre-change and postmortem shared frame",
+      "node_ids": [
+        "n_postmortem_principle",
+        "n_blast_radius_principle",
+        "n_reversibility_gate"
+      ]
+    }
   ]
 }

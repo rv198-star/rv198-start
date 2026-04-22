@@ -1,29 +1,34 @@
 skill_id: invert-the-problem
 bundle_version: 0.1.0
 skill_revision: 4
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
 graph_anchor_sets:
-  - anchor_id: invert-core
-    node_ids: [n_invert_principle, n_inversion_checklist_trace]
-    edge_ids: [e_invert_checklist_supports, e_invert_margin_complements]
-    community_ids: [c_error_avoidance]
+- anchor_id: invert-core
+  node_ids:
+  - n_invert_principle
+  - n_inversion_checklist_trace
+  edge_ids:
+  - e_invert_checklist_supports
+  - e_invert_margin_complements
+  community_ids:
+  - c_error_avoidance
 source_anchor_sets:
-  - anchor_id: invert-source-note
-    kind: source_excerpt
-    path: ../../sources/invert-the-problem.md
-    line_start: 1
-    line_end: 8
-    snippet: Inversion source note describing failure-first reasoning.
-  - anchor_id: invert-trace
-    kind: scenario_trace
-    path: ../../traces/canonical/anti-ruin-checklist.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Reference trace for enumerating ruin conditions before action.
-  - anchor_id: invert-eval
-    kind: evaluation_case
-    path: ../../evaluation/synthetic_adversarial/perfect-thesis-zero-cash-buffer.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Adversarial case where inversion should expose survival failure modes.
+- anchor_id: invert-source-note
+  kind: source_excerpt
+  path: ../../sources/invert-the-problem.md
+  line_start: 1
+  line_end: 8
+  snippet: Inversion source note describing failure-first reasoning.
+- anchor_id: invert-trace
+  kind: scenario_trace
+  path: ../../traces/canonical/anti-ruin-checklist.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Reference trace for enumerating ruin conditions before action.
+- anchor_id: invert-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/perfect-thesis-zero-cash-buffer.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case where inversion should expose survival failure modes.

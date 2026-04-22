@@ -1,0 +1,13 @@
+KiU includes original source code and bundle content maintained in this repository.
+
+Third-party design references acknowledged for v0.6 planning:
+
+- Graphify
+- cangjie-skill
+
+Current attribution scope:
+
+- No third-party source files are vendored into this repository as of v0.6 W1.
+- The project borrows core ideas only, not the surrounding tooling surface.
+- When future work copies upstream code, prompts, or templates verbatim, this NOTICE and
+  docs/third-party-attribution.md must be updated in the same change.

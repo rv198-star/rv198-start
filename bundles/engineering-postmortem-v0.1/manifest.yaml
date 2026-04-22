@@ -9,17 +9,17 @@ domain: engineering
 created_at: 2026-04-22
 graph:
   path: graph/graph.json
-  graph_version: kiu.graph/v0.1
-  graph_hash: sha256:eba843df43446d3e25b4ea15e40f18509bb2b4cad7e4a5d495182fb6652a6c05
+  graph_version: kiu.graph/v0.2
+  graph_hash: sha256:2f62e81613b1deecac445a36c53e1406adf61d7c3fadf9883693124727368961
 skills:
-  - skill_id: postmortem-blameless
-    path: skills/postmortem-blameless
-    status: under_evaluation
-    skill_revision: 1
-  - skill_id: blast-radius-check
-    path: skills/blast-radius-check
-    status: under_evaluation
-    skill_revision: 1
+- skill_id: postmortem-blameless
+  path: skills/postmortem-blameless
+  status: under_evaluation
+  skill_revision: 1
+- skill_id: blast-radius-check
+  path: skills/blast-radius-check
+  status: under_evaluation
+  skill_revision: 1
 shared_assets:
   traces: traces
   evaluation: evaluation

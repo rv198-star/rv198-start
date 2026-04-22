@@ -49,10 +49,13 @@ def _merge_graph_docs(bundle_docs: list[dict[str, Any]]) -> dict[str, Any]:
     merged_nodes: list[dict[str, Any]] = []
     merged_edges: list[dict[str, Any]] = []
     merged_communities: list[dict[str, Any]] = []
+    merged_graph_version = "kiu.graph.merge/v0.1"
 
     for bundle_doc in ordered_bundles:
         bundle_id = bundle_doc["bundle_id"]
         graph_doc = bundle_doc["graph_doc"]
+        if graph_doc.get("graph_version") == "kiu.graph/v0.2":
+            merged_graph_version = "kiu.graph.merge/v0.2"
 
         for node in sorted(graph_doc.get("nodes", []), key=lambda item: item["id"]):
             merged_nodes.append(_namespace_node(bundle_id, node))
@@ -67,7 +70,7 @@ def _merge_graph_docs(bundle_docs: list[dict[str, Any]]) -> dict[str, Any]:
             merged_communities.append(_namespace_community(bundle_id, community))
 
     merged_doc = {
-        "graph_version": "kiu.graph.merge/v0.1",
+        "graph_version": merged_graph_version,
         "source_bundles": [bundle_doc["bundle_id"] for bundle_doc in ordered_bundles],
         "bundle_count": len(ordered_bundles),
         "nodes": merged_nodes,

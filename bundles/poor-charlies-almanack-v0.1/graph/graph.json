@@ -1,41 +1,277 @@
 {
-  "graph_version": "kiu.graph/v0.1",
-  "graph_hash": "sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d",
+  "graph_version": "kiu.graph/v0.2",
+  "graph_hash": "sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e",
   "source_snapshot": "poor-charlies-almanack-v0.1",
   "nodes": [
-    { "id": "n_circle_principle", "type": "skill_principle", "label": "Circle of competence" },
-    { "id": "n_invert_principle", "type": "skill_principle", "label": "Invert the problem" },
-    { "id": "n_margin_principle", "type": "skill_principle", "label": "Margin of safety sizing" },
-    { "id": "n_bias_principle", "type": "skill_principle", "label": "Bias self audit" },
-    { "id": "n_opportunity_principle", "type": "skill_principle", "label": "Opportunity cost of the next best idea" },
-    { "id": "n_dotcom_refusal_trace", "type": "usage_trace", "label": "Dotcom refusal" },
-    { "id": "n_google_omission_trace", "type": "usage_trace", "label": "Google omission" },
-    { "id": "n_crypto_rejection_trace", "type": "usage_trace", "label": "Crypto rejection" },
-    { "id": "n_inversion_checklist_trace", "type": "usage_trace", "label": "Anti-ruin checklist" },
-    { "id": "n_margin_see_candies_trace", "type": "usage_trace", "label": "See's Candies discipline" },
-    { "id": "n_salomon_cap_trace", "type": "usage_trace", "label": "Salomon exposure cap" },
-    { "id": "n_bias_us_air_trace", "type": "usage_trace", "label": "US Air regret" },
-    { "id": "n_costco_switch_trace", "type": "usage_trace", "label": "Costco next best benchmark" },
-    { "id": "n_eval_surface_familiarity", "type": "evaluation_case", "label": "Surface familiarity trap" },
-    { "id": "n_eval_ood_career_offer", "type": "evaluation_case", "label": "Career offer OOD case" }
+    {
+      "id": "n_circle_principle",
+      "type": "skill_principle",
+      "label": "Circle of competence",
+      "source_file": "sources/circle-of-competence.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_invert_principle",
+      "type": "skill_principle",
+      "label": "Invert the problem",
+      "source_file": "sources/invert-the-problem.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_margin_principle",
+      "type": "skill_principle",
+      "label": "Margin of safety sizing",
+      "source_file": "sources/margin-of-safety-sizing.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_bias_principle",
+      "type": "skill_principle",
+      "label": "Bias self audit",
+      "source_file": "sources/bias-self-audit.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_opportunity_principle",
+      "type": "skill_principle",
+      "label": "Opportunity cost of the next best idea",
+      "source_file": "sources/opportunity-cost-of-the-next-best-idea.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_dotcom_refusal_trace",
+      "type": "usage_trace",
+      "label": "Dotcom refusal",
+      "source_file": "traces/canonical/dotcom-refusal.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_google_omission_trace",
+      "type": "usage_trace",
+      "label": "Google omission",
+      "source_file": "traces/canonical/google-omission.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_crypto_rejection_trace",
+      "type": "usage_trace",
+      "label": "Crypto rejection",
+      "source_file": "traces/canonical/crypto-rejection.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_inversion_checklist_trace",
+      "type": "usage_trace",
+      "label": "Anti-ruin checklist",
+      "source_file": "traces/canonical/anti-ruin-checklist.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_margin_see_candies_trace",
+      "type": "usage_trace",
+      "label": "See's Candies discipline",
+      "source_file": "traces/canonical/sees-candies-discipline.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_salomon_cap_trace",
+      "type": "usage_trace",
+      "label": "Salomon exposure cap",
+      "source_file": "traces/canonical/salomon-exposure-cap.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_bias_us_air_trace",
+      "type": "usage_trace",
+      "label": "US Air regret",
+      "source_file": "traces/canonical/us-air-regret.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_costco_switch_trace",
+      "type": "usage_trace",
+      "label": "Costco next best benchmark",
+      "source_file": "traces/canonical/costco-next-best-idea.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_eval_surface_familiarity",
+      "type": "evaluation_case",
+      "label": "Surface familiarity trap",
+      "source_file": "evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    },
+    {
+      "id": "n_eval_ood_career_offer",
+      "type": "evaluation_case",
+      "label": "Career offer OOD case",
+      "source_file": "evaluation/out_of_distribution/career-offer-choice.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED"
+    }
   ],
   "edges": [
-    { "id": "e_circle_dotcom_supports", "type": "supports", "from": "n_circle_principle", "to": "n_dotcom_refusal_trace" },
-    { "id": "e_circle_google_supports", "type": "supports", "from": "n_circle_principle", "to": "n_google_omission_trace" },
-    { "id": "e_circle_crypto_supports", "type": "supports", "from": "n_circle_principle", "to": "n_crypto_rejection_trace" },
-    { "id": "e_invert_checklist_supports", "type": "supports", "from": "n_invert_principle", "to": "n_inversion_checklist_trace" },
-    { "id": "e_margin_sees_supports", "type": "supports", "from": "n_margin_principle", "to": "n_margin_see_candies_trace" },
-    { "id": "e_margin_salomon_supports", "type": "supports", "from": "n_margin_principle", "to": "n_salomon_cap_trace" },
-    { "id": "e_bias_us_air_supports", "type": "supports", "from": "n_bias_principle", "to": "n_bias_us_air_trace" },
-    { "id": "e_opportunity_costco_supports", "type": "supports", "from": "n_opportunity_principle", "to": "n_costco_switch_trace" },
-    { "id": "e_circle_bias_complements", "type": "complements", "from": "n_circle_principle", "to": "n_bias_principle" },
-    { "id": "e_invert_margin_complements", "type": "complements", "from": "n_invert_principle", "to": "n_margin_principle" }
+    {
+      "id": "e_circle_dotcom_supports",
+      "type": "supports",
+      "from": "n_circle_principle",
+      "to": "n_dotcom_refusal_trace",
+      "source_file": "traces/canonical/dotcom-refusal.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_circle_google_supports",
+      "type": "supports",
+      "from": "n_circle_principle",
+      "to": "n_google_omission_trace",
+      "source_file": "traces/canonical/google-omission.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_circle_crypto_supports",
+      "type": "supports",
+      "from": "n_circle_principle",
+      "to": "n_crypto_rejection_trace",
+      "source_file": "traces/canonical/crypto-rejection.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_invert_checklist_supports",
+      "type": "supports",
+      "from": "n_invert_principle",
+      "to": "n_inversion_checklist_trace",
+      "source_file": "traces/canonical/anti-ruin-checklist.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_margin_sees_supports",
+      "type": "supports",
+      "from": "n_margin_principle",
+      "to": "n_margin_see_candies_trace",
+      "source_file": "traces/canonical/sees-candies-discipline.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_margin_salomon_supports",
+      "type": "supports",
+      "from": "n_margin_principle",
+      "to": "n_salomon_cap_trace",
+      "source_file": "traces/canonical/salomon-exposure-cap.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_bias_us_air_supports",
+      "type": "supports",
+      "from": "n_bias_principle",
+      "to": "n_bias_us_air_trace",
+      "source_file": "traces/canonical/us-air-regret.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_opportunity_costco_supports",
+      "type": "supports",
+      "from": "n_opportunity_principle",
+      "to": "n_costco_switch_trace",
+      "source_file": "traces/canonical/costco-next-best-idea.yaml",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_circle_bias_complements",
+      "type": "complements",
+      "from": "n_circle_principle",
+      "to": "n_bias_principle",
+      "source_file": "sources/circle-of-competence.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    },
+    {
+      "id": "e_invert_margin_complements",
+      "type": "complements",
+      "from": "n_invert_principle",
+      "to": "n_margin_principle",
+      "source_file": "sources/invert-the-problem.md",
+      "source_location": null,
+      "extraction_kind": "EXTRACTED",
+      "confidence": 1.0
+    }
   ],
   "communities": [
-    { "id": "c_boundary_discipline", "label": "Boundary discipline", "node_ids": ["n_circle_principle", "n_bias_principle", "n_eval_surface_familiarity", "n_eval_ood_career_offer"] },
-    { "id": "c_error_avoidance", "label": "Error avoidance", "node_ids": ["n_invert_principle", "n_inversion_checklist_trace", "n_bias_principle", "n_bias_us_air_trace"] },
-    { "id": "c_risk_control", "label": "Risk control", "node_ids": ["n_margin_principle", "n_margin_see_candies_trace", "n_salomon_cap_trace"] },
-    { "id": "c_capital_allocation", "label": "Capital allocation", "node_ids": ["n_opportunity_principle", "n_costco_switch_trace", "n_google_omission_trace"] },
-    { "id": "c_reference_evals", "label": "Reference evaluations", "node_ids": ["n_eval_surface_familiarity", "n_eval_ood_career_offer"] }
+    {
+      "id": "c_boundary_discipline",
+      "label": "Boundary discipline",
+      "node_ids": [
+        "n_circle_principle",
+        "n_bias_principle",
+        "n_eval_surface_familiarity",
+        "n_eval_ood_career_offer"
+      ]
+    },
+    {
+      "id": "c_error_avoidance",
+      "label": "Error avoidance",
+      "node_ids": [
+        "n_invert_principle",
+        "n_inversion_checklist_trace",
+        "n_bias_principle",
+        "n_bias_us_air_trace"
+      ]
+    },
+    {
+      "id": "c_risk_control",
+      "label": "Risk control",
+      "node_ids": [
+        "n_margin_principle",
+        "n_margin_see_candies_trace",
+        "n_salomon_cap_trace"
+      ]
+    },
+    {
+      "id": "c_capital_allocation",
+      "label": "Capital allocation",
+      "node_ids": [
+        "n_opportunity_principle",
+        "n_costco_switch_trace",
+        "n_google_omission_trace"
+      ]
+    },
+    {
+      "id": "c_reference_evals",
+      "label": "Reference evaluations",
+      "node_ids": [
+        "n_eval_surface_familiarity",
+        "n_eval_ood_career_offer"
+      ]
+    }
   ]
 }

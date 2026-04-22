@@ -2,13 +2,14 @@ skill_id: postmortem-blameless
 bundle_version: 0.1.0
 current_revision: 1
 history:
-  - revision: 1
-    date: '2026-04-22'
-    summary: 初版 engineering seed 把无责复盘的 contract、双层 anchors、代表性 traces 与最小 case 集绑定到同一 graph snapshot。
-    graph_hash: sha256:eba843df43446d3e25b4ea15e40f18509bb2b4cad7e4a5d495182fb6652a6c05
-    effective_status: under_evaluation
-    evidence_changes:
-      - 新增 source note 与 incident traces，使“先重建时间线再归因”的边界有可回查依据。
-      - 绑定 3 条 canonical traces 与 3 个最小 evaluation cases，避免只剩抽象原则。
+- revision: 1
+  date: '2026-04-22'
+  summary: 初版 engineering seed 把无责复盘的 contract、双层 anchors、代表性 traces 与最小 case 集绑定到同一
+    graph snapshot。
+  graph_hash: sha256:2f62e81613b1deecac445a36c53e1406adf61d7c3fadf9883693124727368961
+  effective_status: under_evaluation
+  evidence_changes:
+  - 新增 source note 与 incident traces，使“先重建时间线再归因”的边界有可回查依据。
+  - 绑定 3 条 canonical traces 与 3 个最小 evaluation cases，避免只剩抽象原则。
 open_gaps:
-  - 继续补充“系统性问题与明显违规操作并存”的灰区案例，压测 accountability 边界。
+- 继续补充“系统性问题与明显违规操作并存”的灰区案例，压测 accountability 边界。

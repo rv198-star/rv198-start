@@ -1,29 +1,36 @@
 skill_id: bias-self-audit
 bundle_version: 0.1.0
 skill_revision: 4
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
 graph_anchor_sets:
-  - anchor_id: bias-core
-    node_ids: [n_bias_principle, n_bias_us_air_trace, n_eval_surface_familiarity]
-    edge_ids: [e_bias_us_air_supports, e_circle_bias_complements]
-    community_ids: [c_boundary_discipline, c_error_avoidance]
+- anchor_id: bias-core
+  node_ids:
+  - n_bias_principle
+  - n_bias_us_air_trace
+  - n_eval_surface_familiarity
+  edge_ids:
+  - e_bias_us_air_supports
+  - e_circle_bias_complements
+  community_ids:
+  - c_boundary_discipline
+  - c_error_avoidance
 source_anchor_sets:
-  - anchor_id: bias-source-note
-    kind: source_excerpt
-    path: ../../sources/bias-self-audit.md
-    line_start: 1
-    line_end: 8
-    snippet: Source note defining the bias audit contract and refusal boundary.
-  - anchor_id: bias-trace
-    kind: scenario_trace
-    path: ../../traces/canonical/us-air-regret.yaml
-    line_start: 1
-    line_end: 8
-    snippet: US Air regret trace used as a durable anti-pattern.
-  - anchor_id: bias-eval
-    kind: evaluation_case
-    path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Adversarial case that tests whether confidence and identity distort judgment.
+- anchor_id: bias-source-note
+  kind: source_excerpt
+  path: ../../sources/bias-self-audit.md
+  line_start: 1
+  line_end: 8
+  snippet: Source note defining the bias audit contract and refusal boundary.
+- anchor_id: bias-trace
+  kind: scenario_trace
+  path: ../../traces/canonical/us-air-regret.yaml
+  line_start: 1
+  line_end: 8
+  snippet: US Air regret trace used as a durable anti-pattern.
+- anchor_id: bias-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case that tests whether confidence and identity distort judgment.
