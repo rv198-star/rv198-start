@@ -749,6 +749,79 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertIn("mock_llm_patch_applied", extraction_result["warnings"])
             self.assertEqual(extraction_result["llm_drafting"]["provider"], "mock")
 
+    def test_materialize_extraction_graph_cli_emits_graph_v02(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_chunks_path = tmp_root / "source-chunks.json"
+            extraction_output_path = tmp_root / "extraction-result.json"
+            graph_output_path = tmp_root / "graph.json"
+
+            build_chunks = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_source_chunks.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "demo-source-bundle",
+                    "--source-id",
+                    "effective-requirements-analysis",
+                    "--output",
+                    str(source_chunks_path),
+                    "--max-chars",
+                    "240",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(build_chunks.returncode, 0, build_chunks.stdout + build_chunks.stderr)
+
+            extract = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "extract_graph_candidates.py"),
+                    "--source-chunks",
+                    str(source_chunks_path),
+                    "--output",
+                    str(extraction_output_path),
+                    "--deterministic-pass",
+                    "heuristic-extractors",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(extract.returncode, 0, extract.stdout + extract.stderr)
+
+            materialize = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "materialize_extraction_graph.py"),
+                    "--extraction-result",
+                    str(extraction_output_path),
+                    "--output",
+                    str(graph_output_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(materialize.returncode, 0, materialize.stdout + materialize.stderr)
+            graph_doc = json.loads(graph_output_path.read_text(encoding="utf-8"))
+            extraction_result = json.loads(extraction_output_path.read_text(encoding="utf-8"))
+            self.assertEqual(graph_doc["graph_version"], "kiu.graph/v0.2")
+            self.assertEqual(graph_doc["source_snapshot"], "effective-requirements-analysis")
+            self.assertTrue(graph_doc["graph_hash"].startswith("sha256:"))
+            self.assertEqual(len(graph_doc["nodes"]), len(extraction_result["nodes"]))
+            self.assertEqual(len(graph_doc["edges"]), len(extraction_result["edges"]))
+            self.assertEqual(graph_doc["communities"], [])
+            self.assertIn("source_file", graph_doc["nodes"][0])
+            self.assertIn("extraction_kind", graph_doc["edges"][0])
+            self.assertIn("confidence", graph_doc["edges"][0])
+
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
