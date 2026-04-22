@@ -8,19 +8,22 @@ kiu_test:
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [anti-ruin-expansion-check, debt-funded-repurchase-inversion, acquisition-integration-pre-mortem, turnaround-failure-mode-list]
+    cases:
+      - ../../../evaluation/real_decisions/*.yaml
     passed: 20
     total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
-    cases: [guaranteed-success-roadmap, already-decided-launch-plan, missing-objective-inversion, checklist-without-tradeoffs]
+    cases:
+      - ../../../evaluation/synthetic_adversarial/*.yaml
     passed: 20
     total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
-    cases: [product-launch-copy-tactics, marathon-training-plan]
+    cases:
+      - ../../../evaluation/out_of_distribution/*.yaml
     passed: 10
     total: 10
     threshold: 0.90

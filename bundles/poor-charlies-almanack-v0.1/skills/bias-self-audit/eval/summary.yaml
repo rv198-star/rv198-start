@@ -8,19 +8,22 @@ kiu_test:
   boundary_test: pass
 subsets:
   real_decisions:
-    cases: [executive-stock-grant-attachment-audit, activist-campaign-ego-audit, conference-crowd-following-audit, succession-decision-incentive-audit]
+    cases:
+      - ../../../evaluation/real_decisions/*.yaml
     passed: 20
     total: 20
     threshold: 0.70
     status: pass
   synthetic_adversarial:
-    cases: [founder-hero-worship-audit, tribal-community-stock-pitch, bonus-linked-thesis-defense, anchoring-on-cost-basis]
+    cases:
+      - ../../../evaluation/synthetic_adversarial/*.yaml
     passed: 20
     total: 20
     threshold: 0.85
     status: pass
   out_of_distribution:
-    cases: [family-health-decision, pet-surgery-choice]
+    cases:
+      - ../../../evaluation/out_of_distribution/*.yaml
     passed: 10
     total: 10
     threshold: 0.90

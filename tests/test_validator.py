@@ -304,10 +304,26 @@ class BundleValidationTests(unittest.TestCase):
                 tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
             )
             eval_doc = self._load_yaml(eval_path)
+            eval_doc["subsets"]["real_decisions"]["cases"] = [
+                "biotech-founder-quantum-etf",
+                "semiconductor-engineer-chipmaker-bet",
+                "consumer-brand-fan-luxury-stock",
+                "founder-buyout-outside-circle",
+            ]
             eval_doc["subsets"]["real_decisions"]["total"] = 4
             eval_doc["subsets"]["real_decisions"]["passed"] = 4
+            eval_doc["subsets"]["synthetic_adversarial"]["cases"] = [
+                "tsla-surface-familiarity",
+                "ai-tourist-deepfake-expert",
+                "doctor-crypto-miner-confidence",
+                "private-equity-brochure-overconfidence",
+            ]
             eval_doc["subsets"]["synthetic_adversarial"]["total"] = 4
             eval_doc["subsets"]["synthetic_adversarial"]["passed"] = 4
+            eval_doc["subsets"]["out_of_distribution"]["cases"] = [
+                "career-offer-choice",
+                "house-buying-decision",
+            ]
             eval_doc["subsets"]["out_of_distribution"]["total"] = 2
             eval_doc["subsets"]["out_of_distribution"]["passed"] = 2
             self._write_yaml(eval_path, eval_doc)
@@ -334,6 +350,95 @@ class BundleValidationTests(unittest.TestCase):
                     in error
                     for error in report["errors"]
                 )
+            )
+
+    def test_subset_count_rejects_inflated_total(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            eval_path = (
+                tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
+            )
+            eval_doc = self._load_yaml(eval_path)
+            eval_doc["subsets"]["real_decisions"]["cases"] = [
+                "biotech-founder-quantum-etf",
+                "semiconductor-engineer-chipmaker-bet",
+                "consumer-brand-fan-luxury-stock",
+                "founder-buyout-outside-circle",
+            ]
+            eval_doc["subsets"]["real_decisions"]["total"] = 20
+            self._write_yaml(eval_path, eval_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertTrue(
+                any(
+                    "circle-of-competence: real_decisions total=20 does not match resolved_cases=4"
+                    in error
+                    for error in report["errors"]
+                ),
+                report["errors"],
+            )
+
+    def test_subset_count_accepts_glob_expansion(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            eval_path = (
+                tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
+            )
+            eval_doc = self._load_yaml(eval_path)
+            eval_doc["subsets"]["real_decisions"]["cases"] = [
+                "../../../evaluation/real_decisions/*.yaml"
+            ]
+            eval_doc["subsets"]["real_decisions"]["total"] = 20
+            self._write_yaml(eval_path, eval_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertFalse(
+                any(
+                    "circle-of-competence: real_decisions total=20 does not match resolved_cases=20"
+                    in error
+                    for error in report["errors"]
+                ),
+                report["errors"],
+            )
+            self.assertEqual(
+                next(
+                    skill["eval_case_counts"]["real_decisions"]
+                    for skill in report["skills"]
+                    if skill["skill_id"] == "circle-of-competence"
+                ),
+                20,
+            )
+
+    def test_subset_count_rejects_missing_files(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_bundle = Path(tmp_dir) / "bundle"
+            shutil.copytree(self.bundle_path, tmp_bundle)
+
+            eval_path = (
+                tmp_bundle / "skills" / "circle-of-competence" / "eval" / "summary.yaml"
+            )
+            eval_doc = self._load_yaml(eval_path)
+            eval_doc["subsets"]["real_decisions"]["cases"] = [
+                "../../../evaluation/real_decisions/does-not-exist-*.yaml"
+            ]
+            eval_doc["subsets"]["real_decisions"]["total"] = 0
+            self._write_yaml(eval_path, eval_doc)
+
+            report = validate_bundle(tmp_bundle)
+
+            self.assertTrue(
+                any(
+                    "circle-of-competence: real_decisions cases pattern matched 0 files"
+                    in error
+                    for error in report["errors"]
+                ),
+                report["errors"],
             )
 
     def test_validator_allows_under_evaluation_with_small_eval_case_counts(self) -> None:
