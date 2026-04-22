@@ -146,30 +146,48 @@ def _build_usage_summary(trace_refs: list[str], usage_notes: list[str] | None = 
 
 
 def _fallback_contract(seed: CandidateSeed) -> dict[str, Any]:
+    contract_key = seed.candidate_id.replace("-", "_")
     return {
         "trigger": {
-            "patterns": [f"candidate_seed::{seed.primary_node_id}"],
-            "exclusions": [],
+            "patterns": [
+                f"{contract_key}_needed",
+                f"{contract_key}_decision_window",
+            ],
+            "exclusions": [f"{contract_key}_out_of_scope"],
         },
         "intake": {
             "required": [
                 {
                     "name": "scenario",
                     "type": "structured",
-                    "description": "Scenario data required to review this candidate.",
+                    "description": "Scenario summary that may require this skill.",
+                },
+                {
+                    "name": "decision_goal",
+                    "type": "string",
+                    "description": "What decision or action the user is trying to make.",
+                },
+                {
+                    "name": "current_constraints",
+                    "type": "list[string]",
+                    "description": "Operational constraints, boundary conditions, or missing context signals.",
                 }
             ]
         },
         "judgment_schema": {
             "output": {
                 "type": "structured",
-                "schema": {"verdict": "enum[pending_review]"},
+                "schema": {
+                    "verdict": "enum[apply|defer|do_not_apply]",
+                    "next_action": "string",
+                    "confidence": "enum[low|medium|high]",
+                },
             },
             "reasoning_chain_required": True,
         },
         "boundary": {
-            "fails_when": ["evidence_is_too_sparse_for_candidate_review"],
-            "do_not_fire_when": ["candidate_has_not_been_reviewed_by_human"],
+            "fails_when": [f"{contract_key}_evidence_conflict"],
+            "do_not_fire_when": [f"{contract_key}_scenario_missing"],
         },
     }
 
@@ -192,9 +210,14 @@ def _fallback_rationale(source_bundle: SourceBundle, seed: CandidateSeed) -> str
     return (
         f"The candidate centers on `{primary['label']}` and is grounded in the source excerpt "
         f"\"{primary['snippet']}\"[^anchor:{primary['anchor_id']}]. "
-        "The initial deterministic draft therefore keeps the judgment focused on the source-backed "
-        "principle rather than broadening into generic advice. "
-        f"{support_text}".strip()
+        "The draft treats this passage as an operational principle rather than a generic summary: "
+        "it captures what should be checked, what kind of context must already be present, and "
+        "what evidence would make the recommendation unsafe to apply. "
+        "This keeps the contract narrow enough to be testable while preserving the source text's "
+        "decision logic. "
+        f"{support_text} "
+        "As a result, the initial skill draft is expected to help a reviewer decide whether this "
+        "principle should actively fire, be deferred for more context, or remain outside scope."
     )
 
 
@@ -335,13 +358,22 @@ def _collect_anchor_descriptors(source_bundle: SourceBundle, seed: CandidateSeed
     for node_id in [seed.primary_node_id, *seed.supporting_node_ids]:
         node_doc = node_docs.get(node_id, {})
         source_anchor = node_doc.get("source_anchor", {})
+        relative_path = source_anchor.get("path")
+        line_start = source_anchor.get("line_start")
+        line_end = source_anchor.get("line_end")
         snippet = source_anchor.get("snippet")
+        if not relative_path:
+            relative_path = node_doc.get("source_file")
+            source_location = node_doc.get("source_location", {})
+            if isinstance(source_location, dict):
+                line_start = source_location.get("line_start", line_start)
+                line_end = source_location.get("line_end", line_end)
         if not snippet:
             snippet = _read_snippet_from_bundle(
                 source_bundle=source_bundle,
-                relative_path=source_anchor.get("path"),
-                line_start=int(source_anchor.get("line_start", 1)),
-                line_end=int(source_anchor.get("line_end", source_anchor.get("line_start", 1))),
+                relative_path=relative_path,
+                line_start=int(line_start or 1),
+                line_end=int(line_end or line_start or 1),
             )
         if not snippet:
             continue

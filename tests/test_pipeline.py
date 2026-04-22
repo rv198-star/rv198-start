@@ -1190,6 +1190,54 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertIn("overall_score_100", review_doc)
             self.assertGreaterEqual(review_doc["generated_bundle"]["workflow_candidate_count"], 2)
 
+    def test_run_book_pipeline_cli_emits_non_placeholder_candidate_and_usage_review(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "artifacts"
+            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_book_pipeline.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "demo-source-bundle",
+                    "--source-id",
+                    "effective-requirements-analysis",
+                    "--run-id",
+                    "quality-smoke",
+                    "--output-root",
+                    str(output_root),
+                    "--max-chars",
+                    "240",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            run_root = Path(payload["run_root"])
+
+            usage_root = run_root / "usage-review"
+            usage_docs = sorted(usage_root.glob("*.yaml"))
+            self.assertTrue(usage_docs)
+
+            production_quality = json.loads(
+                (run_root / "reports" / "production-quality.json").read_text(encoding="utf-8")
+            )
+            skill_report = production_quality["skills"][0]
+            self.assertNotIn("placeholder_contract", skill_report["blockers"])
+            self.assertNotIn("placeholder_rationale", skill_report["blockers"])
+            self.assertNotIn("missing_trace_examples", skill_report["blockers"])
+            self.assertGreaterEqual(skill_report["artifact_quality"], 0.55)
+
+            review_doc = json.loads(
+                (run_root / "reports" / "three-layer-review.json").read_text(encoding="utf-8")
+            )
+            self.assertGreater(review_doc["usage_outputs"]["score_100"], 0.0)
+
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)

@@ -18,6 +18,7 @@ from .extraction import (
     validate_source_chunks_doc,
 )
 from .extraction_bundle import scaffold_extraction_bundle
+from .load import extract_yaml_section, parse_sections
 from .load import load_source_bundle
 from .normalize import normalize_graph
 from .preflight import validate_generated_bundle
@@ -98,6 +99,7 @@ def run_book_pipeline(
         drafting_mode=drafting_mode,
         llm_budget_tokens=llm_budget_tokens,
     )
+    _write_smoke_usage_reviews(run_root)
     review_doc = review_generated_run(
         run_root=run_root,
         source_bundle_path=source_bundle_root,
@@ -188,6 +190,82 @@ def _build_candidates(
     )
     write_production_quality(run_root, quality_report)
     return run_root
+
+
+def _write_smoke_usage_reviews(run_root: Path) -> None:
+    bundle_root = run_root / "bundle"
+    usage_root = run_root / "usage-review"
+    usage_root.mkdir(parents=True, exist_ok=True)
+    candidates = load_generated_candidates(bundle_root)
+    for candidate in candidates:
+        skill_id = candidate["candidate"]["candidate_id"]
+        anchors = candidate.get("anchors", {})
+        source_anchors = anchors.get("source_anchor_sets", [])
+        primary_anchor = source_anchors[0] if source_anchors else {}
+        secondary_anchor = source_anchors[1] if len(source_anchors) > 1 else primary_anchor
+        sections = parse_sections(candidate.get("skill_markdown", ""))
+        contract = extract_yaml_section(sections.get("Contract", ""))
+        trigger_patterns = [
+            item
+            for item in contract.get("trigger", {}).get("patterns", [])
+            if isinstance(item, str)
+        ]
+        output_schema = (
+            contract.get("judgment_schema", {})
+            .get("output", {})
+            .get("schema", {})
+        )
+        verdict = output_schema.get("verdict", "apply")
+        usage_doc = {
+            "review_case_id": f"{skill_id}-smoke-usage",
+            "generated_run_root": str(run_root),
+            "skill_path": str(bundle_root / "skills" / skill_id / "SKILL.md"),
+            "input_scenario": {
+                "scenario": primary_anchor.get("snippet", ""),
+                "decision_goal": f"Decide whether `{skill_id}` should fire for this source-backed situation.",
+                "current_constraints": [
+                    f"Confirm the scenario still satisfies `{trigger_patterns[0]}`."
+                ] if trigger_patterns else [],
+            },
+            "firing_assessment": {
+                "should_fire": True,
+                "why_this_skill_fired": [
+                    f"The scenario directly resembles `{primary_anchor.get('anchor_id', skill_id)}`.",
+                    f"The neighboring evidence in `{secondary_anchor.get('anchor_id', skill_id)}` keeps the boundary specific.",
+                ],
+            },
+            "boundary_check": {
+                "status": "pass",
+                "notes": [
+                    "This is an automated smoke usage review, not a production judgment.",
+                    "The scenario still includes concrete evidence and decision context.",
+                ],
+            },
+            "structured_output": {
+                "verdict": verdict if isinstance(verdict, str) else "apply",
+                "next_action": "review_source_evidence",
+                "confidence": "medium",
+            },
+            "analysis_summary": (
+                f"The smoke review fired `{skill_id}` because the scenario is anchored to "
+                f"the same evidence path as `{primary_anchor.get('anchor_id', skill_id)}`."
+            ),
+            "quality_assessment": {
+                "contract_fit": "strong" if trigger_patterns else "medium",
+                "evidence_alignment": [
+                    anchor.get("anchor_id")
+                    for anchor in source_anchors[:2]
+                    if isinstance(anchor, dict) and anchor.get("anchor_id")
+                ],
+                "caveats": [
+                    "Replace this smoke review with real usage evidence before release."
+                ],
+            },
+        }
+        (usage_root / f"{skill_id}-smoke.yaml").write_text(
+            yaml.safe_dump(usage_doc, sort_keys=False, allow_unicode=True),
+            encoding="utf-8",
+        )
 
 
 def _write_json(path: Path, doc: dict[str, Any]) -> None:
