@@ -12,7 +12,10 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from kiu_pipeline.reports import write_three_layer_review
+from kiu_pipeline.reports import (
+    reconcile_production_quality_with_review,
+    write_three_layer_review,
+)
 from kiu_pipeline.review import review_generated_run
 
 
@@ -38,6 +41,7 @@ def main() -> int:
         usage_review_dir=args.usage_review_dir,
     )
     write_three_layer_review(args.run_root, review)
+    reconcile_production_quality_with_review(args.run_root, review)
     print(
         json.dumps(
             {
@@ -46,6 +50,8 @@ def main() -> int:
                 "source_bundle": review["source_bundle"]["score_100"],
                 "generated_bundle": review["generated_bundle"]["score_100"],
                 "usage_outputs": review["usage_outputs"]["score_100"],
+                "release_gate_overall_ready": review["release_gate"]["overall_ready"],
+                "release_gate_reasons": review["release_gate"]["reasons"],
             },
             ensure_ascii=False,
         )

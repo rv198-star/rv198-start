@@ -1,29 +1,34 @@
 skill_id: opportunity-cost-of-the-next-best-idea
 bundle_version: 0.1.0
 skill_revision: 4
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
 graph_anchor_sets:
-  - anchor_id: opportunity-core
-    node_ids: [n_opportunity_principle, n_costco_switch_trace, n_google_omission_trace]
-    edge_ids: [e_opportunity_costco_supports]
-    community_ids: [c_capital_allocation]
+- anchor_id: opportunity-core
+  node_ids:
+  - n_opportunity_principle
+  - n_costco_switch_trace
+  - n_google_omission_trace
+  edge_ids:
+  - e_opportunity_costco_supports
+  community_ids:
+  - c_capital_allocation
 source_anchor_sets:
-  - anchor_id: opportunity-source-note
-    kind: source_excerpt
-    path: ../../sources/opportunity-cost-of-the-next-best-idea.md
-    line_start: 1
-    line_end: 8
-    snippet: Source note requiring a live next-best benchmark.
-  - anchor_id: opportunity-trace
-    kind: scenario_trace
-    path: ../../traces/canonical/costco-next-best-idea.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Benchmark trace comparing a new idea against the best current alternative.
-  - anchor_id: opportunity-eval
-    kind: evaluation_case
-    path: ../../evaluation/synthetic_adversarial/shiny-turnaround-no-benchmark.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Adversarial case that omits the next-best benchmark on purpose.
+- anchor_id: opportunity-source-note
+  kind: source_excerpt
+  path: ../../sources/opportunity-cost-of-the-next-best-idea.md
+  line_start: 1
+  line_end: 8
+  snippet: Source note requiring a live next-best benchmark.
+- anchor_id: opportunity-trace
+  kind: scenario_trace
+  path: ../../traces/canonical/costco-next-best-idea.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Benchmark trace comparing a new idea against the best current alternative.
+- anchor_id: opportunity-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/shiny-turnaround-no-benchmark.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case that omits the next-best benchmark on purpose.

@@ -27,7 +27,20 @@ GENERIC_PLACEHOLDER_STRINGS = (
 GENERIC_BOUNDARY_SYMBOLS = {
     "evidence_is_too_sparse_for_candidate_review",
     "candidate_has_not_been_reviewed_by_human",
+    "scenario_missing_decision_context",
+    "disconfirming_evidence_present",
 }
+
+GENERIC_TRIGGER_SUFFIXES = (
+    "_needed",
+    "_decision_window",
+    "_out_of_scope",
+)
+
+GENERIC_BOUNDARY_SUFFIXES = (
+    "_scenario_missing",
+    "_evidence_conflict",
+)
 
 
 def assess_candidate_artifact(
@@ -221,7 +234,10 @@ def assess_run_quality(
     thresholds = skill_reports[0]["thresholds"] if skill_reports else dict(DEFAULT_RELEASE_THRESHOLDS)
     return {
         "candidate_count": len(skill_reports),
+        "artifact_release_ready": release_ready,
+        "behavior_release_ready": None,
         "release_ready": release_ready,
+        "release_gate_reasons": [],
         "bundle_quality_grade": bundle_quality_grade,
         "average_artifact_quality": round(
             sum(artifact_scores) / len(artifact_scores),
@@ -271,8 +287,16 @@ def _score_contract(contract: dict[str, Any]) -> dict[str, Any]:
     ]
 
     placeholder_contract = len(patterns) != len(raw_patterns) or "pending_review" in contract_text
+    generic_trigger = bool(patterns or exclusions) and all(
+        _looks_generic_trigger_symbol(item)
+        for item in [*patterns, *exclusions]
+        if isinstance(item, str)
+    )
     boundary_symbols = set(fails_when + do_not_fire_when)
-    generic_boundary = bool(boundary_symbols) and boundary_symbols.issubset(GENERIC_BOUNDARY_SYMBOLS)
+    generic_boundary = bool(boundary_symbols) and all(
+        item in GENERIC_BOUNDARY_SYMBOLS or _looks_generic_boundary_symbol(item)
+        for item in boundary_symbols
+    )
 
     verdict_score = 0.0
     if "pending_review" not in contract_text and "enum[" in contract_text:
@@ -300,10 +324,16 @@ def _score_contract(contract: dict[str, Any]) -> dict[str, Any]:
     )
     if placeholder_contract:
         score = round(score * 0.35, 4)
+    if generic_trigger:
+        score = round(score * 0.55, 4)
+    if generic_boundary:
+        score = round(score * 0.75, 4)
 
     blockers: list[str] = []
     if placeholder_contract:
         blockers.append("placeholder_contract")
+    if generic_trigger:
+        blockers.append("generic_trigger_contract")
     if len(patterns) == 0:
         blockers.append("missing_trigger_patterns")
     if len(intake_fields) < 2:
@@ -321,6 +351,14 @@ def _score_contract(contract: dict[str, Any]) -> dict[str, Any]:
         },
         "blockers": blockers,
     }
+
+
+def _looks_generic_trigger_symbol(symbol: str) -> bool:
+    return any(symbol.endswith(suffix) for suffix in GENERIC_TRIGGER_SUFFIXES)
+
+
+def _looks_generic_boundary_symbol(symbol: str) -> bool:
+    return any(symbol.endswith(suffix) for suffix in GENERIC_BOUNDARY_SUFFIXES)
 
 
 def _score_rationale(

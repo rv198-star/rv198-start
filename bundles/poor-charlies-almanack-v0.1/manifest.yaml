@@ -9,30 +9,33 @@ domain: investing
 created_at: 2026-04-21
 graph:
   path: graph/graph.json
-  graph_version: kiu.graph/v0.1
-  graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+  graph_version: kiu.graph/v0.2
+  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
 skills:
-  - skill_id: circle-of-competence
-    path: skills/circle-of-competence
-    status: published
-    skill_revision: 4
-  - skill_id: invert-the-problem
-    path: skills/invert-the-problem
-    status: published
-    skill_revision: 4
-  - skill_id: margin-of-safety-sizing
-    path: skills/margin-of-safety-sizing
-    status: published
-    skill_revision: 4
-  - skill_id: bias-self-audit
-    path: skills/bias-self-audit
-    status: published
-    skill_revision: 4
-  - skill_id: opportunity-cost-of-the-next-best-idea
-    path: skills/opportunity-cost-of-the-next-best-idea
-    status: published
-    skill_revision: 4
+- skill_id: circle-of-competence
+  path: skills/circle-of-competence
+  status: published
+  skill_revision: 5
+- skill_id: invert-the-problem
+  path: skills/invert-the-problem
+  status: published
+  skill_revision: 5
+- skill_id: margin-of-safety-sizing
+  path: skills/margin-of-safety-sizing
+  status: published
+  skill_revision: 5
+- skill_id: bias-self-audit
+  path: skills/bias-self-audit
+  status: published
+  skill_revision: 5
+- skill_id: opportunity-cost-of-the-next-best-idea
+  path: skills/opportunity-cost-of-the-next-best-idea
+  status: published
+  skill_revision: 4
 shared_assets:
   traces: traces
   evaluation: evaluation
   sources: sources
+graph_report:
+  path: GRAPH_REPORT.md
+  community_count: 5

@@ -1,6 +1,6 @@
 skill_id: invert-the-problem
 bundle_version: 0.1.0
-skill_revision: 4
+skill_revision: 5
 status: published
 kiu_test:
   trigger_test: pass

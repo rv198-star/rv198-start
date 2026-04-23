@@ -39,6 +39,35 @@ class PackagingMetadataTests(unittest.TestCase):
             "CHANGELOG.md must record the v0.4.2 release section.",
         )
 
+    def test_notice_and_third_party_attribution_document_v06_references(self) -> None:
+        notice = (ROOT / "NOTICE").read_text(encoding="utf-8")
+        attribution = (ROOT / "docs" / "third-party-attribution.md").read_text(encoding="utf-8")
+
+        self.assertIn("Graphify", notice)
+        self.assertIn("cangjie-skill", notice)
+        self.assertIn("No third-party source files are vendored", notice)
+
+        self.assertIn("Graphify", attribution)
+        self.assertIn("cangjie-skill", attribution)
+        self.assertIn("core ideas only", attribution)
+        self.assertIn("not the surrounding tooling surface", attribution)
+        self.assertIn("provenance-rich graph schema", attribution)
+        self.assertIn("RIA-TV++", attribution)
+
+    def test_v06_schema_and_example_assets_exist(self) -> None:
+        self.assertTrue((ROOT / "docs" / "kiu-skill-spec-v0.6.md").exists())
+        self.assertTrue((ROOT / "schemas" / "source-chunks-v0.1.json").exists())
+        self.assertTrue((ROOT / "schemas" / "graph-v0.2.json").exists())
+        self.assertTrue((ROOT / "schemas" / "extraction-results-v0.1.json").exists())
+        examples_readme = ROOT / "examples" / "README.md"
+        self.assertTrue(examples_readme.exists())
+
+        content = examples_readme.read_text(encoding="utf-8")
+        self.assertIn("有效需求分析（第2版）", content)
+        self.assertIn("财务报表分析_Markdown版", content)
+        self.assertIn("source/extraction", content)
+        self.assertIn("not mixed into a single skill bundle", content)
+
 
 if __name__ == "__main__":
     unittest.main()

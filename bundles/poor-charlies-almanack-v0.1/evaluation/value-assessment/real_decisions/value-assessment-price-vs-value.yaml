@@ -1,0 +1,10 @@
+case_id: value-assessment-price-vs-value
+subset: real_decisions
+primary_skill: value-assessment-source-note
+related_skills:
+  - margin-of-safety-sizing
+  - circle-of-competence
+situation: A user is evaluating a high-quality consumer business that is not obviously cheap and wants to know whether price is justified by moat, pricing power, management quality, and circle-of-competence fit before talking about size.
+expected_behavior: fire
+expected_verdict: full_valuation
+note: Price-vs-value judgment should happen before sizing when the core uncertainty is whether the current quote is defensible at all.

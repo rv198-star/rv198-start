@@ -33,6 +33,13 @@ def build_candidate_anchors(
             source_bundle=source_bundle,
             seed=seed,
         )
+        explicit_source_anchors = seed.seed_content.get("source_anchor_sets", [])
+        if not source_anchor_sets and isinstance(explicit_source_anchors, list):
+            source_anchor_sets = [
+                dict(anchor)
+                for anchor in explicit_source_anchors
+                if isinstance(anchor, dict)
+            ]
 
     return {
         "skill_id": seed.candidate_id,
@@ -60,14 +67,25 @@ def _build_seed_source_anchors(
         node_doc = node_docs.get(node_id, {})
         source_anchor = node_doc.get("source_anchor", {})
         relative_path = source_anchor.get("path")
+        line_start = source_anchor.get("line_start")
+        line_end = source_anchor.get("line_end")
+        anchor_kind = source_anchor.get("kind", "source_excerpt")
+
         if not relative_path:
+            relative_path = node_doc.get("source_file")
+            source_location = node_doc.get("source_location", {})
+            if isinstance(source_location, dict):
+                line_start = source_location.get("line_start", line_start)
+                line_end = source_location.get("line_end", line_end)
+
+        if not relative_path or line_start is None:
             continue
-        line_start = int(source_anchor.get("line_start", 1))
-        line_end = int(source_anchor.get("line_end", line_start))
+        line_start = int(line_start)
+        line_end = int(line_end or line_start)
         source_anchor_sets.append(
             {
                 "anchor_id": f"{seed.candidate_id}-{node_id}",
-                "kind": source_anchor.get("kind", "source_excerpt"),
+                "kind": anchor_kind,
                 "path": _candidate_relative_path(relative_path),
                 "line_start": line_start,
                 "line_end": line_end,

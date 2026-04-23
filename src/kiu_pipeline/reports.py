@@ -49,3 +49,39 @@ def write_three_layer_review(
 ) -> None:
     path = Path(run_root) / "reports" / "three-layer-review.json"
     path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def reconcile_production_quality_with_review(
+    run_root: str | Path,
+    review_doc: dict[str, Any],
+) -> dict[str, Any]:
+    path = Path(run_root) / "reports" / "production-quality.json"
+    if not path.exists():
+        return {}
+
+    loaded = json.loads(path.read_text(encoding="utf-8"))
+    production_quality = loaded if isinstance(loaded, dict) else {}
+    release_gate = (
+        review_doc.get("release_gate", {})
+        if isinstance(review_doc.get("release_gate"), dict)
+        else {}
+    )
+    artifact_release_ready = bool(
+        production_quality.get(
+            "artifact_release_ready",
+            production_quality.get("release_ready"),
+        )
+    )
+    behavior_release_ready = bool(release_gate.get("overall_ready"))
+    release_gate_reasons = [
+        reason
+        for reason in release_gate.get("reasons", [])
+        if isinstance(reason, str) and reason
+    ]
+
+    production_quality["artifact_release_ready"] = artifact_release_ready
+    production_quality["behavior_release_ready"] = behavior_release_ready
+    production_quality["release_ready"] = artifact_release_ready and behavior_release_ready
+    production_quality["release_gate_reasons"] = release_gate_reasons
+    write_production_quality(run_root, production_quality)
+    return production_quality

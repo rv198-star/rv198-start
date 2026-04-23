@@ -1,5 +1,11 @@
 # KiU v0.6 方向性调整 · v0.5 审计 · W1 工单（开发团队交接版）
 
+> Status note (`2026-04-24`): this audit remains archived as the original `v0.6`
+> direction reset. The later version split is now explicit: `v0.6` keeps the
+> `Graphify` absorption mandate, while `In Use world-alignment` has been moved to the
+> separate `v0.7` line. See
+> [`docs/2026-04-24-version-roadmap-v051-v06-v07.md`](./2026-04-24-version-roadmap-v051-v06-v07.md).
+
 <aside>
 📌
 

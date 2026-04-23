@@ -19,6 +19,7 @@ class SourceSkill:
     eval_summary: dict[str, Any]
     revisions: dict[str, Any]
     trace_refs: list[str]
+    scenario_families: dict[str, Any]
 
 
 @dataclass

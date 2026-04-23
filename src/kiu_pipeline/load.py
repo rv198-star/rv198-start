@@ -48,6 +48,7 @@ def _load_skill(bundle_root: Path, entry: dict[str, Any]) -> SourceSkill:
     anchors = _load_yaml(skill_dir / "anchors.yaml")
     eval_summary = _load_yaml(skill_dir / "eval" / "summary.yaml")
     revisions = _load_yaml(skill_dir / "iterations" / "revisions.yaml")
+    scenario_families = _load_optional_yaml(skill_dir / "usage" / "scenarios.yaml")
     trace_refs = re.findall(r"traces/[\w./-]+\.yaml", sections.get("Usage Summary", ""))
     return SourceSkill(
         skill_id=entry["skill_id"],
@@ -62,6 +63,7 @@ def _load_skill(bundle_root: Path, entry: dict[str, Any]) -> SourceSkill:
         eval_summary=eval_summary,
         revisions=revisions,
         trace_refs=trace_refs,
+        scenario_families=scenario_families,
     )
 
 
@@ -81,6 +83,12 @@ def _load_evaluation_cases(bundle_root: Path) -> list[dict[str, Any]]:
 def _load_yaml(path: Path) -> dict[str, Any]:
     loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
     return loaded or {}
+
+
+def _load_optional_yaml(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    return _load_yaml(path)
 
 
 def parse_sections(markdown: str) -> dict[str, str]:

@@ -6,6 +6,7 @@ from typing import Any
 import yaml
 
 from .models import CandidateSeed, SourceBundle
+from .contracts import build_semantic_contract
 
 
 EMPTY_RELATIONS = {
@@ -29,9 +30,20 @@ def build_candidate_skill_markdown(
     source_skill = seed.source_skill
     seed_content = seed.seed_content or {}
     title = source_skill.title if source_skill else seed_content.get("title", _titleize(seed.candidate_id))
-    contract = source_skill.contract if source_skill else seed_content.get("contract", _fallback_contract(seed))
+    contract = (
+        source_skill.contract
+        if source_skill
+        else seed_content.get("contract", _fallback_contract(source_bundle, seed))
+    )
     relations = source_skill.relations if source_skill else seed_content.get("relations", EMPTY_RELATIONS)
     trace_refs = source_skill.trace_refs if source_skill else list(seed_content.get("trace_refs", []))
+    scenario_families = (
+        source_skill.scenario_families
+        if source_skill
+        else seed_content.get("scenario_families", {})
+    )
+    if not isinstance(scenario_families, dict):
+        scenario_families = {}
 
     identity = {
         "skill_id": seed.candidate_id,
@@ -46,15 +58,23 @@ def build_candidate_skill_markdown(
         if source_skill
         else seed_content.get("rationale", "").strip() or _fallback_rationale(source_bundle, seed)
     )
-    evidence_summary = _build_evidence_summary(source_bundle, seed)
+    evidence_summary = _build_evidence_summary(
+        source_bundle,
+        seed,
+        scenario_families=scenario_families,
+    )
     usage_summary = seed_content.get("usage_summary", "").strip() or _build_usage_summary(
         trace_refs,
         usage_notes=seed_content.get("usage_notes", []),
+        scenario_families=scenario_families,
     )
     eval_summary_doc = eval_summary
     if eval_summary_doc is None:
         eval_summary_doc = source_skill.eval_summary if source_skill else seed_content.get("eval_summary", {})
-    evaluation_summary = build_evaluation_summary_markdown(eval_summary_doc)
+    evaluation_summary = build_evaluation_summary_markdown(
+        eval_summary_doc,
+        scenario_families=scenario_families,
+    )
 
     revisions_doc = revisions
     if revisions_doc is None:
@@ -92,18 +112,32 @@ def build_candidate_skill_markdown(
     return "\n".join(lines).rstrip() + "\n"
 
 
-def _build_evidence_summary(source_bundle: SourceBundle, seed: CandidateSeed) -> str:
+def _build_evidence_summary(
+    source_bundle: SourceBundle,
+    seed: CandidateSeed,
+    *,
+    scenario_families: dict[str, Any] | None = None,
+) -> str:
+    scenario_families = scenario_families if isinstance(scenario_families, dict) else {}
     source_skill = seed.source_skill
     if source_skill:
         base = source_skill.sections.get("Evidence Summary", "").strip()
         if base:
-            return (
-                f"{base}\n\n"
+            scenario_layer = _build_scenario_family_evidence_summary(scenario_families)
+            suffix = (
                 "The v0.2 seed preserves graph/source double anchoring and records the"
                 " workflow-vs-agentic routing decision in `candidate.yaml`."
             )
+            if scenario_layer:
+                suffix += f"\n\n{scenario_layer}"
+            return (
+                f"{base}\n\n{suffix}"
+            )
     seed_evidence = seed.seed_content.get("evidence_summary", "").strip()
     if seed_evidence:
+        scenario_layer = _build_scenario_family_evidence_summary(scenario_families)
+        if scenario_layer:
+            return f"{seed_evidence}\n\n{scenario_layer}"
         return seed_evidence
     anchors = _collect_anchor_descriptors(source_bundle, seed)
     if anchors:
@@ -121,6 +155,9 @@ def _build_evidence_summary(source_bundle: SourceBundle, seed: CandidateSeed) ->
                 for item in supporting
             )
             lines.append(support_text)
+        scenario_layer = _build_scenario_family_evidence_summary(scenario_families)
+        if scenario_layer:
+            lines.append(scenario_layer)
         lines.append("See `anchors.yaml` and `candidate.yaml` for the released graph/source bindings.")
         return "\n\n".join(lines)
     return (
@@ -130,11 +167,22 @@ def _build_evidence_summary(source_bundle: SourceBundle, seed: CandidateSeed) ->
     )
 
 
-def _build_usage_summary(trace_refs: list[str], usage_notes: list[str] | None = None) -> str:
+def _build_usage_summary(
+    trace_refs: list[str],
+    usage_notes: list[str] | None = None,
+    *,
+    scenario_families: dict[str, Any] | None = None,
+) -> str:
+    scenario_families = scenario_families if isinstance(scenario_families, dict) else {}
     lines = [f"Current trace attachments: {len(trace_refs)}.", ""]
     for note in usage_notes or []:
         lines.append(f"- {note}")
     if usage_notes:
+        lines.append("")
+    if scenario_families:
+        lines.append("Scenario families:")
+        for line in _render_scenario_family_lines(scenario_families):
+            lines.append(f"- {line}")
         lines.append("")
     if trace_refs:
         lines.append("Representative cases:")
@@ -145,33 +193,14 @@ def _build_usage_summary(trace_refs: list[str], usage_notes: list[str] | None = 
     return "\n".join(lines)
 
 
-def _fallback_contract(seed: CandidateSeed) -> dict[str, Any]:
-    return {
-        "trigger": {
-            "patterns": [f"candidate_seed::{seed.primary_node_id}"],
-            "exclusions": [],
-        },
-        "intake": {
-            "required": [
-                {
-                    "name": "scenario",
-                    "type": "structured",
-                    "description": "Scenario data required to review this candidate.",
-                }
-            ]
-        },
-        "judgment_schema": {
-            "output": {
-                "type": "structured",
-                "schema": {"verdict": "enum[pending_review]"},
-            },
-            "reasoning_chain_required": True,
-        },
-        "boundary": {
-            "fails_when": ["evidence_is_too_sparse_for_candidate_review"],
-            "do_not_fire_when": ["candidate_has_not_been_reviewed_by_human"],
-        },
-    }
+def _fallback_contract(source_bundle: SourceBundle, seed: CandidateSeed) -> dict[str, Any]:
+    anchors = _collect_anchor_descriptors(source_bundle, seed)
+    primary_snippet = anchors[0]["snippet"] if anchors else None
+    return build_semantic_contract(
+        candidate_id=seed.candidate_id,
+        title=seed.seed_content.get("title"),
+        primary_snippet=primary_snippet,
+    )
 
 
 def _fallback_rationale(source_bundle: SourceBundle, seed: CandidateSeed) -> str:
@@ -192,14 +221,20 @@ def _fallback_rationale(source_bundle: SourceBundle, seed: CandidateSeed) -> str
     return (
         f"The candidate centers on `{primary['label']}` and is grounded in the source excerpt "
         f"\"{primary['snippet']}\"[^anchor:{primary['anchor_id']}]. "
-        "The initial deterministic draft therefore keeps the judgment focused on the source-backed "
-        "principle rather than broadening into generic advice. "
-        f"{support_text}".strip()
+        "The draft treats this passage as an operational principle rather than a generic summary: "
+        "it captures what should be checked, what kind of context must already be present, and "
+        "what evidence would make the recommendation unsafe to apply. "
+        "This keeps the contract narrow enough to be testable while preserving the source text's "
+        "decision logic. "
+        f"{support_text} "
+        "As a result, the initial skill draft is expected to help a reviewer decide whether this "
+        "principle should actively fire, be deferred for more context, or remain outside scope."
     )
 
 
 def _build_seed_evaluation_summary(seed: CandidateSeed) -> str:
     eval_summary = seed.seed_content.get("eval_summary", {})
+    scenario_families = seed.seed_content.get("scenario_families", {})
     kiu_test = eval_summary.get("kiu_test", {})
     subsets = eval_summary.get("subsets", {})
     lines = [
@@ -226,12 +261,21 @@ def _build_seed_evaluation_summary(seed: CandidateSeed) -> str:
         lines.append("关键失败模式：")
         for item in key_failure_modes:
             lines.append(f"- {item}")
+    coverage_line = _build_scenario_family_coverage_line(scenario_families)
+    if coverage_line:
+        lines.append("")
+        lines.append(coverage_line)
     lines.append("")
     lines.append("详见 `eval/summary.yaml` 与共享 `evaluation/`。")
     return "\n".join(lines)
 
 
-def build_evaluation_summary_markdown(eval_summary: dict[str, Any]) -> str:
+def build_evaluation_summary_markdown(
+    eval_summary: dict[str, Any],
+    *,
+    scenario_families: dict[str, Any] | None = None,
+) -> str:
+    scenario_families = scenario_families if isinstance(scenario_families, dict) else {}
     kiu_test = eval_summary.get("kiu_test", {})
     subsets = eval_summary.get("subsets", {})
     lines = [
@@ -258,6 +302,10 @@ def build_evaluation_summary_markdown(eval_summary: dict[str, Any]) -> str:
         lines.append("关键失败模式：")
         for item in key_failure_modes:
             lines.append(f"- {item}")
+    coverage_line = _build_scenario_family_coverage_line(scenario_families)
+    if coverage_line:
+        lines.append("")
+        lines.append(coverage_line)
     lines.append("")
     lines.append("详见 `eval/summary.yaml` 与共享 `evaluation/`。")
     return "\n".join(lines)
@@ -306,7 +354,9 @@ def synchronize_candidate_skill_markdown(
     revisions: dict[str, Any],
     skill_revision: int,
     status: str = "under_evaluation",
+    scenario_families: dict[str, Any] | None = None,
 ) -> str:
+    scenario_families = scenario_families if isinstance(scenario_families, dict) else {}
     updated = _update_skill_markdown_metadata(
         skill_markdown,
         skill_revision=skill_revision,
@@ -315,7 +365,10 @@ def synchronize_candidate_skill_markdown(
     updated = replace_markdown_section(
         updated,
         "Evaluation Summary",
-        build_evaluation_summary_markdown(eval_summary),
+        build_evaluation_summary_markdown(
+            eval_summary,
+            scenario_families=scenario_families,
+        ),
     )
     updated = replace_markdown_section(
         updated,
@@ -335,13 +388,22 @@ def _collect_anchor_descriptors(source_bundle: SourceBundle, seed: CandidateSeed
     for node_id in [seed.primary_node_id, *seed.supporting_node_ids]:
         node_doc = node_docs.get(node_id, {})
         source_anchor = node_doc.get("source_anchor", {})
+        relative_path = source_anchor.get("path")
+        line_start = source_anchor.get("line_start")
+        line_end = source_anchor.get("line_end")
         snippet = source_anchor.get("snippet")
+        if not relative_path:
+            relative_path = node_doc.get("source_file")
+            source_location = node_doc.get("source_location", {})
+            if isinstance(source_location, dict):
+                line_start = source_location.get("line_start", line_start)
+                line_end = source_location.get("line_end", line_end)
         if not snippet:
             snippet = _read_snippet_from_bundle(
                 source_bundle=source_bundle,
-                relative_path=source_anchor.get("path"),
-                line_start=int(source_anchor.get("line_start", 1)),
-                line_end=int(source_anchor.get("line_end", source_anchor.get("line_start", 1))),
+                relative_path=relative_path,
+                line_start=int(line_start or 1),
+                line_end=int(line_end or line_start or 1),
             )
         if not snippet:
             continue
@@ -376,6 +438,75 @@ def _read_snippet_from_bundle(
 
 def _titleize(text: str) -> str:
     return text.replace("-", " ").title()
+
+
+def _render_scenario_family_lines(scenario_families: dict[str, Any]) -> list[str]:
+    lines: list[str] = []
+    for bucket in ("should_trigger", "should_not_trigger", "edge_case", "refusal"):
+        items = scenario_families.get(bucket, [])
+        if not isinstance(items, list):
+            continue
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            scenario_id = str(item.get("scenario_id", f"{bucket}-scenario"))
+            summary = str(item.get("summary", "") or "").strip()
+            signals = [
+                str(signal).strip()
+                for signal in item.get("prompt_signals", [])
+                if str(signal).strip()
+            ]
+            boundary_reason = str(item.get("boundary_reason", "") or "").strip()
+            next_action_shape = str(item.get("next_action_shape", "") or "").strip()
+            parts = [f"`{bucket}` `{scenario_id}`"]
+            if summary:
+                parts.append(summary)
+            if signals:
+                parts.append(f"signals: {' / '.join(signals[:3])}")
+            if boundary_reason:
+                parts.append(f"boundary: {boundary_reason}")
+            if next_action_shape:
+                parts.append(f"next: {next_action_shape}")
+            lines.append("; ".join(parts))
+    return lines
+
+
+def _build_scenario_family_evidence_summary(scenario_families: dict[str, Any]) -> str:
+    coverage_parts: list[str] = []
+    for bucket in ("should_trigger", "should_not_trigger", "edge_case", "refusal"):
+        items = scenario_families.get(bucket, [])
+        if not isinstance(items, list):
+            continue
+        for item in items[:2]:
+            if not isinstance(item, dict):
+                continue
+            scenario_id = str(item.get("scenario_id", f"{bucket}-scenario"))
+            anchor_refs = [
+                str(anchor).strip()
+                for anchor in item.get("anchor_refs", [])
+                if str(anchor).strip()
+            ]
+            boundary_reason = str(item.get("boundary_reason", "") or "").strip()
+            detail = f"`{bucket}` `{scenario_id}`"
+            if anchor_refs:
+                detail += f" -> {', '.join(f'`{anchor}`' for anchor in anchor_refs[:2])}"
+            if boundary_reason:
+                detail += f" ({boundary_reason})"
+            coverage_parts.append(detail)
+    if not coverage_parts:
+        return ""
+    return "Scenario-family anchor coverage: " + "; ".join(coverage_parts) + "."
+
+
+def _build_scenario_family_coverage_line(scenario_families: dict[str, Any]) -> str:
+    counts: list[str] = []
+    for bucket in ("should_trigger", "should_not_trigger", "edge_case", "refusal"):
+        items = scenario_families.get(bucket, [])
+        if isinstance(items, list) and items:
+            counts.append(f"`{bucket}`={len(items)}")
+    if not counts:
+        return ""
+    return "场景族覆盖：" + "，".join(counts) + "。详见 `usage/scenarios.yaml`。"
 
 
 def replace_markdown_section(markdown: str, section_name: str, body: str) -> str:

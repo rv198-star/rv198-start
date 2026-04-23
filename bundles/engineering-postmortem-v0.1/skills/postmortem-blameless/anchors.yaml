@@ -1,45 +1,45 @@
 skill_id: postmortem-blameless
 bundle_version: 0.1.0
 skill_revision: 1
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:eba843df43446d3e25b4ea15e40f18509bb2b4cad7e4a5d495182fb6652a6c05
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:2f62e81613b1deecac445a36c53e1406adf61d7c3fadf9883693124727368961
 graph_anchor_sets:
-  - anchor_id: postmortem-core
-    node_ids:
-      - n_postmortem_principle
-      - n_blameless_db_trace
-      - n_timeline_gap_trace
-      - n_runbook_reset_trace
-    edge_ids:
-      - e_postmortem_db_supports
-      - e_postmortem_timeline_supports
-      - e_postmortem_runbook_supports
-      - e_postmortem_blast_complements
-    community_ids:
-      - c_learning_loop
-      - c_pre_post_shared_frame
+- anchor_id: postmortem-core
+  node_ids:
+  - n_postmortem_principle
+  - n_blameless_db_trace
+  - n_timeline_gap_trace
+  - n_runbook_reset_trace
+  edge_ids:
+  - e_postmortem_db_supports
+  - e_postmortem_timeline_supports
+  - e_postmortem_runbook_supports
+  - e_postmortem_blast_complements
+  community_ids:
+  - c_learning_loop
+  - c_pre_post_shared_frame
 source_anchor_sets:
-  - anchor_id: postmortem-source-core
-    kind: source_excerpt
-    path: ../../sources/engineering-postmortem-notes.md
-    line_start: 3
-    line_end: 7
-    snippet: 复盘先还原时间线、系统条件和决策压力，而不是先找替罪羊。
-  - anchor_id: postmortem-trace-db
-    kind: scenario_trace
-    path: ../../traces/canonical/blameless-db-index-rollout.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 先补齐时间线、告警缺口和审批链，再区分个人失误与系统诱因。
-  - anchor_id: postmortem-trace-timeline
-    kind: scenario_trace
-    path: ../../traces/canonical/incident-timeline-gap.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 只有结论没有时间线时，团队会过早把问题收缩成个人版本。
-  - anchor_id: postmortem-eval-real
-    kind: evaluation_case
-    path: ../../evaluation/real_decisions/postmortem-db-index-blame.yaml
-    line_start: 1
-    line_end: 8
-    snippet: 真实案例要求先从 blame narrative 回到 timeline 和 system factors。
+- anchor_id: postmortem-source-core
+  kind: source_excerpt
+  path: ../../sources/engineering-postmortem-notes.md
+  line_start: 3
+  line_end: 7
+  snippet: 复盘先还原时间线、系统条件和决策压力，而不是先找替罪羊。
+- anchor_id: postmortem-trace-db
+  kind: scenario_trace
+  path: ../../traces/canonical/blameless-db-index-rollout.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 先补齐时间线、告警缺口和审批链，再区分个人失误与系统诱因。
+- anchor_id: postmortem-trace-timeline
+  kind: scenario_trace
+  path: ../../traces/canonical/incident-timeline-gap.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 只有结论没有时间线时，团队会过早把问题收缩成个人版本。
+- anchor_id: postmortem-eval-real
+  kind: evaluation_case
+  path: ../../evaluation/real_decisions/postmortem-db-index-blame.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 真实案例要求先从 blame narrative 回到 timeline 和 system factors。

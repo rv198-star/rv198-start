@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kiu.graph/v0.2",
+  "title": "KiU Graph v0.2",
+  "type": "object",
+  "required": [
+    "graph_version",
+    "graph_hash",
+    "nodes",
+    "edges",
+    "communities"
+  ],
+  "properties": {
+    "graph_version": {
+      "const": "kiu.graph/v0.2"
+    },
+    "graph_hash": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "source_snapshot": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label",
+          "source_file",
+          "source_location",
+          "extraction_kind"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "type": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "source_file": { "type": ["string", "null"] },
+          "source_location": {
+            "type": ["object", "null"],
+            "properties": {
+              "line_start": { "type": "integer", "minimum": 1 },
+              "line_end": { "type": "integer", "minimum": 1 }
+            },
+            "required": ["line_start", "line_end"],
+            "additionalProperties": false
+          },
+          "extraction_kind": {
+            "enum": ["EXTRACTED", "INFERRED", "AMBIGUOUS"]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "from",
+          "to",
+          "source_file",
+          "source_location",
+          "extraction_kind",
+          "confidence"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "type": { "type": "string", "minLength": 1 },
+          "from": { "type": "string", "minLength": 1 },
+          "to": { "type": "string", "minLength": 1 },
+          "source_file": { "type": ["string", "null"] },
+          "source_location": {
+            "type": ["object", "null"],
+            "properties": {
+              "line_start": { "type": "integer", "minimum": 1 },
+              "line_end": { "type": "integer", "minimum": 1 }
+            },
+            "required": ["line_start", "line_end"],
+            "additionalProperties": false
+          },
+          "extraction_kind": {
+            "enum": ["EXTRACTED", "INFERRED", "AMBIGUOUS"]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "communities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "node_ids"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "node_ids": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

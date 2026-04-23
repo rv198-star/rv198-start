@@ -24,7 +24,8 @@ from kiu_pipeline.render import (
     materialize_refined_candidates,
     render_generated_run,
 )
-from kiu_pipeline.seed import mine_candidate_seeds
+from kiu_pipeline.seed import mine_candidate_seed_assessment
+from kiu_pipeline.verification_gate import write_seed_verification_reports
 
 
 def parse_args() -> argparse.Namespace:
@@ -67,16 +68,21 @@ def main() -> int:
     output_root = resolve_output_root(args.output_root, bucket="generated")
     source_bundle = load_source_bundle(args.source_bundle, profile_override=args.profile)
     graph = normalize_graph(source_bundle.graph_doc)
-    seeds = mine_candidate_seeds(
+    assessment = mine_candidate_seed_assessment(
         source_bundle,
         graph,
         drafting_mode=args.drafting_mode,
     )
+    seeds = assessment["accepted"]
     run_root = render_generated_run(
         source_bundle=source_bundle,
         seeds=seeds,
         output_root=output_root,
         run_id=args.run_id,
+    )
+    write_seed_verification_reports(
+        run_root=run_root,
+        summary=assessment["summary"],
     )
     bundle_root = run_root / "bundle"
     candidates = load_generated_candidates(bundle_root)

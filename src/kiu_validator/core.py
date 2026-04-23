@@ -36,6 +36,9 @@ REQUIRED_RELATIONS = (
 )
 ALLOWED_STATUSES = {"candidate", "under_evaluation", "published", "archived"}
 ANCHOR_REQUIRED_STATUSES = {"under_evaluation", "published"}
+ALLOWED_GRAPH_VERSIONS = {"kiu.graph/v0.1", "kiu.graph/v0.2"}
+ALLOWED_EXTRACTION_KINDS = {"EXTRACTED", "INFERRED", "AMBIGUOUS"}
+AMBIGUOUS_EDGE_WARNING_THRESHOLD = 0.20
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_VALIDATION_PROFILE = {
     "trigger_registry": "shared_profiles/default/triggers.yaml",
@@ -76,6 +79,7 @@ def validate_bundle(
     edge_ids: set[str] = set()
     community_ids: set[str] = set()
     computed_graph_hash = None
+    computed_graph_version = None
     external_skill_refs: set[tuple[str, str]] | None = None
     merged_graph_report: dict[str, Any] | None = None
 
@@ -85,9 +89,22 @@ def validate_bundle(
         if not graph_path_value:
             errors.append("manifest: missing graph.path")
         else:
+            manifest_graph_version = graph_meta.get("graph_version")
+            if not manifest_graph_version:
+                errors.append("manifest.graph.graph_version: missing graph_version")
+            elif manifest_graph_version not in ALLOWED_GRAPH_VERSIONS:
+                errors.append(
+                    f"manifest.graph.graph_version: unsupported graph_version {manifest_graph_version}"
+                )
             graph_path = root / graph_path_value
             graph_doc = _load_json(graph_path, errors, "graph")
             if graph_doc:
+                computed_graph_version = graph_doc.get("graph_version")
+                if computed_graph_version not in ALLOWED_GRAPH_VERSIONS:
+                    errors.append(f"graph.graph_version: unsupported graph_version {computed_graph_version}")
+                if manifest_graph_version and computed_graph_version != manifest_graph_version:
+                    errors.append("manifest.graph.graph_version mismatch with graph.graph_version")
+
                 computed_graph_hash = _canonical_graph_hash(graph_doc)
                 graph_hashes = {
                     "manifest.graph.graph_hash": graph_meta.get("graph_hash"),
@@ -111,6 +128,16 @@ def validate_bundle(
                     "edge_count": len(edge_ids),
                     "community_count": len(community_ids),
                 }
+                _validate_graph_doc(
+                    bundle_root=root,
+                    graph_doc=graph_doc,
+                    errors=errors,
+                    warnings=warnings,
+                    published_bundle=any(
+                        entry.get("status") == "published"
+                        for entry in manifest.get("skills", [])
+                    ),
+                )
 
     if merge_paths:
         external_skill_refs = _load_external_skill_refs(merge_paths, errors)
@@ -145,6 +172,7 @@ def validate_bundle(
                 edge_ids=edge_ids,
                 community_ids=community_ids,
                 computed_graph_hash=computed_graph_hash,
+                computed_graph_version=computed_graph_version,
                 known_skill_ids=known_skill_ids,
                 external_skill_refs=external_skill_refs,
                 trigger_registry=trigger_registry,
@@ -193,6 +221,7 @@ def _validate_skill(
     edge_ids: set[str],
     community_ids: set[str],
     computed_graph_hash: str | None,
+    computed_graph_version: str | None,
     known_skill_ids: set[str],
     external_skill_refs: set[tuple[str, str]] | None,
     trigger_registry: dict[str, dict[str, Any]],
@@ -281,6 +310,7 @@ def _validate_skill(
         edge_ids=edge_ids,
         community_ids=community_ids,
         computed_graph_hash=computed_graph_hash,
+        computed_graph_version=computed_graph_version,
         status=status,
     )
 
@@ -507,6 +537,7 @@ def _validate_anchors(
     edge_ids: set[str],
     community_ids: set[str],
     computed_graph_hash: str | None,
+    computed_graph_version: str | None,
     status: str | None,
 ) -> None:
     if not anchors:
@@ -523,6 +554,8 @@ def _validate_anchors(
 
     if computed_graph_hash and anchors.get("graph_hash") != computed_graph_hash:
         skill_errors.append(f"{skill_id}: anchors graph_hash mismatch")
+    if computed_graph_version and anchors.get("graph_version") != computed_graph_version:
+        skill_errors.append(f"{skill_id}: anchors graph_version mismatch")
 
     for anchor_set in graph_anchor_sets:
         referenced = 0
@@ -955,6 +988,131 @@ def _extract_yaml_section(section_text: str, errors: list[str], label: str) -> d
         errors.append(f"{label}: invalid YAML block: {exc}")
         return {}
     return loaded or {}
+
+
+def _validate_graph_doc(
+    *,
+    bundle_root: Path,
+    graph_doc: dict[str, Any],
+    errors: list[str],
+    warnings: list[str],
+    published_bundle: bool,
+) -> None:
+    graph_version = graph_doc.get("graph_version")
+    nodes = graph_doc.get("nodes", [])
+    edges = graph_doc.get("edges", [])
+
+    if not isinstance(nodes, list):
+        errors.append("graph.nodes: must be a list")
+        return
+    if not isinstance(edges, list):
+        errors.append("graph.edges: must be a list")
+        return
+
+    if graph_version != "kiu.graph/v0.2":
+        return
+
+    ambiguous_edges = 0
+    for node in nodes:
+        _validate_graph_node_v02(bundle_root, node, errors)
+    for edge in edges:
+        _validate_graph_edge_v02(bundle_root, edge, errors)
+        if edge.get("extraction_kind") == "AMBIGUOUS":
+            ambiguous_edges += 1
+
+    if published_bundle and edges:
+        ambiguous_ratio = ambiguous_edges / len(edges)
+        if ambiguous_ratio > AMBIGUOUS_EDGE_WARNING_THRESHOLD:
+            warnings.append(
+                "bundle: ambiguous_edge_ratio "
+                f"{ambiguous_ratio:.3f} exceeds {AMBIGUOUS_EDGE_WARNING_THRESHOLD:.3f}"
+                " threshold for published graph"
+            )
+
+
+def _validate_graph_node_v02(bundle_root: Path, node: dict[str, Any], errors: list[str]) -> None:
+    node_id = node.get("id", "<missing-node-id>")
+    for field in ("id", "type", "label", "extraction_kind"):
+        value = node.get(field)
+        if not isinstance(value, str) or not value:
+            errors.append(f"graph node {node_id}: missing {field}")
+
+    extraction_kind = node.get("extraction_kind")
+    if extraction_kind not in ALLOWED_EXTRACTION_KINDS:
+        errors.append(f"graph node {node_id}: invalid extraction_kind {extraction_kind!r}")
+
+    source_file = node.get("source_file")
+    _validate_graph_source_file(
+        bundle_root=bundle_root,
+        source_file=source_file,
+        label=f"graph node {node_id}",
+        errors=errors,
+    )
+    if extraction_kind == "EXTRACTED" and not source_file:
+        errors.append(f"graph node {node_id}: EXTRACTED node missing source_file")
+
+    _validate_source_location(node.get("source_location"), f"graph node {node_id}", errors)
+
+
+def _validate_graph_edge_v02(bundle_root: Path, edge: dict[str, Any], errors: list[str]) -> None:
+    edge_id = edge.get("id", "<missing-edge-id>")
+    for field in ("id", "type", "from", "to", "extraction_kind"):
+        value = edge.get(field)
+        if not isinstance(value, str) or not value:
+            errors.append(f"graph edge {edge_id}: missing {field}")
+
+    extraction_kind = edge.get("extraction_kind")
+    if extraction_kind not in ALLOWED_EXTRACTION_KINDS:
+        errors.append(f"graph edge {edge_id}: invalid extraction_kind {extraction_kind!r}")
+
+    confidence = edge.get("confidence")
+    if not isinstance(confidence, (int, float)) or not (0.0 <= float(confidence) <= 1.0):
+        errors.append(f"graph edge {edge_id}: invalid confidence {confidence!r}")
+
+    source_file = edge.get("source_file")
+    _validate_graph_source_file(
+        bundle_root=bundle_root,
+        source_file=source_file,
+        label=f"graph edge {edge_id}",
+        errors=errors,
+    )
+    if extraction_kind == "EXTRACTED" and not source_file:
+        errors.append(f"graph edge {edge_id}: EXTRACTED edge missing source_file")
+
+    _validate_source_location(edge.get("source_location"), f"graph edge {edge_id}", errors)
+
+
+def _validate_graph_source_file(
+    *,
+    bundle_root: Path,
+    source_file: Any,
+    label: str,
+    errors: list[str],
+) -> None:
+    if source_file is None:
+        return
+    if not isinstance(source_file, str) or not source_file:
+        errors.append(f"{label}: invalid source_file")
+        return
+    resolved = (bundle_root / source_file).resolve()
+    if not resolved.exists():
+        errors.append(f"{label}: source_file does not exist: {source_file}")
+
+
+def _validate_source_location(location: Any, label: str, errors: list[str]) -> None:
+    if location is None:
+        return
+    if not isinstance(location, dict):
+        errors.append(f"{label}: source_location must be an object or null")
+        return
+    line_start = location.get("line_start")
+    line_end = location.get("line_end")
+    if not isinstance(line_start, int) or line_start < 1:
+        errors.append(f"{label}: invalid source_location.line_start")
+    if not isinstance(line_end, int) or line_end < 1:
+        errors.append(f"{label}: invalid source_location.line_end")
+    if isinstance(line_start, int) and isinstance(line_end, int) and line_end < line_start:
+        errors.append(f"{label}: source_location.line_end must be >= line_start")
 
 
 def _canonical_graph_hash(graph_doc: dict[str, Any]) -> str:

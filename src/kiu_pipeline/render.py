@@ -130,6 +130,9 @@ def load_generated_candidates(bundle_root: str | Path) -> list[dict[str, Any]]:
                 "revisions": yaml.safe_load(
                     (skill_dir / "iterations" / "revisions.yaml").read_text(encoding="utf-8")
                 ),
+                "scenario_families": yaml.safe_load(
+                    (skill_dir / "usage" / "scenarios.yaml").read_text(encoding="utf-8")
+                ),
                 "candidate": yaml.safe_load(
                     (skill_dir / "candidate.yaml").read_text(encoding="utf-8")
                 ),
@@ -189,6 +192,7 @@ def _render_skill_candidate(
     skill_dir = bundle_root / "skills" / seed.candidate_id
     (skill_dir / "eval").mkdir(parents=True, exist_ok=True)
     (skill_dir / "iterations").mkdir(parents=True, exist_ok=True)
+    (skill_dir / "usage").mkdir(parents=True, exist_ok=True)
 
     anchors = build_candidate_anchors(
         source_bundle=source_bundle,
@@ -208,6 +212,9 @@ def _render_skill_candidate(
     revisions = _build_revision_log(source_bundle, seed, skill_revision)
     _write_yaml(skill_dir / "iterations" / "revisions.yaml", revisions)
 
+    scenario_families = _scenario_families_for_seed(seed)
+    _write_yaml(skill_dir / "usage" / "scenarios.yaml", scenario_families)
+
     skill_markdown = build_candidate_skill_markdown(
         source_bundle=source_bundle,
         seed=seed,
@@ -219,6 +226,13 @@ def _render_skill_candidate(
     (skill_dir / "SKILL.md").write_text(skill_markdown, encoding="utf-8")
 
     _write_yaml(skill_dir / "candidate.yaml", seed.metadata)
+
+
+def _scenario_families_for_seed(seed: CandidateSeed) -> dict[str, Any]:
+    if seed.source_skill and seed.source_skill.scenario_families:
+        return seed.source_skill.scenario_families
+    scenario_families = seed.seed_content.get("scenario_families", {})
+    return scenario_families if isinstance(scenario_families, dict) else {}
 
 
 def _render_workflow_candidate(
@@ -251,6 +265,28 @@ def _build_revision_log(
     skill_revision: int,
 ) -> dict[str, Any]:
     revision_seed = seed.seed_content.get("revision_seed", {})
+    source_skill = seed.source_skill
+    source_revisions = source_skill.revisions if source_skill else {}
+    source_history = source_revisions.get("history", []) if isinstance(source_revisions, dict) else []
+    source_current_summary = (
+        source_skill.sections.get("Revision Summary", "").strip()
+        if source_skill and isinstance(source_skill.sections, dict)
+        else ""
+    )
+    if not source_current_summary and source_history:
+        source_current_summary = str(source_history[-1].get("summary", "") or "").strip()
+    source_evidence_changes = []
+    if source_history and isinstance(source_history[-1], dict):
+        source_evidence_changes = [
+            str(item).strip()
+            for item in source_history[-1].get("evidence_changes", [])
+            if str(item).strip()
+        ]
+    source_open_gaps = [
+        str(item).strip()
+        for item in source_revisions.get("open_gaps", [])
+        if str(item).strip()
+    ] if isinstance(source_revisions, dict) else []
     return {
         "skill_id": seed.candidate_id,
         "bundle_version": BUNDLE_VERSION,
@@ -259,7 +295,7 @@ def _build_revision_log(
             {
                 "revision": skill_revision,
                 "date": date.today().isoformat(),
-                "summary": revision_seed.get(
+                "summary": source_current_summary or revision_seed.get(
                     "summary",
                     (
                         "Initial v0.2 deterministic candidate seed produced from the"
@@ -268,7 +304,7 @@ def _build_revision_log(
                 ),
                 "graph_hash": source_bundle.manifest["graph"]["graph_hash"],
                 "effective_status": "under_evaluation",
-                "evidence_changes": revision_seed.get(
+                "evidence_changes": source_evidence_changes or revision_seed.get(
                     "evidence_changes",
                     [
                         "Attached graph-derived seed anchors.",
@@ -278,7 +314,7 @@ def _build_revision_log(
                 ),
             }
         ],
-        "open_gaps": revision_seed.get(
+        "open_gaps": source_open_gaps or revision_seed.get(
             "open_gaps",
             [
                 "Review whether the contract should be tightened before publication.",

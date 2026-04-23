@@ -57,6 +57,141 @@ python3 scripts/generate_candidates.py \
 如果你需要改成另一处固定目录，设置 `KIU_LOCAL_OUTPUT_ROOT=/your/path` 即可。
 只有在你明确希望写到仓库内路径时，才传 `--output-root generated` 之类的显式覆盖。
 
+## v0.5.1 Cangjie Gap-Closure Benchmark
+
+`v0.5.1` 起，KiU 用本地 reference pack 收口 `cangjie-skill` 对照线，但它们仍然只是
+`benchmark/reference`，不会进入默认生产链。
+
+对已发布 bundle 做 same-source 对照：
+
+```bash
+python3 scripts/benchmark_reference_pack.py \
+  --kiu-bundle bundles/poor-charlies-almanack-v0.1 \
+  --reference-pack /tmp/kiu-reference-poor-charlies-almanack-skill \
+  --alignment-file benchmarks/alignments/poor-charlies-vs-cangjie.yaml \
+  --comparison-scope same-source
+```
+
+对 raw-book pipeline 的 source bundle + generated run 做结构对照：
+
+```bash
+python3 scripts/benchmark_reference_pack.py \
+  --kiu-bundle /tmp/kiu-local-artifacts/book-pipeline/sources/<source-id>/bundle \
+  --run-root /tmp/kiu-local-artifacts/book-pipeline/generated/<bundle-id>/<run-id> \
+  --reference-pack /tmp/kiu-reference-poor-charlies-almanack-skill
+```
+
+输出会同时写：
+
+- `reference-benchmark.json`
+- `reference-benchmark.md`
+
+当前固定的对照维度：
+
+- `output_count`
+- `coverage`
+- `actionability`
+- `evidence_traceability`
+- `workflow_vs_agentic_boundary`
+- `real_usage_quality`
+
+same-source 深评时，额外看：
+
+- `concept_alignment`
+- `kiu_review`
+- `reference_review`
+- `artifact_score_delta_100`
+
+same-scenario usage 现在还会额外输出诊断字段：
+
+- case-level `failure_analysis`
+- pair-level `top_failure_modes`
+- run-level `repair_targets`
+- run-level `upstream owners`
+
+这些字段用于把 usage 失败反推到 `contract / drafting / extraction / seed_verification / routing`
+等责任层，而不是只看一个 usage 分数。
+
+`v0.5.1` 的 release gate 不是“artifact 领先即可”，而是必须同时满足：
+
+- `artifact_score_delta_100 > 0`
+- same-scenario `average_usage_delta > 0.0`
+- same-scenario `usage_winner = kiu`
+- same-scenario `kiu_weighted_pass_rate >= reference_weighted_pass_rate`
+- `workflow_vs_agentic_boundary` 保持稳定，不能靠误降 skill 来刷赢 benchmark
+
+这个 gate 在 `2026-04-24` 被明确修订成“轻微但明确超越 reference”，原因是原先
+单独要求 `weighted_pass_rate` 严格大于 reference，在双方都达到 `1.0` 时会变成
+不可达条件。
+
+如果 usage 只是打平、落后，或者虽然 pass rate 打平但综合赢家仍不是 `kiu`，即使
+artifact 层领先，也不能宣称已经补齐 `cangjie-skill` 这条版本目标。
+
+当前固定的内部评分卡：
+
+- `KiU foundation retained`
+- `Graphify core absorbed`
+- `cangjie core absorbed`
+
+这里的版本分工固定为：
+
+- `v0.5.0`：foundation closure
+- `v0.5.1`：已经结版的 `cangjie-skill` corrective gap-closure line
+- `v0.6`：`Graphify` alignment 预留线
+- `v0.7`：更后续的 `In Use world-alignment` 预留线
+
+这四条要严格分开记账：
+
+- `v0.5.1` 解决的是 same-source / same-scenario 对照线
+- `v0.6` 解决的是 source / graph / provenance 吸收线
+- `v0.7` 解决的是“真实使用压力下仍保持抽象泛化”的 world-alignment 线
+
+因此，即使一个改动能提升现实可用性，只要它的主要问题是“skill 在真实世界里是否更像可直接部署的判断工具”，也不应提前被记到 `v0.6` 的 release claim 里。
+
+`2026-04-24` 的 fresh same-source release verification 已经确认：
+
+- `usage_winner = kiu`
+- `average_usage_score_delta_100 = +1.0`
+- `kiu_weighted_pass_rate = 1.0`
+- `reference_weighted_pass_rate = 1.0`
+- `failure_tag_counts = {}`
+
+因此，`v0.5.1` 已经作为 corrective release 结版；后续实现主线转入 `v0.6` / `v0.7`，但它们的 release claim 仍需分别记账。
+
+为了避免多轮 AI 开发只依赖聊天和局部 plan，仓库内还维护一个 canonical backlog 面：
+
+- `backlog/board.yaml`
+- `python3 scripts/show_backlog.py --version v0.6.0`
+
+版本级 backlog 只负责记录状态、阻塞、验收标准和证据链接；它不替代 spec、plan、benchmark、release report。
+
+## Behavior-Aware Review Gate
+
+当前 `three-layer-review.json` 不再只给分，也会给行为化发布判断：
+
+```bash
+python3 scripts/review_generated_run.py \
+  --run-root /tmp/kiu-local-artifacts/generated/<bundle-id>/<run-id> \
+  --source-bundle bundles/poor-charlies-almanack-v0.1
+```
+
+CLI 输出现在会包含：
+
+- `release_gate_overall_ready`
+- `release_gate_reasons`
+
+写入到 `reports/three-layer-review.json` 的结构则额外包含：
+
+- `usage_outputs.failure_tag_counts`
+- `usage_outputs.usage_gate_ready`
+- `release_gate.source_bundle_ready`
+- `release_gate.generated_bundle_ready`
+- `release_gate.usage_gate_ready`
+- `release_gate.overall_ready`
+
+这意味着一个 run 即使 artifact 分数还可以，只要 usage 层暴露出明显的
+`boundary_leak`、`next_step_blunt` 或 usage score 低于门槛，release gate 也会拦截。
+
 ## v0.4 Design Notes
 
 `v0.4.x` 的定位不是“KiU 全部假设已经验证完成”，而是把单 domain 的生产线先做扎实。当前设计重点有四条：

@@ -1,57 +1,59 @@
 skill_id: circle-of-competence
 bundle_version: 0.1.0
 skill_revision: 4
-graph_version: kiu.graph/v0.1
-graph_hash: sha256:2e440a3779aedfc89867b284214496c6c9fd91ddf840b284222b97f08bfed29d
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
 graph_anchor_sets:
-  - anchor_id: circle-core
-    node_ids:
-      - n_circle_principle
-      - n_dotcom_refusal_trace
-      - n_google_omission_trace
-      - n_crypto_rejection_trace
-      - n_eval_surface_familiarity
-    edge_ids:
-      - e_circle_dotcom_supports
-      - e_circle_google_supports
-      - e_circle_crypto_supports
-    community_ids:
-      - c_boundary_discipline
-      - c_capital_allocation
+- anchor_id: circle-core
+  node_ids:
+  - n_circle_principle
+  - n_dotcom_refusal_trace
+  - n_google_omission_trace
+  - n_crypto_rejection_trace
+  - n_eval_surface_familiarity
+  edge_ids:
+  - e_circle_dotcom_supports
+  - e_circle_google_supports
+  - e_circle_crypto_supports
+  community_ids:
+  - c_boundary_discipline
+  - c_capital_allocation
 source_anchor_sets:
-  - anchor_id: circle-source-note
-    kind: source_excerpt
-    path: ../../sources/circle-of-competence.md
-    line_start: 1
-    line_end: 8
-    snippet: Circle source note describing refusal when understanding depth is insufficient.
-  - anchor_id: circle-trace-dotcom
-    kind: scenario_trace
-    path: ../../traces/canonical/dotcom-refusal.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Historical refusal trace for dotcom exposure.
-  - anchor_id: circle-trace-google
-    kind: scenario_trace
-    path: ../../traces/canonical/google-omission.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Historical omission trace showing process quality can survive a missed winner.
-  - anchor_id: circle-trace-crypto
-    kind: scenario_trace
-    path: ../../traces/canonical/crypto-rejection.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Historical refusal trace where no intelligible business model exists.
-  - anchor_id: circle-eval
-    kind: evaluation_case
-    path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Adversarial case that separates product familiarity from business depth.
-  - anchor_id: circle-real-decision
-    kind: evaluation_case
-    path: ../../evaluation/real_decisions/biotech-founder-quantum-etf.yaml
-    line_start: 1
-    line_end: 8
-    snippet: Real-decision case showing that high education does not automatically imply domain competence.
+- anchor_id: circle-source-note
+  kind: source_excerpt
+  path: ../../sources/circle-of-competence.md
+  line_start: 1
+  line_end: 8
+  snippet: Circle source note describing refusal when understanding depth is insufficient.
+- anchor_id: circle-trace-dotcom
+  kind: scenario_trace
+  path: ../../traces/canonical/dotcom-refusal.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical refusal trace for dotcom exposure.
+- anchor_id: circle-trace-google
+  kind: scenario_trace
+  path: ../../traces/canonical/google-omission.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical omission trace showing process quality can survive a missed
+    winner.
+- anchor_id: circle-trace-crypto
+  kind: scenario_trace
+  path: ../../traces/canonical/crypto-rejection.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical refusal trace where no intelligible business model exists.
+- anchor_id: circle-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case that separates product familiarity from business depth.
+- anchor_id: circle-real-decision
+  kind: evaluation_case
+  path: ../../evaluation/real_decisions/biotech-founder-quantum-etf.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Real-decision case showing that high education does not automatically imply
+    domain competence.

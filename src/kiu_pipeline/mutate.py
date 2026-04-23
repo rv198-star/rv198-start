@@ -57,6 +57,7 @@ def mutate_candidate(
         revisions=mutated["revisions"],
         skill_revision=current_revision,
         status=mutated["eval_summary"].get("status", "under_evaluation"),
+        scenario_families=mutated.get("scenario_families", {}),
     )
     return mutated
 
@@ -66,6 +67,10 @@ def _append_trace_reference(skill_markdown: str, trace_ref: str) -> str:
     usage_summary = sections.get("Usage Summary", "")
     if trace_ref in usage_summary:
         return skill_markdown
+
+    if "Representative cases:" in usage_summary:
+        rendered_usage = usage_summary.rstrip() + f"\n- `{trace_ref}`"
+        return replace_markdown_section(skill_markdown, "Usage Summary", rendered_usage)
 
     trace_refs = re.findall(r"traces/[\w./-]+\.yaml", usage_summary)
     trace_refs.append(trace_ref)

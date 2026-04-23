@@ -1,0 +1,55 @@
+should_trigger:
+  - scenario_id: high-conviction-under-pressure
+    summary: 当用户已经形成强 thesis，且带着时间压力、面子压力或身份绑定准备承诺时触发。
+    prompt_signals:
+      - 我觉得这肯定对
+      - 反面意见我都不想听了
+      - 明天就拍板
+    boundary_reason: 这已经不是普通分析，而是偏差可能开始主导判断的承诺窗口。
+    next_action_shape: 写出 thesis、点名 active biases、指定 strongest counter-evidence、再给 mitigation actions 和 next_action。
+    anchor_refs:
+      - bias-source-note
+      - bias-trace-incentive
+  - scenario_id: supportive-evidence-only
+    summary: 当用户已经收集了大量支持证据，但没主动找最强反例时触发。
+    prompt_signals:
+      - 我已经找了很多支持数据
+      - 有没有反面证据
+      - 团队都同意
+    boundary_reason: 这是确认偏见和社会认同最容易被误当成“充分调研”的场景。
+    next_action_shape: 指出当前偏差簇，生成 strongest counter-evidence checklist，并给出 full_audit / partial_review / defer。
+    anchor_refs:
+      - bias-trace-pilot
+      - bias-eval
+should_not_trigger:
+  - scenario_id: concept-history-or-data-collection
+    summary: 纯概念解释、历史回顾或早期信息收集不应触发。
+    prompt_signals:
+      - 达尔文是怎么提出进化论的
+      - 先帮我收集行业数据
+      - 市场规模和主要玩家有哪些
+    boundary_reason: 这时用户还没有稳定 thesis，谈不上做 bias audit。
+    anchor_refs:
+      - bias-source-note
+edge_case:
+  - scenario_id: option-comparison-without-hardened-thesis
+    summary: 用户在几个方案之间犹豫，但还没有锁定单一 thesis 时，只做 partial review。
+    prompt_signals:
+      - 还拿不定主意
+      - 对比了几个方案
+      - 感觉都有道理
+    boundary_reason: 这更像临界态，而不是已经陷入确认偏见的强观点状态。
+    next_action_shape: 先确认 thesis 是否真的形成，再决定 partial_review 还是 defer，不要直接上 full_audit。
+    anchor_refs:
+      - bias-eval
+refusal:
+  - scenario_id: urgent-incident-response
+    summary: 紧急故障排查、事故处置不应强行套用偏差审计。
+    prompt_signals:
+      - 服务器突然宕机
+      - 先判断数据库还是网络
+      - 现在必须立刻处理
+    boundary_reason: 情境太急，系统性搜索反证不现实，优先进入应急处理。
+    next_action_shape: 明确转为应急排障或普通分析，不要伪装成 bias audit。
+    anchor_refs:
+      - bias-source-note

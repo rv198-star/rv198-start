@@ -89,6 +89,18 @@ triggers:
       - 我在看腾讯现在要不要加仓。
     negative_examples:
       - 我想先系统学习一下股票投资基础。
+  - symbol: user_judging_price_vs_value_before_position_size
+    definition: 用户正在先判断价格相对价值是否合理，问题焦点仍是 value anchor 而不是仓位大小。
+    positive_examples:
+      - 这个公司品牌很强但不便宜，这个价到底值不值？
+    negative_examples:
+      - 标的基本想清楚了，现在主要是配 5% 还是 20%。
+  - symbol: user_testing_whether_business_has_defensible_value_anchor
+    definition: 用户在确认 quoted valuation 是否有可辩护的业务价值基础，常见于私有生意、加盟或天使轮。
+    positive_examples:
+      - 这个天使轮估值到底有没有业务价值支撑？
+    negative_examples:
+      - 我只是想查一下这家公司最近的市盈率是多少。
   - symbol: user_considering_switching_or_redeploying_position
     definition: 用户在考虑换仓、减仓、再配置或把资本从 A 挪到 B。
     positive_examples:
@@ -149,6 +161,36 @@ triggers:
       - 帮我查一下巴菲特什么时候买的可口可乐。
     negative_examples:
       - 帮我判断这个计划最容易失败的地方在哪。
+  - symbol: user_request_is_short_term_trading
+    definition: 用户关注的是短线交易、技术指标择时或极短期价格波动，而不是长期 business value。
+    positive_examples:
+      - MACD 和 KDJ 哪个更适合日内交易？
+    negative_examples:
+      - 这个公司现在的价格相对长期价值是否便宜？
+  - symbol: user_request_is_pure_scale_comparison
+    definition: 用户只是在比较规模、营收、员工数或竞争格局，没有进入 price-vs-value 判断。
+    positive_examples:
+      - 员工 8000 人、营收 200 亿算不算大公司？
+    negative_examples:
+      - 这家公司为什么能值更高的估值倍数？
+  - symbol: user_request_is_concept_query_without_live_decision
+    definition: 用户只是在问概念定义或理论解释，没有真实待决问题。
+    positive_examples:
+      - 什么是内在价值？安全边际是什么意思？
+    negative_examples:
+      - 我现在正决定要不要买，这个价到底值不值？
+  - symbol: user_cannot_state_business_value_anchor
+    definition: 用户无法说明业务价值如何产生、维持或兑现，导致 valuation 缺少可验证锚点。
+    positive_examples:
+      - 我只知道大家都喜欢这个产品，但说不清它怎么长期赚钱。
+    negative_examples:
+      - 我能清楚说出它的护城河、定价权和资本回报来源。
+  - symbol: user_requests_position_size_before_value_judgment_is_stable
+    definition: 用户还没把 value judgment 讲清楚，就急于直接问该下多大仓位。
+    positive_examples:
+      - 这公司我还没想明白，但先告诉我可以买几成仓。
+    negative_examples:
+      - 我已经判断它被低估，现在只剩 sizing 需要收口。
   - symbol: user_stuck_in_complex_success_planning
     definition: 用户陷在复杂的正向规划里，反而更适合先做 inversion。
     positive_examples:

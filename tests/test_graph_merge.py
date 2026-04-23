@@ -125,6 +125,73 @@ class GraphMergeTests(unittest.TestCase):
             )
             self.assertTrue(merged["graph_hash"].startswith("sha256:"))
 
+    def test_merge_bundle_graphs_preserves_v02_provenance_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            primary_bundle = tmp_root / "primary"
+            reference_bundle = tmp_root / "reference"
+            shutil.copytree(self.bundle_path, primary_bundle)
+            shutil.copytree(self.bundle_path, reference_bundle)
+            self._rewrite_bundle_id(reference_bundle, "reference-bundle")
+
+            for bundle_root in (primary_bundle, reference_bundle):
+                migrated = subprocess.run(
+                    [
+                        sys.executable,
+                        str(ROOT / "scripts" / "migrate_graph_v01_to_v02.py"),
+                        str(bundle_root),
+                    ],
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(migrated.returncode, 0, migrated.stdout + migrated.stderr)
+
+            merged = merge_bundle_graphs([primary_bundle, reference_bundle])
+
+            self.assertEqual(merged["graph_version"], "kiu.graph.merge/v0.2")
+            first_node = merged["nodes"][0]
+            first_edge = merged["edges"][0]
+            self.assertIn("source_file", first_node)
+            self.assertIn("source_location", first_node)
+            self.assertIn("extraction_kind", first_node)
+            self.assertIn("source_file", first_edge)
+            self.assertIn("source_location", first_edge)
+            self.assertIn("extraction_kind", first_edge)
+            self.assertIn("confidence", first_edge)
+
+    def test_merge_bundle_graphs_derives_cross_bundle_inferred_links(self) -> None:
+        merged = merge_bundle_graphs(
+            [
+                ROOT / "bundles" / "poor-charlies-almanack-v0.1",
+                ROOT / "bundles" / "engineering-postmortem-v0.1",
+            ]
+        )
+
+        inferred_edges = [
+            edge
+            for edge in merged["edges"]
+            if edge.get("cross_bundle")
+            and edge.get("extraction_kind") in {"INFERRED", "AMBIGUOUS"}
+        ]
+
+        self.assertGreater(len(inferred_edges), 0)
+        margin_to_blast = next(
+            (
+                edge
+                for edge in inferred_edges
+                if edge["from"] == "poor-charlies-almanack-v0.1::n_margin_principle"
+                and edge["to"] == "engineering-postmortem-v0.1::n_blast_radius_principle"
+            ),
+            None,
+        )
+        self.assertIsNotNone(margin_to_blast)
+        assert margin_to_blast is not None
+        self.assertLess(float(margin_to_blast["confidence"]), 1.0)
+        self.assertGreater(float(margin_to_blast["confidence"]), 0.0)
+        self.assertTrue(margin_to_blast.get("support_refs"))
+        self.assertIn("shared_concepts", margin_to_blast)
+
 
 if __name__ == "__main__":
     unittest.main()

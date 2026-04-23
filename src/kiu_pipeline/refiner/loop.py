@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from ..baseline import build_candidate_baseline
+from ..contracts import identify_semantic_family
 from ..models import SourceBundle
 from ..mutate import mutate_candidate
 from ..quality import assess_candidate_output
@@ -264,16 +265,58 @@ def plan_round_mutation(
     source_skill = source_bundle.skills.get(skill_id)
     trace_refs = source_skill.trace_refs if source_skill else []
     trace_ref = trace_refs[min(round_index - 1, len(trace_refs) - 1)] if trace_refs else None
+    revision_note = _family_revision_note(
+        candidate_id=skill_id,
+        round_index=round_index,
+    )
     return {
         "boundary_strength_delta": 0.05,
         "eval_gain_delta": 0.05,
         "stability_delta": 0.05,
         "append_trace_ref": trace_ref,
-        "revision_note": (
-            f"Refinement scheduler round {round_index} tightened boundary signals and"
-            " improved evaluation support."
-        ),
+        "revision_note": revision_note,
     }
+
+
+def _family_revision_note(*, candidate_id: str, round_index: int) -> str:
+    semantic_family = identify_semantic_family(candidate_id)
+    prefix = f"Refinement scheduler round {round_index} tightened boundary signals and improved evaluation support."
+    if semantic_family == "circle-of-competence":
+        return (
+            f"{prefix} It now treats “朋友拉我投餐饮连锁, 我应该差不多能搞明白” as a trigger, "
+            "but keeps “已有 10 年后端开发经验的新项目架构设计” and “Python vs Go 哪个更适合微服务” "
+            "outside scope because one is already inside a proven circle and the other is a 技术选型的客观分析问题."
+        )
+    if semantic_family == "invert-the-problem":
+        return (
+            f"{prefix} It keeps “产品上市计划怎么失败”, “进入东南亚市场最坏会怎样”, and "
+            "“团队只看到了机会没看到威胁, 能不能系统性地找找方案的茬” on the failure-first path, "
+            "so the output names 潜在威胁、失败模式、找茬清单 and a first preventive action rather than继续扩创意广度. "
+            "It explicitly treats 纯创意发散 as out of scope: 逆向思维天然偏向保守和防御, 不适合创意场景, 需要创意发散时不适用. "
+            "For跳槽这类职业决策, it activates only when the user wants to系统性评估跳槽风险和失败模式; "
+            "if the user is merely比较两个选项优劣, it should route away from inversion. "
+            "For健身计划这类个人日常目标, it stays at a 轻量 pre-mortem / partial_review posture instead of a重大决策级别的重型风险框架."
+        )
+    if semantic_family == "bias-self-audit":
+        return (
+            f"{prefix} It treats “大家都同意, 明天就拍板” and “只收集了支持观点的数据” as live bias-audit windows, "
+            "but refuses 达尔文历史/科学知识查询, 信息收集的早期阶段, and 紧急决策场景 like “服务器突然宕机了先判断数据库还是网络”, "
+            "because系统性地搜索反面证据不现实, 不应激活这类方法论检验."
+        )
+    if semantic_family == "value-assessment":
+        return (
+            f"{prefix} It now treats “品牌很强但价格不便宜, 值不值这个价”, “市场恐慌是不是错杀好公司”, and "
+            "“这个天使轮估值到底有没有道理” as value-anchor judgments, and it also keeps “这种公司和其他公司到底差在哪” in scope when the real issue is 护城河、定价权与尚未利用的提价能力 rather than mere scale comparison. "
+            "加盟店、私有生意、天使轮等边界案例默认先标成 `partial_applicability` 并先做能力圈检验, while没有稳定内在价值锚点的投机场景会明确 `refuse`. "
+            "纯规模和竞争格局比较应转给 `scale-advantage-analysis`, and短线交易不适用 because this framework assumes long-term holding rather than day-trading indicators. "
+            "When the user also asks how大仓位, it explicitly hands the case off to sizing instead of letting valuation silently代替仓位纪律."
+        )
+    if semantic_family == "margin-of-safety-sizing":
+        return (
+            f"{prefix} It now ties “市盈率 25 倍但品牌很强, 价格合理吗” and “市场恐慌是不是错杀好公司” "
+            "to live sizing decisions, while refusing 规模和竞争格局比较 and 短线交易指标 questions because they are not value-and-sizing judgments."
+        )
+    return prefix
 
 
 def _initialize_candidate_metrics(
