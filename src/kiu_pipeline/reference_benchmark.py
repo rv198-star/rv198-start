@@ -459,9 +459,15 @@ def _build_concept_alignment(
     reference_pack: dict[str, Any],
     alignment_file: str | Path | None,
 ) -> dict[str, Any]:
-    kiu_reviews = dict(kiu_bundle.get("skill_reviews", {}))
-    if not kiu_reviews and generated_run is not None:
-        kiu_reviews = dict(generated_run.get("generated_bundle_skill_reviews", {}))
+    generated_kiu_reviews = (
+        dict(generated_run.get("generated_bundle_skill_reviews", {}))
+        if generated_run is not None
+        else {}
+    )
+    if generated_kiu_reviews:
+        kiu_reviews = generated_kiu_reviews
+    else:
+        kiu_reviews = dict(kiu_bundle.get("skill_reviews", {}))
     reference_reviews = dict(reference_pack.get("skill_reviews", {}))
     alignment_pairs = _resolve_alignment_pairs(
         kiu_reviews=kiu_reviews,

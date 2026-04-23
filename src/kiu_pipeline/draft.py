@@ -354,7 +354,9 @@ def synchronize_candidate_skill_markdown(
     revisions: dict[str, Any],
     skill_revision: int,
     status: str = "under_evaluation",
+    scenario_families: dict[str, Any] | None = None,
 ) -> str:
+    scenario_families = scenario_families if isinstance(scenario_families, dict) else {}
     updated = _update_skill_markdown_metadata(
         skill_markdown,
         skill_revision=skill_revision,
@@ -363,7 +365,10 @@ def synchronize_candidate_skill_markdown(
     updated = replace_markdown_section(
         updated,
         "Evaluation Summary",
-        build_evaluation_summary_markdown(eval_summary),
+        build_evaluation_summary_markdown(
+            eval_summary,
+            scenario_families=scenario_families,
+        ),
     )
     updated = replace_markdown_section(
         updated,

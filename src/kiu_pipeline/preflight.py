@@ -57,8 +57,17 @@ def validate_generated_bundle(bundle_root: str | Path) -> dict[str, Any]:
         revisions_doc = yaml.safe_load(
             (candidate_path.parent / "iterations" / "revisions.yaml").read_text(encoding="utf-8")
         ) or {}
+        scenario_families = {}
+        scenario_path = candidate_path.parent / "usage" / "scenarios.yaml"
+        if scenario_path.exists():
+            scenario_families = yaml.safe_load(
+                scenario_path.read_text(encoding="utf-8")
+            ) or {}
 
-        expected_eval_summary = build_evaluation_summary_markdown(eval_doc).strip()
+        expected_eval_summary = build_evaluation_summary_markdown(
+            eval_doc,
+            scenario_families=scenario_families,
+        ).strip()
         if sections.get("Evaluation Summary", "").strip() != expected_eval_summary:
             errors.append(f"{skill_id}: Evaluation Summary drift vs eval/summary.yaml")
 

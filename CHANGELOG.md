@@ -2,10 +2,22 @@
 
 ## Unreleased
 
-### Planned For 0.5.1
-- Correct the version narrative so `0.5.0` remains the foundation closure while `0.5.1` becomes the explicit `cangjie-skill` gap-closure patch.
-- Harden the same-source benchmark release gate so artifact lead alone is insufficient; `0.5.1` must show slight but explicit same-scenario superiority: positive usage delta, `usage_winner = kiu`, weighted pass-rate parity-or-better, and no boundary drift.
-- Archive a fresh Poor Charlie scorecard that records benchmark paths, usage deltas, and workflow-boundary preservation evidence for the `0.5.1` release decision.
+## [0.5.1] - 2026-04-24
+
+### Added
+- Added per-skill `usage/scenarios.yaml` for the five published investing skills so source bundles carry explicit trigger language, edge handling, and next-action shapes into generated bundles.
+- Added a generated `value-assessment-source-note` parent skill for the margin family, plus dedicated evaluation cases under `evaluation/value-assessment/` and a new canonical trace `unused-pricing-power-signal.yaml`.
+- Added version-roadmap and benchmark-gap archive docs clarifying the split between `v0.5.1`, reserved `v0.6`, and reserved `v0.7`.
+
+### Changed
+- Generated bundles now preserve scenario families in `Usage Summary` and inherit source `Revision Summary` content instead of regressing to generic seed text.
+- The margin family now uses explicit parent/specialist topology: `value-assessment-source-note` handles value-anchor judgment first, then delegates sizing decisions to `margin-of-safety-sizing`.
+- Reference benchmark concept alignment now prefers generated-run skill reviews when `--run-root` is provided, so same-source comparisons score the actual generated bundle instead of falling back to the published source bundle.
+- Investing trigger registry was extended for valuation-parent routing, and additional candidates can now carry explicit source/scenario anchors.
+- The `value-assessment-source-note` contract and usage language were sharpened around price-vs-value sequencing, unused pricing power, private-business edge handling, and explicit handoff conditions.
+
+### Verified
+- Release verification now shows stable same-source superiority against the local `poor-charlies-almanack-skill` reference pack: `usage_winner = kiu`, `average_usage_score_delta_100 = +1.0`, weighted pass-rate parity at `1.0`, and no failure tags in the fresh benchmark archive.
 
 ## [0.5.0] - 2026-04-22
 

@@ -1,0 +1,155 @@
+schema_version: kiu.backlog/v0.1
+board_id: kiu-main
+updated_at: 2026-04-24
+lanes:
+  - todo
+  - in_progress
+  - blocked
+  - review
+  - done
+tickets:
+  - id: KIU-511
+    title: same-source benchmark gate tightening
+    target_version: v0.5.1
+    status: done
+    priority: P0
+    blocker_level: hard
+    area: benchmark
+    summary: Require positive same-scenario usage delta, parity-or-better pass rate, and no failure-tag regression before release.
+    acceptance:
+      - Fresh same-source benchmark shows usage_winner = kiu.
+      - Weighted pass-rate is parity-or-better.
+      - Failure tag counts remain empty at release verification.
+    evidence:
+      - CHANGELOG.md
+      - reports/2026-04-23-v0.5-vs-cangjie-conclusion.md
+  - id: KIU-512
+    title: generated usage summary inheritance
+    target_version: v0.5.1
+    status: done
+    priority: P0
+    blocker_level: hard
+    area: rendering
+    summary: Preserve source scenario families and revision history in generated bundles.
+    acceptance:
+      - Generated Usage Summary carries scenario families.
+      - Generated Revision Summary inherits source revision narrative.
+    evidence:
+      - tests/test_pipeline.py
+      - src/kiu_pipeline/render.py
+      - src/kiu_pipeline/draft.py
+  - id: KIU-514
+    title: margin family parent-specialist topology repair
+    target_version: v0.5.1
+    status: done
+    priority: P0
+    blocker_level: hard
+    area: skill-topology
+    summary: Split value-anchor judgment from sizing judgment through a generated parent skill.
+    acceptance:
+      - Generated bundle includes value-assessment-source-note.
+      - Parent skill delegates sizing decisions to margin-of-safety-sizing.
+      - Same-source benchmark aligns value-assessment to the parent skill.
+    evidence:
+      - bundles/poor-charlies-almanack-v0.1/evaluation/value-assessment/
+      - tests/test_pipeline.py
+      - tests/test_reference_benchmark.py
+  - id: KIU-515
+    title: v0.5.1 release narrative and evidence closure
+    target_version: v0.5.1
+    status: review
+    priority: P0
+    blocker_level: hard
+    area: release
+    summary: Close changelog, README framing, and fresh release evidence for the v0.5.1 sign-off.
+    acceptance:
+      - CHANGELOG contains a formal 0.5.1 section.
+      - Release verification is rerun on the final tree.
+      - Push, tag, and release are completed after verification.
+    evidence:
+      - CHANGELOG.md
+      - README.md
+  - id: KIU-610
+    title: freeze v0.5 regression baseline
+    target_version: v0.6.0
+    status: todo
+    priority: P0
+    blocker_level: hard
+    area: baseline
+    summary: Fix the regression baseline commands and expected evidence for the upstream-graph line.
+    acceptance:
+      - Baseline commands are recorded and reproducible.
+      - Baseline report paths are stable for later comparisons.
+    evidence:
+      - docs/2026-04-23-v0.6-regression-baseline.md
+  - id: KIU-613
+    title: graph schema v0.2 provenance fields
+    target_version: v0.6.0
+    status: todo
+    priority: P0
+    blocker_level: hard
+    area: graph
+    summary: Upgrade graph.json with provenance coordinates, extraction kind, and edge confidence.
+    acceptance:
+      - graph schema v0.2 is documented and validator-readable.
+      - Existing bundles can migrate without losing anchors.
+    evidence:
+      - docs/kiu-skill-spec-v0.6.md
+      - docs/2026-04-23-v0.6-规划意见与工单计划.md
+  - id: KIU-620
+    title: book overview and extraction context contract
+    target_version: v0.6.0
+    status: todo
+    priority: P0
+    blocker_level: hard
+    area: ingestion
+    summary: Emit BOOK_OVERVIEW and machine-readable extraction context before upstream extraction.
+    acceptance:
+      - Raw-book runs emit BOOK_OVERVIEW.md.
+      - Machine-readable overview artifact exists for every run.
+    evidence:
+      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+      - docs/kiu-skill-spec-v0.6.md
+  - id: KIU-622
+    title: triple verification gate before seed promotion
+    target_version: v0.6.0
+    status: todo
+    priority: P0
+    blocker_level: hard
+    area: verification
+    summary: Prevent weak extraction groups from silently becoming skill or workflow candidates.
+    acceptance:
+      - Weak extraction groups are withheld or rejected.
+      - Rejection reasons are logged for audit.
+    evidence:
+      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+  - id: KIU-624
+    title: cross-bundle inferred connections
+    target_version: v0.6.0
+    status: todo
+    priority: P1
+    blocker_level: soft
+    area: graph
+    summary: Add bounded inferred edges for navigation and synthesis across merged bundles.
+    acceptance:
+      - Merged graph surfaces explicit inferred or ambiguous cross-bundle links.
+      - Graph report exposes surprising connections from bounded inference.
+    evidence:
+      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+  - id: KIU-690
+    title: repo-native backlog and kanban surface
+    target_version: v0.6.0
+    status: done
+    priority: P1
+    blocker_level: soft
+    area: project-system
+    summary: Add a canonical in-repo backlog surface so long multi-session execution stops depending only on plan files and chat history.
+    acceptance:
+      - Canonical board asset exists in-repo.
+      - Stable read entrypoint can filter tickets by version.
+      - Version and roadmap docs point to the canonical board.
+    evidence:
+      - backlog/board.yaml
+      - backlog/README.md
+      - scripts/show_backlog.py
+      - docs/2026-04-24-version-roadmap-v051-v06-v07.md

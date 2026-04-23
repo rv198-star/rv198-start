@@ -1,0 +1,76 @@
+should_trigger:
+  - scenario_id: live-price-vs-value-decision
+    summary: 当用户问“这个价格合理吗”“安全边际够不够”“值不值得买/投”并且真实在做资本配置时触发。
+    prompt_signals:
+      - 价格合理吗
+      - 安全边际够不够
+      - 值不值得投
+    boundary_reason: 这不是纯估值讨论，而是要把前置判断落实成真实 sizing。
+    next_action_shape: 从护城河、安全边际、定价权、管理层、能力圈五维评估，再转成 downside、liquidity 和 sizing constraints。
+    anchor_refs:
+      - margin-source-note
+      - margin-trace-sees
+  - scenario_id: panic-mispricing-check
+    summary: 当市场恐慌、价格大跌，用户在问“是不是错杀了好公司”时触发。
+    prompt_signals:
+      - 市场跌了很多
+      - 好公司可能被错杀了
+      - 现在是不是机会
+    boundary_reason: 这里需要同时判断价值锚、回撤承受力和仓位大小，而不是只判断“公司好不好”。
+    next_action_shape: 检查内在价值与价格差距，再落到 downside range、liquidity、position-size constraints。
+    anchor_refs:
+      - margin-trace-salomon
+      - margin-eval
+should_not_trigger:
+  - scenario_id: short-term-trading
+    summary: 短线交易、技术指标择时不应触发。
+    prompt_signals:
+      - 日内交易
+      - MACD
+      - KDJ
+    boundary_reason: 这条 skill 面向长期资本配置，不是给短线仓位美化。
+    anchor_refs:
+      - margin-source-note
+  - scenario_id: pure-scale-comparison
+    summary: 只比较规模、行业地位或竞争格局但不涉及“值不值 / 下多大”的问题不应触发。
+    prompt_signals:
+      - 员工8000人算不算大
+      - 营收200亿算不算强
+      - 和竞争对手比谁更大
+    boundary_reason: 这类问题更像一般商业分析，而不是 live sizing 决策。
+    anchor_refs:
+      - margin-source-note
+edge_case:
+  - scenario_id: private-business-or-franchise
+    summary: 奶茶加盟、线下开店、私有生意等非标准投资场景，只能部分适用。
+    prompt_signals:
+      - 加盟店
+      - 开店投200万
+      - 回本周期
+    boundary_reason: 价值逻辑部分适用，但流动性、退出难度和资产类型与公开市场不同。
+    next_action_shape: 先判断是否真正理解生意，再检查回本周期、流动性、退出难度和 check size，输出 partial_applicability。
+    anchor_refs:
+      - margin-trace-irreversible
+      - margin-eval
+  - scenario_id: angel-check-under-uncertainty
+    summary: 天使轮或创业项目，只有在能力圈和 downside 逻辑都能被说清时，才进入 sizing 讨论。
+    prompt_signals:
+      - 天使轮
+      - 商业模式大概能看懂
+      - 值不值得投
+    boundary_reason: 理解浅、流动性差、失败不可逆时，不能因为故事好就给正常 sizing。
+    next_action_shape: 先做能力圈检验，再评估护城河、安全边际、流动性和 sizing band，必要时降级为 tiny / small。
+    anchor_refs:
+      - margin-source-note
+      - margin-eval
+refusal:
+  - scenario_id: speculative-asset-without-value-anchor
+    summary: 比特币或类似高波动、缺少稳定内在价值锚的投机场景，应拒绝给正常 sizing。
+    prompt_signals:
+      - 比特币
+      - 最近涨很多
+      - 值不值得买
+    boundary_reason: 安全边际不适用于赌博，不能拿本框架替投机做背书。
+    next_action_shape: 输出强警告或 refuse，不要伪造正常估值和仓位建议。
+    anchor_refs:
+      - margin-source-note

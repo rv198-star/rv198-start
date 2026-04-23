@@ -33,6 +33,13 @@ def build_candidate_anchors(
             source_bundle=source_bundle,
             seed=seed,
         )
+        explicit_source_anchors = seed.seed_content.get("source_anchor_sets", [])
+        if not source_anchor_sets and isinstance(explicit_source_anchors, list):
+            source_anchor_sets = [
+                dict(anchor)
+                for anchor in explicit_source_anchors
+                if isinstance(anchor, dict)
+            ]
 
     return {
         "skill_id": seed.candidate_id,

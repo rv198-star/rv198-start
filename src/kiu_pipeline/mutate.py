@@ -57,6 +57,7 @@ def mutate_candidate(
         revisions=mutated["revisions"],
         skill_revision=current_revision,
         status=mutated["eval_summary"].get("status", "under_evaluation"),
+        scenario_families=mutated.get("scenario_families", {}),
     )
     return mutated
 

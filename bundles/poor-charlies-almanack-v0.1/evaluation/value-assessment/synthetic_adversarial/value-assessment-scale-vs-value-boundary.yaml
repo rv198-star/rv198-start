@@ -1,0 +1,9 @@
+case_id: value-assessment-scale-vs-value-boundary
+subset: synthetic_adversarial
+primary_skill: value-assessment-source-note
+related_skills:
+  - opportunity-cost-of-the-next-best-idea
+situation: A user asks whether a company with 8000 employees and 200 billion revenue is simply 'better' than rivals, but never asks whether the current price is justified by business value.
+expected_behavior: do_not_fire
+expected_verdict: not_applicable
+note: Pure scale and competition comparison should be routed away from value assessment instead of being inflated into a valuation answer.

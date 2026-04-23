@@ -18,12 +18,13 @@ if str(SRC) not in sys.path:
 
 from kiu_pipeline.preflight import validate_generated_bundle
 from kiu_pipeline.seed import derive_candidate_metadata
-from kiu_pipeline.load import extract_yaml_section, parse_sections
+from kiu_pipeline.load import extract_yaml_section, load_source_bundle, parse_sections
 from kiu_pipeline.extraction import validate_extraction_result_doc, validate_source_chunks_doc
 from kiu_pipeline.extraction_bundle import scaffold_extraction_bundle
 from kiu_pipeline.local_paths import resolve_output_root
 from kiu_pipeline.normalize import normalize_graph
 from kiu_pipeline.regression import DEFAULT_V06_CHECK_IDS
+from kiu_pipeline.reference_benchmark import _evaluate_kiu_usage_case
 from kiu_pipeline.seed import mine_candidate_seeds, mine_candidate_seed_assessment
 
 
@@ -137,7 +138,19 @@ class CandidatePipelineTests(unittest.TestCase):
             manifest = yaml.safe_load((bundle_root / "manifest.yaml").read_text(encoding="utf-8"))
             metrics = json.loads((run_root / "reports" / "metrics.json").read_text(encoding="utf-8"))
 
-            self.assertEqual(len(manifest["skills"]), 5)
+            self.assertEqual(len(manifest["skills"]), 6)
+            self.assertEqual(
+                {entry["skill_id"] for entry in manifest["skills"]},
+                {
+                    "circle-of-competence",
+                    "bias-self-audit",
+                    "margin-of-safety-sizing",
+                    "invert-the-problem",
+                    "opportunity-cost-of-the-next-best-idea",
+                    "value-assessment-source-note",
+                },
+            )
+            self.assertEqual(metrics["summary"]["skill_candidates"], 6)
             self.assertEqual(
                 {entry["status"] for entry in manifest["skills"]},
                 {"under_evaluation"},
@@ -178,7 +191,280 @@ class CandidatePipelineTests(unittest.TestCase):
             report = validate_generated_bundle(bundle_root)
 
             self.assertEqual(report["errors"], [])
-            self.assertEqual(report["summary"]["skill_candidates"], 5)
+            self.assertEqual(report["summary"]["skill_candidates"], 6)
+
+    def test_generated_investing_bundle_carries_scenario_families_into_usage_summary(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "usage-scenarios",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            bundle_root = output_root / "poor-charlies-almanack-v0.1" / "usage-scenarios" / "bundle"
+            manifest = yaml.safe_load((bundle_root / "manifest.yaml").read_text(encoding="utf-8"))
+
+            for entry in manifest["skills"]:
+                with self.subTest(skill=entry["skill_id"]):
+                    skill_dir = bundle_root / entry["path"]
+                    scenario_families = yaml.safe_load(
+                        (skill_dir / "usage" / "scenarios.yaml").read_text(encoding="utf-8")
+                    ) or {}
+                    sections = parse_sections(
+                        (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+                    )
+                    usage_summary = sections["Usage Summary"]
+
+                    self.assertTrue(
+                        any(bool(items) for items in scenario_families.values()),
+                        scenario_families,
+                    )
+                    self.assertIn("Scenario families:", usage_summary)
+                    self.assertIn("next:", usage_summary)
+
+    def test_generated_bundle_keeps_concept_query_boundary_for_invert_and_margin(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "concept-boundary",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            generated_bundle = output_root / "poor-charlies-almanack-v0.1" / "concept-boundary" / "bundle"
+            generated = load_source_bundle(generated_bundle)
+
+            invert_review = _evaluate_kiu_usage_case(
+                skill=generated.skills["invert-the-problem"],
+                case={
+                    "type": "should_not_trigger",
+                    "prompt": "逆向思维是什么意思？能给我解释一下这个概念吗",
+                    "expected_behavior": "不应激活本 skill，因为用户只是在询问概念定义，不需要将逆向思维应用于实际决策",
+                    "notes": "纯知识查询。",
+                },
+                alignment_strength=0.9,
+            )
+            margin_review = _evaluate_kiu_usage_case(
+                skill=generated.skills["margin-of-safety-sizing"],
+                case={
+                    "type": "should_not_trigger",
+                    "prompt": "什么是安全边际？芒格和巴菲特是怎么定义内在价值的？",
+                    "expected_behavior": "不应激活, 因为这是纯概念查询，不是在面临一个需要做价值判断的真实投资决策",
+                    "notes": "纯概念查询。",
+                },
+                alignment_strength=0.65,
+            )
+
+            self.assertNotIn("boundary_leak", invert_review["failure_analysis"]["tags"])
+            self.assertNotIn("boundary_leak", margin_review["failure_analysis"]["tags"])
+            self.assertGreaterEqual(invert_review["overall_score_100"], 75.0)
+            self.assertGreaterEqual(margin_review["overall_score_100"], 75.0)
+
+    def test_generated_bundle_adds_value_assessment_parent_for_margin_family(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-parent-topology",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            generated_bundle = (
+                output_root
+                / "poor-charlies-almanack-v0.1"
+                / "value-parent-topology"
+                / "bundle"
+            )
+            generated = load_source_bundle(generated_bundle)
+            parent_skill = generated.skills["value-assessment-source-note"]
+            parent_candidate = yaml.safe_load(
+                (
+                    generated_bundle
+                    / "skills"
+                    / "value-assessment-source-note"
+                    / "candidate.yaml"
+                ).read_text(encoding="utf-8")
+            )
+
+            self.assertEqual(parent_candidate["gold_match_hint"], "value-assessment")
+            self.assertEqual(parent_skill.relations["delegates_to"], ["margin-of-safety-sizing"])
+
+    def test_generated_value_assessment_parent_reaches_good_quality_and_has_eval_coverage(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-parent-quality",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            quality_doc = json.loads(
+                (
+                    output_root
+                    / "poor-charlies-almanack-v0.1"
+                    / "value-parent-quality"
+                    / "reports"
+                    / "production-quality.json"
+                ).read_text(encoding="utf-8")
+            )
+            entry = next(
+                item
+                for item in quality_doc["skills"]
+                if item["candidate_id"] == "value-assessment-source-note"
+            )
+
+            self.assertGreaterEqual(entry["signals"]["eval_cases_total"], 3)
+            self.assertGreaterEqual(entry["signals"]["passed_kiu_tests"], 2)
+            self.assertIn(entry["quality_grade"], {"good", "excellent"})
+            self.assertGreaterEqual(entry["production_quality"], 0.82)
+
+    def test_generated_value_assessment_parent_hardens_price_vs_value_next_step(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-parent-next-step",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            generated_bundle = (
+                output_root
+                / "poor-charlies-almanack-v0.1"
+                / "value-parent-next-step"
+                / "bundle"
+            )
+            generated = load_source_bundle(generated_bundle)
+            review = _evaluate_kiu_usage_case(
+                skill=generated.skills["value-assessment-source-note"],
+                case={
+                    "type": "should_trigger",
+                    "prompt": "我在考虑要不要买一只消费股，市盈率25倍不算便宜，但品牌很强，这个价格合理吗？安全边际够不够？",
+                    "expected_behavior": "应激活 value-assessment, 并从护城河、安全边际、定价权、管理层、能力圈五个维度系统评估",
+                    "notes": "正面场景：先做 value-anchor judgment，再决定是否交给 sizing。",
+                },
+                alignment_strength=1.0,
+            )
+
+            self.assertNotEqual(
+                review["failure_analysis"]["primary_gap"],
+                "next_step_blunt",
+            )
+            self.assertGreaterEqual(review["overall_score_100"], 97.0)
+
+    def test_generated_value_assessment_parent_avoids_generic_pricing_power_reasoning(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-parent-pricing-power",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+            generated_bundle = (
+                output_root
+                / "poor-charlies-almanack-v0.1"
+                / "value-parent-pricing-power"
+                / "bundle"
+            )
+            generated = load_source_bundle(generated_bundle)
+            review = _evaluate_kiu_usage_case(
+                skill=generated.skills["value-assessment-source-note"],
+                case={
+                    "type": "should_trigger",
+                    "prompt": "这家公司看起来护城河很宽，产品提价客户也不会跑，这种公司和其他公司到底差在哪？",
+                    "expected_behavior": "应激活 value-assessment, 并重点分析定价权——芒格认为'尚未利用的提价能力'是伟大企业最可靠的标志",
+                    "notes": "正面场景：要求解释 pricing power 为什么会转成更高质量的价值锚点。",
+                },
+                alignment_strength=1.0,
+            )
+
+            self.assertNotIn("generic_reasoning", review["failure_analysis"]["tags"])
+            self.assertGreaterEqual(review["overall_score_100"], 96.0)
 
     def test_engineering_source_bundle_generates_skill_and_workflow_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

@@ -186,7 +186,7 @@ class BundleValidationTests(unittest.TestCase):
         self.assertGreaterEqual(report["graph"]["node_count"], 10)
         self.assertGreaterEqual(report["graph"]["edge_count"], 5)
         self.assertGreaterEqual(report["shared_assets"]["trace_count"], 12)
-        self.assertEqual(report["shared_assets"]["evaluation_count"], 50)
+        self.assertEqual(report["shared_assets"]["evaluation_count"], 53)
         self.assertEqual(
             report["shared_assets"]["evaluation_breakdown"],
             {

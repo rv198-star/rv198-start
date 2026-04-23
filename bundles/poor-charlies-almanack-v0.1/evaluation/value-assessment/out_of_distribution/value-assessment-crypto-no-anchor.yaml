@@ -1,0 +1,9 @@
+case_id: value-assessment-crypto-no-anchor
+subset: out_of_distribution
+primary_skill: value-assessment-source-note
+related_skills:
+  - margin-of-safety-sizing
+situation: A user wants to apply Munger's framework to a momentum-driven crypto asset that has no stable business cash-flow anchor.
+expected_behavior: do_not_fire
+expected_verdict: refuse
+note: The correct move is to state that there is no defensible value anchor and decline fake valuation language.

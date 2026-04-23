@@ -554,6 +554,86 @@ class ReferenceBenchmarkCliTests(unittest.TestCase):
             self.assertEqual(payload["same_scenario_usage"]["summary"]["matched_pair_count"], 1)
             self.assertEqual(payload["same_scenario_usage"]["summary"]["scenario_count"], 1)
 
+    def test_reference_benchmark_prefers_generated_value_parent_over_margin_overlap(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            output_root = tmp_root / "artifacts"
+            reference_root = _write_reference_pack(
+                tmp_root / "reference-value-assessment",
+                ["value-assessment"],
+            )
+            _write_test_prompts(
+                reference_root / "value-assessment",
+                {
+                    "skill": "value-assessment",
+                    "version": "0.1.0",
+                    "test_cases": [
+                        {
+                            "id": "should-trigger-01",
+                            "type": "should_trigger",
+                            "prompt": "我在考虑要不要买一只消费股，市盈率25倍不算便宜，但品牌很强，这个价格合理吗？安全边际够不够？",
+                            "expected_behavior": "应优先激活 value-assessment，先建立价值锚点并判断当前价格相对价值是低估、公允还是高估，再决定是否交给 sizing。",
+                            "notes": "价格与价值判断优先于 sizing 的场景。",
+                        }
+                    ],
+                    "minimum_pass_rate": 0.8,
+                },
+            )
+
+            generated = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(ROOT / "bundles" / "poor-charlies-almanack-v0.1"),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-parent-alignment",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(generated.returncode, 0, generated.stdout + generated.stderr)
+            generated_payload = json.loads(generated.stdout)
+
+            output_path = tmp_root / "value-parent-benchmark.json"
+            benchmark = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "benchmark_reference_pack.py"),
+                    "--kiu-bundle",
+                    str(ROOT / "bundles" / "poor-charlies-almanack-v0.1"),
+                    "--run-root",
+                    generated_payload["run_root"],
+                    "--reference-pack",
+                    str(reference_root),
+                    "--alignment-file",
+                    str(ROOT / "benchmarks" / "alignments" / "poor-charlies-vs-cangjie.yaml"),
+                    "--comparison-scope",
+                    "same-source",
+                    "--output",
+                    str(output_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(benchmark.returncode, 0, benchmark.stdout + benchmark.stderr)
+
+            payload = json.loads(output_path.read_text(encoding="utf-8"))
+            matched_pair = next(
+                pair
+                for pair in payload["concept_alignment"]["matched_pairs"]
+                if pair["reference_skill_id"] == "value-assessment"
+            )
+
+            self.assertEqual(matched_pair["kiu_skill_id"], "value-assessment-source-note")
+            self.assertEqual(matched_pair["relationship"], "direct_match")
+
 
 if __name__ == "__main__":
     unittest.main()

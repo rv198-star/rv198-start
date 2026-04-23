@@ -296,6 +296,7 @@ def _build_additional_seed_content(
         "trace_refs",
         "usage_notes",
         "scenario_families",
+        "source_anchor_sets",
         "eval_summary",
         "revision_seed",
     ):

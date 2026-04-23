@@ -136,8 +136,34 @@ artifact 层领先，也不能宣称已经补齐 `cangjie-skill` 这条版本目
 这里的版本分工固定为：
 
 - `v0.5.0`：foundation closure
-- `v0.5.1`：`cangjie-skill` gap closure
-- `v0.6`：`Graphify` alignment line
+- `v0.5.1`：已经结版的 `cangjie-skill` corrective gap-closure line
+- `v0.6`：`Graphify` alignment 预留线
+- `v0.7`：更后续的 `In Use world-alignment` 预留线
+
+这四条要严格分开记账：
+
+- `v0.5.1` 解决的是 same-source / same-scenario 对照线
+- `v0.6` 解决的是 source / graph / provenance 吸收线
+- `v0.7` 解决的是“真实使用压力下仍保持抽象泛化”的 world-alignment 线
+
+因此，即使一个改动能提升现实可用性，只要它的主要问题是“skill 在真实世界里是否更像可直接部署的判断工具”，也不应提前被记到 `v0.6` 的 release claim 里。
+
+`2026-04-24` 的 fresh same-source release verification 已经确认：
+
+- `usage_winner = kiu`
+- `average_usage_score_delta_100 = +1.0`
+- `kiu_weighted_pass_rate = 1.0`
+- `reference_weighted_pass_rate = 1.0`
+- `failure_tag_counts = {}`
+
+因此，`v0.5.1` 已经作为 corrective release 结版；后续实现主线转入 `v0.6` / `v0.7`，但它们的 release claim 仍需分别记账。
+
+为了避免多轮 AI 开发只依赖聊天和局部 plan，仓库内还维护一个 canonical backlog 面：
+
+- `backlog/board.yaml`
+- `python3 scripts/show_backlog.py --version v0.6.0`
+
+版本级 backlog 只负责记录状态、阻塞、验收标准和证据链接；它不替代 spec、plan、benchmark、release report。
 
 ## Behavior-Aware Review Gate
 

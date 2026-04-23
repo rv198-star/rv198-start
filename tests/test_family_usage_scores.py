@@ -16,6 +16,7 @@ from kiu_pipeline.extraction_bundle import (
     _build_usage_notes,
     _write_eval_docs,
 )
+from kiu_pipeline.load import load_source_bundle
 from kiu_pipeline.reference_benchmark import _evaluate_kiu_usage_case
 from kiu_pipeline.refiner.loop import _family_revision_note
 
@@ -117,6 +118,8 @@ def _build_fake_skill(skill_id: str, title: str) -> SimpleNamespace:
 
 
 class FamilyUsageScoreTests(unittest.TestCase):
+    bundle_path = Path(__file__).resolve().parents[1] / "bundles" / "poor-charlies-almanack-v0.1"
+
     def test_structured_scenario_families_raise_usage_specificity(self) -> None:
         base_skill = SimpleNamespace(
             skill_id="synthetic-value-skill",
@@ -258,6 +261,42 @@ class FamilyUsageScoreTests(unittest.TestCase):
 
         self.assertEqual(review["verdict"], "pass")
         self.assertGreaterEqual(review["overall_score_100"], 80.0)
+
+    def test_published_invert_skill_refuses_concept_query_without_boundary_leak(self) -> None:
+        bundle = load_source_bundle(self.bundle_path)
+        skill = bundle.skills["invert-the-problem"]
+
+        review = _evaluate_kiu_usage_case(
+            skill=skill,
+            case={
+                "type": "should_not_trigger",
+                "prompt": "逆向思维是什么意思？能给我解释一下这个概念吗",
+                "expected_behavior": "不应激活本 skill，因为用户只是在询问概念定义，不需要将逆向思维应用于实际决策",
+                "notes": "纯知识查询。",
+            },
+            alignment_strength=0.9,
+        )
+
+        self.assertNotIn("boundary_leak", review["failure_analysis"]["tags"])
+        self.assertGreaterEqual(review["overall_score_100"], 75.0)
+
+    def test_published_margin_skill_refuses_concept_query_without_boundary_leak(self) -> None:
+        bundle = load_source_bundle(self.bundle_path)
+        skill = bundle.skills["margin-of-safety-sizing"]
+
+        review = _evaluate_kiu_usage_case(
+            skill=skill,
+            case={
+                "type": "should_not_trigger",
+                "prompt": "什么是安全边际？芒格和巴菲特是怎么定义内在价值的？",
+                "expected_behavior": "不应激活, 因为这是纯概念查询，不是在面临一个需要做价值判断的真实投资决策",
+                "notes": "纯概念查询。",
+            },
+            alignment_strength=0.65,
+        )
+
+        self.assertNotIn("boundary_leak", review["failure_analysis"]["tags"])
+        self.assertGreaterEqual(review["overall_score_100"], 75.0)
 
     def test_circle_trigger_ai_boundary_scores_with_high_specificity(self) -> None:
         skill = _build_fake_skill(

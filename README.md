@@ -7,12 +7,15 @@ KiU v0.1 is a graph-first, evidence-backed skill bundle format with a complete r
 Current release framing:
 
 - `v0.5.0` closes the foundation line: multi-domain validation, cross-bundle graph merge, workflow-vs-agentic boundary enforcement, and three-layer review evidence.
-- `v0.5.1` is the active gap-closure line for `cangjie-skill`: same-source benchmark proof, same-scenario usage uplift, and honest version narrative correction.
-- `v0.6` is reserved for the `Graphify` alignment line rather than the `cangjie` closure line.
+- `v0.5.1` closes the corrective `cangjie-skill` gap-closure line: fresh same-source evidence shows a small but explicit usage lead without workflow-boundary drift.
+- `v0.6` is only the reserved future line for `Graphify` alignment after the `v0.5.1` corrective line.
+- `v0.7` is only the reserved future line for `In Use world-alignment` after the `v0.6` source/provenance line.
 
 Start here:
 
 - [Usage Guide](docs/usage-guide.md)
+- [Backlog Board](backlog/board.yaml)
+- [Version Roadmap Realignment](docs/2026-04-24-version-roadmap-v051-v06-v07.md)
 - [KiU Skill Spec v0.1](docs/kiu-skill-spec-v0.1.md)
 - [KiU Skill Spec v0.3](docs/kiu-skill-spec-v0.3.md)
 - [KiU Skill Spec v0.4](docs/kiu-skill-spec-v0.4.md)
@@ -34,6 +37,7 @@ Validate locally:
 ```bash
 python3 scripts/validate_bundle.py bundles/poor-charlies-almanack-v0.1
 python3 scripts/show_profile.py bundles/poor-charlies-almanack-v0.1
+python3 scripts/show_backlog.py --version v0.6.0
 python3 -m unittest tests/test_validator.py
 ```
 
