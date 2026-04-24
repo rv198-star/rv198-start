@@ -603,6 +603,14 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(payload["summary"]["workflow_script_candidates"], 1)
             self.assertTrue(workflow_candidate.exists())
             self.assertTrue((run_root / "reports" / "final-decision.json").exists())
+            usage_docs = sorted((run_root / "usage-review").glob("*.yaml"))
+            self.assertTrue(usage_docs)
+            usage_doc = yaml.safe_load(usage_docs[0].read_text(encoding="utf-8"))
+            self.assertIn("structured_output", usage_doc)
+            self.assertNotEqual(
+                usage_doc["structured_output"].get("next_action"),
+                "collect_more_info",
+            )
 
     def test_review_generated_run_emits_three_layer_scores(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -627,7 +635,7 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(build.returncode, 0, build.stdout + build.stderr)
 
             run_root = output_root / "engineering-postmortem-v0.1" / "engineering-review-score"
-            usage_root = run_root / "usage-review"
+            usage_root = Path(tmp_dir) / "manual-usage-review"
             usage_root.mkdir(parents=True, exist_ok=True)
             usage_doc = {
                 "review_case_id": "engineering-postmortem-blameless",

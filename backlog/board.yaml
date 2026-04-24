@@ -1,155 +1,397 @@
 schema_version: kiu.backlog/v0.1
 board_id: kiu-main
-updated_at: 2026-04-24
+updated_at: '2026-04-24'
 lanes:
-  - todo
-  - in_progress
-  - blocked
-  - review
-  - done
+- todo
+- in_progress
+- blocked
+- review
+- done
 tickets:
-  - id: KIU-511
-    title: same-source benchmark gate tightening
-    target_version: v0.5.1
-    status: done
-    priority: P0
-    blocker_level: hard
-    area: benchmark
-    summary: Require positive same-scenario usage delta, parity-or-better pass rate, and no failure-tag regression before release.
-    acceptance:
-      - Fresh same-source benchmark shows usage_winner = kiu.
-      - Weighted pass-rate is parity-or-better.
-      - Failure tag counts remain empty at release verification.
-    evidence:
-      - CHANGELOG.md
-      - reports/2026-04-23-v0.5-vs-cangjie-conclusion.md
-  - id: KIU-512
-    title: generated usage summary inheritance
-    target_version: v0.5.1
-    status: done
-    priority: P0
-    blocker_level: hard
-    area: rendering
-    summary: Preserve source scenario families and revision history in generated bundles.
-    acceptance:
-      - Generated Usage Summary carries scenario families.
-      - Generated Revision Summary inherits source revision narrative.
-    evidence:
-      - tests/test_pipeline.py
-      - src/kiu_pipeline/render.py
-      - src/kiu_pipeline/draft.py
-  - id: KIU-514
-    title: margin family parent-specialist topology repair
-    target_version: v0.5.1
-    status: done
-    priority: P0
-    blocker_level: hard
-    area: skill-topology
-    summary: Split value-anchor judgment from sizing judgment through a generated parent skill.
-    acceptance:
-      - Generated bundle includes value-assessment-source-note.
-      - Parent skill delegates sizing decisions to margin-of-safety-sizing.
-      - Same-source benchmark aligns value-assessment to the parent skill.
-    evidence:
-      - bundles/poor-charlies-almanack-v0.1/evaluation/value-assessment/
-      - tests/test_pipeline.py
-      - tests/test_reference_benchmark.py
-  - id: KIU-515
-    title: v0.5.1 release narrative and evidence closure
-    target_version: v0.5.1
-    status: review
-    priority: P0
-    blocker_level: hard
-    area: release
-    summary: Close changelog, README framing, and fresh release evidence for the v0.5.1 sign-off.
-    acceptance:
-      - CHANGELOG contains a formal 0.5.1 section.
-      - Release verification is rerun on the final tree.
-      - Push, tag, and release are completed after verification.
-    evidence:
-      - CHANGELOG.md
-      - README.md
-  - id: KIU-610
-    title: freeze v0.5 regression baseline
-    target_version: v0.6.0
-    status: todo
-    priority: P0
-    blocker_level: hard
-    area: baseline
-    summary: Fix the regression baseline commands and expected evidence for the upstream-graph line.
-    acceptance:
-      - Baseline commands are recorded and reproducible.
-      - Baseline report paths are stable for later comparisons.
-    evidence:
-      - docs/2026-04-23-v0.6-regression-baseline.md
-  - id: KIU-613
-    title: graph schema v0.2 provenance fields
-    target_version: v0.6.0
-    status: todo
-    priority: P0
-    blocker_level: hard
-    area: graph
-    summary: Upgrade graph.json with provenance coordinates, extraction kind, and edge confidence.
-    acceptance:
-      - graph schema v0.2 is documented and validator-readable.
-      - Existing bundles can migrate without losing anchors.
-    evidence:
-      - docs/kiu-skill-spec-v0.6.md
-      - docs/2026-04-23-v0.6-规划意见与工单计划.md
-  - id: KIU-620
-    title: book overview and extraction context contract
-    target_version: v0.6.0
-    status: todo
-    priority: P0
-    blocker_level: hard
-    area: ingestion
-    summary: Emit BOOK_OVERVIEW and machine-readable extraction context before upstream extraction.
-    acceptance:
-      - Raw-book runs emit BOOK_OVERVIEW.md.
-      - Machine-readable overview artifact exists for every run.
-    evidence:
-      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
-      - docs/kiu-skill-spec-v0.6.md
-  - id: KIU-622
-    title: triple verification gate before seed promotion
-    target_version: v0.6.0
-    status: todo
-    priority: P0
-    blocker_level: hard
-    area: verification
-    summary: Prevent weak extraction groups from silently becoming skill or workflow candidates.
-    acceptance:
-      - Weak extraction groups are withheld or rejected.
-      - Rejection reasons are logged for audit.
-    evidence:
-      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
-  - id: KIU-624
-    title: cross-bundle inferred connections
-    target_version: v0.6.0
-    status: todo
-    priority: P1
-    blocker_level: soft
-    area: graph
-    summary: Add bounded inferred edges for navigation and synthesis across merged bundles.
-    acceptance:
-      - Merged graph surfaces explicit inferred or ambiguous cross-bundle links.
-      - Graph report exposes surprising connections from bounded inference.
-    evidence:
-      - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
-  - id: KIU-690
-    title: repo-native backlog and kanban surface
-    target_version: v0.6.0
-    status: done
-    priority: P1
-    blocker_level: soft
-    area: project-system
-    summary: Add a canonical in-repo backlog surface so long multi-session execution stops depending only on plan files and chat history.
-    acceptance:
-      - Canonical board asset exists in-repo.
-      - Stable read entrypoint can filter tickets by version.
-      - Version and roadmap docs point to the canonical board.
-    evidence:
-      - backlog/board.yaml
-      - backlog/README.md
-      - scripts/show_backlog.py
-      - docs/2026-04-24-version-roadmap-v051-v06-v07.md
+- id: KIU-600
+  title: freeze v0.6.0 version charter
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: version-charter
+  summary: Freeze v0.6.0 around Graphify core absorption, In Use first, L4+ handoff
+    maturity, and layered overperformance against cangjie.
+  acceptance:
+  - v0.6 planning doc records Graphify core only and In Use first.
+  - v0.6 spec records evidence spine vs LLM synthesis split.
+  - Multi-book sample and layered benchmark rules are explicit.
+  evidence:
+  - docs/2026-04-23-v0.6-规划意见与工单计划.md
+  - docs/kiu-skill-spec-v0.6.md
+- id: KIU-511
+  title: same-source benchmark gate tightening
+  target_version: v0.5.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: benchmark
+  summary: Require positive same-scenario usage delta, parity-or-better pass rate,
+    and no failure-tag regression before release.
+  acceptance:
+  - Fresh same-source benchmark shows usage_winner = kiu.
+  - Weighted pass-rate is parity-or-better.
+  - Failure tag counts remain empty at release verification.
+  evidence:
+  - CHANGELOG.md
+  - reports/2026-04-23-v0.5-vs-cangjie-conclusion.md
+- id: KIU-512
+  title: generated usage summary inheritance
+  target_version: v0.5.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: rendering
+  summary: Preserve source scenario families and revision history in generated bundles.
+  acceptance:
+  - Generated Usage Summary carries scenario families.
+  - Generated Revision Summary inherits source revision narrative.
+  evidence:
+  - tests/test_pipeline.py
+  - src/kiu_pipeline/render.py
+  - src/kiu_pipeline/draft.py
+- id: KIU-514
+  title: margin family parent-specialist topology repair
+  target_version: v0.5.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: skill-topology
+  summary: Split value-anchor judgment from sizing judgment through a generated parent
+    skill.
+  acceptance:
+  - Generated bundle includes value-assessment-source-note.
+  - Parent skill delegates sizing decisions to margin-of-safety-sizing.
+  - Same-source benchmark aligns value-assessment to the parent skill.
+  evidence:
+  - bundles/poor-charlies-almanack-v0.1/evaluation/value-assessment/
+  - tests/test_pipeline.py
+  - tests/test_reference_benchmark.py
+- id: KIU-515
+  title: v0.5.1 release narrative and evidence closure
+  target_version: v0.5.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release
+  summary: Close changelog, README framing, and fresh release evidence for the v0.5.1
+    sign-off.
+  acceptance:
+  - CHANGELOG contains a formal 0.5.1 section.
+  - Release verification is rerun on the final tree.
+  - Push, tag, and release are completed after verification.
+  evidence:
+  - CHANGELOG.md
+  - README.md
+  - reports/2026-04-23-v0.5-vs-cangjie-conclusion.md
+  - https://github.com/rv198-star/rv198-start/releases/tag/v0.5.1
+- id: KIU-516
+  title: narrow valuation residual cleanup before v0.6.0
+  target_version: v0.5.1
+  status: done
+  priority: P1
+  blocker_level: hard
+  area: benchmark-quality
+  summary: Refine `value-assessment-source-note` so the remaining pair-level residual
+    against the reference `value-assessment` is reduced before the v0.6.0 baseline
+    freeze starts.
+  acceptance:
+  - Fresh same-source benchmark reruns the valuation pair on the current line.
+  - value-assessment-source-note no longer carries the previously recorded -1.7 residual,
+    or the residual is materially narrowed with an explicit explanation.
+  - No gain comes from weaker evidence honesty or workflow-vs-agentic boundary drift.
+  evidence:
+  - reports/2026-04-23-v0.5.1-gap-closure-scorecard.md
+  - docs/superpowers/plans/2026-04-23-v0.5.1-usage-expression-rebuild.md
+  - CHANGELOG.md
+- id: KIU-610
+  title: freeze v0.5 regression baseline
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: baseline
+  summary: Fix the regression baseline commands and expected evidence for the upstream-graph
+    line.
+  acceptance:
+  - Baseline commands are recorded and reproducible.
+  - Baseline report paths are stable for later comparisons.
+  evidence:
+  - docs/2026-04-23-v0.6-regression-baseline.md
+- id: KIU-613
+  title: graph schema v0.2 provenance fields
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: graph
+  summary: Upgrade graph.json with provenance coordinates, extraction kind, and edge
+    confidence.
+  acceptance:
+  - graph schema v0.2 is documented and validator-readable.
+  - Existing bundles can migrate without losing anchors.
+  evidence:
+  - docs/kiu-skill-spec-v0.6.md
+  - docs/2026-04-23-v0.6-规划意见与工单计划.md
+- id: KIU-620
+  title: book overview and extraction context contract
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: ingestion
+  summary: Emit BOOK_OVERVIEW and machine-readable extraction context before upstream
+    extraction.
+  acceptance:
+  - Raw-book runs emit BOOK_OVERVIEW.md.
+  - Machine-readable overview artifact exists for every run.
+  evidence:
+  - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+  - docs/kiu-skill-spec-v0.6.md
+- id: KIU-622
+  title: triple verification gate before seed promotion
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: verification
+  summary: Prevent weak extraction groups from silently becoming skill or workflow
+    candidates.
+  acceptance:
+  - Weak extraction groups are withheld or rejected.
+  - Rejection reasons are logged for audit.
+  evidence:
+  - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+- id: KIU-624
+  title: cross-bundle inferred connections
+  target_version: v0.6.0
+  status: done
+  priority: P1
+  blocker_level: soft
+  area: graph
+  summary: Add bounded inferred edges for navigation and synthesis across merged bundles.
+  acceptance:
+  - Merged graph surfaces explicit inferred or ambiguous cross-bundle links.
+  - Graph report exposes surprising connections from bounded inference.
+  evidence:
+  - docs/superpowers/plans/2026-04-23-v0.6-w2-production-pipeline.md
+- id: KIU-604
+  title: graph clustering for navigation
+  target_version: v0.6.0
+  status: done
+  priority: P1
+  blocker_level: soft
+  area: graph
+  summary: Add automatic clustering/community signals as a navigation aid after the
+    upstream provenance contract is stable.
+  acceptance:
+  - Community detection runs from the provenance-rich graph.
+  - Output is auditable and does not replace upstream extraction quality gates.
+  evidence:
+  - docs/2026-04-23-v0.6-规划意见与工单计划.md
+  - docs/KiU v0 6 方向性调整 · v0 5 审计.md
+- id: KIU-605
+  title: graph report as strong P1 surface
+  target_version: v0.6.0
+  status: done
+  priority: P1
+  blocker_level: soft
+  area: graph
+  summary: Emit GRAPH_REPORT after provenance and extraction contracts are stable;
+    it is useful but not a first-release gate.
+  acceptance:
+  - GRAPH_REPORT surfaces navigation questions and surprising connections.
+  - Report generation does not become a substitute for upstream evidence quality.
+  evidence:
+  - docs/2026-04-23-v0.6-规划意见与工单计划.md
+  - docs/KiU v0 6 方向性调整 · v0 5 审计.md
+- id: KIU-690
+  title: repo-native backlog and kanban surface
+  target_version: v0.6.0
+  status: done
+  priority: P1
+  blocker_level: soft
+  area: project-system
+  summary: Add a canonical in-repo backlog surface so long multi-session execution
+    stops depending only on plan files and chat history.
+  acceptance:
+  - Canonical board asset exists in-repo.
+  - Stable read entrypoint can filter tickets by version.
+  - Version and roadmap docs point to the canonical board.
+  evidence:
+  - backlog/board.yaml
+  - backlog/README.md
+  - scripts/show_backlog.py
+  - docs/2026-04-24-version-roadmap-v051-v06-v07.md
+- id: KIU-648
+  title: generated usage smoke reviews on default build path
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: usage-review
+  summary: Make build_candidates emit source-backed usage-review artifacts so three-layer
+    review cannot collapse to Usage 0.0 on otherwise valid generated bundles.
+  acceptance:
+  - Default generated runs contain usage-review YAML artifacts.
+  - Three-layer review on Poor Charlie no longer reports no_usage_reviews.
+  - The fix changes pipeline behavior, not generated /tmp artifacts by hand.
+  evidence:
+  - src/kiu_pipeline/usage_smoke.py
+  - scripts/build_candidates.py
+  - tests/test_pipeline.py
+  - /tmp/kiu-v06-650-poor-charlie/generated/poor-charlies-almanack-v0.1/v06-650-poor-charlie/reports/three-layer-review.json
+- id: KIU-649
+  title: v0.6 final release evidence pack
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Archive final v0.6 evidence across generated production quality, same-source
+    benchmark quality, and known Graphify absorption limits.
+  acceptance:
+  - Evidence pack records concrete commands and scores.
+  - Release claim separates KiU foundation, cangjie benchmark, and Graphify absorption.
+  evidence:
+  - reports/2026-04-24-v0.6.0-final-release-evidence-pack.md
+- id: KIU-650
+  title: Poor Charlie concept-query boundary cleanup
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: benchmark-quality
+  summary: Remove same-source inversion boundary leakage on concept, definition, and
+    history-example prompts without weakening workflow-vs-agentic discipline.
+  acceptance:
+  - invert-the-problem explicitly rejects concept-definition and historical-example
+    lookup prompts.
+  - Fresh same-source benchmark reports empty failure_tag_counts.
+  - KiU remains same-scenario usage winner against the local reference pack.
+  evidence:
+  - bundles/poor-charlies-almanack-v0.1/skills/invert-the-problem/SKILL.md
+  - shared_profiles/investing/triggers.yaml
+  - /tmp/kiu-v06-650-poor-charlie/generated/poor-charlies-almanack-v0.1/v06-650-poor-charlie/reports/reference-benchmark.json
+- id: KIU-651
+  title: v0.6 release narrative hardening
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-narrative
+  summary: Harden public release language around In Use, provenance, and workflow-vs-agentic
+    boundary rather than UI or graph-display polish.
+  acceptance:
+  - README and changelog describe v0.6.0 as delivered source/provenance line.
+  - The narrative does not claim world-alignment or full Graphify parity.
+  evidence:
+  - README.md
+  - CHANGELOG.md
+  - docs/kiu-skill-spec-v0.6.md
+- id: KIU-652
+  title: Graphify core score interpretation note
+  target_version: v0.6.0
+  status: done
+  priority: P1
+  blocker_level: soft
+  area: graph
+  summary: Record the Graphify gap, then close it with provenance migration and tri-state
+    effectiveness verification before v0.6 release.
+  acceptance:
+  - Evidence pack records graphify_core_absorbed_100 = 100.0 after closure.
+  - Release notes no longer excuse the earlier 60.4 score as sufficient.
+  - Version positioning states that Graphify bottom-layer closure is not the same
+    as large final-usage victory over cangjie.
+  evidence:
+  - reports/2026-04-24-v0.6.0-final-release-evidence-pack.md
+  - CHANGELOG.md
+  - /tmp/kiu-v06-graphify-closure/generated/poor-charlies-almanack-v0.1/v06-graphify-closure/reports/reference-benchmark.json
+- id: KIU-653
+  title: Poor Charlie full graph provenance migration
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: graph
+  summary: Migrate the legacy Poor Charlie graph so every node and edge carries source_file,
+    source_location, extraction_kind, and edge confidence where applicable.
+  acceptance:
+  - Node provenance ratio reaches 1.0.
+  - Edge provenance ratio reaches 1.0.
+  - Manifest, graph hash, anchors, and revision history stay consistent.
+  evidence:
+  - bundles/poor-charlies-almanack-v0.1/graph/graph.json
+  - bundles/poor-charlies-almanack-v0.1/manifest.yaml
+- id: KIU-654
+  title: Poor Charlie tri-state density repair
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: graph
+  summary: Add evidence-honest INFERRED and AMBIGUOUS graph entities so tri-state
+    markers are not decorative.
+  acceptance:
+  - Tri-state density ratio reaches 1.0.
+  - Inferred edges represent bounded synthesis links.
+  - Ambiguous entities represent boundary/evaluation probes rather than fake certainty.
+  evidence:
+  - bundles/poor-charlies-almanack-v0.1/graph/graph.json
+- id: KIU-655
+  title: tri-state effectiveness seed consumption
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: graph
+  summary: Verify generated candidate seeds consume inferred and ambiguous graph signals
+    instead of merely preserving them in graph.json.
+  acceptance:
+  - Tri-state effectiveness ratio is at least 0.8.
+  - Generated run still passes three-layer review.
+  - Same-source usage quality does not regress.
+  evidence:
+  - /tmp/kiu-v06-graphify-closure/generated/poor-charlies-almanack-v0.1/v06-graphify-closure/reports/three-layer-review.json
+  - /tmp/kiu-v06-graphify-closure/generated/poor-charlies-almanack-v0.1/v06-graphify-closure/reports/reference-benchmark.json
+- id: KIU-656
+  title: Graphify release gate rerun
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Rerun the final benchmark with Graphify score as a hard release gate instead
+    of accepting the earlier 60.4 partial score.
+  acceptance:
+  - graphify_core_absorbed_100 is at least 80.0.
+  - Final scorecard records 100.0.
+  - Release evidence records both the prior gap and the closure result.
+  evidence:
+  - reports/2026-04-24-v0.6.0-final-release-evidence-pack.md
+  - CHANGELOG.md
+- id: KIU-657
+  title: ambiguous boundary signal consumption
+  target_version: v0.6.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: graph
+  summary: Consume the remaining ambiguous OOD boundary node through an explicit graph
+    boundary-probe edge so tri-state effectiveness reaches 1.0 without deleting honest
+    ambiguity.
+  acceptance:
+  - tri_state_effectiveness_ratio reaches 1.0.
+  - graphify_core_absorbed_100 reaches 100.0.
+  - Three-layer and same-source usage scores do not regress.
+  - The fix consumes ambiguity through candidate support rather than removing ambiguity
+    from the graph.
+  evidence:
+  - bundles/poor-charlies-almanack-v0.1/graph/graph.json
+  - /tmp/kiu-v06-graphify-closure/generated/poor-charlies-almanack-v0.1/v06-graphify-closure/reports/reference-benchmark.json
+  - reports/2026-04-24-v0.6.0-final-release-evidence-pack.md

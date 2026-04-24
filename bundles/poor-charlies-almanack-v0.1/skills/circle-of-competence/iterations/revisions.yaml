@@ -5,7 +5,7 @@ history:
 - revision: 1
   date: 2026-04-21
   summary: Initial v0.1 reference skill with contract, trace links, and sample evaluation.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: under_evaluation
   evidence_changes:
   - Added first graph and source anchor sets.
@@ -14,7 +14,7 @@ history:
   date: 2026-04-21
   summary: Tightened exclusions, expanded to release-scale evaluation coverage, and
     published the full v0.1 skill.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Added explicit passive-index exclusion.
@@ -24,7 +24,7 @@ history:
   date: 2026-04-22
   summary: Raised published text density for the v0.3.1 hard gate and switched eval
     binding to full-corpus glob references.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Densified rationale and evidence text with explicit anchor-backed refusal logic.
@@ -34,7 +34,7 @@ history:
   summary: Manual v0.4 content upgrade. Promoted circle-of-competence to the v0.4
     reference skill with explicit three-trace evidence and richer cross-skill relations;
     this was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Expanded graph/source anchors to cover dotcom refusal, Google omission, crypto
@@ -45,14 +45,14 @@ history:
     failure modes in eval metadata.
 - revision: 5
   date: 2026-04-23
-  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese
-    action-facing guidance to close the same-scenario benchmark gap against the
-    cangjie reference pack; this was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese action-facing
+    guidance to close the same-scenario benchmark gap against the cangjie reference
+    pack; this was hand-authored, not a refinement_scheduler loop result.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
-  - Added Chinese trigger phrases such as "我可以学", "应该差不多", "大家都说",
-    and "说不清楚" to the published rationale and usage guidance.
+  - Added Chinese trigger phrases such as "我可以学", "应该差不多", "大家都说", and "说不清楚" to the
+    published rationale and usage guidance.
   - Expanded boundary and evaluation summaries with explicit non-trigger and edge-case
     rulings for concept queries, in-circle experts, and transferable-skill scenarios.
   - Kept the existing evidence anchors intact while making next-step outputs more

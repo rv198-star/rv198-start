@@ -6,7 +6,7 @@ skill_id: invert-the-problem
 title: Invert the Problem
 status: published
 bundle_version: 0.1.0
-skill_revision: 5
+skill_revision: 6
 ```
 
 ## Contract
@@ -17,6 +17,7 @@ trigger:
     - user_stuck_in_complex_success_planning
   exclusions:
     - user_request_is_pure_fact_lookup
+    - user_request_is_concept_definition_or_history_query
     - user_outcome_is_already_decided
 intake:
   required:
@@ -39,8 +40,10 @@ boundary:
   fails_when:
     - user_treats_inversion_as_complete_strategy_without_followup
     - input_lacks_a_concrete_objective_or_constraint_set
+    - user_only_wants_concept_explanation_or_historical_examples
   do_not_fire_when:
     - user_request_is_pure_fact_lookup
+    - user_request_is_concept_definition_or_history_query
     - user_outcome_is_already_decided
 ```
 
@@ -88,13 +91,15 @@ contradicts: []
 KiU Test 当前为 green，并继续绑定完整的 v0.1 shared evaluation corpus。当前摘要覆盖 20 条真实决策、20 条 adversarial trap、10 条 OOD refusal；主要失败簇是“正向计划说得很完整，但从没命名 ruin path”，以及“行动早就决定了，才来补一个逆向分析的样子货”。
 
 边界要求必须明确写进产出：
-- 纯概念查询，例如“逆向思维是什么意思”，不触发。
+- 纯概念、定义或历史案例查询，例如“逆向思维是什么意思”“芒格说的反过来想有哪些例子”，不触发。
 - 纯创意发散，例如“帮我头脑风暴几个方向”，不触发，因为这时需要的是扩张而不是防御。
 - 边界案例可以按权重触发，例如跳槽分析、健身计划；前提是用户真的要看失败模式，而不是泛泛比较优劣。
 
 详见 `eval/summary.yaml`。
 
 ## Revision Summary
+Revision 6 是一次面向 `v0.6.0` same-source boundary cleanup 的手工补强，不是 refinement_scheduler 自动 loop。本轮明确把 concept / definition / history query 排除在 inversion 触发外，避免把“解释逆向思维概念”误判成“帮助真实决策做 failure-first planning”。
+
 Revision 5 是一次面向 `v0.5.1` 的手工补强，不是 refinement_scheduler 自动 loop。本轮把正文改成中文 action-facing 说明，明确补进了“漏掉重要东西 / 方案太乐观 / 最坏情况 / 系统性找茬 / 血本无归”等触发语言，并把输出落成 failure map、avoid rules、first preventive action 三件套。
 
 同时，这轮也把 concept query、pure brainstorming、低风险边界案例的裁定说明写清楚，并显式加入 `edge_posture = full_inversion / partial_review / defer`，避免通过过度泛化触发来换 benchmark 分数。剩余缺口是继续提高 edge case 的边界稳定性，并补出真实 loop 驱动的修订证据。详见 `iterations/revisions.yaml`。

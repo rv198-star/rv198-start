@@ -278,7 +278,7 @@ class BundleValidationTests(unittest.TestCase):
     def test_all_published_investing_skills_are_v04_content_rewrites(self) -> None:
         expected_revisions = {
             "circle-of-competence": 5,
-            "invert-the-problem": 5,
+            "invert-the-problem": 6,
             "margin-of-safety-sizing": 5,
             "bias-self-audit": 5,
             "opportunity-cost-of-the-next-best-idea": 4,
@@ -477,6 +477,35 @@ class BundleValidationTests(unittest.TestCase):
             self.assertTrue(
                 any("graph_hash" in error for error in report["errors"])
             )
+
+    def test_poor_charlie_graph_has_full_v06_graphify_core_signals(self) -> None:
+        manifest = self._load_yaml(self.bundle_path / "manifest.yaml")
+        graph_doc = json.loads(
+            (self.bundle_path / manifest["graph"]["path"]).read_text(encoding="utf-8")
+        )
+        nodes = graph_doc["nodes"]
+        edges = graph_doc["edges"]
+
+        self.assertTrue(nodes)
+        self.assertTrue(edges)
+        self.assertTrue(all(node.get("source_file") for node in nodes))
+        self.assertTrue(all(node.get("source_location") for node in nodes))
+        self.assertTrue(all(node.get("extraction_kind") for node in nodes))
+        self.assertTrue(all(edge.get("source_file") for edge in edges))
+        self.assertTrue(all(edge.get("source_location") for edge in edges))
+        self.assertTrue(all(edge.get("extraction_kind") for edge in edges))
+        self.assertTrue(all("confidence" in edge for edge in edges))
+
+        extraction_kinds = {
+            entity.get("extraction_kind")
+            for entity in [*nodes, *edges]
+        }
+        self.assertIn("EXTRACTED", extraction_kinds)
+        self.assertIn("INFERRED", extraction_kinds)
+        self.assertIn("AMBIGUOUS", extraction_kinds)
+        self.assertTrue(
+            any(edge.get("id") == "e_circle_ood_boundary_ambiguous" for edge in edges)
+        )
 
     def test_migrate_graph_v01_to_v02_cli_updates_bundle_and_keeps_valid(self) -> None:
         for bundle_path in (self.bundle_path, self.engineering_bundle_path):

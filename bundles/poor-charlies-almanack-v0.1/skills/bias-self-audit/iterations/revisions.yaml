@@ -6,7 +6,7 @@ history:
   date: 2026-04-21
   summary: Initial self-audit contract, evidence anchors, and reference evaluation
     coverage.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: under_evaluation
   evidence_changes:
   - Added US Air anti-pattern trace.
@@ -15,7 +15,7 @@ history:
   date: 2026-04-21
   summary: Promoted to published after adding stronger incentive-bias evidence and
     release-scale evaluation coverage.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Added incentive-caused-delusion-audit as a canonical trace.
@@ -24,7 +24,7 @@ history:
   date: 2026-04-22
   summary: Raised published text density for the v0.3.1 hard gate and switched eval
     binding to full-corpus glob references.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Densified rationale and evidence text with explicit bias-naming and mitigation
@@ -35,7 +35,7 @@ history:
   summary: Manual v0.4 content upgrade. Promoted bias-self-audit to the v0.4 content
     standard with explicit countermeasure logic and three-trace evidence binding;
     this was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Rewrote rationale around named distortions, mitigation actions, and pre-commitment
@@ -44,14 +44,13 @@ history:
   - Expanded eval failure modes and bumped release metadata to revision 4.
 - revision: 5
   date: 2026-04-23
-  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese
-    action-facing anti-bias guidance to close the same-scenario benchmark gap; this
-    was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese action-facing
+    anti-bias guidance to close the same-scenario benchmark gap; this was hand-authored,
+    not a refinement_scheduler loop result.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
-  - Added direct trigger phrases such as "不可能错", "反面意见我都不想听了",
-    "大家都同意", and "已经收集了很多支持数据".
+  - Added direct trigger phrases such as "不可能错", "反面意见我都不想听了", "大家都同意", and "已经收集了很多支持数据".
   - Reworked the usage summary around thesis naming, bias naming, counter-evidence
     search, and mitigation actions.
   - Clarified non-trigger boundaries for early-stage data collection, urgent incidents,

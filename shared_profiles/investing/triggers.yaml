@@ -161,6 +161,19 @@ triggers:
       - 帮我查一下巴菲特什么时候买的可口可乐。
     negative_examples:
       - 帮我判断这个计划最容易失败的地方在哪。
+  - symbol: user_request_is_concept_definition_or_history_query
+    definition: 用户只是在问概念定义、方法来源或历史案例，没有要求把框架用于当前待决问题。
+    positive_examples:
+      - 逆向思维是什么意思？
+      - 芒格说的反过来想有哪些例子？
+    negative_examples:
+      - 我这次收购最可能死在哪，帮我反过来检查。
+  - symbol: user_only_wants_concept_explanation_or_historical_examples
+    definition: 用户只想获得概念解释或历史例子，而不是 failure map、avoid rules 或 first preventive action。
+    positive_examples:
+      - 给我解释一下 inversion 的概念和来历。
+    negative_examples:
+      - 请用 inversion 帮我判断这个上市计划的失败路径。
   - symbol: user_request_is_short_term_trading
     definition: 用户关注的是短线交易、技术指标择时或极短期价格波动，而不是长期 business value。
     positive_examples:

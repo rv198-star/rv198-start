@@ -25,6 +25,7 @@ from kiu_pipeline.render import (
     render_generated_run,
 )
 from kiu_pipeline.seed import mine_candidate_seed_assessment
+from kiu_pipeline.usage_smoke import write_smoke_usage_reviews
 from kiu_pipeline.verification_gate import write_seed_verification_reports
 
 
@@ -93,6 +94,7 @@ def main() -> int:
         llm_budget_tokens=args.llm_budget_tokens,
     )
     materialize_refined_candidates(bundle_root, refined)
+    write_smoke_usage_reviews(run_root)
 
     report = validate_generated_bundle(bundle_root)
     if report["errors"]:

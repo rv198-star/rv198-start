@@ -1,6 +1,6 @@
 skill_id: invert-the-problem
 bundle_version: 0.1.0
-skill_revision: 5
+skill_revision: 6
 status: published
 kiu_test:
   trigger_test: pass
@@ -32,6 +32,7 @@ key_failure_modes:
   - Inversion can become vague advice unless it outputs explicit avoid-rules.
   - Already-decided actions can misuse inversion as decorative post-hoc reasoning unless boundary rules reject them.
   - Forward plans can sound coherent while leaving single-point failures and survival constraints unnamed.
+  - Concept, definition, and history-example prompts can look semantically related but must not trigger without a live decision objective.
 references:
   evaluation_root: ../../../evaluation
   coverage_mode: shared_corpus_full_release

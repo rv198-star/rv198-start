@@ -2,7 +2,7 @@ skill_id: bias-self-audit
 bundle_version: 0.1.0
 skill_revision: 4
 graph_version: kiu.graph/v0.2
-graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
 graph_anchor_sets:
 - anchor_id: bias-core
   node_ids:

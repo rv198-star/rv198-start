@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+## [0.6.0] - 2026-04-24
+
+### Added
+- Added the v0.6 raw-book source/provenance line: source chunks, book overview artifacts, extraction-result audit records, provenance-rich graph materialization, graph communities, and GRAPH_REPORT navigation output.
+- Added generated usage smoke reviews to the default `build_candidates.py` path so generated bundles can be reviewed across source, generated, and usage layers without manual `/tmp` patching.
+- Added final v0.6 release evidence covering three-layer production scores, same-source `cangjie-skill` benchmark results, and explicit Graphify-core absorption limits.
+
+### Changed
+- Tightened `invert-the-problem` boundary language for concept, definition, and historical-example queries; explanatory lookup prompts no longer count as live inversion decisions.
+- Updated v0.6 release narrative from future reservation to delivered `In Use + provenance + workflow-boundary` release line.
+- Bumped the package version to `0.6.0`.
+
+### Verified
+- Poor Charlie generated run: Source `100.0`, Generated `97.8`, Usage `95.8`, Overall `97.9`, release gate PASS.
+- Same-source benchmark against local `poor-charlies-almanack-skill`: KiU usage `97.7` vs reference `96.4`, delta `+1.3`, weighted pass-rate parity at `1.0`, `usage_winner = kiu`, failure tags `{}`.
+- Graphify core closure now scores `graphify_core_absorbed_100 = 100.0`: node/edge provenance, tri-state density, tri-state effectiveness, communities, and graph report ratios all reach `1.0` while same-source usage quality remains ahead of the reference pack.
+- v0.6 regression baseline executed `7` checks with `7` pass / `0` fail across unit tests, investing/engineering validation, and generated-run review paths.
+
 ## [0.5.1] - 2026-04-24
 
 ### Added

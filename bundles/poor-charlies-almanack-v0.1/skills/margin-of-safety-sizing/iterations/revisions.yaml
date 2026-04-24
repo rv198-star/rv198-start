@@ -5,7 +5,7 @@ history:
 - revision: 1
   date: 2026-04-21
   summary: Initial sizing contract with graph/source anchors and reference eval coverage.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: under_evaluation
   evidence_changes:
   - Added See's Candies and Salomon traces.
@@ -13,7 +13,7 @@ history:
 - revision: 2
   date: 2026-04-21
   summary: Promoted to published after release-scale sizing coverage was attached.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Added irreversible-bet-precheck as a third canonical trace.
@@ -22,7 +22,7 @@ history:
   date: 2026-04-22
   summary: Raised published text density for the v0.3.1 hard gate and switched eval
     binding to full-corpus glob references.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Densified rationale and evidence text with explicit survival-first sizing rules.
@@ -32,7 +32,7 @@ history:
   summary: Manual v0.4 content upgrade. Promoted margin-of-safety-sizing to the v0.4
     content standard with explicit survival logic and three-trace evidence binding;
     this was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Rewrote rationale around liquidity, ruin math, irreversibility, and optionality
@@ -41,14 +41,14 @@ history:
   - Expanded eval failure modes and bumped release metadata to revision 4.
 - revision: 5
   date: 2026-04-23
-  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese
-    action-facing sizing guidance to close the same-scenario benchmark gap; this
-    was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese action-facing
+    sizing guidance to close the same-scenario benchmark gap; this was hand-authored,
+    not a refinement_scheduler loop result.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
-  - Added direct Chinese trigger phrases around price reasonableness, margin of
-    safety, market panic, pricing power, and whether a project is worth funding.
+  - Added direct Chinese trigger phrases around price reasonableness, margin of safety,
+    market panic, pricing power, and whether a project is worth funding.
   - Expanded the usage summary with a sizing-first output template anchored to downside,
     liquidity, irreversibility, and capital-at-risk constraints.
   - Clarified non-trigger boundaries for short-term trading, concept queries, pure

@@ -1,6 +1,6 @@
 {
   "graph_version": "kiu.graph/v0.2",
-  "graph_hash": "sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e",
+  "graph_hash": "sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151",
   "source_snapshot": "poor-charlies-almanack-v0.1",
   "nodes": [
     {
@@ -8,7 +8,10 @@
       "type": "skill_principle",
       "label": "Circle of competence",
       "source_file": "sources/circle-of-competence.md",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -16,7 +19,10 @@
       "type": "skill_principle",
       "label": "Invert the problem",
       "source_file": "sources/invert-the-problem.md",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -24,7 +30,10 @@
       "type": "skill_principle",
       "label": "Margin of safety sizing",
       "source_file": "sources/margin-of-safety-sizing.md",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -32,7 +41,10 @@
       "type": "skill_principle",
       "label": "Bias self audit",
       "source_file": "sources/bias-self-audit.md",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -40,7 +52,10 @@
       "type": "skill_principle",
       "label": "Opportunity cost of the next best idea",
       "source_file": "sources/opportunity-cost-of-the-next-best-idea.md",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -48,7 +63,10 @@
       "type": "usage_trace",
       "label": "Dotcom refusal",
       "source_file": "traces/canonical/dotcom-refusal.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -56,7 +74,10 @@
       "type": "usage_trace",
       "label": "Google omission",
       "source_file": "traces/canonical/google-omission.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -64,7 +85,10 @@
       "type": "usage_trace",
       "label": "Crypto rejection",
       "source_file": "traces/canonical/crypto-rejection.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -72,7 +96,10 @@
       "type": "usage_trace",
       "label": "Anti-ruin checklist",
       "source_file": "traces/canonical/anti-ruin-checklist.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -80,7 +107,10 @@
       "type": "usage_trace",
       "label": "See's Candies discipline",
       "source_file": "traces/canonical/sees-candies-discipline.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -88,7 +118,10 @@
       "type": "usage_trace",
       "label": "Salomon exposure cap",
       "source_file": "traces/canonical/salomon-exposure-cap.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -96,7 +129,10 @@
       "type": "usage_trace",
       "label": "US Air regret",
       "source_file": "traces/canonical/us-air-regret.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -104,7 +140,10 @@
       "type": "usage_trace",
       "label": "Costco next best benchmark",
       "source_file": "traces/canonical/costco-next-best-idea.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED"
     },
     {
@@ -112,16 +151,22 @@
       "type": "evaluation_case",
       "label": "Surface familiarity trap",
       "source_file": "evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml",
-      "source_location": null,
-      "extraction_kind": "EXTRACTED"
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
+      "extraction_kind": "AMBIGUOUS"
     },
     {
       "id": "n_eval_ood_career_offer",
       "type": "evaluation_case",
       "label": "Career offer OOD case",
       "source_file": "evaluation/out_of_distribution/career-offer-choice.yaml",
-      "source_location": null,
-      "extraction_kind": "EXTRACTED"
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
+      "extraction_kind": "AMBIGUOUS"
     }
   ],
   "edges": [
@@ -131,7 +176,10 @@
       "from": "n_circle_principle",
       "to": "n_dotcom_refusal_trace",
       "source_file": "traces/canonical/dotcom-refusal.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -141,7 +189,10 @@
       "from": "n_circle_principle",
       "to": "n_google_omission_trace",
       "source_file": "traces/canonical/google-omission.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -151,7 +202,10 @@
       "from": "n_circle_principle",
       "to": "n_crypto_rejection_trace",
       "source_file": "traces/canonical/crypto-rejection.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -161,7 +215,10 @@
       "from": "n_invert_principle",
       "to": "n_inversion_checklist_trace",
       "source_file": "traces/canonical/anti-ruin-checklist.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -171,7 +228,10 @@
       "from": "n_margin_principle",
       "to": "n_margin_see_candies_trace",
       "source_file": "traces/canonical/sees-candies-discipline.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -181,7 +241,10 @@
       "from": "n_margin_principle",
       "to": "n_salomon_cap_trace",
       "source_file": "traces/canonical/salomon-exposure-cap.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -191,7 +254,10 @@
       "from": "n_bias_principle",
       "to": "n_bias_us_air_trace",
       "source_file": "traces/canonical/us-air-regret.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -201,7 +267,10 @@
       "from": "n_opportunity_principle",
       "to": "n_costco_switch_trace",
       "source_file": "traces/canonical/costco-next-best-idea.yaml",
-      "source_location": null,
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
       "extraction_kind": "EXTRACTED",
       "confidence": 1.0
     },
@@ -211,9 +280,12 @@
       "from": "n_circle_principle",
       "to": "n_bias_principle",
       "source_file": "sources/circle-of-competence.md",
-      "source_location": null,
-      "extraction_kind": "EXTRACTED",
-      "confidence": 1.0
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
+      "extraction_kind": "INFERRED",
+      "confidence": 0.7
     },
     {
       "id": "e_invert_margin_complements",
@@ -221,9 +293,51 @@
       "from": "n_invert_principle",
       "to": "n_margin_principle",
       "source_file": "sources/invert-the-problem.md",
-      "source_location": null,
-      "extraction_kind": "EXTRACTED",
-      "confidence": 1.0
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
+      "extraction_kind": "INFERRED",
+      "confidence": 0.7
+    },
+    {
+      "id": "e_opportunity_google_inferred_benchmark",
+      "type": "inferred_benchmark",
+      "from": "n_opportunity_principle",
+      "to": "n_google_omission_trace",
+      "source_file": "sources/opportunity-cost-of-the-next-best-idea.md",
+      "source_location": {
+        "line_start": 1,
+        "line_end": 9
+      },
+      "extraction_kind": "INFERRED",
+      "confidence": 0.7
+    },
+    {
+      "id": "e_circle_surface_boundary_ambiguous",
+      "type": "boundary_probe",
+      "from": "n_circle_principle",
+      "to": "n_eval_surface_familiarity",
+      "source_file": "evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml",
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
+      "extraction_kind": "AMBIGUOUS",
+      "confidence": 0.6
+    },
+    {
+      "id": "e_circle_ood_boundary_ambiguous",
+      "type": "boundary_probe",
+      "from": "n_circle_principle",
+      "to": "n_eval_ood_career_offer",
+      "source_file": "evaluation/out_of_distribution/career-offer-choice.yaml",
+      "source_location": {
+        "line_start": 1,
+        "line_end": 8
+      },
+      "extraction_kind": "AMBIGUOUS",
+      "confidence": 0.6
     }
   ],
   "communities": [

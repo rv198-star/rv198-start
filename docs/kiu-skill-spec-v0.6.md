@@ -10,6 +10,84 @@ The main line for this version is:
 
 `raw book -> source chunks -> extraction results -> graph -> distillation -> routing -> review`
 
+## Release Principles
+
+`v0.6.0` follows five release principles.
+
+### 1. In Use First
+
+The first question is not whether the graph looks elegant. The first question is
+whether the upstream source/evidence pipeline materially supports stronger downstream
+skill/workflow production.
+
+Therefore:
+
+- provenance and audit quality are `P0`
+- graph presentation, clustering, and report polish are strong `P1`
+
+### 2. Graphify Core Only
+
+`v0.6.0` absorbs only `Graphify` core:
+
+- provenance-rich graph schema
+- tri-state extraction markers
+- deterministic pass plus LLM pass discipline
+- graph navigation primitives
+
+It does not treat IDE integrations, multi-language packaging, MCP serving, or export
+scaffolding as release-defining work.
+
+### 3. L4+ Handoff Maturity
+
+The upstream production chain must be mature enough to hand off at an enterprise
+information-maturity `L4+` level.
+
+This does not mean "outsource the business." It means:
+
+- critical intermediate assets must survive beyond a single LLM conversation
+- evidence spine artifacts must be inspectable, serializable, and transferable
+- model changes or operator changes must not erase provenance
+
+### 4. Deterministic Evidence Spine, LLM Synthesis
+
+`v0.6.0` does not require skill production without LLMs. It does require that the
+evidence spine is not a black box.
+
+Deterministic layers are responsible for:
+
+- source chunking
+- source coordinates
+- schema validity
+- provenance binding
+- extraction audit records
+
+LLM-required layers are responsible for:
+
+- richer extraction
+- relation disambiguation
+- candidate distillation
+- drafting and refinement
+
+### 5. Boundary Discipline Preserved
+
+Stronger upstream extraction may not be used to silently blur the
+`workflow_script` / `llm_agentic` boundary. Routing quality remains a release gate,
+not a secondary metric.
+
+
+### 6. Bottom Layer, Not Final Usage Victory
+
+`v0.6.0` closes the Graphify-core substrate: provenance coordinates, tri-state markers,
+communities, graph reports, and evidence auditability. It does not by itself guarantee
+a large final-usage lead over `cangjie-skill`, because cangjie remains strong at
+trigger phrasing, action language, and short-path skill packaging.
+
+Therefore the release gate separates two claims:
+
+- Graphify-core absorption must close at the substrate level.
+- Large final-usage overperformance belongs to the next graph-to-skill distillation
+  and world-alignment lines.
+
 ## Book Overview v0.1
 
 Canonical bundle locations:
@@ -151,8 +229,15 @@ The migration must update:
 
 `examples/README.md` defines the minimum v0.6 regression sample set.
 
-The two markdown books are independent source lines for source/extraction validation,
-not mixed into a single skill bundle.
+The repository sample policy for `v0.6.0` is:
+
+- at least `3` independent sample books live in-repo
+- at least `2` act as formal production-validation samples
+- `Poor Charlie's Almanack` remains a formal sample as well, but its main role is
+  `benchmark-control` against the local `cangjie` reference pack
+
+Samples must remain independent source lines. They are not mixed into a single bundle
+or evaluation case.
 
 ## Reference Benchmark Contract
 
@@ -202,3 +287,17 @@ It also emits an internal scorecard for:
 
 This benchmark is audit-only. Local reference packs remain `reference/benchmark`
 artifacts, not default production inputs.
+
+For `Poor Charlie's Almanack`, the release judgment standard is `layered
+overperformance`:
+
+- `usage`
+- `workflow-vs-agentic boundary quality`
+- `evidence honesty`
+
+must clearly outperform the local `cangjie` reference pack.
+
+Count is secondary:
+
+- KiU does not need to win by raw skill count
+- but it may not fall materially behind while claiming a better topology

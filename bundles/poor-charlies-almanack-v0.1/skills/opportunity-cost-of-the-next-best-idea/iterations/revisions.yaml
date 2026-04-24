@@ -5,7 +5,7 @@ history:
 - revision: 1
   date: 2026-04-21
   summary: Initial benchmark-first contract with shared trace and evaluation bindings.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: under_evaluation
   evidence_changes:
   - Added Costco and Dexter benchmark traces.
@@ -14,7 +14,7 @@ history:
   date: 2026-04-21
   summary: Promoted to published after attaching a third benchmark trace and release-scale
     evaluation coverage.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Added capital-switching-benchmark as a canonical trace.
@@ -23,7 +23,7 @@ history:
   date: 2026-04-22
   summary: Raised published text density for the v0.3.1 hard gate and switched eval
     binding to full-corpus glob references.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Densified rationale and evidence text with explicit live-benchmark comparison
@@ -34,7 +34,7 @@ history:
   summary: Manual v0.4 content upgrade. Promoted opportunity-cost-of-the-next-best-idea
     to the v0.4 content standard with explicit switching logic and three-trace evidence
     binding; this was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Rewrote rationale around live ranking, switching friction, and benchmark reconstruction.

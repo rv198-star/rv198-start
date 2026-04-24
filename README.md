@@ -8,8 +8,9 @@ Current release framing:
 
 - `v0.5.0` closes the foundation line: multi-domain validation, cross-bundle graph merge, workflow-vs-agentic boundary enforcement, and three-layer review evidence.
 - `v0.5.1` closes the corrective `cangjie-skill` gap-closure line: fresh same-source evidence shows a small but explicit usage lead without workflow-boundary drift.
-- `v0.6` is only the reserved future line for `Graphify` alignment after the `v0.5.1` corrective line.
-- `v0.7` is only the reserved future line for `In Use world-alignment` after the `v0.6` source/provenance line.
+- `v0.6.0` closes the source/provenance and Graphify-core bottom layer: raw-book ingestion, extraction audit records, provenance-rich graph materialization, tri-state graph effectiveness, graph navigation reports, generated usage smoke reviews, and final same-source evidence that preserves the `workflow_script` / `llm_agentic` boundary.
+- `v0.6.0` does not claim a large final-usage lead over `cangjie-skill`; it proves the stronger evidence bottom layer is ready for the next graph-to-skill distillation step.
+- `v0.7` is reserved for `In Use world-alignment` after the `v0.6.0` source/provenance line.
 
 Start here:
 
@@ -19,6 +20,8 @@ Start here:
 - [KiU Skill Spec v0.1](docs/kiu-skill-spec-v0.1.md)
 - [KiU Skill Spec v0.3](docs/kiu-skill-spec-v0.3.md)
 - [KiU Skill Spec v0.4](docs/kiu-skill-spec-v0.4.md)
+- [KiU Skill Spec v0.6](docs/kiu-skill-spec-v0.6.md)
+- [v0.6 Final Evidence Pack](reports/2026-04-24-v0.6.0-final-release-evidence-pack.md)
 - [v0.4.1 Assessment and v0.4.2 Plan](docs/2026-04-22-v0.4.1-assessment-and-v0.4.2-plan.md)
 - [v0.5 Workflow Boundary Hardening Plan](docs/superpowers/plans/2026-04-22-v0.5-workflow-boundary-hardening.md)
 - [v0.5 Workflow Delivery And Three-Layer Scoring Plan](docs/superpowers/plans/2026-04-22-v0.5-workflow-delivery-and-three-layer-scoring.md)

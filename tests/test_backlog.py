@@ -46,7 +46,7 @@ class BacklogTests(unittest.TestCase):
         self.assertEqual(payload["version"], "v0.6.0")
         self.assertIn("summary", payload)
         self.assertGreaterEqual(payload["summary"]["ticket_count"], 1)
-        self.assertIn("todo", payload["summary"]["status_counts"])
+        self.assertIn("done", payload["summary"]["status_counts"])
         self.assertTrue(
             any(ticket["id"] == "KIU-620" for ticket in payload["tickets"]),
             payload["tickets"],

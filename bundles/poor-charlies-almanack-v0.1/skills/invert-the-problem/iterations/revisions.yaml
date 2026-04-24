@@ -1,11 +1,11 @@
 skill_id: invert-the-problem
 bundle_version: 0.1.0
-current_revision: 5
+current_revision: 6
 history:
 - revision: 1
   date: 2026-04-21
   summary: Initial contract, anchor binding, and sample evaluation coverage.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: under_evaluation
   evidence_changes:
   - Added anti-ruin and pre-mortem traces.
@@ -14,7 +14,7 @@ history:
   date: 2026-04-21
   summary: Added a third canonical trace, expanded evaluation coverage to release
     scale, and promoted to published.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Added the airline-bankruptcy inversion trace.
@@ -23,7 +23,7 @@ history:
   date: 2026-04-22
   summary: Raised published text density for the v0.3.1 hard gate and rebound evaluation
     references to the full shared corpus.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Densified rationale and evidence text with anchor-backed failure-mode guidance.
@@ -33,27 +33,41 @@ history:
   summary: Manual v0.4 content upgrade. Promoted invert-the-problem to the v0.4 content
     standard with explicit three-trace evidence and stronger boundary relations; this
     was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
   - Rewrote rationale around explicit failure maps, avoid-rules, and already-decided
     boundary checks.
   - Rewrote evidence summary to name three canonical inversion traces directly.
   - Expanded eval failure modes and bumped release metadata to revision 4.
-- revision: 5
-  date: 2026-04-23
-  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese
-    action-facing inversion guidance to close the same-scenario benchmark gap; this
-    was hand-authored, not a refinement_scheduler loop result.
-  graph_hash: sha256:43c2de3f3e41d415870e7944ef715e55540a6890a454a8f270bd21a6b1cac65e
+- revision: 6
+  date: 2026-04-24
+  summary: Manual v0.6 same-source boundary cleanup. Added explicit concept, definition,
+    and history-query exclusions so explanatory prompts about inversion do not fire
+    the skill.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
   effective_status: published
   evidence_changes:
-  - Added direct Chinese trigger phrases such as "漏掉了什么重要的东西", "方案太乐观",
-    "最坏的情况", and "系统性找茬".
+  - Added a concept-definition should-not-trigger scenario.
+  - Added trigger registry terms for concept-definition and historical-example lookup
+    boundaries.
+  - Preserved workflow-vs-agentic routing by refusing explanatory lookup prompts rather
+    than broadening inversion.
+- revision: 5
+  date: 2026-04-23
+  summary: Manual v0.5.1 usage uplift. Rewrote the published spec into Chinese action-facing
+    inversion guidance to close the same-scenario benchmark gap; this was hand-authored,
+    not a refinement_scheduler loop result.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: published
+  evidence_changes:
+  - Added direct Chinese trigger phrases such as "漏掉了什么重要的东西", "方案太乐观", "最坏的情况", and
+    "系统性找茬".
   - Reworked the usage and evaluation summaries around explicit failure maps, avoid
     rules, and first preventive actions.
   - Clarified non-trigger boundaries for concept queries, pure brainstorming, and
     lower-stakes edge cases without broadening the skill boundary.
 open_gaps:
-- Continue improving edge-case calibration for lower-stakes planning scenarios.
+- Continue monitoring concept-query and low-stakes planning boundary stability in
+  same-source benchmarks.
 - Run a real refinement_scheduler pass before describing this skill as loop-driven.

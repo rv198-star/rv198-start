@@ -31,6 +31,15 @@ should_not_trigger:
     boundary_reason: 逆向思维是保守和防御型工具，不适合拿来替代 ideation。
     anchor_refs:
       - invert-source-note
+  - scenario_id: concept-definition-query
+    summary: 纯概念定义、历史来源或例子解释不应触发。
+    prompt_signals:
+      - 逆向思维是什么意思
+      - 反过来想有哪些例子
+      - 芒格为什么强调 inversion
+    boundary_reason: 这类请求只是在问概念解释或历史案例，没有真实待决目标、约束和失败路径。
+    anchor_refs:
+      - invert-source-note
 edge_case:
   - scenario_id: medium-stakes-personal-decision
     summary: 跳槽、搬家、个人计划等中等复杂度决策，只有当用户明确要求扫描失败模式时才部分触发。
