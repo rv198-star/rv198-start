@@ -2,6 +2,35 @@
 
 ## Unreleased
 
+## [0.6.5] - 2026-04-25
+
+### Added
+- Added cangjie core closure artifacts: raw-book runs now emit `reports/ria-tv-stage-report.json` with RIA-TV++ stage visibility, extractor responsibilities, triple-verification stage status, distillation status, linking status, and pressure-test stage status.
+- Added chapter-title pseudo-skill hygiene before candidate promotion plus `reports/pseudo-skill-audit.json` so rejected headings and routed workflow candidates are auditable rather than silently deleted.
+- Added split cangjie methodology scoring with `cangjie_methodology_internal_100`, `cangjie_methodology_external_blind_100`, `cangjie_methodology_closure_100`, `cangjie_methodology_gate`, and layered `final_artifact_effect` scoring so same-scenario usage wins cannot be misreported as cangjie methodology closure.
+- Added RIA-TV++ and triple-verification artifact ingestion to Layer 2 scoring, with internal methodology separated from external blind-preference closure evidence.
+- Added `cangjie_core_baseline_matrix` to reference benchmark JSON/Markdown/CLI output so each cangjie capability reports pass/weak/missing status.
+- Added per-skill `ria_tv_provenance` and structured `distillation_contract` metadata for generated thick skills.
+- Added generated `reports/pressure-tests.json` decoy pressure packs and pressure summary ingestion for Layer 2 scoring.
+- Added the optional anonymous `schemas/blind-preference-review-v0.1.json` evidence interface plus blind summary ingestion for Layer 2 scoring.
+- Added release-threshold same-source scenario packs for the benchmark-only cangjie protocol baseline, covering trigger, boundary, decoy, and edge-case prompts.
+- Added `scripts/build_blind_review_pack.py`, `scripts/merge_blind_review_response.py`, and the committed v0.6.5 Shiji reviewer pack under `reports/blind-review-packs/v0.6.5-shiji-cangjie-protocol/`.
+- Added `reports/2026-04-25-v0.6.5-cangjie-core-closure-evidence.md` and the v0.6.5 implementation plan.
+
+### Changed
+- Generated candidate metadata now carries `ria_tv_distillation`, `ria_tv_provenance`, and `distillation_contract` without rewriting existing high-quality seeded rationale.
+- Seed verification now exposes triple-verification dimensions and blocks weak non-workflow skill promotion when cross-evidence, predictive/action value, or uniqueness is below promotion thresholds.
+- Reference benchmark CLI summaries now expose `final_artifact_effect_*`, `cangjie_methodology_*`, `cangjie_core_baseline_matrix_*`, and `compatibility_regression_risk`.
+- Workflow-gateway candidates use `gateway_provenance` instead of thick-skill RIA-TV provenance, preserving the workflow/agentic boundary.
+
+### Verified
+- Batch 1 targeted verification: `5` tests pass for chapter-title filtering, pseudo-skill audit, and compatibility summary fields.
+- Batch 2 targeted verification: `5` tests pass for RIA-TV++ stage artifacts, triple verification, distillation metadata, and existing Shiji/Mao-style cold-start smoke behavior.
+- Batch 3 reference benchmark verification: `18` tests pass for methodology gate, pressure/blind evidence ingestion, two-layer effect reporting, and same-source scenario threshold coverage.
+- Final regression: `183` tests pass after baseline matrix, per-skill provenance, promotion-gate, pressure-pack, blind-evidence loader, and same-source scenario expansion changes.
+- Shiji same-source benchmark against the local benchmark-only cangjie protocol baseline: `26` scenarios across `2` matched pairs, KiU usage delta `+1.9`, weighted pass-rate delta `+0.1539`, cangjie core `99.2`, methodology internal `100.0`, external blind `0.0`, closure `0.0`.
+- Cangjie core baseline matrix now reports only `blind_preference` as missing; `same_source_benchmark` clears the release threshold, the final artifact claim is `internal_depth_proven_external_blind_missing`, and the external review pack is ready for auditors.
+
 ## [0.6.4] - 2026-04-25
 
 ### Added

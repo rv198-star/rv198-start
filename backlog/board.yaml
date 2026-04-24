@@ -632,7 +632,7 @@ tickets:
 - id: KIU-674
   title: cangjie production-methodology absorption gap plan
   target_version: v0.6.3
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: methodology
@@ -643,6 +643,183 @@ tickets:
   - Follow-up tickets exist for extractor responsibilities, triple verification, and decoy pressure tests.
   evidence:
   - docs/2026-04-24-v0.6.3-cold-start-production-plan.md
+  - reports/2026-04-25-v0.5.1-evaluation-reverse-diagnosis.md
+  - src/kiu_pipeline/reference_benchmark.py
+  - tests/test_reference_benchmark.py
+- id: KIU-687
+  title: cangjie methodology quality gate closure
+  target_version: v0.6.x
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: methodology-evaluation
+  summary: Raise cangjie_methodology_quality_100 from diagnostic-only to release-grade by adding first-class evidence for principle depth, cross-chapter synthesis, triple verification, decoy pressure tests, and blind preference.
+  acceptance:
+  - Benchmark reports cangjie_methodology_quality_100 and cangjie_methodology_gate on every cangjie comparison.
+  - Gate cannot pass from same-scenario usage delta alone.
+  - Methodology closure requires cangjie_methodology_quality_100 >= 80 and each required evidence ratio >= 0.8.
+  - Final artifact closure requires final_artifact_effect.claim = two_layer_effect_proven, not usage_effect_only.
+  - Fresh same-source and raw-book cold-start runs archive the gate details and reasons.
+  evidence:
+  - reports/2026-04-25-v0.5.1-evaluation-reverse-diagnosis.md
+  - docs/usage-guide.md
+- id: KIU-688
+  title: cangjie deep-reading benchmark signals
+  target_version: v0.6.x
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: benchmark-depth
+  summary: Implement concrete benchmark signals for non-obvious principle depth, cross-chapter synthesis, and decoy pressure robustness so KiU cannot overclaim from hygiene wins.
+  acceptance:
+  - Generated runs emit or ingest principle-depth review evidence.
+  - Cross-chapter synthesis is measured separately from source coverage and skill count.
+  - Decoy pressure tests include summary/query/commentary traps that should not trigger skills.
+  - Blind or blinded-review evidence is represented separately from deterministic structural scores.
+  evidence:
+  - reports/2026-04-25-v0.5.1-evaluation-reverse-diagnosis.md
+- id: KIU-689
+  title: chapter-title pseudo-skill hard filter
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: candidate-quality
+  summary: Prevent chapter headings, section labels, and table-of-contents fragments from being promoted into generated skills while preserving them in source/graph/rejected audit layers.
+  acceptance:
+  - Chinese chapter/section headings, numeric headings, Roman numeral headings, and generic labels such as problem statement or conclusion are rejected before skill promotion unless they carry a real judgment contract.
+  - Rejected heading candidates keep source location and rejection reason.
+  - Shiji and Mao generated bundles contain no chapter-title pseudo-skills.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-690
+  title: pseudo-skill audit report
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: audit
+  summary: Emit an auditable report for rejected pseudo-skills and routed workflow candidates so filtering is transparent rather than a silent deletion.
+  acceptance:
+  - Generated runs emit pseudo-skill audit data with rejected title candidates, summary candidates, routed workflow candidates, and accepted agentic skills.
+  - Audit entries include candidate id, title, rejection/routing reason, source file, and source location when available.
+  - Evidence pack reports pseudo-skill audit counts for Shiji and Mao.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-692
+  title: v0.6.5 compatibility baseline and regression harness
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: compatibility
+  summary: Establish v0.6.4 baseline comparison rules so cangjie-methodology integration cannot reduce output quality or violate AGENTS.md boundaries.
+  acceptance:
+  - Benchmark summaries expose compatibility regression risk.
+  - Three-sample rerun compares v0.6.5 behavior against v0.6.4 evidence where available.
+  - Any regression in usage, boundary quality, or pseudo-skill hygiene blocks release unless explicitly justified.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-693
+  title: RIA-TV++ stage artifacts
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: cangjie-methodology
+  summary: Make cangjie-style staged book-to-skill production visible through first-class raw-book run artifacts.
+  acceptance:
+  - Raw-book runs emit a RIA-TV++ stage report with book overview, parallel extraction, triple verification, skill distillation, linking, and pressure-test stage status.
+  - Stage report is additive and does not break existing bundles.
+  - Missing stage evidence is reported honestly rather than inferred from artifact presence alone.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-694
+  title: five extractor responsibility split
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: cangjie-methodology
+  summary: Ensure framework, principle, case, counter-example, and term extractors have independent responsibilities and auditable outputs rather than label-only coverage.
+  acceptance:
+  - Each extractor emits responsibility metadata with owner, input chunks, output nodes, evidence count, and rejection count.
+  - Layer 2 methodology credit requires supporting extractor evidence, not labels alone.
+  - Skill candidates can trace their support back to principle/framework plus case or counter-example evidence where applicable.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-695
+  title: triple verification before promotion
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: cangjie-methodology
+  summary: Reject weak candidates before drafting unless they pass cross-evidence, predictive/action value, and uniqueness checks.
+  acceptance:
+  - Single-quote candidates without support, generic principles, and no-action candidates are rejected with structured reasons.
+  - Rejections are logged and auditable.
+  - Triple verification contributes to cangjie_methodology_quality_100 and final_artifact_effect Layer 2.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-696
+  title: RIA-TV++ to KiU skill distillation
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: skill-distillation
+  summary: Convert cangjie-style deep reading outputs into KiU thick skills with mechanism chains, use-situation triggers, anti-misuse boundaries, and transfer conditions.
+  acceptance:
+  - Rationale contains mechanism chains when evidence supports them.
+  - Triggers are use situations rather than chapter names.
+  - Boundaries include anti-misuse conditions.
+  - Borrowed-value skills include transfer_conditions and anti_conditions.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-697
+  title: decoy pressure test pack
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: evaluation
+  summary: Add decoy and misuse pressure tests so summary, translation, factual lookup, person intro, stance commentary, and over-analogy prompts do not inflate usage quality.
+  acceptance:
+  - Generated skills receive pressure probes appropriate to their domain.
+  - Pressure-test failures identify trigger, boundary, or action-schema causes.
+  - Pressure results feed cangjie_methodology_quality_100 and final_artifact_effect Layer 2.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-698
+  title: blind preference evidence interface
+  target_version: v0.6.5
+  status: todo
+  priority: P1
+  blocker_level: hard
+  area: benchmark
+  summary: Define an optional blind-preference evidence schema for KiU-vs-reference comparisons across usage, depth, transferability, and anti-misuse quality.
+  acceptance:
+  - Benchmark can load blind preference evidence when provided.
+  - Missing blind review remains an explicit missing-evidence reason and never defaults to pass.
+  - Blind preference deltas contribute to Layer 2 only when evidence is present.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
+- id: KIU-699
+  title: v0.6.5 three-sample rerun and evidence pack
+  target_version: v0.6.5
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Rerun Poor Charlie, Shiji, and Mao with v0.6.5 gates and archive evidence before release.
+  acceptance:
+  - Poor Charlie same-source benchmark is relabeled correctly and does not claim cold start from seed-bundle evidence.
+  - Shiji and Mao raw-book runs contain no chapter-title pseudo-skills in generated skills.
+  - Evidence pack reports Source/Generated/Usage/Overall, cangjie_core_absorbed_100, cangjie_methodology_quality_100, final_artifact_effect.claim, pseudo-skill audit counts, and compatibility notes.
+  - CHANGELOG includes a v0.6.5 section before release.
+  evidence:
+  - docs/superpowers/plans/2026-04-25-v0.6.5-cangjie-core-closure.md
 - id: KIU-675
   title: cold-start evidence pack and comparison closure
   target_version: v0.6.3

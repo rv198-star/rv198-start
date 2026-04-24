@@ -132,6 +132,53 @@ artifact 层领先，也不能宣称已经补齐 `cangjie-skill` 这条版本目
 - `KiU foundation retained`
 - `Graphify core absorbed`
 - `cangjie core absorbed`
+- `cangjie methodology internal`
+- `cangjie external blind preference`
+- `cangjie methodology closure`
+
+`cangjie core absorbed` 只表示 KiU 在 reference 项目的可见结构、extractor 覆盖、产出吞吐和
+same-scenario usage 上吸收了多少；它不是“RIA-TV++ 生产方法论已被完整吃透”的证明。
+
+`cangjie methodology internal` 表示内部方法论证据是否到位；`cangjie external blind preference` 表示外部匿名偏好证据是否到位；`cangjie methodology closure` 取二者共同满足后的闭合分。这样避免把“内部能力已实现”和“外部审计未完成”混成一个 55 分。该 gate 单独检查：
+
+- same-scenario usage pressure 是否足够
+- principle-depth review 是否存在且有效
+- cross-chapter synthesis 是否存在且有效
+- triple verification 是否存在且有效
+- decoy pressure test 是否存在且有效
+- blind preference review 是否存在且有效
+
+如果 KiU 在 same-scenario usage 上赢了，但上述方法论证据缺失，benchmark 必须输出：
+
+- `cangjie_methodology_gate.ready = false`
+- `cangjie_methodology_gate.claim = same_scenario_usage_win_only`
+
+这意味着该版本只能声称“在当前 same-source/same-scenario usage rubric 下小胜”，不能声称
+“已经追平或吸收 cangjie 的 book-to-skill 生产方法论”。
+
+最终产出物效果从现在起按三层收口，而不是只看 usage 分：
+
+- `Layer 1: immediate usage effect`：触发、边界、拒绝、下一步行动和 same-scenario 使用表现。
+- `Layer 2: knowledge depth effect`：深读质量、非显然原则、跨章节综合、三重验证和诱饵压力。
+- `Layer 3: external blind preference effect`：外部匿名评审偏好，不能由 KiU 自评替代。
+
+`final_artifact_effect` 是版本收口用的总 gate：
+
+- 只有三层都达标时，才允许 `claim = two_layer_effect_proven`。
+- 如果 Layer 1 和 Layer 2 达标但 Layer 3 缺失，输出 `claim = internal_depth_proven_external_blind_missing`。
+- 如果 Layer 1 达标但 Layer 2 不达标，只能输出 `claim = usage_effect_only`。
+- `usage_effect_only` 是有效的局部改进证据，但不能作为“最终产出物整体质量已收口”或“已追平 cangjie 深读能力”的证据。
+
+
+### Blind Review Pack Workflow
+
+`v0.6.5` adds an external blind-review handoff path. The public reviewer pack contains anonymous Option A/B artifacts and response templates. It must not include `option_roles` or producer labels. The private unblind key is generated locally and kept out of the repository.
+
+1. Build a same-source benchmark JSON with `scripts/benchmark_reference_pack.py`.
+2. Build a reviewer pack with `scripts/build_blind_review_pack.py --benchmark-report <benchmark.json> --output-dir <pack-dir> --review-id <id>`.
+3. Send only `reviewer-pack.json` and `reviewer-response-template.json` to reviewers.
+4. Merge returned responses with `scripts/merge_blind_review_response.py --response <filled-response.json> --private-key <private-unblind-key.json> --output <blind-evidence.json>`.
+5. Re-run `scripts/benchmark_reference_pack.py --blind-preference-evidence <blind-evidence.json>` to unlock the external blind preference gate if the review passes.
 
 这里的版本分工固定为：
 
@@ -157,6 +204,10 @@ artifact 层领先，也不能宣称已经补齐 `cangjie-skill` 这条版本目
 - `failure_tag_counts = {}`
 
 因此，`v0.5.1` 已经作为 corrective release 结版；后续实现主线转入 `v0.6` / `v0.7`，但它们的 release claim 仍需分别记账。
+
+`2026-04-25` 的逆向定位结论是：`v0.5.1` 的领先主要来自 KiU 在边界、证据、下一步行动语言和
+同场景触发上的工程优势；旧 rubric 对深读质量、非显然原则、跨章节综合、诱饵压力测试和盲评
+偏弱。因此 `v0.5.1` 的结版性质保持为 corrective gap-closure，而不是 cangjie methodology closure。
 
 为了避免多轮 AI 开发只依赖聊天和局部 plan，仓库内还维护一个 canonical backlog 面：
 

@@ -7,6 +7,9 @@ from pathlib import Path
 
 from kiu_pipeline.cangjie_protocol import PROTOCOL_ID, build_cangjie_protocol_baseline
 from kiu_pipeline.reference_benchmark import benchmark_reference_pack
+from kiu_pipeline.reference_benchmark import _build_scorecard
+from kiu_pipeline.reference_benchmark import _load_blind_preference_summary
+from kiu_pipeline.reference_benchmark import _render_markdown_report
 from kiu_pipeline.reference_benchmark import _resolve_alignment_pairs
 
 
@@ -120,6 +123,468 @@ def _write_competing_alignment_file(root: Path) -> Path:
 
 
 class ReferenceBenchmarkCliTests(unittest.TestCase):
+    def test_scorecard_does_not_treat_usage_win_as_cangjie_methodology_absorption(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {
+                        "source_file_ratio": 1.0,
+                        "source_location_ratio": 1.0,
+                        "extraction_kind_ratio": 1.0,
+                    },
+                    "edges": {
+                        "source_file_ratio": 1.0,
+                        "source_location_ratio": 1.0,
+                        "extraction_kind_ratio": 1.0,
+                        "confidence_ratio": 1.0,
+                    },
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 6,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.92,
+                "overall_score_100": 96.0,
+                "usage_score_100": 98.0,
+                "skill_count": 6,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": True,
+                    "book_overview_present": True,
+                    "source_chunks_present": True,
+                    "extraction_result_present": True,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": [
+                        "framework",
+                        "principle",
+                        "case",
+                        "counter-example",
+                        "term",
+                    ],
+                    "pipeline_mode": "raw_book_no_seed_cold_start",
+                    "source_bundle_skill_count": 0,
+                },
+            },
+            reference_pack={"skill_count": 6},
+            same_scenario_usage={
+                "summary": {
+                    "scenario_count": 24,
+                    "usage_winner": "kiu",
+                    "average_usage_score_delta_100": 1.0,
+                    "kiu_weighted_pass_rate": 1.0,
+                    "reference_weighted_pass_rate": 1.0,
+                    "failure_tag_counts": {},
+                }
+            },
+        )
+
+        self.assertGreater(scorecard["cangjie_core_absorbed_100"], 80.0)
+        self.assertEqual(scorecard["cangjie_methodology_internal_100"], 20.0)
+        self.assertEqual(scorecard["cangjie_methodology_external_blind_100"], 0.0)
+        self.assertEqual(scorecard["cangjie_methodology_closure_100"], 0.0)
+        self.assertFalse(scorecard["cangjie_methodology_gate"]["ready"])
+        self.assertEqual(
+            scorecard["cangjie_methodology_gate"]["claim"],
+            "same_scenario_usage_win_only",
+        )
+        self.assertIn(
+            "principle_depth_review_missing_or_weak",
+            scorecard["cangjie_methodology_gate"]["reasons"],
+        )
+        self.assertIn(
+            "decoy_pressure_test_missing_or_weak",
+            scorecard["cangjie_methodology_gate"]["reasons"],
+        )
+        self.assertEqual(scorecard["final_artifact_effect"]["claim"], "usage_effect_only")
+        self.assertFalse(scorecard["final_artifact_effect"]["ready"])
+        self.assertGreaterEqual(
+            scorecard["final_artifact_effect"]["layer1_immediate_usage_effect_100"],
+            90.0,
+        )
+        self.assertEqual(
+            scorecard["final_artifact_effect"]["layer2_knowledge_depth_effect_100"],
+            20.0,
+        )
+        self.assertIn(
+            "knowledge_depth_effect_below_80",
+            scorecard["final_artifact_effect"]["reasons"],
+        )
+
+    def test_scorecard_allows_two_layer_effect_only_when_usage_and_depth_both_pass(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {
+                        "source_file_ratio": 1.0,
+                        "source_location_ratio": 1.0,
+                        "extraction_kind_ratio": 1.0,
+                    },
+                    "edges": {
+                        "source_file_ratio": 1.0,
+                        "source_location_ratio": 1.0,
+                        "extraction_kind_ratio": 1.0,
+                        "confidence_ratio": 1.0,
+                    },
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 6,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.92,
+                "overall_score_100": 96.0,
+                "usage_score_100": 98.0,
+                "skill_count": 6,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": True,
+                    "book_overview_present": True,
+                    "source_chunks_present": True,
+                    "extraction_result_present": True,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": [
+                        "framework",
+                        "principle",
+                        "case",
+                        "counter-example",
+                        "term",
+                    ],
+                    "pipeline_mode": "raw_book_no_seed_cold_start",
+                    "source_bundle_skill_count": 0,
+                    "principle_depth_review_ratio": 1.0,
+                    "cross_chapter_synthesis_ratio": 1.0,
+                    "triple_verification_ratio": 1.0,
+                    "decoy_pressure_test_ratio": 1.0,
+                    "blind_preference_review_ratio": 1.0,
+                },
+            },
+            reference_pack={"skill_count": 6},
+            same_scenario_usage={
+                "summary": {
+                    "scenario_count": 24,
+                    "usage_winner": "kiu",
+                    "kiu_average_usage_score_100": 97.4,
+                    "reference_average_usage_score_100": 96.4,
+                    "average_usage_score_delta_100": 1.0,
+                    "kiu_weighted_pass_rate": 1.0,
+                    "reference_weighted_pass_rate": 1.0,
+                    "failure_tag_counts": {},
+                }
+            },
+        )
+
+        self.assertEqual(scorecard["cangjie_methodology_internal_100"], 100.0)
+        self.assertEqual(scorecard["cangjie_methodology_external_blind_100"], 100.0)
+        self.assertEqual(scorecard["cangjie_methodology_closure_100"], 100.0)
+        self.assertTrue(scorecard["cangjie_methodology_gate"]["ready"])
+        self.assertTrue(scorecard["final_artifact_effect"]["ready"])
+        self.assertEqual(
+            scorecard["final_artifact_effect"]["claim"],
+            "two_layer_effect_proven",
+        )
+        self.assertEqual(scorecard["final_artifact_effect"]["reasons"], [])
+
+
+    def test_blind_preference_evidence_requires_anonymous_choices(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            good_path = tmp_root / "blind-good.json"
+            good_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "kiu.blind-preference-review/v0.1",
+                        "review_id": "blind-smoke",
+                        "pairs": [
+                            {
+                                "pair_id": "pair-1",
+                                "preferred": "a",
+                                "option_roles": {"a": "kiu", "b": "reference"},
+                                "dimension_scores": {
+                                    "usage": 1.0,
+                                    "depth": 0.9,
+                                    "transferability": 0.8,
+                                    "anti_misuse": 0.9,
+                                },
+                            }
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            bad_path = tmp_root / "blind-bad.json"
+            bad_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "kiu.blind-preference-review/v0.1",
+                        "review_id": "blind-bad",
+                        "pairs": [
+                            {
+                                "pair_id": "pair-1",
+                                "preferred": "kiu",
+                                "option_roles": {"a": "kiu", "b": "reference"},
+                                "dimension_scores": {"usage": 1.0},
+                            }
+                        ],
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            good = _load_blind_preference_summary(good_path)
+            bad = _load_blind_preference_summary(bad_path)
+
+        self.assertEqual(good["pass_ratio"], 1.0)
+        self.assertEqual(good["pair_count"], 1)
+        self.assertFalse(bad["valid"])
+        self.assertIn("non_anonymous_preference_label", bad["errors"])
+
+    def test_scorecard_reads_pressure_and_blind_evidence_artifacts(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0},
+                    "edges": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0, "confidence_ratio": 1.0},
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 3,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.9,
+                "overall_score_100": 94.0,
+                "usage_score_100": 95.0,
+                "skill_count": 3,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": True,
+                    "book_overview_present": True,
+                    "source_chunks_present": True,
+                    "extraction_result_present": True,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": ["framework", "principle", "case", "counter-example", "term"],
+                    "principle_depth_review_ratio": 1.0,
+                    "cross_chapter_synthesis_ratio": 1.0,
+                    "triple_verification_ratio": 1.0,
+                    "pressure_test_summary": {"pass_ratio": 0.9},
+                    "blind_preference_summary": {"pass_ratio": 0.85},
+                },
+            },
+            reference_pack={"skill_count": 3},
+            same_scenario_usage={"summary": {"scenario_count": 24, "usage_winner": "kiu"}},
+        )
+
+        details = scorecard["details"]["cangjie_methodology_quality"]
+        self.assertEqual(details["decoy_pressure_test_ratio"], 0.9)
+        self.assertEqual(details["blind_preference_review_ratio"], 0.85)
+        self.assertTrue(scorecard["cangjie_methodology_gate"]["ready"])
+
+    def test_scorecard_counts_ria_tv_and_triple_verification_artifacts_without_pressure_or_blind(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0},
+                    "edges": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0, "confidence_ratio": 1.0},
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 3,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.9,
+                "overall_score_100": 94.0,
+                "usage_score_100": 95.0,
+                "skill_count": 3,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": True,
+                    "book_overview_present": True,
+                    "source_chunks_present": True,
+                    "extraction_result_present": True,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": ["framework", "principle", "case", "counter-example", "term"],
+                    "ria_tv_stage_report_present": True,
+                    "ria_tv_stage_status": {
+                        "stage0_book_overview": True,
+                        "stage1_parallel_extractors": True,
+                        "stage1_5_triple_verification": True,
+                        "stage2_skill_distillation": True,
+                        "stage3_linking": True,
+                        "stage4_pressure_test": True,
+                    },
+                    "triple_verification_summary": {
+                        "cross_evidence_ratio": 0.9,
+                        "predictive_action_ratio": 0.85,
+                        "uniqueness_ratio": 0.8,
+                    },
+                },
+            },
+            reference_pack={"skill_count": 3},
+            same_scenario_usage={"summary": {"scenario_count": 24, "usage_winner": "kiu"}},
+        )
+
+        details = scorecard["details"]["cangjie_methodology_quality"]
+        self.assertGreaterEqual(details["principle_depth_review_ratio"], 0.8)
+        self.assertGreaterEqual(details["cross_chapter_synthesis_ratio"], 0.8)
+        self.assertGreaterEqual(details["triple_verification_ratio"], 0.8)
+        self.assertEqual(details["decoy_pressure_test_ratio"], 0.0)
+        self.assertEqual(details["blind_preference_review_ratio"], 0.0)
+        self.assertGreaterEqual(scorecard["cangjie_methodology_internal_100"], 70.0)
+        self.assertEqual(scorecard["cangjie_methodology_external_blind_100"], 0.0)
+        self.assertEqual(scorecard["cangjie_methodology_closure_100"], 0.0)
+        self.assertFalse(scorecard["cangjie_methodology_gate"]["ready"])
+        matrix = scorecard["cangjie_core_baseline_matrix"]
+        row_ids = {row["capability_id"] for row in matrix["rows"]}
+        self.assertEqual(
+            row_ids,
+            {
+                "ria_tv_stages",
+                "five_extractors",
+                "triple_verification",
+                "decoy_pressure",
+                "blind_preference",
+                "same_source_benchmark",
+                "workflow_boundary_preservation",
+            },
+        )
+        self.assertFalse(matrix["summary"]["ready"])
+        self.assertIn("decoy_pressure", matrix["summary"]["missing_capabilities"])
+        self.assertIn("blind_preference", matrix["summary"]["missing_capabilities"])
+
+    def test_markdown_report_surfaces_cangjie_methodology_gate(self) -> None:
+        scorecard = {
+            "kiu_foundation_retained_100": 99.0,
+            "graphify_core_absorbed_100": 95.0,
+            "cangjie_core_absorbed_100": 86.0,
+            "cangjie_methodology_internal_100": 90.0,
+            "cangjie_methodology_external_blind_100": 0.0,
+            "cangjie_methodology_closure_100": 0.0,
+            "cangjie_methodology_quality_100": 0.0,
+            "cangjie_methodology_gate": {
+                "ready": False,
+                "claim": "same_scenario_usage_win_only",
+                "reasons": [
+                    "principle_depth_review_missing_or_weak",
+                    "decoy_pressure_test_missing_or_weak",
+                ],
+            },
+            "final_artifact_effect": {
+                "ready": False,
+                "claim": "internal_depth_proven_external_blind_missing",
+                "layer1_immediate_usage_effect_100": 95.0,
+                "layer2_knowledge_depth_effect_100": 90.0,
+                "layer3_external_blind_preference_effect_100": 0.0,
+                "reasons": ["external_blind_preference_below_80"],
+            },
+            "book_to_skill_cold_start_proven": True,
+            "graph_to_skill_distillation_100": 92.0,
+            "v061_distillation_gate": {"ready": True},
+            "cangjie_core_baseline_matrix": {
+                "schema_version": "kiu.cangjie-core-baseline-matrix/v0.1",
+                "summary": {
+                    "ready": False,
+                    "missing_p0_count": 1,
+                    "missing_capabilities": ["decoy_pressure"],
+                },
+                "rows": [
+                    {
+                        "capability_id": "decoy_pressure",
+                        "status": "missing",
+                        "score_ratio": 0.0,
+                        "missing_reason": "decoy_pressure_missing_or_weak",
+                    }
+                ],
+            },
+        }
+        markdown = _render_markdown_report(
+            {
+                "comparison": {
+                    "scope": "same-source",
+                    "output_count": {
+                        "bundle_throughput_vs_reference": 1.0,
+                        "generated_throughput_vs_reference": 1.0,
+                    },
+                    "evidence_traceability": {
+                        "kiu_double_anchor_ratio": 1.0,
+                        "reference_source_context_ratio": 1.0,
+                    },
+                    "real_usage_quality": {"kiu_usage_score_100": 98.0},
+                },
+                "concept_alignment": {
+                    "alignment_source": "fixture",
+                    "summary": {
+                        "matched_pair_count": 4,
+                        "kiu_average_artifact_score_100": 96.0,
+                        "reference_average_artifact_score_100": 95.0,
+                        "unmatched_kiu_skill_count": 0,
+                        "unmatched_reference_skill_count": 0,
+                    },
+                },
+                "same_scenario_usage": {
+                    "summary": {
+                        "matched_pair_count": 4,
+                        "scenario_count": 24,
+                        "kiu_average_usage_score_100": 97.4,
+                        "reference_average_usage_score_100": 96.4,
+                        "average_usage_score_delta_100": 1.0,
+                        "kiu_weighted_pass_rate": 1.0,
+                        "reference_weighted_pass_rate": 1.0,
+                        "weighted_pass_rate_delta": 0.0,
+                        "usage_winner": "kiu",
+                    }
+                },
+                "kiu_bundle": {"skill_count": 6},
+                "generated_run": {"skill_count": 6},
+                "reference_pack": {"skill_count": 6},
+                "scorecard": scorecard,
+            }
+        )
+
+        self.assertIn("cangjie methodology internal", markdown)
+        self.assertIn("cangjie external blind preference", markdown)
+        self.assertIn("cangjie methodology closure", markdown)
+        self.assertIn("cangjie methodology gate ready: `False`", markdown)
+        self.assertIn("same_scenario_usage_win_only", markdown)
+        self.assertIn("principle_depth_review_missing_or_weak", markdown)
+        self.assertIn("final artifact effect claim: `internal_depth_proven_external_blind_missing`", markdown)
+        self.assertIn("external_blind_preference_below_80", markdown)
+        self.assertIn("Cangjie Core Baseline Matrix", markdown)
+        self.assertIn("decoy_pressure", markdown)
+
     def test_alignment_pairs_match_generated_source_note_skill_ids(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
@@ -236,6 +701,21 @@ class ReferenceBenchmarkCliTests(unittest.TestCase):
             self.assertIn("kiu_foundation_retained_100", payload["scorecard"])
             self.assertIn("graphify_core_absorbed_100", payload["scorecard"])
             self.assertIn("cangjie_core_absorbed_100", payload["scorecard"])
+            self.assertIn("cangjie_methodology_internal_100", payload["scorecard"])
+            self.assertIn("cangjie_methodology_external_blind_100", payload["scorecard"])
+            self.assertIn("cangjie_methodology_closure_100", payload["scorecard"])
+            self.assertIn("cangjie_methodology_gate", payload["scorecard"])
+            cli_summary = json.loads(result.stdout)["summary"]
+            self.assertIn("cangjie_methodology_internal_100", cli_summary)
+            self.assertIn("cangjie_methodology_external_blind_100", cli_summary)
+            self.assertIn("cangjie_methodology_closure_100", cli_summary)
+            self.assertIn("cangjie_methodology_gate_ready", cli_summary)
+            self.assertIn("cangjie_methodology_claim", cli_summary)
+            self.assertIn("final_artifact_effect_claim", cli_summary)
+            self.assertIn("final_artifact_effect_ready", cli_summary)
+            self.assertIn("compatibility_regression_risk", cli_summary)
+            self.assertIn("cangjie_core_baseline_matrix_ready", cli_summary)
+            self.assertIn("cangjie_core_missing_capabilities", cli_summary)
             markdown_path = output_path.with_suffix(".md")
             self.assertTrue(markdown_path.exists())
             markdown = markdown_path.read_text(encoding="utf-8")
@@ -297,6 +777,61 @@ class ReferenceBenchmarkCliTests(unittest.TestCase):
             for skill_id in summary["skill_ids"]:
                 self.assertTrue((output_root / skill_id / "SKILL.md").exists())
                 self.assertTrue((output_root / skill_id / "test-prompts.json").exists())
+
+    def test_cangjie_protocol_baseline_emits_release_threshold_pressure_cases(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_dir = tmp_root / "source"
+            source_dir.mkdir()
+            (source_dir / "001.md").write_text(
+                "\n".join(
+                    [
+                        "# 第一章",
+                        "",
+                        "王侯用兵，利害相生。短利若失信，则后有祸败。",
+                        "臣下有功而越分，君臣边界不明，则国势乱。",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            (source_dir / "002.md").write_text(
+                "\n".join(
+                    [
+                        "# 第二章",
+                        "",
+                        "赏罚不明，则臣下争功。不可只看一时胜负，须看后患。",
+                        "权责未定而急行其事，虽有小利，终损长期秩序。",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+            output_root = tmp_root / "cangjie-protocol"
+
+            summary = build_cangjie_protocol_baseline(
+                input_path=source_dir,
+                output_root=output_root,
+                book_title="测试史书",
+                author="测试作者",
+                source_id="test-history",
+            )
+
+            total_cases = 0
+            boundary_cases = 0
+            for skill_id in summary["skill_ids"]:
+                prompt_doc = json.loads(
+                    (output_root / skill_id / "test-prompts.json").read_text(encoding="utf-8")
+                )
+                cases = prompt_doc["test_cases"]
+                self.assertGreaterEqual(len(cases), 12, skill_id)
+                total_cases += len(cases)
+                boundary_cases += sum(
+                    1
+                    for case in cases
+                    if case.get("type") in {"should_not_trigger", "edge_case"}
+                )
+
+            self.assertGreaterEqual(total_cases, 24)
+            self.assertGreaterEqual(boundary_cases / total_cases, 0.4)
 
     def test_reference_benchmark_preserves_cangjie_protocol_boundary_metadata(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

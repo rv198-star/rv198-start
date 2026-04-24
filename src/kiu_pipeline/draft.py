@@ -65,6 +65,16 @@ def build_candidate_skill_markdown(
         if source_skill
         else seed_content.get("rationale", "").strip() or _fallback_rationale(source_bundle, seed)
     )
+    if (
+        not source_skill
+        and not str(seed_content.get("rationale", "") or "").strip()
+        and "mechanism chain" not in rationale.lower()
+    ):
+        rationale = (
+            f"RIA-TV++ mechanism chain: this draft must map source evidence into a current "
+            f"judgment mechanism, name transfer conditions, and preserve anti-misuse boundaries.\n\n"
+            f"{rationale}"
+        )
     evidence_summary = _build_evidence_summary(
         source_bundle,
         seed,

@@ -557,6 +557,27 @@ def _historical_consequence_cases() -> list[dict[str, str]]:
             "notes": "正面场景: 类比边界。",
         },
         {
+            "id": "should-trigger-04",
+            "type": "should_trigger",
+            "prompt": "我们准备牺牲一个合作伙伴换取短期扩张，想先判断后续信任成本会不会失控。",
+            "expected_behavior": "应激活并围绕选择、约束变化、后续报复或信任折损建立后果链。",
+            "notes": "正面场景: 短利与长期信用。",
+        },
+        {
+            "id": "should-trigger-05",
+            "type": "should_trigger",
+            "prompt": "两个方案都能赢一时，我想借历史案例比较哪个更容易引出连锁副作用。",
+            "expected_behavior": "应激活并比较两个行动路径的二阶后果，而不是只给单点建议。",
+            "notes": "正面场景: 多方案后果比较。",
+        },
+        {
+            "id": "should-trigger-06",
+            "type": "should_trigger",
+            "prompt": "我担心团队正在拿一个成功故事过度类比当前市场，能否帮我拆机制是否同构？",
+            "expected_behavior": "应激活并先拆机制相似度，再判断类比是否能迁移。",
+            "notes": "正面场景: 类比迁移检验。",
+        },
+        {
             "id": "should-not-trigger-01",
             "type": "should_not_trigger",
             "prompt": "司马迁是哪一年出生的？",
@@ -571,11 +592,39 @@ def _historical_consequence_cases() -> list[dict[str, str]]:
             "notes": "诱饵: 文本处理。",
         },
         {
+            "id": "should-not-trigger-03",
+            "type": "should_not_trigger",
+            "prompt": "请按时间顺序列出秦末到汉初的主要事件。",
+            "expected_behavior": "不应激活本 skill，因为这是编年整理而非行动后果判断。",
+            "notes": "诱饵: 年代线整理。",
+        },
+        {
+            "id": "should-not-trigger-04",
+            "type": "should_not_trigger",
+            "prompt": "请评价项羽是不是英雄人物。",
+            "expected_behavior": "不应激活本 skill，因为这是人物立场评论，缺少当下决策情境。",
+            "notes": "诱饵: 人物评论。",
+        },
+        {
             "id": "edge-01",
             "type": "edge_case",
             "prompt": "我只记得一个史记故事，想拿来支持我的方案。",
             "expected_behavior": "可以激活但必须先要求补机制证据，不能直接支持方案。",
             "notes": "边界: 证据不足。",
+        },
+        {
+            "id": "edge-02",
+            "type": "edge_case",
+            "prompt": "这个历史故事和我现在的行业很像，但关键角色的激励可能不同。",
+            "expected_behavior": "可以激活，但必须把激励差异列为迁移风险，不能直接套结论。",
+            "notes": "边界: 机制相似但激励不确定。",
+        },
+        {
+            "id": "edge-03",
+            "type": "edge_case",
+            "prompt": "我需要今天就拍板，但历史证据之间互相冲突。",
+            "expected_behavior": "可以激活，但应输出暂缓、补证据或小步试错，而不是确定性建议。",
+            "notes": "边界: 高风险 + 证据冲突。",
         },
     ]
 
@@ -604,6 +653,27 @@ def _role_boundary_cases() -> list[dict[str, str]]:
             "notes": "正面场景: 短期有效 vs 长期秩序。",
         },
         {
+            "id": "should-trigger-04",
+            "type": "should_trigger",
+            "prompt": "我不是项目 owner，但客户只信任我，我是否应该绕过 owner 直接承诺交付？",
+            "expected_behavior": "应激活并核对授权、承诺后果和对组织秩序的影响。",
+            "notes": "正面场景: 非 owner 越界承诺。",
+        },
+        {
+            "id": "should-trigger-05",
+            "type": "should_trigger",
+            "prompt": "我有能力压下争议，但这样会不会让团队以后都绕开正式机制？",
+            "expected_behavior": "应激活并判断短期控制是否制造长期角色依赖或制度损伤。",
+            "notes": "正面场景: 能力优势与制度代价。",
+        },
+        {
+            "id": "should-trigger-06",
+            "type": "should_trigger",
+            "prompt": "合作方要求我以私人关系推动内部审批，我想先判断这是否越过角色边界。",
+            "expected_behavior": "应激活并检查身份混用、授权来源和旁观者解释风险。",
+            "notes": "正面场景: 身份混用。",
+        },
+        {
             "id": "should-not-trigger-01",
             "type": "should_not_trigger",
             "prompt": "帮我生成一个会议纪要模板。",
@@ -618,14 +688,41 @@ def _role_boundary_cases() -> list[dict[str, str]]:
             "notes": "诱饵: 概念说明。",
         },
         {
+            "id": "should-not-trigger-03",
+            "type": "should_not_trigger",
+            "prompt": "汉代丞相、太尉、御史大夫分别是什么官职？",
+            "expected_behavior": "不应激活本 skill，因为这是制度史事实查询。",
+            "notes": "诱饵: 官职查询。",
+        },
+        {
+            "id": "should-not-trigger-04",
+            "type": "should_not_trigger",
+            "prompt": "请总结《史记》里关于君臣关系的观点。",
+            "expected_behavior": "不应激活本 skill，因为这是摘要任务，缺少行动边界问题。",
+            "notes": "诱饵: 摘要请求。",
+        },
+        {
             "id": "edge-01",
             "type": "edge_case",
             "prompt": "我不知道自己有没有被授权，但事情很急。",
             "expected_behavior": "可以激活，但应先要求补授权事实或选择低越界行动。",
             "notes": "边界: 上下文不足。",
         },
+        {
+            "id": "edge-02",
+            "type": "edge_case",
+            "prompt": "我在旧组织有这个权限，但新组织的角色定义可能不一样。",
+            "expected_behavior": "可以激活，但必须提示不能把旧角色边界直接迁移到新组织。",
+            "notes": "边界: 角色迁移风险。",
+        },
+        {
+            "id": "edge-03",
+            "type": "edge_case",
+            "prompt": "我只是想判断这件事道德上对不对，还没有具体行动。",
+            "expected_behavior": "应要求补具体行动与角色事实；没有行动情境时不输出边界化方案。",
+            "notes": "边界: 道德评论 vs 行动判断。",
+        },
     ]
-
 
 def _first_non_empty(*groups: list[dict[str, Any]]) -> dict[str, Any]:
     for group in groups:

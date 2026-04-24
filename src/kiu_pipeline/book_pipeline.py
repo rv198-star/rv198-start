@@ -43,6 +43,7 @@ from .reports import (
     write_three_layer_review,
 )
 from .review import review_generated_run
+from .ria_tv import build_ria_tv_stage_report, write_ria_tv_stage_report
 from .seed import mine_candidate_seed_assessment
 from .source_chunks import build_source_chunks_from_markdown
 from .usage_smoke import write_smoke_usage_reviews as write_generated_smoke_usage_reviews
@@ -121,6 +122,8 @@ def run_book_pipeline(
         run_id=run_id,
         drafting_mode=drafting_mode,
         llm_budget_tokens=llm_budget_tokens,
+        book_overview_doc=book_overview_doc,
+        extraction_result=extraction_result,
     )
     provenance_doc = build_raw_book_cold_start_provenance(
         input_path=input_path,
@@ -221,6 +224,8 @@ def _build_candidates(
     run_id: str,
     drafting_mode: str,
     llm_budget_tokens: int,
+    book_overview_doc: dict[str, Any] | None = None,
+    extraction_result: dict[str, Any] | None = None,
 ) -> Path:
     source_bundle = load_source_bundle(source_bundle_root)
     graph = normalize_graph(source_bundle.graph_doc)
@@ -240,6 +245,16 @@ def _build_candidates(
         run_root=run_root,
         summary=assessment["summary"],
     )
+    if book_overview_doc is not None and extraction_result is not None:
+        write_ria_tv_stage_report(
+            run_root=run_root,
+            report=build_ria_tv_stage_report(
+                book_overview_doc=book_overview_doc,
+                extraction_result=extraction_result,
+                verification_summary=assessment["summary"],
+                generated_skill_count=len(seeds),
+            ),
+        )
     bundle_root = run_root / "bundle"
     candidates = load_generated_candidates(bundle_root)
     refined = refine_bundle_candidates(

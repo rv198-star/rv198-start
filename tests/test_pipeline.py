@@ -3261,6 +3261,335 @@ class CandidatePipelineTests(unittest.TestCase):
                 1.0,
             )
 
+    def test_run_book_pipeline_cli_filters_chapter_title_pseudo_skills(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_dir = tmp_root / "chapter-heavy-book"
+            source_dir.mkdir()
+            samples = [
+                ("第五章-战略防御", "复杂形势下必须先抓主要矛盾，明确战略方针和阶段任务，不能平均用力。"),
+                ("问题的提起", "没有调查就没有发言权。只照搬过去经验，不看现场事实，就会把政策带偏。"),
+                ("结论", "政策执行要防止左的错误和右的保守，既要行动纲领，也要边界校准。"),
+                ("第七节-中国革命的两重任务和中国共产党", "统一战线需要合作，但必须保持独立自主；只求合作不守边界，就会丧失主动权。"),
+            ]
+            for index, (heading, text) in enumerate(samples, start=1):
+                (source_dir / f"{index:03d}.md").write_text(
+                    f"# {heading}\n\n{text}\n",
+                    encoding="utf-8",
+                )
+            output_root = tmp_root / "artifacts"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_book_pipeline.py"),
+                    "--input",
+                    str(source_dir),
+                    "--bundle-id",
+                    "chapter-heavy-cold-start",
+                    "--source-id",
+                    "chapter-heavy-book",
+                    "--run-id",
+                    "chapter-filter-smoke",
+                    "--output-root",
+                    str(output_root),
+                    "--max-chars",
+                    "160",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            run_root = Path(payload["run_root"])
+            manifest = yaml.safe_load((run_root / "bundle" / "manifest.yaml").read_text(encoding="utf-8"))
+            skill_ids = {entry["skill_id"] for entry in manifest["skills"]}
+            self.assertNotIn("第五章-战略防御", skill_ids)
+            self.assertNotIn("问题的提起", skill_ids)
+            self.assertNotIn("结论", skill_ids)
+            self.assertNotIn("第七节-中国革命的两重任务和中国共产党", skill_ids)
+
+            audit = json.loads(
+                (run_root / "reports" / "pseudo-skill-audit.json").read_text(encoding="utf-8")
+            )
+            self.assertIn("chapter_title_rejected_count", audit["summary"])
+            review_doc = json.loads((run_root / "reports" / "three-layer-review.json").read_text(encoding="utf-8"))
+            self.assertIn("pseudo_skill_audit", review_doc["generated_bundle"])
+
+    def test_raw_book_run_emits_ria_tv_stage_report(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = tmp_root / "mini.md"
+            source_path.write_text(
+                "# 第一章\n\n没有调查就没有发言权。复杂形势下必须抓主要矛盾，不能平均用力。\n",
+                encoding="utf-8",
+            )
+            output_root = tmp_root / "artifacts"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_book_pipeline.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "ria-tv-mini",
+                    "--source-id",
+                    "ria-tv-mini",
+                    "--run-id",
+                    "ria-tv-smoke",
+                    "--output-root",
+                    str(output_root),
+                    "--max-chars",
+                    "160",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            run_root = Path(payload["run_root"])
+            report = json.loads((run_root / "reports" / "ria-tv-stage-report.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(report["schema_version"], "kiu.ria-tv-stage-report/v0.1")
+        self.assertTrue(report["stage0_book_overview"]["present"])
+        self.assertTrue(report["stage1_parallel_extractors"]["present"])
+        self.assertIn("framework", report["stage1_parallel_extractors"]["extractor_responsibilities"])
+        self.assertTrue(report["stage1_5_triple_verification"]["present"])
+        self.assertTrue(report["stage2_skill_distillation"]["present"])
+        self.assertTrue(report["stage3_linking"]["present"])
+        self.assertTrue(report["stage4_pressure_test"]["present"])
+
+    def test_seed_verification_records_triple_verification_dimensions(self) -> None:
+        from kiu_pipeline.models import NormalizedGraph, SourceBundle
+
+        graph = NormalizedGraph(
+            doc={},
+            nodes={
+                "principle-node": {"id": "principle-node", "type": "skill_principle", "label": "principal-contradiction-focus"},
+                "evidence-node": {"id": "evidence-node", "type": "source_evidence", "label": "抓主要矛盾", "extraction_kind": "EXTRACTED"},
+            },
+            edges={
+                "edge-1": {"id": "edge-1", "from": "principle-node", "to": "evidence-node", "type": "supported_by_evidence", "extraction_kind": "EXTRACTED"}
+            },
+            adjacency={
+                "principle-node": [
+                    {"id": "edge-1", "from": "principle-node", "to": "evidence-node", "type": "supported_by_evidence", "extraction_kind": "EXTRACTED"}
+                ]
+            },
+            communities={"community-1": {"id": "community-1", "node_ids": ["principle-node"]}},
+        )
+        bundle = SourceBundle(
+            root=Path("/tmp/synthetic-bundle"),
+            domain="synthetic",
+            manifest={"bundle_id": "synthetic-source-v0.6", "graph": {"graph_hash": "hash"}},
+            graph_doc={},
+            profile={"seed_node_types": ["skill_principle"], "routing_rules": []},
+            skills={},
+            evaluation_cases=[],
+        )
+
+        assessment = mine_candidate_seed_assessment(bundle, graph)
+        verification = assessment["summary"]["accepted"][0]["verification"]
+
+        self.assertIn("triple_verification", verification)
+        self.assertIn("cross_evidence_ratio", verification["triple_verification"])
+        self.assertIn("predictive_action_ratio", verification["triple_verification"])
+        self.assertIn("uniqueness_ratio", verification["triple_verification"])
+
+    def test_triple_verification_blocks_weak_skill_promotion(self) -> None:
+        from kiu_pipeline.models import CandidateSeed, NormalizedGraph, SourceBundle
+        from kiu_pipeline.verification_gate import assess_candidate_seed
+
+        bundle = SourceBundle(
+            root=Path("/tmp/synthetic-bundle"),
+            domain="synthetic",
+            manifest={"bundle_id": "synthetic-source-v0.6", "graph": {"graph_hash": "hash"}},
+            graph_doc={},
+            profile={},
+            skills={},
+            evaluation_cases=[],
+        )
+        graph = NormalizedGraph(doc={}, nodes={}, edges={}, adjacency={}, communities={})
+
+        cases = [
+            (
+                "quote",
+                {"evidence_support_count": 1, "extracted_evidence_support_count": 1},
+                "predictive_action_below_promotion_threshold",
+            ),
+            (
+                "generic",
+                {
+                    "evidence_support_count": 1,
+                    "extracted_evidence_support_count": 1,
+                    "context_cues": 1,
+                    "matched_keywords": ["principle"],
+                },
+                "uniqueness_below_promotion_threshold",
+            ),
+            (
+                "no-action-principle",
+                {
+                    "evidence_support_count": 1,
+                    "extracted_evidence_support_count": 1,
+                    "matched_keywords": ["principle"],
+                },
+                "predictive_action_below_promotion_threshold",
+            ),
+        ]
+        for candidate_id, routing, reason in cases:
+            seed = CandidateSeed(
+                candidate_id=candidate_id,
+                candidate_kind="general_agentic",
+                primary_node_id="node-1",
+                supporting_node_ids=["node-1"],
+                supporting_edge_ids=[],
+                community_ids=[],
+                gold_match_hint=None,
+                source_skill=None,
+                score=1.0,
+                metadata={"routing_evidence": routing},
+                seed_content={"title": candidate_id},
+            )
+            verification = assess_candidate_seed(seed=seed, bundle=bundle, graph=graph)
+            self.assertFalse(verification["passed"], candidate_id)
+            self.assertIn(reason, verification["reasons"], candidate_id)
+
+
+    def test_pressure_pack_generates_decoy_probe_categories(self) -> None:
+        from kiu_pipeline.pressure import build_pressure_pack
+
+        skill_doc = {
+            "candidate_id": "historical-analogy-transfer-gate",
+            "distillation_contract": {
+                "anti_misuse_boundary": ["do_not_use_for_summary_translation_fact_lookup_or_stance_commentary"],
+                "anti_conditions": ["single_case_overreach"],
+            },
+        }
+        pack = build_pressure_pack(skill_doc)
+        categories = {probe["category"] for probe in pack["probes"]}
+
+        self.assertTrue(
+            {"near_match", "wrong_context", "summary_request", "factual_lookup", "overreach"}.issubset(categories)
+        )
+        for probe in pack["probes"]:
+            self.assertEqual(probe["expected_decision"], "refuse")
+            self.assertIn("failure_owner", probe)
+
+    def test_generated_skill_rationale_records_ria_tv_distillation_stage(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_dir = tmp_root / "strategy-collection"
+            source_dir.mkdir()
+            samples = [
+                "没有调查就没有发言权。只照搬本本和过去经验，不看现场事实，就会把政策带偏。",
+                "复杂形势下必须先抓主要矛盾，明确战略方针和阶段任务，不能平均用力。",
+                "统一战线需要合作，但必须保持独立自主；只求合作不守边界，就会丧失主动权。",
+            ]
+            for index, text in enumerate(samples, start=1):
+                (source_dir / f"{index:03d}.md").write_text(f"# 第{index}篇\n\n{text}\n", encoding="utf-8")
+            output_root = tmp_root / "artifacts"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_book_pipeline.py"),
+                    "--input",
+                    str(source_dir),
+                    "--bundle-id",
+                    "distillation-mini",
+                    "--source-id",
+                    "distillation-mini",
+                    "--run-id",
+                    "distillation-smoke",
+                    "--output-root",
+                    str(output_root),
+                    "--max-chars",
+                    "160",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            run_root = Path(payload["run_root"])
+            manifest = yaml.safe_load((run_root / "bundle" / "manifest.yaml").read_text(encoding="utf-8"))
+            first_skill = manifest["skills"][0]["path"]
+            skill_dir = run_root / "bundle" / first_skill
+            skill_markdown = (skill_dir / "SKILL.md").read_text(encoding="utf-8")
+            candidate_doc = yaml.safe_load((skill_dir / "candidate.yaml").read_text(encoding="utf-8"))
+            pressure_doc = json.loads((run_root / "reports" / "pressure-tests.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(pressure_doc["schema_version"], "kiu.pressure-tests/v0.1")
+        self.assertGreaterEqual(pressure_doc["summary"]["pass_ratio"], 0.8)
+        self.assertIn("false_positive_count", pressure_doc["summary"])
+        self.assertIn("failure_owner_counts", pressure_doc["summary"])
+        self.assertIn("mechanism", skill_markdown.lower())
+        self.assertEqual(
+            candidate_doc["ria_tv_distillation"]["stage"],
+            "stage2_skill_distillation",
+        )
+        self.assertTrue(candidate_doc["ria_tv_distillation"]["mechanism_chain_required"])
+        provenance = candidate_doc["ria_tv_provenance"]
+        self.assertEqual(provenance["schema_version"], "kiu.ria-tv-provenance/v0.1")
+        self.assertIn("available_extractors", provenance)
+        self.assertTrue(provenance["source_node_ids"])
+        self.assertIn("source_edge_ids", provenance)
+        distillation_contract = candidate_doc["distillation_contract"]
+        self.assertTrue(distillation_contract["mechanism_chain"])
+        self.assertTrue(distillation_contract["use_situation_trigger"])
+        self.assertTrue(distillation_contract["anti_misuse_boundary"])
+        self.assertIn("transfer_conditions", distillation_contract)
+        self.assertIn("anti_conditions", distillation_contract)
+
+    def test_workflow_gateway_uses_gateway_provenance_not_thick_skill_provenance(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "artifacts"
+            source_path = ROOT / "examples" / "有效需求分析（第2版）.md"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "run_book_pipeline.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "gateway-provenance-book",
+                    "--source-id",
+                    "gateway-provenance-book",
+                    "--run-id",
+                    "gateway-provenance-smoke",
+                    "--output-root",
+                    str(output_root),
+                    "--max-chars",
+                    "1200",
+                    "--deterministic-pass",
+                    "heuristic-extractors",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            run_root = Path(json.loads(result.stdout)["run_root"])
+            gateway_doc = yaml.safe_load(
+                (run_root / "bundle" / "skills" / "workflow-gateway" / "candidate.yaml").read_text(encoding="utf-8")
+            )
+
+        self.assertNotIn("ria_tv_provenance", gateway_doc)
+        self.assertEqual(
+            gateway_doc["gateway_provenance"]["schema_version"],
+            "kiu.workflow-gateway-provenance/v0.1",
+        )
+
     def test_borrowed_value_agentic_priority_survives_routing_and_seed_score(self) -> None:
         node = {
             "id": "situation-strategy::no-investigation-no-decision",
@@ -3313,6 +3642,173 @@ class CandidatePipelineTests(unittest.TestCase):
         self.assertTrue(_is_degenerate_candidate_id("12"))
         self.assertFalse(_is_degenerate_candidate_id("no-investigation-no-decision"))
         self.assertFalse(_is_degenerate_candidate_id("第五章-战略防御"))
+
+    def test_chapter_title_candidates_are_not_promoted_to_skills(self) -> None:
+        from kiu_pipeline.models import NormalizedGraph, SourceBundle
+
+        graph = NormalizedGraph(
+            doc={},
+            nodes={
+                "chapter-node": {
+                    "id": "chapter-node",
+                    "type": "skill_principle",
+                    "label": "第五章-战略防御",
+                    "source_file": "sources/001.md",
+                    "source_location": {"line_start": 1, "line_end": 1},
+                },
+                "evidence-node": {
+                    "id": "evidence-node",
+                    "type": "source_evidence",
+                    "label": "复杂形势下必须先抓主要矛盾，不能平均用力。",
+                    "source_file": "sources/001.md",
+                    "source_location": {"line_start": 3, "line_end": 3},
+                    "extraction_kind": "EXTRACTED",
+                },
+            },
+            edges={
+                "edge-1": {
+                    "id": "edge-1",
+                    "from": "chapter-node",
+                    "to": "evidence-node",
+                    "type": "supported_by_evidence",
+                    "extraction_kind": "EXTRACTED",
+                }
+            },
+            adjacency={
+                "chapter-node": [
+                    {
+                        "id": "edge-1",
+                        "from": "chapter-node",
+                        "to": "evidence-node",
+                        "type": "supported_by_evidence",
+                        "extraction_kind": "EXTRACTED",
+                    }
+                ]
+            },
+            communities={"community-1": {"id": "community-1", "node_ids": ["chapter-node"]}},
+        )
+        bundle = SourceBundle(
+            root=Path("/tmp/synthetic-bundle"),
+            domain="synthetic",
+            manifest={
+                "bundle_id": "synthetic-source-v0.6",
+                "graph": {"graph_hash": "hash"},
+            },
+            graph_doc={},
+            profile={
+                "max_candidates": 5,
+                "seed_node_types": ["skill_principle"],
+                "candidate_kinds": {
+                    "general_agentic": {
+                        "workflow_certainty": "medium",
+                        "context_certainty": "medium",
+                    }
+                },
+                "routing_rules": [],
+            },
+            skills={},
+            evaluation_cases=[],
+        )
+
+        assessment = mine_candidate_seed_assessment(bundle, graph)
+
+        self.assertEqual(assessment["accepted"], [])
+        self.assertEqual(assessment["summary"]["rejected_candidate_count"], 1)
+        rejected = assessment["summary"]["rejected"][0]
+        self.assertEqual(rejected["reasons"], ["chapter_title_pseudo_skill"])
+        self.assertEqual(rejected["title"], "第五章-战略防御")
+        self.assertEqual(rejected["source_file"], "sources/001.md")
+
+    def test_chapter_title_classifier_requires_explicit_override_for_heading_like_skill(self) -> None:
+        from kiu_pipeline.candidate_hygiene import classify_pseudo_skill_candidate
+
+        bare = classify_pseudo_skill_candidate(
+            candidate_id="第五章-战略防御",
+            title="第五章-战略防御",
+            seed_content={},
+        )
+        self.assertTrue(bare["is_pseudo_skill"])
+        self.assertEqual(bare["reason"], "chapter_title_pseudo_skill")
+
+        for heading in ("四-中国共产党的政策", "六-游-民", "七-结-论"):
+            classified = classify_pseudo_skill_candidate(
+                candidate_id=heading,
+                title=heading,
+                seed_content={},
+            )
+            self.assertTrue(classified["is_pseudo_skill"], heading)
+
+        auto_contract = classify_pseudo_skill_candidate(
+            candidate_id="第五章-战略防御",
+            title="第五章-战略防御",
+            seed_content={
+                "contract": {
+                    "trigger": {"patterns": ["面对防御阶段切换，需要判断是否转入战略防御。"]},
+                    "judgment_schema": {"output": {"schema": {"verdict": "apply"}}},
+                    "boundary": {"do_not_fire_when": ["用户只要求章节摘要。"]},
+                },
+                "rationale": "根据态势、资源和敌我关系判断防御阶段是否成立。",
+            },
+        )
+        self.assertTrue(auto_contract["is_pseudo_skill"])
+
+        real_contract = classify_pseudo_skill_candidate(
+            candidate_id="第五章-战略防御",
+            title="第五章-战略防御",
+            seed_content={
+                "hygiene_override": "allow_heading_like_judgment_skill",
+                "contract": {
+                    "trigger": {"patterns": ["面对防御阶段切换，需要判断是否转入战略防御。"]},
+                    "judgment_schema": {"output": {"schema": {"verdict": "apply"}}},
+                    "boundary": {"do_not_fire_when": ["用户只要求章节摘要。"]},
+                },
+                "rationale": "根据态势、资源和敌我关系判断防御阶段是否成立。",
+            },
+        )
+        self.assertFalse(real_contract["is_pseudo_skill"])
+
+    def test_seed_verification_emits_pseudo_skill_audit(self) -> None:
+        from kiu_pipeline.verification_gate import write_seed_verification_reports
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            run_root = Path(tmp_dir)
+            write_seed_verification_reports(
+                run_root=run_root,
+                summary={
+                    "schema_version": "kiu.verification-gate/v0.1",
+                    "accepted": [
+                        {
+                            "candidate_id": "principal-contradiction-focus",
+                            "candidate_kind": "general_agentic",
+                            "disposition": "skill_candidate",
+                        },
+                        {
+                            "candidate_id": "workflow-step-router",
+                            "candidate_kind": "workflow_script",
+                            "disposition": "workflow_script_candidate",
+                        },
+                    ],
+                    "rejected": [
+                        {
+                            "candidate_id": "第五章-战略防御",
+                            "title": "第五章-战略防御",
+                            "reasons": ["chapter_title_pseudo_skill"],
+                            "source_file": "sources/001.md",
+                            "source_location": {"line_start": 1, "line_end": 1},
+                        }
+                    ],
+                },
+            )
+
+            audit = json.loads(
+                (run_root / "reports" / "pseudo-skill-audit.json").read_text(encoding="utf-8")
+            )
+
+        self.assertEqual(audit["schema_version"], "kiu.pseudo-skill-audit/v0.1")
+        self.assertEqual(len(audit["chapter_title_rejected"]), 1)
+        self.assertEqual(audit["chapter_title_rejected"][0]["candidate_id"], "第五章-战略防御")
+        self.assertEqual(len(audit["workflow_candidate_routed"]), 1)
+        self.assertEqual(len(audit["agentic_skill_accepted"]), 1)
 
     def test_scaffold_extraction_bundle_preserves_multi_file_source_paths(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

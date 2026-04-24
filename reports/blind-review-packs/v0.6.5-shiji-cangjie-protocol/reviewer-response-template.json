@@ -1,0 +1,292 @@
+{
+  "schema_version": "blind-review-response/v0.1",
+  "review_id": "v065-shiji-cangjie-protocol-blind",
+  "pairs": [
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p001",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p002",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p003",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p004",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p005",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p006",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p007",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p008",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p009",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p010",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p011",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p012",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p013",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p014",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p015",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p016",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p017",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p018",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p019",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p020",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p021",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p022",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p023",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p024",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p025",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p026",
+      "preferred": "inconclusive",
+      "dimension_scores": {
+        "usage": 0,
+        "depth": 0,
+        "transferability": 0,
+        "anti_misuse": 0
+      },
+      "notes": ""
+    }
+  ]
+}

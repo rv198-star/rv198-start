@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
+from .candidate_hygiene import classify_pseudo_skill_candidate
 from .models import CandidateSeed, NormalizedGraph, SourceBundle
 from .verification_gate import assess_candidate_seed, summarize_seed_verification
 
@@ -48,6 +49,26 @@ def mine_candidate_seed_assessment(
     accepted: list[CandidateSeed] = []
     rejected: list[dict[str, Any]] = []
     for seed in seeds:
+        if seed.metadata.get("disposition") != "workflow_script_candidate":
+            hygiene = classify_pseudo_skill_candidate(
+                candidate_id=seed.candidate_id,
+                title=str(seed.seed_content.get("title") or seed.candidate_id),
+                seed_content=seed.seed_content,
+            )
+            if hygiene.get("is_pseudo_skill"):
+                rejected.append(
+                    _build_rejected_seed_doc(
+                        seed=seed,
+                        reasons=[str(hygiene.get("reason"))],
+                        verification={
+                            "schema_version": "kiu.candidate-hygiene/v0.1",
+                            "passed": False,
+                            "reasons": [str(hygiene.get("reason"))],
+                            "matched_text": hygiene.get("matched_text"),
+                        },
+                    )
+                )
+                continue
         verification = assess_candidate_seed(
             seed=seed,
             bundle=bundle,
@@ -68,16 +89,34 @@ def mine_candidate_seed_assessment(
             )
         seed.metadata["verification"] = verification
         if verification["passed"]:
+            if seed.metadata.get("disposition") != "workflow_script_candidate":
+                hygiene = classify_pseudo_skill_candidate(
+                    candidate_id=seed.candidate_id,
+                    title=str(seed.seed_content.get("title") or seed.candidate_id),
+                    seed_content=seed.seed_content,
+                )
+                if hygiene.get("is_pseudo_skill"):
+                    rejected.append(
+                        _build_rejected_seed_doc(
+                            seed=seed,
+                            reasons=[str(hygiene.get("reason"))],
+                            verification={
+                                "schema_version": "kiu.candidate-hygiene/v0.1",
+                                "passed": False,
+                                "reasons": [str(hygiene.get("reason"))],
+                                "matched_text": hygiene.get("matched_text"),
+                            },
+                        )
+                    )
+                    continue
             accepted.append(seed)
         else:
             rejected.append(
-                {
-                    "candidate_id": seed.candidate_id,
-                    "candidate_kind": seed.candidate_kind,
-                    "disposition": seed.metadata.get("disposition"),
-                    "reasons": verification["reasons"],
-                    "verification": verification,
-                }
+                _build_rejected_seed_doc(
+                    seed=seed,
+                    reasons=verification["reasons"],
+                    verification=verification,
+                )
             )
     accepted = accepted[: bundle.profile.get("max_candidates", len(accepted))]
     summary = summarize_seed_verification(
@@ -88,6 +127,24 @@ def mine_candidate_seed_assessment(
         "accepted": accepted,
         "rejected": rejected,
         "summary": summary,
+    }
+
+
+def _build_rejected_seed_doc(
+    *,
+    seed: CandidateSeed,
+    reasons: list[str],
+    verification: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "candidate_id": seed.candidate_id,
+        "title": seed.seed_content.get("title") or seed.candidate_id,
+        "candidate_kind": seed.candidate_kind,
+        "disposition": seed.metadata.get("disposition"),
+        "reasons": reasons,
+        "verification": verification,
+        "source_file": seed.metadata.get("source_file"),
+        "source_location": seed.metadata.get("source_location"),
     }
 
 
@@ -180,6 +237,10 @@ def _mine_candidate_seed_candidates(
                 drafting_mode=drafting_mode,
                 routing_evidence=spec["routing_evidence"],
             )
+            if node.get("source_file"):
+                metadata["source_file"] = node.get("source_file")
+            if node.get("source_location"):
+                metadata["source_location"] = node.get("source_location")
             if spec.get("derived_from_candidate_id"):
                 metadata["seed"]["derived_from_candidate_id"] = spec["derived_from_candidate_id"]
                 metadata["seed"]["derivation_mode"] = spec.get(

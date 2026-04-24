@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kiu"
-version = "0.6.2"
+version = "0.6.5"
 description = "Knowledge in Use skill bundle schemas, validator, and candidate pipeline."
 requires-python = ">=3.10"
 dependencies = [

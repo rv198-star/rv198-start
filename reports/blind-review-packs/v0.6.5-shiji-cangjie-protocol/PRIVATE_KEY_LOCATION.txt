@@ -1,0 +1,4 @@
+The private unblind key is intentionally not committed.
+Local generation path used for release evidence:
+/tmp/kiu-v065-blind-review-pack-shiji/private-unblind-key.json
+Regenerate with scripts/build_blind_review_pack.py from the v0.6.5 benchmark JSON if needed.

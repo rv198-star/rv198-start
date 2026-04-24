@@ -1,0 +1,591 @@
+{
+  "schema_version": "blind-review-pack/v0.1",
+  "review_id": "v065-shiji-cangjie-protocol-blind",
+  "benchmark_source": "same-source blind artifact preference",
+  "labels_hidden": true,
+  "instructions": [
+    "Review Option A and Option B without trying to infer their origin.",
+    "Choose a preference based on practical usefulness, depth, transferability, and anti-misuse discipline.",
+    "Use tie when both options are materially equivalent and inconclusive when the case cannot be judged."
+  ],
+  "dimension_scale": {
+    "usage": "0-5 practical usefulness for the prompt",
+    "depth": "0-5 non-generic mechanism depth",
+    "transferability": "0-5 ability to transfer beyond the source story",
+    "anti_misuse": "0-5 boundary and misuse resistance"
+  },
+  "pairs": [
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p001",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我想用项羽和刘邦的故事判断一个短期强势但长期失信的商业决策。",
+        "expected_behavior": "应激活 [redacted-skill]，并检查机制链而不是只类比人物。",
+        "notes": "正面场景: 历史案例 + 当下决策后果。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p002",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "这个选择眼前收益很大，但我担心以后会反噬，能不能借史记案例做一次压力测试？",
+        "expected_behavior": "应激活并输出短期收益到长期后果的判断链。",
+        "notes": "正面场景: 后果判断。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p003",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我手上有几个历史类比，但不知道哪个机制真的像我的处境。",
+        "expected_behavior": "应激活并筛掉只有表面相似的类比。",
+        "notes": "正面场景: 类比边界。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p004",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我们准备牺牲一个合作伙伴换取短期扩张，想先判断后续信任成本会不会失控。",
+        "expected_behavior": "应激活并围绕选择、约束变化、后续报复或信任折损建立后果链。",
+        "notes": "正面场景: 短利与长期信用。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p005",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "两个方案都能赢一时，我想借历史案例比较哪个更容易引出连锁副作用。",
+        "expected_behavior": "应激活并比较两个行动路径的二阶后果，而不是只给单点建议。",
+        "notes": "正面场景: 多方案后果比较。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p006",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我担心团队正在拿一个成功故事过度类比当前市场，能否帮我拆机制是否同构？",
+        "expected_behavior": "应激活并先拆机制相似度，再判断类比是否能迁移。",
+        "notes": "正面场景: 类比迁移检验。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p007",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "司马迁是哪一年出生的？",
+        "expected_behavior": "不应激活本 skill，因为这是史实查询。",
+        "notes": "诱饵: 百科查询。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p008",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "请把这段古文翻译成现代汉语。",
+        "expected_behavior": "不应激活本 skill，因为这是翻译任务。",
+        "notes": "诱饵: 文本处理。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p009",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "请按时间顺序列出秦末到汉初的主要事件。",
+        "expected_behavior": "不应激活本 skill，因为这是编年整理而非行动后果判断。",
+        "notes": "诱饵: 年代线整理。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p010",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "请评价项羽是不是英雄人物。",
+        "expected_behavior": "不应激活本 skill，因为这是人物立场评论，缺少当下决策情境。",
+        "notes": "诱饵: 人物评论。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p011",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "我只记得一个史记故事，想拿来支持我的方案。",
+        "expected_behavior": "可以激活但必须先要求补机制证据，不能直接支持方案。",
+        "notes": "边界: 证据不足。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p012",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "这个历史故事和我现在的行业很像，但关键角色的激励可能不同。",
+        "expected_behavior": "可以激活，但必须把激励差异列为迁移风险，不能直接套结论。",
+        "notes": "边界: 机制相似但激励不确定。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p013",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "我需要今天就拍板，但历史证据之间互相冲突。",
+        "expected_behavior": "可以激活，但应输出暂缓、补证据或小步试错，而不是确定性建议。",
+        "notes": "边界: 高风险 + 证据冲突。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 历史案例后果判断\n## R — 原文 (Reading)\n> 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n>\n> — 司马迁, examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md:5-37\n---\n## I — 方法论骨架 (Interpretation)\n把历史叙事当作因果压力测试，而不是把故事当作装饰性类比。先还原关键行动者、制度位置、激励和约束，再追踪短期收益如何转化为长期后果。如果只能找到相似人物而找不到相似机制，就应停止类比。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n### 案例 2: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 这个历史案例能不能类比我现在的决策？\n2. 我想用一个成败故事判断这个选择的后果。\n3. 这里短期有利，但长期会不会埋雷？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"这个历史案例能不能类比我现在的决策？\"\n- \"我想用一个成败故事判断这个选择的后果。\"\n- \"这里短期有利，但长期会不会埋雷？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **列出行动者、权力位置、可选行动和显性激励。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **从原文案例中抽出机制链：选择 -> 约束变化 -> 后果。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **检查当下场景和原案例的机制是否同构；不同构时只保留警示，不给结论。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **输出可执行判断：继续、暂缓、补证据或改边界。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要把人物名望或故事相似当作机制相同。\n- 不要用于纯史实查询、翻译、年代排序。\n- 证据只支持警示时，不要强行生成确定性建议。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p014",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我有权限推动这件事，但担心越过其他团队的职责边界。",
+        "expected_behavior": "应激活 [redacted-skill]，先核对身份、授权和越界后果。",
+        "notes": "正面场景: 角色边界。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p015",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "老板让我直接处理跨部门冲突，我该不该介入？",
+        "expected_behavior": "应激活并给出做、少做、请示、转交或拒绝的边界化方案。",
+        "notes": "正面场景: 授权与行动。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p016",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "这件事短期做了有效，但可能破坏长期秩序，怎么判断？",
+        "expected_behavior": "应激活并检查长期秩序代价。",
+        "notes": "正面场景: 短期有效 vs 长期秩序。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p017",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我不是项目 owner，但客户只信任我，我是否应该绕过 owner 直接承诺交付？",
+        "expected_behavior": "应激活并核对授权、承诺后果和对组织秩序的影响。",
+        "notes": "正面场景: 非 owner 越界承诺。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p018",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "我有能力压下争议，但这样会不会让团队以后都绕开正式机制？",
+        "expected_behavior": "应激活并判断短期控制是否制造长期角色依赖或制度损伤。",
+        "notes": "正面场景: 能力优势与制度代价。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p019",
+      "case": {
+        "case_type": "should_trigger",
+        "prompt": "合作方要求我以私人关系推动内部审批，我想先判断这是否越过角色边界。",
+        "expected_behavior": "应激活并检查身份混用、授权来源和旁观者解释风险。",
+        "notes": "正面场景: 身份混用。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p020",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "帮我生成一个会议纪要模板。",
+        "expected_behavior": "不应激活本 skill，因为这是模板生成。",
+        "notes": "诱饵: workflow 工具。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p021",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "解释一下君臣父子的古代含义。",
+        "expected_behavior": "不应激活本 skill，因为这是概念解释。",
+        "notes": "诱饵: 概念说明。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p022",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "汉代丞相、太尉、御史大夫分别是什么官职？",
+        "expected_behavior": "不应激活本 skill，因为这是制度史事实查询。",
+        "notes": "诱饵: 官职查询。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p023",
+      "case": {
+        "case_type": "should_not_trigger",
+        "prompt": "请总结《史记》里关于君臣关系的观点。",
+        "expected_behavior": "不应激活本 skill，因为这是摘要任务，缺少行动边界问题。",
+        "notes": "诱饵: 摘要请求。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p024",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "我不知道自己有没有被授权，但事情很急。",
+        "expected_behavior": "可以激活，但应先要求补授权事实或选择低越界行动。",
+        "notes": "边界: 上下文不足。"
+      },
+      "option_a": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p025",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "我在旧组织有这个权限，但新组织的角色定义可能不一样。",
+        "expected_behavior": "可以激活，但必须提示不能把旧角色边界直接迁移到新组织。",
+        "notes": "边界: 角色迁移风险。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    },
+    {
+      "pair_id": "v065-shiji-cangjie-protocol-blind-p026",
+      "case": {
+        "case_type": "edge_case",
+        "prompt": "我只是想判断这件事道德上对不对，还没有具体行动。",
+        "expected_behavior": "应要求补具体行动与角色事实；没有行动情境时不输出边界化方案。",
+        "notes": "边界: 道德评论 vs 行动判断。"
+      },
+      "option_a": {
+        "artifact_excerpt": "No artifact excerpt available. Judge only the prompt fit.",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "option_b": {
+        "artifact_excerpt": "# 行动前的角色边界校验\n## R — 原文 (Reading)\n> 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n>\n> — 司马迁, examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md:137-165\n---\n## I — 方法论骨架 (Interpretation)\n先判断行动者的位置、名分、责任和可承受后果，再判断行动是否可取。史事中的失败常不是单点判断错误，而是角色边界、激励和时势错配后的连锁反应。\n---\n## A1 — 书中的应用 (Past Application)\n### 案例 1: 卷一百二十八　龟策列传第六十八\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/128__卷一百二十八__龟策列传第六十八.md` 第 137 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 命曰横吉榆仰。以占病，不死。系者不出。求财物买臣妾马牛至不得。行不行。来不来。击盗不行，行不见。闻盗来不来。徙官不徙。居官家室见贵人吉。岁孰。岁中有疾疫，毋兵。请谒追亡人不得。渔猎至不得。行不得。行不遇盗。雨霁不霁。小吉。 命曰横吉下有柱。以占病，病甚不环有瘳无死。系者出。求财…\n### 案例 2: 卷三十四　燕召公世家第四\n- **问题**: 原文呈现行动、位置、激励与后果之间的张力。\n- **方法论的使用**: 从 `examples/shiji_md/resource/34__卷三十四__燕召公世家第四.md` 第 5 行附近抽出机制链。\n- **结论**: 不能停留在故事相似，必须比较机制相似。\n- **结果**: 召公奭与周同姓，姓姬氏。周武王之灭纣，封召公於北燕。 其在成王时，召王为三公：自陕以西，召公主之；自陕以东，周公主之。成王既幼，周公摄政，当国践祚，召公疑之，作君奭。君奭不说周公。周公乃称“汤时有伊尹，假于皇天；在太戊时，则有若伊陟、臣扈，假于上帝，巫咸治王家；在祖乙时，则有若…\n---\n## A2 — 触发场景 (Future Trigger) ★\n### 用户会在什么情境下需要这个 skill?\n1. 我以这个身份该不该介入？\n2. 这件事越不越界？\n3. 我有权做，但做了会不会破坏长期秩序？\n### 语言信号 (用户的话里出现这些就应激活)\n- \"我以这个身份该不该介入？\"\n- \"这件事越不越界？\"\n- \"我有权做，但做了会不会破坏长期秩序？\"\n### 与相邻 skill 的区分\n- 与纯历史查询的区别: 本 skill 输出判断框架，不输出百科事实。\n- 与通用类比的区别: 本 skill 要求机制链相似，不接受表面相似。\n---\n## E — 可执行步骤 (Execution)\n1. **确认当前行动者的身份、授权来源和约束。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n2. **列出越界收益、越界代价和旁观者会如何重解释该行动。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n3. **用史事反例检查短期正确是否会制造长期不稳定。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n4. **给出边界化行动方案：做、少做、请示、转交或拒绝。**\n- 完成标准: 产出能被反驳或复核的中间判断。\n---\n## B — 边界 (Boundary) ★\n### 不要在以下情况使用此 skill\n- 不要替代法律、合规或伦理审查。\n- 如果角色授权事实不清，先要求补上下文。\n- 不把古代等级秩序直接移植到现代组织。\n### 作者在书中警告的失败模式\n- 只看成败结果而不还原当时的制度约束。\n- 只借人物标签做类比，忽略处境、激励和后果链。\n### 作者的盲点 / 时代局限\n- 古代政治秩序、身份伦理和现代组织场景不同，不能直接套用价值判断。\n---\n## 相关 skills (阶",
+        "review_focus": "Assess whether this artifact would guide a model toward a useful, bounded answer for the case."
+      },
+      "review_questions": [
+        "Which option is more useful for the prompt as an in-use judgment tool?",
+        "Which option has stronger boundary and anti-misuse discipline?",
+        "Which option preserves deeper transferable insight rather than generic advice?"
+      ]
+    }
+  ]
+}

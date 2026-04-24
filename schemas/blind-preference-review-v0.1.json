@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kiu.local/schemas/blind-preference-review-v0.1.json",
+  "title": "KiU Blind Preference Review v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "review_id",
+    "pairs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "kiu.blind-preference-review/v0.1"
+    },
+    "review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pairs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "pair_id",
+          "preferred",
+          "option_roles",
+          "dimension_scores"
+        ],
+        "properties": {
+          "pair_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preferred": {
+            "enum": [
+              "a",
+              "b",
+              "tie",
+              "inconclusive"
+            ]
+          },
+          "option_roles": {
+            "type": "object",
+            "required": [
+              "a",
+              "b"
+            ],
+            "properties": {
+              "a": {
+                "enum": [
+                  "kiu",
+                  "reference"
+                ]
+              },
+              "b": {
+                "enum": [
+                  "kiu",
+                  "reference"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "dimension_scores": {
+            "type": "object",
+            "required": [
+              "usage",
+              "depth",
+              "transferability",
+              "anti_misuse"
+            ],
+            "properties": {
+              "usage": {
+                "type": "number"
+              },
+              "depth": {
+                "type": "number"
+              },
+              "transferability": {
+                "type": "number"
+              },
+              "anti_misuse": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

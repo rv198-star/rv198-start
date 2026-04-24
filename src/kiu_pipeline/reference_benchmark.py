@@ -30,6 +30,7 @@ def benchmark_reference_pack(
     run_root: str | Path | None = None,
     alignment_file: str | Path | None = None,
     comparison_scope: str = "structure-only",
+    blind_preference_evidence: str | Path | None = None,
 ) -> dict[str, Any]:
     bundle_root = Path(kiu_bundle_path)
     reference_root = Path(reference_pack_path)
@@ -38,6 +39,10 @@ def benchmark_reference_pack(
     kiu_bundle = _scan_kiu_bundle(bundle_root)
     generated_run = _scan_generated_run(run_path, bundle_root) if run_path is not None else None
     reference_pack = _scan_reference_pack(reference_root)
+    if generated_run is not None and blind_preference_evidence is not None:
+        generated_run.setdefault("pipeline_artifacts", {})["blind_preference_summary"] = (
+            _load_blind_preference_summary(blind_preference_evidence)
+        )
 
     concept_alignment = _build_concept_alignment(
         kiu_bundle=kiu_bundle,
@@ -93,6 +98,53 @@ def write_reference_benchmark_report(
     return {
         "json_path": str(output),
         "markdown_path": str(markdown_path),
+    }
+
+
+def _load_blind_preference_summary(path: str | Path) -> dict[str, Any]:
+    evidence_path = Path(path)
+    try:
+        doc = json.loads(evidence_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"valid": False, "pass_ratio": 0.0, "pair_count": 0, "errors": ["blind_evidence_unreadable"]}
+    errors: list[str] = []
+    if doc.get("schema_version") != "kiu.blind-preference-review/v0.1":
+        errors.append("invalid_schema_version")
+    pairs = doc.get("pairs", [])
+    if not isinstance(pairs, list):
+        errors.append("pairs_not_list")
+        pairs = []
+    passed = 0
+    usable = 0
+    for pair in pairs:
+        if not isinstance(pair, dict):
+            errors.append("pair_not_object")
+            continue
+        preferred = str(pair.get("preferred", "")).lower()
+        if preferred in {"kiu", "cangjie", "reference"}:
+            errors.append("non_anonymous_preference_label")
+            continue
+        if preferred not in {"a", "b", "tie", "inconclusive"}:
+            errors.append("invalid_preferred_option")
+            continue
+        roles = pair.get("option_roles", {}) if isinstance(pair.get("option_roles"), dict) else {}
+        scores = pair.get("dimension_scores", {}) if isinstance(pair.get("dimension_scores"), dict) else {}
+        required_dimensions = {"usage", "depth", "transferability", "anti_misuse"}
+        if not required_dimensions.issubset(scores):
+            errors.append("dimension_scores_incomplete")
+            continue
+        usable += 1
+        if preferred == "tie":
+            passed += 1
+        elif roles.get(preferred) == "kiu":
+            passed += 1
+    valid = not errors
+    return {
+        "schema_version": "kiu.blind-preference-summary/v0.1",
+        "valid": valid,
+        "pair_count": usable,
+        "pass_ratio": round(_safe_ratio(passed, usable), 4),
+        "errors": sorted(set(errors)),
     }
 
 
@@ -912,6 +964,15 @@ def _build_scorecard(
         ),
         1,
     )
+    cangjie_methodology_quality = _build_cangjie_methodology_quality(
+        pipeline_artifacts=pipeline_artifacts,
+        same_scenario_usage=same_scenario_usage,
+    )
+    final_artifact_effect = _build_final_artifact_effect_gate(
+        generated_run=generated_run,
+        same_scenario_usage=same_scenario_usage,
+        cangjie_methodology_quality=cangjie_methodology_quality,
+    )
 
     distillation_review = (
         generated_run.get("graph_to_skill_distillation", {})
@@ -927,11 +988,31 @@ def _build_scorecard(
         same_scenario_usage=same_scenario_usage,
         distillation_score_100=graph_to_skill_distillation_score,
     )
+    cangjie_core_baseline_matrix = _build_cangjie_core_baseline_matrix(
+        pipeline_artifacts=pipeline_artifacts,
+        generated_run=generated_run,
+        same_scenario_usage=same_scenario_usage,
+        methodology_details=cangjie_methodology_quality["details"],
+        stage_presence_ratio=stage_presence_ratio,
+        extractor_coverage_ratio=extractor_coverage_ratio,
+    )
 
     return {
         "kiu_foundation_retained_100": foundation_score,
         "graphify_core_absorbed_100": graphify_score,
         "cangjie_core_absorbed_100": cangjie_score,
+        "cangjie_methodology_internal_100": cangjie_methodology_quality["internal_score_100"],
+        "cangjie_methodology_external_blind_100": cangjie_methodology_quality["external_blind_preference_score_100"],
+        "cangjie_methodology_closure_100": cangjie_methodology_quality["closure_score_100"],
+        "cangjie_methodology_quality_100": cangjie_methodology_quality["closure_score_100"],
+        "cangjie_methodology_gate": cangjie_methodology_quality["gate"],
+        "cangjie_core_baseline_matrix": cangjie_core_baseline_matrix,
+        "final_artifact_effect": final_artifact_effect,
+        "compatibility_regression": {
+            "schema_version": "kiu.compatibility-regression/v0.1",
+            "risk": "unknown_until_baseline_rerun",
+            "baseline": "v0.6.4",
+        },
         "book_to_skill_cold_start_proven": bool(cold_start_proof_ratio),
         "book_to_skill_cold_start_proven_100": round(100.0 * cold_start_proof_ratio, 1),
         "graph_to_skill_distillation_100": graph_to_skill_distillation_score,
@@ -964,8 +1045,359 @@ def _build_scorecard(
                 "usage_quality_ratio": round(usage_quality_ratio, 4),
                 "extractor_kinds": sorted(extraction_kinds),
             },
+            "cangjie_methodology_quality": cangjie_methodology_quality["details"],
             "graph_to_skill_distillation": distillation_review,
         },
+    }
+
+
+def _build_cangjie_core_baseline_matrix(
+    *,
+    pipeline_artifacts: dict[str, Any],
+    generated_run: dict[str, Any] | None,
+    same_scenario_usage: dict[str, Any],
+    methodology_details: dict[str, float],
+    stage_presence_ratio: float,
+    extractor_coverage_ratio: float,
+) -> dict[str, Any]:
+    summary = same_scenario_usage.get("summary", {}) if isinstance(same_scenario_usage, dict) else {}
+    scenario_count = int(summary.get("scenario_count", 0) or 0)
+    same_source_ratio = 1.0 if summary.get("usage_winner") == "kiu" and scenario_count >= 20 else 0.0
+    workflow_boundary_ratio = 1.0 if generated_run and generated_run.get("workflow_boundary_preserved") else 0.0
+    rows = [
+        _cangjie_matrix_row(
+            capability_id="ria_tv_stages",
+            score_ratio=stage_presence_ratio,
+            evidence="raw-book stage artifacts: book overview, chunks, extraction, graph, verification, generated run",
+            missing_reason="ria_tv_stage_evidence_missing_or_weak",
+        ),
+        _cangjie_matrix_row(
+            capability_id="five_extractors",
+            score_ratio=extractor_coverage_ratio,
+            evidence=f"extractor_kinds={','.join(pipeline_artifacts.get('extractor_kinds', []))}",
+            missing_reason="five_extractor_evidence_missing_or_weak",
+        ),
+        _cangjie_matrix_row(
+            capability_id="triple_verification",
+            score_ratio=float(methodology_details.get("triple_verification_ratio", 0.0) or 0.0),
+            evidence="triple verification summary: cross evidence, predictive action, uniqueness",
+            missing_reason="triple_verification_missing_or_weak",
+        ),
+        _cangjie_matrix_row(
+            capability_id="decoy_pressure",
+            score_ratio=float(methodology_details.get("decoy_pressure_test_ratio", 0.0) or 0.0),
+            evidence="pressure_test_summary.pass_ratio",
+            missing_reason="decoy_pressure_missing_or_weak",
+        ),
+        _cangjie_matrix_row(
+            capability_id="blind_preference",
+            score_ratio=float(methodology_details.get("blind_preference_review_ratio", 0.0) or 0.0),
+            evidence="blind_preference_summary.pass_ratio",
+            missing_reason="blind_preference_missing_or_weak",
+        ),
+        _cangjie_matrix_row(
+            capability_id="same_source_benchmark",
+            score_ratio=same_source_ratio,
+            evidence=f"usage_winner={summary.get('usage_winner')}; scenario_count={scenario_count}",
+            missing_reason="same_source_benchmark_missing_or_not_won",
+        ),
+        _cangjie_matrix_row(
+            capability_id="workflow_boundary_preservation",
+            score_ratio=workflow_boundary_ratio,
+            evidence="generated_run.workflow_boundary_preserved",
+            missing_reason="workflow_boundary_preservation_missing_or_weak",
+        ),
+    ]
+    missing = [row["capability_id"] for row in rows if row["status"] != "pass"]
+    return {
+        "schema_version": "kiu.cangjie-core-baseline-matrix/v0.1",
+        "summary": {
+            "ready": not missing,
+            "missing_p0_count": len(missing),
+            "missing_capabilities": missing,
+        },
+        "rows": rows,
+    }
+
+
+def _cangjie_matrix_row(
+    *,
+    capability_id: str,
+    score_ratio: float,
+    evidence: str,
+    missing_reason: str,
+    threshold: float = 0.8,
+) -> dict[str, Any]:
+    score = _bounded_ratio(score_ratio)
+    if score >= threshold:
+        status = "pass"
+        reason = ""
+    elif score <= 0.0:
+        status = "missing"
+        reason = missing_reason
+    else:
+        status = "weak"
+        reason = missing_reason
+    return {
+        "capability_id": capability_id,
+        "status": status,
+        "score_ratio": round(score, 4),
+        "threshold": threshold,
+        "evidence": evidence,
+        "missing_reason": reason,
+    }
+
+
+def _build_final_artifact_effect_gate(
+    *,
+    generated_run: dict[str, Any] | None,
+    same_scenario_usage: dict[str, Any],
+    cangjie_methodology_quality: dict[str, Any],
+) -> dict[str, Any]:
+    summary = same_scenario_usage.get("summary", {}) if isinstance(same_scenario_usage, dict) else {}
+    same_scenario_score = float(summary.get("kiu_average_usage_score_100", 0.0) or 0.0)
+    generated_usage_score = (
+        float(generated_run.get("usage_score_100", 0.0) or 0.0)
+        if generated_run is not None
+        else 0.0
+    )
+    layer1_score = round(max(same_scenario_score, generated_usage_score), 1)
+    layer2_score = round(
+        float(cangjie_methodology_quality.get("internal_score_100", 0.0) or 0.0),
+        1,
+    )
+    external_blind_score = round(
+        float(
+            cangjie_methodology_quality.get(
+                "external_blind_preference_score_100",
+                0.0,
+            )
+            or 0.0
+        ),
+        1,
+    )
+    reasons: list[str] = []
+    if layer1_score < 80.0:
+        reasons.append("immediate_usage_effect_below_80")
+    if summary.get("usage_winner") not in (None, "kiu"):
+        reasons.append("same_scenario_usage_not_won_by_kiu")
+    if layer2_score < 80.0:
+        reasons.append("knowledge_depth_effect_below_80")
+    if external_blind_score < 80.0:
+        reasons.append("external_blind_preference_below_80")
+    methodology_gate = cangjie_methodology_quality.get("gate", {})
+    if not methodology_gate.get("ready"):
+        reasons.append("knowledge_depth_gate_not_ready")
+
+    ready = not reasons
+    if ready:
+        claim = "two_layer_effect_proven"
+    elif layer1_score >= 80.0 and layer2_score < 80.0:
+        claim = "usage_effect_only"
+    elif layer1_score >= 80.0 and layer2_score >= 80.0 and external_blind_score < 80.0:
+        claim = "internal_depth_proven_external_blind_missing"
+    elif layer2_score >= 80.0 and layer1_score < 80.0:
+        claim = "knowledge_depth_without_usage_effect"
+    else:
+        claim = "not_proven"
+    return {
+        "schema_version": "kiu.final-artifact-effect/v0.1",
+        "ready": ready,
+        "claim": claim,
+        "layer1_immediate_usage_effect_100": layer1_score,
+        "layer2_knowledge_depth_effect_100": layer2_score,
+        "layer3_external_blind_preference_effect_100": external_blind_score,
+        "minimum_layer1_100": 80.0,
+        "minimum_layer2_100": 80.0,
+        "minimum_layer3_100": 80.0,
+        "reasons": reasons,
+    }
+
+
+def _build_cangjie_methodology_quality(
+    *,
+    pipeline_artifacts: dict[str, Any],
+    same_scenario_usage: dict[str, Any],
+) -> dict[str, Any]:
+    summary = same_scenario_usage.get("summary", {}) if isinstance(same_scenario_usage, dict) else {}
+    usage_win_ratio = 1.0 if summary.get("usage_winner") == "kiu" else 0.0
+    usage_case_ratio = min(_safe_ratio(summary.get("scenario_count", 0), 20), 1.0)
+    usage_pressure_ratio = min(usage_win_ratio, usage_case_ratio)
+
+    triple_summary = (
+        pipeline_artifacts.get("triple_verification_summary", {})
+        if isinstance(pipeline_artifacts.get("triple_verification_summary"), dict)
+        else {}
+    )
+    stage_status = (
+        pipeline_artifacts.get("ria_tv_stage_status", {})
+        if isinstance(pipeline_artifacts.get("ria_tv_stage_status"), dict)
+        else {}
+    )
+    stage_present = bool(pipeline_artifacts.get("ria_tv_stage_report_present"))
+
+    principle_depth_ratio = _artifact_ratio(
+        pipeline_artifacts,
+        "principle_depth_review_ratio",
+        "principle_depth_review_present",
+    )
+    if principle_depth_ratio == 0.0 and stage_present:
+        principle_depth_ratio = _average(
+            [
+                1.0 if stage_status.get("stage0_book_overview") else 0.0,
+                1.0 if stage_status.get("stage1_parallel_extractors") else 0.0,
+                _bounded_ratio(triple_summary.get("predictive_action_ratio")),
+                _bounded_ratio(triple_summary.get("uniqueness_ratio")),
+            ]
+        )
+    cross_chapter_ratio = _artifact_ratio(
+        pipeline_artifacts,
+        "cross_chapter_synthesis_ratio",
+        "cross_chapter_synthesis_present",
+    )
+    if cross_chapter_ratio == 0.0 and stage_present:
+        cross_chapter_ratio = max(
+            _bounded_ratio(triple_summary.get("cross_evidence_ratio")),
+            1.0 if stage_status.get("stage3_linking") else 0.0,
+        )
+    triple_verification_ratio = _artifact_ratio(
+        pipeline_artifacts,
+        "triple_verification_ratio",
+        "triple_verification_present",
+    )
+    if triple_verification_ratio == 0.0 and triple_summary:
+        triple_verification_ratio = _average(
+            [
+                triple_summary.get("cross_evidence_ratio"),
+                triple_summary.get("predictive_action_ratio"),
+                triple_summary.get("uniqueness_ratio"),
+            ]
+        )
+    decoy_pressure_ratio = _artifact_ratio(
+        pipeline_artifacts,
+        "decoy_pressure_test_ratio",
+        "decoy_pressure_test_present",
+    )
+    pressure_summary = pipeline_artifacts.get("pressure_test_summary", {})
+    if isinstance(pressure_summary, dict) and pressure_summary.get("pass_ratio") is not None:
+        decoy_pressure_ratio = _bounded_ratio(pressure_summary.get("pass_ratio"))
+    blind_review_ratio = _artifact_ratio(
+        pipeline_artifacts,
+        "blind_preference_review_ratio",
+        "blind_preference_review_present",
+    )
+    blind_summary = pipeline_artifacts.get("blind_preference_summary", {})
+    if isinstance(blind_summary, dict) and blind_summary.get("pass_ratio") is not None:
+        blind_review_ratio = _bounded_ratio(blind_summary.get("pass_ratio"))
+
+    internal_score = round(
+        100.0
+        * _average(
+            [
+                usage_pressure_ratio,
+                principle_depth_ratio,
+                cross_chapter_ratio,
+                triple_verification_ratio,
+                decoy_pressure_ratio,
+            ]
+        ),
+        1,
+    )
+    external_blind_score = round(100.0 * blind_review_ratio, 1)
+    closure_score = round(min(internal_score, external_blind_score), 1)
+    details = {
+        "same_scenario_usage_pressure_ratio": round(usage_pressure_ratio, 4),
+        "principle_depth_review_ratio": round(principle_depth_ratio, 4),
+        "cross_chapter_synthesis_ratio": round(cross_chapter_ratio, 4),
+        "triple_verification_ratio": round(triple_verification_ratio, 4),
+        "decoy_pressure_test_ratio": round(decoy_pressure_ratio, 4),
+        "blind_preference_review_ratio": round(blind_review_ratio, 4),
+    }
+    gate = _build_cangjie_methodology_gate(
+        internal_score_100=internal_score,
+        external_blind_score_100=external_blind_score,
+        closure_score_100=closure_score,
+        details=details,
+        usage_win=bool(usage_win_ratio),
+    )
+    return {
+        "score_100": closure_score,
+        "internal_score_100": internal_score,
+        "external_blind_preference_score_100": external_blind_score,
+        "closure_score_100": closure_score,
+        "details": details,
+        "gate": gate,
+    }
+
+
+def _artifact_ratio(
+    artifacts: dict[str, Any],
+    ratio_key: str,
+    present_key: str,
+) -> float:
+    if ratio_key in artifacts:
+        return _bounded_ratio(artifacts.get(ratio_key))
+    return 1.0 if artifacts.get(present_key) else 0.0
+
+
+def _bounded_ratio(value: Any) -> float:
+    try:
+        return min(max(float(value or 0.0), 0.0), 1.0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _build_cangjie_methodology_gate(
+    *,
+    internal_score_100: float,
+    external_blind_score_100: float,
+    closure_score_100: float,
+    details: dict[str, float],
+    usage_win: bool,
+) -> dict[str, Any]:
+    reasons: list[str] = []
+    if internal_score_100 < 80.0:
+        reasons.append("cangjie_methodology_internal_below_80")
+    if closure_score_100 < 80.0:
+        reasons.append("cangjie_methodology_closure_below_80")
+    if not usage_win:
+        reasons.append("same_scenario_usage_not_won_by_kiu")
+    thresholds = {
+        "principle_depth_review_ratio": "principle_depth_review_missing_or_weak",
+        "cross_chapter_synthesis_ratio": "cross_chapter_synthesis_missing_or_weak",
+        "triple_verification_ratio": "triple_verification_missing_or_weak",
+        "decoy_pressure_test_ratio": "decoy_pressure_test_missing_or_weak",
+        "blind_preference_review_ratio": "blind_preference_review_missing_or_weak",
+    }
+    for key, reason in thresholds.items():
+        if float(details.get(key, 0.0) or 0.0) < 0.8:
+            reasons.append(reason)
+
+    ready = not reasons
+    if ready:
+        claim = "cangjie_methodology_absorbed"
+    elif usage_win:
+        claim = "same_scenario_usage_win_only"
+    else:
+        claim = "not_proven"
+    return {
+        "schema_version": "kiu.cangjie-methodology-gate/v0.1",
+        "ready": ready,
+        "claim": claim,
+        "minimum_methodology_internal_100": 80.0,
+        "minimum_external_blind_preference_100": 80.0,
+        "minimum_methodology_closure_100": 80.0,
+        "actual_methodology_internal_100": internal_score_100,
+        "actual_external_blind_preference_100": external_blind_score_100,
+        "actual_methodology_closure_100": closure_score_100,
+        "required_evidence": [
+            "principle_depth_review",
+            "cross_chapter_synthesis",
+            "triple_verification",
+            "decoy_pressure_test",
+            "blind_preference_review",
+        ],
+        "reasons": reasons,
     }
 
 
@@ -2251,8 +2683,29 @@ def _discover_pipeline_artifacts(
     bundle_id = str(manifest.get("bundle_id", ""))
     extraction_result_path = None
     intermediate_graph_path = None
-    verification_summary_path = run_root / "reports" / "verification-summary.json"
+    reports_root = run_root / "reports"
+    verification_summary_path = reports_root / "verification-summary.json"
+    ria_tv_stage_report_path = reports_root / "ria-tv-stage-report.json"
+    pressure_report_path = reports_root / "pressure-tests.json"
     extractor_kinds: set[str] = set()
+    verification_summary: dict[str, Any] = {}
+    ria_tv_stage_report: dict[str, Any] = {}
+    pressure_report: dict[str, Any] = {}
+    if verification_summary_path.exists():
+        try:
+            verification_summary = json.loads(verification_summary_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            verification_summary = {}
+    if ria_tv_stage_report_path.exists():
+        try:
+            ria_tv_stage_report = json.loads(ria_tv_stage_report_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            ria_tv_stage_report = {}
+    if pressure_report_path.exists():
+        try:
+            pressure_report = json.loads(pressure_report_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            pressure_report = {}
     if bundle_id.endswith("-source-v0.6"):
         source_id = bundle_id.removesuffix("-source-v0.6")
         try:
@@ -2269,6 +2722,17 @@ def _discover_pipeline_artifacts(
                     extractor_kind = node.get("extractor_kind")
                     if isinstance(extractor_kind, str) and extractor_kind:
                         extractor_kinds.add(_normalize_extractor_kind(extractor_kind))
+    stage1 = ria_tv_stage_report.get("stage1_parallel_extractors", {})
+    responsibilities = (
+        stage1.get("extractor_responsibilities", {})
+        if isinstance(stage1, dict) and isinstance(stage1.get("extractor_responsibilities"), dict)
+        else {}
+    )
+    for extractor_kind in responsibilities:
+        if isinstance(extractor_kind, str) and extractor_kind:
+            extractor_kinds.add(_normalize_extractor_kind(extractor_kind))
+    ria_tv_stage_status = _summarize_ria_tv_stage_status(ria_tv_stage_report)
+    triple_verification_summary = _summarize_triple_verification(verification_summary)
     pipeline_provenance = pipeline_provenance or {}
     raw_book_no_seed_cold_start = bool(
         pipeline_provenance.get("raw_book_no_seed_cold_start")
@@ -2286,6 +2750,53 @@ def _discover_pipeline_artifacts(
         "graph_present": graph_path.exists() or (intermediate_graph_path.exists() if intermediate_graph_path else False),
         "verification_summary_present": verification_summary_path.exists(),
         "extractor_kinds": sorted(extractor_kinds),
+        "ria_tv_stage_report_present": ria_tv_stage_report_path.exists(),
+        "ria_tv_stage_status": ria_tv_stage_status,
+        "triple_verification_summary": triple_verification_summary,
+        "pressure_test_summary": pressure_report.get("summary", {}) if isinstance(pressure_report, dict) else {},
+    }
+
+
+def _summarize_ria_tv_stage_status(report: dict[str, Any]) -> dict[str, bool]:
+    stage_keys = [
+        "stage0_book_overview",
+        "stage1_parallel_extractors",
+        "stage1_5_triple_verification",
+        "stage2_skill_distillation",
+        "stage3_linking",
+        "stage4_pressure_test",
+    ]
+    status: dict[str, bool] = {}
+    for key in stage_keys:
+        value = report.get(key, {}) if isinstance(report, dict) else {}
+        status[key] = bool(value.get("present")) if isinstance(value, dict) else bool(value)
+    return status
+
+
+def _summarize_triple_verification(verification_summary: dict[str, Any]) -> dict[str, float]:
+    values: dict[str, list[float]] = {
+        "cross_evidence_ratio": [],
+        "predictive_action_ratio": [],
+        "uniqueness_ratio": [],
+    }
+    accepted = verification_summary.get("accepted", []) if isinstance(verification_summary, dict) else []
+    if not isinstance(accepted, list):
+        return {}
+    for item in accepted:
+        if not isinstance(item, dict):
+            continue
+        verification = item.get("verification", {})
+        if not isinstance(verification, dict):
+            continue
+        triple = verification.get("triple_verification", {})
+        if not isinstance(triple, dict):
+            continue
+        for key in values:
+            values[key].append(_bounded_ratio(triple.get(key)))
+    return {
+        key: round(_average(items), 4)
+        for key, items in values.items()
+        if items
     }
 
 
@@ -2442,9 +2953,44 @@ def _render_markdown_report(report: dict[str, Any]) -> str:
             f"- KiU foundation retained: `{scorecard['kiu_foundation_retained_100']}`",
             f"- Graphify core absorbed: `{scorecard['graphify_core_absorbed_100']}`",
             f"- cangjie core absorbed: `{scorecard['cangjie_core_absorbed_100']}`",
+            f"- cangjie methodology internal: `{scorecard.get('cangjie_methodology_internal_100')}`",
+            f"- cangjie external blind preference: `{scorecard.get('cangjie_methodology_external_blind_100')}`",
+            f"- cangjie methodology closure: `{scorecard.get('cangjie_methodology_closure_100')}`",
+            f"- cangjie methodology quality (deprecated closure alias): `{scorecard.get('cangjie_methodology_quality_100')}`",
+            f"- cangjie methodology gate ready: `{scorecard.get('cangjie_methodology_gate', {}).get('ready')}`",
+            f"- cangjie methodology claim: `{scorecard.get('cangjie_methodology_gate', {}).get('claim')}`",
+            f"- cangjie methodology gate reasons: `{', '.join(scorecard.get('cangjie_methodology_gate', {}).get('reasons', [])) or 'none'}`",
+            f"- final artifact effect ready: `{scorecard.get('final_artifact_effect', {}).get('ready')}`",
+            f"- final artifact effect claim: `{scorecard.get('final_artifact_effect', {}).get('claim')}`",
+            f"- final artifact Layer 1 usage effect: `{scorecard.get('final_artifact_effect', {}).get('layer1_immediate_usage_effect_100')}`",
+            f"- final artifact Layer 2 knowledge depth effect: `{scorecard.get('final_artifact_effect', {}).get('layer2_knowledge_depth_effect_100')}`",
+            f"- final artifact Layer 3 external blind preference effect: `{scorecard.get('final_artifact_effect', {}).get('layer3_external_blind_preference_effect_100')}`",
+            f"- final artifact effect reasons: `{', '.join(scorecard.get('final_artifact_effect', {}).get('reasons', [])) or 'none'}`",
             f"- Book-to-skill cold start proven: `{scorecard.get('book_to_skill_cold_start_proven')}`",
             f"- Graph-to-skill distillation: `{scorecard.get('graph_to_skill_distillation_100')}`",
             f"- v0.6.1 distillation gate ready: `{scorecard.get('v061_distillation_gate', {}).get('ready')}`",
             "",
+            "## Cangjie Core Baseline Matrix",
+            "",
+            *_render_cangjie_matrix_lines(scorecard.get("cangjie_core_baseline_matrix", {})),
+            "",
         ]
     )
+
+
+def _render_cangjie_matrix_lines(matrix: dict[str, Any]) -> list[str]:
+    rows = matrix.get("rows", []) if isinstance(matrix, dict) else []
+    if not rows:
+        return ["- Matrix: `not available`"]
+    lines = [
+        f"- Ready: `{matrix.get('summary', {}).get('ready')}`",
+        f"- Missing capabilities: `{', '.join(matrix.get('summary', {}).get('missing_capabilities', [])) or 'none'}`",
+    ]
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        lines.append(
+            f"- {row.get('capability_id')}: `{row.get('status')}` "
+            f"score=`{row.get('score_ratio')}` reason=`{row.get('missing_reason') or 'none'}`"
+        )
+    return lines

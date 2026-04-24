@@ -71,6 +71,68 @@ Boundary conditions:
   ethical floors dominate efficiency.
 - It should guide long-term version strategy more than short-term transitional choices.
 
+## Five-Step Landing Method
+
+KiU uses the `Baseline -> Target -> Gap -> Strategy -> Breakdown` method as the
+default way to handle complex planning, audit feedback, version goals, and
+ambiguous engineering decisions. In Chinese shorthand: `基 -> 标 -> 差 -> 策 -> 拆`
+or `基标差策拆`.
+
+This method exists to prevent planning drift, premature implementation, and
+false closure caused by unclear baselines or non-executable goals. The final
+`Breakdown` step is recursive: every subproblem must be checked for executability.
+If a subproblem still cannot be started, tested, or judged tomorrow, run the full
+`Baseline -> Target -> Gap -> Strategy -> Breakdown` loop again on that subproblem
+until it becomes an action.
+
+Required sequence:
+
+- `Baseline`: define the current state with facts, evidence, and known limits.
+  Ask: where are we now, and what is already proven?
+- `Target`: define the desired end state and acceptance criteria. Ask: where are
+  we going, and what measurable condition means we have arrived?
+- `Gap`: identify the concrete distance between baseline and target. Ask: what
+  is missing across capability, evidence, resources, path, or understanding?
+- `Strategy`: choose the route for crossing the gap. Ask: which path gives the
+  best tradeoff under current constraints, and what are we deliberately not
+  doing?
+- `Breakdown`: decompose the strategy into executable actions. Ask: what can be
+  started next, by whom or by which agent, with what input, output, and judging
+  criteria? For each subproblem, ask `is this executable now?`; if not, recursively
+  apply the same five-step method to that subproblem.
+
+Required outputs for non-trivial work:
+
+- A baseline summary or fact list before target claims.
+- Target criteria that can be verified, not just described.
+- A gap list that names missing evidence or missing capability explicitly.
+- A strategy choice with rejected alternatives or tradeoffs when more than one
+  path is plausible.
+- An action list where each item has enough detail to execute, test, and review.
+- For any non-executable subproblem, a nested five-step pass instead of a vague task.
+
+Decision checks:
+
+- Are we solving from the real baseline, or from an assumed state?
+- Is the target measurable enough to reject false completion?
+- Did we name the actual gaps, or only restate the desired outcome?
+- Is the strategy an explicit choice, or just a list of hopeful activities?
+- Can every action be started and judged without further vague interpretation?
+- For every item that is not executable yet, did we recurse instead of pretending
+  it is an action?
+
+Boundary conditions:
+
+- This method does not override evidence honesty, workflow-vs-agentic boundary
+  rules, or external reference boundaries.
+- It should be used more rigorously as complexity, uncertainty, or audit risk
+  increases.
+- For small tasks, it can be compressed into a brief mental or written checklist,
+  but the order must remain: baseline before target, target before gap, gap before
+  strategy, strategy before breakdown.
+- The method terminates only when the leaf nodes are executable actions with input,
+  output, owner or agent, verification command, and acceptance criteria.
+
 ## Benchmark Policy
 
 For `cangjie-skill` specifically:

@@ -14,6 +14,7 @@ from .draft import build_candidate_skill_markdown
 from .distillation import augment_scenario_families, build_distillation_contract
 from .eval_prefill import build_prefilled_eval_summary
 from .models import CandidateSeed, SourceBundle
+from .ria_tv import build_skill_ria_tv_provenance, build_workflow_gateway_provenance
 
 
 BUNDLE_VERSION = "0.2.0"
@@ -589,7 +590,65 @@ def _render_skill_candidate(
         source_bundle=source_bundle,
         seed=seed,
     )
+    candidate_metadata["ria_tv_distillation"] = {
+        "schema_version": "kiu.ria-tv-distillation/v0.1",
+        "stage": "stage2_skill_distillation",
+        "mechanism_chain_required": True,
+        "anti_misuse_boundary_required": True,
+    }
+    if seed.candidate_id == "workflow-gateway":
+        gateway = seed.metadata.get("workflow_gateway", {}) if isinstance(seed.metadata, dict) else {}
+        candidate_metadata["gateway_provenance"] = build_workflow_gateway_provenance(
+            routed_ids=list(gateway.get("routes_to", [])) if isinstance(gateway, dict) else [],
+            source_node_ids=[seed.primary_node_id, *seed.supporting_node_ids],
+        )
+    else:
+        candidate_metadata["ria_tv_provenance"] = build_skill_ria_tv_provenance(
+            graph_doc=source_bundle.graph_doc,
+            primary_node_id=seed.primary_node_id,
+            supporting_node_ids=seed.supporting_node_ids,
+            supporting_edge_ids=seed.supporting_edge_ids,
+        )
+        candidate_metadata["distillation_contract"] = _build_distillation_quality_contract(seed)
     _write_yaml(skill_dir / "candidate.yaml", candidate_metadata)
+
+
+def _build_distillation_quality_contract(seed: CandidateSeed) -> dict[str, Any]:
+    seed_content = seed.seed_content if isinstance(seed.seed_content, dict) else {}
+    contract = seed_content.get("contract", {}) if isinstance(seed_content.get("contract"), dict) else {}
+    trigger = contract.get("trigger", {}) if isinstance(contract.get("trigger"), dict) else {}
+    boundary = contract.get("boundary", {}) if isinstance(contract.get("boundary"), dict) else {}
+    judgment_schema = (
+        contract.get("judgment_schema", {})
+        if isinstance(contract.get("judgment_schema"), dict)
+        else {}
+    )
+    rationale = str(seed_content.get("rationale") or seed_content.get("summary") or seed.candidate_id)
+    trigger_patterns = [
+        item for item in trigger.get("patterns", []) if isinstance(item, str) and item.strip()
+    ]
+    anti_conditions = _string_list(boundary.get("anti_conditions"))
+    if not anti_conditions:
+        anti_conditions = _string_list(boundary.get("do_not_fire_when"))
+    transfer_conditions = _string_list(judgment_schema.get("transfer_conditions"))
+    if not transfer_conditions:
+        transfer_conditions = _string_list(seed_content.get("transfer_conditions"))
+    return {
+        "schema_version": "kiu.distillation-contract/v0.1",
+        "mechanism_chain": [rationale[:240]],
+        "use_situation_trigger": trigger_patterns[:3] or [f"use `{seed.candidate_id}` only for judgment-rich decisions"],
+        "anti_misuse_boundary": anti_conditions[:5] or ["do_not_use_for_summary_translation_fact_lookup_or_stance_commentary"],
+        "transfer_conditions": transfer_conditions[:5] or ["source_pattern_matches_current_decision_mechanism"],
+        "anti_conditions": anti_conditions[:5] or ["material_context_difference_not_checked"],
+    }
+
+
+def _string_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item) for item in value if str(item).strip()]
+    if isinstance(value, str) and value.strip():
+        return [value.strip()]
+    return []
 
 
 def _scenario_families_for_seed(source_bundle: SourceBundle, seed: CandidateSeed) -> dict[str, Any]:

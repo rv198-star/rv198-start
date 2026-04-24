@@ -9,6 +9,7 @@ import yaml
 
 from .pipeline_provenance import load_pipeline_provenance
 from .preflight import validate_generated_bundle
+from .pressure import write_pressure_report
 from kiu_validator.core import validate_bundle
 
 GENERIC_NEXT_ACTIONS = {
@@ -40,6 +41,7 @@ def review_generated_run(
         for doc in usage_docs
         if _belongs_to_run(doc, run_root)
     ]
+    pressure_report = write_pressure_report(run_root=run_root, bundle_root=bundle_root)
 
     source_bundle = _score_source_bundle(
         report=source_report,
@@ -51,6 +53,7 @@ def review_generated_run(
         production_quality=production_quality,
         metrics=metrics,
         run_root=run_root,
+        pressure_report=pressure_report,
     )
     usage_outputs = _score_usage_outputs(usage_docs)
 
@@ -274,6 +277,7 @@ def _score_generated_bundle(
     production_quality: dict[str, Any],
     metrics: dict[str, Any],
     run_root: Path,
+    pressure_report: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     errors = generated_report.get("errors", [])
     warnings = generated_report.get("warnings", [])
@@ -289,6 +293,7 @@ def _score_generated_bundle(
     )
     boundary_preserved = (workflow_count == 0 or workflow_dirs == workflow_count) and workflow_gateway_boundary_preserved
     verification_doc = _load_json(run_root / "reports" / "verification-summary.json")
+    pseudo_skill_audit = _load_json(run_root / "reports" / "pseudo-skill-audit.json")
     verification_gate_present = bool(verification_doc)
     workflow_ready_ratio = _workflow_verification_ready_ratio(
         verification_doc=verification_doc,
@@ -338,6 +343,8 @@ def _score_generated_bundle(
         "minimum_production_quality": minimum_production,
         "average_production_quality": average_production,
         "verification_gate_present": verification_gate_present,
+        "pseudo_skill_audit": pseudo_skill_audit.get("summary", {}) if pseudo_skill_audit else {},
+        "pressure_test_summary": (pressure_report or {}).get("summary", {}),
         "workflow_verification_ready_ratio": workflow_ready_ratio,
         "workflow_gateway_boundary_preserved": workflow_gateway_boundary_preserved,
         "notes": notes,

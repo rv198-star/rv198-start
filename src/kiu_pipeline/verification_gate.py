@@ -6,6 +6,7 @@ from typing import Any
 
 import yaml
 
+from .candidate_hygiene import build_pseudo_skill_audit
 from .models import CandidateSeed, NormalizedGraph, SourceBundle
 
 
@@ -122,6 +123,12 @@ def assess_candidate_seed(
             distinctiveness_score,
         ]
     )
+    triple_verification = {
+        "schema_version": "kiu.triple-verification/v0.1",
+        "cross_evidence_ratio": round(corroboration_score, 4),
+        "predictive_action_ratio": round(predictive_usefulness_score, 4),
+        "uniqueness_ratio": round(distinctiveness_score, 4),
+    }
 
     reasons: list[str] = []
     if extracted_evidence_support_count <= 0:
@@ -133,13 +140,26 @@ def assess_candidate_seed(
     if distinctiveness_score < 0.40:
         reasons.append("distinctiveness_too_thin")
 
-    passed = (
+    base_passed = (
         extracted_evidence_support_count > 0
         and corroboration_score >= 0.55
         and predictive_usefulness_score >= 0.45
         and distinctiveness_score >= 0.40
         and overall_score >= 0.55
     )
+    promotion_ready = True
+    if seed.candidate_kind != "workflow_script" and not fixture_seed_prefill and not seed.source_skill:
+        if corroboration_score < 0.60:
+            promotion_ready = False
+            reasons.append("cross_evidence_below_promotion_threshold")
+        if predictive_usefulness_score < 0.65 or context_cues <= 0:
+            promotion_ready = False
+            reasons.append("predictive_action_below_promotion_threshold")
+        if distinctiveness_score < 0.55:
+            promotion_ready = False
+            reasons.append("uniqueness_below_promotion_threshold")
+
+    passed = base_passed and promotion_ready
     workflow_corroboration_threshold = 0.65 if len(matched_keywords) >= 2 else 0.75
     workflow_distinctiveness_threshold = 0.50 if manual_override else 0.70
     workflow_ready = (
@@ -161,6 +181,7 @@ def assess_candidate_seed(
         "predictive_usefulness_score": predictive_usefulness_score,
         "distinctiveness_score": distinctiveness_score,
         "overall_score": overall_score,
+        "triple_verification": triple_verification,
         "reasons": reasons,
         "evidence": {
             "extracted_evidence_support_count": extracted_evidence_support_count,
@@ -216,6 +237,7 @@ def write_seed_verification_reports(
     reports_root.mkdir(parents=True, exist_ok=True)
     summary_path = reports_root / "verification-summary.json"
     rejection_log_path = reports_root / "rejection-log.yaml"
+    pseudo_skill_audit_path = reports_root / "pseudo-skill-audit.json"
     summary_path.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -231,9 +253,14 @@ def write_seed_verification_reports(
         ),
         encoding="utf-8",
     )
+    pseudo_skill_audit_path.write_text(
+        json.dumps(build_pseudo_skill_audit(summary), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     return {
         "summary_path": str(summary_path),
         "rejection_log_path": str(rejection_log_path),
+        "pseudo_skill_audit_path": str(pseudo_skill_audit_path),
     }
 
 

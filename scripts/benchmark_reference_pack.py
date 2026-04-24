@@ -45,6 +45,11 @@ def parse_args() -> argparse.Namespace:
         help="How to interpret the comparison line.",
     )
     parser.add_argument(
+        "--blind-preference-evidence",
+        default=None,
+        help="Optional anonymous blind preference evidence JSON file.",
+    )
+    parser.add_argument(
         "--output",
         default=None,
         help=(
@@ -63,6 +68,7 @@ def main() -> int:
         run_root=args.run_root,
         alignment_file=args.alignment_file,
         comparison_scope=args.comparison_scope,
+        blind_preference_evidence=args.blind_preference_evidence,
     )
     output_path = (
         Path(args.output)
@@ -87,6 +93,41 @@ def main() -> int:
             "kiu_foundation_retained_100": report["scorecard"]["kiu_foundation_retained_100"],
             "graphify_core_absorbed_100": report["scorecard"]["graphify_core_absorbed_100"],
             "cangjie_core_absorbed_100": report["scorecard"]["cangjie_core_absorbed_100"],
+            "cangjie_methodology_internal_100": report["scorecard"].get(
+                "cangjie_methodology_internal_100"
+            ),
+            "cangjie_methodology_external_blind_100": report["scorecard"].get(
+                "cangjie_methodology_external_blind_100"
+            ),
+            "cangjie_methodology_closure_100": report["scorecard"].get(
+                "cangjie_methodology_closure_100"
+            ),
+            "cangjie_methodology_quality_100": report["scorecard"].get(
+                "cangjie_methodology_quality_100"
+            ),
+            "cangjie_methodology_gate_ready": report["scorecard"]
+            .get("cangjie_methodology_gate", {})
+            .get("ready"),
+            "cangjie_methodology_claim": report["scorecard"]
+            .get("cangjie_methodology_gate", {})
+            .get("claim"),
+            "final_artifact_effect_ready": report["scorecard"]
+            .get("final_artifact_effect", {})
+            .get("ready"),
+            "final_artifact_effect_claim": report["scorecard"]
+            .get("final_artifact_effect", {})
+            .get("claim"),
+            "compatibility_regression_risk": report["scorecard"]
+            .get("compatibility_regression", {})
+            .get("risk"),
+            "cangjie_core_baseline_matrix_ready": report["scorecard"]
+            .get("cangjie_core_baseline_matrix", {})
+            .get("summary", {})
+            .get("ready"),
+            "cangjie_core_missing_capabilities": report["scorecard"]
+            .get("cangjie_core_baseline_matrix", {})
+            .get("summary", {})
+            .get("missing_capabilities"),
         },
     }
     print(json.dumps(payload, ensure_ascii=False))
