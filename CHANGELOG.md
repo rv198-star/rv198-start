@@ -20,11 +20,13 @@
 - Degenerate pure numeral/chapter IDs are filtered out of publishable candidate IDs during seed mining.
 - v0.6.4 source hygiene now excludes navigation markdown from directory ingestion, reports real directory `source_file_count`, and ignores pure-number headings as semantic section anchors.
 - Source review now scores `source_structure_quality` for raw-book bundles and counts consumed `INFERRED` mechanism nodes in tri-state effectiveness, so mechanism evidence packs are credited when they actually support generated skills.
+- v0.6.4 evidence now reports the full reference scorecard line: KiU foundation retained, Graphify core absorbed, and cangjie core absorbed.
 
 ### Verified
 - Shiji raw markdown cold-start run: Source `90.0`, Generated `96.4`, Usage `95.8`, Overall `94.3`, release gate PASS; generated `historical-analogy-transfer-gate`, `historical-case-consequence-judgment`, and `role-boundary-before-action`.
 - Mao anthology raw markdown cold-start run: Source `91.7`, Generated `93.2`, Usage `97.3`, Overall `94.0`, release gate PASS; generated `no-investigation-no-decision`, `principal-contradiction-focus`, and `historical-analogy-transfer-gate` as the first three judgment skills.
 - v0.6.4 source ROI rerun: Shiji Source `94.0`, Generated `96.4`, Usage `95.8`, Overall `95.5`; Mao Source `93.0`, Generated `93.2`, Usage `97.5`, Overall `94.4`.
+- Reference scorecard transparency: Shiji cold-start scorecard reports KiU foundation `99.8`, Graphify core `91.0`, cangjie core `64.2`; Mao reports KiU foundation `99.7`, Graphify core `89.5`, cangjie core `69.5`.
 
 ## [0.6.2] - 2026-04-24
 
