@@ -16,10 +16,13 @@
 - Borrowed-value judgment skills now reject pure summary, translation, fact lookup, biography intro, author-position query, and stance commentary as triggers while preserving the underlying evidence in the graph/source layer.
 - Seed ranking now carries source-derived `agentic_priority`, so transferable mechanism skills are not buried behind high-support workflow or chapter-title candidates.
 - Degenerate pure numeral/chapter IDs are filtered out of publishable candidate IDs during seed mining.
+- v0.6.4 source hygiene now excludes navigation markdown from directory ingestion, reports real directory `source_file_count`, and ignores pure-number headings as semantic section anchors.
+- Source review now scores `source_structure_quality` for raw-book bundles and counts consumed `INFERRED` mechanism nodes in tri-state effectiveness, so mechanism evidence packs are credited when they actually support generated skills.
 
 ### Verified
 - Shiji raw markdown cold-start run: Source `90.0`, Generated `96.4`, Usage `95.8`, Overall `94.3`, release gate PASS; generated `historical-analogy-transfer-gate`, `historical-case-consequence-judgment`, and `role-boundary-before-action`.
 - Mao anthology raw markdown cold-start run: Source `91.7`, Generated `93.2`, Usage `97.3`, Overall `94.0`, release gate PASS; generated `no-investigation-no-decision`, `principal-contradiction-focus`, and `historical-analogy-transfer-gate` as the first three judgment skills.
+- v0.6.4 source ROI rerun: Shiji Source `94.0`, Generated `96.4`, Usage `95.8`, Overall `95.5`; Mao Source `93.0`, Generated `93.2`, Usage `97.5`, Overall `94.4`.
 
 ## [0.6.2] - 2026-04-24
 

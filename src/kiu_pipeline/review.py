@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -155,6 +156,7 @@ def _score_source_bundle(
                 1.0 if shared.get("evaluation_count", 0) > 0 else 0.0,
             ]
         )
+        source_structure_quality = artifact_doc["source_structure_quality"]
         score = round(
             100.0
             * (
@@ -165,7 +167,7 @@ def _score_source_bundle(
                 + 0.10 * tri_state_effectiveness["overall_ratio"]
                 + 0.10 * graph_navigation_factor
                 + 0.10 * ingestion_factor
-                + 0.10 * evidence_pool_factor
+                + 0.10 * source_structure_quality["overall_ratio"]
             ),
             1,
         )
@@ -183,6 +185,8 @@ def _score_source_bundle(
             notes.append("tri_state_density_partial")
         if evidence_pool_factor == 1.0:
             notes.append("shared_evidence_pool_present")
+        if source_structure_quality["overall_ratio"] == 1.0:
+            notes.append("source_structure_quality_complete")
         return {
             "score_100": score,
             "errors": len(errors),
@@ -194,6 +198,7 @@ def _score_source_bundle(
             "provenance": artifact_doc["provenance"],
             "tri_state_density_ratio": round(tri_state_density_ratio, 4),
             "tri_state_effectiveness": tri_state_effectiveness,
+            "source_structure_quality": source_structure_quality,
             "graph_report_present": artifact_doc["graph_report_present"],
             "source_chunks_present": artifact_doc["source_chunks_present"],
             "source_snapshot_present": artifact_doc["source_snapshot_present"],
@@ -616,13 +621,14 @@ def _inspect_source_bundle_artifacts(
     graph_doc = _load_json(graph_path)
     nodes = [node for node in graph_doc.get("nodes", []) if isinstance(node, dict)]
     edges = [edge for edge in graph_doc.get("edges", []) if isinstance(edge, dict)]
+    source_chunks_path = root / "ingestion" / "source-chunks-v0.1.json"
+    source_chunks_doc = _load_json(source_chunks_path) if source_chunks_path.exists() else {}
     graph_report_meta = (
         manifest.get("graph_report", {})
         if isinstance(manifest.get("graph_report"), dict)
         else {}
     )
     graph_report_path = root / graph_report_meta.get("path", "GRAPH_REPORT.md")
-    source_chunks_path = root / "ingestion" / "source-chunks-v0.1.json"
     sources_root = root / "sources"
     return {
         "graph_report_present": graph_report_path.exists(),
@@ -633,7 +639,75 @@ def _inspect_source_bundle_artifacts(
             "edges": _graph_entity_stats(edges, entity_type="edge"),
             "extraction_kind_counts": _count_extraction_kinds(graph_doc),
         },
+        "source_structure_quality": _inspect_source_structure_quality(
+            nodes=nodes,
+            source_chunks_doc=source_chunks_doc,
+        ),
     }
+
+
+def _inspect_source_structure_quality(
+    *,
+    nodes: list[dict[str, Any]],
+    source_chunks_doc: dict[str, Any],
+) -> dict[str, Any]:
+    section_map = source_chunks_doc.get("section_map", [])
+    source_files = source_chunks_doc.get("source_files", [])
+    if not isinstance(section_map, list):
+        section_map = []
+    if not isinstance(source_files, list):
+        source_files = []
+    mechanism_nodes = [
+        node
+        for node in nodes
+        if node.get("type") in {"case_mechanism", "situation_strategy_pattern"}
+    ]
+    packed_mechanism_nodes = [
+        node
+        for node in mechanism_nodes
+        if isinstance(node.get("evidence_pack"), dict)
+        and int(node["evidence_pack"].get("source_anchor_count", 0) or 0) >= 2
+    ]
+    titles = [str(entry.get("title", "")) for entry in section_map if isinstance(entry, dict)]
+    navigation_title_count = sum(1 for title in titles if title.lower() in {"summary", "readme"})
+    degenerate_title_count = sum(1 for title in titles if _is_degenerate_source_title(title))
+    mechanism_evidence_pack_ratio = _safe_ratio(
+        len(packed_mechanism_nodes),
+        len(mechanism_nodes),
+    )
+    navigation_clean_ratio = 1.0 if navigation_title_count == 0 else 0.0
+    heading_clean_ratio = 1.0 if degenerate_title_count == 0 else 0.0
+    file_count_truth_ratio = 1.0
+    shape = source_chunks_doc.get("source_shape", {})
+    if isinstance(shape, dict) and source_files:
+        file_count_truth_ratio = 1.0 if shape.get("source_file_count") == len(source_files) else 0.0
+    overall_ratio = _ratio(
+        [
+            mechanism_evidence_pack_ratio,
+            navigation_clean_ratio,
+            heading_clean_ratio,
+            file_count_truth_ratio,
+        ]
+    )
+    return {
+        "overall_ratio": round(overall_ratio, 4),
+        "mechanism_node_count": len(mechanism_nodes),
+        "packed_mechanism_node_count": len(packed_mechanism_nodes),
+        "mechanism_evidence_pack_ratio": round(mechanism_evidence_pack_ratio, 4),
+        "navigation_title_count": navigation_title_count,
+        "navigation_clean_ratio": navigation_clean_ratio,
+        "degenerate_title_count": degenerate_title_count,
+        "heading_clean_ratio": heading_clean_ratio,
+        "file_count_truth_ratio": file_count_truth_ratio,
+    }
+
+
+def _is_degenerate_source_title(title: str) -> bool:
+    normalized = str(title or "").strip().strip("#*-_ ")
+    return bool(
+        re.fullmatch(r"[0-9]+", normalized)
+        or re.fullmatch(r"[零〇一二三四五六七八九十百千万]+", normalized)
+    )
 
 
 def _inspect_tri_state_effectiveness(
@@ -646,6 +720,7 @@ def _inspect_tri_state_effectiveness(
             "candidate_count": 0,
             "candidates_using_tri_state": 0,
             "candidate_coverage_ratio": 0.0,
+            "inferred_node_reference_ratio": 0.0,
             "inferred_edge_reference_ratio": 0.0,
             "ambiguous_node_reference_ratio": 0.0,
             "ambiguous_edge_reference_ratio": 0.0,
@@ -661,6 +736,11 @@ def _inspect_tri_state_effectiveness(
         edge["id"]
         for edge in graph_doc.get("edges", [])
         if isinstance(edge, dict) and edge.get("extraction_kind") == "INFERRED" and edge.get("id")
+    }
+    inferred_node_ids = {
+        node["id"]
+        for node in graph_doc.get("nodes", [])
+        if isinstance(node, dict) and node.get("extraction_kind") == "INFERRED" and node.get("id")
     }
     ambiguous_edge_ids = {
         edge["id"]
@@ -678,6 +758,7 @@ def _inspect_tri_state_effectiveness(
     candidate_paths.extend(sorted((run_path / "workflow_candidates").glob("*/candidate.yaml")))
 
     referenced_inferred_edge_ids: set[str] = set()
+    referenced_inferred_node_ids: set[str] = set()
     referenced_ambiguous_edge_ids: set[str] = set()
     referenced_ambiguous_node_ids: set[str] = set()
     candidates_using_tri_state = 0
@@ -703,14 +784,16 @@ def _inspect_tri_state_effectiveness(
         }
 
         matched_inferred_edge_ids = set(supporting_edge_ids) & inferred_edge_ids
+        matched_inferred_node_ids = candidate_node_ids & inferred_node_ids
         matched_ambiguous_edge_ids = set(supporting_edge_ids) & ambiguous_edge_ids
         matched_ambiguous_node_ids = candidate_node_ids & ambiguous_node_ids
 
         referenced_inferred_edge_ids.update(matched_inferred_edge_ids)
+        referenced_inferred_node_ids.update(matched_inferred_node_ids)
         referenced_ambiguous_edge_ids.update(matched_ambiguous_edge_ids)
         referenced_ambiguous_node_ids.update(matched_ambiguous_node_ids)
 
-        if matched_inferred_edge_ids or matched_ambiguous_edge_ids or matched_ambiguous_node_ids:
+        if matched_inferred_edge_ids or matched_inferred_node_ids or matched_ambiguous_edge_ids or matched_ambiguous_node_ids:
             candidates_using_tri_state += 1
 
     candidate_count = len(candidate_paths)
@@ -718,6 +801,10 @@ def _inspect_tri_state_effectiveness(
     inferred_edge_reference_ratio = _safe_ratio(
         len(referenced_inferred_edge_ids),
         len(inferred_edge_ids),
+    )
+    inferred_node_reference_ratio = _safe_ratio(
+        len(referenced_inferred_node_ids),
+        len(inferred_node_ids),
     )
     ambiguous_node_reference_ratio = _safe_ratio(
         len(referenced_ambiguous_node_ids),
@@ -730,6 +817,7 @@ def _inspect_tri_state_effectiveness(
     overall_ratio = _ratio(
         [
             candidate_coverage_ratio,
+            inferred_node_reference_ratio,
             inferred_edge_reference_ratio,
             ambiguous_node_reference_ratio,
             ambiguous_edge_reference_ratio,
@@ -739,6 +827,7 @@ def _inspect_tri_state_effectiveness(
         "candidate_count": candidate_count,
         "candidates_using_tri_state": candidates_using_tri_state,
         "candidate_coverage_ratio": round(candidate_coverage_ratio, 4),
+        "inferred_node_reference_ratio": round(inferred_node_reference_ratio, 4),
         "inferred_edge_reference_ratio": round(inferred_edge_reference_ratio, 4),
         "ambiguous_node_reference_ratio": round(ambiguous_node_reference_ratio, 4),
         "ambiguous_edge_reference_ratio": round(ambiguous_edge_reference_ratio, 4),

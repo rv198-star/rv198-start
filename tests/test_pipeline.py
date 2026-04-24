@@ -2960,6 +2960,7 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(doc["source_file"], str(source_dir))
             self.assertEqual(len(doc["source_files"]), 2)
             self.assertIn("source_shape", doc)
+            self.assertEqual(doc["source_shape"]["source_file_count"], 2)
             self.assertEqual({chunk["source_file"] for chunk in doc["chunks"]}, {str(first), str(second)})
             self.assertTrue(
                 any(
@@ -3007,7 +3008,8 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             doc = json.loads(output_path.read_text(encoding="utf-8"))
             self.assertEqual(validate_source_chunks_doc(doc), [])
-            self.assertEqual(len(doc["source_files"]), 3)
+            self.assertEqual(len(doc["source_files"]), 2)
+            self.assertFalse(any(entry["title"] == "Summary" for entry in doc["section_map"]))
             self.assertIn("argument_strategy_heavy", doc["source_shape"]["tags"])
             self.assertEqual(
                 doc["source_shape"]["borrowed_value_strategy"],
@@ -3050,6 +3052,42 @@ class CandidatePipelineTests(unittest.TestCase):
             doc = json.loads(output_path.read_text(encoding="utf-8"))
             self.assertFalse(any(entry["title"] == "汉·司马迁" for entry in doc["section_map"]))
             self.assertEqual({chunk["section"] for chunk in doc["chunks"]}, {f"第{index}卷" for index in range(1, 5)})
+
+    def test_build_source_chunks_ignores_degenerate_numbered_subheadings(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_root = Path(tmp_dir)
+            source_path = tmp_root / "numbered-headings.md"
+            source_path.write_text(
+                "# 实践论\n\n## 一\n\n第一段说明认识必须来自实践。\n\n## 二\n\n第二段说明经验必须回到行动检验。\n",
+                encoding="utf-8",
+            )
+            output_path = tmp_root / "source-chunks.json"
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "build_source_chunks.py"),
+                    "--input",
+                    str(source_path),
+                    "--bundle-id",
+                    "numbered-headings",
+                    "--source-id",
+                    "numbered-headings",
+                    "--output",
+                    str(output_path),
+                    "--max-chars",
+                    "120",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            doc = json.loads(output_path.read_text(encoding="utf-8"))
+            self.assertEqual(validate_source_chunks_doc(doc), [])
+            self.assertFalse(any(entry["title"] in {"一", "二"} for entry in doc["section_map"]))
+            self.assertEqual({chunk["section"] for chunk in doc["chunks"]}, {"实践论"})
 
     def test_run_book_pipeline_cli_promotes_narrative_pattern_skill_for_history_collection(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -3107,14 +3145,15 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(len(source_chunks_doc["source_files"]), 6)
 
             source_graph = json.loads((source_bundle_root / "graph" / "graph.json").read_text(encoding="utf-8"))
+            case_nodes = [
+                node for node in source_graph["nodes"] if node.get("type") == "case_mechanism"
+            ]
             self.assertEqual(
                 sum(1 for node in source_graph["nodes"] if node.get("type") == "narrative_pattern_signal"),
                 2,
             )
-            self.assertGreaterEqual(
-                sum(1 for node in source_graph["nodes"] if node.get("type") == "case_mechanism"),
-                1,
-            )
+            self.assertGreaterEqual(len(case_nodes), 1)
+            self.assertGreaterEqual(case_nodes[0]["evidence_pack"]["source_anchor_count"], 2)
 
             manifest = yaml.safe_load((run_root / "bundle" / "manifest.yaml").read_text(encoding="utf-8"))
             skill_ids = [entry["skill_id"] for entry in manifest["skills"]]
@@ -3122,6 +3161,15 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertIn("role-boundary-before-action", skill_ids)
             verification = json.loads(
                 (run_root / "reports" / "verification-summary.json").read_text(encoding="utf-8")
+            )
+            review_doc = json.loads((run_root / "reports" / "three-layer-review.json").read_text(encoding="utf-8"))
+            self.assertGreaterEqual(
+                review_doc["source_bundle"]["source_structure_quality"]["mechanism_evidence_pack_ratio"],
+                1.0,
+            )
+            self.assertGreater(
+                review_doc["source_bundle"]["tri_state_effectiveness"].get("inferred_node_reference_ratio", 0.0),
+                0.0,
             )
             self.assertIn(
                 "historical-case-consequence-judgment",
@@ -3185,9 +3233,15 @@ class CandidatePipelineTests(unittest.TestCase):
             )
 
             source_graph = json.loads((source_bundle_root / "graph" / "graph.json").read_text(encoding="utf-8"))
+            strategy_nodes = [
+                node for node in source_graph["nodes"] if node.get("type") == "situation_strategy_pattern"
+            ]
             self.assertGreaterEqual(
-                sum(1 for node in source_graph["nodes"] if node.get("type") == "situation_strategy_pattern"),
+                len(strategy_nodes),
                 1,
+            )
+            self.assertTrue(
+                all(node["evidence_pack"]["source_anchor_count"] >= 2 for node in strategy_nodes)
             )
 
             manifest = yaml.safe_load((run_root / "bundle" / "manifest.yaml").read_text(encoding="utf-8"))
@@ -3201,6 +3255,11 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertIn("transfer_conditions", rendered)
             self.assertIn("anti_conditions", rendered)
             self.assertIn("context_transfer_abuse", rendered)
+            review_doc = json.loads((run_root / "reports" / "three-layer-review.json").read_text(encoding="utf-8"))
+            self.assertGreaterEqual(
+                review_doc["source_bundle"]["source_structure_quality"]["mechanism_evidence_pack_ratio"],
+                1.0,
+            )
 
     def test_borrowed_value_agentic_priority_survives_routing_and_seed_score(self) -> None:
         node = {

@@ -62,9 +62,9 @@ def build_source_chunks_from_markdown(
         "section_map": section_map,
         "chunks": chunks,
     }
-    doc["source_shape"] = classify_source_shape(doc)
     if len(source_files) != 1 or path.is_dir():
         doc["source_files"] = [_to_repo_relative(item) for item in source_files]
+    doc["source_shape"] = classify_source_shape(doc)
     return doc
 
 
@@ -121,6 +121,8 @@ def _parse_markdown(
             flush_paragraph(line_no - 1)
             level = len(heading_match.group(1))
             title = heading_match.group(2).strip()
+            if _is_degenerate_heading(title):
+                continue
             headings = headings[: level - 1]
             headings.append((level, title, line_no))
             section_map.append(
@@ -293,9 +295,25 @@ def _discover_markdown_sources(path: Path) -> list[Path]:
     if not path.is_dir():
         raise FileNotFoundError(f"markdown source not found: {path}")
     markdown_files = [item for item in path.rglob("*.md") if item.is_file()]
+    markdown_files = [item for item in markdown_files if not _is_navigation_markdown(item)]
     if not markdown_files:
         raise FileNotFoundError(f"no markdown files found under source directory: {path}")
     return sorted(markdown_files, key=_natural_path_key)
+
+
+def _is_navigation_markdown(path: Path) -> bool:
+    return path.name.lower() in {"summary.md", "readme.md"}
+
+
+def _is_degenerate_heading(title: str) -> bool:
+    normalized = title.strip().strip("#*-_ ")
+    if not normalized:
+        return True
+    if re.fullmatch(r"[0-9]+", normalized):
+        return True
+    if re.fullmatch(r"[零〇一二三四五六七八九十百千万]+", normalized):
+        return True
+    return False
 
 
 def _natural_path_key(path: Path) -> tuple[object, ...]:

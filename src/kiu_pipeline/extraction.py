@@ -760,6 +760,7 @@ def _add_case_mechanism_node(
             "immediate_gain": "short_term_effect_or_gain",
             "delayed_consequence": "long_term_consequence_or_backlash",
             "mechanism": "compare mechanism, not story surface",
+            "evidence_pack": _build_evidence_pack(selected),
             "transfer_conditions": [
                 "current_decision_is_explicit",
                 "case_mechanism_matches_actor_role_constraint_action_outcome",
@@ -836,6 +837,13 @@ def _add_situation_strategy_nodes(
         ]
         if len(selected) < 1:
             continue
+        if len(selected) < 2:
+            selected_ids = {item.get("chunk_id") for item in selected}
+            selected.extend(
+                item
+                for item in strategy_evidence
+                if item.get("chunk_id") not in selected_ids
+            )
         selected = sorted(
             selected,
             key=lambda item: (-int(item.get("score", 0) or 0), str(item.get("chunk_id", ""))),
@@ -858,6 +866,7 @@ def _add_situation_strategy_nodes(
                 "action_program": "focused_next_action_program",
                 "feedback_loop": "field_feedback_to_policy_adjustment",
                 "mechanism": spec["mechanism"],
+                "evidence_pack": _build_evidence_pack(selected),
                 "transfer_conditions": [
                     "current_situation_is_explicit",
                     "field_or_context_evidence_is_available",
@@ -892,6 +901,32 @@ def _add_situation_strategy_nodes(
                     "chunk_id": item["chunk_id"],
                 }
             )
+
+
+def _build_evidence_pack(items: list[dict[str, Any]]) -> dict[str, Any]:
+    anchors = [
+        {
+            "evidence_id": item.get("evidence_id"),
+            "chunk_id": item.get("chunk_id"),
+            "source_file": item.get("source_file"),
+            "source_location": {
+                "line_start": item.get("line_start"),
+                "line_end": item.get("line_end"),
+            },
+            "keywords": item.get("keywords", []),
+        }
+        for item in items
+        if item.get("evidence_id") and item.get("chunk_id")
+    ]
+    return {
+        "schema_version": "kiu.mechanism-evidence-pack/v0.1",
+        "source_anchor_count": len(anchors),
+        "source_file_count": len(
+            {anchor["source_file"] for anchor in anchors if anchor.get("source_file")}
+        ),
+        "chunk_ids": [anchor["chunk_id"] for anchor in anchors],
+        "anchors": anchors,
+    }
 
 
 def _situation_strategy_score(text: str) -> tuple[int, list[str]]:
