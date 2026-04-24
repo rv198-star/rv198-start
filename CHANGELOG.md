@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## [0.6.4] - 2026-04-25
+
 ### Added
 - Added generated-run pipeline provenance so reports distinguish `raw_book_no_seed_cold_start` from `source_bundle_regeneration`.
 - Added multi-file markdown directory ingestion with per-file source coordinate preservation through source chunks, graph materialization, and scaffolded bundles.
