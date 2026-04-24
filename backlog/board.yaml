@@ -596,3 +596,130 @@ tickets:
   - src/kiu_pipeline/review.py
   - tests/test_pipeline.py
   - reports/2026-04-24-v0.6.2-effective-requirements-evidence-pack.md
+- id: KIU-700
+  title: freeze v0.7 temporal-aware world-alignment charter
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: version-charter
+  summary: Freeze v0.7 around an isolated temporal-aware world-alignment layer that improves real-world applicability without polluting source-faithful skills.
+  acceptance:
+  - Charter records world context isolation, temporal policy, application gate, and AGENTS.md boundary alignment.
+  - Release claim explicitly excludes hidden external upstream generation and heavy runtime fact-checking.
+  - Initial v0.7 release gate is defined with source fidelity and world usefulness separated.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-701
+  title: world context schema
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: world-context
+  summary: Define one unified schema for release-baseline, user-supplied, external-check-required, simulated, and runtime-compatible world context items.
+  acceptance:
+  - Schema supports context_type, observed_at, freshness_policy, temporal_sensitivity, confidence, applies_to, allowed_effects, and forbidden_effects.
+  - Release-time and use-time contexts are represented as item metadata, not separate systems.
+  - External context cannot be used as source evidence.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-702
+  title: temporal profile and skill policy
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: temporal-policy
+  summary: Define bundle-level temporal profiles and skill-level temporal policies so alignment strength scales with temporal sensitivity and application risk.
+  acceptance:
+  - Bundle default sensitivity can be low, medium, or high.
+  - Skill policies can override bundle defaults and define required context triggers.
+  - Missing-context behavior supports apply_with_caveats, ask_more_context, partial_apply, and refuse.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-703
+  title: isolated world-alignment artifacts
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: artifact-generation
+  summary: Generate world_alignment artifacts beside skills without modifying source-faithful SKILL.md, anchors, or source evidence.
+  acceptance:
+  - Generated bundles can contain world_alignment/world_context.yaml, temporal_profile.yaml, and application_gate_schema.yaml.
+  - Per-skill world_alignment directories include temporal_policy.yaml, pressure_tests.yaml, usage_caveats.yaml, decision_path.md, and scorecard.yaml where applicable.
+  - skills/ remains source-faithful and auditable independently from world_alignment/.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-704
+  title: application gate evaluation
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: application-gate
+  summary: Implement the world-alignment application gate that evaluates available context against a skill temporal policy without rewriting the skill.
+  acceptance:
+  - Gate supports apply, apply_with_caveats, partial_apply, ask_more_context, and refuse.
+  - Gate output includes source_skill_unchanged, required_context, reason, and decision_path.
+  - Missing current context for medium/high sensitivity concrete applications blocks overconfident application.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-705
+  title: source-pollution and boundary preflight gates
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: preflight
+  summary: Add validation gates preventing world context from becoming source evidence or causing workflow-vs-agentic boundary drift.
+  acceptance:
+  - Validator/preflight detects world-context content copied into source anchors or source Evidence Summary.
+  - Validator/preflight detects world-alignment gains caused by moving workflow_script_candidate logic into bundle/skills/.
+  - Release review reports world_context_isolated and source_fidelity_preserved.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-706
+  title: world-alignment review scores
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: review-scoring
+  summary: Extend generated-run review with world-alignment scores while keeping source, generated, usage, and boundary scores separable.
+  acceptance:
+  - Review reports source_fidelity_score, world_context_quality_score, temporal_policy_fit_score, application_gate_quality_score, decision_path_clarity_score, and workflow_boundary_resilience_score.
+  - World-alignment score cannot compensate for source pollution or workflow-boundary drift.
+  - Release gate can enforce world_alignment_score_min and source_pollution_errors = 0.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-707
+  title: three-sample world-alignment evidence pass
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: evidence
+  summary: Run independent world-alignment evidence on Poor Charlie, Effective Requirements, and Financial Statement samples.
+  acceptance:
+  - Each sample has isolated world_alignment artifacts.
+  - Each sample preserves source skills without world-context pollution.
+  - Across the sample set, application gate cases include at least apply, apply_with_caveats or partial_apply, ask_more_context, and refuse.
+  - At least nine application-gate cases are archived.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-708
+  title: v0.7 release evidence and changelog closure
+  target_version: v0.7.0
+  status: todo
+  priority: P0
+  blocker_level: hard
+  area: release
+  summary: Close v0.7 with spec docs, evidence pack, changelog, release-gate scores, and explicit known limits.
+  acceptance:
+  - Evidence pack records commands, sample scores, world-alignment gates, and known runtime limitations.
+  - CHANGELOG includes a formal v0.7.0 section.
+  - Release notes distinguish artifact-level world alignment from full live runtime factual correctness.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
