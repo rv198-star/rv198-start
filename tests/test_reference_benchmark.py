@@ -219,6 +219,50 @@ class ReferenceBenchmarkCliTests(unittest.TestCase):
             scorecard["final_artifact_effect"]["reasons"],
         )
 
+    def test_scorecard_marks_compatibility_regression_pass_after_baseline_rerun(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0},
+                    "edges": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0, "confidence_ratio": 1.0},
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 6,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.92,
+                "overall_score_100": 96.0,
+                "usage_score_100": 98.0,
+                "skill_count": 6,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": True,
+                    "book_overview_present": True,
+                    "source_chunks_present": True,
+                    "extraction_result_present": True,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": ["framework", "principle", "case", "counter-example", "term"],
+                    "pressure_test_summary": {"pass_ratio": 1.0},
+                    "blind_preference_summary": {"pass_ratio": 1.0},
+                    "compatibility_regression_summary": {"executed": 7, "passed": 7, "failed": 0},
+                },
+            },
+            reference_pack={"skill_count": 6},
+            same_scenario_usage={"summary": {"scenario_count": 24, "usage_winner": "kiu"}},
+        )
+
+        self.assertEqual(scorecard["compatibility_regression"]["risk"], "pass")
+        self.assertEqual(scorecard["compatibility_regression"]["failed"], 0)
+
     def test_scorecard_allows_two_layer_effect_only_when_usage_and_depth_both_pass(self) -> None:
         scorecard = _build_scorecard(
             kiu_bundle={

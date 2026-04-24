@@ -4,6 +4,13 @@ import re
 from typing import Any
 
 
+BORROWED_VALUE_COMMON_EXCLUSIONS = [
+    "pure_character_evaluation_request",
+    "pure_viewpoint_summary_request",
+    "mechanical_workflow_template_request",
+]
+
+
 def build_semantic_contract(
     *,
     candidate_id: str,
@@ -151,6 +158,8 @@ def _build_family_contract(semantic_family: str) -> dict[str, Any] | None:
                 "exclusions": [
                     "pure_role_definition_query",
                     "mechanical_workflow_template_request",
+                    "pure_character_evaluation_request",
+                    "pure_viewpoint_summary_request",
                     "legal_or_compliance_final_opinion_required",
                 ],
             },
@@ -201,6 +210,9 @@ def _build_family_contract(semantic_family: str) -> dict[str, Any] | None:
                 "do_not_fire_when": [
                     "pure_role_definition_query",
                     "meeting_template_or_checklist_request",
+                    "pure_character_evaluation_request",
+                    "pure_viewpoint_summary_request",
+                    "mechanical_workflow_template_request",
                     "no_current_action_under_consideration",
                 ],
             },
@@ -219,6 +231,9 @@ def _build_family_contract(semantic_family: str) -> dict[str, Any] | None:
                     "birth_year_or_biography_lookup_only",
                     "classical_text_translation_only",
                     "single_anecdote_without_decision",
+                    "pure_character_evaluation_request",
+                    "pure_viewpoint_summary_request",
+                    "mechanical_workflow_template_request",
                 ],
             },
             "intake": {
@@ -270,6 +285,9 @@ def _build_family_contract(semantic_family: str) -> dict[str, Any] | None:
                     "historical_fact_lookup_or_birth_year_question",
                     "classical_text_translation_to_modern_chinese",
                     "single_anecdote_without_decision",
+                    "pure_character_evaluation_request",
+                    "pure_viewpoint_summary_request",
+                    "mechanical_workflow_template_request",
                 ],
             },
         }
@@ -642,6 +660,14 @@ def _build_family_contract(semantic_family: str) -> dict[str, Any] | None:
     return None
 
 
+def _merge_exclusions(exclusions: list[str]) -> list[str]:
+    merged: list[str] = []
+    for item in [*exclusions, *BORROWED_VALUE_COMMON_EXCLUSIONS]:
+        if item not in merged:
+            merged.append(item)
+    return merged
+
+
 def _borrowed_value_contract(
     *,
     trigger_patterns: list[str],
@@ -653,7 +679,7 @@ def _borrowed_value_contract(
     return {
         "trigger": {
             "patterns": trigger_patterns,
-            "exclusions": exclusions,
+            "exclusions": _merge_exclusions(exclusions),
         },
         "intake": {
             "required": [
@@ -707,6 +733,7 @@ def _borrowed_value_contract(
                 "biography_intro_request",
                 "author_position_query",
                 "stance_commentary_without_user_decision",
+                *BORROWED_VALUE_COMMON_EXCLUSIONS,
             ],
         },
     }

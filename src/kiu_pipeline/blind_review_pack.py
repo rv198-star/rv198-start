@@ -30,9 +30,7 @@ def build_blind_review_pack(
         str(report.get("generated_run", {}).get("generated_bundle_path", ""))
     )
     reference_root = Path(str(report.get("reference_pack", {}).get("path", "")))
-    pairs = []
-    key_pairs = []
-    response_pairs = []
+    pending = []
     case_limit = max_cases if max_cases is not None and max_cases > 0 else None
 
     for matched in report.get("same_scenario_usage", {}).get("matched_pairs", []):
@@ -40,63 +38,89 @@ def build_blind_review_pack(
             continue
         kiu_skill_id = str(matched.get("kiu_skill_id", ""))
         reference_skill_id = str(matched.get("reference_skill_id", ""))
-        kiu_card = _skill_card(generated_bundle / kiu_skill_id / "SKILL.md", redactions=[kiu_skill_id, reference_skill_id])
-        reference_card = _skill_card(reference_root / reference_skill_id / "SKILL.md", redactions=[kiu_skill_id, reference_skill_id])
+        kiu_card = _skill_card(
+            _resolve_skill_path(generated_bundle, kiu_skill_id, generated=True),
+            redactions=[kiu_skill_id, reference_skill_id],
+        )
+        reference_card = _skill_card(
+            _resolve_skill_path(reference_root, reference_skill_id, generated=False),
+            redactions=[kiu_skill_id, reference_skill_id],
+        )
         for case in matched.get("cases", []):
             if not isinstance(case, dict):
                 continue
-            pair_index = len(pairs) + 1
+            pair_index = len(pending) + 1
             pair_id = f"{review_id}-p{pair_index:03d}"
-            roles = _deterministic_roles(review_id=review_id, pair_id=pair_id)
-            option_cards = {
-                "kiu": kiu_card,
-                "reference": reference_card,
-            }
-            prompt = _redact_text(str(case.get("prompt", "")), [kiu_skill_id, reference_skill_id])
-            expected = _redact_text(
-                str(case.get("expected_behavior", "")),
-                [kiu_skill_id, reference_skill_id],
-            )
-            notes = _redact_text(str(case.get("notes", "")), [kiu_skill_id, reference_skill_id])
-            pairs.append(
+            pending.append(
                 {
                     "pair_id": pair_id,
-                    "case": {
-                        "case_type": str(case.get("type", "")),
-                        "prompt": prompt,
-                        "expected_behavior": expected,
-                        "notes": notes,
-                    },
-                    "option_a": option_cards[roles["a"]],
-                    "option_b": option_cards[roles["b"]],
-                    "review_questions": [
-                        "Which option is more useful for the prompt as an in-use judgment tool?",
-                        "Which option has stronger boundary and anti-misuse discipline?",
-                        "Which option preserves deeper transferable insight rather than generic advice?",
-                    ],
-                }
-            )
-            key_pairs.append(
-                {
-                    "pair_id": pair_id,
-                    "source_case_id": str(case.get("case_id", "")),
+                    "case": case,
                     "kiu_skill_id": kiu_skill_id,
                     "reference_skill_id": reference_skill_id,
-                    "option_roles": roles,
+                    "kiu_card": kiu_card,
+                    "reference_card": reference_card,
                 }
             )
-            response_pairs.append(
-                {
-                    "pair_id": pair_id,
-                    "preferred": "inconclusive",
-                    "dimension_scores": {dimension: 0 for dimension in DIMENSIONS},
-                    "notes": "",
-                }
-            )
-            if case_limit is not None and len(pairs) >= case_limit:
+            if case_limit is not None and len(pending) >= case_limit:
                 break
-        if case_limit is not None and len(pairs) >= case_limit:
+        if case_limit is not None and len(pending) >= case_limit:
             break
+
+    role_by_pair = _balanced_roles(review_id=review_id, pair_ids=[item["pair_id"] for item in pending])
+    pairs = []
+    key_pairs = []
+    response_pairs = []
+    placeholder_count = 0
+
+    for item in pending:
+        pair_id = item["pair_id"]
+        roles = role_by_pair[pair_id]
+        option_cards = {
+            "kiu": item["kiu_card"],
+            "reference": item["reference_card"],
+        }
+        placeholder_count += int(_is_placeholder_card(item["kiu_card"]))
+        placeholder_count += int(_is_placeholder_card(item["reference_card"]))
+        case = item["case"]
+        redactions = [item["kiu_skill_id"], item["reference_skill_id"]]
+        prompt = _redact_text(str(case.get("prompt", "")), redactions)
+        expected = _redact_text(str(case.get("expected_behavior", "")), redactions)
+        notes = _redact_text(str(case.get("notes", "")), redactions)
+        pairs.append(
+            {
+                "pair_id": pair_id,
+                "case": {
+                    "case_type": str(case.get("type", "")),
+                    "prompt": prompt,
+                    "expected_behavior": expected,
+                    "notes": notes,
+                },
+                "option_a": option_cards[roles["a"]],
+                "option_b": option_cards[roles["b"]],
+                "review_questions": [
+                    "Which option is more useful for the prompt as an in-use judgment tool?",
+                    "Which option has stronger boundary and anti-misuse discipline?",
+                    "Which option preserves deeper transferable insight rather than generic advice?",
+                ],
+            }
+        )
+        key_pairs.append(
+            {
+                "pair_id": pair_id,
+                "source_case_id": str(case.get("case_id", "")),
+                "kiu_skill_id": item["kiu_skill_id"],
+                "reference_skill_id": item["reference_skill_id"],
+                "option_roles": roles,
+            }
+        )
+        response_pairs.append(
+            {
+                "pair_id": pair_id,
+                "preferred": "inconclusive",
+                "dimension_scores": {dimension: 0 for dimension in DIMENSIONS},
+                "notes": "",
+            }
+        )
 
     reviewer_pack = {
         "schema_version": PUBLIC_SCHEMA,
@@ -125,6 +149,7 @@ def build_blind_review_pack(
         "schema_version": KEY_SCHEMA,
         "review_id": review_id,
         "source_benchmark_report": report_path.as_posix(),
+        "balance": _role_balance(key_pairs),
         "pairs": key_pairs,
     }
     _write_json(output / "reviewer-pack.json", reviewer_pack)
@@ -135,6 +160,8 @@ def build_blind_review_pack(
         "schema_version": "kiu.blind-review-pack-summary/v0.1",
         "review_id": review_id,
         "pair_count": len(pairs),
+        "placeholder_count": placeholder_count,
+        "role_balance": private_key["balance"],
         "reviewer_pack_path": str(output / "reviewer-pack.json"),
         "response_template_path": str(output / "reviewer-response-template.json"),
         "private_key_path": str(output / "private-unblind-key.json"),
@@ -188,6 +215,41 @@ def merge_blind_review_response(
         "output_path": str(out),
     }
 
+
+
+def _resolve_skill_path(root: Path, skill_id: str, *, generated: bool) -> Path:
+    candidates = []
+    if generated:
+        candidates.append(root / "skills" / skill_id / "SKILL.md")
+    candidates.append(root / skill_id / "SKILL.md")
+    if not generated:
+        candidates.append(root / "skills" / skill_id / "SKILL.md")
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
+
+
+def _balanced_roles(*, review_id: str, pair_ids: list[str]) -> dict[str, dict[str, str]]:
+    ranked = sorted(
+        pair_ids,
+        key=lambda pair_id: hashlib.sha256(f"{review_id}:{pair_id}".encode("utf-8")).hexdigest(),
+    )
+    kiu_a = set(ranked[: len(ranked) // 2])
+    return {
+        pair_id: ({"a": "kiu", "b": "reference"} if pair_id in kiu_a else {"a": "reference", "b": "kiu"})
+        for pair_id in pair_ids
+    }
+
+
+def _role_balance(key_pairs: list[dict[str, Any]]) -> dict[str, int]:
+    a_kiu = sum(1 for item in key_pairs if item.get("option_roles", {}).get("a") == "kiu")
+    b_kiu = sum(1 for item in key_pairs if item.get("option_roles", {}).get("b") == "kiu")
+    return {"a_kiu_count": a_kiu, "b_kiu_count": b_kiu, "absolute_delta": abs(a_kiu - b_kiu)}
+
+
+def _is_placeholder_card(card: dict[str, str]) -> bool:
+    return "No artifact excerpt available" in str(card.get("artifact_excerpt", ""))
 
 def _deterministic_roles(*, review_id: str, pair_id: str) -> dict[str, str]:
     digest = hashlib.sha256(f"{review_id}:{pair_id}".encode("utf-8")).digest()

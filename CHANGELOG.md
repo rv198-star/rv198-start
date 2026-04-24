@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+## [0.6.6] - 2026-04-25
+
+### Fixed
+- Fixed blind review pack artifact resolution for generated KiU bundles by reading `bundle/skills/<skill_id>/SKILL.md`; reviewer packs now report `placeholder_count` and the v0.6.6 Shiji pack has `0` placeholders.
+- Fixed blind review A/B assignment by using deterministic balanced hidden roles; the v0.6.6 Shiji pack is balanced at `13/13`.
+- Extended borrowed-value anti-misuse boundaries to reject character-evaluation, viewpoint-summary, and mechanical workflow-template prompts.
+- Added `case_density_score` to source routing and seed scoring so mechanism-dense chapters outrank weak source forms such as divination lists, tables, and genealogy-like material.
+- Added rationale template collision detection to generated-run review so repeated generic I/Rationale text becomes an explicit quality warning.
+- Added `--compatibility-regression-report` support to reference benchmarks; v0.6.6 replayed the v0.6 baseline with `7/7` checks passing and reports `compatibility_regression_risk = pass`.
+
+### Added
+- Added corrected v0.6.6 Shiji blind review pack under `reports/blind-review-packs/v0.6.6-shiji-cangjie-protocol/`.
+- Added `reports/2026-04-25-v0.6.6-blind-review-pack-fix-evidence.md`.
+
+### Verified
+- Targeted review-fix verification: `25` tests pass for blind pack, v0.6.6 review fixes, and reference benchmark compatibility.
+- Full regression: `190` tests pass.
+- v0.6 compatibility baseline: `7` checks executed, `7` passed, `0` failed.
+
 ## [0.6.5] - 2026-04-25
 
 ### Added

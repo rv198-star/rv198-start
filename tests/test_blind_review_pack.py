@@ -14,7 +14,7 @@ class BlindReviewPackTests(unittest.TestCase):
             root = Path(tmp_dir)
             generated_bundle = root / "generated" / "bundle"
             reference_pack = root / "reference"
-            kiu_skill = generated_bundle / "alpha-skill"
+            kiu_skill = generated_bundle / "skills" / "alpha-skill"
             ref_skill = reference_pack / "alpha-skill"
             kiu_skill.mkdir(parents=True)
             ref_skill.mkdir(parents=True)
@@ -58,6 +58,7 @@ class BlindReviewPackTests(unittest.TestCase):
             )
 
             self.assertEqual(summary["pair_count"], 1)
+            self.assertEqual(summary["placeholder_count"], 0)
             public_doc = json.loads((out / "reviewer-pack.json").read_text(encoding="utf-8"))
             template = json.loads((out / "reviewer-response-template.json").read_text(encoding="utf-8"))
             key_doc = json.loads((out / "private-unblind-key.json").read_text(encoding="utf-8"))
@@ -67,8 +68,63 @@ class BlindReviewPackTests(unittest.TestCase):
             self.assertNotIn('"reference"', public_text)
             self.assertNotIn("alpha-skill", public_text)
             self.assertNotIn("option_roles", public_text)
+            self.assertNotIn("no artifact excerpt available", public_text)
             self.assertNotIn("option_roles", json.dumps(template, ensure_ascii=False))
             self.assertEqual(key_doc["pairs"][0]["option_roles"].keys(), {"a", "b"})
+
+    def test_build_pack_balances_hidden_option_roles(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            generated_bundle = root / "generated" / "bundle"
+            reference_pack = root / "reference"
+            for skill_root in [
+                generated_bundle / "skills" / "alpha-skill",
+                reference_pack / "alpha-skill",
+            ]:
+                skill_root.mkdir(parents=True)
+                (skill_root / "SKILL.md").write_text(
+                    "# Alpha\n\n## Contract\nUse for bounded judgment.\n\n## Boundary\nReject lookup.\n",
+                    encoding="utf-8",
+                )
+            cases = [
+                {
+                    "case_id": f"case-{index:02d}",
+                    "type": "should_trigger",
+                    "prompt": f"Prompt {index}",
+                    "expected_behavior": "judge",
+                    "notes": "balance",
+                }
+                for index in range(26)
+            ]
+            benchmark = {
+                "generated_run": {"generated_bundle_path": str(generated_bundle)},
+                "reference_pack": {"path": str(reference_pack)},
+                "same_scenario_usage": {
+                    "matched_pairs": [
+                        {
+                            "kiu_skill_id": "alpha-skill",
+                            "reference_skill_id": "alpha-skill",
+                            "cases": cases,
+                        }
+                    ]
+                },
+            }
+            benchmark_path = root / "benchmark.json"
+            benchmark_path.write_text(json.dumps(benchmark), encoding="utf-8")
+            out = root / "blind-pack"
+
+            summary = build_blind_review_pack(
+                benchmark_report_path=benchmark_path,
+                output_dir=out,
+                review_id="balanced-smoke",
+            )
+
+            self.assertEqual(summary["pair_count"], 26)
+            self.assertEqual(summary["placeholder_count"], 0)
+            key_doc = json.loads((out / "private-unblind-key.json").read_text(encoding="utf-8"))
+            a_kiu_count = sum(1 for item in key_doc["pairs"] if item["option_roles"]["a"] == "kiu")
+            b_kiu_count = sum(1 for item in key_doc["pairs"] if item["option_roles"]["b"] == "kiu")
+            self.assertLessEqual(abs(a_kiu_count - b_kiu_count), 1)
 
     def test_merge_response_with_private_key_produces_loadable_blind_evidence(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

@@ -294,6 +294,7 @@ def _score_generated_bundle(
     boundary_preserved = (workflow_count == 0 or workflow_dirs == workflow_count) and workflow_gateway_boundary_preserved
     verification_doc = _load_json(run_root / "reports" / "verification-summary.json")
     pseudo_skill_audit = _load_json(run_root / "reports" / "pseudo-skill-audit.json")
+    rationale_template_collision = _inspect_rationale_template_collision(run_root / "bundle")
     verification_gate_present = bool(verification_doc)
     workflow_ready_ratio = _workflow_verification_ready_ratio(
         verification_doc=verification_doc,
@@ -330,6 +331,8 @@ def _score_generated_bundle(
         notes.append("workflow_gateway_boundary_drift")
     if verification_gate_present:
         notes.append("verification_gate_present")
+    if rationale_template_collision.get("collision_count", 0):
+        notes.append("rationale_template_collision")
     if workflow_count > 0 and workflow_ready_ratio < 1.0:
         notes.append("workflow_verification_partial")
 
@@ -345,10 +348,44 @@ def _score_generated_bundle(
         "verification_gate_present": verification_gate_present,
         "pseudo_skill_audit": pseudo_skill_audit.get("summary", {}) if pseudo_skill_audit else {},
         "pressure_test_summary": (pressure_report or {}).get("summary", {}),
+        "rationale_template_collision": rationale_template_collision,
         "workflow_verification_ready_ratio": workflow_ready_ratio,
         "workflow_gateway_boundary_preserved": workflow_gateway_boundary_preserved,
         "notes": notes,
     }
+
+
+def _inspect_rationale_template_collision(bundle_root: Path) -> dict[str, Any]:
+    rationale_by_text: dict[str, list[str]] = {}
+    for skill_path in sorted((bundle_root / "skills").glob("*/SKILL.md")):
+        rationale = _extract_markdown_section(skill_path.read_text(encoding="utf-8"), "Rationale")
+        normalized = _normalize_rationale_template(rationale)
+        if len(normalized) >= 12:
+            rationale_by_text.setdefault(normalized, []).append(skill_path.parent.name)
+    collisions = [
+        {"normalized_rationale": text[:160], "skill_ids": skill_ids}
+        for text, skill_ids in rationale_by_text.items()
+        if len(skill_ids) > 1
+    ]
+    return {
+        "schema_version": "kiu.rationale-template-collision/v0.1",
+        "collision_count": len(collisions),
+        "collisions": collisions,
+    }
+
+
+def _extract_markdown_section(markdown: str, section_name: str) -> str:
+    pattern = re.compile(
+        rf"(?ms)^##\s+{re.escape(section_name)}\s*$\n(?P<body>.*?)(?=^##\s+|\Z)"
+    )
+    match = pattern.search(markdown)
+    return match.group("body").strip() if match else ""
+
+
+def _normalize_rationale_template(text: str) -> str:
+    normalized = re.sub(r"[`*_>#\-]+", " ", text)
+    normalized = re.sub(r"\s+", " ", normalized).strip().lower()
+    return normalized
 
 
 def _score_usage_outputs(docs: list[dict[str, Any]]) -> dict[str, Any]:

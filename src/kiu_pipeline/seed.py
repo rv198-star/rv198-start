@@ -409,6 +409,7 @@ def _candidate_seed_score(
         + len(support["community_ids"])
         + int(routing_evidence.get("workflow_cues", 0) or 0)
         + _normalize_nonnegative_int(routing_evidence.get("agentic_priority"))
+        + int(10 * _normalize_ratio(routing_evidence.get("case_density_score")))
     )
 
 
@@ -553,6 +554,7 @@ def _infer_candidate_kind(
     ]
     matched_keywords = sorted(set([*matched_keywords, *label_matches]))
     matched_keyword_count = len(matched_keywords)
+    case_density_score = _case_density_score(node)
 
     workflow_signal_total = workflow_cues + len(label_matches)
     has_multi_signal_workflow_hint = matched_keyword_count >= 2
@@ -589,6 +591,7 @@ def _infer_candidate_kind(
         "inference_mode": "extraction_derived",
         "selected_candidate_kind": selected_candidate_kind,
         "agentic_priority": _normalize_nonnegative_int(node_hints.get("agentic_priority")),
+        "case_density_score": case_density_score,
         "workflow_cues": workflow_cues,
         "workflow_signal_total": workflow_signal_total,
         "context_cues": context_cues,
@@ -759,6 +762,8 @@ def _merge_seed_group(
         routing_evidence.get("workflow_cues", 0) or 0
     ) + _normalize_nonnegative_int(
         routing_evidence.get("agentic_priority")
+    ) + int(
+        10 * _normalize_ratio(routing_evidence.get("case_density_score"))
     )
     return CandidateSeed(
         candidate_id=primary_seed.candidate_id,
@@ -834,6 +839,9 @@ def _merge_routing_evidence(
         ),
         "agentic_priority": max(
             _normalize_nonnegative_int(doc.get("agentic_priority")) for doc in routing_docs
+        ),
+        "case_density_score": max(
+            _normalize_ratio(doc.get("case_density_score")) for doc in routing_docs
         ),
         "context_cues": max(
             _normalize_nonnegative_int(doc.get("context_cues")) for doc in routing_docs
@@ -950,6 +958,53 @@ def _is_degenerate_candidate_id(candidate_id: str) -> bool:
     if re.fullmatch(r"[0-9]+", normalized):
         return True
     return False
+
+
+def _case_density_score(node: dict[str, Any]) -> float:
+    text = " ".join(
+        str(node.get(key, ""))
+        for key in ("label", "source_file", "source_path", "chapter", "section")
+    )
+    lowered = text.lower()
+    strong_markers = (
+        "本纪",
+        "货殖列传",
+        "刺客列传",
+        "项羽",
+        "高祖",
+        "选择",
+        "后果",
+        "机制",
+        "激励",
+        "约束",
+    )
+    weak_markers = (
+        "表",
+        "书",
+        "龟策",
+        "占辞",
+        "世系",
+        "年表",
+        "谱",
+        "历",
+    )
+    score = 0.5
+    if any(marker in text for marker in strong_markers):
+        score += 0.4
+    if any(marker in text for marker in weak_markers):
+        score -= 0.35
+    if "列传" in text and not any(marker in text for marker in ("货殖列传", "刺客列传")):
+        score -= 0.1
+    if any(marker in lowered for marker in ("case", "mechanism", "consequence", "incentive")):
+        score += 0.2
+    return round(min(max(score, 0.0), 1.0), 4)
+
+
+def _normalize_ratio(value: Any) -> float:
+    try:
+        return min(max(float(value or 0.0), 0.0), 1.0)
+    except (TypeError, ValueError):
+        return 0.0
 
 
 def _normalize_nonnegative_int(value: Any) -> int:

@@ -50,6 +50,11 @@ def parse_args() -> argparse.Namespace:
         help="Optional anonymous blind preference evidence JSON file.",
     )
     parser.add_argument(
+        "--compatibility-regression-report",
+        default=None,
+        help="Optional v0.6 regression baseline JSON report.",
+    )
+    parser.add_argument(
         "--output",
         default=None,
         help=(
@@ -69,6 +74,7 @@ def main() -> int:
         alignment_file=args.alignment_file,
         comparison_scope=args.comparison_scope,
         blind_preference_evidence=args.blind_preference_evidence,
+        compatibility_regression_report=args.compatibility_regression_report,
     )
     output_path = (
         Path(args.output)

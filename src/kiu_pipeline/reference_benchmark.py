@@ -31,6 +31,7 @@ def benchmark_reference_pack(
     alignment_file: str | Path | None = None,
     comparison_scope: str = "structure-only",
     blind_preference_evidence: str | Path | None = None,
+    compatibility_regression_report: str | Path | None = None,
 ) -> dict[str, Any]:
     bundle_root = Path(kiu_bundle_path)
     reference_root = Path(reference_pack_path)
@@ -42,6 +43,10 @@ def benchmark_reference_pack(
     if generated_run is not None and blind_preference_evidence is not None:
         generated_run.setdefault("pipeline_artifacts", {})["blind_preference_summary"] = (
             _load_blind_preference_summary(blind_preference_evidence)
+        )
+    if generated_run is not None and compatibility_regression_report is not None:
+        generated_run.setdefault("pipeline_artifacts", {})["compatibility_regression_summary"] = (
+            _load_compatibility_regression_summary(compatibility_regression_report)
         )
 
     concept_alignment = _build_concept_alignment(
@@ -98,6 +103,22 @@ def write_reference_benchmark_report(
     return {
         "json_path": str(output),
         "markdown_path": str(markdown_path),
+    }
+
+
+def _load_compatibility_regression_summary(path: str | Path) -> dict[str, Any]:
+    report_path = Path(path)
+    try:
+        doc = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"executed": 0, "passed": 0, "failed": 1, "report_path": str(report_path)}
+    summary = doc.get("summary", {}) if isinstance(doc.get("summary"), dict) else {}
+    return {
+        "baseline": str(doc.get("version", "v0.6.4")),
+        "executed": int(summary.get("executed", 0) or 0),
+        "passed": int(summary.get("passed", 0) or 0),
+        "failed": int(summary.get("failed", 0) or 0),
+        "report_path": str(report_path),
     }
 
 
@@ -997,6 +1018,8 @@ def _build_scorecard(
         extractor_coverage_ratio=extractor_coverage_ratio,
     )
 
+    compatibility_regression = _build_compatibility_regression(pipeline_artifacts)
+
     return {
         "kiu_foundation_retained_100": foundation_score,
         "graphify_core_absorbed_100": graphify_score,
@@ -1008,11 +1031,7 @@ def _build_scorecard(
         "cangjie_methodology_gate": cangjie_methodology_quality["gate"],
         "cangjie_core_baseline_matrix": cangjie_core_baseline_matrix,
         "final_artifact_effect": final_artifact_effect,
-        "compatibility_regression": {
-            "schema_version": "kiu.compatibility-regression/v0.1",
-            "risk": "unknown_until_baseline_rerun",
-            "baseline": "v0.6.4",
-        },
+        "compatibility_regression": compatibility_regression,
         "book_to_skill_cold_start_proven": bool(cold_start_proof_ratio),
         "book_to_skill_cold_start_proven_100": round(100.0 * cold_start_proof_ratio, 1),
         "graph_to_skill_distillation_100": graph_to_skill_distillation_score,
@@ -1048,6 +1067,36 @@ def _build_scorecard(
             "cangjie_methodology_quality": cangjie_methodology_quality["details"],
             "graph_to_skill_distillation": distillation_review,
         },
+    }
+
+
+def _build_compatibility_regression(pipeline_artifacts: dict[str, Any]) -> dict[str, Any]:
+    summary = pipeline_artifacts.get("compatibility_regression_summary")
+    if not isinstance(summary, dict):
+        return {
+            "schema_version": "kiu.compatibility-regression/v0.1",
+            "risk": "unknown_until_baseline_rerun",
+            "baseline": "v0.6.4",
+        }
+    executed = int(summary.get("executed", 0) or 0)
+    failed = int(summary.get("failed", 0) or 0)
+    passed = int(summary.get("passed", 0) or 0)
+    if executed <= 0:
+        risk = "unknown_until_baseline_rerun"
+    elif failed > 0:
+        risk = "fail"
+    elif passed < executed:
+        risk = "warn"
+    else:
+        risk = "pass"
+    return {
+        "schema_version": "kiu.compatibility-regression/v0.1",
+        "risk": risk,
+        "baseline": str(summary.get("baseline", "v0.6.4")),
+        "executed": executed,
+        "passed": passed,
+        "failed": failed,
+        "report_path": summary.get("report_path"),
     }
 
 
