@@ -2,10 +2,27 @@
 
 ## Unreleased
 
+## [0.7.2] - 2026-04-26
+
 ### Added
 - Added `reports/2026-04-26-v0.7.1-audit-response-addendum.md` to clarify v0.7.1 review findings, value-metrics evidence paths, same-book benchmark attribution limits, mechanism counter grain, and real-vs-fixture sample counting before starting v0.7.2.
 - Added the v0.7.2 live fact verification design spec, including real live retrieval as a hard release gate and value/regression attribution requirements for live world-alignment evidence.
 - Added v0.7.2 live fact verification foundation: claim ledger, external fact pack, bounded live retrieval, claim-level verification, freshness gate overlays, hallucination regression fixtures, source-pollution preflight, and live-fact evidence reporting.
+- Added use-state arbitration so source understanding, low-risk reflection, bounded application, transfer candidate, transfer abuse risk, context-insufficient, and current-fact-required cases get distinct application verdicts.
+- Added application-readiness models for shared readiness findings, coverage diagnostics, mechanism evidence scoring, and transfer-fit questions without editing generated sample artifacts directly.
+
+### Verified
+- Live fact evidence: fixture and live retrieval gates pass with bounded cited-source verification and no source-skill pollution.
+- Five-sample application-readiness rerun: average proxy `94.4`, average practical effect `96.6`, average overall `95.0`, source pollution `0`, and all gates ready across Financial Statement, Effective Requirements, Poor Charlie, Shiji, and Mao Anthology.
+- Focused application-readiness tests: `14/14` pass.
+- v0.7 regression subset: `68/68` pass.
+- Full unittest regression: `259/259` pass.
+
+### Limits
+- v0.7.2 claims isolated live fact verification and application-readiness gating, not exhaustive factual correctness, real-user validation, domain-expert validation, external blind closure, or same-source cangjie victory.
+- Live/world data improves high-temporal factual-safety and application gating, but does not claim to universally enrich every low-temporal mental model.
+- Coverage readiness remains diagnostic rather than blocking in this release; Shiji/Mao still expose a future bridge gap between chapter/community coverage and cross-chapter judgment-skill coverage.
+- Financial Statement full-book raw source scoring is below the preferred 90+ band under the current source scoring model; this is reported as a source-evaluation caveat, not hidden as a release blocker.
 
 
 ## [0.7.1] - 2026-04-25
