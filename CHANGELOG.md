@@ -3,6 +3,29 @@
 ## Unreleased
 
 
+## [0.7.0] - 2026-04-25
+
+### Added
+- Added the `学以致用` world-alignment foundation line as isolated enhancement rather than fusion rewrite.
+- Added offline world-context artifacts under `world_alignment/`, including context, review, and usage outputs without mutating source-faithful `SKILL.md` artifacts.
+- Added world-alignment need scoring, intervention levels, relevance arbitration, no-forced-enhancement policy, source-fit review, dilution-risk review, and no-web hallucination risk checks.
+- Added proxy usage generation and same-book cangjie reference benchmark evidence for v0.7.0 foundation evaluation.
+
+### Changed
+- Reframed external blind/user validation as future condition-dependent validation rather than a short-term v0.7.0 release blocker.
+- Updated project guidance to require staged verification feedback for long-running full checks.
+
+### Verified
+- World alignment focused tests: `16` passed.
+- World alignment, proxy usage, and reference benchmark tests: `40` passed.
+- Version-related regression subset: `112` passed.
+- Full unittest regression: `216` passed.
+- `backlog/board.yaml` parsed successfully.
+
+### Limits
+- v0.7.0 does not claim live web factual validation, multi-world or multi-stance modeling, real external blind-review closure, or real-user usage validation.
+- World alignment is a gated offline pressure layer; it may enrich or caveat application, but must not silently rewrite the source-derived skill.
+
 ## [0.6.8] - 2026-04-25
 
 ### Fixed

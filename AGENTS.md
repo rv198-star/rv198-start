@@ -1,5 +1,56 @@
 # AGENTS
 
+
+## Project Identity
+
+Starting with `v0.7`, KiU's Chinese project name is `学以致用`.
+
+This name is not a cosmetic translation. It reinforces the project goal: source
+knowledge should become usable judgment while preserving evidence, boundaries,
+and user choice about whether to apply additional context layers.
+
+Required rules:
+
+- Keep `KiU` as the stable technical/project abbreviation.
+- Use `学以致用` as the Chinese-facing project name from `v0.7` onward.
+- Do not rename historical release evidence retroactively; older artifacts may remain
+  under `Knowledge in Use` / `KiU` wording for provenance clarity.
+
+## World Alignment Isolation Boundary
+
+KiU `v0.7` world alignment follows `isolation enhancement`, not `fusion rewrite`.
+World alignment may add a separate contextual review, gate, pressure-test, or
+usage-caveat layer, but it must not rewrite source-faithful skills into
+world-blended artifacts.
+
+This principle preserves compatibility with users who want an original-source-only
+mode. A user must be able to request source-faithful KiU outputs without world
+alignment being applied.
+
+Required rules:
+
+- Keep source-derived `SKILL.md`, anchors, rationale, and book claims source-faithful.
+- Store world context, temporal caveats, pressure tests, and application gates in
+  isolated artifacts such as `world_alignment/`, not as silent edits to the skill.
+- World alignment may change application advice (`apply`, `partial_apply`,
+  `apply_with_caveats`, `ask_more_context`, `refuse`), but not the source claim.
+- Preserve an explicit original-source-only path for users who do not want real-world
+  alignment applied.
+- Do not use external world context as hidden source evidence or as a replacement
+  for book/source anchors.
+- Release evidence must score `source_fidelity_preserved` and
+  `world_context_isolated` separately from practical usefulness.
+
+Decision checks:
+
+- Can a reviewer see which parts came from the source and which parts came from
+  world alignment?
+- Can the same skill be used in original-source-only mode without the world layer?
+- Did world context merely gate or caveat application, or did it silently rewrite
+  the author's/source's claim?
+- Are we improving practical usefulness without weakening evidence honesty or the
+  workflow-vs-agentic boundary?
+
 ## External Reference Boundary
 
 KiU may use external projects such as `cangjie-skill` and `Graphify` as local reference material, benchmark baselines, and design inspiration, but not as silent inputs to the default production pipeline.
@@ -133,10 +184,81 @@ Boundary conditions:
 - The method terminates only when the leaf nodes are executable actions with input,
   output, owner or agent, verification command, and acceptance criteria.
 
+
+
+## Verification Feedback Discipline
+
+Long verification runs must be split into visible stages with progress feedback.
+Do not stay silent until a full suite finishes when the run is likely to take more
+than a few seconds. The user should be able to see which verification phase is
+running, what has already passed, and what remains.
+
+Required rules:
+
+- Prefer staged verification: targeted tests first, affected subsystem tests next,
+  full-suite discovery last.
+- Report after each stage with the command scope and result count.
+- When a full suite is necessary, announce it before starting and provide interim
+  updates while it is running.
+- If a command is still running, poll and summarize progress instead of waiting
+  silently for the final output.
+- Do not present a release or completion claim until the required stages have fresh
+  passing evidence.
+- If time is limited, say which verification tier has passed and which tier remains
+  unrun instead of implying full coverage.
+
+Recommended sequence for feature work:
+
+1. New or changed behavior tests.
+2. Affected module or subsystem test file.
+3. Version-specific regression subset.
+4. YAML/schema/documentation sanity checks.
+5. Full repository test discovery only after the earlier stages pass.
+
+## Version Goal Tiers
+
+KiU separates short-term development goals from condition-dependent external
+validation. This keeps development executable when reviewers, real users, live web
+access, or domain experts are not currently available.
+
+Required rules:
+
+- Treat `developable goals` as the short-term release driver: architecture, source
+  fidelity, installability, workflow-vs-agentic boundary quality, internal usage
+  regression, proxy pressure tests, cross-sample stability, and evidence honesty.
+- Treat `condition-dependent goals` as mid/late-stage validation: human blind
+  review, real user preference, live-world factual verification, domain-expert
+  review, and long-running production usage data. These goals are valuable, but
+  they must not block short-term releases when the required external condition is
+  unavailable.
+- Treat `strategic vision` as a north star rather than a release gate: proving KiU
+  is preferred in real-world use, building high-quality world modeling, and
+  outperforming reference projects under external review.
+- Do not upgrade claims from internal evidence to external validation. If a release
+  only has internal regression, proxy usage, or same-book reference comparison, say
+  so explicitly.
+- Do not open a short-term version whose central acceptance criterion depends on
+  unavailable external conditions. Move that work to future backlog until the
+  condition exists.
+
+Decision checks:
+
+- Can this goal be executed and verified with resources available now?
+- If not, is it clearly marked as condition-dependent rather than a blocker?
+- Does the release claim match the strongest available evidence tier?
+- Are we continuing to improve the system rather than waiting for ideal validation?
+
+Boundary conditions:
+
+- External validation remains important for mature claims, but it is not the daily
+  development engine.
+- Internal evidence may justify continued development and foundation releases; it
+  may not justify claims of human preference, real-world truth, or external closure.
+
 ## Benchmark Policy
 
 For `cangjie-skill` specifically:
 
 - Prefer using books that `cangjie-skill` already processed as same-source benchmark corpora.
 - Compare on output count, coverage, actionability, evidence traceability, workflow-vs-agentic boundary quality, and real usage quality.
-- Prefer blind review when comparing KiU outputs with `cangjie-skill` outputs.
+- Prefer blind review when comparing KiU outputs with `cangjie-skill` outputs, but treat it as condition-dependent evidence rather than a short-term blocker when no reviewer is available.

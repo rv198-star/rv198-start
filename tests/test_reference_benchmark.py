@@ -123,6 +123,63 @@ def _write_competing_alignment_file(root: Path) -> Path:
 
 
 class ReferenceBenchmarkCliTests(unittest.TestCase):
+    def test_scorecard_labels_cangjie_scores_as_run_local_evidence(self) -> None:
+        scorecard = _build_scorecard(
+            kiu_bundle={
+                "validator_errors": 0,
+                "validator_warnings": 0,
+                "workflow_boundary": {"explicit_boundary": True},
+                "provenance": {
+                    "nodes": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0},
+                    "edges": {"source_file_ratio": 1.0, "source_location_ratio": 1.0, "extraction_kind_ratio": 1.0, "confidence_ratio": 1.0},
+                    "extraction_kind_counts": {"EXTRACTED": 8, "INFERRED": 3, "AMBIGUOUS": 2},
+                },
+                "graph": {"community_count": 3},
+                "graph_report_present": True,
+                "skill_count": 6,
+            },
+            generated_run={
+                "workflow_boundary_preserved": True,
+                "verification_gate_present": True,
+                "workflow_verification_ready_ratio": 1.0,
+                "minimum_production_quality": 0.92,
+                "overall_score_100": 96.0,
+                "usage_score_100": 95.8,
+                "skill_count": 6,
+                "source_tri_state_effectiveness": {"overall_ratio": 1.0},
+                "pipeline_artifacts": {
+                    "raw_book_no_seed_cold_start": False,
+                    "book_overview_present": False,
+                    "source_chunks_present": False,
+                    "extraction_result_present": False,
+                    "graph_present": True,
+                    "verification_summary_present": True,
+                    "extractor_kinds": [],
+                    "pipeline_mode": "source_bundle_regeneration",
+                    "source_bundle_skill_count": 5,
+                    "pressure_test_summary": {"pass_ratio": 1.0},
+                },
+            },
+            reference_pack={"skill_count": 12},
+            same_scenario_usage={"summary": {"scenario_count": 37, "usage_winner": "kiu"}},
+        )
+
+        self.assertEqual(
+            scorecard["cangjie_core_evidence_in_this_run_100"],
+            scorecard["cangjie_core_absorbed_100"],
+        )
+        self.assertEqual(
+            scorecard["cangjie_methodology_internal_evidence_in_this_run_100"],
+            scorecard["cangjie_methodology_internal_100"],
+        )
+        self.assertFalse(scorecard["cangjie_score_scope"]["global_absorption_baseline_claim"])
+        self.assertEqual(scorecard["cangjie_score_scope"]["score_scope"], "run_local_evidence")
+        self.assertEqual(scorecard["cangjie_score_scope"]["pipeline_mode"], "source_bundle_regeneration")
+        self.assertIn(
+            "does not restate project-level absorption",
+            scorecard["cangjie_score_scope"]["interpretation"],
+        )
+
     def test_scorecard_does_not_treat_usage_win_as_cangjie_methodology_absorption(self) -> None:
         scorecard = _build_scorecard(
             kiu_bundle={

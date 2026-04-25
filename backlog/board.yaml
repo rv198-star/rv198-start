@@ -1029,118 +1029,129 @@ tickets:
   - reports/2026-04-24-v0.6.4-borrowed-value-evidence.md
   - CHANGELOG.md
 - id: KIU-700
-  title: freeze v0.7 temporal-aware world-alignment charter
+  title: freeze v0.7 basic isolated world-alignment charter
   target_version: v0.7.0
   status: todo
   priority: P0
   blocker_level: hard
   area: version-charter
-  summary: Freeze v0.7 around an isolated temporal-aware world-alignment layer that improves real-world applicability without polluting source-faithful skills.
+  summary: Freeze v0.7 around a basic isolated world-alignment layer that improves applicability without polluting source-faithful skills or requiring live web / multi-world modeling.
   acceptance:
-  - Charter records world context isolation, temporal policy, application gate, and AGENTS.md boundary alignment.
-  - Release claim explicitly excludes hidden external upstream generation and heavy runtime fact-checking.
+  - Charter records world context isolation, application gate, original-source-only mode, scope cuts, and AGENTS.md boundary alignment.
+  - Release claim explicitly excludes hidden external upstream generation, live web search, multi-world modeling, and heavy runtime fact-checking.
   - Initial v0.7 release gate is defined with source fidelity and world usefulness separated.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
 - id: KIU-701
-  title: world context schema
+  title: minimal world context schema and depth loop fields
   target_version: v0.7.0
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: world-context
-  summary: Define one unified schema for release-baseline, user-supplied, external-check-required, simulated, and runtime-compatible world context items.
+  summary: Define the minimum world_context.yaml schema for release-baseline, user-supplied, and future-check-required context items.
   acceptance:
-  - Schema supports context_type, observed_at, freshness_policy, temporal_sensitivity, confidence, applies_to, allowed_effects, and forbidden_effects.
-  - Release-time and use-time contexts are represented as item metadata, not separate systems.
-  - External context cannot be used as source evidence.
+  - Schema supports context_type, source_period, observed_at, freshness_policy, temporal_sensitivity, confidence, applies_to, allowed_effects, and forbidden_effects.
+  - Schema exposes pressure_dimensions, world_hypothesis, why_this_matters, user_context_questions, deepening_rounds, loop_mode, and world_context_depth_score.
+  - Generic world-context summaries are penalized instead of receiving a perfect score.
+  - Release-baseline and user-supplied contexts are represented as item metadata, not separate systems.
+  - External context cannot be used as source evidence, and live web retrieval is out of scope for v0.7.0.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - tests/test_world_alignment.py
 - id: KIU-702
-  title: temporal profile and skill policy
+  title: application gate schema and verdict policy
   target_version: v0.7.0
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
-  area: temporal-policy
-  summary: Define bundle-level temporal profiles and skill-level temporal policies so alignment strength scales with temporal sensitivity and application risk.
+  area: application-gate
+  summary: Define application_gate.yaml and verdict rules so each selected skill can decide apply, apply_with_caveats, ask_more_context, or refuse without rewriting source claims.
   acceptance:
-  - Bundle default sensitivity can be low, medium, or high.
-  - Skill policies can override bundle defaults and define required context triggers.
-  - Missing-context behavior supports apply_with_caveats, ask_more_context, partial_apply, and refuse.
+  - Gate supports apply, apply_with_caveats, ask_more_context, and refuse.
+  - Gate output includes source_skill_unchanged, reason, required_context, source_fidelity_preserved, and world_context_isolated.
+  - Missing-context behavior blocks overconfident application for medium/high sensitivity cases.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - src/kiu_pipeline/world_alignment.py
 - id: KIU-703
   title: isolated world-alignment artifacts
   target_version: v0.7.0
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: artifact-generation
   summary: Generate world_alignment artifacts beside skills without modifying source-faithful SKILL.md, anchors, or source evidence.
   acceptance:
-  - Generated bundles can contain world_alignment/world_context.yaml, temporal_profile.yaml, and application_gate_schema.yaml.
-  - Per-skill world_alignment directories include temporal_policy.yaml, pressure_tests.yaml, usage_caveats.yaml, decision_path.md, and scorecard.yaml where applicable.
+  - Generated bundles can contain world_alignment/world_context.yaml and per-skill application_gate.yaml plus WORLD_ALIGNMENT.md.
+  - Per-skill world_alignment directories include application_gate.yaml and WORLD_ALIGNMENT.md for selected skills.
   - skills/ remains source-faithful and auditable independently from world_alignment/.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - scripts/generate_world_alignment.py
 - id: KIU-704
-  title: application gate evaluation
+  title: world-alignment artifact generation
   target_version: v0.7.0
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
-  area: application-gate
-  summary: Implement the world-alignment application gate that evaluates available context against a skill temporal policy without rewriting the skill.
+  area: artifact-generation
+  summary: Generate the basic world-alignment artifacts for selected skills from source-faithful bundle metadata and configured world context.
   acceptance:
-  - Gate supports apply, apply_with_caveats, partial_apply, ask_more_context, and refuse.
-  - Gate output includes source_skill_unchanged, required_context, reason, and decision_path.
-  - Missing current context for medium/high sensitivity concrete applications blocks overconfident application.
+  - Generation writes world_context.yaml once per bundle and application_gate.yaml plus WORLD_ALIGNMENT.md per selected skill.
+  - Generated artifacts preserve source_skill_unchanged=true and never edit SKILL.md.
+  - Original-source-only mode remains valid when world_alignment/ is absent or disabled.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - src/kiu_pipeline/world_alignment.py
 - id: KIU-705
-  title: source-pollution and boundary preflight gates
+  title: WORLD_ALIGNMENT.md rendering with hypothesis sections
   target_version: v0.7.0
-  status: todo
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: rendering
+  summary: Render a concise human/LLM-readable WORLD_ALIGNMENT.md that explains source claim, world context, missing user context, verdict, and caveats.
+  acceptance:
+  - WORLD_ALIGNMENT.md separates source-derived claims from world-context caveats in labeled sections.
+  - WORLD_ALIGNMENT.md includes World Hypothesis, Why This Matters, What To Ask User, and No-Web Unverified Status sections.
+  - The renderer includes original-source-only behavior and does not instruct users to treat world context as authorial evidence.
+  - A smoke test verifies the rendered file contains source_skill_unchanged and world_context_isolated markers.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - tests/test_world_alignment.py
+- id: KIU-706
+  title: source-pollution and original-source-only preflight gates
+  target_version: v0.7.0
+  status: done
   priority: P0
   blocker_level: hard
   area: preflight
-  summary: Add validation gates preventing world context from becoming source evidence or causing workflow-vs-agentic boundary drift.
+  summary: Add validation gates preventing world context from becoming source evidence and ensuring original-source-only mode remains supported.
   acceptance:
-  - Validator/preflight detects world-context content copied into source anchors or source Evidence Summary.
-  - Validator/preflight detects world-alignment gains caused by moving workflow_script_candidate logic into bundle/skills/.
-  - Release review reports world_context_isolated and source_fidelity_preserved.
+  - Validator/preflight detects world-context content copied into source anchors, source Evidence Summary, or source-derived SKILL.md rationale.
+  - Validator/preflight detects missing source_skill_unchanged or world_context_isolated markers in world_alignment artifacts.
+  - Release gate can enforce source_pollution_errors = 0 and original_source_only_mode_supported = true.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
-- id: KIU-706
-  title: world-alignment review scores
+  - scripts/review_world_alignment.py
+- id: KIU-707
+  title: basic world-alignment review and depth scores
   target_version: v0.7.0
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: review-scoring
-  summary: Extend generated-run review with world-alignment scores while keeping source, generated, usage, and boundary scores separable.
+  summary: Extend generated-run review with basic world-alignment scores while keeping source, generated, usage, and boundary scores separable.
   acceptance:
-  - Review reports source_fidelity_score, world_context_quality_score, temporal_policy_fit_score, application_gate_quality_score, decision_path_clarity_score, and workflow_boundary_resilience_score.
+  - Review reports source_fidelity_score, world_context_isolation_score, application_gate_quality_score, world_alignment_explanation_score, workflow_boundary_resilience_score, and world_context_depth_score.
   - World-alignment score cannot compensate for source pollution or workflow-boundary drift.
-  - Release gate can enforce world_alignment_score_min and source_pollution_errors = 0.
+  - Generic world context can pull world_alignment_score_100 below release threshold.
+  - Release gate can enforce world_alignment_score_min, source_pollution_errors = 0, and original_source_only_mode_supported = true.
+  - Live web and multi-world modeling remain explicit non-goals in the scorecard.
   evidence:
   - docs/2026-04-24-v0.7-world-alignment-charter.md
-- id: KIU-707
-  title: three-sample world-alignment evidence pass
-  target_version: v0.7.0
-  status: todo
-  priority: P0
-  blocker_level: hard
-  area: evidence
-  summary: Run independent world-alignment evidence on Poor Charlie, Effective Requirements, and Financial Statement samples.
-  acceptance:
-  - Each sample has isolated world_alignment artifacts.
-  - Each sample preserves source skills without world-context pollution.
-  - Across the sample set, application gate cases include at least apply, apply_with_caveats or partial_apply, ask_more_context, and refuse.
-  - At least nine application-gate cases are archived.
-  evidence:
-  - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
 - id: KIU-708
   title: v0.7 release evidence and changelog closure
   target_version: v0.7.0
@@ -1148,10 +1159,143 @@ tickets:
   priority: P0
   blocker_level: hard
   area: release
-  summary: Close v0.7 with spec docs, evidence pack, changelog, release-gate scores, and explicit known limits.
+  summary: Close v0.7.0 basic isolated world-alignment with spec docs, evidence pack, changelog, release-gate scores, and explicit known limits.
   acceptance:
-  - Evidence pack records commands, sample scores, world-alignment gates, and known runtime limitations.
+  - Evidence pack records commands, sample scores, world-alignment gates, source-pollution checks, and known runtime limitations.
   - CHANGELOG includes a formal v0.7.0 section.
-  - Release notes distinguish artifact-level world alignment from full live runtime factual correctness.
+  - Release notes distinguish artifact-level world alignment from live runtime factual correctness, live web search, multi-world modeling, human blind review, and real user validation.
+  - Release notes state that external blind review is a future condition-dependent validation item, not a v0.7.0 blocker.
+  - Release notes include the world-alignment need-score and relevance-arbitration correction before v0.7.0 release.
   evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+- id: KIU-709
+  title: randomized proxy usage evaluation guard
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: soft
+  area: usage-evaluation
+  summary: Add a deterministic randomized proxy-usage layer as a downgrade path when human user testing or external blind review is unavailable.
+  acceptance:
+  - Proxy usage generation creates varied user-like prompts instead of source-heading smoke scenarios.
+  - Case types cover should_fire, should_not_fire, edge_case, world_alignment_case, and high_risk_or_missing_context.
+  - Proxy evaluator predicts from prompt and artifact signals, not directly from expected verdict or case_type.
+  - Review reports proxy_usage_outputs separately from usage_outputs and does not use proxy usage to claim human validation.
+  - Review reports practical_effect_outputs as a capped L2.5 blend, with a 90-95 basic-version target and an explicit claim boundary.
+  - Summary includes a claim boundary stating proxy usage is an internal regression guard, not real user validation or external blind review.
+  evidence:
+  - src/kiu_pipeline/proxy_usage.py
+  - scripts/generate_proxy_usage.py
+  - tests/test_proxy_usage.py
+  - /tmp/kiu-v070-world-alignment/generated/effective-requirements-v070-source-v0.6/v070-world-alignment/proxy-usage-review/summary.yaml
+  - /tmp/kiu-v070-world-alignment/generated/financial-statement-v070-source-v0.6/v070-world-alignment/proxy-usage-review/summary.yaml
+
+- id: KIU-710
+  title: world-alignment need score and intervention levels
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: world-alignment
+  summary: Add a unified world_alignment_need_score that controls intervention strength without routing by coarse book or skill type.
+  acceptance:
+  - world_context.yaml records world_alignment_need_score and intervention_level for every selected skill.
+  - Score inputs include temporal_need_score, current_fact_dependency_score, application_risk_score, misuse_risk_score, and user_actionability_score or documented equivalents.
+  - Intervention levels are minimal, light, moderate, and strong_gate with thresholds documented in the charter.
+  - Low-need skills do not receive forced modern-world expansion merely to fill the artifact.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - src/kiu_pipeline/world_alignment.py
+  - tests/test_world_alignment.py
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
+
+- id: KIU-711
+  title: candidate pressure relevance arbitration
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: world-alignment
+  summary: Score and filter every candidate world pressure by source fit, enrichment value, application need, dilution risk, and hallucination risk.
+  acceptance:
+  - Candidate pressure records expose source_fit_score, enrichment_value_score, application_need_score, dilution_risk_score, hallucination_risk_score, accepted, and rejection_reason.
+  - source_fit_score is a hard gate; off-domain candidates cannot enter WORLD_ALIGNMENT.md even if they are detailed.
+  - High hallucination-risk candidates in no-web mode can only become questions, caveats, or refusal reasons, not verified claims.
+  - Regression tests cover a structurally deep but off-domain pressure being rejected.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - src/kiu_pipeline/world_alignment.py
+  - tests/test_world_alignment.py
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
+
+- id: KIU-712
+  title: no forced enhancement policy
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: world-alignment
+  summary: Allow world alignment to emit no_forced_enhancement when no relevant world pressure improves the source-derived skill.
+  acceptance:
+  - world_context.yaml and WORLD_ALIGNMENT.md can explicitly report no_forced_enhancement.
+  - no_forced_enhancement preserves original-source-only use, misuse boundaries, and no-web disclosure.
+  - Principle or philosophy-like mental models are not penalized for minimal world context when candidate pressures fail relevance arbitration.
+  - Regression tests cover circle-of-competence or an equivalent principle skill avoiding off-domain AI/business pressure.
+  evidence:
+  - docs/2026-04-24-v0.7-world-alignment-charter.md
+  - src/kiu_pipeline/world_alignment.py
+  - tests/test_world_alignment.py
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
+
+- id: KIU-713
+  title: source-fit and dilution-risk review scoring
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: review-scoring
+  summary: Make world-alignment review score relevance and dilution risk so detailed but source-diluting contexts cannot receive perfect depth scores.
+  acceptance:
+  - review_world_alignment reports source_fit_score, dilution_risk_score, hallucination_risk_score, accepted_pressure_count, rejected_pressure_count, and no_forced_enhancement_count or equivalent summary fields.
+  - world_alignment_score_100 is penalized when source fit is weak or dilution risk is high, even if world_context_depth_score is structurally high.
+  - Existing source_fidelity and world_context_isolation gates remain separate and cannot be compensated by relevance score.
+  - Reports distinguish fit-quality failures from no-web hallucination failures.
+  evidence:
+  - src/kiu_pipeline/world_alignment.py
+  - scripts/review_world_alignment.py
+  - tests/test_world_alignment.py
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
+
+- id: KIU-714
+  title: rerun v0.7 world-alignment relevance evidence
+  target_version: v0.7.0
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Rerun v0.7 samples after relevance arbitration and prove world alignment enriches when appropriate without diluting low-need source skills.
+  acceptance:
+  - Effective Requirements retains moderate useful world-alignment enrichment.
+  - Financial Statement retains strong no-web ask_more_context/refuse behavior for current-data-sensitive use.
+  - Poor Charlie or another low-temporal principle sample avoids off-domain forced modernization and records either accepted source-fit pressures or no_forced_enhancement.
+  - Evidence report compares pre-fix and post-fix behavior for at least one low-temporal principle skill.
+  - Full tests and backlog YAML validation pass after rerun.
+  evidence:
+  - reports/2026-04-25-v0.7.0-basic-world-alignment-implementation-evidence.md
+  - reports/2026-04-25-v0.7.0-poor-charlie-same-book-cangjie-reference.md
+
+- id: KIU-FUTURE-001
+  title: condition-dependent external validation backlog
+  target_version: future
+  status: todo
+  priority: P2
+  blocker_level: external-condition
+  area: validation
+  summary: Track validation work that requires unavailable external conditions and must not block short-term foundation releases.
+  acceptance:
+  - Human blind review, real user task feedback, live-web factual validation, domain-expert review, and long-running production usage data are listed as future evidence sources.
+  - Future releases may consume this evidence when available, but no short-term version is blocked solely by its absence.
+  - Release claims continue to distinguish internal regression evidence from external validation.
+  evidence:
+  - AGENTS.md
   - docs/2026-04-24-v0.7-world-alignment-charter.md

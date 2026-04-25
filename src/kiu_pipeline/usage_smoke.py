@@ -34,7 +34,7 @@ def write_smoke_usage_reviews(run_root: Path) -> None:
             .get("output", {})
             .get("schema", {})
         )
-        verdict = output_schema.get("verdict", "apply")
+        verdict = _default_apply_verdict(output_schema.get("verdict", "apply"))
         if skill_id == "workflow-gateway":
             _write_workflow_gateway_usage_reviews(
                 usage_root=usage_root,
@@ -46,82 +46,141 @@ def write_smoke_usage_reviews(run_root: Path) -> None:
             )
             continue
 
-        evidence_to_check = _derive_smoke_evidence_to_check(
+        for usage_doc in _build_skill_usage_reviews(
+            run_root=run_root,
+            bundle_root=bundle_root,
+            skill_id=skill_id,
+            source_anchors=source_anchors,
             primary_anchor=primary_anchor,
             secondary_anchor=secondary_anchor,
             trigger_patterns=trigger_patterns,
-        )
-        next_action = _derive_specific_next_action(
-            skill_id=skill_id,
-            verdict=verdict if isinstance(verdict, str) else "apply",
-            primary_anchor=primary_anchor,
-            secondary_anchor=secondary_anchor,
-        )
-        usage_doc = {
-            "review_case_id": f"{skill_id}-smoke-usage",
-            "generated_run_root": str(run_root),
-            "skill_path": str(bundle_root / "skills" / skill_id / "SKILL.md"),
-            "input_scenario": {
-                "scenario": primary_anchor.get("snippet", ""),
-                "decision_goal": f"Decide whether `{skill_id}` should fire for this source-backed situation.",
-                "decision_scope": (
-                    f"Only use `{skill_id}` for the decision boundary implied by "
-                    f"`{primary_anchor.get('anchor_id', skill_id)}`."
-                ),
-                "current_constraints": [
-                    f"Confirm the scenario still satisfies `{trigger_patterns[0]}`."
-                ] if trigger_patterns else [],
-                "disconfirming_evidence": [
-                    (
-                        "Do not apply if new facts contradict the primary evidence "
-                        f"anchored at `{primary_anchor.get('anchor_id', skill_id)}`."
-                    )
-                ],
-            },
-            "firing_assessment": {
-                "should_fire": True,
-                "why_this_skill_fired": [
-                    f"The scenario directly resembles `{primary_anchor.get('anchor_id', skill_id)}`.",
-                    f"The neighboring evidence in `{secondary_anchor.get('anchor_id', skill_id)}` keeps the boundary specific.",
-                ],
-            },
-            "boundary_check": {
-                "status": "pass",
-                "notes": [
-                    "This is an automated smoke usage review, not a production judgment.",
-                    "The scenario still includes concrete evidence and decision context.",
-                ],
-            },
-            "structured_output": {
-                "verdict": verdict if isinstance(verdict, str) else "apply",
-                "next_action": next_action,
-                "evidence_to_check": evidence_to_check,
-                "decline_reason": (
-                    "Decline if the scenario loses concrete decision context or if disconfirming "
-                    "evidence overrides the anchored pattern."
-                ),
-                "confidence": "medium",
-            },
-            "analysis_summary": (
-                f"The smoke review fired `{skill_id}` because the scenario is anchored to "
-                f"the same evidence path as `{primary_anchor.get('anchor_id', skill_id)}`."
+            verdict=verdict,
+        ):
+            (usage_root / f"{usage_doc['review_case_id']}.yaml").write_text(
+                yaml.safe_dump(usage_doc, sort_keys=False, allow_unicode=True),
+                encoding="utf-8",
+            )
+
+
+def _build_skill_usage_reviews(
+    *,
+    run_root: Path,
+    bundle_root: Path,
+    skill_id: str,
+    source_anchors: list[dict[str, Any]],
+    primary_anchor: dict[str, Any],
+    secondary_anchor: dict[str, Any],
+    trigger_patterns: list[str],
+    verdict: str,
+) -> list[dict[str, Any]]:
+    evidence_to_check = _derive_smoke_evidence_to_check(
+        primary_anchor=primary_anchor,
+        secondary_anchor=secondary_anchor,
+        trigger_patterns=trigger_patterns,
+    )
+    evidence_alignment = [
+        anchor.get("anchor_id")
+        for anchor in source_anchors[:2]
+        if isinstance(anchor, dict) and anchor.get("anchor_id")
+    ]
+    skill_path = str(bundle_root / "skills" / skill_id / "SKILL.md")
+    primary_id = primary_anchor.get("anchor_id", skill_id)
+    secondary_id = secondary_anchor.get("anchor_id", skill_id)
+    positive_scenario = _usage_positive_scenario(skill_id, primary_anchor)
+    docs: list[dict[str, Any]] = []
+    specs = [
+        {
+            "suffix": "apply",
+            "scenario": positive_scenario,
+            "decision_goal": f"Decide whether `{skill_id}` should actively guide the next action.",
+            "should_fire": True,
+            "boundary_status": "pass",
+            "verdict": verdict,
+            "next_action": _derive_specific_next_action(
+                skill_id=skill_id,
+                verdict=verdict,
+                primary_anchor=primary_anchor,
+                secondary_anchor=secondary_anchor,
             ),
-            "quality_assessment": {
-                "contract_fit": "strong" if trigger_patterns else "medium",
-                "evidence_alignment": [
-                    anchor.get("anchor_id")
-                    for anchor in source_anchors[:2]
-                    if isinstance(anchor, dict) and anchor.get("anchor_id")
-                ],
-                "caveats": [
-                    "Replace this smoke review with real usage evidence before release."
-                ],
-            },
-        }
-        (usage_root / f"{skill_id}-smoke.yaml").write_text(
-            yaml.safe_dump(usage_doc, sort_keys=False, allow_unicode=True),
-            encoding="utf-8",
+            "summary": f"The usage case applies `{skill_id}` because it has a concrete decision boundary tied to `{primary_id}`.",
+        },
+        {
+            "suffix": "do-not-apply",
+            "scenario": _usage_negative_scenario(skill_id),
+            "decision_goal": f"Decide whether `{skill_id}` should stay silent for a non-decision request.",
+            "should_fire": False,
+            "boundary_status": "pass",
+            "verdict": "do_not_apply",
+            "next_action": f"route_{_normalize_smoke_symbol(skill_id)}_request_away_from_skill_trigger",
+            "summary": f"The usage case rejects `{skill_id}` because the prompt asks for explanation, translation, summary, or template output rather than a decision.",
+        },
+        {
+            "suffix": "defer-boundary",
+            "scenario": _usage_edge_scenario(skill_id),
+            "decision_goal": f"Decide whether `{skill_id}` has enough context to fire safely.",
+            "should_fire": False,
+            "boundary_status": "pass",
+            "verdict": "defer",
+            "next_action": f"ask_for_{_normalize_smoke_symbol(skill_id)}_missing_decision_context",
+            "summary": f"The usage case defers `{skill_id}` because the prompt partially matches `{secondary_id}` but lacks stable decision context.",
+        },
+    ]
+    for spec in specs:
+        docs.append(
+            {
+                "review_case_id": f"{skill_id}-usage-{spec['suffix']}",
+                "generated_run_root": str(run_root),
+                "skill_path": skill_path,
+                "input_scenario": {
+                    "scenario": spec["scenario"],
+                    "decision_goal": spec["decision_goal"],
+                    "decision_scope": (
+                        f"Use `{skill_id}` only inside the boundary implied by "
+                        f"`{primary_id}` and checked against `{secondary_id}`."
+                    ),
+                    "current_constraints": [
+                        f"Confirm the scenario still satisfies `{trigger_patterns[0]}`."
+                    ] if trigger_patterns else ["Confirm the request has concrete decision context."],
+                    "disconfirming_evidence": [
+                        "Do not apply when the request is concept-only, summary-only, translation-only, or lacks decision context.",
+                        f"Do not apply if facts contradict `{primary_id}`.",
+                    ],
+                },
+                "firing_assessment": {
+                    "should_fire": spec["should_fire"],
+                    "why_this_skill_fired": [
+                        spec["summary"],
+                        f"Evidence remains bounded by `{primary_id}` and `{secondary_id}`.",
+                    ],
+                },
+                "boundary_check": {
+                    "status": spec["boundary_status"],
+                    "notes": [
+                        "This is generated usage-regression evidence, not real user validation.",
+                        "The case checks application, rejection, or deferral behavior beyond a source-heading smoke test.",
+                    ],
+                },
+                "structured_output": {
+                    "verdict": spec["verdict"],
+                    "next_action": spec["next_action"],
+                    "evidence_to_check": evidence_to_check,
+                    "decline_reason": (
+                        "Decline or defer if the scenario loses concrete decision context, "
+                        "asks only for explanation/translation/template output, or conflicts with anchored evidence."
+                    ),
+                    "confidence": "medium" if spec["boundary_status"] == "pass" else "low",
+                },
+                "analysis_summary": spec["summary"],
+                "quality_assessment": {
+                    "contract_fit": "strong" if trigger_patterns else "medium",
+                    "evidence_alignment": evidence_alignment,
+                    "caveats": [
+                        "Generated usage-regression evidence; replace with real user evidence when available."
+                    ],
+                },
+            }
         )
+    return docs
 
 
 def _write_workflow_gateway_usage_reviews(
@@ -302,6 +361,47 @@ def _derive_gateway_evidence_to_check(
     if routes_to:
         evidence_items.append("Available workflow candidates: " + ", ".join(routes_to[:6]))
     return evidence_items
+
+
+def _default_apply_verdict(raw: Any) -> str:
+    if not isinstance(raw, str):
+        return "apply"
+    normalized = raw.strip()
+    if normalized.startswith("enum["):
+        inner = normalized.removeprefix("enum[").removesuffix("]")
+        options = [item.strip() for item in re.split(r"[,|]", inner) if item.strip()]
+        for preferred in ("apply", "full_apply", "apply_pattern", "yes"):
+            if preferred in options:
+                return preferred
+        return options[0] if options else "apply"
+    return normalized or "apply"
+
+
+def _usage_positive_scenario(skill_id: str, primary_anchor: dict[str, Any]) -> str:
+    if "subsystem" in skill_id or "requirement" in skill_id:
+        return "团队正在拆一个复杂业务系统，当前方案按前端、后端、数据库分层，但业务方说责任边界、服务对象和失败后果都不清楚，需要决定是否改按业务职责重拆。"
+    if any(marker in skill_id for marker in ("price", "value", "accounting", "financial")):
+        return "用户正在评估一家公司，市场价格和故事很热，但他想用经营事实、会计信息和明确假设来检查价值判断是否独立，当前需要决定下一步分析动作。"
+    snippet = _compact_snippet(primary_anchor.get("snippet", ""), limit=80)
+    if snippet:
+        return f"用户面对一个具体决策，场景与源证据相关：{snippet}。现在需要决定是否应用该技能并给出下一步。"
+    return "用户面对一个具体决策，需要判断该技能是否应该触发并给出下一步行动。"
+
+
+def _usage_negative_scenario(skill_id: str) -> str:
+    if "subsystem" in skill_id or "requirement" in skill_id:
+        return "用户只想要业务子系统拆分的概念解释和一个接口字段模板，不需要判断当前项目怎么做。"
+    if any(marker in skill_id for marker in ("price", "value", "accounting", "financial")):
+        return "用户只想了解市盈率定义、翻译一段财报文字，或查询今天最新股价，不是在做源技能支持的价值判断。"
+    return "用户只是在请求概念解释、摘要、翻译或模板输出，没有提出需要该技能判断的具体决策。"
+
+
+def _usage_edge_scenario(skill_id: str) -> str:
+    if "subsystem" in skill_id or "requirement" in skill_id:
+        return "用户只有一个粗略功能列表，感觉业务边界可能不清，但还没有说明服务对象、失败后果、责任归属或当前约束，直接拆分会过早。"
+    if any(marker in skill_id for marker in ("price", "value", "accounting", "financial")):
+        return "用户只有媒体报道和一张收入截图，没有完整报表、假设口径、决策期限或风险约束，想直接得出价值结论。"
+    return "用户的场景部分匹配该技能，但关键事实、决策目标、边界条件或反证信息仍然缺失。"
 
 
 def _pick_route(routes_to: list[str], keywords: list[str], *, fallback_index: int) -> str:

@@ -50,6 +50,8 @@ def main() -> int:
                 "source_bundle": review["source_bundle"]["score_100"],
                 "generated_bundle": review["generated_bundle"]["score_100"],
                 "usage_outputs": review["usage_outputs"]["score_100"],
+                "proxy_usage_outputs": review.get("proxy_usage_outputs", {}).get("score_100"),
+                "practical_effect_outputs": review.get("practical_effect_outputs", {}).get("score_100"),
                 "release_gate_overall_ready": review["release_gate"]["overall_ready"],
                 "release_gate_reasons": review["release_gate"]["reasons"],
                 "raw_book_no_seed_cold_start": review["cold_start"]["raw_book_no_seed_cold_start"],

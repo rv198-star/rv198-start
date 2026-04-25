@@ -1019,12 +1019,19 @@ def _build_scorecard(
     )
 
     compatibility_regression = _build_compatibility_regression(pipeline_artifacts)
+    cangjie_score_scope = _build_cangjie_score_scope(
+        pipeline_artifacts=pipeline_artifacts,
+        cold_start_proof_ratio=cold_start_proof_ratio,
+    )
 
     return {
         "kiu_foundation_retained_100": foundation_score,
         "graphify_core_absorbed_100": graphify_score,
         "cangjie_core_absorbed_100": cangjie_score,
+        "cangjie_core_evidence_in_this_run_100": cangjie_score,
+        "cangjie_score_scope": cangjie_score_scope,
         "cangjie_methodology_internal_100": cangjie_methodology_quality["internal_score_100"],
+        "cangjie_methodology_internal_evidence_in_this_run_100": cangjie_methodology_quality["internal_score_100"],
         "cangjie_methodology_external_blind_100": cangjie_methodology_quality["external_blind_preference_score_100"],
         "cangjie_methodology_closure_100": cangjie_methodology_quality["closure_score_100"],
         "cangjie_methodology_quality_100": cangjie_methodology_quality["closure_score_100"],
@@ -1067,6 +1074,34 @@ def _build_scorecard(
             "cangjie_methodology_quality": cangjie_methodology_quality["details"],
             "graph_to_skill_distillation": distillation_review,
         },
+    }
+
+
+def _build_cangjie_score_scope(
+    *,
+    pipeline_artifacts: dict[str, Any],
+    cold_start_proof_ratio: float,
+) -> dict[str, Any]:
+    pipeline_mode = str(pipeline_artifacts.get("pipeline_mode") or "unknown")
+    raw_book_evidence = bool(cold_start_proof_ratio) or pipeline_mode == "raw_book_no_seed_cold_start"
+    global_claim = raw_book_evidence and bool(pipeline_artifacts.get("ria_tv_stage_report_present"))
+    if global_claim:
+        interpretation = (
+            "This score is backed by raw-book run evidence for this benchmark; "
+            "it may support a project-level absorption baseline only when release evidence says so."
+        )
+    else:
+        interpretation = (
+            "This score is run-local evidence coverage for the current benchmark path; "
+            "it does not restate project-level absorption or invalidate prior raw-book closure evidence."
+        )
+    return {
+        "schema_version": "kiu.cangjie-score-scope/v0.1",
+        "score_scope": "run_local_evidence",
+        "pipeline_mode": pipeline_mode,
+        "raw_book_no_seed_cold_start": bool(pipeline_artifacts.get("raw_book_no_seed_cold_start")),
+        "global_absorption_baseline_claim": global_claim,
+        "interpretation": interpretation,
     }
 
 
@@ -3036,7 +3071,12 @@ def _render_markdown_report(report: dict[str, Any]) -> str:
             f"- KiU foundation retained: `{scorecard['kiu_foundation_retained_100']}`",
             f"- Graphify core absorbed: `{scorecard['graphify_core_absorbed_100']}`",
             f"- cangjie core absorbed: `{scorecard['cangjie_core_absorbed_100']}`",
+            f"- cangjie core evidence in this run: `{scorecard.get('cangjie_core_evidence_in_this_run_100')}`",
+            f"- cangjie score scope: `{scorecard.get('cangjie_score_scope', {}).get('score_scope')}`",
+            f"- cangjie score pipeline mode: `{scorecard.get('cangjie_score_scope', {}).get('pipeline_mode')}`",
+            f"- cangjie score interpretation: `{scorecard.get('cangjie_score_scope', {}).get('interpretation')}`",
             f"- cangjie methodology internal: `{scorecard.get('cangjie_methodology_internal_100')}`",
+            f"- cangjie methodology internal evidence in this run: `{scorecard.get('cangjie_methodology_internal_evidence_in_this_run_100')}`",
             f"- cangjie external blind preference: `{scorecard.get('cangjie_methodology_external_blind_100')}`",
             f"- cangjie methodology closure: `{scorecard.get('cangjie_methodology_closure_100')}`",
             f"- cangjie methodology quality (deprecated closure alias): `{scorecard.get('cangjie_methodology_quality_100')}`",

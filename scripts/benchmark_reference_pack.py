@@ -41,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--comparison-scope",
         default="structure-only",
-        choices=("structure-only", "same-source"),
+        choices=("structure-only", "same-source", "same-book-reference"),
         help="How to interpret the comparison line.",
     )
     parser.add_argument(
@@ -99,8 +99,15 @@ def main() -> int:
             "kiu_foundation_retained_100": report["scorecard"]["kiu_foundation_retained_100"],
             "graphify_core_absorbed_100": report["scorecard"]["graphify_core_absorbed_100"],
             "cangjie_core_absorbed_100": report["scorecard"]["cangjie_core_absorbed_100"],
+            "cangjie_core_evidence_in_this_run_100": report["scorecard"].get(
+                "cangjie_core_evidence_in_this_run_100"
+            ),
+            "cangjie_score_scope": report["scorecard"].get("cangjie_score_scope", {}),
             "cangjie_methodology_internal_100": report["scorecard"].get(
                 "cangjie_methodology_internal_100"
+            ),
+            "cangjie_methodology_internal_evidence_in_this_run_100": report["scorecard"].get(
+                "cangjie_methodology_internal_evidence_in_this_run_100"
             ),
             "cangjie_methodology_external_blind_100": report["scorecard"].get(
                 "cangjie_methodology_external_blind_100"

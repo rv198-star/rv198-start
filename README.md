@@ -1,22 +1,23 @@
-# KiU
+# KiU · 学以致用
 
 [![CI](https://github.com/rv198-star/rv198-start/actions/workflows/ci.yml/badge.svg)](https://github.com/rv198-star/rv198-start/actions/workflows/ci.yml)
 
-KiU v0.1 is a graph-first, evidence-backed skill bundle format with a complete reference bundle and a local validator.
+KiU (学以致用, starting with v0.7) is a graph-first, evidence-backed skill bundle format for turning source knowledge into usable judgment while preserving provenance, boundaries, and review evidence.
 
 Current release framing:
 
 - `v0.5.0` closes the foundation line: multi-domain validation, cross-bundle graph merge, workflow-vs-agentic boundary enforcement, and three-layer review evidence.
 - `v0.5.1` closes the corrective `cangjie-skill` gap-closure line: fresh same-source evidence shows a small but explicit usage lead without workflow-boundary drift.
-- `v0.6.0` closes the source/provenance and Graphify-core bottom layer: raw-book ingestion, extraction audit records, provenance-rich graph materialization, tri-state graph effectiveness, graph navigation reports, generated usage smoke reviews, and final same-source evidence that preserves the `workflow_script` / `llm_agentic` boundary.
-- `v0.6.0` does not claim a large final-usage lead over `cangjie-skill`; it proves the stronger evidence bottom layer is ready for the next graph-to-skill distillation step.
-- `v0.7` is reserved for `In Use world-alignment` after the `v0.6.0` source/provenance line.
+- `v0.6.8` seals the v0.6.x line: raw-book cold start, Graphify-core source/provenance absorption, boundary/scenario audit infrastructure, explicit reference-source selection, and release evidence honesty are complete for this line.
+- `v0.6.8` does not claim external blind-review closure; real external preference validation remains a v0.7 validation backlog item rather than a v0.6.x blocker.
+- `v0.7` starts the `学以致用 · World Alignment` line. Its core rule is isolation enhancement, not fusion rewrite: world context may gate or caveat application in isolated artifacts, but it must not silently rewrite source-faithful skills. v0.7.0 explicitly defers live web search and multi-world / multi-stance modeling.
 
 Start here:
 
 - [Usage Guide](docs/usage-guide.md)
 - [Backlog Board](backlog/board.yaml)
 - [Version Roadmap Realignment](docs/2026-04-24-version-roadmap-v051-v06-v07.md)
+- [v0.7 World Alignment Charter](docs/2026-04-24-v0.7-world-alignment-charter.md)
 - [KiU Skill Spec v0.1](docs/kiu-skill-spec-v0.1.md)
 - [KiU Skill Spec v0.3](docs/kiu-skill-spec-v0.3.md)
 - [KiU Skill Spec v0.4](docs/kiu-skill-spec-v0.4.md)

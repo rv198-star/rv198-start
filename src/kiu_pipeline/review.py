@@ -10,6 +10,8 @@ import yaml
 from .pipeline_provenance import load_pipeline_provenance
 from .preflight import validate_generated_bundle
 from .pressure import write_pressure_report
+from .proxy_usage import load_proxy_usage_reviews, summarize_proxy_usage_reviews
+from .world_alignment import review_world_alignment
 from kiu_validator.core import validate_bundle
 
 GENERIC_NEXT_ACTIONS = {
@@ -41,6 +43,7 @@ def review_generated_run(
         for doc in usage_docs
         if _belongs_to_run(doc, run_root)
     ]
+    proxy_usage_docs = load_proxy_usage_reviews(run_root / "proxy-usage-review")
     pressure_report = write_pressure_report(run_root=run_root, bundle_root=bundle_root)
 
     source_bundle = _score_source_bundle(
@@ -56,6 +59,11 @@ def review_generated_run(
         pressure_report=pressure_report,
     )
     usage_outputs = _score_usage_outputs(usage_docs)
+    proxy_usage_outputs = summarize_proxy_usage_reviews(proxy_usage_docs)
+    practical_effect_outputs = _score_practical_effect_outputs(
+        usage_outputs=usage_outputs,
+        proxy_usage_outputs=proxy_usage_outputs,
+    )
 
     overall_score = round(
         0.30 * source_bundle["score_100"]
@@ -87,6 +95,8 @@ def review_generated_run(
         "source_bundle": source_bundle,
         "generated_bundle": generated_bundle,
         "usage_outputs": usage_outputs,
+        "proxy_usage_outputs": proxy_usage_outputs,
+        "practical_effect_outputs": practical_effect_outputs,
         "release_gate": release_gate,
         "overall_score_100": overall_score,
     }
@@ -336,6 +346,12 @@ def _score_generated_bundle(
     if workflow_count > 0 and workflow_ready_ratio < 1.0:
         notes.append("workflow_verification_partial")
 
+    world_alignment = review_world_alignment(run_root / "bundle")
+    if world_alignment.get("world_alignment_present"):
+        notes.append("world_alignment_present")
+    if world_alignment.get("source_pollution_errors", 0):
+        notes.append("world_alignment_source_pollution")
+
     return {
         "score_100": score,
         "errors": len(errors),
@@ -351,6 +367,7 @@ def _score_generated_bundle(
         "rationale_template_collision": rationale_template_collision,
         "workflow_verification_ready_ratio": workflow_ready_ratio,
         "workflow_gateway_boundary_preserved": workflow_gateway_boundary_preserved,
+        "world_alignment": world_alignment,
         "notes": notes,
     }
 
@@ -442,6 +459,61 @@ def _score_usage_outputs(docs: list[dict[str, Any]]) -> dict[str, Any]:
         "usage_gate_ready": usage_gate_ready,
         "usage_gate_reasons": usage_gate_reasons,
         "samples": scored_docs,
+    }
+
+
+def _score_practical_effect_outputs(
+    *,
+    usage_outputs: dict[str, Any],
+    proxy_usage_outputs: dict[str, Any],
+) -> dict[str, Any]:
+    usage_score = float(usage_outputs.get("score_100", 0.0) or 0.0)
+    usage_sample_count = int(usage_outputs.get("sample_count", 0) or 0)
+    proxy_score = float(proxy_usage_outputs.get("score_100", 0.0) or 0.0)
+    proxy_case_count = int(proxy_usage_outputs.get("case_count", 0) or 0)
+    proxy_ready = bool(proxy_usage_outputs.get("gate_ready"))
+
+    if usage_sample_count >= 6 and bool(usage_outputs.get("usage_gate_ready")):
+        return {
+            "schema_version": "kiu.practical-effect-review/v0.1",
+            "score_100": round(usage_score, 1),
+            "evidence_level": "L3_usage_review",
+            "usage_score_100": usage_score,
+            "proxy_usage_score_100": proxy_score,
+            "case_count": usage_sample_count,
+            "gate_ready": usage_score >= 90.0,
+            "gate_reasons": [] if usage_score >= 90.0 else ["practical_effect_score_below_90"],
+            "claim_boundary": "Usage evidence is used as the primary practical-effect signal for this run.",
+        }
+
+    if proxy_ready and proxy_case_count >= 8:
+        # Proxy usage is useful as a guardrail but cannot carry the same claim weight
+        # as real usage or external blind review. Keep a small discount and cap.
+        blended = 0.25 * usage_score + 0.75 * min(proxy_score, 95.0)
+        score = round(blended, 1)
+        return {
+            "schema_version": "kiu.practical-effect-review/v0.1",
+            "score_100": score,
+            "evidence_level": "L2_5_proxy_usage",
+            "usage_score_100": usage_score,
+            "proxy_usage_score_100": proxy_score,
+            "case_count": proxy_case_count,
+            "gate_ready": score >= 90.0,
+            "gate_reasons": [] if score >= 90.0 else ["practical_effect_score_below_90"],
+            "claim_boundary": "Proxy usage is a downgraded internal regression guard, not real user validation or external blind review.",
+        }
+
+    score = round(usage_score, 1)
+    return {
+        "schema_version": "kiu.practical-effect-review/v0.1",
+        "score_100": score,
+        "evidence_level": "L1_smoke_or_missing",
+        "usage_score_100": usage_score,
+        "proxy_usage_score_100": proxy_score,
+        "case_count": usage_sample_count,
+        "gate_ready": False,
+        "gate_reasons": ["insufficient_usage_or_proxy_evidence"],
+        "claim_boundary": "Only smoke or missing usage evidence is available; do not claim practical effect closure.",
     }
 
 

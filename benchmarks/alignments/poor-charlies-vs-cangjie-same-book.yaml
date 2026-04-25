@@ -1,0 +1,32 @@
+schema_version: kiu.reference-alignment/v0.1
+alignment_id: poor-charlies-vs-cangjie-same-book
+scope: same-book-reference
+claim_boundary: Same book and reference project comparison only. This is not a same intermediate-data or same generated-artifact comparison.
+kiu_bundle_id: poor-charlies-almanack-v0.1
+reference_pack_hint: poor-charlies-almanack-skill
+pairs:
+  - kiu_skill_id: circle-of-competence
+    reference_skill_id: circle-of-competence
+    relationship: direct_match
+    notes:
+      - same core concept and same triggering question
+  - kiu_skill_id: invert-the-problem
+    reference_skill_id: inversion-thinking
+    relationship: close_match
+    notes:
+      - same inversion family with different wording granularity
+  - kiu_skill_id: bias-self-audit
+    reference_skill_id: darwinian-objectivity
+    relationship: thematic_overlap
+    notes:
+      - both focus on self-correction and anti-bias discipline
+  - kiu_skill_id: margin-of-safety-sizing
+    reference_skill_id: value-assessment
+    relationship: partial_overlap
+    notes:
+      - KiU isolates sizing discipline while reference packs it into valuation
+  - kiu_skill_id: value-assessment-source-note
+    reference_skill_id: value-assessment
+    relationship: partial_overlap
+    notes:
+      - KiU v0.7 source-note valuation candidate is compared against cangjie value-assessment only as a same-book reference proxy
