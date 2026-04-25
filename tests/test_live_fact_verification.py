@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+import tempfile
+
+import yaml
 
 
 class ClaimLedgerTests(unittest.TestCase):
@@ -111,6 +115,150 @@ class FactVerificationTests(unittest.TestCase):
             result = verify_claim_against_evidence(claim, evidence, retrieved_at="2026-04-26T00:00:00Z")
             self.assertEqual(result["verification_status"], expected_status)
             self.assertEqual(direct_apply_allowed(result), expected_allowed)
+
+
+class LiveRetrievalAndGateTests(unittest.TestCase):
+    def test_live_retrieval_adapter_records_source_metadata_without_advice(self) -> None:
+        from kiu_pipeline.live_facts import retrieve_live_facts_for_claims
+
+        def fake_fetch(url: str) -> dict[str, str]:
+            return {
+                "source_url": url,
+                "source_title": "Official Source",
+                "text": "Company filed its 2025 10-K",
+                "published_at": "2026-02-01",
+            }
+
+        pack = retrieve_live_facts_for_claims(
+            claims=[{"claim_id": "claim-001", "text": "Company filed its 2025 10-K", "claim_type": "current_regulatory_fact"}],
+            source_urls=["https://example.gov/company-10-k"],
+            retrieved_at="2026-04-26T00:00:00Z",
+            fetcher=fake_fetch,
+        )
+
+        fact = pack["facts"][0]
+        self.assertEqual(fact["evidence"][0]["source_title"], "Official Source")
+        self.assertEqual(fact["verification_status"], "supported")
+        self.assertNotIn("advice", fact)
+        self.assertNotIn("recommendation", fact)
+
+    def test_live_retrieval_failure_is_recorded_not_fabricated(self) -> None:
+        from kiu_pipeline.live_facts import retrieve_live_facts_for_claims
+
+        def failing_fetch(url: str) -> dict[str, str]:
+            raise TimeoutError("network timeout")
+
+        pack = retrieve_live_facts_for_claims(
+            claims=[{"claim_id": "claim-001", "text": "Current market proves buy", "claim_type": "current_market_fact"}],
+            source_urls=["https://example.gov/market"],
+            retrieved_at="2026-04-26T00:00:00Z",
+            fetcher=failing_fetch,
+        )
+
+        fact = pack["facts"][0]
+        self.assertEqual(fact["verification_status"], "retrieval_failed")
+        self.assertEqual(fact["evidence"][0]["relation_to_claim"], "retrieval_failed")
+        self.assertIn("network timeout", fact["evidence"][0]["retrieval_error"])
+
+    def test_freshness_gate_maps_verification_status_to_safe_verdicts(self) -> None:
+        from kiu_pipeline.freshness_gate import application_decision_from_verification
+
+        expected = {
+            "supported": "apply_with_caveats",
+            "partially_supported": "partial_apply",
+            "unsupported": "refuse",
+            "conflicting": "refuse",
+            "stale": "ask_more_context",
+            "undated": "ask_more_context",
+            "insufficient_evidence": "ask_more_context",
+            "retrieval_failed": "refuse",
+        }
+
+        for status, verdict in expected.items():
+            decision = application_decision_from_verification({"verification_status": status}, high_stakes=True)
+            self.assertEqual(decision["verdict"], verdict)
+            self.assertTrue(decision["world_context_isolated"])
+            self.assertNotIn("rewrite_source_claim", decision.get("decision_effect", []))
+
+    def test_world_alignment_consumes_fact_pack_without_mutating_skill_markdown(self) -> None:
+        from kiu_pipeline.world_alignment import apply_external_fact_pack_to_gates
+
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle = Path(tmp) / "bundle"
+            skill_dir = bundle / "skills" / "challenge-price-with-value"
+            skill_dir.mkdir(parents=True)
+            skill_md = skill_dir / "SKILL.md"
+            skill_md.write_text("# Challenge Price With Value\n\nSource-only content.", encoding="utf-8")
+            (bundle / "manifest.yaml").write_text(
+                yaml.safe_dump({"skills": [{"skill_id": "challenge-price-with-value", "path": "skills/challenge-price-with-value"}]}),
+                encoding="utf-8",
+            )
+            gate_dir = bundle / "world_alignment" / "challenge-price-with-value"
+            gate_dir.mkdir(parents=True)
+            (gate_dir / "application_gate.yaml").write_text(
+                yaml.safe_dump({"skill_id": "challenge-price-with-value", "verdict": "ask_more_context", "world_context_isolated": True}),
+                encoding="utf-8",
+            )
+            before = skill_md.read_text(encoding="utf-8")
+
+            summary = apply_external_fact_pack_to_gates(
+                bundle,
+                {
+                    "facts": [
+                        {
+                            "claim_id": "claim-001",
+                            "skill_id": "challenge-price-with-value",
+                            "verification_status": "supported",
+                            "evidence": [{"source_url": "https://example.gov/fact", "relation_to_claim": "supports"}],
+                        }
+                    ]
+                },
+            )
+
+            self.assertEqual(summary["updated_gate_count"], 1)
+            self.assertEqual(skill_md.read_text(encoding="utf-8"), before)
+            live_gate = yaml.safe_load((gate_dir / "application_gate.live.yaml").read_text(encoding="utf-8"))
+            self.assertEqual(live_gate["verdict"], "apply_with_caveats")
+            self.assertTrue(live_gate["web_check_performed"])
+
+    def test_hallucination_matrix_blocks_negative_cases_and_allows_low_temporal_source_use(self) -> None:
+        from kiu_pipeline.fact_verification import direct_apply_allowed, verify_claim_against_evidence
+
+        negative_cases = [
+            ("Company is undervalued today", [{"text": "Company reports revenue", "published_at": "2026-02-01"}], "unsupported"),
+            ("Policy requires X", [{"text": "Policy says X is not required", "published_at": "2026-04-01"}], "conflicting"),
+            ("Current rate is 5%", [{"text": "Rate was 5%", "published_at": "2020-01-01"}], "stale"),
+            ("Market proves buy", [{"retrieval_error": "timeout"}], "retrieval_failed"),
+        ]
+        for claim, evidence, status in negative_cases:
+            result = verify_claim_against_evidence(claim, evidence, retrieved_at="2026-04-26T00:00:00Z")
+            self.assertEqual(result["verification_status"], status)
+            self.assertFalse(direct_apply_allowed(result))
+
+        from kiu_pipeline.claim_ledger import build_claim_ledger
+
+        ledger = build_claim_ledger(
+            bundle_id="sample",
+            records=[{"skill_id": "circle-of-competence", "prompt": "Should I stay inside competence?", "temporal_sensitivity": "low"}],
+        )
+        self.assertEqual(ledger["claims"], [])
+
+
+class LiveFactPreflightTests(unittest.TestCase):
+    def test_live_fact_urls_do_not_pollute_source_skill_markdown(self) -> None:
+        from kiu_pipeline.preflight import scan_live_fact_pollution
+
+        errors = scan_live_fact_pollution(
+            skill_markdown="# Skill\nEvidence: examples/book.md",
+            fact_pack={"facts": [{"evidence": [{"source_url": "https://example.gov/fact"}]}]},
+        )
+        self.assertEqual(errors, [])
+
+        polluted = scan_live_fact_pollution(
+            skill_markdown="# Skill\nEvidence: https://example.gov/fact",
+            fact_pack={"facts": [{"evidence": [{"source_url": "https://example.gov/fact"}]}]},
+        )
+        self.assertTrue(any("live fact URL" in error for error in polluted))
 
 
 if __name__ == "__main__":

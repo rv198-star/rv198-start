@@ -96,6 +96,16 @@ def validate_generated_bundle(bundle_root: str | Path) -> dict[str, Any]:
     return report
 
 
+def scan_live_fact_pollution(skill_markdown: str, fact_pack: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    for fact in fact_pack.get("facts") or []:
+        for evidence in fact.get("evidence") or []:
+            source_url = str(evidence.get("source_url") or "").strip()
+            if source_url and source_url in skill_markdown:
+                errors.append(f"live fact URL must not appear in source SKILL.md evidence: {source_url}")
+    return errors
+
+
 def _workflow_candidate_ids(bundle_root: Path) -> list[str]:
     workflow_root = bundle_root.parent / "workflow_candidates"
     if not workflow_root.exists():

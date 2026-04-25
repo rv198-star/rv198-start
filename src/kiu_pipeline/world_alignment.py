@@ -7,6 +7,8 @@ from typing import Any
 
 import yaml
 
+from kiu_pipeline.freshness_gate import application_decision_from_verification
+
 WORLD_CONTEXT_SCHEMA = "kiu.world-context/v0.1"
 APPLICATION_GATE_SCHEMA = "kiu.application-gate/v0.1"
 NO_WEB_REVIEW_SCHEMA = "kiu.no-web-agentic-review/v0.1"
@@ -221,6 +223,43 @@ def build_world_alignment_artifacts(
         "generated_skill_ids": [skill["skill_id"] for skill in skills],
         "verdict_counts": _count_by(gates, "verdict"),
     }
+
+
+def apply_external_fact_pack_to_gates(bundle_root: str | Path, fact_pack: dict[str, Any]) -> dict[str, Any]:
+    """Write live gate overlays from external facts without changing source skills."""
+
+    bundle_root = Path(bundle_root)
+    updated = 0
+    skipped = 0
+    for fact in fact_pack.get("facts") or []:
+        skill_id = str(fact.get("skill_id") or "").strip()
+        if not skill_id:
+            skipped += 1
+            continue
+        gate_path = bundle_root / "world_alignment" / skill_id / "application_gate.yaml"
+        if not gate_path.exists():
+            skipped += 1
+            continue
+        original_gate = yaml.safe_load(gate_path.read_text(encoding="utf-8")) or {}
+        decision = application_decision_from_verification(fact, high_stakes="market" in str(fact.get("claim") or "").lower())
+        live_gate = dict(original_gate)
+        live_gate.update(decision)
+        live_gate.update(
+            {
+                "schema_version": APPLICATION_GATE_SCHEMA,
+                "skill_id": skill_id,
+                "source_skill_unchanged": True,
+                "world_context_isolated": True,
+                "source_fidelity_preserved": True,
+                "web_check_performed": fact.get("verification_status") != "retrieval_failed",
+                "external_fact_claim_id": fact.get("claim_id"),
+                "external_fact_verification_status": fact.get("verification_status"),
+                "external_fact_evidence": fact.get("evidence") or [],
+            }
+        )
+        _write_yaml(gate_path.with_name("application_gate.live.yaml"), live_gate)
+        updated += 1
+    return {"schema_version": "kiu.live-application-gate-overlay/v0.1", "updated_gate_count": updated, "skipped_fact_count": skipped}
 
 
 V071_GATE_THRESHOLDS = {
