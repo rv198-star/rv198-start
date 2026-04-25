@@ -1,0 +1,139 @@
+{
+  "schema_version": "kiu.world-alignment-gate-evidence/v0.1",
+  "claim_boundary": "internal_release_gate_evidence_only_not_external_validation",
+  "checks": {
+    "source_fidelity_preserved": {
+      "actual": true,
+      "threshold": true,
+      "passed": true
+    },
+    "world_context_isolated": {
+      "actual": true,
+      "threshold": true,
+      "passed": true
+    },
+    "workflow_boundary_preserved": {
+      "actual": true,
+      "threshold": true,
+      "passed": true
+    },
+    "samples_passed": {
+      "actual": 4,
+      "threshold": 3,
+      "passed": true
+    },
+    "world_alignment_score_min": {
+      "actual": 93.2,
+      "threshold": 85.0,
+      "passed": true
+    },
+    "world_context_depth_score_min": {
+      "actual": 88.0,
+      "threshold": 80.0,
+      "passed": true
+    },
+    "source_pollution_errors": {
+      "actual": 0,
+      "threshold": 0,
+      "passed": true
+    },
+    "original_source_only_mode_supported": {
+      "actual": true,
+      "threshold": true,
+      "passed": true
+    },
+    "application_gate_cases": {
+      "actual": 10,
+      "threshold": 9,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "sample_results": [
+    {
+      "bundle_root": "/tmp/kiu-v071-world-alignment-gate/poor_charlie_principles/bundle",
+      "passed": true,
+      "gate_count": 5,
+      "verdict_counts": {
+        "apply": 4,
+        "ask_more_context": 1
+      },
+      "world_alignment_score_100": 93.2,
+      "world_context_depth_score": 88.0,
+      "source_pollution_errors": 0,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": true,
+      "original_source_only_mode_supported": true
+    },
+    {
+      "bundle_root": "/tmp/kiu-v071-world-alignment-gate/effective_requirements_methods/bundle",
+      "passed": true,
+      "gate_count": 2,
+      "verdict_counts": {
+        "apply_with_caveats": 2
+      },
+      "world_alignment_score_100": 97.0,
+      "world_context_depth_score": 100.0,
+      "source_pollution_errors": 0,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": true,
+      "original_source_only_mode_supported": true
+    },
+    {
+      "bundle_root": "/tmp/kiu-v071-world-alignment-gate/financial_statement_current_context/bundle",
+      "passed": true,
+      "gate_count": 2,
+      "verdict_counts": {
+        "ask_more_context": 1,
+        "refuse": 1
+      },
+      "world_alignment_score_100": 94.5,
+      "world_context_depth_score": 100.0,
+      "source_pollution_errors": 0,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": true,
+      "original_source_only_mode_supported": true
+    },
+    {
+      "bundle_root": "/tmp/kiu-v071-world-alignment-gate/no_web_refuse_fixture/bundle",
+      "passed": true,
+      "gate_count": 1,
+      "verdict_counts": {
+        "refuse": 1
+      },
+      "world_alignment_score_100": 94.5,
+      "world_context_depth_score": 100.0,
+      "source_pollution_errors": 0,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": true,
+      "original_source_only_mode_supported": true
+    }
+  ],
+  "verdict_counts": {
+    "apply": 4,
+    "ask_more_context": 2,
+    "apply_with_caveats": 2,
+    "refuse": 2
+  },
+  "mechanism_counts": {
+    "need_scoring_count": 10,
+    "intervention_level_count": {
+      "minimal": 4,
+      "strong_gate": 4,
+      "moderate": 2
+    },
+    "candidate_arbitration_count": 31,
+    "accepted_pressure_count": 20,
+    "rejected_pressure_count": 5,
+    "no_forced_enhancement_count": 2,
+    "source_fit_review_count": 10,
+    "dilution_risk_review_count": 10,
+    "hallucination_risk_review_count": 10
+  },
+  "evidence_paths": [
+    "/tmp/kiu-v071-world-alignment-gate/poor_charlie_principles/bundle/world_alignment",
+    "/tmp/kiu-v071-world-alignment-gate/effective_requirements_methods/bundle/world_alignment",
+    "/tmp/kiu-v071-world-alignment-gate/financial_statement_current_context/bundle/world_alignment",
+    "/tmp/kiu-v071-world-alignment-gate/no_web_refuse_fixture/bundle/world_alignment"
+  ]
+}

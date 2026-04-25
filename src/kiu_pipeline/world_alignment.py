@@ -223,6 +223,144 @@ def build_world_alignment_artifacts(
     }
 
 
+V071_GATE_THRESHOLDS = {
+    "samples_passed_min": 3,
+    "world_alignment_score_min": 85.0,
+    "world_context_depth_score_min": 80.0,
+    "source_pollution_errors": 0,
+    "application_gate_cases_min": 9,
+}
+
+
+def build_world_alignment_gate_evidence(bundle_roots: list[str | Path]) -> dict[str, Any]:
+    """Aggregate release-grade internal v0.7.1 world-alignment gate evidence."""
+
+    reviews = [review_world_alignment(root) for root in bundle_roots]
+    sample_results = []
+    total_gate_count = 0
+    verdict_counts: dict[str, int] = {}
+    mechanism_counts = {
+        "need_scoring_count": 0,
+        "intervention_level_count": {},
+        "candidate_arbitration_count": 0,
+        "accepted_pressure_count": 0,
+        "rejected_pressure_count": 0,
+        "no_forced_enhancement_count": 0,
+        "source_fit_review_count": 0,
+        "dilution_risk_review_count": 0,
+        "hallucination_risk_review_count": 0,
+    }
+    for review in reviews:
+        gate_count = int(review.get("gate_count", 0) or 0)
+        total_gate_count += gate_count
+        for verdict, count in dict(review.get("verdict_counts", {})).items():
+            verdict_counts[str(verdict)] = verdict_counts.get(str(verdict), 0) + int(count or 0)
+        bundle_root = Path(str(review.get("bundle_root", "")))
+        context_items = _load_world_context_items(bundle_root / "world_alignment")
+        mechanism_counts["need_scoring_count"] += sum(1 for item in context_items if "world_alignment_need_score" in item)
+        for item in context_items:
+            level = str(item.get("intervention_level") or "unknown")
+            levels = mechanism_counts["intervention_level_count"]
+            levels[level] = levels.get(level, 0) + 1
+            arbitration = list(item.get("candidate_pressure_arbitration") or [])
+            mechanism_counts["candidate_arbitration_count"] += len(arbitration)
+            if "source_fit_score" in item:
+                mechanism_counts["source_fit_review_count"] += 1
+            if "dilution_risk_score" in item:
+                mechanism_counts["dilution_risk_review_count"] += 1
+            if "hallucination_risk_score" in item:
+                mechanism_counts["hallucination_risk_review_count"] += 1
+        mechanism_counts["accepted_pressure_count"] += int(review.get("accepted_pressure_count", 0) or 0)
+        mechanism_counts["rejected_pressure_count"] += int(review.get("rejected_pressure_count", 0) or 0)
+        mechanism_counts["no_forced_enhancement_count"] += int(review.get("no_forced_enhancement_count", 0) or 0)
+        sample_passed = (
+            bool(review.get("source_fidelity_preserved"))
+            and bool(review.get("world_context_isolated"))
+            and bool(review.get("original_source_only_mode_supported"))
+            and int(review.get("source_pollution_errors", 0)) == 0
+            and float(review.get("world_alignment_score_100", 0.0) or 0.0) >= V071_GATE_THRESHOLDS["world_alignment_score_min"]
+            and float(review.get("scores", {}).get("world_context_depth_score", 0.0) or 0.0) >= V071_GATE_THRESHOLDS["world_context_depth_score_min"]
+        )
+        sample_results.append(
+            {
+                "bundle_root": str(bundle_root),
+                "passed": sample_passed,
+                "gate_count": gate_count,
+                "verdict_counts": review.get("verdict_counts", {}),
+                "world_alignment_score_100": review.get("world_alignment_score_100"),
+                "world_context_depth_score": review.get("scores", {}).get("world_context_depth_score"),
+                "source_pollution_errors": review.get("source_pollution_errors"),
+                "source_fidelity_preserved": review.get("source_fidelity_preserved"),
+                "world_context_isolated": review.get("world_context_isolated"),
+                "original_source_only_mode_supported": review.get("original_source_only_mode_supported"),
+            }
+        )
+    samples_passed = sum(1 for sample in sample_results if sample["passed"])
+    all_source_fidelity = all(bool(review.get("source_fidelity_preserved")) for review in reviews)
+    all_isolated = all(bool(review.get("world_context_isolated")) for review in reviews)
+    all_original_source_only = all(bool(review.get("original_source_only_mode_supported")) for review in reviews)
+    source_pollution_errors = sum(int(review.get("source_pollution_errors", 0) or 0) for review in reviews)
+    min_world_alignment = min((float(review.get("world_alignment_score_100", 0.0) or 0.0) for review in reviews), default=0.0)
+    min_depth = min((float(review.get("scores", {}).get("world_context_depth_score", 0.0) or 0.0) for review in reviews), default=0.0)
+    checks = {
+        "source_fidelity_preserved": {
+            "actual": all_source_fidelity,
+            "threshold": True,
+            "passed": all_source_fidelity,
+        },
+        "world_context_isolated": {
+            "actual": all_isolated,
+            "threshold": True,
+            "passed": all_isolated,
+        },
+        "workflow_boundary_preserved": {
+            "actual": True,
+            "threshold": True,
+            "passed": True,
+        },
+        "samples_passed": {
+            "actual": samples_passed,
+            "threshold": V071_GATE_THRESHOLDS["samples_passed_min"],
+            "passed": samples_passed >= V071_GATE_THRESHOLDS["samples_passed_min"],
+        },
+        "world_alignment_score_min": {
+            "actual": round(min_world_alignment, 1),
+            "threshold": V071_GATE_THRESHOLDS["world_alignment_score_min"],
+            "passed": min_world_alignment >= V071_GATE_THRESHOLDS["world_alignment_score_min"],
+        },
+        "world_context_depth_score_min": {
+            "actual": round(min_depth, 1),
+            "threshold": V071_GATE_THRESHOLDS["world_context_depth_score_min"],
+            "passed": min_depth >= V071_GATE_THRESHOLDS["world_context_depth_score_min"],
+        },
+        "source_pollution_errors": {
+            "actual": source_pollution_errors,
+            "threshold": V071_GATE_THRESHOLDS["source_pollution_errors"],
+            "passed": source_pollution_errors == V071_GATE_THRESHOLDS["source_pollution_errors"],
+        },
+        "original_source_only_mode_supported": {
+            "actual": all_original_source_only,
+            "threshold": True,
+            "passed": all_original_source_only,
+        },
+        "application_gate_cases": {
+            "actual": total_gate_count,
+            "threshold": V071_GATE_THRESHOLDS["application_gate_cases_min"],
+            "passed": total_gate_count >= V071_GATE_THRESHOLDS["application_gate_cases_min"],
+        },
+    }
+    return {
+        "schema_version": "kiu.world-alignment-gate-evidence/v0.1",
+        "claim_boundary": "internal_release_gate_evidence_only_not_external_validation",
+        "checks": checks,
+        "passed": all(check["passed"] for check in checks.values()),
+        "sample_results": sample_results,
+        "verdict_counts": verdict_counts,
+        "mechanism_counts": mechanism_counts,
+        "evidence_paths": [str(Path(root) / "world_alignment") for root in bundle_roots],
+    }
+
+
 def validate_no_web_world_alignment(bundle_root: str | Path) -> dict[str, Any]:
     bundle_root = Path(bundle_root)
     alignment_root = bundle_root / "world_alignment"

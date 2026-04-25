@@ -10,6 +10,7 @@ import yaml
 
 from kiu_pipeline.review import _score_generated_bundle
 from kiu_pipeline.world_alignment import (
+    build_world_alignment_gate_evidence,
     build_world_alignment_artifacts,
     review_world_alignment,
     validate_no_web_world_alignment,
@@ -255,6 +256,67 @@ class WorldAlignmentTests(unittest.TestCase):
             self.assertGreater(reviewed["scores"]["hallucination_risk_score"], 50.0)
             self.assertIn("hallucination_risk", reviewed["quality_findings"])
             self.assertLess(reviewed["world_alignment_score_100"], 85.0)
+
+
+    def test_builds_release_gate_evidence_scorecard_from_sample_bundles(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            bundles = [
+                _write_bundle(
+                    root / "poor",
+                    {
+                        "circle-of-competence": "Circle Of Competence",
+                        "invert-the-problem": "Invert The Problem",
+                        "bias-self-audit": "Bias Self Audit",
+                        "value-assessment-source-note": "Value Assessment Source Note",
+                        "role-boundary-before-action": "Role Boundary Before Action",
+                    },
+                ),
+                _write_bundle(
+                    root / "requirements",
+                    {
+                        "business-first-subsystem-decomposition": "Business First Subsystem Decomposition",
+                        "stakeholder-conflict-clarification": "Stakeholder Conflict Clarification",
+                    },
+                ),
+                _write_bundle(
+                    root / "finance",
+                    {
+                        "financial-statement-current-investment-check": "Financial Statement Current Investment Check",
+                        "challenge-price-with-value": "Challenge Price With Value",
+                    },
+                ),
+                _write_bundle(root / "refuse", {"current-investment-advice": "Current Investment Advice"}),
+            ]
+            for bundle in bundles:
+                build_world_alignment_artifacts(bundle, no_web_mode=True)
+
+            evidence = build_world_alignment_gate_evidence(bundles)
+
+            self.assertTrue(evidence["passed"])
+            self.assertGreaterEqual(evidence["checks"]["samples_passed"]["actual"], 3)
+            self.assertGreaterEqual(evidence["checks"]["application_gate_cases"]["actual"], 9)
+            self.assertEqual(evidence["checks"]["source_pollution_errors"]["actual"], 0)
+            self.assertGreaterEqual(evidence["checks"]["world_alignment_score_min"]["actual"], 85.0)
+            self.assertGreaterEqual(evidence["checks"]["world_context_depth_score_min"]["actual"], 80.0)
+            self.assertGreater(evidence["mechanism_counts"]["candidate_arbitration_count"], 0)
+            self.assertGreater(evidence["mechanism_counts"]["source_fit_review_count"], 0)
+            self.assertIn("apply", evidence["verdict_counts"])
+            self.assertIn("ask_more_context", evidence["verdict_counts"])
+            self.assertIn("refuse", evidence["verdict_counts"])
+
+    def test_release_gate_evidence_fails_when_source_skill_is_polluted(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle = _write_bundle(Path(tmp), {"circle-of-competence": "Circle Of Competence"})
+            build_world_alignment_artifacts(bundle, no_web_mode=True)
+            skill_path = bundle / "skills" / "circle-of-competence" / "SKILL.md"
+            skill_path.write_text(skill_path.read_text(encoding="utf-8") + "\nworld_context_isolated: true\n", encoding="utf-8")
+
+            evidence = build_world_alignment_gate_evidence([bundle])
+
+            self.assertFalse(evidence["passed"])
+            self.assertFalse(evidence["checks"]["source_fidelity_preserved"]["passed"])
+            self.assertGreater(evidence["checks"]["source_pollution_errors"]["actual"], 0)
 
     def test_no_web_hallucination_fixture_matrix_blocks_unsafe_claims_and_allows_safe_caveats(self) -> None:
         unsafe_claims = [
