@@ -1466,3 +1466,83 @@ tickets:
   evidence:
   - reports/2026-04-25-v0.7.1-world-alignment-value-metrics.md
   - reports/2026-04-25-v0.7.1-world-alignment-value-metrics.json
+
+- id: KIU-725
+  title: v0.7.1 three-layer output comparison
+  target_version: v0.7.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: evaluation
+  summary: Compare v0.7.0 and v0.7.1 Source, Generated, Usage, Overall, proxy, practical-effect, and world-alignment scores across the evaluation samples.
+  acceptance:
+  - Effective Requirements, Financial Statement, and Poor Charlie have v0.7.0 versus v0.7.1 rows.
+  - Report shows release gate readiness for each rerun.
+  - Report distinguishes no-regression evidence from real-user validation.
+  evidence:
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.md
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.json
+
+- id: KIU-726
+  title: v0.7.1 value metrics rerun on evaluation samples
+  target_version: v0.7.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: evaluation
+  summary: Include the v0.7.1 gate and value metrics in the evaluation synthesis so the review can see practical-value signals beside three-layer scores.
+  acceptance:
+  - Evaluation report includes gate evidence actuals and thresholds.
+  - Evaluation report includes value metric actuals, release gates, and stretch targets.
+  - Stretch misses remain visible.
+  evidence:
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.md
+  - reports/2026-04-25-v0.7.1-world-alignment-gate-evidence.md
+  - reports/2026-04-25-v0.7.1-world-alignment-value-metrics.md
+
+- id: KIU-727
+  title: v0.7.1 same-book cangjie reference comparison
+  target_version: v0.7.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: evaluation
+  summary: Rerun Poor Charlie same-book reference comparison against the local cangjie reference pack and keep the scope label honest.
+  acceptance:
+  - Report includes matched pairs, scenario count, usage scores, weighted pass rates, pair-level deltas, and critical/major case counts.
+  - Report labels the comparison as same-book-reference rather than strict same-source-data.
+  - Report states that cangjie methodology closure remains false for this benchmark path.
+  evidence:
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.md
+  - /tmp/kiu-v071-eval/poor-charlie-v071-same-book/reports/v071-same-book-cangjie-reference-benchmark.json
+
+- id: KIU-728
+  title: v0.7.1 evaluation synthesis report
+  target_version: v0.7.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Produce one synthesis report that integrates three-layer outputs, value metrics, same-book reference comparison, scope corrections, and release readiness.
+  acceptance:
+  - Report gives a clear verdict and scope boundaries.
+  - Report calls out Poor Charlie proxy weakness rather than hiding it.
+  - Report identifies what v0.7.1 can and cannot claim.
+  evidence:
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.md
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.json
+
+- id: KIU-729
+  title: v0.7.1 release readiness decision gate
+  target_version: v0.7.1
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release
+  summary: Decide whether v0.7.1 is ready for release prep under the limited internal-evidence claim boundary.
+  acceptance:
+  - Decision states that v0.7.1 is ready only for internal evidence transparency and internal value-signal claims.
+  - Decision states that external usefulness, live factual correctness, and cangjie methodology closure are not claimed.
+  - Decision is backed by fresh three-layer, value-metric, and same-book-reference evidence.
+  evidence:
+  - reports/2026-04-25-v0.7.1-evaluation-synthesis.md
