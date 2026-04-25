@@ -1714,3 +1714,132 @@ tickets:
   - scripts/report_live_fact_verification.py
   - reports/2026-04-26-v0.7.2-live-fact-verification-evidence.md
   - reports/2026-04-26-v0.7.2-live-fact-verification-evidence.json
+
+- id: KIU-740
+  title: use-state arbitration schema
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: application-arbitration
+  summary: Define the use-state, evidence-state, and final-verdict schema used to decide whether a source skill may apply.
+  acceptance:
+  - Seven use states are represented explicitly.
+  - Arbitration payloads serialize with use_state, source_verdict, evidence_state, world_state, final_verdict, and reasons.
+  - Focused schema tests pass.
+  evidence:
+  - docs/superpowers/specs/2026-04-26-v0.7.2-use-state-arbitration-design.md
+  - src/kiu_pipeline/use_state.py
+  - tests/test_use_state_arbitration.py
+
+- id: KIU-741
+  title: deterministic use-state classifier
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: application-arbitration
+  summary: Classify user prompts into source understanding, reflection, bounded application, context insufficiency, transfer, abuse risk, or current-fact-required states.
+  acceptance:
+  - At least 28 fixtures cover Shiji, Mao, Financial Statement, Effective Requirements, and Poor Charlie.
+  - Every use state has at least three positive cases and one negative case.
+  - Fixture accuracy is 100%.
+  evidence:
+  - tests/test_use_state_arbitration.py
+
+- id: KIU-742
+  title: evidence sufficiency hard gate
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: application-arbitration
+  summary: Prevent direct application when required transfer evidence, context, or current fact verification is missing.
+  acceptance:
+  - Transfer candidates cannot apply without mechanism mapping, transfer conditions, and anti-conditions.
+  - Context-insufficient, transfer-abuse, and unverified-current-fact states cannot direct-apply.
+  - Focused tests cover every forbidden direct-apply path.
+  evidence:
+  - src/kiu_pipeline/use_state.py
+  - tests/test_use_state_arbitration.py
+
+- id: KIU-743
+  title: final application verdict composer
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: application-arbitration
+  summary: Compose final verdict from source verdict, use state, evidence sufficiency, world context, and fact verification.
+  acceptance:
+  - Source-understanding requests do not fire skills.
+  - Current-fact-required prompts without verified facts ask/refuse.
+  - Low-risk reflection is not over-gated by world pressure.
+  - Bounded application can still apply when context is adequate.
+  evidence:
+  - src/kiu_pipeline/use_state.py
+  - tests/test_use_state_arbitration.py
+
+- id: KIU-744
+  title: proxy usage use-state integration
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: evaluation
+  summary: Route proxy usage prediction through use-state arbitration and record predicted use state for failure attribution.
+  acceptance:
+  - Proxy cases include expected_use_state and predicted_use_state.
+  - Wrong verdicts can be attributed to classifier or composer failures.
+  - Shiji, Mao, and Poor Charlie proxy scores improve without reducing case-type coverage.
+  evidence:
+  - src/kiu_pipeline/proxy_usage.py
+  - tests/test_proxy_usage.py
+
+- id: KIU-745
+  title: low-risk reflection non-dilution checks
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: world-alignment
+  summary: Ensure philosophical, principle, and reflection prompts are not forced into live fact checks or excessive world pressure.
+  acceptance:
+  - Low-risk reflection prompts stay apply_with_caveats.
+  - No live fact verification is required for source-faithful reflection.
+  - World intervention stays minimal or light for low-risk reflection.
+  evidence:
+  - tests/test_use_state_arbitration.py
+  - tests/test_world_alignment.py
+
+- id: KIU-746
+  title: chapter-title skill hygiene gate
+  target_version: v0.7.2
+  status: done
+  priority: P1
+  blocker_level: release
+  area: generation-hygiene
+  summary: Prevent pure chapter-title candidates from entering published judgment skill bundles.
+  acceptance:
+  - Chapter-title-derived candidates are auditable but not published as skills.
+  - Mao rerun does not publish the known chapter-title-style candidate.
+  - True judgment skills remain publishable.
+  evidence:
+  - tests
+  - reports/2026-04-26-v0.7.2-evaluation-pass.md
+
+- id: KIU-747
+  title: five-sample use-state rerun
+  target_version: v0.7.2
+  status: done
+  priority: P0
+  blocker_level: hard
+  area: release-evidence
+  summary: Rerun Financial Statement, Effective Requirements, Poor Charlie, Shiji, and Mao after use-state arbitration integration.
+  acceptance:
+  - Shiji, Mao, and Poor Charlie proxy scores are each at least 85 and gate_ready=true.
+  - Financial Statement and Effective Requirements proxy scores remain at least 95.
+  - Five-sample proxy average is at least 90.
+  - boundary_leak and wrong_verdict are zero in release evidence.
+  evidence:
+  - reports/2026-04-26-v0.7.2-evaluation-pass.md

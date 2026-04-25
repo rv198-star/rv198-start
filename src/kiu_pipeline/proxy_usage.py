@@ -7,6 +7,12 @@ from typing import Any
 import yaml
 
 from .load import extract_yaml_section, parse_sections
+from .use_state import (
+    UseState,
+    classify_use_state,
+    compose_final_verdict,
+    evaluate_evidence_sufficiency,
+)
 
 
 PROXY_USAGE_SCHEMA = "kiu.proxy-usage-review/v0.1"
@@ -261,10 +267,13 @@ def _build_case_doc(
     world_alignment: dict[str, Any],
 ) -> dict[str, Any]:
     case_id = f"{skill_id}-proxy-{index:02d}-{spec['case_type']}"
+    expected_use_state = _expected_use_state_for_case(spec["case_type"], spec["prompt"])
+    use_state_decision = classify_use_state(spec["prompt"])
     predicted = _predict_proxy_verdict(
         spec["prompt"],
         contract=contract,
         world_alignment=world_alignment,
+        use_state=use_state_decision.use_state,
     )
     failure_tags = _failure_tags(spec["expected_verdict"], predicted, spec["prompt"])
     return {
@@ -276,8 +285,11 @@ def _build_case_doc(
         "case_type": spec["case_type"],
         "input_prompt": spec["prompt"],
         "expected_verdict": spec["expected_verdict"],
+        "expected_use_state": expected_use_state.value,
         "proxy_evaluator": {
             "predicted_verdict": predicted,
+            "predicted_use_state": use_state_decision.use_state.value,
+            "use_state_reasons": use_state_decision.reasons,
             "failure_tags": failure_tags,
             "rubric": [
                 "trigger_correctness",
@@ -333,8 +345,16 @@ def _failure_tags(expected: str, predicted: str, prompt: str) -> list[str]:
     return tags
 
 
-def _predict_proxy_verdict(prompt: str, *, contract: dict[str, Any], world_alignment: dict[str, Any]) -> str:
+def _predict_proxy_verdict(
+    prompt: str,
+    *,
+    contract: dict[str, Any],
+    world_alignment: dict[str, Any],
+    use_state: UseState | None = None,
+) -> str:
+    use_state = use_state or classify_use_state(prompt).use_state
     text = prompt.lower()
+
     do_not_markers = (
         "翻译",
         "解释",
@@ -380,11 +400,46 @@ def _predict_proxy_verdict(prompt: str, *, contract: dict[str, Any], world_align
         "先补上下文",
         "没有完整",
         "会计政策也变了",
+        "关键上下文不完整",
+        "直接应用还是先追问",
+        "证据互相冲突",
     )
     if any(marker in text for marker in edge_markers):
         return "defer"
 
+    evidence_state = evaluate_evidence_sufficiency(
+        use_state=use_state,
+        mechanism_mapping_present=True,
+        transfer_conditions_present=True,
+        anti_conditions_present=True,
+        verified_current_fact_present=False,
+    )
+    composed = compose_final_verdict(
+        use_state=use_state,
+        source_verdict="apply",
+        evidence_state=evidence_state,
+        verified_current_fact_present=False,
+    )
+    if composed.final_verdict != "apply":
+        if composed.final_verdict in {"refuse", "do_not_apply", "ask_more_context", "apply_with_caveats"}:
+            return composed.final_verdict
+        return "ask_more_context"
+
     return "apply"
+
+
+def _expected_use_state_for_case(case_type: str, prompt: str) -> UseState:
+    if case_type == "should_not_fire":
+        return UseState.SOURCE_UNDERSTANDING
+    if case_type == "edge_case":
+        return UseState.CONTEXT_INSUFFICIENT
+    if case_type == "world_alignment_case":
+        return UseState.CONTEXT_INSUFFICIENT
+    if case_type == "high_risk_or_missing_context":
+        return classify_use_state(prompt).use_state
+    if case_type == "should_fire":
+        return UseState.BOUNDED_APPLICATION
+    return classify_use_state(prompt).use_state
 
 
 def _next_action_for_case(case_type: str) -> str:

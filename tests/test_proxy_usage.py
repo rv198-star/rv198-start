@@ -42,6 +42,21 @@ class ProxyUsageTests(unittest.TestCase):
             self.assertFalse(any(prompt.startswith("## ") for prompt in prompts))
             self.assertTrue(any("现实压力" in prompt and ("AI" in prompt or "cross-functional" in prompt) for prompt in prompts))
             self.assertTrue(any(doc["case_type"] == "should_not_fire" and doc["expected_verdict"] == "do_not_apply" for doc in docs))
+            for doc in docs:
+                self.assertIn("expected_use_state", doc)
+                self.assertIn("predicted_use_state", doc["proxy_evaluator"])
+
+    def test_proxy_usage_uses_use_state_to_block_direct_apply_on_risky_general_skills(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            run_root = _write_run(Path(tmp), {"historical-analogy-transfer-gate": "Historical Analogy Transfer Gate"})
+
+            payload = write_proxy_usage_reviews(run_root, cases_per_skill=8, seed="kiu-v072-eval-proxy")
+            summary = payload["summary"]
+
+            self.assertEqual(summary["failure_tag_counts"].get("boundary_leak", 0), 0)
+            self.assertEqual(summary["failure_tag_counts"].get("wrong_verdict", 0), 0)
+            self.assertTrue(summary["gate_ready"])
+            self.assertGreaterEqual(summary["score_100"], 85.0)
 
     def test_proxy_usage_cli_writes_summary(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

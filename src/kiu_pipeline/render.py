@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from datetime import date
 from pathlib import Path
@@ -48,9 +49,20 @@ def render_generated_run(
 
     rendered_seeds: list[CandidateSeed] = []
     workflow_only_seeds: list[CandidateSeed] = []
+    filtered_seeds: list[dict[str, Any]] = []
     manifest_skills: list[dict[str, Any]] = []
 
     for seed in seeds:
+        publish_decision = should_publish_skill_seed(seed)
+        if not publish_decision["publish"]:
+            filtered_seeds.append(
+                {
+                    "candidate_id": seed.candidate_id,
+                    "reason": publish_decision["reason"],
+                    "candidate_kind": seed.candidate_kind,
+                }
+            )
+            continue
         if seed.metadata["disposition"] == "workflow_script_candidate":
             _render_workflow_candidate(
                 workflow_root=workflow_root,
@@ -139,8 +151,61 @@ def render_generated_run(
         json.dumps(metrics, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    (reports_root / "skill-hygiene-audit.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "kiu.skill-hygiene-audit/v0.1",
+                "filtered_count": len(filtered_seeds),
+                "filtered": filtered_seeds,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
 
     return run_root
+
+
+def should_publish_skill_seed(seed: CandidateSeed) -> dict[str, Any]:
+    if _is_chapter_title_style_seed(seed):
+        return {"publish": False, "reason": "chapter_title_style_candidate"}
+    return {"publish": True, "reason": "publishable"}
+
+
+def _is_chapter_title_style_seed(seed: CandidateSeed) -> bool:
+    candidate_id = str(seed.candidate_id or "").strip()
+    title = str(seed.seed_content.get("title") or candidate_id).strip() if isinstance(seed.seed_content, dict) else candidate_id
+    routing = seed.metadata.get("routing_evidence", {}) if isinstance(seed.metadata, dict) else {}
+    if not isinstance(routing, dict):
+        routing = {}
+    agentic_priority = float(routing.get("agentic_priority", 0) or 0)
+    matched_keyword_count = int(routing.get("matched_keyword_count", 0) or 0)
+    case_density_score = float(routing.get("case_density_score", 0.0) or 0.0)
+    title_text = title or candidate_id
+    return bool(
+        _looks_like_heading_title(title_text)
+        and agentic_priority <= 0
+        and matched_keyword_count <= 1
+        and case_density_score <= 0.55
+    )
+
+
+def _looks_like_heading_title(text: str) -> bool:
+    normalized = str(text or "").strip().strip("# 　\t")
+    if not normalized:
+        return False
+    if re.match(r"^第[一二三四五六七八九十百千万0-9]+[章节篇节]\b", normalized):
+        return True
+    if re.match(r"^[IVXLCDM]+[\.、]\s*", normalized, flags=re.IGNORECASE):
+        return True
+    cjk_count = len(re.findall(r"[\u4e00-\u9fff]", normalized))
+    has_action_model_marker = any(
+        marker in normalized
+        for marker in ("法", "模型", "原则", "检查", "判断", "决策", "调查", "矛盾")
+    )
+    return cjk_count >= 14 and not has_action_model_marker
 
 
 def load_generated_candidates(bundle_root: str | Path) -> list[dict[str, Any]]:
