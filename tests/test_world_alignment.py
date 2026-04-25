@@ -75,6 +75,44 @@ class WorldAlignmentTests(unittest.TestCase):
             self.assertEqual(gate["temporal_sensitivity"], "high")
             self.assertIn("current data", " ".join(gate["required_context"]).lower())
 
+    def test_transfer_candidate_gate_includes_transfer_fit_questions(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle = _write_bundle(Path(tmp), {"historical-analogy-transfer-gate": "Historical Analogy Transfer Gate"})
+            build_world_alignment_artifacts(bundle, no_web_mode=True)
+
+            gate = yaml.safe_load(
+                (bundle / "world_alignment" / "historical-analogy-transfer-gate" / "application_gate.yaml").read_text(encoding="utf-8")
+            )
+
+            self.assertEqual(gate["use_state"], "transfer_candidate")
+            self.assertEqual(gate["transfer_fit"]["transfer_readiness"], "ask_more_context")
+            self.assertGreaterEqual(len(gate["transfer_fit"]["fit_questions"]), 2)
+            self.assertIn("mechanism", " ".join(gate["transfer_fit"]["fit_questions"]).lower())
+
+    def test_low_risk_reflection_gate_does_not_force_transfer_fit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle = _write_bundle(Path(tmp), {"quiet-reflection": "Quiet Reflection"})
+            build_world_alignment_artifacts(bundle, no_web_mode=True)
+
+            gate = yaml.safe_load(
+                (bundle / "world_alignment" / "quiet-reflection" / "application_gate.yaml").read_text(encoding="utf-8")
+            )
+
+            self.assertEqual(gate["transfer_fit"]["transfer_readiness"], "not_applicable")
+            self.assertEqual(gate["transfer_fit"]["fit_questions"], [])
+
+    def test_generic_case_study_word_does_not_trigger_transfer_fit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            bundle = _write_bundle(Path(tmp), {"mini-case-analysis": "Mini Case Analysis"})
+            build_world_alignment_artifacts(bundle, no_web_mode=True)
+
+            gate = yaml.safe_load(
+                (bundle / "world_alignment" / "mini-case-analysis" / "application_gate.yaml").read_text(encoding="utf-8")
+            )
+
+            self.assertNotEqual(gate["use_state"], "transfer_candidate")
+            self.assertEqual(gate["transfer_fit"]["transfer_readiness"], "not_applicable")
+
     def test_current_investment_advice_refuses_in_no_web_mode(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             bundle = _write_bundle(Path(tmp), {"current-investment-advice": "Current Investment Advice"})

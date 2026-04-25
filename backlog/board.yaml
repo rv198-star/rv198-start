@@ -1847,7 +1847,7 @@ tickets:
 - id: KIU-748
   title: application readiness schema
   target_version: v0.7.2
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: application-readiness
@@ -1860,11 +1860,14 @@ tickets:
   evidence:
   - docs/superpowers/specs/2026-04-26-v0.7.2-application-readiness-model-design.md
   - docs/superpowers/plans/2026-04-26-v0.7.2-application-readiness-model.md
+  - src/kiu_pipeline/readiness.py
+  - tests/test_application_readiness.py
+  - reports/2026-04-26-v0.7.2-application-readiness-evidence.md
 
 - id: KIU-749
   title: coverage model orchestration
   target_version: v0.7.2
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: application-readiness
@@ -1877,12 +1880,12 @@ tickets:
   evidence:
   - src/kiu_pipeline/coverage_model.py
   - tests/test_coverage_model.py
-  - reports/coverage-readiness.json
+  - reports/2026-04-26-v0.7.2-application-readiness-evidence.md
 
 - id: KIU-750
   title: mechanism evidence model
   target_version: v0.7.2
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: application-readiness
@@ -1895,11 +1898,12 @@ tickets:
   evidence:
   - src/kiu_pipeline/mechanism_evidence.py
   - tests/test_mechanism_evidence.py
+  - reports/2026-04-26-v0.7.2-application-readiness-evidence.md
 
 - id: KIU-751
   title: transfer fit model
   target_version: v0.7.2
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: application-readiness
@@ -1912,11 +1916,13 @@ tickets:
   evidence:
   - src/kiu_pipeline/transfer_fit.py
   - tests/test_transfer_fit.py
+  - tests/test_world_alignment.py
+  - reports/2026-04-26-v0.7.2-application-readiness-evidence.md
 
 - id: KIU-752
   title: cross-sample readiness evaluation
   target_version: v0.7.2
-  status: todo
+  status: done
   priority: P0
   blocker_level: hard
   area: release-evidence

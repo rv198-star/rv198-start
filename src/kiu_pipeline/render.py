@@ -10,10 +10,12 @@ from typing import Any
 import yaml
 
 from .anchors import build_candidate_anchors
+from .coverage_model import build_coverage_report
 from .diff import build_metrics
 from .draft import build_candidate_skill_markdown
 from .distillation import augment_scenario_families, build_distillation_contract
 from .eval_prefill import build_prefilled_eval_summary
+from .mechanism_evidence import decide_anchor_role, score_mechanism_evidence
 from .models import CandidateSeed, SourceBundle
 from .ria_tv import build_skill_ria_tv_provenance, build_workflow_gateway_provenance
 
@@ -164,8 +166,38 @@ def render_generated_run(
         + "\n",
         encoding="utf-8",
     )
+    coverage_report = build_coverage_report(
+        graph_doc=source_bundle.graph_doc,
+        published_skill_ids=[seed.candidate_id for seed in rendered_seeds],
+        workflow_candidate_ids=[seed.candidate_id for seed in workflow_only_seeds],
+        gateway_routes=_gateway_routes(rendered_seeds),
+        artifact_texts=_artifact_texts(bundle_root=bundle_root, seeds=rendered_seeds),
+        narrow_output_justification=str(source_bundle.profile.get("narrow_output_justification", "")),
+    )
+    (reports_root / "coverage-readiness.json").write_text(
+        json.dumps(coverage_report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     return run_root
+
+
+def _gateway_routes(seeds: list[CandidateSeed]) -> list[str]:
+    routes: list[str] = []
+    for seed in seeds:
+        gateway = seed.metadata.get("workflow_gateway", {}) if isinstance(seed.metadata, dict) else {}
+        if isinstance(gateway, dict):
+            routes.extend(str(item) for item in gateway.get("routes_to", []) or [])
+    return sorted(set(routes))
+
+
+def _artifact_texts(*, bundle_root: Path, seeds: list[CandidateSeed]) -> dict[str, str]:
+    texts: dict[str, str] = {}
+    for seed in seeds:
+        skill_path = bundle_root / "skills" / seed.candidate_id / "SKILL.md"
+        if skill_path.exists():
+            texts[seed.candidate_id] = skill_path.read_text(encoding="utf-8")
+    return texts
 
 
 def should_publish_skill_seed(seed: CandidateSeed) -> dict[str, Any]:
@@ -184,8 +216,11 @@ def _is_chapter_title_style_seed(seed: CandidateSeed) -> bool:
     matched_keyword_count = int(routing.get("matched_keyword_count", 0) or 0)
     case_density_score = float(routing.get("case_density_score", 0.0) or 0.0)
     title_text = title or candidate_id
+    mechanism_score = score_mechanism_evidence(str(seed.seed_content.get("summary") or title_text))
+    anchor_role = decide_anchor_role(mechanism_score)
     return bool(
         _looks_like_heading_title(title_text)
+        and not anchor_role["primary_anchor_allowed"]
         and agentic_priority <= 0
         and matched_keyword_count <= 1
         and case_density_score <= 0.55

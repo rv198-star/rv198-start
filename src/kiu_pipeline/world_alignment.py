@@ -8,6 +8,8 @@ from typing import Any
 import yaml
 
 from kiu_pipeline.freshness_gate import application_decision_from_verification
+from kiu_pipeline.transfer_fit import build_transfer_fit_report
+from kiu_pipeline.use_state import UseState
 
 WORLD_CONTEXT_SCHEMA = "kiu.world-context/v0.1"
 APPLICATION_GATE_SCHEMA = "kiu.application-gate/v0.1"
@@ -1142,6 +1144,7 @@ def _aggregate_hallucination_risk(arbitration: list[dict[str, Any]], *, pressure
 
 def _application_gate_for_skill(skill: dict[str, str], *, context_item: dict[str, Any], no_web_mode: bool) -> dict[str, Any]:
     sensitivity = str(context_item.get("temporal_sensitivity", "medium"))
+    use_state = _use_state_for_gate(skill, context_item=context_item, sensitivity=sensitivity)
     if sensitivity == "high" and no_web_mode:
         if _requires_current_advice_refusal(skill):
             verdict = "refuse"
@@ -1180,9 +1183,20 @@ def _application_gate_for_skill(skill: dict[str, str], *, context_item: dict[str
         required_context = []
         caveats = ["If the user asks about current entities or high-stakes facts, switch to ask_more_context."]
         world_context_supports_verdict = False
-    return {
+    transfer_fit = build_transfer_fit_report(
+        use_state=use_state,
+        mechanism_summary=_transfer_mechanism_summary(skill, context_item),
+        transfer_conditions=_transfer_conditions_for_gate(context_item),
+        anti_conditions=_anti_conditions_for_gate(skill, context_item),
+    )
+    if transfer_fit["transfer_readiness"] == "ask_more_context" and verdict == "apply_with_caveats":
+        verdict = "ask_more_context"
+        reason = f"{reason} Transfer use requires mechanism-fit checks before application."
+    required_context = _dedupe_keep_order(required_context + _transfer_fit_questions(transfer_fit))
+    gate = {
         "schema_version": APPLICATION_GATE_SCHEMA,
         "skill_id": skill["skill_id"],
+        "use_state": use_state.value,
         "source_skill_unchanged": True,
         "world_context_isolated": True,
         "source_fidelity_preserved": True,
@@ -1196,12 +1210,58 @@ def _application_gate_for_skill(skill: dict[str, str], *, context_item: dict[str
         "reason": reason,
         "required_context": required_context,
         "caveats": caveats,
+        "transfer_fit": transfer_fit,
         "forbidden": [
             "do_not_rewrite_source_skill",
             "do_not_treat_world_context_as_authorial_evidence",
             "do_not_claim_verified_current_facts_in_no_web_mode",
         ],
     }
+    return gate
+
+
+def _use_state_for_gate(skill: dict[str, str], *, context_item: dict[str, Any], sensitivity: str) -> UseState:
+    haystack = _skill_haystack(skill)
+    if sensitivity == "high":
+        return UseState.CURRENT_FACT_REQUIRED
+    if any(marker in haystack for marker in ("transfer", "analogy", "historical", "borrowed", "迁移", "类比", "借鉴", "历史案例")):
+        return UseState.TRANSFER_CANDIDATE
+    if context_item.get("no_forced_enhancement") and sensitivity == "low":
+        return UseState.LOW_RISK_REFLECTION
+    return UseState.BOUNDED_APPLICATION
+
+
+def _transfer_mechanism_summary(skill: dict[str, str], context_item: dict[str, Any]) -> str:
+    pressure = " ".join(str(item) for item in context_item.get("pressure_dimensions", []) or [])
+    why = str(context_item.get("why_this_matters") or "")
+    return f"{skill.get('title', '')} {pressure} {why} {skill.get('content', '')}"
+
+
+def _transfer_conditions_for_gate(context_item: dict[str, Any]) -> list[str]:
+    items = list(context_item.get("user_context_questions") or [])
+    items.extend(context_item.get("pressure_dimensions") or [])
+    return _dedupe_keep_order([str(item) for item in items if str(item).strip()])[:6]
+
+
+def _anti_conditions_for_gate(skill: dict[str, str], context_item: dict[str, Any]) -> list[str]:
+    haystack = _skill_haystack(skill)
+    items = [
+        "single-case overreach",
+        "missing disconfirming evidence",
+        "mechanism, incentive, authority, or constraint mismatch",
+    ]
+    if "current" in haystack or context_item.get("temporal_sensitivity") == "high":
+        items.append("unverified current fact or high-stakes advice request")
+    if context_item.get("no_forced_enhancement"):
+        items.append("low-risk reflection being forced into operational transfer")
+    return _dedupe_keep_order(items)
+
+
+def _transfer_fit_questions(transfer_fit: dict[str, Any]) -> list[str]:
+    questions: list[str] = []
+    for key in ("fit_questions", "mismatch_questions", "disconfirming_evidence_questions"):
+        questions.extend(str(item) for item in transfer_fit.get(key, []) or [])
+    return questions[:5]
 
 
 def _requires_current_advice_refusal(skill: dict[str, str]) -> bool:

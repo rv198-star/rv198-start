@@ -36,6 +36,7 @@ def review_generated_run(
     generated_report = validate_generated_bundle(bundle_root)
     metrics = _load_json(run_root / "reports" / "metrics.json")
     production_quality = _load_json(run_root / "reports" / "production-quality.json")
+    coverage_readiness = _load_json(run_root / "reports" / "coverage-readiness.json")
     pipeline_provenance = load_pipeline_provenance(run_root)
     usage_docs = _load_usage_reviews(usage_root)
     usage_docs = [
@@ -57,6 +58,7 @@ def review_generated_run(
         metrics=metrics,
         run_root=run_root,
         pressure_report=pressure_report,
+        coverage_readiness=coverage_readiness,
     )
     usage_outputs = _score_usage_outputs(usage_docs)
     proxy_usage_outputs = summarize_proxy_usage_reviews(proxy_usage_docs)
@@ -288,6 +290,7 @@ def _score_generated_bundle(
     metrics: dict[str, Any],
     run_root: Path,
     pressure_report: dict[str, Any] | None = None,
+    coverage_readiness: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     errors = generated_report.get("errors", [])
     warnings = generated_report.get("warnings", [])
@@ -345,6 +348,12 @@ def _score_generated_bundle(
         notes.append("rationale_template_collision")
     if workflow_count > 0 and workflow_ready_ratio < 1.0:
         notes.append("workflow_verification_partial")
+    coverage_readiness = coverage_readiness or {}
+    coverage_status = None
+    if isinstance(coverage_readiness.get("readiness"), dict):
+        coverage_status = coverage_readiness["readiness"].get("status")
+    if coverage_status:
+        notes.append(f"coverage_readiness_{coverage_status}")
 
     world_alignment = review_world_alignment(run_root / "bundle")
     if world_alignment.get("world_alignment_present"):
@@ -367,6 +376,7 @@ def _score_generated_bundle(
         "rationale_template_collision": rationale_template_collision,
         "workflow_verification_ready_ratio": workflow_ready_ratio,
         "workflow_gateway_boundary_preserved": workflow_gateway_boundary_preserved,
+        "coverage_readiness": coverage_readiness,
         "world_alignment": world_alignment,
         "notes": notes,
     }
