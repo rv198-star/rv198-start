@@ -1,6 +1,6 @@
 {
   "schema_version": "blind-review-pack/v0.1",
-  "review_id": "v067-shiji-cangjie-protocol-blind",
+  "review_id": "v067-shiji-control-style-B-blind",
   "benchmark_source": "same-source blind artifact preference",
   "labels_hidden": true,
   "instructions": [
@@ -16,7 +16,7 @@
   },
   "pairs": [
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p001",
+      "pair_id": "v067-shiji-control-style-B-blind-p001",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我想用项羽和刘邦的故事判断一个短期强势但长期失信的商业决策。",
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p002",
+      "pair_id": "v067-shiji-control-style-B-blind-p002",
       "case": {
         "case_type": "should_trigger",
         "prompt": "这个选择眼前收益很大，但我担心以后会反噬，能不能借史记案例做一次压力测试？",
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p003",
+      "pair_id": "v067-shiji-control-style-B-blind-p003",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我手上有几个历史类比，但不知道哪个机制真的像我的处境。",
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p004",
+      "pair_id": "v067-shiji-control-style-B-blind-p004",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我们准备牺牲一个合作伙伴换取短期扩张，想先判断后续信任成本会不会失控。",
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p005",
+      "pair_id": "v067-shiji-control-style-B-blind-p005",
       "case": {
         "case_type": "should_trigger",
         "prompt": "两个方案都能赢一时，我想借历史案例比较哪个更容易引出连锁副作用。",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p006",
+      "pair_id": "v067-shiji-control-style-B-blind-p006",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我担心团队正在拿一个成功故事过度类比当前市场，能否帮我拆机制是否同构？",
@@ -148,7 +148,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p007",
+      "pair_id": "v067-shiji-control-style-B-blind-p007",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "司马迁是哪一年出生的？",
@@ -170,7 +170,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p008",
+      "pair_id": "v067-shiji-control-style-B-blind-p008",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "请把这段古文翻译成现代汉语。",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p009",
+      "pair_id": "v067-shiji-control-style-B-blind-p009",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "请按时间顺序列出秦末到汉初的主要事件。",
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p010",
+      "pair_id": "v067-shiji-control-style-B-blind-p010",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "请评价项羽是不是英雄人物。",
@@ -236,7 +236,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p011",
+      "pair_id": "v067-shiji-control-style-B-blind-p011",
       "case": {
         "case_type": "edge_case",
         "prompt": "我只记得一个史记故事，想拿来支持我的方案。",
@@ -258,7 +258,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p012",
+      "pair_id": "v067-shiji-control-style-B-blind-p012",
       "case": {
         "case_type": "edge_case",
         "prompt": "这个历史故事和我现在的行业很像，但关键角色的激励可能不同。",
@@ -280,7 +280,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p013",
+      "pair_id": "v067-shiji-control-style-B-blind-p013",
       "case": {
         "case_type": "edge_case",
         "prompt": "我需要今天就拍板，但历史证据之间互相冲突。",
@@ -302,7 +302,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p014",
+      "pair_id": "v067-shiji-control-style-B-blind-p014",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我有权限推动这件事，但担心越过其他团队的职责边界。",
@@ -324,7 +324,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p015",
+      "pair_id": "v067-shiji-control-style-B-blind-p015",
       "case": {
         "case_type": "should_trigger",
         "prompt": "老板让我直接处理跨部门冲突，我该不该介入？",
@@ -346,7 +346,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p016",
+      "pair_id": "v067-shiji-control-style-B-blind-p016",
       "case": {
         "case_type": "should_trigger",
         "prompt": "这件事短期做了有效，但可能破坏长期秩序，怎么判断？",
@@ -368,7 +368,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p017",
+      "pair_id": "v067-shiji-control-style-B-blind-p017",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我不是项目 owner，但客户只信任我，我是否应该绕过 owner 直接承诺交付？",
@@ -390,7 +390,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p018",
+      "pair_id": "v067-shiji-control-style-B-blind-p018",
       "case": {
         "case_type": "should_trigger",
         "prompt": "我有能力压下争议，但这样会不会让团队以后都绕开正式机制？",
@@ -412,7 +412,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p019",
+      "pair_id": "v067-shiji-control-style-B-blind-p019",
       "case": {
         "case_type": "should_trigger",
         "prompt": "合作方要求我以私人关系推动内部审批，我想先判断这是否越过角色边界。",
@@ -434,7 +434,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p020",
+      "pair_id": "v067-shiji-control-style-B-blind-p020",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "帮我生成一个会议纪要模板。",
@@ -456,7 +456,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p021",
+      "pair_id": "v067-shiji-control-style-B-blind-p021",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "解释一下君臣父子的古代含义。",
@@ -478,7 +478,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p022",
+      "pair_id": "v067-shiji-control-style-B-blind-p022",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "汉代丞相、太尉、御史大夫分别是什么官职？",
@@ -500,7 +500,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p023",
+      "pair_id": "v067-shiji-control-style-B-blind-p023",
       "case": {
         "case_type": "should_not_trigger",
         "prompt": "请总结《史记》里关于君臣关系的观点。",
@@ -522,7 +522,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p024",
+      "pair_id": "v067-shiji-control-style-B-blind-p024",
       "case": {
         "case_type": "edge_case",
         "prompt": "我不知道自己有没有被授权，但事情很急。",
@@ -544,7 +544,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p025",
+      "pair_id": "v067-shiji-control-style-B-blind-p025",
       "case": {
         "case_type": "edge_case",
         "prompt": "我在旧组织有这个权限，但新组织的角色定义可能不一样。",
@@ -566,7 +566,7 @@
       ]
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p026",
+      "pair_id": "v067-shiji-control-style-B-blind-p026",
       "case": {
         "case_type": "edge_case",
         "prompt": "我只是想判断这件事道德上对不对，还没有具体行动。",

@@ -1,4 +1,4 @@
-# Blind Review Pack: v067-shiji-cangjie-protocol-blind
+# Blind Review Pack: v067-shiji-control-style-B-blind
 
 Files for external reviewers:
 

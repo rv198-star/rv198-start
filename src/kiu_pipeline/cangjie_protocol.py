@@ -189,10 +189,16 @@ def _select_protocol_skills(*, profile: dict[str, Any]) -> list[dict[str, Any]]:
                 "输出可执行判断：继续、暂缓、补证据或改边界。",
             ],
             "boundaries": [
-                "不要把人物名望或故事相似当作机制相同。",
-                "不要用于纯史实查询、翻译、年代排序。",
-                "证据只支持警示时，不要强行生成确定性建议。",
+                "surface_similarity_only — 不要把人物名望、故事相似或成败标签当作机制相同。",
+                "history_summary_only — 不要用于纯历史总结、编年整理或人物故事复述。",
+                "fact_lookup_only — 不要用于司马迁生年、官职含义、年代顺序等史实查询。",
+                "classical_text_translation_only — 不要用于古文翻译、文本改写或资料整理。",
+                "pure_character_evaluation_request — 不要用于评价项羽是不是英雄、某人是否伟大等人物评价。",
+                "pure_viewpoint_summary_request — 不要用于总结《史记》观点、作者立场或思想脉络。",
+                "mechanical_workflow_template_request — 不要用于生成会议纪要、表格模板或机械流程清单。",
+                "single_anecdote_without_decision — 不要用单个历史故事给当前方案背书。",
             ],
+            "scenario_families": _historical_consequence_scenario_families(),
             "test_cases": _historical_consequence_cases(),
         }
     ]
@@ -220,10 +226,16 @@ def _select_protocol_skills(*, profile: dict[str, Any]) -> list[dict[str, Any]]:
                     "给出边界化行动方案：做、少做、请示、转交或拒绝。",
                 ],
                 "boundaries": [
-                    "不要替代法律、合规或伦理审查。",
-                    "如果角色授权事实不清，先要求补上下文。",
-                    "不把古代等级秩序直接移植到现代组织。",
+                    "pure_role_definition_query — 不要用于解释角色、职责、名分等概念定义。",
+                    "meeting_template_or_checklist_request — 不要用于会议纪要、流程清单或机械模板请求。",
+                    "mechanical_workflow_template_request — 不要把确定性流程包装成角色边界判断。",
+                    "pure_character_evaluation_request — 不要用于评价某个历史人物或现实人物的品格。",
+                    "pure_viewpoint_summary_request — 不要用于总结作者观点、君臣关系观点或道德评论。",
+                    "legal_or_ethics_final_opinion — 不要替代法律、合规或伦理最终审查。",
+                    "authorization_facts_unknown — 如果角色授权事实不清，先要求补上下文。",
+                    "ancient_order_direct_transfer — 不把古代等级秩序直接移植到现代组织。",
                 ],
+                "scenario_families": _role_boundary_scenario_families(),
                 "test_cases": _role_boundary_cases(),
             }
         )
@@ -396,6 +408,26 @@ def _write_skill(*, output: Path, skill: dict[str, Any], book_title: str, author
             "",
             "---",
             "",
+            "## S — 场景族 (Scenario Families) ★",
+            "",
+            "本段用于让评审和模型快速判断当前 prompt 属于正面、边缘还是拒绝场景。B 段是泛规则，S 段是命中模板。",
+            "",
+        ]
+    )
+    for family in skill.get("scenario_families", []):
+        skill_markdown.extend(
+            [
+                f"### {family.get('kind', '场景')}: {family.get('scenario_id', 'unnamed-scenario')}",
+                f"- **用户在说**: {family.get('user_says', '')}",
+                f"- **判断信号**: {family.get('signal', '')}",
+                f"- **下一步**: {family.get('next_step', '')}",
+                "",
+            ]
+        )
+    skill_markdown.extend(
+        [
+            "---",
+            "",
             "## E — 可执行步骤 (Execution)",
             "",
         ]
@@ -531,6 +563,86 @@ def _render_terms(*, top_chapters: list[str]) -> str:
         lines.append(f"- {title}")
     lines.append("")
     return "\n".join(lines)
+
+
+def _historical_consequence_scenario_families() -> list[dict[str, str]]:
+    return [
+        {
+            "kind": "正面场景",
+            "scenario_id": "historical-analogy-for-current-decision",
+            "user_says": "这个历史案例能不能类比我现在的决策；项羽和刘邦的故事能否判断我的商业选择。",
+            "signal": "用户有 current_decision，并希望用多个历史案例做后果压力测试。",
+            "next_step": "进入 E 段四步执行，重点比较机制链而不是人物标签。",
+        },
+        {
+            "kind": "正面场景",
+            "scenario_id": "short-gain-long-cost-stress-test",
+            "user_says": "眼前收益很大但担心以后反噬；短期赢一时但长期失信。",
+            "signal": "短期利益与长期代价之间存在二阶后果担忧。",
+            "next_step": "构建 选择 -> 约束变化 -> 后续报复/信任折损 链条。",
+        },
+        {
+            "kind": "边缘场景",
+            "scenario_id": "suggestive-but-different-context",
+            "user_says": "这个故事有点像，但时代、激励或制度位置可能不同。",
+            "signal": "相似机制存在，但关键变量不同。",
+            "next_step": "列出相似点、关键差异和不可迁移部分，再 partial_apply。",
+        },
+        {
+            "kind": "拒绝场景",
+            "scenario_id": "single-anecdote-proof",
+            "user_says": "我只记得一个史记故事，想拿来支持我的方案。",
+            "signal": "单个轶事被直接当作当前方案的证明。",
+            "next_step": "要求补充 case_analogs 和 relevant_differences；证据不足时 do_not_apply。",
+        },
+        {
+            "kind": "拒绝场景",
+            "scenario_id": "history-summary-only",
+            "user_says": "纯史实查询、翻译、编年、人物评价或观点摘要。",
+            "signal": "缺少 current_decision，仅查询历史或文本本身。",
+            "next_step": "不激活本 skill；转为 source/retrieval/translation 路径。",
+        },
+    ]
+
+
+def _role_boundary_scenario_families() -> list[dict[str, str]]:
+    return [
+        {
+            "kind": "正面场景",
+            "scenario_id": "act-under-ambiguous-mandate",
+            "user_says": "我有权推动但可能越过其他团队；老板让我直接处理但职责边界不清。",
+            "signal": "存在 live action，且授权、责任边界、长期秩序成本不清。",
+            "next_step": "输出 做/少做/请示/转交/拒绝 的边界化行动。",
+        },
+        {
+            "kind": "边缘场景",
+            "scenario_id": "urgent-but-authorization-unknown",
+            "user_says": "事情很急，但不知道是否有授权，可能要先斩后奏。",
+            "signal": "紧急性真实，但授权事实缺失。",
+            "next_step": "只允许 low-regret bounded action，并要求补授权或升级给 owner。",
+        },
+        {
+            "kind": "拒绝场景",
+            "scenario_id": "role-definition-or-template-only",
+            "user_says": "解释职责概念、生成会议纪要模板或给流程清单。",
+            "signal": "没有正在判断的越界行动。",
+            "next_step": "不激活本 skill；转为概念解释或 workflow 路由。",
+        },
+        {
+            "kind": "拒绝场景",
+            "scenario_id": "legal-or-ethics-final-opinion",
+            "user_says": "这合法吗；能不能规避合规；不用告诉负责人。",
+            "signal": "需要 accountable authority，而不是模型给最终授权。",
+            "next_step": "结构化边界问题并转给合规/负责人。",
+        },
+        {
+            "kind": "拒绝场景",
+            "scenario_id": "ancient-order-direct-transfer",
+            "user_says": "古代君臣秩序如此，所以现代组织也应照做。",
+            "signal": "古代身份伦理被直接迁移到现代组织。",
+            "next_step": "拒绝直接迁移，只保留角色边界风险提示。",
+        },
+    ]
 
 
 def _historical_consequence_cases() -> list[dict[str, str]]:

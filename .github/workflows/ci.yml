@@ -39,3 +39,11 @@ jobs:
 
       - name: Validate reference bundle
         run: python scripts/validate_bundle.py bundles/poor-charlies-almanack-v0.1
+
+      - name: Audit v0.6.8 boundary coverage
+        run: >-
+          python scripts/audit_boundary_coverage.py
+          --review-cases tests/fixtures/v067-blind-review-cases.yaml
+          --review-pack reports/blind-review-packs/v0.6.7-multimodel-clean/clean-pack.json
+          --output /tmp/kiu-v068-boundary-coverage.md
+          --min-coverage 0.85

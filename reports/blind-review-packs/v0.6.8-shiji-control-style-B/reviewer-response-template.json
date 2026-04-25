@@ -1,9 +1,9 @@
 {
   "schema_version": "blind-review-response/v0.1",
-  "review_id": "v067-shiji-cangjie-protocol-blind",
+  "review_id": "v068-shiji-control-style-B-blind",
   "pairs": [
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p001",
+      "pair_id": "v068-shiji-control-style-B-blind-p001",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -14,7 +14,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p002",
+      "pair_id": "v068-shiji-control-style-B-blind-p002",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -25,7 +25,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p003",
+      "pair_id": "v068-shiji-control-style-B-blind-p003",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -36,7 +36,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p004",
+      "pair_id": "v068-shiji-control-style-B-blind-p004",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -47,7 +47,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p005",
+      "pair_id": "v068-shiji-control-style-B-blind-p005",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -58,7 +58,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p006",
+      "pair_id": "v068-shiji-control-style-B-blind-p006",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -69,7 +69,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p007",
+      "pair_id": "v068-shiji-control-style-B-blind-p007",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -80,7 +80,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p008",
+      "pair_id": "v068-shiji-control-style-B-blind-p008",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -91,7 +91,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p009",
+      "pair_id": "v068-shiji-control-style-B-blind-p009",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -102,7 +102,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p010",
+      "pair_id": "v068-shiji-control-style-B-blind-p010",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -113,7 +113,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p011",
+      "pair_id": "v068-shiji-control-style-B-blind-p011",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -124,7 +124,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p012",
+      "pair_id": "v068-shiji-control-style-B-blind-p012",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -135,7 +135,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p013",
+      "pair_id": "v068-shiji-control-style-B-blind-p013",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -146,7 +146,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p014",
+      "pair_id": "v068-shiji-control-style-B-blind-p014",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -157,7 +157,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p015",
+      "pair_id": "v068-shiji-control-style-B-blind-p015",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -168,7 +168,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p016",
+      "pair_id": "v068-shiji-control-style-B-blind-p016",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -179,7 +179,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p017",
+      "pair_id": "v068-shiji-control-style-B-blind-p017",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -190,7 +190,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p018",
+      "pair_id": "v068-shiji-control-style-B-blind-p018",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -201,7 +201,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p019",
+      "pair_id": "v068-shiji-control-style-B-blind-p019",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -212,7 +212,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p020",
+      "pair_id": "v068-shiji-control-style-B-blind-p020",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -223,7 +223,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p021",
+      "pair_id": "v068-shiji-control-style-B-blind-p021",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -234,7 +234,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p022",
+      "pair_id": "v068-shiji-control-style-B-blind-p022",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -245,7 +245,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p023",
+      "pair_id": "v068-shiji-control-style-B-blind-p023",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -256,7 +256,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p024",
+      "pair_id": "v068-shiji-control-style-B-blind-p024",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -267,7 +267,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p025",
+      "pair_id": "v068-shiji-control-style-B-blind-p025",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,
@@ -278,7 +278,7 @@
       "notes": ""
     },
     {
-      "pair_id": "v067-shiji-cangjie-protocol-blind-p026",
+      "pair_id": "v068-shiji-control-style-B-blind-p026",
       "preferred": "inconclusive",
       "dimension_scores": {
         "usage": 0,

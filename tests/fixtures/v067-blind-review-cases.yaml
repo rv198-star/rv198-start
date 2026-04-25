@@ -1,0 +1,134 @@
+schema_version: kiu.v067-blind-review-cases/v0.1
+source_clean_pack: reports/blind-review-packs/v0.6.7-multimodel-clean/clean-pack.json
+case_count: 26
+cases:
+- case_id: p001
+  case_type: should_trigger
+  prompt: 我想用项羽和刘邦的故事判断一个短期强势但长期失信的商业决策。
+  expected_behavior: 应激活 [redacted-skill]，并检查机制链而不是只类比人物。
+  notes: '正面场景: 历史案例 + 当下决策后果。'
+- case_id: p002
+  case_type: should_trigger
+  prompt: 这个选择眼前收益很大，但我担心以后会反噬，能不能借史记案例做一次压力测试？
+  expected_behavior: 应激活并输出短期收益到长期后果的判断链。
+  notes: '正面场景: 后果判断。'
+- case_id: p003
+  case_type: should_trigger
+  prompt: 我手上有几个历史类比，但不知道哪个机制真的像我的处境。
+  expected_behavior: 应激活并筛掉只有表面相似的类比。
+  notes: '正面场景: 类比边界。'
+- case_id: p004
+  case_type: should_trigger
+  prompt: 我们准备牺牲一个合作伙伴换取短期扩张，想先判断后续信任成本会不会失控。
+  expected_behavior: 应激活并围绕选择、约束变化、后续报复或信任折损建立后果链。
+  notes: '正面场景: 短利与长期信用。'
+- case_id: p005
+  case_type: should_trigger
+  prompt: 两个方案都能赢一时，我想借历史案例比较哪个更容易引出连锁副作用。
+  expected_behavior: 应激活并比较两个行动路径的二阶后果，而不是只给单点建议。
+  notes: '正面场景: 多方案后果比较。'
+- case_id: p006
+  case_type: should_trigger
+  prompt: 我担心团队正在拿一个成功故事过度类比当前市场，能否帮我拆机制是否同构？
+  expected_behavior: 应激活并先拆机制相似度，再判断类比是否能迁移。
+  notes: '正面场景: 类比迁移检验。'
+- case_id: p007
+  case_type: should_not_trigger
+  prompt: 司马迁是哪一年出生的？
+  expected_behavior: 不应激活本 skill，因为这是史实查询。
+  notes: '诱饵: 百科查询。'
+- case_id: p008
+  case_type: should_not_trigger
+  prompt: 请把这段古文翻译成现代汉语。
+  expected_behavior: 不应激活本 skill，因为这是翻译任务。
+  notes: '诱饵: 文本处理。'
+- case_id: p009
+  case_type: should_not_trigger
+  prompt: 请按时间顺序列出秦末到汉初的主要事件。
+  expected_behavior: 不应激活本 skill，因为这是编年整理而非行动后果判断。
+  notes: '诱饵: 年代线整理。'
+- case_id: p010
+  case_type: should_not_trigger
+  prompt: 请评价项羽是不是英雄人物。
+  expected_behavior: 不应激活本 skill，因为这是人物立场评论，缺少当下决策情境。
+  notes: '诱饵: 人物评论。'
+- case_id: p011
+  case_type: edge_case
+  prompt: 我只记得一个史记故事，想拿来支持我的方案。
+  expected_behavior: 可以激活但必须先要求补机制证据，不能直接支持方案。
+  notes: '边界: 证据不足。'
+- case_id: p012
+  case_type: edge_case
+  prompt: 这个历史故事和我现在的行业很像，但关键角色的激励可能不同。
+  expected_behavior: 可以激活，但必须把激励差异列为迁移风险，不能直接套结论。
+  notes: '边界: 机制相似但激励不确定。'
+- case_id: p013
+  case_type: edge_case
+  prompt: 我需要今天就拍板，但历史证据之间互相冲突。
+  expected_behavior: 可以激活，但应输出暂缓、补证据或小步试错，而不是确定性建议。
+  notes: '边界: 高风险 + 证据冲突。'
+- case_id: p014
+  case_type: should_trigger
+  prompt: 我有权限推动这件事，但担心越过其他团队的职责边界。
+  expected_behavior: 应激活 [redacted-skill]，先核对身份、授权和越界后果。
+  notes: '正面场景: 角色边界。'
+- case_id: p015
+  case_type: should_trigger
+  prompt: 老板让我直接处理跨部门冲突，我该不该介入？
+  expected_behavior: 应激活并给出做、少做、请示、转交或拒绝的边界化方案。
+  notes: '正面场景: 授权与行动。'
+- case_id: p016
+  case_type: should_trigger
+  prompt: 这件事短期做了有效，但可能破坏长期秩序，怎么判断？
+  expected_behavior: 应激活并检查长期秩序代价。
+  notes: '正面场景: 短期有效 vs 长期秩序。'
+- case_id: p017
+  case_type: should_trigger
+  prompt: 我不是项目 owner，但客户只信任我，我是否应该绕过 owner 直接承诺交付？
+  expected_behavior: 应激活并核对授权、承诺后果和对组织秩序的影响。
+  notes: '正面场景: 非 owner 越界承诺。'
+- case_id: p018
+  case_type: should_trigger
+  prompt: 我有能力压下争议，但这样会不会让团队以后都绕开正式机制？
+  expected_behavior: 应激活并判断短期控制是否制造长期角色依赖或制度损伤。
+  notes: '正面场景: 能力优势与制度代价。'
+- case_id: p019
+  case_type: should_trigger
+  prompt: 合作方要求我以私人关系推动内部审批，我想先判断这是否越过角色边界。
+  expected_behavior: 应激活并检查身份混用、授权来源和旁观者解释风险。
+  notes: '正面场景: 身份混用。'
+- case_id: p020
+  case_type: should_not_trigger
+  prompt: 帮我生成一个会议纪要模板。
+  expected_behavior: 不应激活本 skill，因为这是模板生成。
+  notes: '诱饵: workflow 工具。'
+- case_id: p021
+  case_type: should_not_trigger
+  prompt: 解释一下君臣父子的古代含义。
+  expected_behavior: 不应激活本 skill，因为这是概念解释。
+  notes: '诱饵: 概念说明。'
+- case_id: p022
+  case_type: should_not_trigger
+  prompt: 汉代丞相、太尉、御史大夫分别是什么官职？
+  expected_behavior: 不应激活本 skill，因为这是制度史事实查询。
+  notes: '诱饵: 官职查询。'
+- case_id: p023
+  case_type: should_not_trigger
+  prompt: 请总结《史记》里关于君臣关系的观点。
+  expected_behavior: 不应激活本 skill，因为这是摘要任务，缺少行动边界问题。
+  notes: '诱饵: 摘要请求。'
+- case_id: p024
+  case_type: edge_case
+  prompt: 我不知道自己有没有被授权，但事情很急。
+  expected_behavior: 可以激活，但应先要求补授权事实或选择低越界行动。
+  notes: '边界: 上下文不足。'
+- case_id: p025
+  case_type: edge_case
+  prompt: 我在旧组织有这个权限，但新组织的角色定义可能不一样。
+  expected_behavior: 可以激活，但必须提示不能把旧角色边界直接迁移到新组织。
+  notes: '边界: 角色迁移风险。'
+- case_id: p026
+  case_type: edge_case
+  prompt: 我只是想判断这件事道德上对不对，还没有具体行动。
+  expected_behavior: 应要求补具体行动与角色事实；没有行动情境时不输出边界化方案。
+  notes: '边界: 道德评论 vs 行动判断。'

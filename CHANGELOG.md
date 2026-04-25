@@ -2,6 +2,31 @@
 
 ## Unreleased
 
+
+## [0.6.8] - 2026-04-25
+
+### Fixed
+- Upgraded generated boundary rendering for v0.6.7 blind-review weak spots by exposing enum-style `do_not_fire_when` signals for character evaluation, viewpoint summary, fact lookup, translation, workflow-template requests, single-anecdote overreach, and surface-similarity misuse.
+- Added consequence-skill scenario families for positive, edge, and refusal cases, including short-gain/long-cost stress testing and workflow/template refusal paths.
+- Redacted the v0.6.7 blind-review control pack from `cangjie-protocol` naming to `control-style-B`, keeping external references explicit in benchmark/evidence docs while removing attribution leakage from reviewer-facing packs.
+
+### Added
+- Added `scripts/audit_boundary_coverage.py`, `tests/fixtures/v067-blind-review-cases.yaml`, and CI coverage audit for the fixed 26-case v0.6.7 blind-review fixture.
+- Added `scripts/run_blind_review.py` with `--reference-source=internal-mock|upstream-cangjie|none` to make reference-source selection explicit rather than implicit.
+- Added role-boundary robustness proxy checks and `reports/v0.6.8-role-boundary-robustness.md` for six prompt-style variants.
+- Added the public v0.6.8 Shiji control-style-B blind review pack under `reports/blind-review-packs/v0.6.8-shiji-control-style-B/` without committing the private unblind key.
+- Added `docs/blind-review-howto.md`, `reports/v0.6.8-boundary-coverage.md`, and `reports/2026-04-25-v0.6.8-final-closure-evidence.md`.
+
+### Verified
+- Boundary coverage audit: `26/26` cases covered, coverage ratio `1.0000` against the fixed v0.6.7 blind-review fixture.
+- v0.6 regression baseline replay: `7` checks executed, `7` passed, `0` failed; repository unittest baseline reports `196` tests passing in that replay.
+- v0.6.8 Shiji blind pack: `26` pairs, `placeholder_count=0`, hidden role balance `13/13`.
+- Reference-source smoke: `internal-mock`, `upstream-cangjie`, and `none` all return ready.
+- Evidence honesty retained: same-scenario heuristic benchmark reports KiU `85.5` vs control-style-B `88.2` (`-2.7`), so external blind closure remains a v0.7 gate rather than a v0.6.8 claim.
+
+### Sealed
+- v0.6.x is sealed at v0.6.8. Follow-up work moves to v0.7, starting with real external blind review and architecture-level world-alignment planning.
+
 ## [0.6.7] - 2026-04-25
 
 ### Fixed
@@ -10,7 +35,7 @@
 - Added end-to-end same-scenario decoy validation for KIU-685: p010/p020/p023-style character-evaluation, workflow-template, and viewpoint-summary prompts must be scored as explicit no-fire boundary matches.
 
 ### Added
-- Added corrected v0.6.7 Shiji blind review pack under `reports/blind-review-packs/v0.6.7-shiji-cangjie-protocol/`.
+- Added corrected v0.6.7 Shiji blind review pack under `reports/blind-review-packs/v0.6.7-shiji-control-style-B/`.
 - Added `reports/2026-04-25-v0.6.7-boundary-rendering-and-decoy-evidence.md`.
 
 ### Verified

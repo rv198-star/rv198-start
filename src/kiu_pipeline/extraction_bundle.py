@@ -1503,18 +1503,26 @@ def _build_scenario_families(
                 {
                     "scenario_id": "historical-analogy-for-current-decision",
                     "summary": "The user wants to use one or more historical cases, such as 项羽和刘邦, to judge a current strategy, governance, investment, or 商业决策 where short-term strength may become long-term distrust.",
-                    "prompt_signals": ["这个历史案例能不能类比", "项羽和刘邦", "短期强势但长期失信", "商业决策", "眼前收益很大", "以后会反噬", "史记案例", "压力测试", "历史类比", "哪个机制真的像我的处境"],
+                    "prompt_signals": ["这个历史案例能不能类比", "项羽和刘邦", "商业决策", "历史类比", "哪个机制真的像我的处境"],
                     "boundary_reason": "There is a live decision and the user needs analogy transfer, not a history summary; the skill must compare mechanism, consequence, and transfer limit.",
                     "next_action_shape": "列出 case_pattern、机制链、transfer_limits、decision_warning 和 next_action。",
                     "anchor_refs": anchor_refs,
-                }
+                },
+                {
+                    "scenario_id": "short-gain-long-cost-stress-test",
+                    "summary": "The user sees a short-term gain but worries that the choice will create long-term retaliation, distrust, precedent, or second-order cost.",
+                    "prompt_signals": ["短期强势但长期失信", "眼前收益很大", "以后会反噬", "短期赢一时", "长期代价", "连锁副作用"],
+                    "boundary_reason": "The prompt is asking for a consequence chain, not a heroic-character judgment.",
+                    "next_action_shape": "Build a choice -> constraint shift -> trust/retaliation/order-cost chain before recommending continue, pause, or narrow scope.",
+                    "anchor_refs": anchor_refs,
+                },
             ],
             "should_not_trigger": [
                 {
                     "scenario_id": "history-summary-only",
                     "summary": "Do not fire when the user only asks what happened, who someone was, when someone was born, or how to translate/explain a historical passage.",
-                    "prompt_signals": ["讲讲这段历史", "这个人是谁", "司马迁是哪一年出生", "史实查询", "百科查询", "翻译一下", "古文翻译成现代汉语", "翻译任务", "文本处理"],
-                    "boundary_reason": "史实查询、百科查询、翻译任务、文本处理 and explanation do not require decision-facing analogy judgment; 不应激活本 skill.",
+                    "prompt_signals": ["讲讲这段历史", "这个人是谁", "司马迁是哪一年出生", "史实查询", "百科查询", "翻译一下", "古文翻译成现代汉语", "编年", "人物评价", "观点摘要"],
+                    "boundary_reason": "史实查询、百科查询、翻译任务、编年、人物评价 and viewpoint summaries do not require decision-facing analogy judgment; 不应激活本 skill.",
                     "anchor_refs": anchor_refs,
                 }
             ],
@@ -1522,7 +1530,7 @@ def _build_scenario_families(
                 {
                     "scenario_id": "suggestive-but-different-context",
                     "summary": "Use partial_apply when the historical pattern is suggestive but institutions, incentives, technology, or time horizon differ.",
-                    "prompt_signals": ["有点像", "但时代不一样", "能借鉴多少"],
+                    "prompt_signals": ["有点像", "但时代不一样", "能借鉴多少", "关键角色的激励可能不同", "机制相似但条件不同"],
                     "boundary_reason": "The analogy may help but cannot decide the case by itself.",
                     "next_action_shape": "先列出相似点、关键差异和不可迁移部分，再给 partial_apply。",
                     "anchor_refs": anchor_refs,
@@ -1536,7 +1544,15 @@ def _build_scenario_families(
                     "boundary_reason": "One anecdote without transfer-limit analysis is unsafe evidence.",
                     "next_action_shape": "要求补充 current_decision、case_analogs、relevant_differences；证据不足时输出 do_not_apply。",
                     "anchor_refs": anchor_refs,
-                }
+                },
+                {
+                    "scenario_id": "workflow-or-template-request",
+                    "summary": "Refuse when the user asks for a meeting note, checklist, template, or mechanical workflow rather than historical consequence judgment.",
+                    "prompt_signals": ["会议纪要模板", "流程清单", "表格模板", "帮我生成模板"],
+                    "boundary_reason": "Template generation is a workflow or writing task, not a historical-case consequence decision.",
+                    "next_action_shape": "不激活本 skill；route to workflow/template assistance if appropriate.",
+                    "anchor_refs": anchor_refs,
+                },
             ],
         }
     if semantic_family == "role-boundary-before-action":
