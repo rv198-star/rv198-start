@@ -8,11 +8,15 @@
 - Aligned `master` with the v0.8.1 repository-structure line so the main worktree now reflects the current `evidence/`, `review-pack/`, `_archive/`, and reorganized docs layout instead of the older v0.7.1-era structure.
 - Added the default value-driven enhancer to generated SKILL rendering: `value_gain_*` output fields, `Downstream Use Check`, and `Minimum Pressure Pass`.
 - Consolidated the external value-gain method documentation into `docs/methodologies/value-gain-enhancer.md`; historical A/B/C labels remain evidence-only and are not product paths.
+- Added a repository-structure contract test covering tracked root directories, forbidden legacy/local output paths, current review-pack manifest consistency, fixture source paths, local build ignores, and archive boundaries.
+- Added `_archive/README.md` to make historical imports explicitly non-current and outside the default generation pipeline.
+- Added build-output ignore rules for `dist/`, `build/`, and `src/*.egg-info/` so release artifacts stay out of source control.
 
 ### Verified
 - Five-book value-gain pressure-chain rerun kept release gates green for Financial Statement, Effective Requirements, Mao Anthology, Poor Charlie, and Shiji.
 - Internal user-perspective A/B/C review improved from `20.92/25` original to `23.08/25` with the pressure-chain enhancer.
-- Full unittest discovery reported `281` tests passing after mainline alignment and value-gain enhancer integration.
+- Repository-structure gate reported `6` tests passing after the final v0.8.2 cleanup pass.
+- Full unittest discovery reported `287` tests passing after mainline alignment, value-gain enhancer integration, and repository-structure gate coverage.
 
 ### Notes
 - v0.8.0 and v0.8.1 remain published historical tags/releases. v0.8.2 does not rewrite them; it closes the mainline alignment gap and should be treated as the stable v0.8 repository baseline.

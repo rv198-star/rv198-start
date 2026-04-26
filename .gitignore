@@ -3,4 +3,7 @@ __pycache__/
 .worktrees/
 .references
 generated/
+dist/
+build/
+src/*.egg-info/
 tmp/local-artifacts/
