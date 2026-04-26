@@ -1,8 +1,10 @@
-# KiU · 学以致用
+# KiU · Knowledge in Use · 学以致用
 
-[![CI](https://github.com/rv198-star/rv198-start/actions/workflows/ci.yml/badge.svg)](https://github.com/rv198-star/rv198-start/actions/workflows/ci.yml)
+[![CI](https://github.com/rv198-star/KiU/actions/workflows/ci.yml/badge.svg)](https://github.com/rv198-star/KiU/actions/workflows/ci.yml)
 
-KiU（`学以致用`）把原书知识转化为可执行的行动力。
+KiU 是 `Knowledge in Use` 的缩写，中文名是 `学以致用`。
+
+它的目标不是把书压缩成摘要，而是把原书知识转化为可触发、有边界、能拒绝误用、能指导复盘的行动技能，让学习最终变成可执行的行动力。
 
 它可以和 RAG、知识库问答、摘要器、摘录库、翻译器放在同一个知识使用语境里比较，但定位不同：RAG 更偏向“检索并生成答案”，KiU 更关注“把原书思想转化为可触发、有边界、能拒绝误用、能指导复盘的行动技能”。
 
