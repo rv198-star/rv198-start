@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import re
 from typing import Any
 
@@ -37,6 +38,7 @@ def build_candidate_skill_markdown(
         if source_skill
         else seed_content.get("contract", _fallback_contract(source_bundle, seed))
     )
+    contract = _contract_with_value_gain_fields(contract)
     relations = source_skill.relations if source_skill else seed_content.get("relations", EMPTY_RELATIONS)
     trace_refs = source_skill.trace_refs if source_skill else list(seed_content.get("trace_refs", []))
     scenario_families = (
@@ -87,6 +89,7 @@ def build_candidate_skill_markdown(
             "It should select, sequence, or defer workflow candidates while keeping deterministic "
             "steps in `workflow_candidates/`."
         )
+    rationale = _append_downstream_use_check(rationale, seed=seed, contract=contract)
     evidence_summary = _build_evidence_summary(
         source_bundle,
         seed,
@@ -141,6 +144,125 @@ def build_candidate_skill_markdown(
         lines.append(body)
         lines.append("")
     return "\n".join(lines).rstrip() + "\n"
+
+
+def _contract_with_value_gain_fields(contract: dict[str, Any]) -> dict[str, Any]:
+    enhanced = deepcopy(contract) if isinstance(contract, dict) else {}
+    judgment_schema = enhanced.setdefault("judgment_schema", {})
+    if not isinstance(judgment_schema, dict):
+        judgment_schema = {}
+        enhanced["judgment_schema"] = judgment_schema
+    output = judgment_schema.setdefault("output", {})
+    if not isinstance(output, dict):
+        output = {}
+        judgment_schema["output"] = output
+    schema = output.setdefault("schema", {})
+    if not isinstance(schema, dict):
+        schema = {}
+        output["schema"] = schema
+    schema.setdefault("value_gain_decision", "string")
+    schema.setdefault("value_gain_evidence", "list[string]")
+    schema.setdefault("value_gain_risk_boundary", "string")
+    schema.setdefault("value_gain_next_handoff", "string")
+    return enhanced
+
+
+def _append_downstream_use_check(
+    rationale: str,
+    *,
+    seed: CandidateSeed,
+    contract: dict[str, Any],
+) -> str:
+    if "### Downstream Use Check" in rationale:
+        return rationale
+    check = _build_downstream_use_check(seed=seed, contract=contract)
+    return f"{rationale}\n\n### Downstream Use Check\n{check}"
+
+
+def _build_downstream_use_check(*, seed: CandidateSeed, contract: dict[str, Any]) -> str:
+    output_schema = (
+        contract.get("judgment_schema", {}).get("output", {}).get("schema", {})
+        if isinstance(contract.get("judgment_schema"), dict)
+        else {}
+    )
+    output_keys = set(output_schema) if isinstance(output_schema, dict) else set()
+    candidate_id = seed.candidate_id.lower()
+    title = str(seed.seed_content.get("title") or seed.candidate_id).replace("`", "")
+
+    if seed.candidate_id == "workflow-gateway" or {"selected_workflow_id", "routing_reason"} & output_keys:
+        return _pressure_check(
+            "downstream pressure",
+            "This skill must convert routing into a usable handoff: name the selected workflow, "
+            "explain why it fits the current user goal, list missing context, and state when the "
+            "request should escalate to a thicker judgment skill instead of staying a workflow route.",
+            "After routing, ask what the user still has to invent to actually run the selected workflow; "
+            "if that missing handoff is material, return ask_clarifying_question or escalate instead of pretending the route is complete.",
+        )
+    if "bias" in candidate_id or {"triggered_biases", "mitigation_actions", "audit_mode"} & output_keys:
+        return _pressure_check(
+            "failure pressure",
+            "This skill must turn self-audit into a decision brake: identify the bias pattern changing "
+            "the user's judgment, cite the source-backed warning, name the concrete countermeasure, "
+            "and state what evidence would allow the decision to resume.",
+            "Before allowing the decision to resume, ask where this audit would fail if the user is defending identity, incentive, sunk cost, or group consensus; require one disconfirming test that could break the current thesis.",
+        )
+    if any(token in candidate_id for token in ("margin", "safety", "risk", "sizing")):
+        return _pressure_check(
+            "failure pressure",
+            "This skill must turn caution into an executable risk boundary: identify the exposure being "
+            "limited, connect the limit to source evidence, name the assumption that would break the "
+            "recommendation, and give the next safer sizing or deferral action.",
+            "Stress the worst credible miss, not the average case; if one adverse assumption would make the exposure unrecoverable, output a smaller sizing, a deferral, or a refusal to size.",
+        )
+    if any(token in candidate_id for token in ("opportunity", "cost", "next-best")):
+        return _pressure_check(
+            "alternative pressure",
+            "This skill must make the trade-off visible: state the chosen option, the next-best alternative, "
+            "the evidence that makes the comparison decision-relevant, and the handoff question that would "
+            "change the ranking.",
+            "Force one cheaper, safer, or higher-optionality alternative into view; if the alternative wins under the user's stated constraint, return the trade-off rather than defending the first option.",
+        )
+    if any(token in candidate_id for token in ("value", "assessment", "source", "anchor")):
+        return _pressure_check(
+            "evidence pressure",
+            "This skill must separate value signal from value conclusion: state the claim under test, "
+            "the source-backed evidence supporting it, the competing explanation or missing proof, and "
+            "the next verification step before action.",
+            "Ask exactly where the value claim exceeds available evidence; if the proof is missing, output the verification step or a safer provisional action instead of a value conclusion.",
+        )
+    if any(token in candidate_id for token in ("contradiction", "principal", "resistance", "tradeoff")):
+        return _pressure_check(
+            "alternative pressure",
+            f"This skill must make `{title}` decision-relevant by naming the main tension, the current action it changes, and the boundary that prevents treating every disagreement as the same problem.",
+            "Test one competing problem frame before applying the skill; if a different tension better explains the situation, return that reframing or defer instead of forcing the original frame.",
+        )
+    if any(token in candidate_id for token in ("analogy", "historical", "role-boundary", "case", "consequence")):
+        return _pressure_check(
+            "evidence pressure",
+            f"This skill must make `{title}` safe to transfer by naming the source mechanism, the current mechanism, and the boundary that would make the analogy invalid.",
+            "Check whether the shared mechanism is evidenced or merely story-similar; if only names, roles, or outcomes match, return do_not_apply or demand more context.",
+        )
+    if any(token in candidate_id for token in ("problem", "reframing", "solution")):
+        return _pressure_check(
+            "downstream pressure",
+            f"This skill must make `{title}` usable by turning the reframed problem into a decision, owner, and next information request.",
+            "Ask what the downstream actor would still need to invent after the reframing; if ownership, success criteria, or first action is missing, return the missing handoff rather than a polished reframe.",
+        )
+    return (
+        _pressure_check(
+            "downstream pressure",
+            f"This skill must make `{title}` practically usable by naming the decision it changes, the source-backed evidence behind that change, and the boundary that prevents over-application.",
+            "Ask what the downstream user would still need to invent before acting; if that missing truth is material, output the missing handoff instead of treating the skill as complete.",
+        )
+    )
+
+
+def _pressure_check(pressure_type: str, base: str, pressure_instruction: str) -> str:
+    return (
+        f"{base}\n\n"
+        f"Minimum Pressure Pass ({pressure_type}): {pressure_instruction} "
+        "Continue only if this changes the decision, action, evidence, handoff, or review value; otherwise freeze the skill without adding process weight."
+    )
 
 
 def _build_evidence_summary(

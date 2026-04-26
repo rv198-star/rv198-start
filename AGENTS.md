@@ -52,9 +52,9 @@ Methodology categories:
   `docs/methodologies/recursive-five-step-method.md` and
   `docs/methodologies/extreme-deduction-and-scenario-projection.md`, and
   `docs/methodologies/top-level-decision-philosophy.md`.
-- External tool methodologies: optional outside tools used for bounded module
-  audit or experimental development only. Current external tool: `模块价值增益法`.
-  See `docs/methodologies/external-thinking-value-gain-methodology.md`.
+- External tools and enhancers: optional outside methods used for bounded module
+  audit, experimental development, or generation-end value enhancement. Current
+  enhancer: `价值驱动增值器`. See `docs/methodologies/value-gain-enhancer.md`.
 
 Required usage:
 
@@ -68,12 +68,13 @@ Required usage:
 - Use `系统效率碾压局部优势` only for macro direction decisions, and never to
   excuse weak evidence honesty, workflow-vs-agentic boundary drift, or ethical
   floor violations.
-- Use external `模块价值增益法` only when a concrete module already exists but may
-  be structurally complete and value-thin. It can guide audits, generation
-  orchestration, or improvement backlog items, but it must not be pasted into
-  source-derived generated SKILL bodies or treated as KiU-native evidence.
-- Do not generalize a single-book value-gain experiment into a project-wide claim.
-  Cross-book claims require five-book validation or an explicit narrower scope.
+- Use `价值驱动增值器` only when a concrete skill or module already exists but may
+  be structurally complete and value-thin. It can guide audits and the default
+  generation-end enhancement, but external methodology names must not be pasted
+  into source-derived generated SKILL bodies or treated as KiU-native evidence.
+- The current default value-gain path is the latest enhancer only: `value_gain_*`
+  output fields, `Downstream Use Check`, and `Minimum Pressure Pass`. Historical
+  A/B/C labels belong in evidence only, not as parallel product paths.
 - Treat general thinking tools as portable methods, not KiU-owned product
   methodology. When used inside KiU, they must obey KiU project boundaries.
 

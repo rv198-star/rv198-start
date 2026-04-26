@@ -199,6 +199,81 @@ class CandidatePipelineTests(unittest.TestCase):
             self.assertEqual(report["errors"], [])
             self.assertEqual(report["summary"]["skill_candidates"], 6)
 
+    def test_generated_skills_include_value_gain_contract_without_external_method_pollution(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            output_root = Path(tmp_dir) / "generated"
+            subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "generate_candidates.py"),
+                    "--source-bundle",
+                    str(self.bundle_path),
+                    "--output-root",
+                    str(output_root),
+                    "--run-id",
+                    "value-gain-contract",
+                    "--drafting-mode",
+                    "deterministic",
+                ],
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+
+            bundle_root = output_root / "poor-charlies-almanack-v0.1" / "value-gain-contract" / "bundle"
+            skill_paths = sorted((bundle_root / "skills").glob("*/SKILL.md"))
+            self.assertGreaterEqual(len(skill_paths), 2)
+
+            downstream_checks: list[str] = []
+            for skill_path in skill_paths:
+                markdown = skill_path.read_text(encoding="utf-8")
+                sections = parse_sections(markdown)
+                contract = extract_yaml_section(sections["Contract"])
+                output_schema = contract["judgment_schema"]["output"]["schema"]
+
+                self.assertIn("value_gain_decision", output_schema)
+                self.assertIn("value_gain_evidence", output_schema)
+                self.assertIn("value_gain_risk_boundary", output_schema)
+                self.assertIn("value_gain_next_handoff", output_schema)
+                self.assertIn("### Downstream Use Check", sections["Rationale"])
+                self.assertIn("Minimum Pressure Pass", sections["Rationale"])
+                self.assertNotIn("模块价值增益法", markdown)
+                self.assertNotIn("thinking-value-gain", markdown)
+                downstream_checks.append(sections["Rationale"].split("### Downstream Use Check", 1)[1].strip())
+
+            self.assertGreater(
+                len({check.splitlines()[0] for check in downstream_checks}),
+                1,
+                "value-gain checks should be skill-sensitive, not one pasted template",
+            )
+            generic_checks = [
+                check
+                for check in downstream_checks
+                if "practically usable: state what decision or action it changes" in check
+            ]
+            self.assertLessEqual(
+                len(generic_checks),
+                1,
+                "C-version pressure checks should not fall back to generic phrasing for most skills",
+            )
+            self.assertGreaterEqual(
+                len(
+                    {
+                        pressure
+                        for check in downstream_checks
+                        for pressure in (
+                            "failure pressure",
+                            "alternative pressure",
+                            "evidence pressure",
+                            "downstream pressure",
+                        )
+                        if pressure in check
+                    }
+                ),
+                3,
+                "generated skills should exercise multiple pressure-pass types",
+            )
+
     def test_generated_investing_bundle_carries_scenario_families_into_usage_summary(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             output_root = Path(tmp_dir) / "generated"
@@ -3994,13 +4069,30 @@ class CandidatePipelineTests(unittest.TestCase):
                                 (skill_dir / "eval" / "summary.yaml").read_text(encoding="utf-8")
                             )
 
-                            self.assertEqual(contract, skill_seed["contract"])
+                            expected_contract = yaml.safe_load(
+                                yaml.safe_dump(skill_seed["contract"], allow_unicode=True)
+                            )
+                            expected_output_schema = expected_contract["judgment_schema"]["output"]["schema"]
+                            actual_output_schema = contract["judgment_schema"]["output"]["schema"]
+                            for value_gain_field in (
+                                "value_gain_decision",
+                                "value_gain_evidence",
+                                "value_gain_risk_boundary",
+                                "value_gain_next_handoff",
+                            ):
+                                self.assertIn(value_gain_field, actual_output_schema)
+                                actual_output_schema.pop(value_gain_field)
+                            self.assertEqual(contract, expected_contract)
                             expected_relations = {
                                 key: [target for target in value if target in published_skill_ids]
                                 for key, value in skill_seed["relations"].items()
                             }
                             self.assertEqual(relations, expected_relations)
-                            self.assertEqual(sections["Rationale"], skill_seed["rationale"].strip())
+                            self.assertTrue(
+                                sections["Rationale"].startswith(skill_seed["rationale"].strip())
+                            )
+                            self.assertIn("### Downstream Use Check", sections["Rationale"])
+                            self.assertIn("Minimum Pressure Pass", sections["Rationale"])
                             self.assertEqual(
                                 sections["Evidence Summary"],
                                 skill_seed["evidence_summary"].strip(),
