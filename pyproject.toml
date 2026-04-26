@@ -9,4 +9,5 @@ description = "Knowledge in Use skill bundle schemas, validator, and candidate p
 requires-python = ">=3.10"
 dependencies = [
     "PyYAML>=6.0",
+    "tomli>=2.0; python_version < '3.11'",
 ]
