@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Changed
-- Started v0.8.1 repository-structure cleanup by separating public docs, engineering docs, release-history records, evidence, examples, and archived process material.
+- Reorganized repository structure for v0.8.1: public docs, engineering docs, release-history records, evidence, examples, review pack, and archived process material now have separate homes.
 
 ## [0.8.0] - 2026-04-26
 

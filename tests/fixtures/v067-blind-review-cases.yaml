@@ -1,5 +1,5 @@
 schema_version: kiu.v067-blind-review-cases/v0.1
-source_clean_pack: reports/blind-review-packs/v0.6.7-multimodel-clean/clean-pack.json
+source_clean_pack: evidence/archive/reports/blind-review-packs/v0.6.7-multimodel-clean/clean-pack.json
 case_count: 26
 cases:
 - case_id: p001

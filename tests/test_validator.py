@@ -1105,13 +1105,14 @@ class BundleValidationTests(unittest.TestCase):
 
     def test_v03_release_assets_exist(self) -> None:
         self.assertTrue((ROOT / ".github" / "workflows" / "ci.yml").exists())
-        self.assertTrue((ROOT / "docs" / "kiu-skill-spec-v0.3.md").exists())
+        self.assertTrue((ROOT / "docs" / "engineering" / "skill-specs" / "kiu-skill-spec-v0.3.md").exists())
         self.assertTrue((ROOT / "docs" / "CONTRIBUTING.md").exists())
         self.assertTrue(
             (
                 ROOT
-                / "workflow_candidates"
                 / "examples"
+                / "legacy"
+                / "workflow-candidates"
                 / "dcf-basic-valuation"
                 / "steps.yaml"
             ).exists()
@@ -1119,7 +1120,7 @@ class BundleValidationTests(unittest.TestCase):
         self.assertTrue((ROOT / "schemas" / "workflow-candidate.schema.yaml").exists())
 
     def test_release_has_usage_guide_with_design_rationale(self) -> None:
-        usage_guide = ROOT / "docs" / "usage-guide.md"
+        usage_guide = ROOT / "docs" / "engineering" / "usage-guide.md"
         self.assertTrue(usage_guide.exists())
 
         content = usage_guide.read_text(encoding="utf-8")

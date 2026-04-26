@@ -46,7 +46,11 @@ def _resolve_reference_source(args: argparse.Namespace) -> dict[str, object]:
             "notes": ["No reference artifact will be included; use for KiU-only smoke checks."],
         }
     if args.reference_source == "internal-mock":
-        path = Path(args.internal_reference_pack) if args.internal_reference_pack else ROOT / "reports" / "blind-review-packs" / "v0.6.7-shiji-control-style-B"
+        path = (
+            Path(args.internal_reference_pack)
+            if args.internal_reference_pack
+            else ROOT / "evidence" / "archive" / "reports" / "blind-review-packs" / "v0.6.7-shiji-control-style-B"
+        )
         return {
             "schema_version": "kiu.blind-review-reference-source/v0.1",
             "reference_source": "internal-mock",

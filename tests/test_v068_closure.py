@@ -29,7 +29,7 @@ class V068ClosureTests(unittest.TestCase):
         self.assertIn("workflow-or-template-request", scenario_ids)
 
     def test_control_style_pack_is_cangjie_redacted(self) -> None:
-        root = ROOT / "reports" / "blind-review-packs" / "v0.6.7-shiji-control-style-B"
+        root = ROOT / "evidence" / "archive" / "reports" / "blind-review-packs" / "v0.6.7-shiji-control-style-B"
         self.assertTrue(root.exists())
         for path in root.iterdir():
             if path.is_file():
@@ -45,7 +45,7 @@ class V068ClosureTests(unittest.TestCase):
                     "--review-cases",
                     str(ROOT / "tests" / "fixtures" / "v067-blind-review-cases.yaml"),
                     "--review-pack",
-                    str(ROOT / "reports" / "blind-review-packs" / "v0.6.7-multimodel-clean" / "clean-pack.json"),
+                    str(ROOT / "evidence" / "archive" / "reports" / "blind-review-packs" / "v0.6.7-multimodel-clean" / "clean-pack.json"),
                     "--output",
                     str(out),
                     "--min-coverage",

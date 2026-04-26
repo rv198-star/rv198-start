@@ -125,7 +125,7 @@ Required rules:
 - Judge the boundary on two separate axes: `workflow certainty` and `context certainty`.
 - `workflow certainty` asks whether the task can be executed as a stable, repeatable, bounded procedure with low judgment variance.
 - `context certainty` asks whether the required situational inputs are explicit enough that the system does not need broad interpretive reconstruction before acting.
-- When both workflow certainty and context certainty are high, route the item to `workflow_script_candidate`, preserve it under `workflow_candidates/`, and keep it out of `bundle/skills/`.
+- When both workflow certainty and context certainty are high, route the item to `workflow_script_candidate`, preserve it under the configured workflow-candidate output path, and keep it out of `bundle/skills/`.
 - When the task still depends on judgment-rich interpretation, boundary arbitration, or context assembly, keep it on the `llm_agentic` path and treat it as a skill candidate rather than forcing it into a script.
 - Never silently promote deterministic workflow logic into a KiU skill just because the prose looks rich, and never silently collapse a judgment-heavy skill into a checklist just because it can be summarized.
 - Benchmark and release review must score `workflow-vs-agentic boundary quality` explicitly; content richness alone is not enough.

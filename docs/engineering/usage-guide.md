@@ -305,7 +305,7 @@ Key directories:
   - shared evaluation pool split into real, adversarial, and OOD subsets
 - `schemas/`
   - public interface definitions for the bundle manifest, anchors, eval summaries, revisions, relation enum, and KiU Test
-- `workflow_candidates/examples/`
+- `examples/legacy/workflow-candidates/`
   - schema-first examples for workflow script artifacts
 - `scripts/generate_candidates.py`
   - v0.2 deterministic seed generator
@@ -479,7 +479,7 @@ Today the shipped LLM drafting surface is intentionally narrow:
 
 KiU v0.3 also ships a schema-first workflow artifact example at:
 
-- `workflow_candidates/examples/dcf-basic-valuation/steps.yaml`
+- `examples/legacy/workflow-candidates/dcf-basic-valuation/steps.yaml`
 
 This is the current reference shape for `workflow_script_candidate` delivery:
 

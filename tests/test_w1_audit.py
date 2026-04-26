@@ -41,8 +41,8 @@ class W1AuditDeliverableTests(unittest.TestCase):
         graph_report_path = self.poor_charlies_bundle / graph_report_meta.get(
             "path", "GRAPH_REPORT.md"
         )
-        merged_report_path = ROOT / "reports" / "w1-merged-graph-report.md"
-        audit_path = ROOT / "reports" / "w1-audit.md"
+        merged_report_path = ROOT / "evidence" / "archive" / "reports" / "w1-merged-graph-report.md"
+        audit_path = ROOT / "evidence" / "archive" / "reports" / "w1-audit.md"
 
         self.assertTrue(graph_report_path.exists(), graph_report_path)
         self.assertTrue(merged_report_path.exists(), merged_report_path)

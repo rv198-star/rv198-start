@@ -22,7 +22,7 @@ from kiu_pipeline.source_chunks import build_source_chunks_from_markdown
 class BookOverviewTests(unittest.TestCase):
     def test_build_book_overview_doc_emits_context_contract(self) -> None:
         source_chunks_doc = build_source_chunks_from_markdown(
-            input_path=ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md",
+            input_path=ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md",
             bundle_id="demo-source-bundle",
             source_id="effective-requirements-analysis",
             max_chars=240,
@@ -58,7 +58,7 @@ class BookOverviewTests(unittest.TestCase):
                     sys.executable,
                     str(ROOT / "scripts" / "run_book_pipeline.py"),
                     "--input",
-                    str(ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"),
+                    str(ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"),
                     "--bundle-id",
                     "demo-source-bundle",
                     "--source-id",

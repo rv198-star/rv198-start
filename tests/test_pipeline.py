@@ -871,13 +871,13 @@ class CandidatePipelineTests(unittest.TestCase):
                 "schema_version": "kiu.source-chunks/v0.1",
                 "bundle_id": "demo-source-bundle",
                 "source_id": "effective-requirements-analysis",
-                "source_file": "examples/有效需求分析（第2版）.md",
+                "source_file": "examples/source-materials/有效需求分析（第2版）.md",
                 "language": "zh-CN",
                 "chunks": [
                     {
                         "chunk_id": "chunk-001",
                         "source_id": "effective-requirements-analysis",
-                        "source_file": "examples/有效需求分析（第2版）.md",
+                        "source_file": "examples/source-materials/有效需求分析（第2版）.md",
                         "chapter": "第1章",
                         "section": "1.1",
                         "line_start": 1,
@@ -1055,7 +1055,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_extract_graph_candidates_cli_supports_section_headings_pass(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             extraction_output_path = tmp_root / "extraction-result.json"
 
@@ -1237,7 +1237,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_extract_graph_candidates_marks_business_first_boundary_regression_as_tri_state(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             output_path = tmp_root / "extraction-result.json"
 
@@ -1300,7 +1300,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_extract_graph_candidates_cli_supports_llm_assisted_with_mock_provider(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             output_path = tmp_root / "extraction-result.json"
 
@@ -1332,7 +1332,7 @@ class CandidatePipelineTests(unittest.TestCase):
                 "  - id: llm::0001\n"
                 "    type: principle_signal\n"
                 "    label: 从 mock provider 追加的提炼原则\n"
-                "    source_file: examples/sources/effective-requirements-analysis-source.md\n"
+                "    source_file: examples/source-materials/sources/effective-requirements-analysis-source.md\n"
                 "    extraction_kind: INFERRED\n"
                 "edges: []\n"
                 "warnings:\n"
@@ -1377,7 +1377,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_materialize_extraction_graph_cli_emits_graph_v02(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             extraction_output_path = tmp_root / "extraction-result.json"
             graph_output_path = tmp_root / "graph.json"
@@ -2275,7 +2275,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_scaffold_extraction_bundle_cli_connects_extracted_graph_to_candidate_pipeline(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             extraction_output_path = tmp_root / "extraction-result.json"
             graph_output_path = tmp_root / "graph.json"
@@ -2393,7 +2393,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_build_graph_report_cli_emits_navigation_report_for_extraction_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             source_chunks_path = tmp_root / "source-chunks.json"
             extraction_output_path = tmp_root / "extraction-result.json"
             graph_output_path = tmp_root / "graph.json"
@@ -2495,7 +2495,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_run_book_pipeline_cli_emits_end_to_end_outputs_for_example_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             output_root = Path(tmp_dir) / "artifacts"
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
 
             result = subprocess.run(
                 [
@@ -2571,7 +2571,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_run_book_pipeline_cli_emits_non_placeholder_candidate_and_usage_review(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             output_root = Path(tmp_dir) / "artifacts"
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
 
             result = subprocess.run(
                 [
@@ -2695,7 +2695,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_run_book_pipeline_full_workflow_book_emits_gateway_skill(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             output_root = Path(tmp_dir) / "artifacts"
-            source_path = ROOT / "examples" / "有效需求分析（第2版）.md"
+            source_path = ROOT / "examples" / "source-materials" / "有效需求分析（第2版）.md"
 
             result = subprocess.run(
                 [
@@ -2865,7 +2865,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_build_source_chunks_cli_emits_valid_chunks_for_fixture_source(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
-            source_path = ROOT / "examples" / "sources" / "effective-requirements-analysis-source.md"
+            source_path = ROOT / "examples" / "source-materials" / "sources" / "effective-requirements-analysis-source.md"
             output_path = tmp_root / "source-chunks.json"
 
             result = subprocess.run(
@@ -2895,7 +2895,7 @@ class CandidatePipelineTests(unittest.TestCase):
             doc = json.loads(output_path.read_text(encoding="utf-8"))
             self.assertEqual(validate_source_chunks_doc(doc), [])
             self.assertGreaterEqual(len(doc["chunks"]), 4)
-            self.assertEqual(doc["source_file"], "examples/sources/effective-requirements-analysis-source.md")
+            self.assertEqual(doc["source_file"], "examples/source-materials/sources/effective-requirements-analysis-source.md")
             target_chunk = next(
                 chunk
                 for chunk in doc["chunks"]
@@ -3552,7 +3552,7 @@ class CandidatePipelineTests(unittest.TestCase):
     def test_workflow_gateway_uses_gateway_provenance_not_thick_skill_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             output_root = Path(tmp_dir) / "artifacts"
-            source_path = ROOT / "examples" / "有效需求分析（第2版）.md"
+            source_path = ROOT / "examples" / "source-materials" / "有效需求分析（第2版）.md"
 
             result = subprocess.run(
                 [
@@ -3891,8 +3891,8 @@ class CandidatePipelineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_root = Path(tmp_dir)
             sample_books = [
-                ROOT / "examples" / "有效需求分析（第2版）.md",
-                ROOT / "examples" / "财务报表分析_Markdown版.md",
+                ROOT / "examples" / "source-materials" / "有效需求分析（第2版）.md",
+                ROOT / "examples" / "source-materials" / "财务报表分析_Markdown版.md",
             ]
 
             for source_path in sample_books:
