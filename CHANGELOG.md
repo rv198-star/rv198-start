@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+- Started v0.8.1 repository-structure cleanup by separating public docs, engineering docs, release-history records, evidence, examples, and archived process material.
+
 ## [0.8.0] - 2026-04-26
 
 ### Added
