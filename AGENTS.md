@@ -34,8 +34,8 @@ Required rules:
   RIA-TV++, C-class, and world alignment may appear in new docs only when
   explicitly labeled as historical/internal terminology or when required for
   attribution.
-- Use `技能不是摘要` and `学到最后要能用` as the two preferred public memorable
-  phrases. Keep `用而不染` as the application-calibration boundary principle.
+- Use `技能不是摘要` and `学到最后要能用` as the two preferred public phrases.
+  Keep `用而不染` as the application-calibration boundary principle.
   Do not introduce additional branded terminology unless it removes more
   confusion than it adds.
 - README and release notes should lead with the new architecture language, not
