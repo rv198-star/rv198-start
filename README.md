@@ -4,7 +4,7 @@
 
 KiU（`学以致用`）把原书知识转化为可执行的行动力。
 
-它不是摘要器、摘录库、翻译器，也不是知识库问答工具。KiU 先保留原书说了什么，再把其中的思想转化为有边界、可触发、能拒绝误用、能指导复盘的技能。
+它可以和 RAG、知识库问答、摘要器、摘录库、翻译器放在同一个知识使用语境里比较，但定位不同：RAG 更偏向“检索并生成答案”，KiU 更关注“把原书思想转化为可触发、有边界、能拒绝误用、能指导复盘的行动技能”。
 
 两个核心表达：
 
@@ -29,6 +29,7 @@ KiU（`学以致用`）把原书知识转化为可执行的行动力。
 ## 从这里开始
 
 - [项目架构叙事](docs/project-architecture-narrative.md)
+- [方法论工具箱](docs/methodologies/README.md)
 - [概念语言对照表](docs/concept-language-glossary.md)
 - [用户侧评分指南](docs/user-facing-evaluation-guide.md)
 - [使用指南](docs/usage-guide.md)

@@ -5,9 +5,12 @@
 ### Added
 - Added v0.8 architecture language design for `学以致用`, defining the public flow: 读准原书、提炼判断、生成技能、分流流程、校准应用、验证行动价值.
 - Added first-time-reader project architecture narrative, historical concept glossary, and user-facing evaluation guide with Chinese-first prose.
+- Added a methodology toolbox under `docs/methodologies/`, separating KiU-native methodology from reusable thinking tools: 学以致用方法论, 三层递归五步法, 极限演绎与场景投影法, and 系统效率碾压局部优势.
 
 ### Changed
 - Refreshed README to lead with Chinese-first v0.8 architecture language instead of release-history or reference-project terminology.
+- Clarified that KiU may be compared with RAG and knowledge-base Q&A for discoverability, but is positioned differently: RAG retrieves and generates answers, while KiU turns source ideas into bounded action skills.
+- Reworked `AGENTS.md` into a methodology entry point and call protocol: project hard boundaries remain mandatory, while reusable thinking tools stay portable instead of becoming KiU-owned product methodology.
 - Added governance for historical-term traceability: old terms remain in archived evidence and mapping docs, while new mainline docs use v0.8 language first and avoid unnecessary mixed Chinese/English prose.
 - Added a v0.7.4 documentation addendum that projects internal A/B/C metrics into user-facing dimensions: source trust, action helpfulness, boundary clarity, coverage fit, context application safety, and evidence confidence.
 - Recorded post-v0.7.4 project optimization directions for v0.8: unified architecture language, user-facing evaluation guide, standard scorecard consolidation, and later usage feedback loops.

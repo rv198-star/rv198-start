@@ -38,6 +38,10 @@
 | workflow gateway | 流程路由器 | 当前公共语言。 |
 | workflow-vs-agentic boundary | 流程/判断边界 | 当前公共语言。 |
 | action-skill identity | 行动技能身份 | 当前公共语言。 |
+| RAG / knowledge-base Q&A | 参照概念，不是 KiU 主定位 | 可在 README 和项目叙事中用于说明区别：RAG 偏检索生成答案，KiU 偏生成行动技能。 |
+| System Efficiency Over Local Advantage | 系统效率碾压局部优势 | 通用宏观决策工具，详见 `docs/methodologies/top-level-decision-philosophy.md`。 |
+| Recursive Five-Step Method | 三层递归五步法 | 通用复杂问题推进工具，详见 `docs/methodologies/recursive-five-step-method.md`。 |
+| Extreme Deduction / Scenario Projection | 极限演绎与场景投影法 | 通用结构诊断和场景选型工具，详见 `docs/methodologies/extreme-deduction-and-scenario-projection.md`。 |
 
 ## 迁移规则
 

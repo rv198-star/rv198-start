@@ -35,6 +35,39 @@ Required rules:
   新的品牌化术语。
 - README 和 release note 应先使用新架构语言，而不是版本史语言。
 
+## Methodology Toolbox
+
+`AGENTS.md` defines how KiU calls methodology tools. Detailed methodology
+descriptions live under `docs/methodologies/`.
+
+Methodology categories:
+
+- KiU-native methodology: used to explain how KiU works. Current method:
+  `学以致用方法论`, expressed as `原书 -> 读准原书 -> 提炼判断 -> 生成技能 /
+  分流流程 -> 校准应用 -> 验证行动价值`. See
+  `docs/methodologies/kiu-methodology.md`.
+- General thinking tools: reusable methods KiU calls for planning, diagnosis,
+  and macro decisions. Current tools are `三层递归五步法`, `极限演绎与场景投影法`,
+  and `系统效率碾压局部优势`. See
+  `docs/methodologies/recursive-five-step-method.md` and
+  `docs/methodologies/extreme-deduction-and-scenario-projection.md`, and
+  `docs/methodologies/top-level-decision-philosophy.md`.
+
+Required usage:
+
+- Use `学以致用方法论` for public project narrative and product architecture.
+- Use `三层递归五步法` for non-trivial planning: discover signals, define
+  falsifiable problems, and resolve them into executable actions through
+  `基 -> 标 -> 差 -> 策 -> 拆`.
+- Use `极限演绎与场景投影法` when a problem looks like `A 也行, B 也行`:
+  run L1 structure diagnosis first; only run L2 scenario projection when a
+  concrete selection or service boundary is still needed.
+- Use `系统效率碾压局部优势` only for macro direction decisions, and never to
+  excuse weak evidence honesty, workflow-vs-agentic boundary drift, or ethical
+  floor violations.
+- Treat general thinking tools as portable methods, not KiU-owned product
+  methodology. When used inside KiU, they must obey KiU project boundaries.
+
 ## World Alignment Isolation Boundary
 
 KiU `v0.7` world alignment follows `isolation enhancement`, not `fusion rewrite`.
@@ -102,137 +135,6 @@ Current minimum implementation contract:
 - Profiles own the routing rule. The default release rule today is `high workflow certainty + high context certainty => workflow_script_candidate`.
 - Routed workflow candidates must remain auditable through their `candidate.yaml`, `workflow.yaml`, and supporting evidence, even though they are excluded from published `bundle/skills/`.
 - Changes to extraction, seed mining, drafting, or refinement must be checked against this boundary rule so that quality gains do not come from boundary drift.
-
-## System Efficiency Over Local Advantage
-
-KiU treats `system-level efficiency` as a long-term strategic decision principle.
-When system-level cost-efficiency gains are large enough, real local advantages may
-survive only as niche exceptions rather than remain the mainline production path.
-
-This principle exists to prevent the project from defending slow, fragile, or
-unscalable local excellence out of attachment rather than clear judgment.
-
-Required rules:
-
-- Do not use isolated best-case outputs to deny a system direction. Long-term decisions
-  must be judged on `average vs average`, not `best A vs average B`.
-- Do not treat non-scalable excellence as a sufficient reason to block a more
-  scalable system path.
-- Favor solutions that improve `scale`, `handoff`, `auditability`, and `average
-  production quality`, even when they give up some local brilliance.
-- Keep the main battlefield on the system path; preserve exceptional local approaches
-  only for justified niche scenarios.
-
-Decision checks:
-
-- Is the comparison fair, or are we using the best instance of one side against the
-  average instance of the other?
-- Is the claimed advantage scalable, transferable, and repeatable, or is it only a
-  handcrafted exception?
-- Are we defending the local advantage because it creates real system value, or
-  because we are emotionally attached to it?
-
-Boundary conditions:
-
-- This principle is a `strategic correction lens`, not a mechanical decision rule.
-- It may not be used to excuse weaker `evidence honesty`.
-- It may not be used to excuse `workflow-vs-agentic boundary` drift.
-- It does not override domains where irreversible harm, dignity, experience, or
-  ethical floors dominate efficiency.
-- It should guide long-term version strategy more than short-term transitional choices.
-
-## Recursive Five-Step Method
-
-KiU uses the recursive `Baseline -> Target -> Gap -> Strategy -> Breakdown`
-method as the default way to handle complex planning, audit feedback, version
-goals, ambiguous engineering decisions, and action-value evaluation. In Chinese
-shorthand: `基 -> 标 -> 差 -> 策 -> 拆` or `基标差策拆`.
-
-This method is no longer limited to solving an already-known problem. KiU applies
-the same five-step loop across three layers: discovering signals from the world,
-defining those signals into falsifiable problems, and resolving those problems
-into executable actions. The method exists to prevent planning drift, premature
-implementation, shallow problem statements, and false closure caused by unclear
-baselines or non-executable goals.
-
-Layer model:
-
-- `L1 Discover`: world -> signal. Use `Baseline -> Target -> Gap -> Strategy ->
-  Breakdown` to turn a noisy situation into a signal that can be restated,
-  located, and reproduced. The breakdown output is an observation action, not a
-  solution.
-- `L2 Define`: signal -> problem. Use `Baseline -> Target -> Gap -> Strategy ->
-  Breakdown` to turn a signal into a problem statement that is falsifiable and
-  measurable. The breakdown output is a precise problem statement, not an action
-  plan.
-- `L3 Resolve`: problem -> action. Use `Baseline -> Target -> Gap -> Strategy ->
-  Breakdown` to turn a defined problem into actions with inputs, outputs,
-  owners or agents, verification commands, and acceptance criteria.
-- `Feedback`: execution -> recalibration. Use decision logs, pre-mortems, hit-rate
-  ledgers, or hypothesis ledgers to feed execution results back into `L1`, `L2`,
-  or `L3` instead of treating one answer as final.
-
-Required sequence inside every layer:
-
-- `Baseline`: define the current state with facts, evidence, and known limits.
-  Ask: where are we now, what is already proven, and what is only assumed?
-- `Target`: define the desired end state and acceptance criteria. Ask: where are
-  we going, and what observable condition means this layer has succeeded?
-- `Gap`: identify the concrete distance between baseline and target. Ask: what
-  is missing across evidence, capability, resources, path, or understanding?
-- `Strategy`: choose the route for crossing the gap. Ask: which path gives the
-  best tradeoff under current constraints, and what are we deliberately not
-  doing?
-- `Breakdown`: decompose the strategy into the correct output for the current
-  layer. For `L1`, produce observation actions. For `L2`, produce a falsifiable
-  problem statement. For `L3`, produce executable actions. For every subproblem,
-  ask `is this executable, testable, or judgeable now?`; if not, recursively apply
-  the same five-step loop to that subproblem.
-
-Required outputs for non-trivial work:
-
-- A baseline summary or fact list before target claims.
-- Target criteria that can be verified, not just described.
-- A gap list that names missing evidence or missing capability explicitly.
-- A strategy choice with rejected alternatives or tradeoffs when more than one
-  path is plausible.
-- A layer-appropriate breakdown: observation actions for discovery, falsifiable
-  problem statements for definition, executable actions for resolution.
-- A feedback or falsification hook when decisions depend on uncertain assumptions.
-- For any non-executable subproblem, a nested five-step pass instead of a vague
-  task.
-
-Decision checks:
-
-- Are we discovering the real signal, or solving the most visible symptom?
-- Are we defining a falsifiable problem, or restating a preference, complaint, or
-  conclusion?
-- Are we solving from the real baseline, or from an assumed state?
-- Is the target measurable enough to reject false completion?
-- Did we name the actual gaps, or only restate the desired outcome?
-- Is the strategy an explicit choice, or just a list of hopeful activities?
-- Can every action be started and judged without further vague interpretation?
-- For every item that is not executable, testable, or judgeable yet, did we
-  recurse instead of pretending it is an action?
-- Is there a feedback ledger or falsification mechanism for uncertain decisions?
-
-Boundary conditions:
-
-- This method does not override evidence honesty, workflow-vs-agentic boundary
-  rules, world-alignment isolation, or external reference boundaries.
-- It should be used more rigorously as complexity, uncertainty, or audit risk
-  increases.
-- For small tasks, it can be compressed into a brief mental or written checklist,
-  but the order must remain: baseline before target, target before gap, gap before
-  strategy, strategy before breakdown.
-- The method terminates only when leaf nodes are observation actions, falsifiable
-  problem statements, or executable actions with enough input, output, verification,
-  and acceptance criteria to be judged.
-- A high-quality KiU skill may create action value at any layer. It does not need
-  to force every user request into direct execution if the real value is signal
-  discovery, problem definition, or feedback calibration.
-
-
 
 ## Verification Feedback Discipline
 
