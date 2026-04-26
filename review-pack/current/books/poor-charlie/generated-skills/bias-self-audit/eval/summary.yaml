@@ -1,0 +1,42 @@
+skill_id: bias-self-audit
+bundle_version: 0.2.0
+skill_revision: 1
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases:
+    - ../../../evaluation/real_decisions/*.yaml
+    passed: 20
+    total: 20
+    threshold: 0.7
+    status: pass
+  synthetic_adversarial:
+    cases:
+    - ../../../evaluation/synthetic_adversarial/*.yaml
+    passed: 20
+    total: 20
+    threshold: 0.85
+    status: pass
+  out_of_distribution:
+    cases:
+    - ../../../evaluation/out_of_distribution/*.yaml
+    passed: 10
+    total: 10
+    threshold: 0.9
+    status: pass
+key_failure_modes:
+- Low-stakes cases can trigger false positives unless reversibility is represented
+  explicitly.
+- Fluent thesis presentation can hide identity or incentive pressure unless the distortion
+  is named directly.
+- Social proof and sunk cost can survive casual reflection unless the audit demands
+  a concrete mitigation action.
+references:
+  evaluation_root: ../../../evaluation
+  coverage_mode: shared_corpus_full_release
+  prefill_mode: deterministic
+  gold_skill_id: bias-self-audit

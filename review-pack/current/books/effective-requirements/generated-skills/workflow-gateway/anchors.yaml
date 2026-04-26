@@ -1,0 +1,122 @@
+skill_id: workflow-gateway
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+graph_anchor_sets:
+- anchor_id: workflow-gateway-seed-support
+  node_ids:
+  - principle::0023
+  - case::effective-requirements-0064
+  - case::effective-requirements-0066
+  - case::effective-requirements-0067
+  - case::effective-requirements-0068
+  - case::effective-requirements-0069
+  - counter-example::effective-requirements-0064
+  - counter-example::effective-requirements-0066
+  - counter-example::effective-requirements-0067
+  - counter-example::effective-requirements-0068
+  - counter-example::effective-requirements-0069
+  edge_ids:
+  - derives_case_signal::principle::0023->case::effective-requirements-0064
+  - derives_case_signal::principle::0023->case::effective-requirements-0066
+  - derives_case_signal::principle::0023->case::effective-requirements-0067
+  - derives_case_signal::principle::0023->case::effective-requirements-0068
+  - derives_case_signal::principle::0023->case::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+  - derives_term_signal::principle::0023->term::ui-ue
+  community_ids:
+  - community::principle::0018
+  - community::principle::0023
+  - community::principle::0010
+  - community::principle::0011
+  - community::principle::0012
+  - community::principle::0013
+source_anchor_sets:
+- anchor_id: workflow-gateway-principle::0023
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2502
+  line_end: 2502
+  snippet: '### 13 业务场景分析'
+- anchor_id: workflow-gateway-case::effective-requirements-0064
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2510
+  line_end: 2573
+  snippet: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战—方案两个基础思维。
+    生活悟道场 （接第12.2.1节生活悟道场）当我成功地激发出外婆对相机的兴趣之后，接下来我决定通过用户视角的场景描述思路来帮助她老人家掌握这个新时代的“玩具”。
+    “外婆，其实拍照这件事相当简单，只有三步：第一步我们要把相机打开；第二步用相机对准要拍的人或东西；第三
+- anchor_id: workflow-gateway-case::effective-requirements-0066
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2596
+  line_end: 2637
+  snippet: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结。小李点点头，充满自信地告诉我：“今天的收获很大，我将在实践中不断用这种方法来武装自己！”
+    相信通过这个小案例，大家都对这种思考方式有了直观的了解，简单总结如下。 (1)场景细化：将场景细化为事件流，先整理出用户预期的正常步骤，然后写出变化的情况。
+    (2)问题/挑战识别：针对每一个步骤
+- anchor_id: workflow-gateway-case::effective-requirements-0067
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2642
+  line_end: 2687
+  snippet: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，重在用户意图而非用户动作
+    案例分析 我接触过很多用例实践团队经常会在用例描述（业务场景描述）中引入大量的人机界面元素，如表13-5所示，这是一个很有代表性的例子。 你读完之后感觉清晰吗？很多人反馈说写得不清楚，因而有人直接把一条变成几条，篇幅大大增加后更让人看得一头雾水。实际上其原因是
+- anchor_id: workflow-gateway-case::effective-requirements-0068
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2690
+  line_end: 2697
+  snippet: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。
+    案例分析 我们再结合本书贯穿案例“体检医院管理系统”中的一个业务场景“收费人员：收费”，呈现一下分析过程。首先找到一切正常的情形，完成场景展开，生成基本事件流。
+    然后基于这个基本事件流分析可能存在的扩展事件流，并通过编号体现出扩展点（例如，2a表示第2步的一个扩展，2b则表示第2步的另一个扩
+- anchor_id: workflow-gateway-case::effective-requirements-0069
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2700
+  line_end: 2725
+  snippet: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，导出所需的功能。简单地说，就是针对每一步骤与客户了解存在的困难、挑战，然后构思系统解决方案。
+    在这个步骤中，一般建议从两个角度来思考。首先是执行这些步骤时会遇到什么困难，也就是思考“在各个业务步骤、变化及异常情况下会遇到何困难？”“针对这些困难，系统需要提供什么样的功能支持？”两个问题
+- anchor_id: workflow-gateway-counter-example::effective-requirements-0064
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2510
+  line_end: 2573
+  snippet: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战—方案两个基础思维。
+    生活悟道场 （接第12.2.1节生活悟道场）当我成功地激发出外婆对相机的兴趣之后，接下来我决定通过用户视角的场景描述思路来帮助她老人家掌握这个新时代的“玩具”。
+    “外婆，其实拍照这件事相当简单，只有三步：第一步我们要把相机打开；第二步用相机对准要拍的人或东西；第三
+- anchor_id: workflow-gateway-counter-example::effective-requirements-0066
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2596
+  line_end: 2637
+  snippet: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结。小李点点头，充满自信地告诉我：“今天的收获很大，我将在实践中不断用这种方法来武装自己！”
+    相信通过这个小案例，大家都对这种思考方式有了直观的了解，简单总结如下。 (1)场景细化：将场景细化为事件流，先整理出用户预期的正常步骤，然后写出变化的情况。
+    (2)问题/挑战识别：针对每一个步骤
+- anchor_id: workflow-gateway-counter-example::effective-requirements-0067
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2642
+  line_end: 2687
+  snippet: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，重在用户意图而非用户动作
+    案例分析 我接触过很多用例实践团队经常会在用例描述（业务场景描述）中引入大量的人机界面元素，如表13-5所示，这是一个很有代表性的例子。 你读完之后感觉清晰吗？很多人反馈说写得不清楚，因而有人直接把一条变成几条，篇幅大大增加后更让人看得一头雾水。实际上其原因是
+- anchor_id: workflow-gateway-counter-example::effective-requirements-0068
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2690
+  line_end: 2697
+  snippet: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。
+    案例分析 我们再结合本书贯穿案例“体检医院管理系统”中的一个业务场景“收费人员：收费”，呈现一下分析过程。首先找到一切正常的情形，完成场景展开，生成基本事件流。
+    然后基于这个基本事件流分析可能存在的扩展事件流，并通过编号体现出扩展点（例如，2a表示第2步的一个扩展，2b则表示第2步的另一个扩
+- anchor_id: workflow-gateway-counter-example::effective-requirements-0069
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 2700
+  line_end: 2725
+  snippet: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，导出所需的功能。简单地说，就是针对每一步骤与客户了解存在的困难、挑战，然后构思系统解决方案。
+    在这个步骤中，一般建议从两个角度来思考。首先是执行这些步骤时会遇到什么困难，也就是思考“在各个业务步骤、变化及异常情况下会遇到何困难？”“针对这些困难，系统需要提供什么样的功能支持？”两个问题

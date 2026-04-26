@@ -1,0 +1,2027 @@
+{
+  "run_root": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing",
+  "source_bundle_path": "/tmp/kiu-v075-user-facing-optimization/shiji/sources/shiji/bundle",
+  "usage_review_dir": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/usage-review",
+  "pipeline_provenance": {
+    "schema_version": "kiu.pipeline-provenance/v0.1",
+    "pipeline_mode": "raw_book_no_seed_cold_start",
+    "raw_book_no_seed_cold_start": true,
+    "input_kind": "raw_markdown_book",
+    "source_input_path": "examples/shiji_md/resource",
+    "source_bundle_root": "/tmp/kiu-v075-user-facing-optimization/shiji/sources/shiji/bundle",
+    "run_root": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing",
+    "source_bundle_id": "shiji-source-v0.6",
+    "source_bundle_skill_count": 0,
+    "uses_existing_source_skills": false,
+    "uses_reference_pack_as_generation_input": false,
+    "manual_generated_artifact_patch_allowed": false,
+    "artifact_paths": {
+      "source_chunks": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/source-chunks.json",
+      "extraction_result": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/extraction-result.json",
+      "graph": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/graph.json"
+    },
+    "extraction": {
+      "deterministic_pass": "heuristic-extractors"
+    },
+    "claim_boundary": "This run may be claimed as raw-book no-seed cold start only if raw_book_no_seed_cold_start is true and source_bundle_skill_count is 0."
+  },
+  "cold_start": {
+    "raw_book_no_seed_cold_start": true,
+    "pipeline_mode": "raw_book_no_seed_cold_start",
+    "source_bundle_skill_count": 0,
+    "claim_boundary": "This run may be claimed as raw-book no-seed cold start only if raw_book_no_seed_cold_start is true and source_bundle_skill_count is 0."
+  },
+  "source_bundle": {
+    "score_100": 94.0,
+    "errors": 0,
+    "warnings": 0,
+    "skill_count": 0,
+    "graph": {
+      "node_count": 1048,
+      "edge_count": 1221,
+      "community_count": 129
+    },
+    "shared_assets": {
+      "trace_count": 105,
+      "evaluation_count": 315,
+      "evaluation_breakdown": {
+        "real_decisions": 105,
+        "synthetic_adversarial": 105,
+        "out_of_distribution": 105
+      }
+    },
+    "source_bundle_kind": "raw_book_source_bundle",
+    "provenance": {
+      "nodes": {
+        "count": 1048,
+        "source_file_ratio": 1.0,
+        "source_location_ratio": 1.0,
+        "extraction_kind_ratio": 1.0
+      },
+      "edges": {
+        "count": 1221,
+        "source_file_ratio": 1.0,
+        "source_location_ratio": 1.0,
+        "extraction_kind_ratio": 1.0,
+        "confidence_ratio": 1.0
+      },
+      "extraction_kind_counts": {
+        "EXTRACTED": 1442,
+        "INFERRED": 287,
+        "AMBIGUOUS": 540
+      }
+    },
+    "tri_state_density_ratio": 1.0,
+    "tri_state_effectiveness": {
+      "candidate_count": 3,
+      "candidates_using_tri_state": 3,
+      "candidate_coverage_ratio": 1.0,
+      "inferred_node_reference_ratio": 1.0,
+      "inferred_edge_reference_ratio": 0.0,
+      "ambiguous_node_reference_ratio": 0.0,
+      "ambiguous_edge_reference_ratio": 0.0,
+      "overall_ratio": 0.4
+    },
+    "source_structure_quality": {
+      "overall_ratio": 1.0,
+      "mechanism_node_count": 1,
+      "packed_mechanism_node_count": 1,
+      "mechanism_evidence_pack_ratio": 1.0,
+      "navigation_title_count": 0,
+      "navigation_clean_ratio": 1.0,
+      "degenerate_title_count": 0,
+      "heading_clean_ratio": 1.0,
+      "file_count_truth_ratio": 1.0
+    },
+    "graph_report_present": true,
+    "source_chunks_present": true,
+    "source_snapshot_present": true,
+    "notes": [
+      "validator_clean",
+      "graph_report_present",
+      "provenance_graph_complete",
+      "source_ingestion_trace_present",
+      "tri_state_effective",
+      "shared_evidence_pool_present",
+      "source_structure_quality_complete"
+    ]
+  },
+  "generated_bundle": {
+    "score_100": 96.4,
+    "errors": 0,
+    "warnings": 0,
+    "skill_count": 3,
+    "workflow_candidate_count": 0,
+    "bundle_quality_grade": "excellent",
+    "minimum_production_quality": 0.9449,
+    "average_production_quality": 0.9449,
+    "verification_gate_present": true,
+    "pseudo_skill_audit": {
+      "chapter_title_rejected_count": 0,
+      "summary_candidate_rejected_count": 0,
+      "workflow_candidate_routed_count": 0,
+      "agentic_skill_accepted_count": 3
+    },
+    "pressure_test_summary": {
+      "skill_count": 3,
+      "probe_count": 15,
+      "pass_ratio": 1.0,
+      "false_positive_count": 0,
+      "failure_owner_counts": {}
+    },
+    "rationale_template_collision": {
+      "schema_version": "kiu.rationale-template-collision/v0.1",
+      "collision_count": 0,
+      "collisions": []
+    },
+    "workflow_verification_ready_ratio": 1.0,
+    "workflow_gateway_boundary_preserved": true,
+    "coverage_readiness": {
+      "schema_version": "kiu.coverage-readiness/v0.1",
+      "coverage_units": [
+        {
+          "unit_id": "community::component::01",
+          "label": "卷一百三十　太史公自序第七十 Cluster",
+          "node_count": 24,
+          "keywords": [
+            "卷一百三十",
+            "太史公自序第七十"
+          ]
+        },
+        {
+          "unit_id": "community::component::38",
+          "label": "卷四十三　赵世家第十三 Cluster",
+          "node_count": 21,
+          "keywords": [
+            "卷四十三",
+            "赵世家第十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::02",
+          "label": "卷七　项羽本纪第七 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷七",
+            "项羽本纪第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::06",
+          "label": "卷六十九　苏秦列传第九 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷六十九",
+            "苏秦列传第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::34",
+          "label": "卷三十九　晋世家第九 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷三十九",
+            "晋世家第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::35",
+          "label": "卷四十　楚世家第十 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷四十",
+            "楚世家第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::17",
+          "label": "卷六　秦始皇本纪第六 Cluster",
+          "node_count": 19,
+          "keywords": [
+            "卷六",
+            "秦始皇本纪第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::18",
+          "label": "卷八　高祖本纪第八 Cluster",
+          "node_count": 18,
+          "keywords": [
+            "卷八",
+            "高祖本纪第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::27",
+          "label": "卷二十八　封禅书第六 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷二十八",
+            "封禅书第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::42",
+          "label": "卷四十七　孔子世家第十七 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷四十七",
+            "孔子世家第十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::74",
+          "label": "卷九十二　淮阴侯列传第三十二 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷九十二",
+            "淮阴侯列传第三十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::89",
+          "label": "卷一百十　匈奴列传第五十 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷一百十",
+            "匈奴列传第五十"
+          ]
+        },
+        {
+          "unit_id": "community::component::12",
+          "label": "卷一百二十八　龟策列传第六十八 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百二十八",
+            "龟策列传第六十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::69",
+          "label": "卷八十七　李斯列传第二十七 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷八十七",
+            "李斯列传第二十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::85",
+          "label": "卷一百五　扁鹊仓公列传第四十五 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百五",
+            "扁鹊仓公列传第四十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::95",
+          "label": "卷一百一十七　司马相如列传第五十七 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百一十七",
+            "司马相如列传第五十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::100",
+          "label": "卷一百二十三　大宛列传第六十三 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷一百二十三",
+            "大宛列传第六十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::15",
+          "label": "卷四　周本纪第四 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷四",
+            "周本纪第四"
+          ]
+        },
+        {
+          "unit_id": "community::component::16",
+          "label": "卷五　秦本纪第五 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷五",
+            "秦本纪第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::62",
+          "label": "卷七十九　范睢蔡泽列传第十九 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷七十九",
+            "范睢蔡泽列传第十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::03",
+          "label": "卷二十四　乐书第二 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷二十四",
+            "乐书第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::54",
+          "label": "卷七十　张仪列传第十 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷七十",
+            "张仪列传第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::96",
+          "label": "卷一百一十八　淮南衡山列传第五十八 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷一百一十八",
+            "淮南衡山列传第五十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::08",
+          "label": "卷一百一十二　平津侯主父列传第五十二 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百一十二",
+            "平津侯主父列传第五十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::09",
+          "label": "卷一百二十二　酷吏列传第六十二 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百二十二",
+            "酷吏列传第六十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::68",
+          "label": "卷八十六　刺客列传第二十六 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷八十六",
+            "刺客列传第二十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::86",
+          "label": "卷一百六　吴王濞列传第四十六 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百六",
+            "吴王濞列传第四十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::11",
+          "label": "卷一百二十六　滑稽列传第六十六 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷一百二十六",
+            "滑稽列传第六十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::113",
+          "label": "卷二十七　天官书第五 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷二十七",
+            "天官书第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::20",
+          "label": "卷十　孝文本纪第十 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷十",
+            "孝文本纪第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::21",
+          "label": "卷十二　孝武本纪第十二 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷十二",
+            "孝武本纪第十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::29",
+          "label": "卷三十　平准书第八 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷三十",
+            "平准书第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::31",
+          "label": "卷三十二　齐太公世家第二 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷三十二",
+            "齐太公世家第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::90",
+          "label": "卷一百一十一　卫将军骠骑列传第五十一 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷一百一十一",
+            "卫将军骠骑列传第五十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::05",
+          "label": "卷六十　三王世家第三十 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷六十",
+            "三王世家第三十"
+          ]
+        },
+        {
+          "unit_id": "community::component::32",
+          "label": "卷三十三　鲁周公世家第三 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷三十三",
+            "鲁周公世家第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::52",
+          "label": "卷六十七　仲尼弟子列传第七 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷六十七",
+            "仲尼弟子列传第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::103",
+          "label": "卷一百二十九　货殖列传第六十九 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷一百二十九",
+            "货殖列传第六十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::37",
+          "label": "卷四十二　郑世家第十二 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十二",
+            "郑世家第十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::39",
+          "label": "卷四十四　魏世家第十四 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十四",
+            "魏世家第十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::41",
+          "label": "卷四十六　田敬仲完世家第十六 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十六",
+            "田敬仲完世家第十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::46",
+          "label": "卷五十五　留侯世家第二十五 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷五十五",
+            "留侯世家第二十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::47",
+          "label": "卷五十六　陈丞相世家第二十六 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷五十六",
+            "陈丞相世家第二十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::64",
+          "label": "卷八十一　廉颇蔺相如列传第二十一 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷八十一",
+            "廉颇蔺相如列传第二十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::66",
+          "label": "卷八十三　鲁仲连邹阳列传第二十三 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷八十三",
+            "鲁仲连邹阳列传第二十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::79",
+          "label": "卷九十七　郦生陆贾列传第三十七 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷九十七",
+            "郦生陆贾列传第三十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::04",
+          "label": "卷四十九　外戚世家第十九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷四十九",
+            "外戚世家第十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::19",
+          "label": "卷九　吕太后本纪第九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷九",
+            "吕太后本纪第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::33",
+          "label": "卷三十八　宋微子世家第八 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷三十八",
+            "宋微子世家第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::36",
+          "label": "卷四十一　越王句践世家第十一 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷四十一",
+            "越王句践世家第十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::59",
+          "label": "卷七十六　平原君虞卿列传第十六 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷七十六",
+            "平原君虞卿列传第十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::77",
+          "label": "卷九十五　樊郦滕灌列传第三十五 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷九十五",
+            "樊郦滕灌列传第三十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::87",
+          "label": "卷一百七　魏其武安侯列传第四十七 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百七",
+            "魏其武安侯列传第四十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::88",
+          "label": "卷一百九　李将军列传第四十九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百九",
+            "李将军列传第四十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::99",
+          "label": "卷一百二十一　儒林列传第六十一 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百二十一",
+            "儒林列传第六十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::07",
+          "label": "卷一百八　韩长孺列传第四十八 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百八",
+            "韩长孺列传第四十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::13",
+          "label": "卷二　夏本纪第二 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷二",
+            "夏本纪第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::25",
+          "label": "卷二十三　礼书第一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷二十三",
+            "礼书第一"
+          ]
+        },
+        {
+          "unit_id": "community::component::30",
+          "label": "卷三十一　吴太伯世家第一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷三十一",
+            "吴太伯世家第一"
+          ]
+        },
+        {
+          "unit_id": "community::component::49",
+          "label": "卷六十三　老子韩非列传第三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十三",
+            "老子韩非列传第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::50",
+          "label": "卷六十五　孙子吴起列传第五 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十五",
+            "孙子吴起列传第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::51",
+          "label": "卷六十六　伍子胥列传第六 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十六",
+            "伍子胥列传第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::55",
+          "label": "卷七十一　樗里子甘茂列传第十一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十一",
+            "樗里子甘茂列传第十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::56",
+          "label": "卷七十三　白起王翦列传第十三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十三",
+            "白起王翦列传第十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::58",
+          "label": "卷七十五　孟尝君列传第十五 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十五",
+            "孟尝君列传第十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::60",
+          "label": "卷七十七　魏公子列传第十七 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十七",
+            "魏公子列传第十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::61",
+          "label": "卷七十八　春申君列传第十八 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十八",
+            "春申君列传第十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::71",
+          "label": "卷八十九　张耳陈馀列传第二十九 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷八十九",
+            "张耳陈馀列传第二十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::73",
+          "label": "卷九十一　黥布列传第三十一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十一",
+            "黥布列传第三十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::78",
+          "label": "卷九十六　张丞相列传第三十六 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十六",
+            "张丞相列传第三十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::80",
+          "label": "卷九十九　刘敬叔孙通列传第三十九 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十九",
+            "刘敬叔孙通列传第三十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::82",
+          "label": "卷一百二　张释之冯唐列传第四十二 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百二",
+            "张释之冯唐列传第四十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::91",
+          "label": "卷一百一十三　南越列传第五十三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百一十三",
+            "南越列传第五十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::102",
+          "label": "卷一百二十七　日者列传第六十七 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百二十七",
+            "日者列传第六十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::14",
+          "label": "卷三　殷本纪第三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷三",
+            "殷本纪第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::40",
+          "label": "卷四十五　韩世家第十五 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷四十五",
+            "韩世家第十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::43",
+          "label": "卷四十八　陈涉世家第十八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷四十八",
+            "陈涉世家第十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::45",
+          "label": "卷五十二　齐悼惠王世家第二十二 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷五十二",
+            "齐悼惠王世家第二十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::48",
+          "label": "卷五十八　梁孝王世家第二十八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷五十八",
+            "梁孝王世家第二十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::53",
+          "label": "卷六十八　商君列传第八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷六十八",
+            "商君列传第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::67",
+          "label": "卷八十四　屈原贾生列传第二十四 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷八十四",
+            "屈原贾生列传第二十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::75",
+          "label": "卷九十三　韩信卢绾列传第三十三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷九十三",
+            "韩信卢绾列传第三十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::83",
+          "label": "卷一百三　万石张叔列传第四十三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百三",
+            "万石张叔列传第四十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::98",
+          "label": "卷一百二十　汲郑列传第六十 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百二十",
+            "汲郑列传第六十"
+          ]
+        },
+        {
+          "unit_id": "community::component::10",
+          "label": "卷一百二十四　游侠列传第六十四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百二十四",
+            "游侠列传第六十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::112",
+          "label": "卷二十六　历书第四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷二十六",
+            "历书第四"
+          ]
+        },
+        {
+          "unit_id": "community::component::117",
+          "label": "卷三十七　卫康叔世家第七 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷三十七",
+            "卫康叔世家第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::129",
+          "label": "卷一百一　袁盎晁错列传第四十一 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百一",
+            "袁盎晁错列传第四十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::26",
+          "label": "卷二十五　律书第三 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷二十五",
+            "律书第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::63",
+          "label": "卷八十　乐毅列传第二十 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷八十",
+            "乐毅列传第二十"
+          ]
+        },
+        {
+          "unit_id": "community::component::81",
+          "label": "卷一百　季布栾布列传第四十 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百",
+            "季布栾布列传第四十"
+          ]
+        },
+        {
+          "unit_id": "community::component::84",
+          "label": "卷一百四　田叔列传第四十四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百四",
+            "田叔列传第四十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::93",
+          "label": "卷一百一十五　朝鲜列传第五十五 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百一十五",
+            "朝鲜列传第五十五"
+          ]
+        }
+      ],
+      "covered_units": [],
+      "uncovered_units": [
+        {
+          "unit_id": "community::component::01",
+          "label": "卷一百三十　太史公自序第七十 Cluster",
+          "node_count": 24,
+          "keywords": [
+            "卷一百三十",
+            "太史公自序第七十"
+          ]
+        },
+        {
+          "unit_id": "community::component::38",
+          "label": "卷四十三　赵世家第十三 Cluster",
+          "node_count": 21,
+          "keywords": [
+            "卷四十三",
+            "赵世家第十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::02",
+          "label": "卷七　项羽本纪第七 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷七",
+            "项羽本纪第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::06",
+          "label": "卷六十九　苏秦列传第九 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷六十九",
+            "苏秦列传第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::34",
+          "label": "卷三十九　晋世家第九 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷三十九",
+            "晋世家第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::35",
+          "label": "卷四十　楚世家第十 Cluster",
+          "node_count": 20,
+          "keywords": [
+            "卷四十",
+            "楚世家第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::17",
+          "label": "卷六　秦始皇本纪第六 Cluster",
+          "node_count": 19,
+          "keywords": [
+            "卷六",
+            "秦始皇本纪第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::18",
+          "label": "卷八　高祖本纪第八 Cluster",
+          "node_count": 18,
+          "keywords": [
+            "卷八",
+            "高祖本纪第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::27",
+          "label": "卷二十八　封禅书第六 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷二十八",
+            "封禅书第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::42",
+          "label": "卷四十七　孔子世家第十七 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷四十七",
+            "孔子世家第十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::74",
+          "label": "卷九十二　淮阴侯列传第三十二 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷九十二",
+            "淮阴侯列传第三十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::89",
+          "label": "卷一百十　匈奴列传第五十 Cluster",
+          "node_count": 17,
+          "keywords": [
+            "卷一百十",
+            "匈奴列传第五十"
+          ]
+        },
+        {
+          "unit_id": "community::component::12",
+          "label": "卷一百二十八　龟策列传第六十八 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百二十八",
+            "龟策列传第六十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::69",
+          "label": "卷八十七　李斯列传第二十七 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷八十七",
+            "李斯列传第二十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::85",
+          "label": "卷一百五　扁鹊仓公列传第四十五 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百五",
+            "扁鹊仓公列传第四十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::95",
+          "label": "卷一百一十七　司马相如列传第五十七 Cluster",
+          "node_count": 16,
+          "keywords": [
+            "卷一百一十七",
+            "司马相如列传第五十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::100",
+          "label": "卷一百二十三　大宛列传第六十三 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷一百二十三",
+            "大宛列传第六十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::15",
+          "label": "卷四　周本纪第四 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷四",
+            "周本纪第四"
+          ]
+        },
+        {
+          "unit_id": "community::component::16",
+          "label": "卷五　秦本纪第五 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷五",
+            "秦本纪第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::62",
+          "label": "卷七十九　范睢蔡泽列传第十九 Cluster",
+          "node_count": 14,
+          "keywords": [
+            "卷七十九",
+            "范睢蔡泽列传第十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::03",
+          "label": "卷二十四　乐书第二 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷二十四",
+            "乐书第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::54",
+          "label": "卷七十　张仪列传第十 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷七十",
+            "张仪列传第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::96",
+          "label": "卷一百一十八　淮南衡山列传第五十八 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "卷一百一十八",
+            "淮南衡山列传第五十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::08",
+          "label": "卷一百一十二　平津侯主父列传第五十二 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百一十二",
+            "平津侯主父列传第五十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::09",
+          "label": "卷一百二十二　酷吏列传第六十二 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百二十二",
+            "酷吏列传第六十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::68",
+          "label": "卷八十六　刺客列传第二十六 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷八十六",
+            "刺客列传第二十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::86",
+          "label": "卷一百六　吴王濞列传第四十六 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "卷一百六",
+            "吴王濞列传第四十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::11",
+          "label": "卷一百二十六　滑稽列传第六十六 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷一百二十六",
+            "滑稽列传第六十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::113",
+          "label": "卷二十七　天官书第五 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷二十七",
+            "天官书第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::20",
+          "label": "卷十　孝文本纪第十 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷十",
+            "孝文本纪第十"
+          ]
+        },
+        {
+          "unit_id": "community::component::21",
+          "label": "卷十二　孝武本纪第十二 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷十二",
+            "孝武本纪第十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::29",
+          "label": "卷三十　平准书第八 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷三十",
+            "平准书第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::31",
+          "label": "卷三十二　齐太公世家第二 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷三十二",
+            "齐太公世家第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::90",
+          "label": "卷一百一十一　卫将军骠骑列传第五十一 Cluster",
+          "node_count": 11,
+          "keywords": [
+            "卷一百一十一",
+            "卫将军骠骑列传第五十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::05",
+          "label": "卷六十　三王世家第三十 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷六十",
+            "三王世家第三十"
+          ]
+        },
+        {
+          "unit_id": "community::component::32",
+          "label": "卷三十三　鲁周公世家第三 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷三十三",
+            "鲁周公世家第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::52",
+          "label": "卷六十七　仲尼弟子列传第七 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "卷六十七",
+            "仲尼弟子列传第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::103",
+          "label": "卷一百二十九　货殖列传第六十九 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷一百二十九",
+            "货殖列传第六十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::37",
+          "label": "卷四十二　郑世家第十二 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十二",
+            "郑世家第十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::39",
+          "label": "卷四十四　魏世家第十四 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十四",
+            "魏世家第十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::41",
+          "label": "卷四十六　田敬仲完世家第十六 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷四十六",
+            "田敬仲完世家第十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::46",
+          "label": "卷五十五　留侯世家第二十五 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷五十五",
+            "留侯世家第二十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::47",
+          "label": "卷五十六　陈丞相世家第二十六 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷五十六",
+            "陈丞相世家第二十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::64",
+          "label": "卷八十一　廉颇蔺相如列传第二十一 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷八十一",
+            "廉颇蔺相如列传第二十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::66",
+          "label": "卷八十三　鲁仲连邹阳列传第二十三 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷八十三",
+            "鲁仲连邹阳列传第二十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::79",
+          "label": "卷九十七　郦生陆贾列传第三十七 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "卷九十七",
+            "郦生陆贾列传第三十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::04",
+          "label": "卷四十九　外戚世家第十九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷四十九",
+            "外戚世家第十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::19",
+          "label": "卷九　吕太后本纪第九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷九",
+            "吕太后本纪第九"
+          ]
+        },
+        {
+          "unit_id": "community::component::33",
+          "label": "卷三十八　宋微子世家第八 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷三十八",
+            "宋微子世家第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::36",
+          "label": "卷四十一　越王句践世家第十一 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷四十一",
+            "越王句践世家第十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::59",
+          "label": "卷七十六　平原君虞卿列传第十六 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷七十六",
+            "平原君虞卿列传第十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::77",
+          "label": "卷九十五　樊郦滕灌列传第三十五 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷九十五",
+            "樊郦滕灌列传第三十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::87",
+          "label": "卷一百七　魏其武安侯列传第四十七 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百七",
+            "魏其武安侯列传第四十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::88",
+          "label": "卷一百九　李将军列传第四十九 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百九",
+            "李将军列传第四十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::99",
+          "label": "卷一百二十一　儒林列传第六十一 Cluster",
+          "node_count": 8,
+          "keywords": [
+            "卷一百二十一",
+            "儒林列传第六十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::07",
+          "label": "卷一百八　韩长孺列传第四十八 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百八",
+            "韩长孺列传第四十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::13",
+          "label": "卷二　夏本纪第二 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷二",
+            "夏本纪第二"
+          ]
+        },
+        {
+          "unit_id": "community::component::25",
+          "label": "卷二十三　礼书第一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷二十三",
+            "礼书第一"
+          ]
+        },
+        {
+          "unit_id": "community::component::30",
+          "label": "卷三十一　吴太伯世家第一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷三十一",
+            "吴太伯世家第一"
+          ]
+        },
+        {
+          "unit_id": "community::component::49",
+          "label": "卷六十三　老子韩非列传第三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十三",
+            "老子韩非列传第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::50",
+          "label": "卷六十五　孙子吴起列传第五 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十五",
+            "孙子吴起列传第五"
+          ]
+        },
+        {
+          "unit_id": "community::component::51",
+          "label": "卷六十六　伍子胥列传第六 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷六十六",
+            "伍子胥列传第六"
+          ]
+        },
+        {
+          "unit_id": "community::component::55",
+          "label": "卷七十一　樗里子甘茂列传第十一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十一",
+            "樗里子甘茂列传第十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::56",
+          "label": "卷七十三　白起王翦列传第十三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十三",
+            "白起王翦列传第十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::58",
+          "label": "卷七十五　孟尝君列传第十五 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十五",
+            "孟尝君列传第十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::60",
+          "label": "卷七十七　魏公子列传第十七 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十七",
+            "魏公子列传第十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::61",
+          "label": "卷七十八　春申君列传第十八 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷七十八",
+            "春申君列传第十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::71",
+          "label": "卷八十九　张耳陈馀列传第二十九 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷八十九",
+            "张耳陈馀列传第二十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::73",
+          "label": "卷九十一　黥布列传第三十一 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十一",
+            "黥布列传第三十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::78",
+          "label": "卷九十六　张丞相列传第三十六 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十六",
+            "张丞相列传第三十六"
+          ]
+        },
+        {
+          "unit_id": "community::component::80",
+          "label": "卷九十九　刘敬叔孙通列传第三十九 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷九十九",
+            "刘敬叔孙通列传第三十九"
+          ]
+        },
+        {
+          "unit_id": "community::component::82",
+          "label": "卷一百二　张释之冯唐列传第四十二 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百二",
+            "张释之冯唐列传第四十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::91",
+          "label": "卷一百一十三　南越列传第五十三 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "卷一百一十三",
+            "南越列传第五十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::102",
+          "label": "卷一百二十七　日者列传第六十七 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百二十七",
+            "日者列传第六十七"
+          ]
+        },
+        {
+          "unit_id": "community::component::14",
+          "label": "卷三　殷本纪第三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷三",
+            "殷本纪第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::40",
+          "label": "卷四十五　韩世家第十五 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷四十五",
+            "韩世家第十五"
+          ]
+        },
+        {
+          "unit_id": "community::component::43",
+          "label": "卷四十八　陈涉世家第十八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷四十八",
+            "陈涉世家第十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::45",
+          "label": "卷五十二　齐悼惠王世家第二十二 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷五十二",
+            "齐悼惠王世家第二十二"
+          ]
+        },
+        {
+          "unit_id": "community::component::48",
+          "label": "卷五十八　梁孝王世家第二十八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷五十八",
+            "梁孝王世家第二十八"
+          ]
+        },
+        {
+          "unit_id": "community::component::53",
+          "label": "卷六十八　商君列传第八 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷六十八",
+            "商君列传第八"
+          ]
+        },
+        {
+          "unit_id": "community::component::67",
+          "label": "卷八十四　屈原贾生列传第二十四 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷八十四",
+            "屈原贾生列传第二十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::75",
+          "label": "卷九十三　韩信卢绾列传第三十三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷九十三",
+            "韩信卢绾列传第三十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::83",
+          "label": "卷一百三　万石张叔列传第四十三 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百三",
+            "万石张叔列传第四十三"
+          ]
+        },
+        {
+          "unit_id": "community::component::98",
+          "label": "卷一百二十　汲郑列传第六十 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "卷一百二十",
+            "汲郑列传第六十"
+          ]
+        },
+        {
+          "unit_id": "community::component::10",
+          "label": "卷一百二十四　游侠列传第六十四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百二十四",
+            "游侠列传第六十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::112",
+          "label": "卷二十六　历书第四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷二十六",
+            "历书第四"
+          ]
+        },
+        {
+          "unit_id": "community::component::117",
+          "label": "卷三十七　卫康叔世家第七 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷三十七",
+            "卫康叔世家第七"
+          ]
+        },
+        {
+          "unit_id": "community::component::129",
+          "label": "卷一百一　袁盎晁错列传第四十一 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百一",
+            "袁盎晁错列传第四十一"
+          ]
+        },
+        {
+          "unit_id": "community::component::26",
+          "label": "卷二十五　律书第三 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷二十五",
+            "律书第三"
+          ]
+        },
+        {
+          "unit_id": "community::component::63",
+          "label": "卷八十　乐毅列传第二十 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷八十",
+            "乐毅列传第二十"
+          ]
+        },
+        {
+          "unit_id": "community::component::81",
+          "label": "卷一百　季布栾布列传第四十 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百",
+            "季布栾布列传第四十"
+          ]
+        },
+        {
+          "unit_id": "community::component::84",
+          "label": "卷一百四　田叔列传第四十四 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百四",
+            "田叔列传第四十四"
+          ]
+        },
+        {
+          "unit_id": "community::component::93",
+          "label": "卷一百一十五　朝鲜列传第五十五 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "卷一百一十五",
+            "朝鲜列传第五十五"
+          ]
+        }
+      ],
+      "coverage_unit_count": 93,
+      "covered_unit_count": 0,
+      "uncovered_unit_count": 93,
+      "published_skill_count": 3,
+      "workflow_candidate_count": 0,
+      "gateway_route_count": 0,
+      "narrow_output_justification": "",
+      "readiness": {
+        "schema_version": "kiu.application-readiness/v0.1",
+        "model": "coverage_model",
+        "status": "warn",
+        "score_100": 0.0,
+        "warning_count": 1,
+        "failure_count": 0,
+        "findings": [
+          {
+            "model": "coverage_model",
+            "severity": "warn",
+            "reason": "narrow_output_without_justification",
+            "evidence": {
+              "coverage_unit_count": 93,
+              "covered_unit_count": 0,
+              "uncovered_unit_count": 93
+            },
+            "recommended_action": "add model-backed coverage, workflow gateway routing, or narrow_output_justification"
+          }
+        ],
+        "claim_boundary": "Internal readiness model evidence; not external validation or domain-expert review."
+      }
+    },
+    "world_alignment": {
+      "schema_version": "kiu.world-alignment-review/v0.1",
+      "bundle_root": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle",
+      "world_alignment_present": false,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": false,
+      "original_source_only_mode_supported": false,
+      "source_pollution_errors": 0,
+      "source_pollution_findings": [],
+      "gate_count": 0,
+      "verdict_counts": {},
+      "scores": {
+        "source_fidelity_score": 100.0,
+        "world_context_isolation_score": 0.0,
+        "application_gate_quality_score": 0.0,
+        "world_alignment_explanation_score": 0.0,
+        "workflow_boundary_resilience_score": 100.0,
+        "world_context_depth_score": 0.0,
+        "source_fit_score": 0.0,
+        "dilution_risk_score": 100.0,
+        "hallucination_risk_score": 100.0
+      },
+      "accepted_pressure_count": 0,
+      "rejected_pressure_count": 0,
+      "no_forced_enhancement_count": 0,
+      "quality_findings": [
+        "world_context_missing"
+      ],
+      "no_web_risk_control": {
+        "passed": false
+      },
+      "world_alignment_score_100": 0.0
+    },
+    "notes": [
+      "production_quality_excellent",
+      "verification_gate_present",
+      "coverage_readiness_warn"
+    ]
+  },
+  "usage_outputs": {
+    "score_100": 95.8,
+    "sample_count": 9,
+    "notes": [
+      "usage_reviews_scored"
+    ],
+    "failure_tag_counts": {},
+    "top_failure_modes": [],
+    "severity_counts": {
+      "none": 9
+    },
+    "critical_failure_count": 0,
+    "usage_gate_ready": true,
+    "usage_gate_reasons": [],
+    "samples": [
+      {
+        "review_case_id": "historical-analogy-transfer-gate-usage-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-analogy-transfer-gate/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "historical-analogy-transfer-gate-usage-defer-boundary",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-analogy-transfer-gate/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "historical-analogy-transfer-gate-usage-do-not-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-analogy-transfer-gate/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "historical-case-consequence-judgment-usage-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-case-consequence-judgment/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "historical-case-consequence-judgment-usage-defer-boundary",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-case-consequence-judgment/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "historical-case-consequence-judgment-usage-do-not-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/historical-case-consequence-judgment/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "role-boundary-before-action-usage-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/role-boundary-before-action/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "role-boundary-before-action-usage-defer-boundary",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/role-boundary-before-action/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "role-boundary-before-action-usage-do-not-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing/bundle/skills/role-boundary-before-action/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      }
+    ]
+  },
+  "proxy_usage_outputs": {
+    "schema_version": "kiu.proxy-usage-summary/v0.1",
+    "case_count": 0,
+    "score_100": 0.0,
+    "case_type_counts": {},
+    "failure_tag_counts": {},
+    "gate_ready": false,
+    "gate_reasons": [
+      "no_proxy_usage_cases"
+    ],
+    "cases": []
+  },
+  "practical_effect_outputs": {
+    "schema_version": "kiu.practical-effect-review/v0.1",
+    "score_100": 95.8,
+    "evidence_level": "L3_usage_review",
+    "usage_score_100": 95.8,
+    "proxy_usage_score_100": 0.0,
+    "case_count": 9,
+    "gate_ready": true,
+    "gate_reasons": [],
+    "claim_boundary": "Usage evidence is used as the primary practical-effect signal for this run."
+  },
+  "release_gate": {
+    "source_bundle_ready": true,
+    "generated_bundle_ready": true,
+    "usage_gate_ready": true,
+    "overall_ready": true,
+    "reasons": []
+  },
+  "overall_score_100": 95.5
+}

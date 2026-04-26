@@ -1,0 +1,43 @@
+skill_id: historical-analogy-transfer-gate
+bundle_version: 0.2.0
+skill_revision: 6
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases:
+    - evaluation/real_decisions/historical-analogy-transfer-gate-real_decision_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  synthetic_adversarial:
+    cases:
+    - evaluation/synthetic_adversarial/historical-analogy-transfer-gate-adversarial_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  out_of_distribution:
+    cases:
+    - evaluation/out_of_distribution/historical-analogy-transfer-gate-ood_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+key_failure_modes:
+- Do not fire on pure summary, translation, fact lookup, biography introduction, author-position
+  query, or stance commentary without a user decision; route those to source/retrieval
+  paths.
+- 'Do not let source admiration become context_transfer_abuse: copying a book, historical
+  case, competitor, big-company process, or past success without current fit must
+  be refused.'
+- Do not accept single_case_overreach; require mechanism mapping, transfer_conditions,
+  anti_conditions, and counter-case or disconfirming evidence before transfer.
+references:
+  evaluation_root: ../../../evaluation
+  prefill_mode: deterministic
+  gold_skill_id: null

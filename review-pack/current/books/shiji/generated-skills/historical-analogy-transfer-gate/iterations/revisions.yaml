@@ -1,0 +1,67 @@
+skill_id: historical-analogy-transfer-gate
+bundle_version: 0.2.0
+current_revision: 6
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: Initial borrowed-value draft for Historical Analogy Transfer Gate created
+    from graph/source evidence. The revision scope is deliberately not summary quality;
+    it checks whether a source pattern can improve a live decision without context-transfer
+    abuse.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added source-shape detection for biography/history/case/argument-heavy materials.
+  - Bound transfer_conditions and anti_conditions into contract and usage scenario
+    families.
+  - Added refusal coverage for summary, translation, fact lookup, biography introduction,
+    author-position query, stance commentary, single_case_overreach, and context_transfer_abuse.
+- revision: 2
+  date: '2026-04-26'
+  summary: Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+- revision: 3
+  date: '2026-04-26'
+  summary: Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+- revision: 4
+  date: '2026-04-26'
+  summary: Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+- revision: 5
+  date: '2026-04-26'
+  summary: Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+- revision: 6
+  date: '2026-04-26'
+  summary: Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+open_gaps:
+- Replace smoke cases with external human-written borrowing scenarios for stronger
+  usage evidence.
+- Add more cross-domain counter-cases before using the pattern in high-stakes contexts.

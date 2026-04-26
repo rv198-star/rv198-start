@@ -1,0 +1,1141 @@
+candidate_id: business-value-anchor-check
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1098
+  supporting_node_ids:
+  - case::financial-statement-1070
+  - case::financial-statement-1071
+  - counter-example::financial-statement-1038
+  - evidence::financial-statement-0095
+  - evidence::financial-statement-0099
+  - evidence::financial-statement-0364
+  - evidence::financial-statement-0365
+  - evidence::financial-statement-0410
+  - evidence::financial-statement-0668
+  - evidence::financial-statement-1011
+  - evidence::financial-statement-1038
+  - evidence::financial-statement-1060
+  - evidence::financial-statement-1070
+  - evidence::financial-statement-1071
+  - evidence::financial-statement-1072
+  - evidence::financial-statement-1202
+  - evidence::financial-statement-1231
+  - framework::0075
+  - framework::0293
+  - framework::0358
+  - framework::1004
+  - framework::1054
+  - principle::0084
+  - principle::0087
+  - principle::0092
+  - principle::0093
+  - principle::0094
+  - principle::0095
+  - principle::0343
+  - principle::0385
+  - principle::0627
+  - principle::0629
+  - principle::0908
+  - principle::0909
+  - principle::0910
+  - principle::0911
+  - principle::0932
+  - principle::0933
+  - principle::0947
+  - principle::0948
+  - principle::0968
+  - principle::0969
+  - principle::0977
+  - principle::0981
+  - principle::1044
+  - principle::1045
+  - principle::1048
+  - principle::1049
+  - principle::1099
+  - principle::1101
+  - principle::1102
+  - principle::1103
+  - principle::1119
+  - principle::1121
+  - principle::1122
+  - term::hewlett-packard
+  - term::hurricane-katrina
+  - term::john-hancock-mutual-life-insurance
+  - term::metropolitan-life-insurance
+  supporting_edge_ids:
+  - derives_case_signal::principle::0981->case::financial-statement-1070
+  - derives_case_signal::principle::0981->case::financial-statement-1071
+  - derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+  - derives_term_signal::principle::0092->term::hewlett-packard
+  - derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+  - derives_term_signal::principle::0343->term::metropolitan-life-insurance
+  - derives_term_signal::principle::0981->term::hurricane-katrina
+  - section-parent::framework::0075->principle::0092
+  - section-parent::framework::0293->principle::0343
+  - section-parent::framework::0358->principle::0385
+  - section-parent::framework::1004->principle::1044
+  - section-parent::framework::1054->principle::1098
+  - section-parent::principle::0084->principle::0087
+  - section-parent::principle::0092->principle::0093
+  - section-parent::principle::0092->principle::0094
+  - section-parent::principle::0092->principle::0095
+  - section-parent::principle::0627->principle::0629
+  - section-parent::principle::0908->principle::0909
+  - section-parent::principle::0909->principle::0910
+  - section-parent::principle::0909->principle::0911
+  - section-parent::principle::0932->principle::0933
+  - section-parent::principle::0947->principle::0948
+  - section-parent::principle::0968->principle::0969
+  - section-parent::principle::0977->principle::0981
+  - section-parent::principle::1044->principle::1045
+  - section-parent::principle::1044->principle::1048
+  - section-parent::principle::1044->principle::1049
+  - section-parent::principle::1098->principle::1099
+  - section-parent::principle::1098->principle::1101
+  - section-parent::principle::1098->principle::1102
+  - section-parent::principle::1098->principle::1103
+  - section-parent::principle::1119->principle::1121
+  - section-parent::principle::1121->principle::1122
+  - supported-by::principle::0087->evidence::financial-statement-0095
+  - supported-by::principle::0092->evidence::financial-statement-0099
+  - supported-by::principle::0343->evidence::financial-statement-0364
+  - supported-by::principle::0343->evidence::financial-statement-0365
+  - supported-by::principle::0385->evidence::financial-statement-0410
+  - supported-by::principle::0629->evidence::financial-statement-0668
+  - supported-by::principle::0933->evidence::financial-statement-1011
+  - supported-by::principle::0948->evidence::financial-statement-1038
+  - supported-by::principle::0969->evidence::financial-statement-1060
+  - supported-by::principle::0981->evidence::financial-statement-1070
+  - supported-by::principle::0981->evidence::financial-statement-1071
+  - supported-by::principle::0981->evidence::financial-statement-1072
+  - supported-by::principle::1098->evidence::financial-statement-1202
+  - supported-by::principle::1121->evidence::financial-statement-1231
+  community_ids:
+  - community::principle::0084
+  - community::principle::0087
+  - community::principle::0092
+  - community::principle::0093
+  - community::principle::0094
+  - community::principle::0095
+  - community::principle::0343
+  - community::principle::0385
+  - community::principle::0627
+  - community::principle::0629
+  - community::principle::0908
+  - community::principle::0909
+  - community::principle::0910
+  - community::principle::0911
+  - community::principle::0932
+  - community::principle::0933
+  - community::principle::0947
+  - community::principle::0948
+  - community::principle::0968
+  - community::principle::0969
+  - community::principle::0977
+  - community::principle::0981
+  - community::principle::1044
+  - community::principle::1045
+  - community::principle::1048
+  - community::principle::1049
+  - community::principle::1098
+  - community::principle::1099
+  - community::principle::1101
+  - community::principle::1102
+  - community::principle::1103
+  - community::principle::1119
+  - community::principle::1121
+  - community::principle::1122
+  merged_primary_node_ids:
+  - principle::0087
+  - principle::0092
+  - principle::0343
+  - principle::0385
+  - principle::0629
+  - principle::0909
+  - principle::0933
+  - principle::0948
+  - principle::0969
+  - principle::0981
+  - principle::1044
+  - principle::1098
+  - principle::1121
+  merged_candidate_count: 13
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: general_agentic
+  workflow_cues: 1
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 2
+  evidence_support_count: 14
+  extracted_evidence_support_count: 14
+  tri_state_support_count: 8
+  support_entity_count: 94
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 7
+  merged_from_node_ids:
+  - principle::0087
+  - principle::0092
+  - principle::0343
+  - principle::0385
+  - principle::0629
+  - principle::0909
+  - principle::0933
+  - principle::0948
+  - principle::0969
+  - principle::0981
+  - principle::1044
+  - principle::1098
+  - principle::1121
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.0851
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 如果-则
+  evidence_chunk_ids:
+  - financial-statement:0668
+  - financial-statement:1070
+  - financial-statement:1071
+  - financial-statement:1231
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 1.0
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: business-value-anchor-check
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 1.0
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 14
+    evidence_support_count: 14
+    context_cues: 2
+    workflow_cues: 1
+    tri_state_support_ratio: 0.0851
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 如果-则
+    evidence_chunk_ids:
+    - financial-statement:0668
+    - financial-statement:1070
+    - financial-statement:1071
+    - financial-statement:1231
+    supporting_node_count: 59
+    supporting_edge_count: 47
+    community_count: 34
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: business-value-anchor-check
+  source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0981->case::financial-statement-1070
+    label: derives_case_signal
+    from_label: M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+    to_label: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:13073-13083
+    snippet: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保险和得克萨斯太平洋保险公司等多个子公司。
+      公司的保险业务运作主要分为三个部分。丘博商业保险面向商业用户提供全方位的产品服务，包括综合保险、意外险、员工薪酬险和财产与海上保险等，它主要通过代理商和经理人为各类
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0981->case::financial-statement-1071
+    label: derives_case_signal
+    from_label: M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+    to_label: '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| |
+      |...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:13085-13103
+    snippet: '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| |
+      | 2010年 | 2009年 | 2008年 | 2007年 | | 损失比率（%） | 58.1 | 55.4 | 58.5 | 52.8 | |
+      费用比率（%） | 31.2 | 30.6 | 30.2 | 30.1 '
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+    label: derives_counter_example_signal
+    from_label: 14.6 企业估值乘数
+    to_label: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6
+      ...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12687-12687
+    snippet: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6
+      中，你可能还注意到，随着杠杆水平的增大，市盈率指标却下降了，从 10 变成了 8。不过，在这两种情况下，权益的价值都没有发生改变。这意味着，我们最好不要排除杠杆的影响来考察市净率和市盈率。
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0092->term::hewlett-packard
+    label: derives_term_signal
+    from_label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+    to_label: Hewlett-Packard
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:1480-1496
+    snippet: a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列信息（金额单位：百万美元）。
+      | 0 | 1 | |:-----|:--------| | 短期借款 | 1 342.6 | | 长期负债 | 5 542.5 | | 股东权益 |
+      6 616.2 | 其中，短期借款和长期
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+    label: derives_term_signal
+    from_label: 保险公司的股份化：这些企业的价值大于它们的账面价值吗
+    to_label: John Hancock Mutual Life insurance
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:4612-4628
+    snippet: '包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan
+      Life Insurance）在内的很多大型保险公司，目前都已从政策持有人所有的互助保险企业转型为由股东所持有的股份制企业。在这些企业“股份化”的过程中，需要向原政策持有人发行股份和通过初始公开募集向新投资者发行股份。 '
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0343->term::metropolitan-life-insurance
+    label: derives_term_signal
+    from_label: 保险公司的股份化：这些企业的价值大于它们的账面价值吗
+    to_label: Metropolitan Life Insurance
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:4612-4628
+    snippet: '包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan
+      Life Insurance）在内的很多大型保险公司，目前都已从政策持有人所有的互助保险企业转型为由股东所持有的股份制企业。在这些企业“股份化”的过程中，需要向原政策持有人发行股份和通过初始公开募集向新投资者发行股份。 '
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0981->term::hurricane-katrina
+    label: derives_term_signal
+    from_label: M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+    to_label: Hurricane Katrina
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:13073-13083
+    snippet: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保险和得克萨斯太平洋保险公司等多个子公司。
+      公司的保险业务运作主要分为三个部分。丘博商业保险面向商业用户提供全方位的产品服务，包括综合保险、意外险、员工薪酬险和财产与海上保险等，它主要通过代理商和经理人为各类
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::financial-statement-1038
+    label: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 ...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12687-12687
+    snippet: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6
+      中，你可能还注意到，随着杠杆水平的增大，市盈率指标却下降了，从 10 变成了 8。不过，在这两种情况下，权益的价值都没有发生改变。这意味着，我们最好不要排除杠杆的影响来考察市净率和市盈率。
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: business-value-anchor-check
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0084
+      label: 思考题 Cluster
+      top_node_id: principle::0080
+      top_node_label: 了解企业：金佰利公司（股票代码：KMB）
+      node_count: 8
+    - community_id: community::principle::0087
+      label: E1.1. 计算企业价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0095
+      top_node_label: 某公司的股票市值总额为 12 亿美元，债务的交易总额为 6 亿美元。请问，该公司的市场价值是多少（即企业市值）？
+      node_count: 3
+    - community_id: community::principle::0092
+      label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等） Cluster
+      top_node_id: evidence::financial-statement-0099
+      top_node_label: a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列...
+      node_count: 7
+    - community_id: community::principle::0093
+      label: 迷你案例 Cluster
+      top_node_id: principle::0092
+      top_node_label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+      node_count: 2
+    - community_id: community::principle::0094
+      label: M1.1 对一份权益分析报告的批评：美国在线公司 Cluster
+      top_node_id: case::financial-statement-0100
+      top_node_label: 如本章所介绍的，1998年、1999年和2000年的美国股票市场一直被互联网泡沫所包围。网络公司股票的市盈率和市销率已经严重偏离了股票市场...
+      node_count: 12
+    - community_id: community::principle::0095
+      label: 第 2 章 财务报表简介 Cluster
+      top_node_id: principle::0092
+      top_node_label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+      node_count: 3
+    - community_id: community::principle::0343
+      label: 保险公司的股份化：这些企业的价值大于它们的账面价值吗 Cluster
+      top_node_id: evidence::financial-statement-0364
+      top_node_label: 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan...
+      node_count: 6
+    - community_id: community::principle::0385
+      label: E5.7. 利用会计技术来计量持续经营的价值增加额（中等） Cluster
+      top_node_id: evidence::financial-statement-0410
+      top_node_label: 一家新开业的公司宣布它将每年完成1.5亿美元的项目投资，这些项目的投资回报率均为15%（按每期期初的账面价值进行计算），寿命均为5年，项目...
+      node_count: 3
+    - community_id: community::principle::0627
+      label: 将金融性资产水平作为估值底限 Cluster
+      top_node_id: evidence::financial-statement-0667
+      top_node_label: 本杰明·格雷厄姆先生在20世纪30年代经济大萧条最严重的时候曾经提出，那些市场价格已经低于其货币资金价值的企业（与目前相比，这种现象在当时...
+      node_count: 5
+    - community_id: community::principle::0629
+      label: =净经营性资产的价值+净金融性资产的价值 Cluster
+      top_node_id: evidence::financial-statement-0668
+      top_node_label: 如果某家企业的权益市价已经低于了其净金融性资产的价值，就意味着市场认为这家企业的经营价值已经成为负数。所以，在正常情况下，企业的权益价值至...
+      node_count: 3
+    - community_id: community::principle::0908
+      label: 预测与估值分析 Cluster
+      top_node_id: evidence::financial-statement-0976
+      top_node_label: 经营活动的估值与金融活动的估值有什么不同？ 根据估值进行交易 外部投资者： 比较价值与价格，决定 买入、卖出或者持有 内部投资者：
+        比较价...
+      node_count: 4
+    - community_id: community::principle::0909
+      label: 第 14 章 经营价值与市净率和市盈率评价 Cluster
+      top_node_id: principle::0908
+      top_node_label: 预测与估值分析
+      node_count: 4
+    - community_id: community::principle::0910
+      label: 分析师备忘录 Cluster
+      top_node_id: principle::0909
+      top_node_label: 第 14 章 经营价值与市净率和市盈率评价
+      node_count: 2
+    - community_id: community::principle::0911
+      label: 学习目标 Cluster
+      top_node_id: principle::0909
+      top_node_label: 第 14 章 经营价值与市净率和市盈率评价
+      node_count: 3
+    - community_id: community::principle::0932
+      label: 阅读材料 14-4 Cluster
+      top_node_id: principle::0931
+      top_node_label: 14.4.1 杠杆与剩余收益估值模型
+      node_count: 3
+    - community_id: community::principle::0933
+      label: 锐步国际公司：股份回购和借款对企业价值和权益价值的影响 Cluster
+      top_node_id: evidence::financial-statement-1011
+      top_node_label: 在锐步公司1996年的财务报表附注2中，披露了如下信息。
+      node_count: 3
+    - community_id: community::principle::0947
+      label: 更多书籍请搜索 挥剑斩浮云 ，微信公众号微博：挥剑斩浮云hj zfycom Cluster
+      top_node_id: case::financial-statement-1037
+      top_node_label: 这里所进行的调整只是一个大致数。首先，利用布莱克－斯科尔斯期权估值模型本身只能得到大致的估值。由于员工期权与标准的交易期权还是有着不同的特...
+      node_count: 10
+    - community_id: community::principle::0948
+      label: 14.6 企业估值乘数 Cluster
+      top_node_id: counter-example::financial-statement-1038
+      top_node_label: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表
+        14-6 ...
+      node_count: 4
+    - community_id: community::principle::0968
+      label: E14.6. 计算股东权益的必要报酬率（中等） Cluster
+      top_node_id: evidence::financial-statement-1059
+      top_node_label: 某家企业的经营活动必要报酬率为10%，负债的账面价值为24.5亿美元，借款成本率为8%，所得税率为37%。这家企业的股东权益价
+        值为 82...
+      node_count: 6
+    - community_id: community::principle::0969
+      label: E14.7. 剩余经营性收益估值（简单） Cluster
+      top_node_id: evidence::financial-statement-1060
+      top_node_label: 下面是 2012 年年末对某家企业做出的一些预测数据，这家企业的净经营性资产为 1135 百万美元，净金融性负债为 720
+        百万美元（单位...
+      node_count: 3
+    - community_id: community::principle::0977
+      label: E14.15. 剩余经营性收益与企业乘数：通用磨坊公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1067
+      top_node_label: 在第 10 章的表 10-5 和表 10-11 中，分别列出了通用磨坊公司在 2010 财务年度的重构资产负债表和重构利润表。当该公司的
+        ...
+      node_count: 5
+    - community_id: community::principle::0981
+      label: M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司 Cluster
+      top_node_id: case::financial-statement-1070
+      top_node_label: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、...
+      node_count: 8
+    - community_id: community::principle::1044
+      label: 耐克公司与可口可乐公司：品牌企业的价值影响因素历史水平分布 Cluster
+      top_node_id: framework::1004
+      top_node_label: 15.3 将简单估值作为一个分析工具
+      node_count: 5
+    - community_id: community::principle::1045
+      label: 耐克公司 Cluster
+      top_node_id: evidence::financial-statement-0907
+      top_node_label: 耐克公司的净经营性资产报酬率 RNOA 在 2009 财务年度为 28.4%，到 2010 财务年度，增加为 30.6%，增加了
+        2.2%...
+      node_count: 6
+    - community_id: community::principle::1048
+      label: 阅读材料 16-3 Cluster
+      top_node_id: principle::1044
+      top_node_label: 耐克公司与可口可乐公司：品牌企业的价值影响因素历史水平分布
+      node_count: 2
+    - community_id: community::principle::1049
+      label: 重要影响因素 Cluster
+      top_node_id: evidence::financial-statement-1141
+      top_node_label: 特定行业的重要影响因素 | 0 | 1 | 2 | |:-------|:----------------|:--------------...
+      node_count: 4
+    - community_id: community::principle::1098
+      label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等） Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 7
+    - community_id: community::principle::1099
+      label: E16.14. 对公司合并进行评价：PPE 公司（困难） Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 6
+    - community_id: community::principle::1101
+      label: M16.1 全面预测与估值：宝洁公司VI Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 5
+    - community_id: community::principle::1102
+      label: M16.2 戴尔公司的股票价格合理吗 Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 4
+    - community_id: community::principle::1103
+      label: 经营战略 Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 5
+    - community_id: community::principle::1119
+      label: 会计影响 Cluster
+      top_node_id: framework::1118
+      top_node_label: 项目会计核算方法的影响
+      node_count: 5
+    - community_id: community::principle::1121
+      label: 17.2 会计方法、市净率、市盈率与持续经营估值 Cluster
+      top_node_id: evidence::financial-statement-1231
+      top_node_label: 17.1 节中的例子只涉及一个简单项目的估值，但其实，如果一家持续经营的企业总是坚持将它的账面价值保持在较低（或较高）水平，也能观察到类似...
+      node_count: 4
+    - community_id: community::principle::1122
+      label: 17.2.1 投资规模既定水平下的会计方法影响 Cluster
+      top_node_id: evidence::financial-statement-1232
+      top_node_label: 持续经营假定意味着我们需要不断重复地进行投资。表 17-2 是一套由五份表格所组成系列表格中的第一份，说明了一家企业在
+        2010 年投资 ...
+      node_count: 9
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - case
+  - counter-example-signal
+  - evidence
+  - framework
+  - principle
+  - term
+  source_node_ids:
+  - principle::1098
+  - case::financial-statement-1070
+  - case::financial-statement-1071
+  - counter-example::financial-statement-1038
+  - evidence::financial-statement-0095
+  - evidence::financial-statement-0099
+  - evidence::financial-statement-0364
+  - evidence::financial-statement-0365
+  - evidence::financial-statement-0410
+  - evidence::financial-statement-0668
+  - evidence::financial-statement-1011
+  - evidence::financial-statement-1038
+  - evidence::financial-statement-1060
+  - evidence::financial-statement-1070
+  - evidence::financial-statement-1071
+  - evidence::financial-statement-1072
+  - evidence::financial-statement-1202
+  - evidence::financial-statement-1231
+  - framework::0075
+  - framework::0293
+  - framework::0358
+  - framework::1004
+  - framework::1054
+  - principle::0084
+  - principle::0087
+  - principle::0092
+  - principle::0093
+  - principle::0094
+  - principle::0095
+  - principle::0343
+  - principle::0385
+  - principle::0627
+  - principle::0629
+  - principle::0908
+  - principle::0909
+  - principle::0910
+  - principle::0911
+  - principle::0932
+  - principle::0933
+  - principle::0947
+  - principle::0948
+  - principle::0968
+  - principle::0969
+  - principle::0977
+  - principle::0981
+  - principle::1044
+  - principle::1045
+  - principle::1048
+  - principle::1049
+  - principle::1099
+  - principle::1101
+  - principle::1102
+  - principle::1103
+  - principle::1119
+  - principle::1121
+  - principle::1122
+  - term::hewlett-packard
+  - term::hurricane-katrina
+  - term::john-hancock-mutual-life-insurance
+  - term::metropolitan-life-insurance
+  source_edge_ids:
+  - derives_case_signal::principle::0981->case::financial-statement-1070
+  - derives_case_signal::principle::0981->case::financial-statement-1071
+  - derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+  - derives_term_signal::principle::0092->term::hewlett-packard
+  - derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+  - derives_term_signal::principle::0343->term::metropolitan-life-insurance
+  - derives_term_signal::principle::0981->term::hurricane-katrina
+  - section-parent::framework::0075->principle::0092
+  - section-parent::framework::0293->principle::0343
+  - section-parent::framework::0358->principle::0385
+  - section-parent::framework::1004->principle::1044
+  - section-parent::framework::1054->principle::1098
+  - section-parent::principle::0084->principle::0087
+  - section-parent::principle::0092->principle::0093
+  - section-parent::principle::0092->principle::0094
+  - section-parent::principle::0092->principle::0095
+  - section-parent::principle::0627->principle::0629
+  - section-parent::principle::0908->principle::0909
+  - section-parent::principle::0909->principle::0910
+  - section-parent::principle::0909->principle::0911
+  - section-parent::principle::0932->principle::0933
+  - section-parent::principle::0947->principle::0948
+  - section-parent::principle::0968->principle::0969
+  - section-parent::principle::0977->principle::0981
+  - section-parent::principle::1044->principle::1045
+  - section-parent::principle::1044->principle::1048
+  - section-parent::principle::1044->principle::1049
+  - section-parent::principle::1098->principle::1099
+  - section-parent::principle::1098->principle::1101
+  - section-parent::principle::1098->principle::1102
+  - section-parent::principle::1098->principle::1103
+  - section-parent::principle::1119->principle::1121
+  - section-parent::principle::1121->principle::1122
+  - supported-by::principle::0087->evidence::financial-statement-0095
+  - supported-by::principle::0092->evidence::financial-statement-0099
+  - supported-by::principle::0343->evidence::financial-statement-0364
+  - supported-by::principle::0343->evidence::financial-statement-0365
+  - supported-by::principle::0385->evidence::financial-statement-0410
+  - supported-by::principle::0629->evidence::financial-statement-0668
+  - supported-by::principle::0933->evidence::financial-statement-1011
+  - supported-by::principle::0948->evidence::financial-statement-1038
+  - supported-by::principle::0969->evidence::financial-statement-1060
+  - supported-by::principle::0981->evidence::financial-statement-1070
+  - supported-by::principle::0981->evidence::financial-statement-1071
+  - supported-by::principle::0981->evidence::financial-statement-1072
+  - supported-by::principle::1098->evidence::financial-statement-1202
+  - supported-by::principle::1121->evidence::financial-statement-1231
+  source_locations:
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14838
+      line_end: 14838
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13085
+      line_end: 13103
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12687
+      line_end: 12687
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1460
+      line_end: 1460
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1480
+      line_end: 1496
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4630
+      line_end: 4634
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5185
+      line_end: 5191
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8214
+      line_end: 8214
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12435
+      line_end: 12435
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12687
+      line_end: 12687
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12943
+      line_end: 12947
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13085
+      line_end: 13103
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13105
+      line_end: 13113
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14840
+      line_end: 14844
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15173
+      line_end: 15173
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1239
+      line_end: 1239
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4020
+      line_end: 4020
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4942
+      line_end: 4942
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13430
+      line_end: 13430
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14158
+      line_end: 14158
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1418
+      line_end: 1418
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1458
+      line_end: 1458
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1478
+      line_end: 1478
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1498
+      line_end: 1498
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1500
+      line_end: 1500
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1528
+      line_end: 1528
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4610
+      line_end: 4610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5183
+      line_end: 5183
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8206
+      line_end: 8206
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8212
+      line_end: 8212
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11963
+      line_end: 11963
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11991
+      line_end: 11991
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11993
+      line_end: 11993
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11995
+      line_end: 11995
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12431
+      line_end: 12431
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12433
+      line_end: 12433
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12668
+      line_end: 12668
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12685
+      line_end: 12685
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12935
+      line_end: 12935
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12941
+      line_end: 12941
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13019
+      line_end: 13019
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13071
+      line_end: 13071
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13987
+      line_end: 13987
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13989
+      line_end: 13989
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14013
+      line_end: 14013
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14015
+      line_end: 14015
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14846
+      line_end: 14846
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14865
+      line_end: 14865
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14875
+      line_end: 14875
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14887
+      line_end: 14887
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15151
+      line_end: 15151
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15171
+      line_end: 15171
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15175
+      line_end: 15175
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1480
+      line_end: 1496
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13085
+      line_end: 13103
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12687
+      line_end: 12687
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1480
+      line_end: 1496
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1478
+      line_end: 1478
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4610
+      line_end: 4610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5183
+      line_end: 5183
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13987
+      line_end: 13987
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14838
+      line_end: 14838
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1458
+      line_end: 1458
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1498
+      line_end: 1498
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1500
+      line_end: 1500
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1528
+      line_end: 1528
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8212
+      line_end: 8212
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11991
+      line_end: 11991
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11993
+      line_end: 11993
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11995
+      line_end: 11995
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12433
+      line_end: 12433
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12685
+      line_end: 12685
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12941
+      line_end: 12941
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13071
+      line_end: 13071
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13989
+      line_end: 13989
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14013
+      line_end: 14013
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14015
+      line_end: 14015
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14846
+      line_end: 14846
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14865
+      line_end: 14865
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14875
+      line_end: 14875
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14887
+      line_end: 14887
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15171
+      line_end: 15171
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15175
+      line_end: 15175
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1460
+      line_end: 1460
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1480
+      line_end: 1496
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4612
+      line_end: 4628
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 4630
+      line_end: 4634
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5185
+      line_end: 5191
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8214
+      line_end: 8214
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12435
+      line_end: 12435
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12687
+      line_end: 12687
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12943
+      line_end: 12947
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13073
+      line_end: 13083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13085
+      line_end: 13103
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 13105
+      line_end: 13113
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 14840
+      line_end: 14844
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15173
+      line_end: 15173
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Business Value Anchor Check` is distilled from the source excerpt "## E16.13.
+    根据经营性收益增长预测进行估值：耐克公司（中等）"[^anchor:business-value-anchor-check-principle::1098].
+    The draft treats this as a decision-facing principle rather than a thematic summa'
+  use_situation_trigger:
+  - business_value_anchor_check_decision_required
+  - business_value_anchor_check_evidence_grounded
+  anti_misuse_boundary:
+  - scenario_missing_decision_context
+  - business_value_anchor_check_boundary_unclear
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - scenario_missing_decision_context
+  - business_value_anchor_check_boundary_unclear
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: business-value-anchor-check
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

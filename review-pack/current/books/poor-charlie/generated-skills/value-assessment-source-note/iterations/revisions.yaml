@@ -1,0 +1,22 @@
+skill_id: value-assessment-source-note
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: 'Initial v0.5.1 parent-skill topology repair. This candidate was added
+    so KiU can answer value-anchor questions before handing real position-size questions
+    to `margin-of-safety-sizing`, instead of forcing the sizing specialist to impersonate
+    a full valuation skill.
+
+    '
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added explicit parent/specialist split for the margin family.
+  - Reused existing canonical valuation-support and refusal traces in the generated
+    usage layer.
+open_gaps:
+- Add real evaluation cases dedicated to value-anchor judgments.
+- Verify that value-assessment keeps delegating to sizing instead of swallowing capital-allocation
+  questions.

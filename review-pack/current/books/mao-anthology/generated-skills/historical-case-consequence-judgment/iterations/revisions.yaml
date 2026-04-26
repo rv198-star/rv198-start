@@ -1,0 +1,61 @@
+skill_id: historical-case-consequence-judgment
+bundle_version: 0.2.0
+current_revision: 6
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: Initial extraction-backed draft for Historical Case Consequence Judgment
+    created from provenance-rich graph evidence.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Bound the draft to graph/source double anchoring.
+  - Attached one canonical smoke trace and one smoke case per evaluation subset.
+- revision: 2
+  date: '2026-04-26'
+  summary: Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+- revision: 3
+  date: '2026-04-26'
+  summary: Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+- revision: 4
+  date: '2026-04-26'
+  summary: Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+- revision: 5
+  date: '2026-04-26'
+  summary: Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+- revision: 6
+  date: '2026-04-26'
+  summary: Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+open_gaps:
+- Confirm whether the current trigger symbols are specific enough for production use.
+- Replace smoke evaluation with real domain cases before publication.

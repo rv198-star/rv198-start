@@ -1,0 +1,142 @@
+workflow_id: 11-业务流程分析与优化
+title: 11 业务流程分析与优化
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0021
+  supporting_node_ids:
+  - case::effective-requirements-0053
+  - case::effective-requirements-0054
+  - case::effective-requirements-0055
+  - case::effective-requirements-0056
+  - counter-example::effective-requirements-0054
+  - counter-example::effective-requirements-0056
+  - evidence::effective-requirements-0053
+  - evidence::effective-requirements-0054
+  - evidence::effective-requirements-0055
+  - evidence::effective-requirements-0056
+  - evidence::effective-requirements-0057
+  - principle::0018
+  supporting_edge_ids:
+  - derives_case_signal::principle::0021->case::effective-requirements-0053
+  - derives_case_signal::principle::0021->case::effective-requirements-0054
+  - derives_case_signal::principle::0021->case::effective-requirements-0055
+  - derives_case_signal::principle::0021->case::effective-requirements-0056
+  - derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0054
+  - derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0056
+  - section-parent::principle::0018->principle::0021
+  - supported-by::principle::0021->evidence::effective-requirements-0053
+  - supported-by::principle::0021->evidence::effective-requirements-0054
+  - supported-by::principle::0021->evidence::effective-requirements-0055
+  - supported-by::principle::0021->evidence::effective-requirements-0056
+  - supported-by::principle::0021->evidence::effective-requirements-0057
+  community_ids:
+  - community::principle::0018
+  - community::principle::0021
+evidence_anchors:
+  primary_node:
+    id: principle::0021
+    label: 11 业务流程分析与优化
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0053
+    label: 在标识出相关的业务流程之后，接下来的关键任务就是逐个流程进行了解与分析，绘制出流程图，并对关键流程进行适当的优化。 业务流程分析与优化任务...
+    type: case_signal
+  - id: case::effective-requirements-0054
+    label: 生活悟道场 大家想想，对于一个个体户企业而言，需要进行业务流程规划吗？显然不用，因为所有事情都是他一个人负责的，自己进货、自己销售、自己发...
+    type: case_signal
+  - id: case::effective-requirements-0055
+    label: 我们可以根据意图来从四种典型图表中选择合适的描述方式，如图11-8所示。 如果分析的是业务流程图，那么大部分时候我们需要强调的不仅是分工，...
+    type: case_signal
+  - id: case::effective-requirements-0056
+    label: 在上面的这个案例中，我们用一个小例子简单地示范了流程图从草图到初稿的演化过程。在业务流程图绘制的过程中，还有几个要点需要提醒大家注意，具体...
+    type: case_signal
+  - id: counter-example::effective-requirements-0054
+    label: 生活悟道场 大家想想，对于一个个体户企业而言，需要进行业务流程规划吗？显然不用，因为所有事情都是他一个人负责的，自己进货、自己销售、自己发...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0056
+    label: 在上面的这个案例中，我们用一个小例子简单地示范了流程图从草图到初稿的演化过程。在业务流程图绘制的过程中，还有几个要点需要提醒大家注意，具体...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0053
+    label: 在标识出相关的业务流程之后，接下来的关键任务就是逐个流程进行了解与分析，绘制出流程图，并对关键流程进行适当的优化。 业务流程分析与优化任务...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0054
+    label: 生活悟道场 大家想想，对于一个个体户企业而言，需要进行业务流程规划吗？显然不用，因为所有事情都是他一个人负责的，自己进货、自己销售、自己发...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0055
+    label: 我们可以根据意图来从四种典型图表中选择合适的描述方式，如图11-8所示。 如果分析的是业务流程图，那么大部分时候我们需要强调的不仅是分工，...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0056
+    label: 在上面的这个案例中，我们用一个小例子简单地示范了流程图从草图到初稿的演化过程。在业务流程图绘制的过程中，还有几个要点需要提醒大家注意，具体...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0057
+    label: 下面是一个简单的业务流程描述示例，以便大家在实践中作为参考，如表11-2所示。 在“业务流程识别”任务中找到的业务流程有时并不涉及多个岗位...
+    type: chunk_evidence
+  - id: principle::0018
+    label: 功能需求主线子篇——业务支持部分
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0021->case::effective-requirements-0053
+    type: derives_case_signal
+    from: principle::0021
+    to: case::effective-requirements-0053
+  - id: derives_case_signal::principle::0021->case::effective-requirements-0054
+    type: derives_case_signal
+    from: principle::0021
+    to: case::effective-requirements-0054
+  - id: derives_case_signal::principle::0021->case::effective-requirements-0055
+    type: derives_case_signal
+    from: principle::0021
+    to: case::effective-requirements-0055
+  - id: derives_case_signal::principle::0021->case::effective-requirements-0056
+    type: derives_case_signal
+    from: principle::0021
+    to: case::effective-requirements-0056
+  - id: derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0054
+    type: derives_counter_example_signal
+    from: principle::0021
+    to: counter-example::effective-requirements-0054
+  - id: derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0056
+    type: derives_counter_example_signal
+    from: principle::0021
+    to: counter-example::effective-requirements-0056
+  - id: section-parent::principle::0018->principle::0021
+    type: section_parent
+    from: principle::0018
+    to: principle::0021
+  - id: supported-by::principle::0021->evidence::effective-requirements-0053
+    type: supported_by_evidence
+    from: principle::0021
+    to: evidence::effective-requirements-0053
+  - id: supported-by::principle::0021->evidence::effective-requirements-0054
+    type: supported_by_evidence
+    from: principle::0021
+    to: evidence::effective-requirements-0054
+  - id: supported-by::principle::0021->evidence::effective-requirements-0055
+    type: supported_by_evidence
+    from: principle::0021
+    to: evidence::effective-requirements-0055
+  - id: supported-by::principle::0021->evidence::effective-requirements-0056
+    type: supported_by_evidence
+    from: principle::0021
+    to: evidence::effective-requirements-0056
+  - id: supported-by::principle::0021->evidence::effective-requirements-0057
+    type: supported_by_evidence
+    from: principle::0021
+    to: evidence::effective-requirements-0057
+  communities:
+  - id: community::principle::0018
+    label: 功能需求主线子篇——业务支持部分 Cluster
+  - id: community::principle::0021
+    label: 11 业务流程分析与优化 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

@@ -1,0 +1,299 @@
+{
+  "schema_version": "kiu.action-skill-identity/v0.1",
+  "candidate_route_distribution": {
+    "publish_skill": 2,
+    "route_case_library": 1,
+    "route_concept_note": 1,
+    "route_evaluation_material": 3,
+    "route_source_context": 2,
+    "route_workflow_candidate": 5
+  },
+  "container_candidate_leak_count": 0,
+  "container_candidate_leaks": [],
+  "publishable_action_skill_ratio": 1.0,
+  "minimum_action_skill_identity_score": 0.9483,
+  "candidates": [
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "关键概念",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7989,
+      "route": "route_concept_note",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.91,
+        "judgment_trigger_clarity": 0.82,
+        "user_context_requirement": 0.71,
+        "action_value_output": 0.8,
+        "boundary_and_misuse_control": 0.76,
+        "feedback_or_disconfirmation": 0.7933
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "concept_container"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "accounting-quality-signal-check",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9883,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.93,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 1.0,
+        "feedback_or_disconfirmation": 1.0
+      },
+      "route_reason": "action_rich_workflow_misroute_recovered",
+      "container_signals": [],
+      "workflow_recovery": true
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "思考题",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "练习题",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7439,
+      "route": "route_evaluation_material",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.85,
+        "judgment_trigger_clarity": 0.76,
+        "user_context_requirement": 0.68,
+        "action_value_output": 0.74,
+        "boundary_and_misuse_control": 0.7,
+        "feedback_or_disconfirmation": 0.7333
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "exercise_material"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "学习能力",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "本章小结",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [
+        "summary_container"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "学习目标",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "自主练习",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7989,
+      "route": "route_evaluation_material",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.91,
+        "judgment_trigger_clarity": 0.82,
+        "user_context_requirement": 0.71,
+        "action_value_output": 0.8,
+        "boundary_and_misuse_control": 0.76,
+        "feedback_or_disconfirmation": 0.7933
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "exercise_material"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "分析师工具箱",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7989,
+      "route": "route_source_context",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.91,
+        "judgment_trigger_clarity": 0.82,
+        "user_context_requirement": 0.71,
+        "action_value_output": 0.8,
+        "boundary_and_misuse_control": 0.76,
+        "feedback_or_disconfirmation": 0.7933
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "toolbox_container"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "business-value-anchor-check",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "基本练习",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7439,
+      "route": "route_evaluation_material",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.85,
+        "judgment_trigger_clarity": 0.76,
+        "user_context_requirement": 0.68,
+        "action_value_output": 0.74,
+        "boundary_and_misuse_control": 0.7,
+        "feedback_or_disconfirmation": 0.7333
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "exercise_material"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "警示案例",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "应用分析",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7439,
+      "route": "route_source_context",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.85,
+        "judgment_trigger_clarity": 0.76,
+        "user_context_requirement": 0.68,
+        "action_value_output": 0.74,
+        "boundary_and_misuse_control": 0.7,
+        "feedback_or_disconfirmation": 0.7333
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "toolbox_container"
+      ],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "迷你案例",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.7439,
+      "route": "route_case_library",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.85,
+        "judgment_trigger_clarity": 0.76,
+        "user_context_requirement": 0.68,
+        "action_value_output": 0.74,
+        "boundary_and_misuse_control": 0.7,
+        "feedback_or_disconfirmation": 0.7333
+      },
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "container_signals": [
+        "case_material"
+      ],
+      "workflow_recovery": false
+    }
+  ]
+}

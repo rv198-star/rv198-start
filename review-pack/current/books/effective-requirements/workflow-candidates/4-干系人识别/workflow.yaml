@@ -1,0 +1,160 @@
+workflow_id: 4-干系人识别
+title: 4 干系人识别
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0011
+  supporting_node_ids:
+  - case::effective-requirements-0028
+  - case::effective-requirements-0029
+  - case::effective-requirements-0030
+  - counter-example::effective-requirements-0028
+  - counter-example::effective-requirements-0029
+  - counter-example::effective-requirements-0030
+  - evidence::effective-requirements-0027
+  - evidence::effective-requirements-0028
+  - evidence::effective-requirements-0029
+  - evidence::effective-requirements-0030
+  - evidence::effective-requirements-0031
+  - principle::0010
+  - term::rup
+  - term::stakeholder
+  supporting_edge_ids:
+  - derives_case_signal::principle::0011->case::effective-requirements-0028
+  - derives_case_signal::principle::0011->case::effective-requirements-0029
+  - derives_case_signal::principle::0011->case::effective-requirements-0030
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0028
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0029
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0030
+  - derives_term_signal::principle::0011->term::rup
+  - derives_term_signal::principle::0011->term::stakeholder
+  - section-parent::principle::0010->principle::0011
+  - supported-by::principle::0011->evidence::effective-requirements-0027
+  - supported-by::principle::0011->evidence::effective-requirements-0028
+  - supported-by::principle::0011->evidence::effective-requirements-0029
+  - supported-by::principle::0011->evidence::effective-requirements-0030
+  - supported-by::principle::0011->evidence::effective-requirements-0031
+  community_ids:
+  - community::principle::0010
+  - community::principle::0011
+evidence_anchors:
+  primary_node:
+    id: principle::0011
+    label: 4 干系人识别
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0028
+    label: “干系人”的英文原词是Stakeholder，在各种中文文献中还常被译作涉众(RUP)、相关人员、利益相关者、风险承担人。而在金山词霸中给...
+    type: case_signal
+  - id: case::effective-requirements-0029
+    label: 如果这些部门都在同一个地方办公，那么只要将每个部门的负责人标识为关键干系人即可，如图4-4所示。 如果这些部门是分支机构，也就是不在同一个...
+    type: case_signal
+  - id: case::effective-requirements-0030
+    label: 1.众多基层受影响 案例分析 某局新来了一位领导，有一天在政务大厅里看到了许多排队办理各种业务的群众，发现有一部分群众都排到了，却又到另一...
+    type: case_signal
+  - id: counter-example::effective-requirements-0028
+    label: “干系人”的英文原词是Stakeholder，在各种中文文献中还常被译作涉众(RUP)、相关人员、利益相关者、风险承担人。而在金山词霸中给...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0029
+    label: 如果这些部门都在同一个地方办公，那么只要将每个部门的负责人标识为关键干系人即可，如图4-4所示。 如果这些部门是分支机构，也就是不在同一个...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0030
+    label: 1.众多基层受影响 案例分析 某局新来了一位领导，有一天在政务大厅里看到了许多排队办理各种业务的群众，发现有一部分群众都排到了，却又到另一...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0027
+    label: 对于任何产品、项目而言，都会涉及各种干系人，他们有着不同的诉求、关注点，甚至存在各种冲突。在需求分析过程中，识别出关键干系人是一件十分重要...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0028
+    label: “干系人”的英文原词是Stakeholder，在各种中文文献中还常被译作涉众(RUP)、相关人员、利益相关者、风险承担人。而在金山词霸中给...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0029
+    label: 如果这些部门都在同一个地方办公，那么只要将每个部门的负责人标识为关键干系人即可，如图4-4所示。 如果这些部门是分支机构，也就是不在同一个...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0030
+    label: 1.众多基层受影响 案例分析 某局新来了一位领导，有一天在政务大厅里看到了许多排队办理各种业务的群众，发现有一部分群众都排到了，却又到另一...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0031
+    label: 这个模板由类型、名称、说明、相关度、影响度五个栏目构成。 (1)类型：包括出资人/发起人、使用者、评价者、其他四种类型。出资人/发起人通常...
+    type: chunk_evidence
+  - id: principle::0010
+    label: 3 目标/愿景分析
+    type: principle_signal
+  - id: term::rup
+    label: RUP
+    type: term_signal
+  - id: term::stakeholder
+    label: Stakeholder
+    type: term_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0011->case::effective-requirements-0028
+    type: derives_case_signal
+    from: principle::0011
+    to: case::effective-requirements-0028
+  - id: derives_case_signal::principle::0011->case::effective-requirements-0029
+    type: derives_case_signal
+    from: principle::0011
+    to: case::effective-requirements-0029
+  - id: derives_case_signal::principle::0011->case::effective-requirements-0030
+    type: derives_case_signal
+    from: principle::0011
+    to: case::effective-requirements-0030
+  - id: derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0028
+    type: derives_counter_example_signal
+    from: principle::0011
+    to: counter-example::effective-requirements-0028
+  - id: derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0029
+    type: derives_counter_example_signal
+    from: principle::0011
+    to: counter-example::effective-requirements-0029
+  - id: derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0030
+    type: derives_counter_example_signal
+    from: principle::0011
+    to: counter-example::effective-requirements-0030
+  - id: derives_term_signal::principle::0011->term::rup
+    type: derives_term_signal
+    from: principle::0011
+    to: term::rup
+  - id: derives_term_signal::principle::0011->term::stakeholder
+    type: derives_term_signal
+    from: principle::0011
+    to: term::stakeholder
+  - id: section-parent::principle::0010->principle::0011
+    type: section_parent
+    from: principle::0010
+    to: principle::0011
+  - id: supported-by::principle::0011->evidence::effective-requirements-0027
+    type: supported_by_evidence
+    from: principle::0011
+    to: evidence::effective-requirements-0027
+  - id: supported-by::principle::0011->evidence::effective-requirements-0028
+    type: supported_by_evidence
+    from: principle::0011
+    to: evidence::effective-requirements-0028
+  - id: supported-by::principle::0011->evidence::effective-requirements-0029
+    type: supported_by_evidence
+    from: principle::0011
+    to: evidence::effective-requirements-0029
+  - id: supported-by::principle::0011->evidence::effective-requirements-0030
+    type: supported_by_evidence
+    from: principle::0011
+    to: evidence::effective-requirements-0030
+  - id: supported-by::principle::0011->evidence::effective-requirements-0031
+    type: supported_by_evidence
+    from: principle::0011
+    to: evidence::effective-requirements-0031
+  communities:
+  - id: community::principle::0010
+    label: 3 目标/愿景分析 Cluster
+  - id: community::principle::0011
+    label: 4 干系人识别 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

@@ -1,0 +1,113 @@
+skill_id: workflow-gateway
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+graph_anchor_sets:
+- anchor_id: workflow-gateway-seed-support
+  node_ids:
+  - principle::0322
+  - case::mao-0443
+  - case::mao-0449
+  - case::mao-0453
+  - counter-example::mao-0443
+  - counter-example::mao-0444
+  - counter-example::mao-0445
+  - counter-example::mao-0446
+  - counter-example::mao-0447
+  - counter-example::mao-0448
+  - counter-example::mao-0449
+  edge_ids:
+  - derives_case_signal::principle::0322->case::mao-0443
+  - derives_case_signal::principle::0322->case::mao-0449
+  - derives_case_signal::principle::0322->case::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  community_ids:
+  - community::principle::0320
+  - community::principle::0322
+  - community::principle::0181
+  - community::principle::0281
+  - community::principle::0110
+  - community::principle::0242
+source_anchor_sets:
+- anchor_id: workflow-gateway-principle::0322
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 133
+  line_end: 133
+  snippet: '### 我们的具体纲领'
+- anchor_id: workflow-gateway-case::mao-0443
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 135
+  line_end: 143
+  snippet: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各个小的阶段中，情形是变化了和变化着的，我们的具体纲领便不能不有所改变，这是当然的事情。例如，在北伐战争时期，在土地革命战争时期和在抗日战争时期，我们的新民主主义的一般纲领并没有变化，但其具体纲领，三个时期中是有了变化的，这是因为我们的敌军和友军在三个时期中发生了变化的缘故。
+    目前中国人
+- anchor_id: workflow-gateway-case::mao-0449
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 182
+  line_end: 207
+  snippet: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。
+    为什么把目前时代的革命叫做“资产阶级民主主义性质的革命”？这就是说，这个革命的对象不是一般的资产阶级，而是民族压迫和封建压迫；这个革命的措施，不是一般地废除私有财产，而是一般地保护私有财产；这个革命的结果，将使工人阶级有可能聚集力量因而引导中国向社会主义方向发展，但在一个相当长的时期内仍
+- anchor_id: workflow-gateway-case::mao-0453
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 233
+  line_end: 243
+  snippet: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持世界和平的。
+    中国共产党的外交政策的基本原则，是在彻底打倒日本侵略者，保持世界和平，互相尊重国家的独立和平等地位，互相增进国家和人民的利益及友谊这些基础之上，同各国建立并巩固邦交，解决一切相互关系问题，例如配合作战、和平会议、通商、投资等等。
+    中国共产党对于保障战后国际和平安全的机构之建立，完全同意敦
+- anchor_id: workflow-gateway-counter-example::mao-0443
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 135
+  line_end: 143
+  snippet: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各个小的阶段中，情形是变化了和变化着的，我们的具体纲领便不能不有所改变，这是当然的事情。例如，在北伐战争时期，在土地革命战争时期和在抗日战争时期，我们的新民主主义的一般纲领并没有变化，但其具体纲领，三个时期中是有了变化的，这是因为我们的敌军和友军在三个时期中发生了变化的缘故。
+    目前中国人
+- anchor_id: workflow-gateway-counter-example::mao-0444
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 145
+  line_end: 146
+  snippet: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经过南京傀儡政府，也正在和日本密使勾勾搭搭，并未遇到制止。因此，中途妥协的危险并未完全过去。开罗会议又决定将东北四省、台湾、澎湖列岛归还中国，这是很好的。但是根据国民党政府的现行政策，要想依靠它打到鸭绿江边，收复一切失地，是不可能的。在这种情形下，中国人民应该怎么办呢？中国人民应该要求国民党政府彻底消灭
+- anchor_id: workflow-gateway-counter-example::mao-0445
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 148
+  line_end: 160
+  snippet: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一党专政，实际上是国民党内反人民集团的专政，它是中国民族团结的破坏者，是国民党战场抗日失败的负责者，是动员和统一中国人民抗日力量的根本障碍物。从八年抗日战争的惨痛经验中，中国人民已经深刻地认识了它的罪恶，很自然地要求立即废止它。这个反人民的专政，又是内战的祸胎，如不立即废止，内战惨祸又将降临。
+    中国人民
+- anchor_id: workflow-gateway-counter-example::mao-0446
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 162
+  line_end: 166
+  snippet: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这个问题，就不能在全国范围内动员和统一一切抗日的力量。我们在纲领中提出了废止一党专政，成立联合政府，取消特务，取消镇压自由的法令，惩办汉奸、间谍、亲日分子、法西斯分子和贪官污吏，释放政治犯，承认各民主党派的合法地位，撤退包围和进攻解放区的军队，承认解放区，废止保甲制度，以及其他许多经济的文化的和民众运动
+- anchor_id: workflow-gateway-counter-example::mao-0447
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 168
+  line_end: 171
+  snippet: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的统一，还是人民的民主的统一呢？从袁世凯⒄以来，北洋军阀强调专制的统一。但是结果怎么样呢？和这些军阀的志愿相反，所得的不是统一而是分裂，最后是他们自己从台上滚下去。国民党反人民集团抄袭袁世凯的老路，追求专制的统一，打了整整十年的内战，结果把一个日本侵略者打了进来，自己也缩上了峨眉山⒅。现在又在山上大叫其
+- anchor_id: workflow-gateway-counter-example::mao-0448
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 173
+  line_end: 180
+  snippet: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队，现在还只有解放区的不很大的八路军和新四军，还很不够。可是，国民党内的反人民集团却处心积虑地要破坏和消灭解放区的军队。一九四四年，国民党政府提出了一个所谓“提示案”，叫共产党“限期取消”解放区军队的五分之四。一九四五年，即最近的一次谈判，又叫共产党将解放区军队全部交给它，然后它给共产党以“合法地位”。
+- anchor_id: workflow-gateway-counter-example::mao-0449
+  kind: source_excerpt
+  path: ../../sources/mao/082-论联合政府.md
+  line_start: 182
+  line_end: 207
+  snippet: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。
+    为什么把目前时代的革命叫做“资产阶级民主主义性质的革命”？这就是说，这个革命的对象不是一般的资产阶级，而是民族压迫和封建压迫；这个革命的措施，不是一般地废除私有财产，而是一般地保护私有财产；这个革命的结果，将使工人阶级有可能聚集力量因而引导中国向社会主义方向发展，但在一个相当长的时期内仍

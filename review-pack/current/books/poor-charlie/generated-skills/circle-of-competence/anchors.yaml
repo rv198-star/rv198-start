@@ -1,0 +1,63 @@
+skill_id: circle-of-competence
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+graph_anchor_sets:
+- anchor_id: circle-of-competence-seed-support
+  node_ids:
+  - n_circle_principle
+  - n_bias_principle
+  - n_crypto_rejection_trace
+  - n_dotcom_refusal_trace
+  - n_eval_ood_career_offer
+  - n_eval_surface_familiarity
+  - n_google_omission_trace
+  edge_ids:
+  - e_circle_bias_complements
+  - e_circle_crypto_supports
+  - e_circle_dotcom_supports
+  - e_circle_google_supports
+  - e_circle_ood_boundary_ambiguous
+  - e_circle_surface_boundary_ambiguous
+  community_ids:
+  - c_boundary_discipline
+source_anchor_sets:
+- anchor_id: circle-source-note
+  kind: source_excerpt
+  path: ../../sources/circle-of-competence.md
+  line_start: 1
+  line_end: 8
+  snippet: Circle source note describing refusal when understanding depth is insufficient.
+- anchor_id: circle-trace-dotcom
+  kind: scenario_trace
+  path: ../../traces/canonical/dotcom-refusal.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical refusal trace for dotcom exposure.
+- anchor_id: circle-trace-google
+  kind: scenario_trace
+  path: ../../traces/canonical/google-omission.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical omission trace showing process quality can survive a missed
+    winner.
+- anchor_id: circle-trace-crypto
+  kind: scenario_trace
+  path: ../../traces/canonical/crypto-rejection.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Historical refusal trace where no intelligible business model exists.
+- anchor_id: circle-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case that separates product familiarity from business depth.
+- anchor_id: circle-real-decision
+  kind: evaluation_case
+  path: ../../evaluation/real_decisions/biotech-founder-quantum-etf.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Real-decision case showing that high education does not automatically imply
+    domain competence.

@@ -1,0 +1,133 @@
+workflow_id: 14-管理需求分析
+title: 14 管理需求分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0025
+  supporting_node_ids:
+  - case::effective-requirements-0071
+  - case::effective-requirements-0072
+  - case::effective-requirements-0073
+  - case::effective-requirements-0074
+  - counter-example::effective-requirements-0072
+  - evidence::effective-requirements-0071
+  - evidence::effective-requirements-0072
+  - evidence::effective-requirements-0073
+  - evidence::effective-requirements-0074
+  - evidence::effective-requirements-0075
+  - principle::0024
+  supporting_edge_ids:
+  - derives_case_signal::principle::0025->case::effective-requirements-0071
+  - derives_case_signal::principle::0025->case::effective-requirements-0072
+  - derives_case_signal::principle::0025->case::effective-requirements-0073
+  - derives_case_signal::principle::0025->case::effective-requirements-0074
+  - derives_counter_example_signal::principle::0025->counter-example::effective-requirements-0072
+  - section-parent::principle::0024->principle::0025
+  - supported-by::principle::0025->evidence::effective-requirements-0071
+  - supported-by::principle::0025->evidence::effective-requirements-0072
+  - supported-by::principle::0025->evidence::effective-requirements-0073
+  - supported-by::principle::0025->evidence::effective-requirements-0074
+  - supported-by::principle::0025->evidence::effective-requirements-0075
+  community_ids:
+  - community::principle::0024
+  - community::principle::0025
+evidence_anchors:
+  primary_node:
+    id: principle::0025
+    label: 14 管理需求分析
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0071
+    label: 正如我们前面所说，信息系统的核心价值之一是支持管理，而管理支持的核心是通过管理流程事前规避风险，通过规则和审批事中控制风险，通过数据分析进...
+    type: case_signal
+  - id: case::effective-requirements-0072
+    label: 要想有效地识别出系统应该支持的管控点，首先需要深入理解数据不是信息、什么是管控点两个知识点。 生活悟道场 当你要去某城市出差，查天气预报，...
+    type: case_signal
+  - id: case::effective-requirements-0073
+    label: 让我感到遗憾的是，要把这里的技巧讲得更透彻已经超出我的能力范围了，只希望第14.2节中的故事、这里的逻辑树及第14.4节中的示例能够激发读...
+    type: case_signal
+  - id: case::effective-requirements-0074
+    label: 案例分析（续） 针对“业务设置合理性分析”而言，显然是可以从固定数据源中用固定条件分析的，因此只需要一组报表就可以实现。小李通过一些分析，...
+    type: case_signal
+  - id: counter-example::effective-requirements-0072
+    label: 要想有效地识别出系统应该支持的管控点，首先需要深入理解数据不是信息、什么是管控点两个知识点。 生活悟道场 当你要去某城市出差，查天气预报，...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0071
+    label: 正如我们前面所说，信息系统的核心价值之一是支持管理，而管理支持的核心是通过管理流程事前规避风险，通过规则和审批事中控制风险，通过数据分析进...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0072
+    label: 要想有效地识别出系统应该支持的管控点，首先需要深入理解数据不是信息、什么是管控点两个知识点。 生活悟道场 当你要去某城市出差，查天气预报，...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0073
+    label: 让我感到遗憾的是，要把这里的技巧讲得更透彻已经超出我的能力范围了，只希望第14.2节中的故事、这里的逻辑树及第14.4节中的示例能够激发读...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0074
+    label: 案例分析（续） 针对“业务设置合理性分析”而言，显然是可以从固定数据源中用固定条件分析的，因此只需要一组报表就可以实现。小李通过一些分析，...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0075
+    label: 该模板除了管控点名称，还有四个栏目，其中前两个是对其意义、人群的分析；后两个则是实现的分析。 (1)相关干系人：指出该管控点有哪些管理层用...
+    type: chunk_evidence
+  - id: principle::0024
+    label: 功能需求主线子篇——管理支持部分
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0025->case::effective-requirements-0071
+    type: derives_case_signal
+    from: principle::0025
+    to: case::effective-requirements-0071
+  - id: derives_case_signal::principle::0025->case::effective-requirements-0072
+    type: derives_case_signal
+    from: principle::0025
+    to: case::effective-requirements-0072
+  - id: derives_case_signal::principle::0025->case::effective-requirements-0073
+    type: derives_case_signal
+    from: principle::0025
+    to: case::effective-requirements-0073
+  - id: derives_case_signal::principle::0025->case::effective-requirements-0074
+    type: derives_case_signal
+    from: principle::0025
+    to: case::effective-requirements-0074
+  - id: derives_counter_example_signal::principle::0025->counter-example::effective-requirements-0072
+    type: derives_counter_example_signal
+    from: principle::0025
+    to: counter-example::effective-requirements-0072
+  - id: section-parent::principle::0024->principle::0025
+    type: section_parent
+    from: principle::0024
+    to: principle::0025
+  - id: supported-by::principle::0025->evidence::effective-requirements-0071
+    type: supported_by_evidence
+    from: principle::0025
+    to: evidence::effective-requirements-0071
+  - id: supported-by::principle::0025->evidence::effective-requirements-0072
+    type: supported_by_evidence
+    from: principle::0025
+    to: evidence::effective-requirements-0072
+  - id: supported-by::principle::0025->evidence::effective-requirements-0073
+    type: supported_by_evidence
+    from: principle::0025
+    to: evidence::effective-requirements-0073
+  - id: supported-by::principle::0025->evidence::effective-requirements-0074
+    type: supported_by_evidence
+    from: principle::0025
+    to: evidence::effective-requirements-0074
+  - id: supported-by::principle::0025->evidence::effective-requirements-0075
+    type: supported_by_evidence
+    from: principle::0025
+    to: evidence::effective-requirements-0075
+  communities:
+  - id: community::principle::0024
+    label: 功能需求主线子篇——管理支持部分 Cluster
+  - id: community::principle::0025
+    label: 14 管理需求分析 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

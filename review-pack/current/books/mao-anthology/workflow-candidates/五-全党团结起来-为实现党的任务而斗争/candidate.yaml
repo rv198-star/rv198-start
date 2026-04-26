@@ -1,0 +1,95 @@
+candidate_id: 五-全党团结起来-为实现党的任务而斗争
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0326
+  supporting_node_ids:
+  - counter-example::mao-0458
+  - counter-example::mao-0459
+  - evidence::mao-0458
+  - evidence::mao-0459
+  - framework::0304
+  supporting_edge_ids:
+  - derives_counter_example_signal::principle::0326->counter-example::mao-0458
+  - derives_counter_example_signal::principle::0326->counter-example::mao-0459
+  - section-parent::framework::0304->principle::0326
+  - supported-by::principle::0326->evidence::mao-0458
+  - supported-by::principle::0326->evidence::mao-0459
+  community_ids:
+  - community::principle::0326
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 2
+  workflow_signal_total: 2
+  context_cues: 1
+  evidence_support_count: 2
+  extracted_evidence_support_count: 2
+  tri_state_support_count: 4
+  support_entity_count: 10
+  tri_state_support_ratio: 0.4
+  ambiguous_support_node_count: 2
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 2
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 2
+  matched_keywords:
+  - 先-再
+  - 如果-则
+  evidence_chunk_ids:
+  - mao:0458
+  - mao:0459
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9722
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/082-论联合政府.md
+source_location:
+  line_start: 279
+  line_end: 279
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 五-全党团结起来-为实现党的任务而斗争
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.9167
+  overall_score: 0.9722
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.9167
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 2
+    evidence_support_count: 2
+    context_cues: 1
+    workflow_cues: 2
+    tri_state_support_ratio: 0.4
+    matched_keywords:
+    - 先-再
+    - 如果-则
+    evidence_chunk_ids:
+    - mao:0458
+    - mao:0459
+    supporting_node_count: 5
+    supporting_edge_count: 5
+    community_count: 1

@@ -1,0 +1,30 @@
+{
+  "source_bundle_id": "effective-requirements-source-v0.6",
+  "summary": {
+    "skill_candidates": 3,
+    "workflow_script_candidates": 12,
+    "matched_gold_skills": 0,
+    "missing_gold_skills": 0
+  },
+  "matched_gold_skill_ids": [],
+  "missing_gold_skill_ids": [],
+  "workflow_script_candidate_ids": [
+    "10-业务流程识别",
+    "11-业务流程分析与优化",
+    "12-业务场景识别",
+    "13-业务场景分析",
+    "14-管理需求分析",
+    "17-领域建模",
+    "19-质量需求分析",
+    "2-日常需求分析",
+    "3-目标-愿景分析",
+    "4-干系人识别",
+    "5-干系人分析",
+    "7-业务子系统划分"
+  ],
+  "candidate_ids": [
+    "solution-to-problem-reframing",
+    "stakeholder-resistance-tradeoff",
+    "workflow-gateway"
+  ]
+}

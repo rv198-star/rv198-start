@@ -1,0 +1,147 @@
+should_trigger:
+- scenario_id: resistance-changes-scope
+  summary: 业务方关注效率，审计或运营方担心风险，需求范围需要在冲突中取舍。
+  prompt_signals:
+  - 一方要快
+  - 另一方担心风险
+  - 到底听谁的
+  boundary_reason: 这里需要判断关注点和阻力点的权重，不是填写干系人表。
+  next_action_shape: 输出 prioritize_resistance/prioritize_attention、critical_stakeholders、risk_if_ignored。
+  anchor_refs:
+  - 5-干系人分析-principle::0012
+  - 5-干系人分析-evidence::effective-requirements-0032
+  - 5-干系人分析-evidence::effective-requirements-0033
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0012->case::effective-requirements-0033
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0012->case::effective-requirements-0033`
+    expands trigger language only when a live decision links `5 干系人分析` and `很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...`.'
+  prompt_signals:
+  - 5 干系人分析
+  - 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+  - 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需求”这个概念，是...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:1242-1311`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0012->case::effective-requirements-0033
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:1242-1311
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0010
+      label: 3 目标/愿景分析 Cluster
+      top_node_id: principle::0012
+      top_node_label: 5 干系人分析
+      node_count: 21
+    - community_id: community::principle::0012
+      label: 5 干系人分析 Cluster
+      top_node_id: principle::0012
+      top_node_label: 5 干系人分析
+      node_count: 9
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0012->case::effective-requirements-0034
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0012->case::effective-requirements-0034`
+    expands trigger language only when a live decision links `5 干系人分析` and `1.访谈干系人
+    在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...`.'
+  prompt_signals:
+  - 5 干系人分析
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：K...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:1314-1375`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0012->case::effective-requirements-0034
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:1314-1375
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034`
+    expands trigger language only when a live decision links `5 干系人分析` and `1.访谈干系人
+    在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...`.'
+  prompt_signals:
+  - 5 干系人分析
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：K...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:1314-1375`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:1314-1375
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: stakeholder-inventory-only
+  summary: 用户只要求列出项目干系人和基本职责。
+  prompt_signals:
+  - 帮我列干系人
+  - 整理角色列表
+  boundary_reason: 这是确定性识别流程，应保留在 workflow_candidates/。
+  anchor_refs:
+  - 5-干系人分析-principle::0012
+  - 5-干系人分析-evidence::effective-requirements-0032
+  - 5-干系人分析-evidence::effective-requirements-0033
+edge_case:
+- scenario_id: missing-real-user
+  summary: 发起人明确，但真实使用者或受影响群体没有被访谈。
+  prompt_signals:
+  - 领导提的
+  - 一线没人参与
+  - 不知道谁会反对
+  boundary_reason: 需要判断缺失干系人是否足以阻断结论。
+  next_action_shape: 输出 ask_for_missing_stakeholder 和最小补访谈列表。
+  anchor_refs:
+  - 5-干系人分析-principle::0012
+  - 5-干系人分析-evidence::effective-requirements-0032
+  - 5-干系人分析-evidence::effective-requirements-0033
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0034
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0034`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+  - 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：K...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:1314-1375`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0034
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:1314-1375
+  graph_navigation: *id001
+refusal:
+- scenario_id: single-stakeholder-no-conflict
+  summary: 只有一个明确使用者且无冲突，只需继续执行固定分析模板。
+  prompt_signals:
+  - 只有一个使用部门
+  - 没有争议
+  boundary_reason: 不应为无冲突场景制造 agentic 判断。
+  anchor_refs:
+  - 5-干系人分析-principle::0012
+  - 5-干系人分析-evidence::effective-requirements-0032
+  - 5-干系人分析-evidence::effective-requirements-0033

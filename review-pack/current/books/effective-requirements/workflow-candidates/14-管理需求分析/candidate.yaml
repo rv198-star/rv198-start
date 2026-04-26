@@ -1,0 +1,122 @@
+candidate_id: 14-管理需求分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0025
+  supporting_node_ids:
+  - case::effective-requirements-0071
+  - case::effective-requirements-0072
+  - case::effective-requirements-0073
+  - case::effective-requirements-0074
+  - counter-example::effective-requirements-0072
+  - evidence::effective-requirements-0071
+  - evidence::effective-requirements-0072
+  - evidence::effective-requirements-0073
+  - evidence::effective-requirements-0074
+  - evidence::effective-requirements-0075
+  - principle::0024
+  supporting_edge_ids:
+  - derives_case_signal::principle::0025->case::effective-requirements-0071
+  - derives_case_signal::principle::0025->case::effective-requirements-0072
+  - derives_case_signal::principle::0025->case::effective-requirements-0073
+  - derives_case_signal::principle::0025->case::effective-requirements-0074
+  - derives_counter_example_signal::principle::0025->counter-example::effective-requirements-0072
+  - section-parent::principle::0024->principle::0025
+  - supported-by::principle::0025->evidence::effective-requirements-0071
+  - supported-by::principle::0025->evidence::effective-requirements-0072
+  - supported-by::principle::0025->evidence::effective-requirements-0073
+  - supported-by::principle::0025->evidence::effective-requirements-0074
+  - supported-by::principle::0025->evidence::effective-requirements-0075
+  community_ids:
+  - community::principle::0024
+  - community::principle::0025
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 3
+  workflow_signal_total: 3
+  context_cues: 9
+  evidence_support_count: 5
+  extracted_evidence_support_count: 5
+  tri_state_support_count: 6
+  support_entity_count: 22
+  tri_state_support_ratio: 0.2727
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 5
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 6
+  matched_keywords:
+  - 业务
+  - 如果-则
+  - 步骤
+  - 目标
+  - 职责
+  - 输出
+  evidence_chunk_ids:
+  - effective-requirements:0071
+  - effective-requirements:0072
+  - effective-requirements:0073
+  - effective-requirements:0074
+  - effective-requirements:0075
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 2770
+  line_end: 2770
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 14-管理需求分析
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 5
+    evidence_support_count: 5
+    context_cues: 9
+    workflow_cues: 3
+    tri_state_support_ratio: 0.2727
+    matched_keywords:
+    - 业务
+    - 如果-则
+    - 步骤
+    - 目标
+    - 职责
+    - 输出
+    evidence_chunk_ids:
+    - effective-requirements:0071
+    - effective-requirements:0072
+    - effective-requirements:0073
+    - effective-requirements:0074
+    - effective-requirements:0075
+    supporting_node_count: 11
+    supporting_edge_count: 11
+    community_count: 2

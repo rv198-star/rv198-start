@@ -1,0 +1,293 @@
+candidate_id: historical-case-consequence-judgment
+source_bundle_id: shiji-source-v0.6
+source_graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+seed:
+  primary_node_id: narrative-pattern::historical-case-consequence-judgment
+  supporting_node_ids:
+  - evidence::shiji-0001
+  - evidence::shiji-0002
+  - evidence::shiji-0003
+  - evidence::shiji-0004
+  - evidence::shiji-0005
+  - evidence::shiji-0006
+  - evidence::shiji-0007
+  - evidence::shiji-0008
+  supporting_edge_ids:
+  - narrative-pattern-evidence::0001
+  - narrative-pattern-evidence::0002
+  - narrative-pattern-evidence::0003
+  - narrative-pattern-evidence::0004
+  - narrative-pattern-evidence::0005
+  - narrative-pattern-evidence::0006
+  - narrative-pattern-evidence::0007
+  - narrative-pattern-evidence::0008
+  community_ids:
+  - community::component::01
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 0
+  case_density_score: 0.7
+  workflow_cues: 0
+  workflow_signal_total: 0
+  context_cues: 4
+  evidence_support_count: 8
+  extracted_evidence_support_count: 8
+  tri_state_support_count: 0
+  support_entity_count: 16
+  tri_state_support_ratio: 0.0
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 0
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: false
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 6
+  matched_keywords:
+  - boundary
+  - case_pattern
+  - consequence
+  - decision
+  - decision_boundary
+  - tradeoff
+  evidence_chunk_ids:
+  - shiji:0001
+  - shiji:0002
+  - shiji:0003
+  - shiji:0004
+  - shiji:0005
+  - shiji:0006
+  - shiji:0007
+  - shiji:0008
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 1.0
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+source_location: &id001
+  line_start: 5
+  line_end: 19
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: historical-case-consequence-judgment
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 1.0
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 8
+    evidence_support_count: 8
+    context_cues: 4
+    workflow_cues: 0
+    tri_state_support_ratio: 0.0
+    matched_keywords:
+    - boundary
+    - case_pattern
+    - consequence
+    - decision
+    - decision_boundary
+    - tradeoff
+    evidence_chunk_ids:
+    - shiji:0001
+    - shiji:0002
+    - shiji:0003
+    - shiji:0004
+    - shiji:0005
+    - shiji:0006
+    - shiji:0007
+    - shiji:0008
+    supporting_node_count: 8
+    supporting_edge_count: 8
+    community_count: 1
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: historical-case-consequence-judgment
+  source_graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions: []
+  ambiguous_boundary_probes: []
+  source_action_transfer:
+    family: historical-case-consequence-judgment
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::component::01
+      label: 卷一百三十　太史公自序第七十 Cluster
+      top_node_id: narrative-pattern::historical-case-consequence-judgment
+      top_node_label: historical-case-consequence-judgment
+      node_count: 24
+    suggested_questions:
+    - Why does `卷四十三　赵世家第十三` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `卷七　项羽本纪第七` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `卷一百三十　太史公自序第七十 Cluster`, and should it
+      stay agentic or downgrade to workflow?
+    - What is the operational boundary of `卷七　项羽本纪第七 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `卷一百三十　太史公自序第七十 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - evidence
+  - narrative-pattern-signal
+  source_node_ids:
+  - narrative-pattern::historical-case-consequence-judgment
+  - evidence::shiji-0001
+  - evidence::shiji-0002
+  - evidence::shiji-0003
+  - evidence::shiji-0004
+  - evidence::shiji-0005
+  - evidence::shiji-0006
+  - evidence::shiji-0007
+  - evidence::shiji-0008
+  source_edge_ids:
+  - narrative-pattern-evidence::0001
+  - narrative-pattern-evidence::0002
+  - narrative-pattern-evidence::0003
+  - narrative-pattern-evidence::0004
+  - narrative-pattern-evidence::0005
+  - narrative-pattern-evidence::0006
+  - narrative-pattern-evidence::0007
+  - narrative-pattern-evidence::0008
+  source_locations:
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location: *id001
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 5
+      line_end: 19
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 21
+      line_end: 33
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 35
+      line_end: 39
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 41
+      line_end: 81
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 83
+      line_end: 119
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 121
+      line_end: 153
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 155
+      line_end: 215
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 217
+      line_end: 277
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 5
+      line_end: 19
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 21
+      line_end: 33
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 35
+      line_end: 39
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 41
+      line_end: 81
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 83
+      line_end: 119
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 121
+      line_end: 153
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 155
+      line_end: 215
+  - source_file: sources/shiji/0__卷一百三十__太史公自序第七十.md
+    source_location:
+      line_start: 217
+      line_end: 277
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Historical Case Consequence Judgment` is anchored in multiple historical episodes,
+    starting from "昔在颛顼，命南正重以司天，北正黎以司地。唐虞之际，绍重黎之後，使复典之，至于夏商，故重黎氏世序天地。其在周，程伯休甫其後也。当周宣王时，失其守而为司马氏。司马氏世典周史。惠襄之间，司马氏去周適(shì)晋。晋中军随会奔秦，而司马氏入少梁。
+    自司马氏去周適晋，分散，或在卫，或在赵，或'
+  use_situation_trigger:
+  - user_applying_historical_case_to_current_judgment
+  - decision_depends_on_case_consequence_pattern
+  - user_needs_tradeoff_from_multiple_historical_examples
+  anti_misuse_boundary:
+  - history_summary_only
+  - fact_lookup_only
+  - historical_fact_lookup_or_birth_year_question
+  - classical_text_translation_to_modern_chinese
+  - single_anecdote_without_decision
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - history_summary_only
+  - fact_lookup_only
+  - historical_fact_lookup_or_birth_year_question
+  - classical_text_translation_to_modern_chinese
+  - single_anecdote_without_decision
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: historical-case-consequence-judgment
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

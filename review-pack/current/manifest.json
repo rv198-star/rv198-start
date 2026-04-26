@@ -1,0 +1,49 @@
+{
+  "review_pack": "current",
+  "project": "KiU / 学以致用",
+  "created_for": "v0.8 closeout artifact review",
+  "historical_policy": "Only the latest review pack is kept in this directory; older packs are available through Git history.",
+  "evidence_boundary": "Internal artifact review pack; not external blind review, real-user validation, domain-expert validation, or legal redistribution review.",
+  "books": [
+    {
+      "id": "financial-statement",
+      "title": "Financial Statement Analysis",
+      "source_files": 1,
+      "published_skills": 3,
+      "workflow_candidates": 5,
+      "source_tree_sha256": "3c57c5c3b25e44727af87f0d9978b9a40a32a4887caadb9498111fc0a89e023d"
+    },
+    {
+      "id": "effective-requirements",
+      "title": "Effective Requirements Analysis",
+      "source_files": 1,
+      "published_skills": 3,
+      "workflow_candidates": 12,
+      "source_tree_sha256": "11c8624dac1d6627671828500992f0af74151cecdea49ae8a84a3763eab7a547"
+    },
+    {
+      "id": "mao-anthology",
+      "title": "Mao Anthology",
+      "source_files": 230,
+      "published_skills": 6,
+      "workflow_candidates": 8,
+      "source_tree_sha256": "29a5851e7d9007d25c5607dca5e4b9d26ab0a7eba6830b76c5fbb92d9069e955"
+    },
+    {
+      "id": "poor-charlie",
+      "title": "Poor Charlie's Almanack",
+      "source_files": 5,
+      "published_skills": 6,
+      "workflow_candidates": 0,
+      "source_tree_sha256": "f019e54336f599e26e419e956313d382306a8e04d404247e02383316a5a77741"
+    },
+    {
+      "id": "shiji",
+      "title": "Shiji",
+      "source_files": 130,
+      "published_skills": 3,
+      "workflow_candidates": 0,
+      "source_tree_sha256": "48a836cb9694c6ff5bd12505f9ff75576ed6ffaf79cd6d2965a8cd94c3586712"
+    }
+  ]
+}

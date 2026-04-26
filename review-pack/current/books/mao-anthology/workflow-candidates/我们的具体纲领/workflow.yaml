@@ -1,0 +1,286 @@
+workflow_id: 我们的具体纲领
+title: 我们的具体纲领
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0322
+  supporting_node_ids:
+  - case::mao-0443
+  - case::mao-0449
+  - case::mao-0453
+  - counter-example::mao-0443
+  - counter-example::mao-0444
+  - counter-example::mao-0445
+  - counter-example::mao-0446
+  - counter-example::mao-0447
+  - counter-example::mao-0448
+  - counter-example::mao-0449
+  - counter-example::mao-0450
+  - counter-example::mao-0451
+  - counter-example::mao-0452
+  - counter-example::mao-0453
+  - counter-example::mao-0454
+  - evidence::mao-0443
+  - evidence::mao-0444
+  - evidence::mao-0445
+  - evidence::mao-0446
+  - evidence::mao-0447
+  - evidence::mao-0448
+  - evidence::mao-0449
+  - evidence::mao-0450
+  - evidence::mao-0451
+  - evidence::mao-0452
+  - evidence::mao-0453
+  - evidence::mao-0454
+  - principle::0320
+  supporting_edge_ids:
+  - derives_case_signal::principle::0322->case::mao-0443
+  - derives_case_signal::principle::0322->case::mao-0449
+  - derives_case_signal::principle::0322->case::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0452
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0454
+  - section-parent::principle::0320->principle::0322
+  - supported-by::principle::0322->evidence::mao-0443
+  - supported-by::principle::0322->evidence::mao-0444
+  - supported-by::principle::0322->evidence::mao-0445
+  - supported-by::principle::0322->evidence::mao-0446
+  - supported-by::principle::0322->evidence::mao-0447
+  - supported-by::principle::0322->evidence::mao-0448
+  - supported-by::principle::0322->evidence::mao-0449
+  - supported-by::principle::0322->evidence::mao-0450
+  - supported-by::principle::0322->evidence::mao-0451
+  - supported-by::principle::0322->evidence::mao-0452
+  - supported-by::principle::0322->evidence::mao-0453
+  - supported-by::principle::0322->evidence::mao-0454
+  community_ids:
+  - community::principle::0320
+  - community::principle::0322
+evidence_anchors:
+  primary_node:
+    id: principle::0322
+    label: 我们的具体纲领
+    type: principle_signal
+  supporting_nodes:
+  - id: case::mao-0443
+    label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    type: case_signal
+  - id: case::mao-0449
+    label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    type: case_signal
+  - id: case::mao-0453
+    label: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...
+    type: case_signal
+  - id: counter-example::mao-0443
+    label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    type: counter_example_signal
+  - id: counter-example::mao-0444
+    label: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+    type: counter_example_signal
+  - id: counter-example::mao-0445
+    label: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+    type: counter_example_signal
+  - id: counter-example::mao-0446
+    label: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+    type: counter_example_signal
+  - id: counter-example::mao-0447
+    label: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+    type: counter_example_signal
+  - id: counter-example::mao-0448
+    label: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+    type: counter_example_signal
+  - id: counter-example::mao-0449
+    label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    type: counter_example_signal
+  - id: counter-example::mao-0450
+    label: 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党...
+    type: counter_example_signal
+  - id: counter-example::mao-0451
+    label: 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更...
+    type: counter_example_signal
+  - id: counter-example::mao-0452
+    label: 国民党反人民集团否认中国有多民族存在，而把汉族以外的各少数民族称之为“宗族”(23)。他们对于各少数民族，完全继承清朝政府和北洋军阀政府的...
+    type: counter_example_signal
+  - id: counter-example::mao-0453
+    label: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...
+    type: counter_example_signal
+  - id: counter-example::mao-0454
+    label: 关于具体纲领的说明，主要的就是这样。 再说一遍，一切这些具体纲领，如果没有一个举国一致的民主的联合政府，就不可能顺利地在全中国实现。 中国...
+    type: counter_example_signal
+  - id: evidence::mao-0443
+    label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    type: chunk_evidence
+  - id: evidence::mao-0444
+    label: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+    type: chunk_evidence
+  - id: evidence::mao-0445
+    label: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+    type: chunk_evidence
+  - id: evidence::mao-0446
+    label: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+    type: chunk_evidence
+  - id: evidence::mao-0447
+    label: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+    type: chunk_evidence
+  - id: evidence::mao-0448
+    label: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+    type: chunk_evidence
+  - id: evidence::mao-0449
+    label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    type: chunk_evidence
+  - id: evidence::mao-0450
+    label: 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党...
+    type: chunk_evidence
+  - id: evidence::mao-0451
+    label: 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更...
+    type: chunk_evidence
+  - id: evidence::mao-0452
+    label: 国民党反人民集团否认中国有多民族存在，而把汉族以外的各少数民族称之为“宗族”(23)。他们对于各少数民族，完全继承清朝政府和北洋军阀政府的...
+    type: chunk_evidence
+  - id: evidence::mao-0453
+    label: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...
+    type: chunk_evidence
+  - id: evidence::mao-0454
+    label: 关于具体纲领的说明，主要的就是这样。 再说一遍，一切这些具体纲领，如果没有一个举国一致的民主的联合政府，就不可能顺利地在全中国实现。 中国...
+    type: chunk_evidence
+  - id: principle::0320
+    label: 四　中国共产党的政策
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0322->case::mao-0443
+    type: derives_case_signal
+    from: principle::0322
+    to: case::mao-0443
+  - id: derives_case_signal::principle::0322->case::mao-0449
+    type: derives_case_signal
+    from: principle::0322
+    to: case::mao-0449
+  - id: derives_case_signal::principle::0322->case::mao-0453
+    type: derives_case_signal
+    from: principle::0322
+    to: case::mao-0453
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0443
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0443
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0444
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0444
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0445
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0445
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0446
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0446
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0447
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0447
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0448
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0448
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0449
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0449
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0450
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0450
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0451
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0451
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0452
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0452
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0453
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0453
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0454
+    type: derives_counter_example_signal
+    from: principle::0322
+    to: counter-example::mao-0454
+  - id: section-parent::principle::0320->principle::0322
+    type: section_parent
+    from: principle::0320
+    to: principle::0322
+  - id: supported-by::principle::0322->evidence::mao-0443
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0443
+  - id: supported-by::principle::0322->evidence::mao-0444
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0444
+  - id: supported-by::principle::0322->evidence::mao-0445
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0445
+  - id: supported-by::principle::0322->evidence::mao-0446
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0446
+  - id: supported-by::principle::0322->evidence::mao-0447
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0447
+  - id: supported-by::principle::0322->evidence::mao-0448
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0448
+  - id: supported-by::principle::0322->evidence::mao-0449
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0449
+  - id: supported-by::principle::0322->evidence::mao-0450
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0450
+  - id: supported-by::principle::0322->evidence::mao-0451
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0451
+  - id: supported-by::principle::0322->evidence::mao-0452
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0452
+  - id: supported-by::principle::0322->evidence::mao-0453
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0453
+  - id: supported-by::principle::0322->evidence::mao-0454
+    type: supported_by_evidence
+    from: principle::0322
+    to: evidence::mao-0454
+  communities:
+  - id: community::principle::0320
+    label: 四　中国共产党的政策 Cluster
+  - id: community::principle::0322
+    label: 我们的具体纲领 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

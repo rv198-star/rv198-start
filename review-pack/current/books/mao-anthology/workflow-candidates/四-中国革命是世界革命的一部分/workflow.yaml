@@ -1,0 +1,85 @@
+workflow_id: 四-中国革命是世界革命的一部分
+title: 四 中国革命是世界革命的一部分
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0242
+  supporting_node_ids:
+  - counter-example::mao-0296
+  - counter-example::mao-0298
+  - evidence::mao-0296
+  - evidence::mao-0297
+  - evidence::mao-0298
+  - framework::0238
+  supporting_edge_ids:
+  - derives_counter_example_signal::principle::0242->counter-example::mao-0296
+  - derives_counter_example_signal::principle::0242->counter-example::mao-0298
+  - section-parent::framework::0238->principle::0242
+  - supported-by::principle::0242->evidence::mao-0296
+  - supported-by::principle::0242->evidence::mao-0297
+  - supported-by::principle::0242->evidence::mao-0298
+  community_ids:
+  - community::principle::0242
+evidence_anchors:
+  primary_node:
+    id: principle::0242
+    label: 四　中国革命是世界革命的一部分
+    type: principle_signal
+  supporting_nodes:
+  - id: counter-example::mao-0296
+    label: 中国革命的历史特点是分为民主主义和社会主义两个步骤，而其第一步现在已不是一般的民主主义，而是中国式的、特殊的、新式的民主主义，而是新民主主...
+    type: counter_example_signal
+  - id: counter-example::mao-0298
+    label: 由此可见，有两种世界革命，第一种是属于资产阶级和资本主义范畴的世界革命。这种世界革命的时期早已过去了，还在一九一四年第一次帝国主义世界大战...
+    type: counter_example_signal
+  - id: evidence::mao-0296
+    label: 中国革命的历史特点是分为民主主义和社会主义两个步骤，而其第一步现在已不是一般的民主主义，而是中国式的、特殊的、新式的民主主义，而是新民主主...
+    type: chunk_evidence
+  - id: evidence::mao-0297
+    label: “十月革命的伟大的世界意义，主要的是：第一，它扩大了民族问题的范围，把它从欧洲反对民族压迫的斗争的局部问题，变为各被压迫民族、各殖民地及半...
+    type: chunk_evidence
+  - id: evidence::mao-0298
+    label: 由此可见，有两种世界革命，第一种是属于资产阶级和资本主义范畴的世界革命。这种世界革命的时期早已过去了，还在一九一四年第一次帝国主义世界大战...
+    type: chunk_evidence
+  - id: framework::0238
+    label: 新民主主义论
+    type: framework_signal
+  supporting_edges:
+  - id: derives_counter_example_signal::principle::0242->counter-example::mao-0296
+    type: derives_counter_example_signal
+    from: principle::0242
+    to: counter-example::mao-0296
+  - id: derives_counter_example_signal::principle::0242->counter-example::mao-0298
+    type: derives_counter_example_signal
+    from: principle::0242
+    to: counter-example::mao-0298
+  - id: section-parent::framework::0238->principle::0242
+    type: section_parent
+    from: framework::0238
+    to: principle::0242
+  - id: supported-by::principle::0242->evidence::mao-0296
+    type: supported_by_evidence
+    from: principle::0242
+    to: evidence::mao-0296
+  - id: supported-by::principle::0242->evidence::mao-0297
+    type: supported_by_evidence
+    from: principle::0242
+    to: evidence::mao-0297
+  - id: supported-by::principle::0242->evidence::mao-0298
+    type: supported_by_evidence
+    from: principle::0242
+    to: evidence::mao-0298
+  communities:
+  - id: community::principle::0242
+    label: 四　中国革命是世界革命的一部分 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

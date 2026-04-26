@@ -1,0 +1,520 @@
+schema_version: kiu.verification-gate/v0.1
+rejected:
+- candidate_id: 13-业务场景分析-counter-example
+  title: 13 业务场景分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 13-业务场景分析-counter-example
+  source_file: null
+  source_location: null
+- candidate_id: 功能需求主线子篇-业务支持部分
+  title: 功能需求主线子篇 业务支持部分
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id001
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 功能需求主线子篇-业务支持部分
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.8333
+    overall_score: 0.5
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.8333
+    reasons: *id001
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 6
+      supporting_edge_count: 6
+      community_count: 6
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 1752
+    line_end: 1752
+- candidate_id: 16-维护需求分析
+  title: 16 维护需求分析
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 16-维护需求分析
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3022
+    line_end: 3022
+- candidate_id: 21-约束分析-counter-example
+  title: 21 约束分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 21-约束分析-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3692
+    line_end: 3727
+- candidate_id: 7-业务子系统划分-counter-example
+  title: 7 业务子系统划分 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 7-业务子系统划分-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 1614
+    line_end: 1661
+- candidate_id: 10-业务流程识别-counter-example
+  title: 10 业务流程识别 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 10-业务流程识别-counter-example
+  source_file: null
+  source_location: null
+- candidate_id: 4-干系人识别-counter-example
+  title: 4 干系人识别 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 4-干系人识别-counter-example
+  source_file: null
+  source_location: null
+- candidate_id: 功能需求主线子篇-管理支持部分
+  title: 功能需求主线子篇 管理支持部分
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id002
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 功能需求主线子篇-管理支持部分
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.8333
+    overall_score: 0.5
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.8333
+    reasons: *id002
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 3
+      supporting_edge_count: 3
+      community_count: 3
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 2768
+    line_end: 2768
+- candidate_id: 数据需求主线子篇
+  title: 数据需求主线子篇
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id003
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 数据需求主线子篇
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.75
+    overall_score: 0.4722
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.75
+    reasons: *id003
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 3
+      supporting_edge_count: 3
+      community_count: 3
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3076
+    line_end: 3076
+- candidate_id: 系统分解子篇
+  title: 系统分解子篇
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id004
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 系统分解子篇
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.75
+    overall_score: 0.4722
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.75
+    reasons: *id004
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 3
+      supporting_edge_count: 3
+      community_count: 3
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 1436
+    line_end: 1436
+- candidate_id: 11-业务流程分析与优化-counter-example
+  title: 11 业务流程分析与优化 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id005
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 11-业务流程分析与优化-counter-example
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 1.0
+    overall_score: 0.5556
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 1.0
+    reasons: *id005
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.5
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 4
+      supporting_edge_count: 4
+      community_count: 1
+  source_file: null
+  source_location: null
+- candidate_id: 12-业务场景识别-counter-example
+  title: 12 业务场景识别 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 12-业务场景识别-counter-example
+  source_file: null
+  source_location: null
+- candidate_id: 2-日常需求分析-counter-example
+  title: 2 日常需求分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 2-日常需求分析-counter-example
+  source_file: null
+  source_location: null
+- candidate_id: 功能需求主线子篇-维护支持部分
+  title: 功能需求主线子篇 维护支持部分
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id006
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 功能需求主线子篇-维护支持部分
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.8333
+    overall_score: 0.5
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.8333
+    reasons: *id006
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 2
+      supporting_edge_count: 2
+      community_count: 2
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3020
+    line_end: 3020
+- candidate_id: 质量需求子篇
+  title: 质量需求子篇
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id007
+  - missing_extracted_evidence
+  - predictive_usefulness_too_thin
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 质量需求子篇
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.6667
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.75
+    overall_score: 0.4722
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.6667
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.75
+    reasons: *id007
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.0
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 2
+      supporting_edge_count: 2
+      community_count: 2
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3378
+    line_end: 3378
+- candidate_id: 1-软件需求全景图-counter-example
+  title: 1 软件需求全景图 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 1-软件需求全景图-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 206
+    line_end: 239
+- candidate_id: 14-管理需求分析-counter-example
+  title: 14 管理需求分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 14-管理需求分析-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 2784
+    line_end: 2871
+- candidate_id: 20-业务规则分析-counter-example
+  title: 20 业务规则分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 20-业务规则分析-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3656
+    line_end: 3689
+- candidate_id: 5-干系人分析-counter-example
+  title: 5 干系人分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 5-干系人分析-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 1314
+    line_end: 1375
+- candidate_id: 17-领域建模-counter-example
+  title: 17 领域建模 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 17-领域建模-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3170
+    line_end: 3197
+- candidate_id: 19-质量需求分析-counter-example
+  title: 19 质量需求分析 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons:
+  - chapter_title_requires_explicit_hygiene_override
+  verification:
+    schema_version: kiu.candidate-hygiene/v0.1
+    passed: false
+    reasons:
+    - chapter_title_requires_explicit_hygiene_override
+    matched_text: 19-质量需求分析-counter-example
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 3392
+    line_end: 3485
+- candidate_id: 前言-counter-example
+  title: 前言 Counter Example
+  candidate_kind: general_agentic
+  disposition: skill_candidate
+  reasons: &id008
+  - missing_extracted_evidence
+  - corroboration_too_thin
+  - predictive_usefulness_too_thin
+  - cross_evidence_below_promotion_threshold
+  - predictive_action_below_promotion_threshold
+  verification:
+    schema_version: kiu.verification-gate/v0.1
+    candidate_id: 前言-counter-example
+    passed: false
+    workflow_ready: false
+    corroboration_score: 0.5
+    predictive_usefulness_score: 0.0
+    distinctiveness_score: 0.9167
+    overall_score: 0.4722
+    triple_verification:
+      schema_version: kiu.triple-verification/v0.1
+      cross_evidence_ratio: 0.5
+      predictive_action_ratio: 0.0
+      uniqueness_ratio: 0.9167
+    reasons: *id008
+    evidence:
+      extracted_evidence_support_count: 0
+      evidence_support_count: 0
+      context_cues: 0
+      workflow_cues: 0
+      tri_state_support_ratio: 0.5
+      matched_keywords: []
+      evidence_chunk_ids: []
+      supporting_node_count: 2
+      supporting_edge_count: 2
+      community_count: 0
+  source_file: sources/有效需求分析（第2版）.md
+  source_location:
+    line_start: 42
+    line_end: 71

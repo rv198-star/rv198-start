@@ -1,0 +1,286 @@
+candidate_id: historical-case-consequence-judgment
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: narrative-pattern::historical-case-consequence-judgment
+  supporting_node_ids:
+  - evidence::mao-0001
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0005
+  - evidence::mao-0007
+  - evidence::mao-0008
+  - evidence::mao-0009
+  - evidence::mao-0010
+  supporting_edge_ids:
+  - narrative-pattern-evidence::0001
+  - narrative-pattern-evidence::0002
+  - narrative-pattern-evidence::0003
+  - narrative-pattern-evidence::0004
+  - narrative-pattern-evidence::0005
+  - narrative-pattern-evidence::0006
+  - narrative-pattern-evidence::0007
+  - narrative-pattern-evidence::0008
+  community_ids: []
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 0
+  case_density_score: 0.7
+  workflow_cues: 0
+  workflow_signal_total: 0
+  context_cues: 4
+  evidence_support_count: 8
+  extracted_evidence_support_count: 8
+  tri_state_support_count: 0
+  support_entity_count: 16
+  tri_state_support_ratio: 0.0
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 0
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: false
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 6
+  matched_keywords:
+  - boundary
+  - case_pattern
+  - consequence
+  - decision
+  - decision_boundary
+  - tradeoff
+  evidence_chunk_ids:
+  - mao:0001
+  - mao:0002
+  - mao:0003
+  - mao:0005
+  - mao:0007
+  - mao:0008
+  - mao:0009
+  - mao:0010
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/000-中国社会各阶级的分析.md
+source_location: &id001
+  line_start: 2
+  line_end: 4
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: historical-case-consequence-judgment
+  passed: true
+  workflow_ready: true
+  corroboration_score: 0.8333
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 0.8333
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 8
+    evidence_support_count: 8
+    context_cues: 4
+    workflow_cues: 0
+    tri_state_support_ratio: 0.0
+    matched_keywords:
+    - boundary
+    - case_pattern
+    - consequence
+    - decision
+    - decision_boundary
+    - tradeoff
+    evidence_chunk_ids:
+    - mao:0001
+    - mao:0002
+    - mao:0003
+    - mao:0005
+    - mao:0007
+    - mao:0008
+    - mao:0009
+    - mao:0010
+    supporting_node_count: 8
+    supporting_edge_count: 8
+    community_count: 0
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: historical-case-consequence-judgment
+  source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions: []
+  ambiguous_boundary_probes: []
+  source_action_transfer:
+    family: historical-case-consequence-judgment
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities: []
+    suggested_questions:
+    - Why does `关于正确处理人民内部矛盾的问题` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `在省市自治区党委书记会议上的讲话` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - What is the operational boundary of `我们的具体纲领 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `结　　论 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `我们的具体纲领 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - evidence
+  - narrative-pattern-signal
+  source_node_ids:
+  - narrative-pattern::historical-case-consequence-judgment
+  - evidence::mao-0001
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0005
+  - evidence::mao-0007
+  - evidence::mao-0008
+  - evidence::mao-0009
+  - evidence::mao-0010
+  source_edge_ids:
+  - narrative-pattern-evidence::0001
+  - narrative-pattern-evidence::0002
+  - narrative-pattern-evidence::0003
+  - narrative-pattern-evidence::0004
+  - narrative-pattern-evidence::0005
+  - narrative-pattern-evidence::0006
+  - narrative-pattern-evidence::0007
+  - narrative-pattern-evidence::0008
+  source_locations:
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location: *id001
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 2
+      line_end: 4
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 6
+      line_end: 14
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 17
+      line_end: 35
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 9
+      line_end: 9
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 17
+      line_end: 22
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 26
+      line_end: 26
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 30
+      line_end: 30
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 34
+      line_end: 34
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 2
+      line_end: 4
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 6
+      line_end: 14
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 17
+      line_end: 35
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 9
+      line_end: 9
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 17
+      line_end: 22
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 26
+      line_end: 26
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 30
+      line_end: 30
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 34
+      line_end: 34
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Historical Case Consequence Judgment` is anchored in multiple historical episodes,
+    starting from "（一九二五年十二月一日） > 毛泽东此文是为反对当时党内存在着的两种倾向而写的。当时党内的第一种倾向，以陈独秀为代表，只注意同国民党合作，忘记了农民，这是右倾机会主义。第二种倾向，以张国焘为代表，只注意工人运动，同样忘记了农民，这是“左”倾机会主义。这两种机会主义都感觉自己力量不足'
+  use_situation_trigger:
+  - user_applying_historical_case_to_current_judgment
+  - decision_depends_on_case_consequence_pattern
+  - user_needs_tradeoff_from_multiple_historical_examples
+  anti_misuse_boundary:
+  - history_summary_only
+  - fact_lookup_only
+  - historical_fact_lookup_or_birth_year_question
+  - classical_text_translation_to_modern_chinese
+  - single_anecdote_without_decision
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - history_summary_only
+  - fact_lookup_only
+  - historical_fact_lookup_or_birth_year_question
+  - classical_text_translation_to_modern_chinese
+  - single_anecdote_without_decision
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: historical-case-consequence-judgment
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

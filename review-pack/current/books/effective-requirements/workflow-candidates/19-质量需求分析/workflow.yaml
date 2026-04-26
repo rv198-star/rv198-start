@@ -1,0 +1,142 @@
+workflow_id: 19-质量需求分析
+title: 19 质量需求分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0033
+  supporting_node_ids:
+  - case::effective-requirements-0093
+  - case::effective-requirements-0094
+  - case::effective-requirements-0095
+  - case::effective-requirements-0096
+  - counter-example::effective-requirements-0093
+  - evidence::effective-requirements-0092
+  - evidence::effective-requirements-0093
+  - evidence::effective-requirements-0094
+  - evidence::effective-requirements-0095
+  - evidence::effective-requirements-0096
+  - evidence::effective-requirements-0097
+  - principle::0032
+  supporting_edge_ids:
+  - derives_case_signal::principle::0033->case::effective-requirements-0093
+  - derives_case_signal::principle::0033->case::effective-requirements-0094
+  - derives_case_signal::principle::0033->case::effective-requirements-0095
+  - derives_case_signal::principle::0033->case::effective-requirements-0096
+  - derives_counter_example_signal::principle::0033->counter-example::effective-requirements-0093
+  - section-parent::principle::0032->principle::0033
+  - supported-by::principle::0033->evidence::effective-requirements-0092
+  - supported-by::principle::0033->evidence::effective-requirements-0093
+  - supported-by::principle::0033->evidence::effective-requirements-0094
+  - supported-by::principle::0033->evidence::effective-requirements-0095
+  - supported-by::principle::0033->evidence::effective-requirements-0096
+  - supported-by::principle::0033->evidence::effective-requirements-0097
+  community_ids:
+  - community::principle::0032
+  - community::principle::0033
+evidence_anchors:
+  primary_node:
+    id: principle::0033
+    label: 19 质量需求分析
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0093
+    label: 在一个系统中，用户看不到的绝大部分功能都在实现质量需求，但在大部分需求实践中，这部分做得很不到位。我经常在很多需求规格说明书中看到诸如“高...
+    type: case_signal
+  - id: case::effective-requirements-0094
+    label: 1）安全性 我常常说，某家被偷无外乎三种原因：太有钱、太有名、门没关好；将这种思维放到系统中，也能够找到对应的关系。 (1)太有钱：系统中...
+    type: case_signal
+  - id: case::effective-requirements-0095
+    label: 2.关键质量属性排序 要对识别出来的关键质量属性进行排序，最有效的方法是基于“风险曝光度”的逻辑，也就是对威胁影响度、出现频率进行分析。 ...
+    type: case_signal
+  - id: case::effective-requirements-0096
+    label: 案例分析 （接第19.3.2节第一个案例分析）小赵开心地总结说：“刚才我们完成了第一步，也就是识别质量场景，接下来我们应该开始针对这个质量...
+    type: case_signal
+  - id: counter-example::effective-requirements-0093
+    label: 在一个系统中，用户看不到的绝大部分功能都在实现质量需求，但在大部分需求实践中，这部分做得很不到位。我经常在很多需求规格说明书中看到诸如“高...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0092
+    label: 在信息系统需求分析中，非功能需求主线的重点在于标识出最关键的质量需求，然后针对这些质量需求属性进行细化，再与开发团队一起讨论，通过有效的技...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0093
+    label: 在一个系统中，用户看不到的绝大部分功能都在实现质量需求，但在大部分需求实践中，这部分做得很不到位。我经常在很多需求规格说明书中看到诸如“高...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0094
+    label: 1）安全性 我常常说，某家被偷无外乎三种原因：太有钱、太有名、门没关好；将这种思维放到系统中，也能够找到对应的关系。 (1)太有钱：系统中...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0095
+    label: 2.关键质量属性排序 要对识别出来的关键质量属性进行排序，最有效的方法是基于“风险曝光度”的逻辑，也就是对威胁影响度、出现频率进行分析。 ...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0096
+    label: 案例分析 （接第19.3.2节第一个案例分析）小赵开心地总结说：“刚才我们完成了第一步，也就是识别质量场景，接下来我们应该开始针对这个质量...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0097
+    label: 在质量需求分析中，“识别并排序关键质量属性”的结果是整理出系统的关键质量需求列表，然后进一步标识具体的质量场景；而“识别质量场景”的结果是...
+    type: chunk_evidence
+  - id: principle::0032
+    label: 质量需求子篇
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0033->case::effective-requirements-0093
+    type: derives_case_signal
+    from: principle::0033
+    to: case::effective-requirements-0093
+  - id: derives_case_signal::principle::0033->case::effective-requirements-0094
+    type: derives_case_signal
+    from: principle::0033
+    to: case::effective-requirements-0094
+  - id: derives_case_signal::principle::0033->case::effective-requirements-0095
+    type: derives_case_signal
+    from: principle::0033
+    to: case::effective-requirements-0095
+  - id: derives_case_signal::principle::0033->case::effective-requirements-0096
+    type: derives_case_signal
+    from: principle::0033
+    to: case::effective-requirements-0096
+  - id: derives_counter_example_signal::principle::0033->counter-example::effective-requirements-0093
+    type: derives_counter_example_signal
+    from: principle::0033
+    to: counter-example::effective-requirements-0093
+  - id: section-parent::principle::0032->principle::0033
+    type: section_parent
+    from: principle::0032
+    to: principle::0033
+  - id: supported-by::principle::0033->evidence::effective-requirements-0092
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0092
+  - id: supported-by::principle::0033->evidence::effective-requirements-0093
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0093
+  - id: supported-by::principle::0033->evidence::effective-requirements-0094
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0094
+  - id: supported-by::principle::0033->evidence::effective-requirements-0095
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0095
+  - id: supported-by::principle::0033->evidence::effective-requirements-0096
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0096
+  - id: supported-by::principle::0033->evidence::effective-requirements-0097
+    type: supported_by_evidence
+    from: principle::0033
+    to: evidence::effective-requirements-0097
+  communities:
+  - id: community::principle::0032
+    label: 质量需求子篇 Cluster
+  - id: community::principle::0033
+    label: 19 质量需求分析 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

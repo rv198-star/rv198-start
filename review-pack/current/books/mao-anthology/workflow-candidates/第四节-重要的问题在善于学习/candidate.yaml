@@ -1,0 +1,94 @@
+candidate_id: 第四节-重要的问题在善于学习
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0079
+  supporting_node_ids:
+  - counter-example::mao-0096
+  - evidence::mao-0096
+  - principle::0075
+  supporting_edge_ids:
+  - derives_counter_example_signal::principle::0079->counter-example::mao-0096
+  - section-parent::principle::0075->principle::0079
+  - supported-by::principle::0079->evidence::mao-0096
+  community_ids:
+  - community::principle::0075
+  - community::principle::0079
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 4
+  workflow_signal_total: 4
+  context_cues: 1
+  evidence_support_count: 1
+  extracted_evidence_support_count: 1
+  tri_state_support_count: 2
+  support_entity_count: 6
+  tri_state_support_ratio: 0.3333
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 1
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 4
+  matched_keywords:
+  - 先-再
+  - 如果-则
+  - 检查
+  - 步骤
+  evidence_chunk_ids:
+  - mao:0096
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/012-中国革命战争的战略问题.md
+source_location:
+  line_start: 39
+  line_end: 39
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 第四节-重要的问题在善于学习
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 1
+    evidence_support_count: 1
+    context_cues: 1
+    workflow_cues: 4
+    tri_state_support_ratio: 0.3333
+    matched_keywords:
+    - 先-再
+    - 如果-则
+    - 检查
+    - 步骤
+    evidence_chunk_ids:
+    - mao:0096
+    supporting_node_count: 3
+    supporting_edge_count: 3
+    community_count: 2

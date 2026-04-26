@@ -1,0 +1,243 @@
+{
+  "candidate_count": 6,
+  "artifact_release_ready": true,
+  "behavior_release_ready": null,
+  "release_ready": true,
+  "release_gate_reasons": [],
+  "bundle_quality_grade": "excellent",
+  "average_artifact_quality": 0.9823,
+  "average_production_quality": 0.9345,
+  "minimum_artifact_quality": 0.9688,
+  "minimum_production_quality": 0.9167,
+  "grade_counts": {
+    "excellent": 6
+  },
+  "thresholds": {
+    "artifact_quality": 0.78,
+    "production_quality": 0.82
+  },
+  "skills": [
+    {
+      "candidate_id": "circle-of-competence",
+      "artifact_quality": 0.988,
+      "artifact_grade": "excellent",
+      "production_quality": 0.94,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.8508,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 1.0,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 440,
+        "rationale_anchor_refs": 3,
+        "evidence_anchor_refs": 5,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 6,
+        "trace_refs": 3,
+        "usage_notes": 10,
+        "eval_cases_total": 50,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    },
+    {
+      "candidate_id": "value-assessment-source-note",
+      "artifact_quality": 0.9688,
+      "artifact_grade": "excellent",
+      "production_quality": 0.9167,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.82,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 0.8798,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 1262,
+        "rationale_anchor_refs": 5,
+        "evidence_anchor_refs": 6,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 4,
+        "trace_refs": 4,
+        "usage_notes": 21,
+        "eval_cases_total": 3,
+        "passed_kiu_tests": 2,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    },
+    {
+      "candidate_id": "bias-self-audit",
+      "artifact_quality": 0.988,
+      "artifact_grade": "excellent",
+      "production_quality": 0.94,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.8508,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 1.0,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 341,
+        "rationale_anchor_refs": 3,
+        "evidence_anchor_refs": 5,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 3,
+        "trace_refs": 3,
+        "usage_notes": 6,
+        "eval_cases_total": 50,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    },
+    {
+      "candidate_id": "margin-of-safety-sizing",
+      "artifact_quality": 0.988,
+      "artifact_grade": "excellent",
+      "production_quality": 0.94,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.8508,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 1.0,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 534,
+        "rationale_anchor_refs": 3,
+        "evidence_anchor_refs": 5,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 3,
+        "trace_refs": 3,
+        "usage_notes": 8,
+        "eval_cases_total": 50,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    },
+    {
+      "candidate_id": "invert-the-problem",
+      "artifact_quality": 0.9733,
+      "artifact_grade": "excellent",
+      "production_quality": 0.9304,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.8508,
+      "component_scores": {
+        "contract_specificity": 0.9333,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 1.0,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 2,
+        "rationale_chars": 370,
+        "rationale_anchor_refs": 3,
+        "evidence_anchor_refs": 5,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 3,
+        "trace_refs": 3,
+        "usage_notes": 7,
+        "eval_cases_total": 50,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    },
+    {
+      "candidate_id": "opportunity-cost-of-the-next-best-idea",
+      "artifact_quality": 0.988,
+      "artifact_grade": "excellent",
+      "production_quality": 0.94,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.8508,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 1.0,
+        "eval_readiness": 1.0,
+        "revision_traceability": 0.85
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 667,
+        "rationale_anchor_refs": 3,
+        "evidence_anchor_refs": 5,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 3,
+        "trace_refs": 3,
+        "usage_notes": 6,
+        "eval_cases_total": 50,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 1
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.78,
+        "production_quality": 0.82
+      }
+    }
+  ]
+}

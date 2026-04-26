@@ -1,0 +1,28 @@
+skill_id: margin-of-safety-sizing
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: 'Revision 5 是一次面向 `v0.5.1` 的手工补强，不是 refinement_scheduler 自动 loop。本轮把正文改成中文
+    action-facing 说明，明确写出“价格合理吗 / 安全边际够不够 / 市场恐慌是不是机会 / 项目值不值得投”这类用户语言在本 skill 中如何落到
+    sizing，而不是把它伪装成通用估值框架。
+
+
+    这轮同时补上了 concept query、短线交易、纯规模比较、加盟投入、加密投机等边界裁定，并显式加入 `applicability_mode = full_sizing
+    / partial_applicability / refuse`，目标是在不放松 workflow-vs-agentic 边界的前提下，缩小与 reference
+    pack 在 same-scenario benchmark 上的使用落差。剩余缺口是继续加强真实案例下的 sizing 约束模板，并补出真实 loop 驱动的修订记录。详见
+    `iterations/revisions.yaml`。'
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added direct Chinese trigger phrases around price reasonableness, margin of safety,
+    market panic, pricing power, and whether a project is worth funding.
+  - Expanded the usage summary with a sizing-first output template anchored to downside,
+    liquidity, irreversibility, and capital-at-risk constraints.
+  - Clarified non-trigger boundaries for short-term trading, concept queries, pure
+    scale analysis, franchise edge cases, and crypto-style speculative assets.
+open_gaps:
+- Add future cases that separate temporary volatility from permanent impairment across
+  new corpora.
+- Run a real refinement_scheduler pass before describing this skill as loop-driven.

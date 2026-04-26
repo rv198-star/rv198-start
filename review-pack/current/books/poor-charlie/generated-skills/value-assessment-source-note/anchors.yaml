@@ -1,0 +1,51 @@
+skill_id: value-assessment-source-note
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+graph_anchor_sets:
+- anchor_id: value-assessment-source-note-seed-support
+  node_ids:
+  - n_margin_principle
+  - n_invert_principle
+  - n_margin_see_candies_trace
+  - n_salomon_cap_trace
+  edge_ids:
+  - e_invert_margin_complements
+  - e_margin_salomon_supports
+  - e_margin_sees_supports
+  community_ids:
+  - c_risk_control
+source_anchor_sets:
+- anchor_id: value-assessment-source-note-n_margin_principle
+  kind: source_excerpt
+  path: ../../sources/margin-of-safety-sizing.md
+  line_start: 1
+  line_end: 9
+  snippet: '# Margin of Safety Sizing Source Note Skill ID: margin-of-safety-sizing
+    Primary Claim: Position size should shrink as estimate quality falls or ruin risk
+    rises. Evidence: - Margin of safety is not only about buy price; i'
+- anchor_id: value-assessment-source-note-n_invert_principle
+  kind: source_excerpt
+  path: ../../sources/invert-the-problem.md
+  line_start: 1
+  line_end: 9
+  snippet: '# Invert the Problem Source Note Skill ID: invert-the-problem Primary
+    Claim: When the success path is vague, list the failure modes first and remove
+    them in order. Evidence: - Inversion is most useful when the user is pl'
+- anchor_id: value-assessment-source-note-n_margin_see_candies_trace
+  kind: source_excerpt
+  path: ../../traces/canonical/sees-candies-discipline.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 'trace_id: sees-candies-discipline title: Quality justifies commitment
+    only with bounded downside related_skills: [margin-of-safety-sizing, opportunity-cost-of-the-next-best-idea]
+    kind: historical_reference situation: A s'
+- anchor_id: value-assessment-source-note-n_salomon_cap_trace
+  kind: source_excerpt
+  path: ../../traces/canonical/salomon-exposure-cap.yaml
+  line_start: 1
+  line_end: 8
+  snippet: 'trace_id: salomon-exposure-cap title: Exposure cap prevents ruin related_skills:
+    [margin-of-safety-sizing, invert-the-problem] kind: historical_reference situation:
+    A leveraged, reputation-sensitive position carried hidd'

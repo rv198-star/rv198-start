@@ -1,0 +1,279 @@
+{
+  "schema_version": "kiu.action-skill-identity/v0.1",
+  "candidate_route_distribution": {
+    "publish_skill": 2,
+    "route_workflow_candidate": 12
+  },
+  "container_candidate_leak_count": 0,
+  "container_candidate_leaks": [],
+  "publishable_action_skill_ratio": 1.0,
+  "minimum_action_skill_identity_score": 0.8783,
+  "candidates": [
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "13-业务场景分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "solution-to-problem-reframing",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.925,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 0.86,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "3-目标-愿景分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "2-日常需求分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "stakeholder-resistance-tradeoff",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.8783,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 0.86,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.64,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "17-领域建模",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "10-业务流程识别",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "7-业务子系统划分",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "11-业务流程分析与优化",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "4-干系人识别",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "12-业务场景识别",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "19-质量需求分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "5-干系人分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "14-管理需求分析",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    }
+  ]
+}

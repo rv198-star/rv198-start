@@ -1,0 +1,97 @@
+candidate_id: 第九章-指挥关系
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0159
+  supporting_node_ids:
+  - case::mao-0190
+  - counter-example::mao-0190
+  - evidence::mao-0190
+  - evidence::mao-0191
+  - framework::0143
+  supporting_edge_ids:
+  - derives_case_signal::principle::0159->case::mao-0190
+  - derives_counter_example_signal::principle::0159->counter-example::mao-0190
+  - section-parent::framework::0143->principle::0159
+  - supported-by::principle::0159->evidence::mao-0190
+  - supported-by::principle::0159->evidence::mao-0191
+  community_ids:
+  - community::principle::0159
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 3
+  workflow_signal_total: 3
+  context_cues: 1
+  evidence_support_count: 2
+  extracted_evidence_support_count: 2
+  tri_state_support_count: 3
+  support_entity_count: 10
+  tri_state_support_ratio: 0.3
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 2
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 3
+  matched_keywords:
+  - 先-再
+  - 如果-则
+  - 边界
+  evidence_chunk_ids:
+  - mao:0190
+  - mao:0191
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/025-抗日游击战争的战略问题.md
+source_location:
+  line_start: 135
+  line_end: 135
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 第九章-指挥关系
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 2
+    evidence_support_count: 2
+    context_cues: 1
+    workflow_cues: 3
+    tri_state_support_ratio: 0.3
+    matched_keywords:
+    - 先-再
+    - 如果-则
+    - 边界
+    evidence_chunk_ids:
+    - mao:0190
+    - mao:0191
+    supporting_node_count: 5
+    supporting_edge_count: 5
+    community_count: 1

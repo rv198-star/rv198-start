@@ -1,0 +1,238 @@
+candidate_id: 警示案例
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1221
+  supporting_node_ids:
+  - case::financial-statement-1325
+  - case::financial-statement-1338
+  - case::financial-statement-1342
+  - counter-example::financial-statement-1328
+  - evidence::financial-statement-1317
+  - evidence::financial-statement-1321
+  - evidence::financial-statement-1325
+  - evidence::financial-statement-1328
+  - evidence::financial-statement-1331
+  - evidence::financial-statement-1333
+  - evidence::financial-statement-1334
+  - evidence::financial-statement-1338
+  - evidence::financial-statement-1342
+  - evidence::financial-statement-1346
+  - evidence::financial-statement-1349
+  - framework::1183
+  - framework::1190
+  - framework::1192
+  - principle::1185
+  - principle::1186
+  - principle::1187
+  - principle::1191
+  - principle::1193
+  - principle::1194
+  - principle::1195
+  - principle::1196
+  - principle::1197
+  - principle::1198
+  - principle::1201
+  - principle::1202
+  - principle::1203
+  - principle::1204
+  - principle::1205
+  - principle::1209
+  - principle::1210
+  - principle::1213
+  - principle::1217
+  - principle::1218
+  - principle::1219
+  - principle::1220
+  - principle::1222
+  - principle::1223
+  - principle::1224
+  - term::american-airlines
+  - term::bank-of-america
+  - term::capacity-sway
+  - term::gateway
+  - term::global-crossing
+  - term::sales-type-lease
+  - term::shared-medical-systems
+  supporting_edge_ids:
+  - derives_case_signal::principle::1221->case::financial-statement-1325
+  - derives_case_signal::principle::1221->case::financial-statement-1338
+  - derives_case_signal::principle::1221->case::financial-statement-1342
+  - derives_counter_example_signal::principle::1221->counter-example::financial-statement-1328
+  - derives_term_signal::principle::1221->term::american-airlines
+  - derives_term_signal::principle::1221->term::bank-of-america
+  - derives_term_signal::principle::1221->term::capacity-sway
+  - derives_term_signal::principle::1221->term::gateway
+  - derives_term_signal::principle::1221->term::global-crossing
+  - derives_term_signal::principle::1221->term::sales-type-lease
+  - derives_term_signal::principle::1221->term::shared-medical-systems
+  - section-parent::framework::1183->principle::1185
+  - section-parent::framework::1183->principle::1186
+  - section-parent::framework::1183->principle::1187
+  - section-parent::framework::1190->principle::1191
+  - section-parent::framework::1192->principle::1193
+  - section-parent::framework::1192->principle::1197
+  - section-parent::framework::1192->principle::1201
+  - section-parent::principle::1193->principle::1194
+  - section-parent::principle::1195->principle::1196
+  - section-parent::principle::1197->principle::1198
+  - section-parent::principle::1201->principle::1202
+  - section-parent::principle::1203->principle::1203
+  - section-parent::principle::1204->principle::1204
+  - section-parent::principle::1205->principle::1213
+  - section-parent::principle::1205->principle::1217
+  - section-parent::principle::1205->principle::1218
+  - section-parent::principle::1209->principle::1210
+  - section-parent::principle::1218->principle::1219
+  - section-parent::principle::1218->principle::1220
+  - section-parent::principle::1221->principle::1221
+  - section-parent::principle::1221->principle::1222
+  - section-parent::principle::1221->principle::1223
+  - section-parent::principle::1221->principle::1224
+  - supported-by::principle::1221->evidence::financial-statement-1317
+  - supported-by::principle::1221->evidence::financial-statement-1321
+  - supported-by::principle::1221->evidence::financial-statement-1325
+  - supported-by::principle::1221->evidence::financial-statement-1328
+  - supported-by::principle::1221->evidence::financial-statement-1331
+  - supported-by::principle::1221->evidence::financial-statement-1333
+  - supported-by::principle::1221->evidence::financial-statement-1334
+  - supported-by::principle::1221->evidence::financial-statement-1338
+  - supported-by::principle::1221->evidence::financial-statement-1342
+  - supported-by::principle::1221->evidence::financial-statement-1346
+  - supported-by::principle::1221->evidence::financial-statement-1349
+  community_ids:
+  - community::principle::1185
+  - community::principle::1186
+  - community::principle::1187
+  - community::principle::1191
+  - community::principle::1193
+  - community::principle::1194
+  - community::principle::1195
+  - community::principle::1196
+  - community::principle::1197
+  - community::principle::1198
+  - community::principle::1201
+  - community::principle::1202
+  - community::principle::1203
+  - community::principle::1204
+  - community::principle::1205
+  - community::principle::1209
+  - community::principle::1210
+  - community::principle::1213
+  - community::principle::1217
+  - community::principle::1218
+  - community::principle::1219
+  - community::principle::1220
+  - community::principle::1221
+  - community::principle::1222
+  - community::principle::1223
+  - community::principle::1224
+  merged_primary_node_ids:
+  - principle::1185
+  - principle::1186
+  - principle::1187
+  - principle::1191
+  - principle::1193
+  - principle::1196
+  - principle::1197
+  - principle::1201
+  - principle::1203
+  - principle::1204
+  - principle::1210
+  - principle::1213
+  - principle::1217
+  - principle::1218
+  - principle::1221
+  merged_candidate_count: 15
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: workflow_script
+  workflow_cues: 6
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 1
+  evidence_support_count: 11
+  extracted_evidence_support_count: 11
+  tri_state_support_count: 12
+  support_entity_count: 90
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 11
+  merged_from_node_ids:
+  - principle::1185
+  - principle::1186
+  - principle::1187
+  - principle::1191
+  - principle::1193
+  - principle::1196
+  - principle::1197
+  - principle::1201
+  - principle::1203
+  - principle::1204
+  - principle::1210
+  - principle::1213
+  - principle::1217
+  - principle::1218
+  - principle::1221
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.1333
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 如果-则
+  - 检查
+  evidence_chunk_ids:
+  - financial-statement:1328
+  - financial-statement:1333
+  - financial-statement:1334
+  - financial-statement:1349
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9167
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 警示案例
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.75
+  overall_score: 0.9167
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.75
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 11
+    evidence_support_count: 11
+    context_cues: 1
+    workflow_cues: 6
+    tri_state_support_ratio: 0.1333
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 如果-则
+    - 检查
+    evidence_chunk_ids:
+    - financial-statement:1328
+    - financial-statement:1333
+    - financial-statement:1334
+    - financial-statement:1349
+    supporting_node_count: 50
+    supporting_edge_count: 45
+    community_count: 26

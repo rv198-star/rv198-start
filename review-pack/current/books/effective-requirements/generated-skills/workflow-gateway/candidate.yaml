@@ -1,0 +1,390 @@
+candidate_id: workflow-gateway
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0023
+  supporting_node_ids:
+  - case::effective-requirements-0064
+  - case::effective-requirements-0066
+  - case::effective-requirements-0067
+  - case::effective-requirements-0068
+  - case::effective-requirements-0069
+  - counter-example::effective-requirements-0064
+  - counter-example::effective-requirements-0066
+  - counter-example::effective-requirements-0067
+  - counter-example::effective-requirements-0068
+  - counter-example::effective-requirements-0069
+  supporting_edge_ids:
+  - derives_case_signal::principle::0023->case::effective-requirements-0064
+  - derives_case_signal::principle::0023->case::effective-requirements-0066
+  - derives_case_signal::principle::0023->case::effective-requirements-0067
+  - derives_case_signal::principle::0023->case::effective-requirements-0068
+  - derives_case_signal::principle::0023->case::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+  - derives_term_signal::principle::0023->term::ui-ue
+  community_ids:
+  - community::principle::0018
+  - community::principle::0023
+  - community::principle::0010
+  - community::principle::0011
+  - community::principle::0012
+  - community::principle::0013
+candidate_kind: workflow_gateway
+workflow_certainty: medium
+context_certainty: medium
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 2
+terminal_state: ready_for_review
+human_gate: skipped
+workflow_gateway:
+  mode: route_to_workflow_candidates
+  routes_to:
+  - 10-业务流程识别
+  - 11-业务流程分析与优化
+  - 12-业务场景识别
+  - 13-业务场景分析
+  - 14-管理需求分析
+  - 17-领域建模
+  - 19-质量需求分析
+  - 2-日常需求分析
+  - 3-目标-愿景分析
+  - 4-干系人识别
+  - 5-干系人分析
+  - 7-业务子系统划分
+  boundary_rule: The gateway may choose or sequence workflow candidates, but it must
+    not inline deterministic workflow steps as agentic skill reasoning.
+routing_evidence:
+  inference_mode: workflow_gateway_fallback
+  selected_candidate_kind: workflow_gateway
+  workflow_candidate_count: 12
+  workflow_boundary_preserved: true
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: workflow-gateway
+  passed: true
+  workflow_ready: false
+  corroboration_score: 1.0
+  predictive_usefulness_score: 0.9
+  distinctiveness_score: 0.9
+  overall_score: 0.9333
+  reasons: []
+  evidence:
+    workflow_candidate_count: 12
+    supporting_node_count: 11
+    supporting_edge_count: 12
+    community_count: 6
+boundary_quality: 0.99
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: workflow-gateway
+overall_quality: 0.99
+delta_vs_nearest: 0.99
+delta_vs_bundle: 0.99
+net_positive_value: 0.99
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: workflow-gateway
+  source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0023->case::effective-requirements-0064
+    label: derives_case_signal
+    from_label: 13 业务场景分析
+    to_label: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2510-2573
+    snippet: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战—方案两个基础思维。
+      生活悟道场 （接第12.2.1节生活悟道场）当我成功地激发出外婆对相机的兴趣之后，接下来我决定通过用户视角的场景描述思路来帮助她老人家掌握这个新时代的“玩具”。
+      “外婆，其实拍照这件事
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0023->case::effective-requirements-0066
+    label: derives_case_signal
+    from_label: 13 业务场景分析
+    to_label: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2596-2637
+    snippet: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结。小李点点头，充满自信地告诉我：“今天的收获很大，我将在实践中不断用这种方法来武装自己！”
+      相信通过这个小案例，大家都对这种思考方式有了直观的了解，简单总结如下。 (1)场景细化：将场景细化为事件流，先整理
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0023->case::effective-requirements-0067
+    label: derives_case_signal
+    from_label: 13 业务场景分析
+    to_label: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2642-2687
+    snippet: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，重在用户意图而非用户动作
+      案例分析 我接触过很多用例实践团队经常会在用例描述（业务场景描述）中引入大量的人机界面元素，如表13-5所示，这是一个很有代表性的例子。 你读完之后感觉清晰吗？很多人反馈说写得不清
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0023->case::effective-requirements-0068
+    label: derives_case_signal
+    from_label: 13 业务场景分析
+    to_label: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2690-2697
+    snippet: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。
+      案例分析 我们再结合本书贯穿案例“体检医院管理系统”中的一个业务场景“收费人员：收费”，呈现一下分析过程。首先找到一切正常的情形，完成场景展开，生成基本事件流。
+      然后基于这个基本事件流分析可能存在的扩展事件流，并
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0023->case::effective-requirements-0069
+    label: derives_case_signal
+    from_label: 13 业务场景分析
+    to_label: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2700-2725
+    snippet: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，导出所需的功能。简单地说，就是针对每一步骤与客户了解存在的困难、挑战，然后构思系统解决方案。
+      在这个步骤中，一般建议从两个角度来思考。首先是执行这些步骤时会遇到什么困难，也就是思考“在各个业务步骤、变化及异
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2510-2573
+    snippet: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战—方案两个基础思维。
+      生活悟道场 （接第12.2.1节生活悟道场）当我成功地激发出外婆对相机的兴趣之后，接下来我决定通过用户视角的场景描述思路来帮助她老人家掌握这个新时代的“玩具”。
+      “外婆，其实拍照这件事
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2596-2637
+    snippet: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结。小李点点头，充满自信地告诉我：“今天的收获很大，我将在实践中不断用这种方法来武装自己！”
+      相信通过这个小案例，大家都对这种思考方式有了直观的了解，简单总结如下。 (1)场景细化：将场景细化为事件流，先整理
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2642-2687
+    snippet: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，重在用户意图而非用户动作
+      案例分析 我接触过很多用例实践团队经常会在用例描述（业务场景描述）中引入大量的人机界面元素，如表13-5所示，这是一个很有代表性的例子。 你读完之后感觉清晰吗？很多人反馈说写得不清
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2690-2697
+    snippet: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。
+      案例分析 我们再结合本书贯穿案例“体检医院管理系统”中的一个业务场景“收费人员：收费”，呈现一下分析过程。首先找到一切正常的情形，完成场景展开，生成基本事件流。
+      然后基于这个基本事件流分析可能存在的扩展事件流，并
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2700-2725
+    snippet: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，导出所需的功能。简单地说，就是针对每一步骤与客户了解存在的困难、挑战，然后构思系统解决方案。
+      在这个步骤中，一般建议从两个角度来思考。首先是执行这些步骤时会遇到什么困难，也就是思考“在各个业务步骤、变化及异
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+    label: derives_counter_example_signal
+    from_label: 13 业务场景分析
+    to_label: 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。
+      ...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2728-2767
+    snippet: 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。
+      (1)性能相关：主要包括执行该业务场景的人数、典型的业务量、达到峰值时的业务量、密度（特别是一天内业务发生的频率不一时需要说明）。 (2)易用性相关：主要是用户的成长经历和相关系统使用经验，它对于系统易用性设计而言有指向性
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0023->term::ui-ue
+    label: derives_term_signal
+    from_label: 13 业务场景分析
+    to_label: UI/UE
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2728-2767
+    snippet: 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。
+      (1)性能相关：主要包括执行该业务场景的人数、典型的业务量、达到峰值时的业务量、密度（特别是一天内业务发生的频率不一时需要说明）。 (2)易用性相关：主要是用户的成长经历和相关系统使用经验，它对于系统易用性设计而言有指向性
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::effective-requirements-0064
+    label: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2510-2573
+    snippet: 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战—方案两个基础思维。
+      生活悟道场 （接第12.2.1节生活悟道场）当我成功地激发出外婆对相机的兴趣之后，接下来我决定通过用户视角的场景描述思路来帮助她老人家掌握这个新时代的“玩具”。
+      “外婆，其实拍照这件事
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::effective-requirements-0066
+    label: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2596-2637
+    snippet: “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结。小李点点头，充满自信地告诉我：“今天的收获很大，我将在实践中不断用这种方法来武装自己！”
+      相信通过这个小案例，大家都对这种思考方式有了直观的了解，简单总结如下。 (1)场景细化：将场景细化为事件流，先整理
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::effective-requirements-0067
+    label: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2642-2687
+    snippet: 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，重在用户意图而非用户动作
+      案例分析 我接触过很多用例实践团队经常会在用例描述（业务场景描述）中引入大量的人机界面元素，如表13-5所示，这是一个很有代表性的例子。 你读完之后感觉清晰吗？很多人反馈说写得不清
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::effective-requirements-0068
+    label: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2690-2697
+    snippet: 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。
+      案例分析 我们再结合本书贯穿案例“体检医院管理系统”中的一个业务场景“收费人员：收费”，呈现一下分析过程。首先找到一切正常的情形，完成场景展开，生成基本事件流。
+      然后基于这个基本事件流分析可能存在的扩展事件流，并
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::effective-requirements-0069
+    label: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:2700-2725
+    snippet: 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，导出所需的功能。简单地说，就是针对每一步骤与客户了解存在的困难、挑战，然后构思系统解决方案。
+      在这个步骤中，一般建议从两个角度来思考。首先是执行这些步骤时会遇到什么困难，也就是思考“在各个业务步骤、变化及异
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: workflow-gateway
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0018
+      label: 功能需求主线子篇——业务支持部分 Cluster
+      top_node_id: principle::0023
+      top_node_label: 13 业务场景分析
+      node_count: 7
+    - community_id: community::principle::0023
+      label: 13 业务场景分析 Cluster
+      top_node_id: principle::0023
+      top_node_label: 13 业务场景分析
+      node_count: 22
+    - community_id: community::principle::0010
+      label: 3 目标/愿景分析 Cluster
+      top_node_id: case::effective-requirements-0021
+      top_node_label: 项目目标也可以称为愿景，是组织应用类软件系统项目、产品的灵魂，是对于出资人（或发起人、属主）而言价值的体现。但在很多需求实践中，目标、愿景...
+      node_count: 21
+    - community_id: community::principle::0011
+      label: 4 干系人识别 Cluster
+      top_node_id: case::effective-requirements-0028
+      top_node_label: “干系人”的英文原词是Stakeholder，在各种中文文献中还常被译作涉众(RUP)、相关人员、利益相关者、风险承担人。而在金山词霸中给...
+      node_count: 15
+    - community_id: community::principle::0012
+      label: 5 干系人分析 Cluster
+      top_node_id: case::effective-requirements-0033
+      top_node_label: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+      node_count: 9
+    - community_id: community::principle::0013
+      label: 6 价值需求分析总结 Cluster
+      top_node_id: case::effective-requirements-0036
+      top_node_label: 前面我们分别针对价值需求分析的“目标/愿景分析”、“干系人识别”和“干系人分析”三个子任务进行了详细讲解；但在实际的需求分析过程中，这三个...
+      node_count: 6
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+gateway_provenance:
+  schema_version: kiu.workflow-gateway-provenance/v0.1
+  routes_to:
+  - 10-业务流程识别
+  - 11-业务流程分析与优化
+  - 12-业务场景识别
+  - 13-业务场景分析
+  - 14-管理需求分析
+  - 17-领域建模
+  - 19-质量需求分析
+  - 2-日常需求分析
+  - 3-目标-愿景分析
+  - 4-干系人识别
+  - 5-干系人分析
+  - 7-业务子系统划分
+  source_node_ids:
+  - principle::0023
+  - case::effective-requirements-0064
+  - case::effective-requirements-0066
+  - case::effective-requirements-0067
+  - case::effective-requirements-0068
+  - case::effective-requirements-0069
+  - counter-example::effective-requirements-0064
+  - counter-example::effective-requirements-0066
+  - counter-example::effective-requirements-0067
+  - counter-example::effective-requirements-0068
+  - counter-example::effective-requirements-0069
+  boundary: thin_gateway_only_not_cangjie_thick_skill
+artifact_quality: 0.8641
+artifact_grade: good
+production_quality: 0.9082
+quality_grade: excellent
+release_ready: true

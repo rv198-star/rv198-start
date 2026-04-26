@@ -1,0 +1,297 @@
+candidate_id: 学习目标
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1305
+  supporting_node_ids:
+  - case::financial-statement-0201
+  - counter-example::financial-statement-0281
+  - evidence::financial-statement-0102
+  - evidence::financial-statement-0201
+  - evidence::financial-statement-0281
+  - evidence::financial-statement-0345
+  - evidence::financial-statement-0426
+  - evidence::financial-statement-0499
+  - evidence::financial-statement-0546
+  - evidence::financial-statement-0569
+  - evidence::financial-statement-0643
+  - evidence::financial-statement-0746
+  - evidence::financial-statement-0805
+  - evidence::financial-statement-0867
+  - evidence::financial-statement-0977
+  - evidence::financial-statement-1073
+  - evidence::financial-statement-1123
+  - evidence::financial-statement-1224
+  - evidence::financial-statement-1294
+  - evidence::financial-statement-1405
+  - evidence::financial-statement-1461
+  - principle::0096
+  - principle::0097
+  - principle::0187
+  - principle::0189
+  - principle::0190
+  - principle::0265
+  - principle::0266
+  - principle::0267
+  - principle::0328
+  - principle::0329
+  - principle::0330
+  - principle::0403
+  - principle::0404
+  - principle::0405
+  - principle::0475
+  - principle::0476
+  - principle::0477
+  - principle::0520
+  - principle::0521
+  - principle::0544
+  - principle::0545
+  - principle::0546
+  - principle::0612
+  - principle::0613
+  - principle::0688
+  - principle::0689
+  - principle::0690
+  - principle::0751
+  - principle::0752
+  - principle::0807
+  - principle::0808
+  - principle::0909
+  - principle::0911
+  - principle::0912
+  - principle::0983
+  - principle::0984
+  - principle::0985
+  - principle::1033
+  - principle::1034
+  - principle::1113
+  - principle::1114
+  - principle::1115
+  - principle::1166
+  - principle::1167
+  - principle::1168
+  - principle::1261
+  - principle::1262
+  - principle::1304
+  - principle::1306
+  - term::p-e
+  - term::roce
+  supporting_edge_ids:
+  - derives_case_signal::principle::1305->case::financial-statement-0201
+  - derives_counter_example_signal::principle::1305->counter-example::financial-statement-0281
+  - derives_term_signal::principle::1305->term::p-e
+  - derives_term_signal::principle::1305->term::roce
+  - section-parent::principle::0096->principle::0097
+  - section-parent::principle::0187->principle::0189
+  - section-parent::principle::0189->principle::0190
+  - section-parent::principle::0265->principle::0266
+  - section-parent::principle::0266->principle::0267
+  - section-parent::principle::0328->principle::0329
+  - section-parent::principle::0329->principle::0330
+  - section-parent::principle::0403->principle::0404
+  - section-parent::principle::0404->principle::0405
+  - section-parent::principle::0475->principle::0476
+  - section-parent::principle::0476->principle::0477
+  - section-parent::principle::0520->principle::0521
+  - section-parent::principle::0544->principle::0545
+  - section-parent::principle::0545->principle::0546
+  - section-parent::principle::0612->principle::0613
+  - section-parent::principle::0688->principle::0689
+  - section-parent::principle::0689->principle::0690
+  - section-parent::principle::0751->principle::0752
+  - section-parent::principle::0807->principle::0808
+  - section-parent::principle::0909->principle::0911
+  - section-parent::principle::0911->principle::0912
+  - section-parent::principle::0983->principle::0984
+  - section-parent::principle::0984->principle::0985
+  - section-parent::principle::1033->principle::1034
+  - section-parent::principle::1113->principle::1114
+  - section-parent::principle::1114->principle::1115
+  - section-parent::principle::1166->principle::1167
+  - section-parent::principle::1167->principle::1168
+  - section-parent::principle::1261->principle::1262
+  - section-parent::principle::1304->principle::1305
+  - section-parent::principle::1305->principle::1306
+  - supported-by::principle::1305->evidence::financial-statement-0102
+  - supported-by::principle::1305->evidence::financial-statement-0201
+  - supported-by::principle::1305->evidence::financial-statement-0281
+  - supported-by::principle::1305->evidence::financial-statement-0345
+  - supported-by::principle::1305->evidence::financial-statement-0426
+  - supported-by::principle::1305->evidence::financial-statement-0499
+  - supported-by::principle::1305->evidence::financial-statement-0546
+  - supported-by::principle::1305->evidence::financial-statement-0569
+  - supported-by::principle::1305->evidence::financial-statement-0643
+  - supported-by::principle::1305->evidence::financial-statement-0746
+  - supported-by::principle::1305->evidence::financial-statement-0805
+  - supported-by::principle::1305->evidence::financial-statement-0867
+  - supported-by::principle::1305->evidence::financial-statement-0977
+  - supported-by::principle::1305->evidence::financial-statement-1073
+  - supported-by::principle::1305->evidence::financial-statement-1123
+  - supported-by::principle::1305->evidence::financial-statement-1224
+  - supported-by::principle::1305->evidence::financial-statement-1294
+  - supported-by::principle::1305->evidence::financial-statement-1405
+  - supported-by::principle::1305->evidence::financial-statement-1461
+  community_ids:
+  - community::principle::0096
+  - community::principle::0097
+  - community::principle::0187
+  - community::principle::0189
+  - community::principle::0190
+  - community::principle::0265
+  - community::principle::0266
+  - community::principle::0267
+  - community::principle::0328
+  - community::principle::0329
+  - community::principle::0330
+  - community::principle::0403
+  - community::principle::0404
+  - community::principle::0405
+  - community::principle::0475
+  - community::principle::0476
+  - community::principle::0477
+  - community::principle::0520
+  - community::principle::0521
+  - community::principle::0544
+  - community::principle::0545
+  - community::principle::0546
+  - community::principle::0612
+  - community::principle::0613
+  - community::principle::0688
+  - community::principle::0689
+  - community::principle::0690
+  - community::principle::0751
+  - community::principle::0752
+  - community::principle::0807
+  - community::principle::0808
+  - community::principle::0909
+  - community::principle::0911
+  - community::principle::0912
+  - community::principle::0983
+  - community::principle::0984
+  - community::principle::0985
+  - community::principle::1033
+  - community::principle::1034
+  - community::principle::1113
+  - community::principle::1114
+  - community::principle::1115
+  - community::principle::1166
+  - community::principle::1167
+  - community::principle::1168
+  - community::principle::1261
+  - community::principle::1262
+  - community::principle::1304
+  - community::principle::1305
+  - community::principle::1306
+  merged_primary_node_ids:
+  - principle::0097
+  - principle::0189
+  - principle::0266
+  - principle::0329
+  - principle::0404
+  - principle::0476
+  - principle::0521
+  - principle::0545
+  - principle::0613
+  - principle::0689
+  - principle::0752
+  - principle::0808
+  - principle::0911
+  - principle::0984
+  - principle::1034
+  - principle::1114
+  - principle::1167
+  - principle::1262
+  - principle::1305
+  merged_candidate_count: 19
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: workflow_script
+  workflow_cues: 2
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 2
+  evidence_support_count: 19
+  extracted_evidence_support_count: 19
+  tri_state_support_count: 5
+  support_entity_count: 108
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 4
+  merged_from_node_ids:
+  - principle::0097
+  - principle::0189
+  - principle::0266
+  - principle::0329
+  - principle::0404
+  - principle::0476
+  - principle::0521
+  - principle::0545
+  - principle::0613
+  - principle::0689
+  - principle::0752
+  - principle::0808
+  - principle::0911
+  - principle::0984
+  - principle::1034
+  - principle::1114
+  - principle::1167
+  - principle::1262
+  - principle::1305
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.0463
+  matched_keywords:
+  - 业务
+  - 步骤
+  - 目标
+  evidence_chunk_ids:
+  - financial-statement:0201
+  - financial-statement:0643
+  - financial-statement:1123
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9167
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 学习目标
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.75
+  overall_score: 0.9167
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.75
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 19
+    evidence_support_count: 19
+    context_cues: 2
+    workflow_cues: 2
+    tri_state_support_ratio: 0.0463
+    matched_keywords:
+    - 业务
+    - 步骤
+    - 目标
+    evidence_chunk_ids:
+    - financial-statement:0201
+    - financial-statement:0643
+    - financial-statement:1123
+    supporting_node_count: 72
+    supporting_edge_count: 54
+    community_count: 50

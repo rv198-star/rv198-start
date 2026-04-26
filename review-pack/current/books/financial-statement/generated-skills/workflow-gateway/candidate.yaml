@@ -1,0 +1,376 @@
+candidate_id: workflow-gateway
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1336
+  supporting_node_ids:
+  - case::financial-statement-1280
+  - counter-example::financial-statement-0403
+  - counter-example::financial-statement-0484
+  - counter-example::financial-statement-0789
+  - counter-example::financial-statement-1054
+  - counter-example::financial-statement-1453
+  - evidence::financial-statement-0092
+  - evidence::financial-statement-0093
+  - evidence::financial-statement-0178
+  - evidence::financial-statement-0256
+  supporting_edge_ids:
+  - derives_case_signal::principle::1336->case::financial-statement-1280
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453
+  - derives_term_signal::principle::1336->term::boots
+  - derives_term_signal::principle::1336->term::capm
+  - derives_term_signal::principle::1336->term::djia
+  - derives_term_signal::principle::1336->term::dupont
+  - derives_term_signal::principle::1336->term::excite
+  - derives_term_signal::principle::1336->term::jetform-corporation
+  community_ids:
+  - community::principle::0080
+  - community::principle::0084
+  - community::principle::0085
+  - community::principle::0086
+  - community::principle::0087
+  - community::principle::0088
+candidate_kind: workflow_gateway
+workflow_certainty: medium
+context_certainty: medium
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 2
+terminal_state: ready_for_review
+human_gate: skipped
+workflow_gateway:
+  mode: route_to_workflow_candidates
+  routes_to:
+  - 学习目标
+  - 学习能力
+  - 思考题
+  - 本章小结
+  - 警示案例
+  boundary_rule: The gateway may choose or sequence workflow candidates, but it must
+    not inline deterministic workflow steps as agentic skill reasoning.
+routing_evidence:
+  inference_mode: workflow_gateway_fallback
+  selected_candidate_kind: workflow_gateway
+  workflow_candidate_count: 5
+  workflow_boundary_preserved: true
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: workflow-gateway
+  passed: true
+  workflow_ready: false
+  corroboration_score: 1.0
+  predictive_usefulness_score: 0.9
+  distinctiveness_score: 0.9
+  overall_score: 0.9333
+  reasons: []
+  evidence:
+    workflow_candidate_count: 5
+    supporting_node_count: 11
+    supporting_edge_count: 12
+    community_count: 6
+boundary_quality: 0.99
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: workflow-gateway
+overall_quality: 0.99
+delta_vs_nearest: 0.99
+delta_vs_bundle: 0.99
+net_positive_value: 0.99
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: workflow-gateway
+  source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::1336->case::financial-statement-1280
+    label: derives_case_signal
+    from_label: 思考题
+    to_label: C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15634-15664
+    snippet: 'C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价值。这种说法正确吗？
+      C17.2. 为什么说后进先出法和将研发支出费用化等会计处理属于谨慎性的会计政策呢？ C17.3. 请解释谨慎性会计处理方法（例如，将研发支出全部费用化处理）是如何对企业的内在市净率指标产生影响的？ '
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403
+    label: derives_counter_example_signal
+    from_label: 思考题
+    to_label: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5091-5107
+    snippet: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该公司的股份没有被正确定价。请问这种说法是正确的吗？
+      C5.2. 捷方公司（Jetform Corporation）的股票在1999年5月左右的市净率为1.01，当时它最新披露的普通股权益报酬率ROCE为10
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484
+    label: derives_counter_example_signal
+    from_label: 思考题
+    to_label: C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔
+      5...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:6005-6039
+    snippet: C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 500
+      指数公司的历史盈利增长率 为大约 8.5%，而股票投资者所要求的增长率水平大约为 10%。请问，你能解释这两个数据为什么会不一致吗？ C6.3. 下面这个公式常常被用来对股票进行估值，其中，
+      $ earn_{1} $
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789
+    label: derives_counter_example_signal
+    from_label: 思考题
+    to_label: C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3.
+      对...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:9648-9666
+    snippet: C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对一家纯粹的权益性公司（即没有承担任何负债的企业），自由现金流量流向哪里？
+      C11.4. 企业在进行了现金流量表中所披露的那些融资活动后，可以将多余的现金投资于短期证券，作为消化闲余现金的一种方式。上述这种说法哪里存在着问题
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054
+    label: derives_counter_example_signal
+    from_label: 思考题
+    to_label: C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14....
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12851-12877
+    snippet: C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14.2.
+      假定有一种纯投资基金，只投资于权益性证券，为什么说被投资证券的市场价值并不能代表该投资基金的（内在）价值呢？ C14.3. 能够推动剩余经营性收益增长的因素有哪些？
+      C14.4. 在股东权益资本成本计算式中，融资风险
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453
+    label: derives_counter_example_signal
+    from_label: 思考题
+    to_label: C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:17800-17818
+    snippet: C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，就必须先计量无风险报酬率之外的风险溢酬规模，但资本资产定价模型却让这种计量在很大程度上变成了一种猜测游戏。
+      C19.4. 为什么说经营性负债杠杆会增大企业的经营风险？ C19.3. 你能解释分散投资降低风险的原理吗？ C1
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::boots
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: Boots
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:7634-7656
+    snippet: C9.1. 为什么我们将资产负债表股东权益部分所报告的盈余项目称为“非清洁盈余”项目？ C9.2. 请问，为什么说如果分析人员直接使用企业所报告的净利润数据，而不使用综合收益数据的话，会造成“价值缺失”？
+      C9.3. 对股东来说，外币折算损益是真实的损益项目吗？难道它们不单纯是合并用不同货币单位所编制的财务报表时，产生的纯粹会计影响项目吗？ C9.4. 在核
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::capm
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: CAPM
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:6565-6587
+    snippet: C7.1. 为什么基本面投资者对根据资本资产定价模型（CAPM）计算出来的必要报酬率会持怀疑态度？ C7.2. 为什么估值模型就像是“镜像游戏”一样？
+      C7.3. “投资不是人与自然之间的博弈，而是与其他投资者之间的博弈。”请问，这句话是什么意思？它暗示了我们在进行权益投资时应注意什么问题？ C7.4.
+      本杰明·格雷厄姆教授非常关注“企业的未来盈利前景，尤其
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::djia
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: DJIA
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:1420-1448
+    snippet: 'C1.1. 基本面风险与价格风险的区别是什么？ C1.2. α 技术与 β 技术的区别是什么？ C1.3. 请对下面这种说法进行评价：要长期持有股票，因为从长期来看，股票的报酬率总是高于债券的报酬率。
+      C1.4. 被动投资者与主动投资者之间的区别在哪里？ C1.5. 在 20 世纪 90 年代，市场平均市盈率正处于历史高位。1999 年时，标准普尔 500 '
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::dupont
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: DuPont
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:4147-4171
+    snippet: C4.1. 作为投资股票的回报，投资者能够收到股利。因此，股票的价值应该等于预期股利的 贴现值。请问这句话是正确的吗？ C4.2. 一些分析人员强调“现金为王”，他们说，现金是权益分析师最应该关注的基本因素之一。请问，你认为真的是现金至上吗？
+      C4.3. 你是否同意自由现金流量越高的企业，其价值也就越高？ C4.4. 在经历了连续多年的自由现金流量为负之后，
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::excite
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: Excite
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:16726-16762
+    snippet: C18.1. 企业可以通过暂时增大它在本期的坏账准备来为未来储备盈利。这种说法正确吗？ C18.2. 如果本期的折旧费用较低，则意味着将来的利润会受到不良影响。这种说法正确吗？
+      C18.3. 产品质量保证金负债的减少会增加企业的销售净额。这种说法正确吗？ C18.4. 通过低估费用的做法来增大企业的销售利润率，会使企业的净经营性资产受到影响。这种说法正确吗？
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1336->term::jetform-corporation
+    label: derives_term_signal
+    from_label: 思考题
+    to_label: Jetform Corporation
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5091-5107
+    snippet: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该公司的股份没有被正确定价。请问这种说法是正确的吗？
+      C5.2. 捷方公司（Jetform Corporation）的股票在1999年5月左右的市净率为1.01，当时它最新披露的普通股权益报酬率ROCE为10
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::financial-statement-0403
+    label: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5091-5107
+    snippet: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该公司的股份没有被正确定价。请问这种说法是正确的吗？
+      C5.2. 捷方公司（Jetform Corporation）的股票在1999年5月左右的市净率为1.01，当时它最新披露的普通股权益报酬率ROCE为10
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0484
+    label: C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 5...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:6005-6039
+    snippet: C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 500
+      指数公司的历史盈利增长率 为大约 8.5%，而股票投资者所要求的增长率水平大约为 10%。请问，你能解释这两个数据为什么会不一致吗？ C6.3. 下面这个公式常常被用来对股票进行估值，其中，
+      $ earn_{1} $
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0789
+    label: C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:9648-9666
+    snippet: C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对一家纯粹的权益性公司（即没有承担任何负债的企业），自由现金流量流向哪里？
+      C11.4. 企业在进行了现金流量表中所披露的那些融资活动后，可以将多余的现金投资于短期证券，作为消化闲余现金的一种方式。上述这种说法哪里存在着问题
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1054
+    label: C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14....
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12851-12877
+    snippet: C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14.2.
+      假定有一种纯投资基金，只投资于权益性证券，为什么说被投资证券的市场价值并不能代表该投资基金的（内在）价值呢？ C14.3. 能够推动剩余经营性收益增长的因素有哪些？
+      C14.4. 在股东权益资本成本计算式中，融资风险
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1453
+    label: C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:17800-17818
+    snippet: C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，就必须先计量无风险报酬率之外的风险溢酬规模，但资本资产定价模型却让这种计量在很大程度上变成了一种猜测游戏。
+      C19.4. 为什么说经营性负债杠杆会增大企业的经营风险？ C19.3. 你能解释分散投资降低风险的原理吗？ C1
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: workflow-gateway
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0080
+      label: 了解企业：金佰利公司（股票代码：KMB） Cluster
+      top_node_id: evidence::financial-statement-0084
+      top_node_label: 你多半曾经用过舒洁（Kleenex）这个牌子的纸巾吧？或许在更小的时候，你还用过好奇（Huggies）这个牌子的纸尿裤呢！除了这两个品牌之...
+      node_count: 10
+    - community_id: community::principle::0084
+      label: 思考题 Cluster
+      top_node_id: principle::0080
+      top_node_label: 了解企业：金佰利公司（股票代码：KMB）
+      node_count: 8
+    - community_id: community::principle::0085
+      label: 练习题 Cluster
+      top_node_id: principle::0084
+      top_node_label: 思考题
+      node_count: 2
+    - community_id: community::principle::0086
+      label: 基本练习 Cluster
+      top_node_id: principle::0084
+      top_node_label: 思考题
+      node_count: 2
+    - community_id: community::principle::0087
+      label: E1.1. 计算企业价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0095
+      top_node_label: 某公司的股票市值总额为 12 亿美元，债务的交易总额为 6 亿美元。请问，该公司的市场价值是多少（即企业市值）？
+      node_count: 3
+    - community_id: community::principle::0088
+      label: E1.2. 计算每股价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0096
+      top_node_label: 根据一位分析师的估计，某公司的价值为27亿美元。假定该公司流动在外的负债总值 为9亿美元，流通在外的普通股一共有9亿股，请问，按这位分析师...
+      node_count: 3
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+gateway_provenance:
+  schema_version: kiu.workflow-gateway-provenance/v0.1
+  routes_to:
+  - 学习目标
+  - 学习能力
+  - 思考题
+  - 本章小结
+  - 警示案例
+  source_node_ids:
+  - principle::1336
+  - case::financial-statement-1280
+  - counter-example::financial-statement-0403
+  - counter-example::financial-statement-0484
+  - counter-example::financial-statement-0789
+  - counter-example::financial-statement-1054
+  - counter-example::financial-statement-1453
+  - evidence::financial-statement-0092
+  - evidence::financial-statement-0093
+  - evidence::financial-statement-0178
+  - evidence::financial-statement-0256
+  boundary: thin_gateway_only_not_cangjie_thick_skill
+artifact_quality: 0.8641
+artifact_grade: good
+production_quality: 0.9082
+quality_grade: excellent
+release_ready: true

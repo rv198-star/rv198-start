@@ -1,0 +1,62 @@
+{
+  "schema_version": "kiu.skill-hygiene-audit/v0.1",
+  "filtered_count": 7,
+  "filtered": [
+    {
+      "candidate_id": "关键概念",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_concept_note",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7989
+    },
+    {
+      "candidate_id": "练习题",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_evaluation_material",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7439
+    },
+    {
+      "candidate_id": "自主练习",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_evaluation_material",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7989
+    },
+    {
+      "candidate_id": "分析师工具箱",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_source_context",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7989
+    },
+    {
+      "candidate_id": "基本练习",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_evaluation_material",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7439
+    },
+    {
+      "candidate_id": "应用分析",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_source_context",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7439
+    },
+    {
+      "candidate_id": "迷你案例",
+      "reason": "action_skill_identity_below_publish_threshold",
+      "candidate_kind": "general_agentic",
+      "route": "route_case_library",
+      "route_reason": "source_value_container_without_sufficient_action_skill_identity",
+      "action_skill_identity_score": 0.7439
+    }
+  ]
+}

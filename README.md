@@ -30,6 +30,7 @@ KiU（`学以致用`）把原书知识转化为可执行的行动力。
 
 - [项目架构叙事](docs/project-architecture-narrative.md)
 - [方法论工具箱](docs/methodologies/README.md)
+- [当前评审包](review-pack/current/README.md)
 - [概念语言对照表](docs/concept-language-glossary.md)
 - [用户侧评分指南](docs/user-facing-evaluation-guide.md)
 - [使用指南](docs/usage-guide.md)

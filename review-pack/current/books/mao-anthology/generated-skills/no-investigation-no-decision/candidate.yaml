@@ -1,0 +1,263 @@
+candidate_id: no-investigation-no-decision
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: situation-strategy::no-investigation-no-decision
+  supporting_node_ids:
+  - evidence::mao-0051
+  - evidence::mao-0057
+  - evidence::mao-0065
+  - evidence::mao-0068
+  - evidence::mao-0106
+  - evidence::mao-0113
+  supporting_edge_ids:
+  - situation-strategy-evidence::no-investigation-no-decision::0001
+  - situation-strategy-evidence::no-investigation-no-decision::0002
+  - situation-strategy-evidence::no-investigation-no-decision::0003
+  - situation-strategy-evidence::no-investigation-no-decision::0004
+  - situation-strategy-evidence::no-investigation-no-decision::0005
+  - situation-strategy-evidence::no-investigation-no-decision::0006
+  community_ids: []
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 90
+  case_density_score: 0.5
+  workflow_cues: 0
+  workflow_signal_total: 0
+  context_cues: 5
+  evidence_support_count: 6
+  extracted_evidence_support_count: 6
+  tri_state_support_count: 0
+  support_entity_count: 12
+  tri_state_support_ratio: 0.0
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 0
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: false
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 8
+  matched_keywords:
+  - action
+  - anti-dogmatism
+  - anti_conditions
+  - boundary
+  - contradiction
+  - investigation
+  - strategy
+  - transfer_conditions
+  evidence_chunk_ids:
+  - mao:0051
+  - mao:0057
+  - mao:0065
+  - mao:0068
+  - mao:0106
+  - mao:0113
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/004-关于纠正党内的错误思想.md
+source_location: &id001
+  line_start: 63
+  line_end: 65
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: no-investigation-no-decision
+  passed: true
+  workflow_ready: true
+  corroboration_score: 0.8333
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 0.8333
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 6
+    evidence_support_count: 6
+    context_cues: 5
+    workflow_cues: 0
+    tri_state_support_ratio: 0.0
+    matched_keywords:
+    - action
+    - anti-dogmatism
+    - anti_conditions
+    - boundary
+    - contradiction
+    - investigation
+    - strategy
+    - transfer_conditions
+    evidence_chunk_ids:
+    - mao:0051
+    - mao:0057
+    - mao:0065
+    - mao:0068
+    - mao:0106
+    - mao:0113
+    supporting_node_count: 6
+    supporting_edge_count: 6
+    community_count: 0
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: no-investigation-no-decision
+  source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions: []
+  ambiguous_boundary_probes: []
+  source_action_transfer:
+    family: no-investigation-no-decision
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities: []
+    suggested_questions:
+    - Why does `关于正确处理人民内部矛盾的问题` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `在省市自治区党委书记会议上的讲话` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - What is the operational boundary of `我们的具体纲领 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `结　　论 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `我们的具体纲领 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - evidence
+  - situation-strategy-pattern
+  source_node_ids:
+  - situation-strategy::no-investigation-no-decision
+  - evidence::mao-0051
+  - evidence::mao-0057
+  - evidence::mao-0065
+  - evidence::mao-0068
+  - evidence::mao-0106
+  - evidence::mao-0113
+  source_edge_ids:
+  - situation-strategy-evidence::no-investigation-no-decision::0001
+  - situation-strategy-evidence::no-investigation-no-decision::0002
+  - situation-strategy-evidence::no-investigation-no-decision::0003
+  - situation-strategy-evidence::no-investigation-no-decision::0004
+  - situation-strategy-evidence::no-investigation-no-decision::0005
+  - situation-strategy-evidence::no-investigation-no-decision::0006
+  source_locations:
+  - source_file: sources/mao/004-关于纠正党内的错误思想.md
+    source_location: *id001
+  - source_file: sources/mao/004-关于纠正党内的错误思想.md
+    source_location:
+      line_start: 63
+      line_end: 65
+  - source_file: sources/mao/005-星星之火，可以燎原.md
+    source_location:
+      line_start: 6
+      line_end: 12
+  - source_file: sources/mao/006-反对本本主义.md
+    source_location:
+      line_start: 24
+      line_end: 26
+  - source_file: sources/mao/006-反对本本主义.md
+    source_location:
+      line_start: 55
+      line_end: 59
+  - source_file: sources/mao/012-中国革命战争的战略问题.md
+    source_location:
+      line_start: 170
+      line_end: 203
+  - source_file: sources/mao/012-中国革命战争的战略问题.md
+    source_location:
+      line_start: 298
+      line_end: 352
+  - source_file: sources/mao/004-关于纠正党内的错误思想.md
+    source_location:
+      line_start: 63
+      line_end: 65
+  - source_file: sources/mao/005-星星之火，可以燎原.md
+    source_location:
+      line_start: 6
+      line_end: 12
+  - source_file: sources/mao/006-反对本本主义.md
+    source_location:
+      line_start: 24
+      line_end: 26
+  - source_file: sources/mao/006-反对本本主义.md
+    source_location:
+      line_start: 55
+      line_end: 59
+  - source_file: sources/mao/012-中国革命战争的战略问题.md
+    source_location:
+      line_start: 170
+      line_end: 203
+  - source_file: sources/mao/012-中国革命战争的战略问题.md
+    source_location:
+      line_start: 298
+      line_end: 352
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`No Investigation No Decision` is a borrowed-value judgment skill anchored in
+    "主观主义，在某些党员中浓厚地存在，这对分析政治形势和指导工作，都非常不利。因为对于政治形势的主观主义的分析和对于工作的主观主义的指导，其必然的结果，不是机会主义，就是盲动主义。至于党内的主观主义的批评，不要证据的乱说，或互相猜忌，往往酿成党内的无原则纠纷，破坏党的组织。
+    关于党内批评问题，还有一点要说及的，就是有些同志的'
+  use_situation_trigger:
+  - decision_based_on_book_template_or_secondhand_report
+  - team_lacks_field_evidence_before_decision
+  - context_transfer_abuse_risk_from_past_success_or_framework
+  anti_misuse_boundary:
+  - pure_summary_request
+  - pure_translation_request
+  - fact_lookup_request
+  - biography_intro_request
+  - author_position_query
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - pure_summary_request
+  - pure_translation_request
+  - fact_lookup_request
+  - biography_intro_request
+  - author_position_query
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: no-investigation-no-decision
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

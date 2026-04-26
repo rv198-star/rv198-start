@@ -1,0 +1,106 @@
+workflow_id: 5-干系人分析
+title: 5 干系人分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0012
+  supporting_node_ids:
+  - case::effective-requirements-0033
+  - case::effective-requirements-0034
+  - counter-example::effective-requirements-0034
+  - evidence::effective-requirements-0032
+  - evidence::effective-requirements-0033
+  - evidence::effective-requirements-0034
+  - evidence::effective-requirements-0035
+  - principle::0010
+  supporting_edge_ids:
+  - derives_case_signal::principle::0012->case::effective-requirements-0033
+  - derives_case_signal::principle::0012->case::effective-requirements-0034
+  - derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+  - section-parent::principle::0010->principle::0012
+  - supported-by::principle::0012->evidence::effective-requirements-0032
+  - supported-by::principle::0012->evidence::effective-requirements-0033
+  - supported-by::principle::0012->evidence::effective-requirements-0034
+  - supported-by::principle::0012->evidence::effective-requirements-0035
+  community_ids:
+  - community::principle::0010
+  - community::principle::0012
+evidence_anchors:
+  primary_node:
+    id: principle::0012
+    label: 5 干系人分析
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0033
+    label: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+    type: case_signal
+  - id: case::effective-requirements-0034
+    label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    type: case_signal
+  - id: counter-example::effective-requirements-0034
+    label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0032
+    label: 识别出关键干系人只是第一步，选择合适的代表进行调研，分析他们的关注点、阻力点，以及满足关注点、避免阻力点所需的功能、非功能需求也是一个重要...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0033
+    label: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0034
+    label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0035
+    label: 下面给出了两个干系人档案示例（见表5-2和表5-3），以便大家在实践中参考。在示例中“阻力点”需求的描述形式是值得关注的，为了不影响客户阅...
+    type: chunk_evidence
+  - id: principle::0010
+    label: 3 目标/愿景分析
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0012->case::effective-requirements-0033
+    type: derives_case_signal
+    from: principle::0012
+    to: case::effective-requirements-0033
+  - id: derives_case_signal::principle::0012->case::effective-requirements-0034
+    type: derives_case_signal
+    from: principle::0012
+    to: case::effective-requirements-0034
+  - id: derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+    type: derives_counter_example_signal
+    from: principle::0012
+    to: counter-example::effective-requirements-0034
+  - id: section-parent::principle::0010->principle::0012
+    type: section_parent
+    from: principle::0010
+    to: principle::0012
+  - id: supported-by::principle::0012->evidence::effective-requirements-0032
+    type: supported_by_evidence
+    from: principle::0012
+    to: evidence::effective-requirements-0032
+  - id: supported-by::principle::0012->evidence::effective-requirements-0033
+    type: supported_by_evidence
+    from: principle::0012
+    to: evidence::effective-requirements-0033
+  - id: supported-by::principle::0012->evidence::effective-requirements-0034
+    type: supported_by_evidence
+    from: principle::0012
+    to: evidence::effective-requirements-0034
+  - id: supported-by::principle::0012->evidence::effective-requirements-0035
+    type: supported_by_evidence
+    from: principle::0012
+    to: evidence::effective-requirements-0035
+  communities:
+  - id: community::principle::0010
+    label: 3 目标/愿景分析 Cluster
+  - id: community::principle::0012
+    label: 5 干系人分析 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

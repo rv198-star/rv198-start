@@ -1,0 +1,338 @@
+candidate_id: stakeholder-resistance-tradeoff
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0012
+  supporting_node_ids:
+  - case::effective-requirements-0033
+  - case::effective-requirements-0034
+  - counter-example::effective-requirements-0034
+  - evidence::effective-requirements-0032
+  - evidence::effective-requirements-0033
+  - evidence::effective-requirements-0034
+  - evidence::effective-requirements-0035
+  - principle::0010
+  supporting_edge_ids:
+  - derives_case_signal::principle::0012->case::effective-requirements-0033
+  - derives_case_signal::principle::0012->case::effective-requirements-0034
+  - derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+  - section-parent::principle::0010->principle::0012
+  - supported-by::principle::0012->evidence::effective-requirements-0032
+  - supported-by::principle::0012->evidence::effective-requirements-0033
+  - supported-by::principle::0012->evidence::effective-requirements-0034
+  - supported-by::principle::0012->evidence::effective-requirements-0035
+  community_ids:
+  - community::principle::0010
+  - community::principle::0012
+  derived_from_candidate_id: 5-干系人分析
+  derivation_mode: additional_candidate
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 8
+  case_density_score: 0.5
+  workflow_cues: 7
+  workflow_signal_total: 7
+  context_cues: 5
+  evidence_support_count: 4
+  extracted_evidence_support_count: 4
+  tri_state_support_count: 4
+  support_entity_count: 16
+  tri_state_support_ratio: 0.25
+  ambiguous_support_node_count: 1
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 3
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 7
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 如果-则
+  - 步骤
+  - 目标
+  - 第一步
+  - 职责
+  evidence_chunk_ids:
+  - effective-requirements:0032
+  - effective-requirements:0033
+  - effective-requirements:0034
+  - effective-requirements:0035
+  derivation_mode: additional_candidate
+  derived_from_candidate_id: 5-干系人分析
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9722
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location: &id001
+  line_start: 1234
+  line_end: 1234
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: stakeholder-resistance-tradeoff
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.9167
+  overall_score: 0.9722
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.9167
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 4
+    evidence_support_count: 4
+    context_cues: 5
+    workflow_cues: 7
+    tri_state_support_ratio: 0.25
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 如果-则
+    - 步骤
+    - 目标
+    - 第一步
+    - 职责
+    evidence_chunk_ids:
+    - effective-requirements:0032
+    - effective-requirements:0033
+    - effective-requirements:0034
+    - effective-requirements:0035
+    supporting_node_count: 8
+    supporting_edge_count: 8
+    community_count: 2
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: stakeholder-resistance-tradeoff
+  source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0012->case::effective-requirements-0033
+    label: derives_case_signal
+    from_label: 5 干系人分析
+    to_label: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:1242-1311
+    snippet: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需求”这个概念，是执行好该任务的关键。
+      干系人负需求 案例分析 很多年前，我参与了一些电子政务系统的开发，在一次省、市、县三级的“效能监管系统”项目中遇到了一件有趣的事情。 这个项目首先在省厅进行了需求调研，调研告一段落后，
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0012->case::effective-requirements-0034
+    label: derives_case_signal
+    from_label: 5 干系人分析
+    to_label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:1314-1375
+    snippet: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：KPI指标体系通常直接体现了管理者的核心关注点，因此可以事先进行收集、归类，然后逐一切入，以发现潜在的关注点和阻力点。
+      (2)按工作主题分解：管理者通常会涉及多个不同的工作主题，如负责物资供应的经理会涉及领用
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+    label: derives_counter_example_signal
+    from_label: 5 干系人分析
+    to_label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:1314-1375
+    snippet: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：KPI指标体系通常直接体现了管理者的核心关注点，因此可以事先进行收集、归类，然后逐一切入，以发现潜在的关注点和阻力点。
+      (2)按工作主题分解：管理者通常会涉及多个不同的工作主题，如负责物资供应的经理会涉及领用
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::effective-requirements-0034
+    label: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:1314-1375
+    snippet: 1.访谈干系人 在访谈干系人之前，应该根据“分而治之提问法”策略，先制订访谈提纲，即列出要访谈的内容树。通常有三种分而治之的角度。 (1)按KPI分解：KPI指标体系通常直接体现了管理者的核心关注点，因此可以事先进行收集、归类，然后逐一切入，以发现潜在的关注点和阻力点。
+      (2)按工作主题分解：管理者通常会涉及多个不同的工作主题，如负责物资供应的经理会涉及领用
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: stakeholder-resistance-tradeoff
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0010
+      label: 3 目标/愿景分析 Cluster
+      top_node_id: principle::0012
+      top_node_label: 5 干系人分析
+      node_count: 21
+    - community_id: community::principle::0012
+      label: 5 干系人分析 Cluster
+      top_node_id: principle::0012
+      top_node_label: 5 干系人分析
+      node_count: 9
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - case
+  - counter-example-signal
+  - evidence
+  - principle
+  source_node_ids:
+  - principle::0012
+  - case::effective-requirements-0033
+  - case::effective-requirements-0034
+  - counter-example::effective-requirements-0034
+  - evidence::effective-requirements-0032
+  - evidence::effective-requirements-0033
+  - evidence::effective-requirements-0034
+  - evidence::effective-requirements-0035
+  - principle::0010
+  source_edge_ids:
+  - derives_case_signal::principle::0012->case::effective-requirements-0033
+  - derives_case_signal::principle::0012->case::effective-requirements-0034
+  - derives_counter_example_signal::principle::0012->counter-example::effective-requirements-0034
+  - section-parent::principle::0010->principle::0012
+  - supported-by::principle::0012->evidence::effective-requirements-0032
+  - supported-by::principle::0012->evidence::effective-requirements-0033
+  - supported-by::principle::0012->evidence::effective-requirements-0034
+  - supported-by::principle::0012->evidence::effective-requirements-0035
+  source_locations:
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location: *id001
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1242
+      line_end: 1311
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1236
+      line_end: 1239
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1242
+      line_end: 1311
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1378
+      line_end: 1387
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 578
+      line_end: 578
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1242
+      line_end: 1311
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1234
+      line_end: 1234
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1236
+      line_end: 1239
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1242
+      line_end: 1311
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1314
+      line_end: 1375
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 1378
+      line_end: 1387
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Stakeholder Resistance Tradeoff` is anchored in "### 5 干系人分析"[^anchor:5-干系人分析-principle::0012].
+    `识别出关键干系人只是第一步，选择合适的代表进行调研，分析他们的关注点、阻力点，以及满足关注点、避免阻力点所需的功能、非功能需求也是一个重要...` adds
+    source context through "识别出关键干系人只是第一步，选择合适的代表进行调研，分析他们的关注点、阻力点，'
+  use_situation_trigger:
+  - stakeholder_attention_and_resistance_conflict
+  - important_stakeholder_missing_from_requirement
+  - scope_choice_depends_on_power_interest_tradeoff
+  anti_misuse_boundary:
+  - stakeholder_list_is_only_being_filled
+  - single_stakeholder_no_conflict
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - stakeholder_list_is_only_being_filled
+  - single_stakeholder_no_conflict
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: stakeholder-resistance-tradeoff
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

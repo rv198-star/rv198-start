@@ -1,0 +1,415 @@
+{
+  "schema_version": "kiu.coverage-readiness/v0.1",
+  "coverage_units": [
+    {
+      "unit_id": "community::principle::0008",
+      "label": "2 日常需求分析 Cluster",
+      "node_count": 22,
+      "keywords": [
+        "2",
+        "日常需求分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0023",
+      "label": "13 业务场景分析 Cluster",
+      "node_count": 22,
+      "keywords": [
+        "13",
+        "业务场景分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0010",
+      "label": "3 目标/愿景分析 Cluster",
+      "node_count": 21,
+      "keywords": [
+        "3",
+        "目标",
+        "愿景分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0030",
+      "label": "17 领域建模 Cluster",
+      "node_count": 18,
+      "keywords": [
+        "17",
+        "领域建模"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0011",
+      "label": "4 干系人识别 Cluster",
+      "node_count": 15,
+      "keywords": [
+        "4",
+        "干系人识别"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0020",
+      "label": "10 业务流程识别 Cluster",
+      "node_count": 15,
+      "keywords": [
+        "10",
+        "业务流程识别"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0016",
+      "label": "7 业务子系统划分 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "7",
+        "业务子系统划分"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0021",
+      "label": "11 业务流程分析与优化 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "11",
+        "业务流程分析与优化"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0022",
+      "label": "12 业务场景识别 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "12",
+        "业务场景识别"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0033",
+      "label": "19 质量需求分析 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "19",
+        "质量需求分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0025",
+      "label": "14 管理需求分析 Cluster",
+      "node_count": 12,
+      "keywords": [
+        "14",
+        "管理需求分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0007",
+      "label": "1 软件需求全景图 Cluster",
+      "node_count": 10,
+      "keywords": [
+        "1",
+        "软件需求全景图"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0012",
+      "label": "5 干系人分析 Cluster",
+      "node_count": 9,
+      "keywords": [
+        "5",
+        "干系人分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0018",
+      "label": "功能需求主线子篇——业务支持部分 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "功能需求主线子篇",
+        "业务支持部分"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0035",
+      "label": "20 业务规则分析 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "20",
+        "业务规则分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0013",
+      "label": "6 价值需求分析总结 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "6",
+        "价值需求分析总结"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0017",
+      "label": "8 业务接口分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "8",
+        "业务接口分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0019",
+      "label": "9 业务场景梳理 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "9",
+        "业务场景梳理"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0026",
+      "label": "15 业务报表分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "15",
+        "业务报表分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0028",
+      "label": "16 维护需求分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "16",
+        "维护需求分析"
+      ]
+    }
+  ],
+  "covered_units": [
+    {
+      "unit_id": "community::principle::0008",
+      "label": "2 日常需求分析 Cluster",
+      "node_count": 22,
+      "keywords": [
+        "2",
+        "日常需求分析"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0023",
+      "label": "13 业务场景分析 Cluster",
+      "node_count": 22,
+      "keywords": [
+        "13",
+        "业务场景分析"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0010",
+      "label": "3 目标/愿景分析 Cluster",
+      "node_count": 21,
+      "keywords": [
+        "3",
+        "目标",
+        "愿景分析"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0030",
+      "label": "17 领域建模 Cluster",
+      "node_count": 18,
+      "keywords": [
+        "17",
+        "领域建模"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0011",
+      "label": "4 干系人识别 Cluster",
+      "node_count": 15,
+      "keywords": [
+        "4",
+        "干系人识别"
+      ],
+      "covered_by": "stakeholder-resistance-tradeoff"
+    },
+    {
+      "unit_id": "community::principle::0020",
+      "label": "10 业务流程识别 Cluster",
+      "node_count": 15,
+      "keywords": [
+        "10",
+        "业务流程识别"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0016",
+      "label": "7 业务子系统划分 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "7",
+        "业务子系统划分"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0021",
+      "label": "11 业务流程分析与优化 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "11",
+        "业务流程分析与优化"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0022",
+      "label": "12 业务场景识别 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "12",
+        "业务场景识别"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0033",
+      "label": "19 质量需求分析 Cluster",
+      "node_count": 13,
+      "keywords": [
+        "19",
+        "质量需求分析"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0025",
+      "label": "14 管理需求分析 Cluster",
+      "node_count": 12,
+      "keywords": [
+        "14",
+        "管理需求分析"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0007",
+      "label": "1 软件需求全景图 Cluster",
+      "node_count": 10,
+      "keywords": [
+        "1",
+        "软件需求全景图"
+      ],
+      "covered_by": "solution-to-problem-reframing"
+    },
+    {
+      "unit_id": "community::principle::0012",
+      "label": "5 干系人分析 Cluster",
+      "node_count": 9,
+      "keywords": [
+        "5",
+        "干系人分析"
+      ],
+      "covered_by": "stakeholder-resistance-tradeoff"
+    },
+    {
+      "unit_id": "community::principle::0018",
+      "label": "功能需求主线子篇——业务支持部分 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "功能需求主线子篇",
+        "业务支持部分"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0013",
+      "label": "6 价值需求分析总结 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "6",
+        "价值需求分析总结"
+      ],
+      "covered_by": "workflow-gateway"
+    }
+  ],
+  "uncovered_units": [
+    {
+      "unit_id": "community::principle::0035",
+      "label": "20 业务规则分析 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "20",
+        "业务规则分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0017",
+      "label": "8 业务接口分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "8",
+        "业务接口分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0019",
+      "label": "9 业务场景梳理 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "9",
+        "业务场景梳理"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0026",
+      "label": "15 业务报表分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "15",
+        "业务报表分析"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0028",
+      "label": "16 维护需求分析 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "16",
+        "维护需求分析"
+      ]
+    }
+  ],
+  "coverage_unit_count": 20,
+  "covered_unit_count": 15,
+  "uncovered_unit_count": 5,
+  "published_skill_count": 3,
+  "workflow_candidate_count": 12,
+  "gateway_route_count": 12,
+  "narrow_output_justification": "",
+  "readiness": {
+    "schema_version": "kiu.application-readiness/v0.1",
+    "model": "coverage_model",
+    "status": "warn",
+    "score_100": 75.0,
+    "warning_count": 1,
+    "failure_count": 0,
+    "findings": [
+      {
+        "model": "coverage_model",
+        "severity": "warn",
+        "reason": "narrow_output_without_justification",
+        "evidence": {
+          "coverage_unit_count": 20,
+          "covered_unit_count": 15,
+          "uncovered_unit_count": 5
+        },
+        "recommended_action": "add model-backed coverage, workflow gateway routing, or narrow_output_justification"
+      }
+    ],
+    "claim_boundary": "Internal readiness model evidence; not external validation or domain-expert review."
+  }
+}

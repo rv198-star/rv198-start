@@ -1,0 +1,69 @@
+{
+  "schema_version": "kiu.action-skill-identity/v0.1",
+  "candidate_route_distribution": {
+    "publish_skill": 3
+  },
+  "container_candidate_leak_count": 0,
+  "container_candidate_leaks": [],
+  "publishable_action_skill_ratio": 1.0,
+  "minimum_action_skill_identity_score": 0.8983,
+  "candidates": [
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "historical-analogy-transfer-gate",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "historical-case-consequence-judgment",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9217,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.74
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "role-boundary-before-action",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.8983,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 0.86,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.74
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    }
+  ]
+}

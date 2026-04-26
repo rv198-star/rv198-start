@@ -1,0 +1,996 @@
+workflow_id: 学习能力
+title: 学习能力
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::1306
+  supporting_node_ids:
+  - case::financial-statement-0103
+  - case::financial-statement-0202
+  - case::financial-statement-0570
+  - case::financial-statement-0807
+  - case::financial-statement-1074
+  - case::financial-statement-1124
+  - case::financial-statement-1225
+  - counter-example::financial-statement-0202
+  - counter-example::financial-statement-0282
+  - counter-example::financial-statement-0500
+  - counter-example::financial-statement-0547
+  - counter-example::financial-statement-0570
+  - counter-example::financial-statement-0748
+  - counter-example::financial-statement-1124
+  - counter-example::financial-statement-1462
+  - evidence::financial-statement-0103
+  - evidence::financial-statement-0104
+  - evidence::financial-statement-0202
+  - evidence::financial-statement-0203
+  - evidence::financial-statement-0282
+  - evidence::financial-statement-0346
+  - evidence::financial-statement-0427
+  - evidence::financial-statement-0500
+  - evidence::financial-statement-0547
+  - evidence::financial-statement-0570
+  - evidence::financial-statement-0747
+  - evidence::financial-statement-0748
+  - evidence::financial-statement-0806
+  - evidence::financial-statement-0807
+  - evidence::financial-statement-0868
+  - evidence::financial-statement-0978
+  - evidence::financial-statement-0979
+  - evidence::financial-statement-1074
+  - evidence::financial-statement-1075
+  - evidence::financial-statement-1124
+  - evidence::financial-statement-1125
+  - evidence::financial-statement-1225
+  - evidence::financial-statement-1295
+  - evidence::financial-statement-1407
+  - evidence::financial-statement-1462
+  - principle::0096
+  - principle::0098
+  - principle::0189
+  - principle::0190
+  - principle::0266
+  - principle::0267
+  - principle::0329
+  - principle::0330
+  - principle::0404
+  - principle::0405
+  - principle::0476
+  - principle::0477
+  - principle::0520
+  - principle::0522
+  - principle::0545
+  - principle::0546
+  - principle::0689
+  - principle::0690
+  - principle::0751
+  - principle::0753
+  - principle::0807
+  - principle::0809
+  - principle::0911
+  - principle::0912
+  - principle::0984
+  - principle::0985
+  - principle::1033
+  - principle::1035
+  - principle::1114
+  - principle::1115
+  - principle::1167
+  - principle::1168
+  - principle::1261
+  - principle::1264
+  - principle::1305
+  - term::bristol-myers-squibb
+  - term::capm
+  - term::content
+  - term::cost-of-debt
+  - term::credit-risk
+  - term::default
+  - term::default-premium
+  - term::default-risk
+  - term::discounted-cash-flow-analysis
+  - term::dividend-discount-analysis
+  - term::fasb
+  - term::financial-planning
+  - term::financial-statement-analysis-of-the-future
+  - term::form
+  - term::growth-analysis
+  - term::iasb
+  - term::ifrs
+  - term::krispy-kreme
+  - term::levered
+  - term::liquidity-analysis
+  - term::p-b
+  - term::p-e
+  - term::price-of-credit
+  - term::profitability-analysis
+  - term::roce
+  - term::royal-ahold
+  - term::sec
+  - term::unlevered
+  - term::value-drivers
+  - term::www.sec.gov-edgar.shtml
+  supporting_edge_ids:
+  - derives_case_signal::principle::1306->case::financial-statement-0103
+  - derives_case_signal::principle::1306->case::financial-statement-0202
+  - derives_case_signal::principle::1306->case::financial-statement-0570
+  - derives_case_signal::principle::1306->case::financial-statement-0807
+  - derives_case_signal::principle::1306->case::financial-statement-1074
+  - derives_case_signal::principle::1306->case::financial-statement-1124
+  - derives_case_signal::principle::1306->case::financial-statement-1225
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0202
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0282
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0500
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0547
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0570
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-0748
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-1124
+  - derives_counter_example_signal::principle::1306->counter-example::financial-statement-1462
+  - derives_term_signal::principle::1306->term::bristol-myers-squibb
+  - derives_term_signal::principle::1306->term::capm
+  - derives_term_signal::principle::1306->term::content
+  - derives_term_signal::principle::1306->term::cost-of-debt
+  - derives_term_signal::principle::1306->term::credit-risk
+  - derives_term_signal::principle::1306->term::default
+  - derives_term_signal::principle::1306->term::default-premium
+  - derives_term_signal::principle::1306->term::default-risk
+  - derives_term_signal::principle::1306->term::discounted-cash-flow-analysis
+  - derives_term_signal::principle::1306->term::dividend-discount-analysis
+  - derives_term_signal::principle::1306->term::fasb
+  - derives_term_signal::principle::1306->term::financial-planning
+  - derives_term_signal::principle::1306->term::financial-statement-analysis-of-the-future
+  - derives_term_signal::principle::1306->term::form
+  - derives_term_signal::principle::1306->term::growth-analysis
+  - derives_term_signal::principle::1306->term::iasb
+  - derives_term_signal::principle::1306->term::ifrs
+  - derives_term_signal::principle::1306->term::krispy-kreme
+  - derives_term_signal::principle::1306->term::levered
+  - derives_term_signal::principle::1306->term::liquidity-analysis
+  - derives_term_signal::principle::1306->term::p-b
+  - derives_term_signal::principle::1306->term::p-e
+  - derives_term_signal::principle::1306->term::price-of-credit
+  - derives_term_signal::principle::1306->term::profitability-analysis
+  - derives_term_signal::principle::1306->term::roce
+  - derives_term_signal::principle::1306->term::royal-ahold
+  - derives_term_signal::principle::1306->term::sec
+  - derives_term_signal::principle::1306->term::unlevered
+  - derives_term_signal::principle::1306->term::value-drivers
+  - derives_term_signal::principle::1306->term::www.sec.gov-edgar.shtml
+  - section-parent::principle::0096->principle::0098
+  - section-parent::principle::0189->principle::0190
+  - section-parent::principle::0266->principle::0267
+  - section-parent::principle::0329->principle::0330
+  - section-parent::principle::0404->principle::0405
+  - section-parent::principle::0476->principle::0477
+  - section-parent::principle::0520->principle::0522
+  - section-parent::principle::0545->principle::0546
+  - section-parent::principle::0689->principle::0690
+  - section-parent::principle::0751->principle::0753
+  - section-parent::principle::0807->principle::0809
+  - section-parent::principle::0911->principle::0912
+  - section-parent::principle::0984->principle::0985
+  - section-parent::principle::1033->principle::1035
+  - section-parent::principle::1114->principle::1115
+  - section-parent::principle::1167->principle::1168
+  - section-parent::principle::1261->principle::1264
+  - section-parent::principle::1305->principle::1306
+  - supported-by::principle::1306->evidence::financial-statement-0103
+  - supported-by::principle::1306->evidence::financial-statement-0104
+  - supported-by::principle::1306->evidence::financial-statement-0202
+  - supported-by::principle::1306->evidence::financial-statement-0203
+  - supported-by::principle::1306->evidence::financial-statement-0282
+  - supported-by::principle::1306->evidence::financial-statement-0346
+  - supported-by::principle::1306->evidence::financial-statement-0427
+  - supported-by::principle::1306->evidence::financial-statement-0500
+  - supported-by::principle::1306->evidence::financial-statement-0547
+  - supported-by::principle::1306->evidence::financial-statement-0570
+  - supported-by::principle::1306->evidence::financial-statement-0747
+  - supported-by::principle::1306->evidence::financial-statement-0748
+  - supported-by::principle::1306->evidence::financial-statement-0806
+  - supported-by::principle::1306->evidence::financial-statement-0807
+  - supported-by::principle::1306->evidence::financial-statement-0868
+  - supported-by::principle::1306->evidence::financial-statement-0978
+  - supported-by::principle::1306->evidence::financial-statement-0979
+  - supported-by::principle::1306->evidence::financial-statement-1074
+  - supported-by::principle::1306->evidence::financial-statement-1075
+  - supported-by::principle::1306->evidence::financial-statement-1124
+  - supported-by::principle::1306->evidence::financial-statement-1125
+  - supported-by::principle::1306->evidence::financial-statement-1225
+  - supported-by::principle::1306->evidence::financial-statement-1295
+  - supported-by::principle::1306->evidence::financial-statement-1407
+  - supported-by::principle::1306->evidence::financial-statement-1462
+  community_ids:
+  - community::principle::0096
+  - community::principle::0098
+  - community::principle::0189
+  - community::principle::0190
+  - community::principle::0266
+  - community::principle::0267
+  - community::principle::0329
+  - community::principle::0330
+  - community::principle::0404
+  - community::principle::0405
+  - community::principle::0476
+  - community::principle::0477
+  - community::principle::0520
+  - community::principle::0522
+  - community::principle::0545
+  - community::principle::0546
+  - community::principle::0689
+  - community::principle::0690
+  - community::principle::0751
+  - community::principle::0753
+  - community::principle::0807
+  - community::principle::0809
+  - community::principle::0911
+  - community::principle::0912
+  - community::principle::0984
+  - community::principle::0985
+  - community::principle::1033
+  - community::principle::1035
+  - community::principle::1114
+  - community::principle::1115
+  - community::principle::1167
+  - community::principle::1168
+  - community::principle::1261
+  - community::principle::1264
+  - community::principle::1305
+  - community::principle::1306
+evidence_anchors:
+  primary_node:
+    id: principle::1306
+    label: 学习能力
+    type: principle_signal
+  supporting_nodes:
+  - id: case::financial-statement-0103
+    label: 完成本章的学习任务后，你应当能够： · 用资产和负债去解释股东权益； - 根据股东权益变动表来解释当期股东权益所发生的变动； - 利用利润...
+    type: case_signal
+  - id: case::financial-statement-0202
+    label: 完成本章的学习任务后，你应当能够： · 应用以资产为基础的估值技术； · 进行乘数比较分析； - 利用股票筛选器建立简单的或者复合的筛选方...
+    type: case_signal
+  - id: case::financial-statement-0570
+    label: 完成本章的学习任务后，你应当能够： · 重构股东权益变动表； - 在股东权益变动表中区分价值的创造和价值的分配； · 计算企业对股东的净支...
+    type: case_signal
+  - id: case::financial-statement-0807
+    label: 基于上述认识，获利能力分析已经成为一种管理计划、战略分析、决策和权益估值的工具，企业管理层均认同更高的获利能力能为企业创造更多的价值，所以...
+    type: case_signal
+  - id: case::financial-statement-1074
+    label: '- 如何在反向推导中利用简单估值模型，检验市场定价的合理性； · 简单估值模型是如何增强筛选分析效果的。完成本章的学习任务后，你应当能够：...'
+    type: case_signal
+  - id: case::financial-statement-1124
+    label: 完成本章的学习任务后，你应当能够： · 编制未来的预计利润表和预计资产负债表； - 根据预计财务报表，预测企业未来的剩余经营性收益、超常增...
+    type: case_signal
+  - id: case::financial-statement-1225
+    label: 完成本章的学习任务后，你应当能够： - 在考虑会计核算方法差别的前提下对企业进行估值； - 用不同的会计方法预测企业的盈利能力和增长潜力；...
+    type: case_signal
+  - id: counter-example::financial-statement-0202
+    label: 完成本章的学习任务后，你应当能够： · 应用以资产为基础的估值技术； · 进行乘数比较分析； - 利用股票筛选器建立简单的或者复合的筛选方...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-0282
+    label: 完成本章的学习任务后，你应当能够： · 计算永续年金的价值； · 根据自由现金流量进行简单的估值； · 应用贴现现金流估值模型； · 计算...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-0500
+    label: 完成本章的学习任务后，你应当能够： · 根据市场定价去反推市场的盈利预期； · 找出市价中所隐含的未来公司盈利增长路线； · 计算如果按当...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-0547
+    label: 完成本章的学习任务后，你应当能够： · 应用财务主管法则； · 列报重构后的现金流量表、资产负债表和利润表； · 解释净金融性负债是如何随...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-0570
+    label: 完成本章的学习任务后，你应当能够： · 重构股东权益变动表； - 在股东权益变动表中区分价值的创造和价值的分配； · 计算企业对股东的净支...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-0748
+    label: 不幸的是，按照美国公认会计原则或国际财务报告准则所编制的现金流量表还不能方便我们直接得到在这些分析中所需要的现金流量数据，而且，它们对一些...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-1124
+    label: 完成本章的学习任务后，你应当能够： · 编制未来的预计利润表和预计资产负债表； - 根据预计财务报表，预测企业未来的剩余经营性收益、超常增...
+    type: counter_example_signal
+  - id: counter-example::financial-statement-1462
+    label: · 财务战略的工作原理。 完成本章的学习任务后，你应当能够： - 重构财务报表或者对财务报表进行注释，为信用分析做好准备； · 计算与信用...
+    type: counter_example_signal
+  - id: evidence::financial-statement-0103
+    label: 完成本章的学习任务后，你应当能够： · 用资产和负债去解释股东权益； - 根据股东权益变动表来解释当期股东权益所发生的变动； - 利用利润...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0104
+    label: 在美国，财务会计准则委员会（FASB）受美国证券交易委员会和美国国会的最终委托与监管，负责制定并发布会计准则。同时，总部位于伦敦的国际会计...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0202
+    label: 完成本章的学习任务后，你应当能够： · 应用以资产为基础的估值技术； · 进行乘数比较分析； - 利用股票筛选器建立简单的或者复合的筛选方...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0203
+    label: 使用简单方法会产生忽略相关信息的风险。一份全面优质的基本面分析应当是在确认出所有相关信息的基础之上，进行提炼和为企业估值的。本章总结了基本...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0282
+    label: 完成本章的学习任务后，你应当能够： · 计算永续年金的价值； · 根据自由现金流量进行简单的估值； · 应用贴现现金流估值模型； · 计算...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0346
+    label: 易策略的价值； · 完成本章的学习任务后，你应当能够： · 计算企业市净率的内在水平； · 计算剩余收益； · 计算某个交易策略所创造的价...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0427
+    label: 完成本章的学习任务后，你应当能够： ·计算含息的收益； · 计算超常收益增长率； · 根据预计的盈利和股利信息，计算股东权 益的价值； -...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0500
+    label: 完成本章的学习任务后，你应当能够： · 根据市场定价去反推市场的盈利预期； · 找出市价中所隐含的未来公司盈利增长路线； · 计算如果按当...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0547
+    label: 完成本章的学习任务后，你应当能够： · 应用财务主管法则； · 列报重构后的现金流量表、资产负债表和利润表； · 解释净金融性负债是如何随...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0570
+    label: 完成本章的学习任务后，你应当能够： · 重构股东权益变动表； - 在股东权益变动表中区分价值的创造和价值的分配； · 计算企业对股东的净支...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0747
+    label: '- 重构的现金流量表可以告诉我们哪些内容；完成本章的学习任务后，你应当能够： - 根据重构后的利润表和资产负债表计算企业的自由现金流量； ...'
+    type: chunk_evidence
+  - id: evidence::financial-statement-0748
+    label: 不幸的是，按照美国公认会计原则或国际财务报告准则所编制的现金流量表还不能方便我们直接得到在这些分析中所需要的现金流量数据，而且，它们对一些...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0806
+    label: 完成本章的学习任务后，你应当能够： - 计算会影响到普通股权益报酬率 ROCE 的各种财务比率； - 说明各种不同的财务比率是如何联合起来...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0807
+    label: 基于上述认识，获利能力分析已经成为一种管理计划、战略分析、决策和权益估值的工具，企业管理层均认同更高的获利能力能为企业创造更多的价值，所以...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0868
+    label: · 市盈率与市净率之间的关系。 完成本章的学习任务后，你应当能够： - 完成净经营性资产报酬率 RNOA 的变动分析； · 完成投资增长分...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0978
+    label: 完成本章的学习任务后，你应当能够： · 计算剩余经营性收益； · 计算超常增长的经营性收益； - 用剩余经营性收益模型和超常增长的经营性收...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0979
+    label: 由于需要关注的是经营活动，所以，我们现在应当更加重视企业市净率或无杠杆（unlevered）市净率，以及企业市盈率或无杠杆市盈率，而不再只...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1074
+    label: '- 如何在反向推导中利用简单估值模型，检验市场定价的合理性； · 简单估值模型是如何增强筛选分析效果的。完成本章的学习任务后，你应当能够：...'
+    type: chunk_evidence
+  - id: evidence::financial-statement-1075
+    label: 在第 7 章中我们看到，要检验市场价格的合理性，关键就是要区分财务报表中的“硬”信息和那些通过推测才得到的信息。由于各种推测信息包围了企业...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1124
+    label: 完成本章的学习任务后，你应当能够： · 编制未来的预计利润表和预计资产负债表； - 根据预计财务报表，预测企业未来的剩余经营性收益、超常增...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1125
+    label: 全面预测以我们在第15章中所介绍的简单预测为起点。简单预测建立在企业当期的获利能力和净经营性资产增长情况基础之上，而全面预测则将未来与当前...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1225
+    label: 完成本章的学习任务后，你应当能够： - 在考虑会计核算方法差别的前提下对企业进行估值； - 用不同的会计方法预测企业的盈利能力和增长潜力；...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1295
+    label: 完成本章的学习任务后，你应当能够： - 对一套财务报表进行完整的会计信息质量分析； · 辨别财务报表中很可能存在操纵行为的敏 感情形； -...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1407
+    label: 完成本章的学习任务后，你应当能够： · 确认一家企业的风险影响因素有哪些； · 描述风险价值特征； · 在战略制定中引入风险价值分析； ·...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1462
+    label: · 财务战略的工作原理。 完成本章的学习任务后，你应当能够： - 重构财务报表或者对财务报表进行注释，为信用分析做好准备； · 计算与信用...
+    type: chunk_evidence
+  - id: principle::0096
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0098
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0189
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0190
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0266
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0267
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0329
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0330
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0404
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0405
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0476
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0477
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0520
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0522
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0545
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0546
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0689
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0690
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0751
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0753
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0807
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0809
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0911
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0912
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0984
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0985
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1033
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1035
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1114
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1115
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1167
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1168
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1261
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1264
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1305
+    label: 学习目标
+    type: principle_signal
+  - id: term::bristol-myers-squibb
+    label: Bristol-Myers Squibb
+    type: term_signal
+  - id: term::capm
+    label: CAPM
+    type: term_signal
+  - id: term::content
+    label: content
+    type: term_signal
+  - id: term::cost-of-debt
+    label: cost of debt
+    type: term_signal
+  - id: term::credit-risk
+    label: credit risk
+    type: term_signal
+  - id: term::default
+    label: default
+    type: term_signal
+  - id: term::default-premium
+    label: default premium
+    type: term_signal
+  - id: term::default-risk
+    label: default risk
+    type: term_signal
+  - id: term::discounted-cash-flow-analysis
+    label: discounted cash flow analysis
+    type: term_signal
+  - id: term::dividend-discount-analysis
+    label: dividend discount analysis
+    type: term_signal
+  - id: term::fasb
+    label: FASB
+    type: term_signal
+  - id: term::financial-planning
+    label: financial planning
+    type: term_signal
+  - id: term::financial-statement-analysis-of-the-future
+    label: financial statement analysis of the future
+    type: term_signal
+  - id: term::form
+    label: form
+    type: term_signal
+  - id: term::growth-analysis
+    label: growth analysis
+    type: term_signal
+  - id: term::iasb
+    label: IASB
+    type: term_signal
+  - id: term::ifrs
+    label: IFRS
+    type: term_signal
+  - id: term::krispy-kreme
+    label: Krispy Kreme
+    type: term_signal
+  - id: term::levered
+    label: levered
+    type: term_signal
+  - id: term::liquidity-analysis
+    label: liquidity analysis
+    type: term_signal
+  - id: term::p-b
+    label: P/B
+    type: term_signal
+  - id: term::p-e
+    label: P/E
+    type: term_signal
+  - id: term::price-of-credit
+    label: price of credit
+    type: term_signal
+  - id: term::profitability-analysis
+    label: profitability analysis
+    type: term_signal
+  - id: term::roce
+    label: ROCE
+    type: term_signal
+  - id: term::royal-ahold
+    label: Royal Ahold
+    type: term_signal
+  - id: term::sec
+    label: SEC
+    type: term_signal
+  - id: term::unlevered
+    label: unlevered
+    type: term_signal
+  - id: term::value-drivers
+    label: value drivers
+    type: term_signal
+  - id: term::www.sec.gov-edgar.shtml
+    label: www.sec.gov/edgar.shtml
+    type: term_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::1306->case::financial-statement-0103
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-0103
+  - id: derives_case_signal::principle::1306->case::financial-statement-0202
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-0202
+  - id: derives_case_signal::principle::1306->case::financial-statement-0570
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-0570
+  - id: derives_case_signal::principle::1306->case::financial-statement-0807
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-0807
+  - id: derives_case_signal::principle::1306->case::financial-statement-1074
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-1074
+  - id: derives_case_signal::principle::1306->case::financial-statement-1124
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-1124
+  - id: derives_case_signal::principle::1306->case::financial-statement-1225
+    type: derives_case_signal
+    from: principle::1306
+    to: case::financial-statement-1225
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0202
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0202
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0282
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0282
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0500
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0500
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0547
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0547
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0570
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0570
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-0748
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-0748
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-1124
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-1124
+  - id: derives_counter_example_signal::principle::1306->counter-example::financial-statement-1462
+    type: derives_counter_example_signal
+    from: principle::1306
+    to: counter-example::financial-statement-1462
+  - id: derives_term_signal::principle::1306->term::bristol-myers-squibb
+    type: derives_term_signal
+    from: principle::1306
+    to: term::bristol-myers-squibb
+  - id: derives_term_signal::principle::1306->term::capm
+    type: derives_term_signal
+    from: principle::1306
+    to: term::capm
+  - id: derives_term_signal::principle::1306->term::content
+    type: derives_term_signal
+    from: principle::1306
+    to: term::content
+  - id: derives_term_signal::principle::1306->term::cost-of-debt
+    type: derives_term_signal
+    from: principle::1306
+    to: term::cost-of-debt
+  - id: derives_term_signal::principle::1306->term::credit-risk
+    type: derives_term_signal
+    from: principle::1306
+    to: term::credit-risk
+  - id: derives_term_signal::principle::1306->term::default
+    type: derives_term_signal
+    from: principle::1306
+    to: term::default
+  - id: derives_term_signal::principle::1306->term::default-premium
+    type: derives_term_signal
+    from: principle::1306
+    to: term::default-premium
+  - id: derives_term_signal::principle::1306->term::default-risk
+    type: derives_term_signal
+    from: principle::1306
+    to: term::default-risk
+  - id: derives_term_signal::principle::1306->term::discounted-cash-flow-analysis
+    type: derives_term_signal
+    from: principle::1306
+    to: term::discounted-cash-flow-analysis
+  - id: derives_term_signal::principle::1306->term::dividend-discount-analysis
+    type: derives_term_signal
+    from: principle::1306
+    to: term::dividend-discount-analysis
+  - id: derives_term_signal::principle::1306->term::fasb
+    type: derives_term_signal
+    from: principle::1306
+    to: term::fasb
+  - id: derives_term_signal::principle::1306->term::financial-planning
+    type: derives_term_signal
+    from: principle::1306
+    to: term::financial-planning
+  - id: derives_term_signal::principle::1306->term::financial-statement-analysis-of-the-future
+    type: derives_term_signal
+    from: principle::1306
+    to: term::financial-statement-analysis-of-the-future
+  - id: derives_term_signal::principle::1306->term::form
+    type: derives_term_signal
+    from: principle::1306
+    to: term::form
+  - id: derives_term_signal::principle::1306->term::growth-analysis
+    type: derives_term_signal
+    from: principle::1306
+    to: term::growth-analysis
+  - id: derives_term_signal::principle::1306->term::iasb
+    type: derives_term_signal
+    from: principle::1306
+    to: term::iasb
+  - id: derives_term_signal::principle::1306->term::ifrs
+    type: derives_term_signal
+    from: principle::1306
+    to: term::ifrs
+  - id: derives_term_signal::principle::1306->term::krispy-kreme
+    type: derives_term_signal
+    from: principle::1306
+    to: term::krispy-kreme
+  - id: derives_term_signal::principle::1306->term::levered
+    type: derives_term_signal
+    from: principle::1306
+    to: term::levered
+  - id: derives_term_signal::principle::1306->term::liquidity-analysis
+    type: derives_term_signal
+    from: principle::1306
+    to: term::liquidity-analysis
+  - id: derives_term_signal::principle::1306->term::p-b
+    type: derives_term_signal
+    from: principle::1306
+    to: term::p-b
+  - id: derives_term_signal::principle::1306->term::p-e
+    type: derives_term_signal
+    from: principle::1306
+    to: term::p-e
+  - id: derives_term_signal::principle::1306->term::price-of-credit
+    type: derives_term_signal
+    from: principle::1306
+    to: term::price-of-credit
+  - id: derives_term_signal::principle::1306->term::profitability-analysis
+    type: derives_term_signal
+    from: principle::1306
+    to: term::profitability-analysis
+  - id: derives_term_signal::principle::1306->term::roce
+    type: derives_term_signal
+    from: principle::1306
+    to: term::roce
+  - id: derives_term_signal::principle::1306->term::royal-ahold
+    type: derives_term_signal
+    from: principle::1306
+    to: term::royal-ahold
+  - id: derives_term_signal::principle::1306->term::sec
+    type: derives_term_signal
+    from: principle::1306
+    to: term::sec
+  - id: derives_term_signal::principle::1306->term::unlevered
+    type: derives_term_signal
+    from: principle::1306
+    to: term::unlevered
+  - id: derives_term_signal::principle::1306->term::value-drivers
+    type: derives_term_signal
+    from: principle::1306
+    to: term::value-drivers
+  - id: derives_term_signal::principle::1306->term::www.sec.gov-edgar.shtml
+    type: derives_term_signal
+    from: principle::1306
+    to: term::www.sec.gov-edgar.shtml
+  - id: section-parent::principle::0096->principle::0098
+    type: section_parent
+    from: principle::0096
+    to: principle::0098
+  - id: section-parent::principle::0189->principle::0190
+    type: section_parent
+    from: principle::0189
+    to: principle::0190
+  - id: section-parent::principle::0266->principle::0267
+    type: section_parent
+    from: principle::0266
+    to: principle::0267
+  - id: section-parent::principle::0329->principle::0330
+    type: section_parent
+    from: principle::0329
+    to: principle::0330
+  - id: section-parent::principle::0404->principle::0405
+    type: section_parent
+    from: principle::0404
+    to: principle::0405
+  - id: section-parent::principle::0476->principle::0477
+    type: section_parent
+    from: principle::0476
+    to: principle::0477
+  - id: section-parent::principle::0520->principle::0522
+    type: section_parent
+    from: principle::0520
+    to: principle::0522
+  - id: section-parent::principle::0545->principle::0546
+    type: section_parent
+    from: principle::0545
+    to: principle::0546
+  - id: section-parent::principle::0689->principle::0690
+    type: section_parent
+    from: principle::0689
+    to: principle::0690
+  - id: section-parent::principle::0751->principle::0753
+    type: section_parent
+    from: principle::0751
+    to: principle::0753
+  - id: section-parent::principle::0807->principle::0809
+    type: section_parent
+    from: principle::0807
+    to: principle::0809
+  - id: section-parent::principle::0911->principle::0912
+    type: section_parent
+    from: principle::0911
+    to: principle::0912
+  - id: section-parent::principle::0984->principle::0985
+    type: section_parent
+    from: principle::0984
+    to: principle::0985
+  - id: section-parent::principle::1033->principle::1035
+    type: section_parent
+    from: principle::1033
+    to: principle::1035
+  - id: section-parent::principle::1114->principle::1115
+    type: section_parent
+    from: principle::1114
+    to: principle::1115
+  - id: section-parent::principle::1167->principle::1168
+    type: section_parent
+    from: principle::1167
+    to: principle::1168
+  - id: section-parent::principle::1261->principle::1264
+    type: section_parent
+    from: principle::1261
+    to: principle::1264
+  - id: section-parent::principle::1305->principle::1306
+    type: section_parent
+    from: principle::1305
+    to: principle::1306
+  - id: supported-by::principle::1306->evidence::financial-statement-0103
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0103
+  - id: supported-by::principle::1306->evidence::financial-statement-0104
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0104
+  - id: supported-by::principle::1306->evidence::financial-statement-0202
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0202
+  - id: supported-by::principle::1306->evidence::financial-statement-0203
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0203
+  - id: supported-by::principle::1306->evidence::financial-statement-0282
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0282
+  - id: supported-by::principle::1306->evidence::financial-statement-0346
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0346
+  - id: supported-by::principle::1306->evidence::financial-statement-0427
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0427
+  - id: supported-by::principle::1306->evidence::financial-statement-0500
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0500
+  - id: supported-by::principle::1306->evidence::financial-statement-0547
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0547
+  - id: supported-by::principle::1306->evidence::financial-statement-0570
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0570
+  - id: supported-by::principle::1306->evidence::financial-statement-0747
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0747
+  - id: supported-by::principle::1306->evidence::financial-statement-0748
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0748
+  - id: supported-by::principle::1306->evidence::financial-statement-0806
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0806
+  - id: supported-by::principle::1306->evidence::financial-statement-0807
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0807
+  - id: supported-by::principle::1306->evidence::financial-statement-0868
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0868
+  - id: supported-by::principle::1306->evidence::financial-statement-0978
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0978
+  - id: supported-by::principle::1306->evidence::financial-statement-0979
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-0979
+  - id: supported-by::principle::1306->evidence::financial-statement-1074
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1074
+  - id: supported-by::principle::1306->evidence::financial-statement-1075
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1075
+  - id: supported-by::principle::1306->evidence::financial-statement-1124
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1124
+  - id: supported-by::principle::1306->evidence::financial-statement-1125
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1125
+  - id: supported-by::principle::1306->evidence::financial-statement-1225
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1225
+  - id: supported-by::principle::1306->evidence::financial-statement-1295
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1295
+  - id: supported-by::principle::1306->evidence::financial-statement-1407
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1407
+  - id: supported-by::principle::1306->evidence::financial-statement-1462
+    type: supported_by_evidence
+    from: principle::1306
+    to: evidence::financial-statement-1462
+  communities:
+  - id: community::principle::0096
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0098
+    label: 学习能力 Cluster
+  - id: community::principle::0189
+    label: 学习目标 Cluster
+  - id: community::principle::0190
+    label: 学习能力 Cluster
+  - id: community::principle::0266
+    label: 学习目标 Cluster
+  - id: community::principle::0267
+    label: 学习能力 Cluster
+  - id: community::principle::0329
+    label: 学习目标 Cluster
+  - id: community::principle::0330
+    label: 学习能力 Cluster
+  - id: community::principle::0404
+    label: 学习目标 Cluster
+  - id: community::principle::0405
+    label: 学习能力 Cluster
+  - id: community::principle::0476
+    label: 学习目标 Cluster
+  - id: community::principle::0477
+    label: 学习能力 Cluster
+  - id: community::principle::0520
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0522
+    label: 学习能力 Cluster
+  - id: community::principle::0545
+    label: 学习目标 Cluster
+  - id: community::principle::0546
+    label: 学习能力 Cluster
+  - id: community::principle::0689
+    label: 学习目标 Cluster
+  - id: community::principle::0690
+    label: 学习能力 Cluster
+  - id: community::principle::0751
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0753
+    label: 学习能力 Cluster
+  - id: community::principle::0807
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0809
+    label: 学习能力 Cluster
+  - id: community::principle::0911
+    label: 学习目标 Cluster
+  - id: community::principle::0912
+    label: 学习能力 Cluster
+  - id: community::principle::0984
+    label: 学习目标 Cluster
+  - id: community::principle::0985
+    label: 学习能力 Cluster
+  - id: community::principle::1033
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1035
+    label: 学习能力 Cluster
+  - id: community::principle::1114
+    label: 学习目标 Cluster
+  - id: community::principle::1115
+    label: 学习能力 Cluster
+  - id: community::principle::1167
+    label: 学习目标 Cluster
+  - id: community::principle::1168
+    label: 学习能力 Cluster
+  - id: community::principle::1261
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1264
+    label: 学习能力 Cluster
+  - id: community::principle::1305
+    label: 学习目标 Cluster
+  - id: community::principle::1306
+    label: 学习能力 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

@@ -1,0 +1,41 @@
+{
+  "schema_version": "kiu.pseudo-skill-audit/v0.1",
+  "chapter_title_rejected": [],
+  "summary_candidate_rejected": [],
+  "workflow_candidate_routed": [],
+  "agentic_skill_accepted": [
+    {
+      "candidate_id": "historical-analogy-transfer-gate",
+      "title": "historical-analogy-transfer-gate",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "historical-case-consequence-judgment",
+      "title": "historical-case-consequence-judgment",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "role-boundary-before-action",
+      "title": "role-boundary-before-action",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    }
+  ],
+  "summary": {
+    "chapter_title_rejected_count": 0,
+    "summary_candidate_rejected_count": 0,
+    "workflow_candidate_routed_count": 0,
+    "agentic_skill_accepted_count": 3
+  }
+}

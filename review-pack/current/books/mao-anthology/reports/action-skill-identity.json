@@ -1,0 +1,279 @@
+{
+  "schema_version": "kiu.action-skill-identity/v0.1",
+  "candidate_route_distribution": {
+    "publish_skill": 6,
+    "route_workflow_candidate": 8
+  },
+  "container_candidate_leak_count": 0,
+  "container_candidate_leaks": [],
+  "publishable_action_skill_ratio": 1.0,
+  "minimum_action_skill_identity_score": 0.8983,
+  "candidates": [
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "no-investigation-no-decision",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "principal-contradiction-focus",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "historical-analogy-transfer-gate",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "我们的具体纲领",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "结-论",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "论认识和实践的关系-知和行的关系",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "四-中国革命是世界革命的一部分",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "第三节-战略退却",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "historical-case-consequence-judgment",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9217,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.74
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "第九章-指挥关系",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "第四节-重要的问题在善于学习",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "role-boundary-before-action",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.8983,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 0.86,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.74
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "为争取千百万群众进入抗日民族统一战线而斗争",
+      "candidate_kind": "general_agentic",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.9483,
+      "route": "publish_skill",
+      "dimension_scores": {
+        "primary_action_layer_fit": 1.0,
+        "judgment_trigger_clarity": 1.0,
+        "user_context_requirement": 0.87,
+        "action_value_output": 1.0,
+        "boundary_and_misuse_control": 0.92,
+        "feedback_or_disconfirmation": 0.9
+      },
+      "route_reason": "judgment_rich_action_skill_identity_meets_threshold",
+      "container_signals": [],
+      "workflow_recovery": false
+    },
+    {
+      "schema_version": "kiu.action-skill-identity/v0.1",
+      "candidate_id": "五-全党团结起来-为实现党的任务而斗争",
+      "candidate_kind": "workflow_script",
+      "primary_action_layer": "discover",
+      "action_skill_identity_score": 0.6583,
+      "route": "route_workflow_candidate",
+      "dimension_scores": {
+        "primary_action_layer_fit": 0.7,
+        "judgment_trigger_clarity": 0.55,
+        "user_context_requirement": 0.7,
+        "action_value_output": 0.7,
+        "boundary_and_misuse_control": 0.75,
+        "feedback_or_disconfirmation": 0.55
+      },
+      "route_reason": "high_workflow_certainty_candidate_kept_outside_thick_skills",
+      "container_signals": [],
+      "workflow_recovery": false
+    }
+  ]
+}

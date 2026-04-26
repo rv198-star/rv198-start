@@ -1,0 +1,14 @@
+{
+  "schema_version": "kiu.skill-hygiene-audit/v0.1",
+  "filtered_count": 1,
+  "filtered": [
+    {
+      "candidate_id": "为争取千百万群众进入抗日民族统一战线而斗争",
+      "reason": "chapter_title_style_candidate",
+      "candidate_kind": "general_agentic",
+      "route": "reject",
+      "route_reason": null,
+      "action_skill_identity_score": null
+    }
+  ]
+}

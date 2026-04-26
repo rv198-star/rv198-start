@@ -1,0 +1,32 @@
+{
+  "candidate_count": 3,
+  "terminal_states": {
+    "ready_for_review": 3
+  },
+  "candidates": [
+    {
+      "candidate_id": "accounting-quality-signal-check",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "business-value-anchor-check",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "workflow-gateway",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.99,
+      "production_quality": 0.9082,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.99
+    }
+  ]
+}

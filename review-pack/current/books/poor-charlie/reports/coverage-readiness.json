@@ -1,0 +1,23 @@
+{
+  "schema_version": "kiu.coverage-readiness/v0.1",
+  "coverage_units": [],
+  "covered_units": [],
+  "uncovered_units": [],
+  "coverage_unit_count": 0,
+  "covered_unit_count": 0,
+  "uncovered_unit_count": 0,
+  "published_skill_count": 6,
+  "workflow_candidate_count": 0,
+  "gateway_route_count": 0,
+  "narrow_output_justification": "",
+  "readiness": {
+    "schema_version": "kiu.application-readiness/v0.1",
+    "model": "coverage_model",
+    "status": "pass",
+    "score_100": 100.0,
+    "warning_count": 0,
+    "failure_count": 0,
+    "findings": [],
+    "claim_boundary": "Internal readiness model evidence; not external validation or domain-expert review."
+  }
+}

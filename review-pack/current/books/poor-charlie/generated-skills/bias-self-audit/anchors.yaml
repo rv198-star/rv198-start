@@ -1,0 +1,36 @@
+skill_id: bias-self-audit
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+graph_anchor_sets:
+- anchor_id: bias-self-audit-seed-support
+  node_ids:
+  - n_bias_principle
+  - n_bias_us_air_trace
+  - n_circle_principle
+  edge_ids:
+  - e_bias_us_air_supports
+  - e_circle_bias_complements
+  community_ids:
+  - c_boundary_discipline
+  - c_error_avoidance
+source_anchor_sets:
+- anchor_id: bias-source-note
+  kind: source_excerpt
+  path: ../../sources/bias-self-audit.md
+  line_start: 1
+  line_end: 8
+  snippet: Source note defining the bias audit contract and refusal boundary.
+- anchor_id: bias-trace
+  kind: scenario_trace
+  path: ../../traces/canonical/us-air-regret.yaml
+  line_start: 1
+  line_end: 8
+  snippet: US Air regret trace used as a durable anti-pattern.
+- anchor_id: bias-eval
+  kind: evaluation_case
+  path: ../../evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml
+  line_start: 1
+  line_end: 8
+  snippet: Adversarial case that tests whether confidence and identity distort judgment.

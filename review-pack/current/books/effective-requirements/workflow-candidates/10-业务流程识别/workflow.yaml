@@ -1,0 +1,160 @@
+workflow_id: 10-业务流程识别
+title: 10 业务流程识别
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0020
+  supporting_node_ids:
+  - case::effective-requirements-0048
+  - case::effective-requirements-0049
+  - case::effective-requirements-0050
+  - case::effective-requirements-0051
+  - case::effective-requirements-0052
+  - counter-example::effective-requirements-0048
+  - counter-example::effective-requirements-0051
+  - counter-example::effective-requirements-0052
+  - evidence::effective-requirements-0048
+  - evidence::effective-requirements-0049
+  - evidence::effective-requirements-0050
+  - evidence::effective-requirements-0051
+  - evidence::effective-requirements-0052
+  - principle::0018
+  supporting_edge_ids:
+  - derives_case_signal::principle::0020->case::effective-requirements-0048
+  - derives_case_signal::principle::0020->case::effective-requirements-0049
+  - derives_case_signal::principle::0020->case::effective-requirements-0050
+  - derives_case_signal::principle::0020->case::effective-requirements-0051
+  - derives_case_signal::principle::0020->case::effective-requirements-0052
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0048
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0051
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0052
+  - section-parent::principle::0018->principle::0020
+  - supported-by::principle::0020->evidence::effective-requirements-0048
+  - supported-by::principle::0020->evidence::effective-requirements-0049
+  - supported-by::principle::0020->evidence::effective-requirements-0050
+  - supported-by::principle::0020->evidence::effective-requirements-0051
+  - supported-by::principle::0020->evidence::effective-requirements-0052
+  community_ids:
+  - community::principle::0018
+  - community::principle::0020
+evidence_anchors:
+  primary_node:
+    id: principle::0020
+    label: 10 业务流程识别
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0048
+    label: 正如我们前面所说，信息系统的核心价值之一是支持业务，而业务支持的核心是对业务流程的固化、优化和重构。在进行需求分析时，识别出相关的业务流程...
+    type: case_signal
+  - id: case::effective-requirements-0049
+    label: 或许你已经从中领会到“业务流程图只允许有一个起点，但可以有多个终点”背后的原因了。 识别服务请求这一源头只是手段，我们的任务是识别出业务流...
+    type: case_signal
+  - id: case::effective-requirements-0050
+    label: 在上面这个案例中，我们使用的识别思路如图10-3所示，先识别出外部客户，然后分别思考主业务流程、变体业务流程和支撑业务流程。 主业务流程体...
+    type: case_signal
+  - id: case::effective-requirements-0051
+    label: 另外，要注意的是，主、变、支流程的分类是为了帮助大家更好地识别流程，不要陷入它属于哪类流程的细节争论中；而且识别出来后还要判断其是不是端到...
+    type: case_signal
+  - id: case::effective-requirements-0052
+    label: 案例分析（续3） 在大家识别完所有业务流程之后，应按主营业务/频率两维度进行分析，以判断业务流程的优先级。 (1)住宿流程：主营业务、频率...
+    type: case_signal
+  - id: counter-example::effective-requirements-0048
+    label: 正如我们前面所说，信息系统的核心价值之一是支持业务，而业务支持的核心是对业务流程的固化、优化和重构。在进行需求分析时，识别出相关的业务流程...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0051
+    label: 另外，要注意的是，主、变、支流程的分类是为了帮助大家更好地识别流程，不要陷入它属于哪类流程的细节争论中；而且识别出来后还要判断其是不是端到...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0052
+    label: 案例分析（续3） 在大家识别完所有业务流程之后，应按主营业务/频率两维度进行分析，以判断业务流程的优先级。 (1)住宿流程：主营业务、频率...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0048
+    label: 正如我们前面所说，信息系统的核心价值之一是支持业务，而业务支持的核心是对业务流程的固化、优化和重构。在进行需求分析时，识别出相关的业务流程...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0049
+    label: 或许你已经从中领会到“业务流程图只允许有一个起点，但可以有多个终点”背后的原因了。 识别服务请求这一源头只是手段，我们的任务是识别出业务流...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0050
+    label: 在上面这个案例中，我们使用的识别思路如图10-3所示，先识别出外部客户，然后分别思考主业务流程、变体业务流程和支撑业务流程。 主业务流程体...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0051
+    label: 另外，要注意的是，主、变、支流程的分类是为了帮助大家更好地识别流程，不要陷入它属于哪类流程的细节争论中；而且识别出来后还要判断其是不是端到...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0052
+    label: 案例分析（续3） 在大家识别完所有业务流程之后，应按主营业务/频率两维度进行分析，以判断业务流程的优先级。 (1)住宿流程：主营业务、频率...
+    type: chunk_evidence
+  - id: principle::0018
+    label: 功能需求主线子篇——业务支持部分
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0020->case::effective-requirements-0048
+    type: derives_case_signal
+    from: principle::0020
+    to: case::effective-requirements-0048
+  - id: derives_case_signal::principle::0020->case::effective-requirements-0049
+    type: derives_case_signal
+    from: principle::0020
+    to: case::effective-requirements-0049
+  - id: derives_case_signal::principle::0020->case::effective-requirements-0050
+    type: derives_case_signal
+    from: principle::0020
+    to: case::effective-requirements-0050
+  - id: derives_case_signal::principle::0020->case::effective-requirements-0051
+    type: derives_case_signal
+    from: principle::0020
+    to: case::effective-requirements-0051
+  - id: derives_case_signal::principle::0020->case::effective-requirements-0052
+    type: derives_case_signal
+    from: principle::0020
+    to: case::effective-requirements-0052
+  - id: derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0048
+    type: derives_counter_example_signal
+    from: principle::0020
+    to: counter-example::effective-requirements-0048
+  - id: derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0051
+    type: derives_counter_example_signal
+    from: principle::0020
+    to: counter-example::effective-requirements-0051
+  - id: derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0052
+    type: derives_counter_example_signal
+    from: principle::0020
+    to: counter-example::effective-requirements-0052
+  - id: section-parent::principle::0018->principle::0020
+    type: section_parent
+    from: principle::0018
+    to: principle::0020
+  - id: supported-by::principle::0020->evidence::effective-requirements-0048
+    type: supported_by_evidence
+    from: principle::0020
+    to: evidence::effective-requirements-0048
+  - id: supported-by::principle::0020->evidence::effective-requirements-0049
+    type: supported_by_evidence
+    from: principle::0020
+    to: evidence::effective-requirements-0049
+  - id: supported-by::principle::0020->evidence::effective-requirements-0050
+    type: supported_by_evidence
+    from: principle::0020
+    to: evidence::effective-requirements-0050
+  - id: supported-by::principle::0020->evidence::effective-requirements-0051
+    type: supported_by_evidence
+    from: principle::0020
+    to: evidence::effective-requirements-0051
+  - id: supported-by::principle::0020->evidence::effective-requirements-0052
+    type: supported_by_evidence
+    from: principle::0020
+    to: evidence::effective-requirements-0052
+  communities:
+  - id: community::principle::0018
+    label: 功能需求主线子篇——业务支持部分 Cluster
+  - id: community::principle::0020
+    label: 10 业务流程识别 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

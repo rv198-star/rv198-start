@@ -1,0 +1,217 @@
+candidate_id: 迷你案例
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::0029
+  supporting_node_ids:
+  - evidence::financial-statement-0027
+  - framework::0645
+  - principle::0028
+  - principle::0030
+  - principle::0092
+  - principle::0093
+  - principle::0176
+  - principle::0178
+  - principle::0251
+  - principle::0252
+  - principle::0319
+  - principle::0325
+  - principle::0393
+  - principle::0395
+  - principle::0471
+  - principle::0472
+  - principle::0513
+  - principle::0514
+  - principle::0605
+  - principle::0606
+  - principle::0683
+  - principle::0746
+  - principle::0747
+  - principle::0748
+  - principle::0803
+  - principle::0804
+  - principle::0805
+  - principle::0897
+  - principle::0898
+  - principle::0978
+  - principle::0980
+  - principle::1028
+  - principle::1029
+  - principle::1099
+  - principle::1100
+  - principle::1248
+  - principle::1249
+  - principle::1288
+  - principle::1301
+  - principle::1333
+  - principle::1342
+  supporting_edge_ids:
+  - section-parent::framework::0645->principle::0683
+  - section-parent::principle::0028->principle::0029
+  - section-parent::principle::0029->principle::0030
+  - section-parent::principle::0092->principle::0093
+  - section-parent::principle::0176->principle::0178
+  - section-parent::principle::0251->principle::0252
+  - section-parent::principle::0319->principle::0325
+  - section-parent::principle::0393->principle::0395
+  - section-parent::principle::0471->principle::0472
+  - section-parent::principle::0513->principle::0514
+  - section-parent::principle::0605->principle::0606
+  - section-parent::principle::0746->principle::0747
+  - section-parent::principle::0747->principle::0748
+  - section-parent::principle::0803->principle::0804
+  - section-parent::principle::0804->principle::0805
+  - section-parent::principle::0897->principle::0898
+  - section-parent::principle::0978->principle::0980
+  - section-parent::principle::1028->principle::1029
+  - section-parent::principle::1099->principle::1100
+  - section-parent::principle::1248->principle::1249
+  - section-parent::principle::1288->principle::1301
+  - section-parent::principle::1333->principle::1342
+  - supported-by::principle::1342->evidence::financial-statement-0027
+  community_ids:
+  - community::principle::0028
+  - community::principle::0029
+  - community::principle::0030
+  - community::principle::0092
+  - community::principle::0093
+  - community::principle::0176
+  - community::principle::0178
+  - community::principle::0251
+  - community::principle::0252
+  - community::principle::0319
+  - community::principle::0325
+  - community::principle::0393
+  - community::principle::0395
+  - community::principle::0471
+  - community::principle::0472
+  - community::principle::0513
+  - community::principle::0514
+  - community::principle::0605
+  - community::principle::0606
+  - community::principle::0683
+  - community::principle::0746
+  - community::principle::0747
+  - community::principle::0748
+  - community::principle::0803
+  - community::principle::0804
+  - community::principle::0805
+  - community::principle::0897
+  - community::principle::0898
+  - community::principle::0978
+  - community::principle::0980
+  - community::principle::1028
+  - community::principle::1029
+  - community::principle::1099
+  - community::principle::1100
+  - community::principle::1248
+  - community::principle::1249
+  - community::principle::1288
+  - community::principle::1301
+  - community::principle::1333
+  - community::principle::1342
+  merged_primary_node_ids:
+  - principle::0029
+  - principle::0093
+  - principle::0178
+  - principle::0252
+  - principle::0325
+  - principle::0395
+  - principle::0472
+  - principle::0514
+  - principle::0606
+  - principle::0683
+  - principle::0747
+  - principle::0804
+  - principle::0898
+  - principle::0980
+  - principle::1029
+  - principle::1100
+  - principle::1249
+  - principle::1301
+  - principle::1342
+  merged_candidate_count: 19
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: general_agentic
+  workflow_cues: 0
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 1
+  evidence_support_count: 1
+  extracted_evidence_support_count: 1
+  tri_state_support_count: 0
+  support_entity_count: 46
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 0
+  merged_from_node_ids:
+  - principle::0029
+  - principle::0093
+  - principle::0178
+  - principle::0252
+  - principle::0325
+  - principle::0395
+  - principle::0472
+  - principle::0514
+  - principle::0606
+  - principle::0683
+  - principle::0747
+  - principle::0804
+  - principle::0898
+  - principle::0980
+  - principle::1029
+  - principle::1100
+  - principle::1249
+  - principle::1301
+  - principle::1342
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.0
+  matched_keywords:
+  - 业务
+  evidence_chunk_ids:
+  - financial-statement:0027
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.8611
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 迷你案例
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 0.8333
+  distinctiveness_score: 0.75
+  overall_score: 0.8611
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 0.8333
+    uniqueness_ratio: 0.75
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 1
+    evidence_support_count: 1
+    context_cues: 1
+    workflow_cues: 0
+    tri_state_support_ratio: 0.0
+    matched_keywords:
+    - 业务
+    evidence_chunk_ids:
+    - financial-statement:0027
+    supporting_node_count: 41
+    supporting_edge_count: 23
+    community_count: 40

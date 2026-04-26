@@ -1,0 +1,736 @@
+workflow_id: 学习目标
+title: 学习目标
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::1305
+  supporting_node_ids:
+  - case::financial-statement-0201
+  - counter-example::financial-statement-0281
+  - evidence::financial-statement-0102
+  - evidence::financial-statement-0201
+  - evidence::financial-statement-0281
+  - evidence::financial-statement-0345
+  - evidence::financial-statement-0426
+  - evidence::financial-statement-0499
+  - evidence::financial-statement-0546
+  - evidence::financial-statement-0569
+  - evidence::financial-statement-0643
+  - evidence::financial-statement-0746
+  - evidence::financial-statement-0805
+  - evidence::financial-statement-0867
+  - evidence::financial-statement-0977
+  - evidence::financial-statement-1073
+  - evidence::financial-statement-1123
+  - evidence::financial-statement-1224
+  - evidence::financial-statement-1294
+  - evidence::financial-statement-1405
+  - evidence::financial-statement-1461
+  - principle::0096
+  - principle::0097
+  - principle::0187
+  - principle::0189
+  - principle::0190
+  - principle::0265
+  - principle::0266
+  - principle::0267
+  - principle::0328
+  - principle::0329
+  - principle::0330
+  - principle::0403
+  - principle::0404
+  - principle::0405
+  - principle::0475
+  - principle::0476
+  - principle::0477
+  - principle::0520
+  - principle::0521
+  - principle::0544
+  - principle::0545
+  - principle::0546
+  - principle::0612
+  - principle::0613
+  - principle::0688
+  - principle::0689
+  - principle::0690
+  - principle::0751
+  - principle::0752
+  - principle::0807
+  - principle::0808
+  - principle::0909
+  - principle::0911
+  - principle::0912
+  - principle::0983
+  - principle::0984
+  - principle::0985
+  - principle::1033
+  - principle::1034
+  - principle::1113
+  - principle::1114
+  - principle::1115
+  - principle::1166
+  - principle::1167
+  - principle::1168
+  - principle::1261
+  - principle::1262
+  - principle::1304
+  - principle::1306
+  - term::p-e
+  - term::roce
+  supporting_edge_ids:
+  - derives_case_signal::principle::1305->case::financial-statement-0201
+  - derives_counter_example_signal::principle::1305->counter-example::financial-statement-0281
+  - derives_term_signal::principle::1305->term::p-e
+  - derives_term_signal::principle::1305->term::roce
+  - section-parent::principle::0096->principle::0097
+  - section-parent::principle::0187->principle::0189
+  - section-parent::principle::0189->principle::0190
+  - section-parent::principle::0265->principle::0266
+  - section-parent::principle::0266->principle::0267
+  - section-parent::principle::0328->principle::0329
+  - section-parent::principle::0329->principle::0330
+  - section-parent::principle::0403->principle::0404
+  - section-parent::principle::0404->principle::0405
+  - section-parent::principle::0475->principle::0476
+  - section-parent::principle::0476->principle::0477
+  - section-parent::principle::0520->principle::0521
+  - section-parent::principle::0544->principle::0545
+  - section-parent::principle::0545->principle::0546
+  - section-parent::principle::0612->principle::0613
+  - section-parent::principle::0688->principle::0689
+  - section-parent::principle::0689->principle::0690
+  - section-parent::principle::0751->principle::0752
+  - section-parent::principle::0807->principle::0808
+  - section-parent::principle::0909->principle::0911
+  - section-parent::principle::0911->principle::0912
+  - section-parent::principle::0983->principle::0984
+  - section-parent::principle::0984->principle::0985
+  - section-parent::principle::1033->principle::1034
+  - section-parent::principle::1113->principle::1114
+  - section-parent::principle::1114->principle::1115
+  - section-parent::principle::1166->principle::1167
+  - section-parent::principle::1167->principle::1168
+  - section-parent::principle::1261->principle::1262
+  - section-parent::principle::1304->principle::1305
+  - section-parent::principle::1305->principle::1306
+  - supported-by::principle::1305->evidence::financial-statement-0102
+  - supported-by::principle::1305->evidence::financial-statement-0201
+  - supported-by::principle::1305->evidence::financial-statement-0281
+  - supported-by::principle::1305->evidence::financial-statement-0345
+  - supported-by::principle::1305->evidence::financial-statement-0426
+  - supported-by::principle::1305->evidence::financial-statement-0499
+  - supported-by::principle::1305->evidence::financial-statement-0546
+  - supported-by::principle::1305->evidence::financial-statement-0569
+  - supported-by::principle::1305->evidence::financial-statement-0643
+  - supported-by::principle::1305->evidence::financial-statement-0746
+  - supported-by::principle::1305->evidence::financial-statement-0805
+  - supported-by::principle::1305->evidence::financial-statement-0867
+  - supported-by::principle::1305->evidence::financial-statement-0977
+  - supported-by::principle::1305->evidence::financial-statement-1073
+  - supported-by::principle::1305->evidence::financial-statement-1123
+  - supported-by::principle::1305->evidence::financial-statement-1224
+  - supported-by::principle::1305->evidence::financial-statement-1294
+  - supported-by::principle::1305->evidence::financial-statement-1405
+  - supported-by::principle::1305->evidence::financial-statement-1461
+  community_ids:
+  - community::principle::0096
+  - community::principle::0097
+  - community::principle::0187
+  - community::principle::0189
+  - community::principle::0190
+  - community::principle::0265
+  - community::principle::0266
+  - community::principle::0267
+  - community::principle::0328
+  - community::principle::0329
+  - community::principle::0330
+  - community::principle::0403
+  - community::principle::0404
+  - community::principle::0405
+  - community::principle::0475
+  - community::principle::0476
+  - community::principle::0477
+  - community::principle::0520
+  - community::principle::0521
+  - community::principle::0544
+  - community::principle::0545
+  - community::principle::0546
+  - community::principle::0612
+  - community::principle::0613
+  - community::principle::0688
+  - community::principle::0689
+  - community::principle::0690
+  - community::principle::0751
+  - community::principle::0752
+  - community::principle::0807
+  - community::principle::0808
+  - community::principle::0909
+  - community::principle::0911
+  - community::principle::0912
+  - community::principle::0983
+  - community::principle::0984
+  - community::principle::0985
+  - community::principle::1033
+  - community::principle::1034
+  - community::principle::1113
+  - community::principle::1114
+  - community::principle::1115
+  - community::principle::1166
+  - community::principle::1167
+  - community::principle::1168
+  - community::principle::1261
+  - community::principle::1262
+  - community::principle::1304
+  - community::principle::1305
+  - community::principle::1306
+evidence_anchors:
+  primary_node:
+    id: principle::1305
+    label: 学习目标
+    type: principle_signal
+  supporting_nodes:
+  - id: case::financial-statement-0201
+    label: 学习完本章内容后，你应当理解： • 什么是估值技术； - 什么是估值模型，以及估值模型与资产定价模型之间的区别； - 估值模型如何为基本面...
+    type: case_signal
+  - id: counter-example::financial-statement-0281
+    label: 学习完本章内容后，你应当理解： · 股利贴现模型的工作原理（或不工作的原理）； · 常数增长模型的工作原理； · 经营活动产生的现金流量有...
+    type: counter_example_signal
+  - id: evidence::financial-statement-0102
+    label: 学习完本章内容后，你应当理解： ·财务报表告诉我们的企业整体情况； ·每张财务报表的主要构成项目； ·财务报表各部分之间的联系（或勾稽关系...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0201
+    label: 学习完本章内容后，你应当理解： • 什么是估值技术； - 什么是估值模型，以及估值模型与资产定价模型之间的区别； - 估值模型如何为基本面...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0281
+    label: 学习完本章内容后，你应当理解： · 股利贴现模型的工作原理（或不工作的原理）； · 常数增长模型的工作原理； · 经营活动产生的现金流量有...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0345
+    label: 学习完本章内容后，你应当理解： · 什么是“剩余收益”； · 如何预测剩余收益，并计算账面价值溢价和市净率； - 普通股权益报酬率（ROC...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0426
+    label: 学习完本章内容后，你应当理解： • 市盈率（P/E）的含义； · 什么是“超常收益增长”； - 预计超常收益增长对内在市盈率水平的影响； ...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0499
+    label: 学习完本章内容后，你应当理解： ·基本面投资者的工作方式； ·为什么计算“内在价值”不是必要的； • 为什么说在估值中使用的增长率是非常主...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0546
+    label: 学习完本章内容后，你应当理解： · 企业是如何创立起来并创造价值的； ·财务报表是如何组织起来为股东报告价值的增加额的； • 为什么在分析...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0569
+    label: 学习完本章内容后，你应当理解： · 股东权益变动表的常见格式； - 为什么需要重构股东权益变动表； · “其他综合收益”所包含的内容以及列...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0643
+    label: 学习完本章内容后，你应当理解： - 为什么分析人员需要对利润表和资产负债表进行重构？ - 怎样区分资产负债表和利润表中的经营项目与金融项目...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0746
+    label: 学习完本章内容后，你应当理解： - 在不使用现金流量表的情况下，如何根据重构的利润表和资产负债表计算自由现金流量； - 现金恒等式是如何与...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0805
+    label: 学习完本章内容后，你应当理解： - 各种不同的财务比率是怎样综合起来，对普通股权益报酬率 ROCE 进行解释的； - 金融杠杆对普通股权益...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0867
+    label: 学习完本章内容后，你应当理解： - 为什么增长分析关注的是剩余收益增长和超常收益增长，而不是简单的利润增长； • 什么是成长型企业； · ...
+    type: chunk_evidence
+  - id: evidence::financial-statement-0977
+    label: 学习完本章内容后，你应当理解： - 为什么对在资产负债表中按公允市场价值进行列报的资产来说，它们的预期未来剩余收益必然为 0； - 根据预...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1073
+    label: 学习完本章内容后，你应当理解： · 简单预测如何给出简单但有用的估值； • 如何根据当期财务报表建立简单预测； · 销售预测结合财务报表信...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1123
+    label: 学习完本章内容后，你应当理解： - 为什么说预测就是面向未来的财务报表分析； · 财务报表项目怎样将各种经济因素转换为估值； • 怎样确认...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1224
+    label: 学习完本章内容后，你应当理解： - 会计核算方法对会计收益率和剩余收益指标的影响； - 会计核算方法对盈利增长、剩余收益增长和超常收益增长...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1294
+    label: 学习完本章内容后，你应当理解： - 会计政策和会计估值如何影响企业盈利的持续性； ·“盈余质量”的含义； - 管理层在操纵利润时可使用的会...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1405
+    label: 学习完本章内容后，你应当理解： · 必要报酬率与期望收益率的区别； - 要精确计算资本成本是非常困难的； · 商业投资是如何产生极端（特别...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1461
+    label: 学习完本章内容后，你应当理解： · 违约风险是如何决定贷款的价格与企业的负债资本成本的； · 违约风险的影响因素有哪些； • 如何分析违约...
+    type: chunk_evidence
+  - id: principle::0096
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0097
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0187
+    label: 第 3 章 财务报表在估值中的应用
+    type: principle_signal
+  - id: principle::0189
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0190
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0265
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0266
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0267
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0328
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0329
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0330
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0403
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0404
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0405
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0475
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0476
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0477
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0520
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0521
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0544
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0545
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0546
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0612
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0613
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0688
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0689
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0690
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0751
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0752
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0807
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0808
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0909
+    label: 第 14 章 经营价值与市净率和市盈率评价
+    type: principle_signal
+  - id: principle::0911
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0912
+    label: 学习能力
+    type: principle_signal
+  - id: principle::0983
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::0984
+    label: 学习目标
+    type: principle_signal
+  - id: principle::0985
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1033
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1034
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1113
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1114
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1115
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1166
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1167
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1168
+    label: 学习能力
+    type: principle_signal
+  - id: principle::1261
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1262
+    label: 学习目标
+    type: principle_signal
+  - id: principle::1304
+    label: 分析师备忘录
+    type: principle_signal
+  - id: principle::1306
+    label: 学习能力
+    type: principle_signal
+  - id: term::p-e
+    label: P/E
+    type: term_signal
+  - id: term::roce
+    label: ROCE
+    type: term_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::1305->case::financial-statement-0201
+    type: derives_case_signal
+    from: principle::1305
+    to: case::financial-statement-0201
+  - id: derives_counter_example_signal::principle::1305->counter-example::financial-statement-0281
+    type: derives_counter_example_signal
+    from: principle::1305
+    to: counter-example::financial-statement-0281
+  - id: derives_term_signal::principle::1305->term::p-e
+    type: derives_term_signal
+    from: principle::1305
+    to: term::p-e
+  - id: derives_term_signal::principle::1305->term::roce
+    type: derives_term_signal
+    from: principle::1305
+    to: term::roce
+  - id: section-parent::principle::0096->principle::0097
+    type: section_parent
+    from: principle::0096
+    to: principle::0097
+  - id: section-parent::principle::0187->principle::0189
+    type: section_parent
+    from: principle::0187
+    to: principle::0189
+  - id: section-parent::principle::0189->principle::0190
+    type: section_parent
+    from: principle::0189
+    to: principle::0190
+  - id: section-parent::principle::0265->principle::0266
+    type: section_parent
+    from: principle::0265
+    to: principle::0266
+  - id: section-parent::principle::0266->principle::0267
+    type: section_parent
+    from: principle::0266
+    to: principle::0267
+  - id: section-parent::principle::0328->principle::0329
+    type: section_parent
+    from: principle::0328
+    to: principle::0329
+  - id: section-parent::principle::0329->principle::0330
+    type: section_parent
+    from: principle::0329
+    to: principle::0330
+  - id: section-parent::principle::0403->principle::0404
+    type: section_parent
+    from: principle::0403
+    to: principle::0404
+  - id: section-parent::principle::0404->principle::0405
+    type: section_parent
+    from: principle::0404
+    to: principle::0405
+  - id: section-parent::principle::0475->principle::0476
+    type: section_parent
+    from: principle::0475
+    to: principle::0476
+  - id: section-parent::principle::0476->principle::0477
+    type: section_parent
+    from: principle::0476
+    to: principle::0477
+  - id: section-parent::principle::0520->principle::0521
+    type: section_parent
+    from: principle::0520
+    to: principle::0521
+  - id: section-parent::principle::0544->principle::0545
+    type: section_parent
+    from: principle::0544
+    to: principle::0545
+  - id: section-parent::principle::0545->principle::0546
+    type: section_parent
+    from: principle::0545
+    to: principle::0546
+  - id: section-parent::principle::0612->principle::0613
+    type: section_parent
+    from: principle::0612
+    to: principle::0613
+  - id: section-parent::principle::0688->principle::0689
+    type: section_parent
+    from: principle::0688
+    to: principle::0689
+  - id: section-parent::principle::0689->principle::0690
+    type: section_parent
+    from: principle::0689
+    to: principle::0690
+  - id: section-parent::principle::0751->principle::0752
+    type: section_parent
+    from: principle::0751
+    to: principle::0752
+  - id: section-parent::principle::0807->principle::0808
+    type: section_parent
+    from: principle::0807
+    to: principle::0808
+  - id: section-parent::principle::0909->principle::0911
+    type: section_parent
+    from: principle::0909
+    to: principle::0911
+  - id: section-parent::principle::0911->principle::0912
+    type: section_parent
+    from: principle::0911
+    to: principle::0912
+  - id: section-parent::principle::0983->principle::0984
+    type: section_parent
+    from: principle::0983
+    to: principle::0984
+  - id: section-parent::principle::0984->principle::0985
+    type: section_parent
+    from: principle::0984
+    to: principle::0985
+  - id: section-parent::principle::1033->principle::1034
+    type: section_parent
+    from: principle::1033
+    to: principle::1034
+  - id: section-parent::principle::1113->principle::1114
+    type: section_parent
+    from: principle::1113
+    to: principle::1114
+  - id: section-parent::principle::1114->principle::1115
+    type: section_parent
+    from: principle::1114
+    to: principle::1115
+  - id: section-parent::principle::1166->principle::1167
+    type: section_parent
+    from: principle::1166
+    to: principle::1167
+  - id: section-parent::principle::1167->principle::1168
+    type: section_parent
+    from: principle::1167
+    to: principle::1168
+  - id: section-parent::principle::1261->principle::1262
+    type: section_parent
+    from: principle::1261
+    to: principle::1262
+  - id: section-parent::principle::1304->principle::1305
+    type: section_parent
+    from: principle::1304
+    to: principle::1305
+  - id: section-parent::principle::1305->principle::1306
+    type: section_parent
+    from: principle::1305
+    to: principle::1306
+  - id: supported-by::principle::1305->evidence::financial-statement-0102
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0102
+  - id: supported-by::principle::1305->evidence::financial-statement-0201
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0201
+  - id: supported-by::principle::1305->evidence::financial-statement-0281
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0281
+  - id: supported-by::principle::1305->evidence::financial-statement-0345
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0345
+  - id: supported-by::principle::1305->evidence::financial-statement-0426
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0426
+  - id: supported-by::principle::1305->evidence::financial-statement-0499
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0499
+  - id: supported-by::principle::1305->evidence::financial-statement-0546
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0546
+  - id: supported-by::principle::1305->evidence::financial-statement-0569
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0569
+  - id: supported-by::principle::1305->evidence::financial-statement-0643
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0643
+  - id: supported-by::principle::1305->evidence::financial-statement-0746
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0746
+  - id: supported-by::principle::1305->evidence::financial-statement-0805
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0805
+  - id: supported-by::principle::1305->evidence::financial-statement-0867
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0867
+  - id: supported-by::principle::1305->evidence::financial-statement-0977
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-0977
+  - id: supported-by::principle::1305->evidence::financial-statement-1073
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1073
+  - id: supported-by::principle::1305->evidence::financial-statement-1123
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1123
+  - id: supported-by::principle::1305->evidence::financial-statement-1224
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1224
+  - id: supported-by::principle::1305->evidence::financial-statement-1294
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1294
+  - id: supported-by::principle::1305->evidence::financial-statement-1405
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1405
+  - id: supported-by::principle::1305->evidence::financial-statement-1461
+    type: supported_by_evidence
+    from: principle::1305
+    to: evidence::financial-statement-1461
+  communities:
+  - id: community::principle::0096
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0097
+    label: 学习目标 Cluster
+  - id: community::principle::0187
+    label: 第 3 章 财务报表在估值中的应用 Cluster
+  - id: community::principle::0189
+    label: 学习目标 Cluster
+  - id: community::principle::0190
+    label: 学习能力 Cluster
+  - id: community::principle::0265
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0266
+    label: 学习目标 Cluster
+  - id: community::principle::0267
+    label: 学习能力 Cluster
+  - id: community::principle::0328
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0329
+    label: 学习目标 Cluster
+  - id: community::principle::0330
+    label: 学习能力 Cluster
+  - id: community::principle::0403
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0404
+    label: 学习目标 Cluster
+  - id: community::principle::0405
+    label: 学习能力 Cluster
+  - id: community::principle::0475
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0476
+    label: 学习目标 Cluster
+  - id: community::principle::0477
+    label: 学习能力 Cluster
+  - id: community::principle::0520
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0521
+    label: 学习目标 Cluster
+  - id: community::principle::0544
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0545
+    label: 学习目标 Cluster
+  - id: community::principle::0546
+    label: 学习能力 Cluster
+  - id: community::principle::0612
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0613
+    label: 学习目标 Cluster
+  - id: community::principle::0688
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0689
+    label: 学习目标 Cluster
+  - id: community::principle::0690
+    label: 学习能力 Cluster
+  - id: community::principle::0751
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0752
+    label: 学习目标 Cluster
+  - id: community::principle::0807
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0808
+    label: 学习目标 Cluster
+  - id: community::principle::0909
+    label: 第 14 章 经营价值与市净率和市盈率评价 Cluster
+  - id: community::principle::0911
+    label: 学习目标 Cluster
+  - id: community::principle::0912
+    label: 学习能力 Cluster
+  - id: community::principle::0983
+    label: 分析师备忘录 Cluster
+  - id: community::principle::0984
+    label: 学习目标 Cluster
+  - id: community::principle::0985
+    label: 学习能力 Cluster
+  - id: community::principle::1033
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1034
+    label: 学习目标 Cluster
+  - id: community::principle::1113
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1114
+    label: 学习目标 Cluster
+  - id: community::principle::1115
+    label: 学习能力 Cluster
+  - id: community::principle::1166
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1167
+    label: 学习目标 Cluster
+  - id: community::principle::1168
+    label: 学习能力 Cluster
+  - id: community::principle::1261
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1262
+    label: 学习目标 Cluster
+  - id: community::principle::1304
+    label: 分析师备忘录 Cluster
+  - id: community::principle::1305
+    label: 学习目标 Cluster
+  - id: community::principle::1306
+    label: 学习能力 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

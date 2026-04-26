@@ -1,0 +1,39 @@
+skill_id: stakeholder-resistance-tradeoff
+bundle_version: 0.2.0
+skill_revision: 6
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases:
+    - evaluation/real_decisions/stakeholder-resistance-tradeoff-real_decision_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  synthetic_adversarial:
+    cases:
+    - evaluation/synthetic_adversarial/stakeholder-resistance-tradeoff-adversarial_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  out_of_distribution:
+    cases:
+    - evaluation/out_of_distribution/stakeholder-resistance-tradeoff-ood_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+key_failure_modes:
+- If `stakeholder_list_is_only_being_filled` remains true, defer the skill instead
+  of firing.
+- If `critical_stakeholder_identity_uncertain` is observed, treat the evidence as
+  conflicting.
+references:
+  evaluation_root: ../../../evaluation
+  prefill_mode: deterministic
+  gold_skill_id: null

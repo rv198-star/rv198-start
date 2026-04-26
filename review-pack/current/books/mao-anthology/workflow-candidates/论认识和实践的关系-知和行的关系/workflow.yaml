@@ -1,0 +1,94 @@
+workflow_id: 论认识和实践的关系-知和行的关系
+title: 论认识和实践的关系 知和行的关系
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0110
+  supporting_node_ids:
+  - case::mao-0132
+  - counter-example::mao-0131
+  - counter-example::mao-0132
+  - evidence::mao-0131
+  - evidence::mao-0132
+  - evidence::mao-0133
+  - framework::0109
+  supporting_edge_ids:
+  - derives_case_signal::principle::0110->case::mao-0132
+  - derives_counter_example_signal::principle::0110->counter-example::mao-0131
+  - derives_counter_example_signal::principle::0110->counter-example::mao-0132
+  - section-parent::framework::0109->principle::0110
+  - supported-by::principle::0110->evidence::mao-0131
+  - supported-by::principle::0110->evidence::mao-0132
+  - supported-by::principle::0110->evidence::mao-0133
+  community_ids:
+  - community::principle::0110
+evidence_anchors:
+  primary_node:
+    id: principle::0110
+    label: 论认识和实践的关系——知和行的关系
+    type: principle_signal
+  supporting_nodes:
+  - id: case::mao-0132
+    label: 马克思以前的唯物论，离开人的社会性，离开人的历史发展，去观察认识问题，因此不能了解认识对社会实践的依赖关系，即认识对生产和阶级斗争的依赖关...
+    type: case_signal
+  - id: counter-example::mao-0131
+    label: （一九三七年七月） > 在中国共产党内，曾经有一部分教条主义的同志长期拒绝中国革命的经验，否认“马克思主义不是教条而是行动的指南”这个真理...
+    type: counter_example_signal
+  - id: counter-example::mao-0132
+    label: 马克思以前的唯物论，离开人的社会性，离开人的历史发展，去观察认识问题，因此不能了解认识对社会实践的依赖关系，即认识对生产和阶级斗争的依赖关...
+    type: counter_example_signal
+  - id: evidence::mao-0131
+    label: （一九三七年七月） > 在中国共产党内，曾经有一部分教条主义的同志长期拒绝中国革命的经验，否认“马克思主义不是教条而是行动的指南”这个真理...
+    type: chunk_evidence
+  - id: evidence::mao-0132
+    label: 马克思以前的唯物论，离开人的社会性，离开人的历史发展，去观察认识问题，因此不能了解认识对社会实践的依赖关系，即认识对生产和阶级斗争的依赖关...
+    type: chunk_evidence
+  - id: evidence::mao-0133
+    label: '------------------ 注 释 〔1〕见列宁《黑格尔〈逻辑学〉一书摘要》。新的译文是：“实践高于（理论的）认识，因为它不仅具...'
+    type: chunk_evidence
+  - id: framework::0109
+    label: 实践论
+    type: framework_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0110->case::mao-0132
+    type: derives_case_signal
+    from: principle::0110
+    to: case::mao-0132
+  - id: derives_counter_example_signal::principle::0110->counter-example::mao-0131
+    type: derives_counter_example_signal
+    from: principle::0110
+    to: counter-example::mao-0131
+  - id: derives_counter_example_signal::principle::0110->counter-example::mao-0132
+    type: derives_counter_example_signal
+    from: principle::0110
+    to: counter-example::mao-0132
+  - id: section-parent::framework::0109->principle::0110
+    type: section_parent
+    from: framework::0109
+    to: principle::0110
+  - id: supported-by::principle::0110->evidence::mao-0131
+    type: supported_by_evidence
+    from: principle::0110
+    to: evidence::mao-0131
+  - id: supported-by::principle::0110->evidence::mao-0132
+    type: supported_by_evidence
+    from: principle::0110
+    to: evidence::mao-0132
+  - id: supported-by::principle::0110->evidence::mao-0133
+    type: supported_by_evidence
+    from: principle::0110
+    to: evidence::mao-0133
+  communities:
+  - id: community::principle::0110
+    label: 论认识和实践的关系——知和行的关系 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

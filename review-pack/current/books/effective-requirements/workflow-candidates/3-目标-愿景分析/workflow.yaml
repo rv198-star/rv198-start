@@ -1,0 +1,220 @@
+workflow_id: 3-目标-愿景分析
+title: 3 目标 愿景分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0010
+  supporting_node_ids:
+  - case::effective-requirements-0021
+  - case::effective-requirements-0022
+  - case::effective-requirements-0023
+  - case::effective-requirements-0024
+  - case::effective-requirements-0025
+  - evidence::effective-requirements-0021
+  - evidence::effective-requirements-0022
+  - evidence::effective-requirements-0023
+  - evidence::effective-requirements-0024
+  - evidence::effective-requirements-0025
+  - evidence::effective-requirements-0026
+  - framework::0009
+  - principle::0011
+  - principle::0012
+  - principle::0013
+  - term::attainable
+  - term::measurable
+  - term::relevant
+  - term::specific
+  - term::time-based
+  supporting_edge_ids:
+  - derives_case_signal::principle::0010->case::effective-requirements-0021
+  - derives_case_signal::principle::0010->case::effective-requirements-0022
+  - derives_case_signal::principle::0010->case::effective-requirements-0023
+  - derives_case_signal::principle::0010->case::effective-requirements-0024
+  - derives_case_signal::principle::0010->case::effective-requirements-0025
+  - derives_term_signal::principle::0010->term::attainable
+  - derives_term_signal::principle::0010->term::measurable
+  - derives_term_signal::principle::0010->term::relevant
+  - derives_term_signal::principle::0010->term::specific
+  - derives_term_signal::principle::0010->term::time-based
+  - section-parent::framework::0009->principle::0010
+  - section-parent::principle::0010->principle::0011
+  - section-parent::principle::0010->principle::0012
+  - section-parent::principle::0010->principle::0013
+  - supported-by::principle::0010->evidence::effective-requirements-0021
+  - supported-by::principle::0010->evidence::effective-requirements-0022
+  - supported-by::principle::0010->evidence::effective-requirements-0023
+  - supported-by::principle::0010->evidence::effective-requirements-0024
+  - supported-by::principle::0010->evidence::effective-requirements-0025
+  - supported-by::principle::0010->evidence::effective-requirements-0026
+  community_ids:
+  - community::principle::0010
+  - community::principle::0011
+  - community::principle::0012
+  - community::principle::0013
+evidence_anchors:
+  primary_node:
+    id: principle::0010
+    label: 3 目标/愿景分析
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0021
+    label: 项目目标也可以称为愿景，是组织应用类软件系统项目、产品的灵魂，是对于出资人（或发起人、属主）而言价值的体现。但在很多需求实践中，目标、愿景...
+    type: case_signal
+  - id: case::effective-requirements-0022
+    label: 生活悟道场 我一直都是一个纸质书的狂热爱好者，身边也有几位“同道中人”，都认为不可能因为电子书而放弃纸质书，因为电子书没有“书香气”，因此...
+    type: case_signal
+  - id: case::effective-requirements-0023
+    label: 1.外因触发 有些时候，项目发起人会因为受到外部因素触动而提出一个项目，这时通常只有一个宏观的方向，但具体要解决的问题不够清晰，从而给目标...
+    type: case_signal
+  - id: case::effective-requirements-0024
+    label: 1.新业务 案例分析 美国的Apple公司在产品方面凭借iPhone、iPad等一系列“杀手级”硬件，iTunes、App Store等创...
+    type: case_signal
+  - id: case::effective-requirements-0025
+    label: (1)1966年前出生：他们生活在一个相信权威的年代，电视、报纸、专家都是他们坚定信念的来源，相对保守。“电视购物”则是为他们量身定做的“...
+    type: case_signal
+  - id: evidence::effective-requirements-0021
+    label: 项目目标也可以称为愿景，是组织应用类软件系统项目、产品的灵魂，是对于出资人（或发起人、属主）而言价值的体现。但在很多需求实践中，目标、愿景...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0022
+    label: 生活悟道场 我一直都是一个纸质书的狂热爱好者，身边也有几位“同道中人”，都认为不可能因为电子书而放弃纸质书，因为电子书没有“书香气”，因此...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0023
+    label: 1.外因触发 有些时候，项目发起人会因为受到外部因素触动而提出一个项目，这时通常只有一个宏观的方向，但具体要解决的问题不够清晰，从而给目标...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0024
+    label: 1.新业务 案例分析 美国的Apple公司在产品方面凭借iPhone、iPad等一系列“杀手级”硬件，iTunes、App Store等创...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0025
+    label: (1)1966年前出生：他们生活在一个相信权威的年代，电视、报纸、专家都是他们坚定信念的来源，相对保守。“电视购物”则是为他们量身定做的“...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0026
+    label: 在这个模板中主要包括四部分内容：问题描述与评估（包括频率、厌恶度、可替代性三个方面）、方案说明、预期结果、价值主张。 (1)问题描述与评估...
+    type: chunk_evidence
+  - id: framework::0009
+    label: Part 2 价值需求篇
+    type: framework_signal
+  - id: principle::0011
+    label: 4 干系人识别
+    type: principle_signal
+  - id: principle::0012
+    label: 5 干系人分析
+    type: principle_signal
+  - id: principle::0013
+    label: 6 价值需求分析总结
+    type: principle_signal
+  - id: term::attainable
+    label: Attainable
+    type: term_signal
+  - id: term::measurable
+    label: Measurable
+    type: term_signal
+  - id: term::relevant
+    label: Relevant
+    type: term_signal
+  - id: term::specific
+    label: Specific
+    type: term_signal
+  - id: term::time-based
+    label: Time-based
+    type: term_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0010->case::effective-requirements-0021
+    type: derives_case_signal
+    from: principle::0010
+    to: case::effective-requirements-0021
+  - id: derives_case_signal::principle::0010->case::effective-requirements-0022
+    type: derives_case_signal
+    from: principle::0010
+    to: case::effective-requirements-0022
+  - id: derives_case_signal::principle::0010->case::effective-requirements-0023
+    type: derives_case_signal
+    from: principle::0010
+    to: case::effective-requirements-0023
+  - id: derives_case_signal::principle::0010->case::effective-requirements-0024
+    type: derives_case_signal
+    from: principle::0010
+    to: case::effective-requirements-0024
+  - id: derives_case_signal::principle::0010->case::effective-requirements-0025
+    type: derives_case_signal
+    from: principle::0010
+    to: case::effective-requirements-0025
+  - id: derives_term_signal::principle::0010->term::attainable
+    type: derives_term_signal
+    from: principle::0010
+    to: term::attainable
+  - id: derives_term_signal::principle::0010->term::measurable
+    type: derives_term_signal
+    from: principle::0010
+    to: term::measurable
+  - id: derives_term_signal::principle::0010->term::relevant
+    type: derives_term_signal
+    from: principle::0010
+    to: term::relevant
+  - id: derives_term_signal::principle::0010->term::specific
+    type: derives_term_signal
+    from: principle::0010
+    to: term::specific
+  - id: derives_term_signal::principle::0010->term::time-based
+    type: derives_term_signal
+    from: principle::0010
+    to: term::time-based
+  - id: section-parent::framework::0009->principle::0010
+    type: section_parent
+    from: framework::0009
+    to: principle::0010
+  - id: section-parent::principle::0010->principle::0011
+    type: section_parent
+    from: principle::0010
+    to: principle::0011
+  - id: section-parent::principle::0010->principle::0012
+    type: section_parent
+    from: principle::0010
+    to: principle::0012
+  - id: section-parent::principle::0010->principle::0013
+    type: section_parent
+    from: principle::0010
+    to: principle::0013
+  - id: supported-by::principle::0010->evidence::effective-requirements-0021
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0021
+  - id: supported-by::principle::0010->evidence::effective-requirements-0022
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0022
+  - id: supported-by::principle::0010->evidence::effective-requirements-0023
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0023
+  - id: supported-by::principle::0010->evidence::effective-requirements-0024
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0024
+  - id: supported-by::principle::0010->evidence::effective-requirements-0025
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0025
+  - id: supported-by::principle::0010->evidence::effective-requirements-0026
+    type: supported_by_evidence
+    from: principle::0010
+    to: evidence::effective-requirements-0026
+  communities:
+  - id: community::principle::0010
+    label: 3 目标/愿景分析 Cluster
+  - id: community::principle::0011
+    label: 4 干系人识别 Cluster
+  - id: community::principle::0012
+    label: 5 干系人分析 Cluster
+  - id: community::principle::0013
+    label: 6 价值需求分析总结 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

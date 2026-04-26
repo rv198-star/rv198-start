@@ -1,0 +1,3328 @@
+candidate_id: accounting-quality-signal-check
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1171
+  supporting_node_ids:
+  - case::financial-statement-0456
+  - case::financial-statement-0612
+  - case::financial-statement-0614
+  - case::financial-statement-0703
+  - case::financial-statement-0940
+  - case::financial-statement-1288
+  - case::financial-statement-1296
+  - case::financial-statement-1297
+  - case::financial-statement-1299
+  - case::financial-statement-1300
+  - case::financial-statement-1301
+  - counter-example::financial-statement-0163
+  - counter-example::financial-statement-0457
+  - counter-example::financial-statement-0612
+  - counter-example::financial-statement-0703
+  - counter-example::financial-statement-0772
+  - counter-example::financial-statement-0992
+  - counter-example::financial-statement-1018
+  - counter-example::financial-statement-1021
+  - counter-example::financial-statement-1288
+  - counter-example::financial-statement-1296
+  - counter-example::financial-statement-1297
+  - counter-example::financial-statement-1300
+  - counter-example::financial-statement-1301
+  - counter-example::financial-statement-1362
+  - evidence::financial-statement-0010
+  - evidence::financial-statement-0163
+  - evidence::financial-statement-0443
+  - evidence::financial-statement-0444
+  - evidence::financial-statement-0456
+  - evidence::financial-statement-0457
+  - evidence::financial-statement-0462
+  - evidence::financial-statement-0466
+  - evidence::financial-statement-0467
+  - evidence::financial-statement-0469
+  - evidence::financial-statement-0485
+  - evidence::financial-statement-0487
+  - evidence::financial-statement-0488
+  - evidence::financial-statement-0496
+  - evidence::financial-statement-0516
+  - evidence::financial-statement-0530
+  - evidence::financial-statement-0612
+  - evidence::financial-statement-0613
+  - evidence::financial-statement-0614
+  - evidence::financial-statement-0702
+  - evidence::financial-statement-0703
+  - evidence::financial-statement-0772
+  - evidence::financial-statement-0940
+  - evidence::financial-statement-0991
+  - evidence::financial-statement-0992
+  - evidence::financial-statement-0993
+  - evidence::financial-statement-0994
+  - evidence::financial-statement-0995
+  - evidence::financial-statement-0996
+  - evidence::financial-statement-0997
+  - evidence::financial-statement-1018
+  - evidence::financial-statement-1019
+  - evidence::financial-statement-1020
+  - evidence::financial-statement-1021
+  - evidence::financial-statement-1056
+  - evidence::financial-statement-1057
+  - evidence::financial-statement-1061
+  - evidence::financial-statement-1286
+  - evidence::financial-statement-1288
+  - evidence::financial-statement-1296
+  - evidence::financial-statement-1297
+  - evidence::financial-statement-1298
+  - evidence::financial-statement-1299
+  - evidence::financial-statement-1300
+  - evidence::financial-statement-1301
+  - evidence::financial-statement-1362
+  - framework::0416
+  - framework::0423
+  - framework::0431
+  - framework::0578
+  - framework::0842
+  - framework::0934
+  - framework::1146
+  - framework::1161
+  - framework::1230
+  - principle::0007
+  - principle::0012
+  - principle::0152
+  - principle::0153
+  - principle::0417
+  - principle::0418
+  - principle::0424
+  - principle::0426
+  - principle::0427
+  - principle::0429
+  - principle::0430
+  - principle::0432
+  - principle::0433
+  - principle::0435
+  - principle::0436
+  - principle::0439
+  - principle::0440
+  - principle::0456
+  - principle::0458
+  - principle::0460
+  - principle::0461
+  - principle::0470
+  - principle::0483
+  - principle::0484
+  - principle::0496
+  - principle::0502
+  - principle::0580
+  - principle::0581
+  - principle::0582
+  - principle::0583
+  - principle::0584
+  - principle::0585
+  - principle::0586
+  - principle::0592
+  - principle::0647
+  - principle::0657
+  - principle::0713
+  - principle::0714
+  - principle::0715
+  - principle::0877
+  - principle::0878
+  - principle::0917
+  - principle::0918
+  - principle::0919
+  - principle::0935
+  - principle::0964
+  - principle::0965
+  - principle::0966
+  - principle::0967
+  - principle::0968
+  - principle::0970
+  - principle::1159
+  - principle::1160
+  - principle::1162
+  - principle::1163
+  - principle::1165
+  - principle::1169
+  - principle::1170
+  - principle::1231
+  - principle::1232
+  - principle::1233
+  - principle::1234
+  - principle::1235
+  - principle::1236
+  - principle::1241
+  - principle::1242
+  - principle::1244
+  - principle::1245
+  - term::abnormal-operating-income-growth
+  - term::aeg
+  - term::aoig
+  - term::audit-quality
+  - term::banking-income-for-the-future
+  - term::big-bath-accounting
+  - term::borrowing-income-from-the-future
+  - term::channel-stuffing
+  - term::disclosure-quality
+  - term::earnings-management
+  - term::earnings-quality
+  - term::expenditure-time
+  - term::gaap-quality
+  - term::gapp-application-quality
+  - term::noa
+  - term::pcaob
+  - term::revenue-timing
+  - term::reversal-property-of-accounting
+  - term::saving
+  - term::sec
+  - term::transaction-quality
+  - term::transaction-structuring
+  - term::transaction-timing
+  supporting_edge_ids:
+  - derives_case_signal::principle::0426->case::financial-statement-0456
+  - derives_case_signal::principle::0580->case::financial-statement-0612
+  - derives_case_signal::principle::0582->case::financial-statement-0614
+  - derives_case_signal::principle::0877->case::financial-statement-0703
+  - derives_case_signal::principle::0877->case::financial-statement-0940
+  - derives_case_signal::principle::1162->case::financial-statement-1288
+  - derives_case_signal::principle::1169->case::financial-statement-1296
+  - derives_case_signal::principle::1169->case::financial-statement-1297
+  - derives_case_signal::principle::1170->case::financial-statement-1299
+  - derives_case_signal::principle::1171->case::financial-statement-1300
+  - derives_case_signal::principle::1171->case::financial-statement-1301
+  - derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+  - derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+  - derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+  - derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+  - derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+  - derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+  - derives_term_signal::principle::0417->term::aeg
+  - derives_term_signal::principle::0484->term::aeg
+  - derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+  - derives_term_signal::principle::0918->term::aoig
+  - derives_term_signal::principle::0918->term::noa
+  - derives_term_signal::principle::1169->term::banking-income-for-the-future
+  - derives_term_signal::principle::1169->term::big-bath-accounting
+  - derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+  - derives_term_signal::principle::1169->term::earnings-management
+  - derives_term_signal::principle::1169->term::earnings-quality
+  - derives_term_signal::principle::1169->term::reversal-property-of-accounting
+  - derives_term_signal::principle::1169->term::saving
+  - derives_term_signal::principle::1171->term::audit-quality
+  - derives_term_signal::principle::1171->term::channel-stuffing
+  - derives_term_signal::principle::1171->term::disclosure-quality
+  - derives_term_signal::principle::1171->term::expenditure-time
+  - derives_term_signal::principle::1171->term::gaap-quality
+  - derives_term_signal::principle::1171->term::gapp-application-quality
+  - derives_term_signal::principle::1171->term::pcaob
+  - derives_term_signal::principle::1171->term::revenue-timing
+  - derives_term_signal::principle::1171->term::sec
+  - derives_term_signal::principle::1171->term::transaction-quality
+  - derives_term_signal::principle::1171->term::transaction-structuring
+  - derives_term_signal::principle::1171->term::transaction-timing
+  - section-parent::framework::0416->principle::0417
+  - section-parent::framework::0423->principle::0429
+  - section-parent::framework::0431->principle::0470
+  - section-parent::framework::0578->principle::0580
+  - section-parent::framework::0842->principle::0877
+  - section-parent::framework::0842->principle::0917
+  - section-parent::framework::0934->principle::0935
+  - section-parent::framework::0934->principle::0966
+  - section-parent::framework::1146->principle::1159
+  - section-parent::framework::1161->principle::1162
+  - section-parent::framework::1161->principle::1171
+  - section-parent::framework::1230->principle::1231
+  - section-parent::principle::0007->principle::0012
+  - section-parent::principle::0152->principle::0153
+  - section-parent::principle::0417->principle::0418
+  - section-parent::principle::0424->principle::0426
+  - section-parent::principle::0426->principle::0427
+  - section-parent::principle::0429->principle::0430
+  - section-parent::principle::0432->principle::0436
+  - section-parent::principle::0432->principle::0439
+  - section-parent::principle::0433->principle::0435
+  - section-parent::principle::0439->principle::0440
+  - section-parent::principle::0456->principle::0458
+  - section-parent::principle::0456->principle::0460
+  - section-parent::principle::0456->principle::0461
+  - section-parent::principle::0483->principle::0484
+  - section-parent::principle::0496->principle::0502
+  - section-parent::principle::0580->principle::0581
+  - section-parent::principle::0580->principle::0582
+  - section-parent::principle::0580->principle::0586
+  - section-parent::principle::0580->principle::0592
+  - section-parent::principle::0582->principle::0583
+  - section-parent::principle::0582->principle::0584
+  - section-parent::principle::0582->principle::0585
+  - section-parent::principle::0647->principle::0657
+  - section-parent::principle::0713->principle::0714
+  - section-parent::principle::0714->principle::0715
+  - section-parent::principle::0877->principle::0878
+  - section-parent::principle::0917->principle::0918
+  - section-parent::principle::0918->principle::0919
+  - section-parent::principle::0964->principle::0965
+  - section-parent::principle::0966->principle::0967
+  - section-parent::principle::0968->principle::0970
+  - section-parent::principle::1159->principle::1160
+  - section-parent::principle::1162->principle::1163
+  - section-parent::principle::1165->principle::1169
+  - section-parent::principle::1169->principle::1170
+  - section-parent::principle::1231->principle::1232
+  - section-parent::principle::1231->principle::1233
+  - section-parent::principle::1231->principle::1234
+  - section-parent::principle::1231->principle::1235
+  - section-parent::principle::1231->principle::1236
+  - section-parent::principle::1231->principle::1241
+  - section-parent::principle::1231->principle::1242
+  - section-parent::principle::1231->principle::1244
+  - section-parent::principle::1231->principle::1245
+  - supported-by::principle::0012->evidence::financial-statement-0010
+  - supported-by::principle::0153->evidence::financial-statement-0163
+  - supported-by::principle::0417->evidence::financial-statement-0443
+  - supported-by::principle::0417->evidence::financial-statement-0444
+  - supported-by::principle::0426->evidence::financial-statement-0456
+  - supported-by::principle::0426->evidence::financial-statement-0457
+  - supported-by::principle::0429->evidence::financial-statement-0462
+  - supported-by::principle::0435->evidence::financial-statement-0466
+  - supported-by::principle::0436->evidence::financial-statement-0467
+  - supported-by::principle::0439->evidence::financial-statement-0469
+  - supported-by::principle::0458->evidence::financial-statement-0485
+  - supported-by::principle::0460->evidence::financial-statement-0487
+  - supported-by::principle::0461->evidence::financial-statement-0488
+  - supported-by::principle::0470->evidence::financial-statement-0496
+  - supported-by::principle::0484->evidence::financial-statement-0516
+  - supported-by::principle::0502->evidence::financial-statement-0530
+  - supported-by::principle::0580->evidence::financial-statement-0612
+  - supported-by::principle::0582->evidence::financial-statement-0613
+  - supported-by::principle::0582->evidence::financial-statement-0614
+  - supported-by::principle::0877->evidence::financial-statement-0702
+  - supported-by::principle::0877->evidence::financial-statement-0703
+  - supported-by::principle::0877->evidence::financial-statement-0772
+  - supported-by::principle::0877->evidence::financial-statement-0940
+  - supported-by::principle::0917->evidence::financial-statement-0991
+  - supported-by::principle::0918->evidence::financial-statement-0992
+  - supported-by::principle::0918->evidence::financial-statement-0993
+  - supported-by::principle::0918->evidence::financial-statement-0994
+  - supported-by::principle::0918->evidence::financial-statement-0995
+  - supported-by::principle::0918->evidence::financial-statement-0996
+  - supported-by::principle::0918->evidence::financial-statement-0997
+  - supported-by::principle::0935->evidence::financial-statement-1018
+  - supported-by::principle::0935->evidence::financial-statement-1019
+  - supported-by::principle::0935->evidence::financial-statement-1020
+  - supported-by::principle::0935->evidence::financial-statement-1021
+  - supported-by::principle::0965->evidence::financial-statement-1056
+  - supported-by::principle::0966->evidence::financial-statement-1057
+  - supported-by::principle::0970->evidence::financial-statement-1061
+  - supported-by::principle::1159->evidence::financial-statement-1286
+  - supported-by::principle::1162->evidence::financial-statement-1288
+  - supported-by::principle::1169->evidence::financial-statement-1296
+  - supported-by::principle::1169->evidence::financial-statement-1297
+  - supported-by::principle::1169->evidence::financial-statement-1298
+  - supported-by::principle::1170->evidence::financial-statement-1299
+  - supported-by::principle::1171->evidence::financial-statement-1300
+  - supported-by::principle::1171->evidence::financial-statement-1301
+  - supported-by::principle::1231->evidence::financial-statement-1362
+  community_ids:
+  - community::principle::0007
+  - community::principle::0012
+  - community::principle::0152
+  - community::principle::0153
+  - community::principle::0417
+  - community::principle::0418
+  - community::principle::0424
+  - community::principle::0426
+  - community::principle::0427
+  - community::principle::0429
+  - community::principle::0430
+  - community::principle::0432
+  - community::principle::0433
+  - community::principle::0435
+  - community::principle::0436
+  - community::principle::0439
+  - community::principle::0440
+  - community::principle::0456
+  - community::principle::0458
+  - community::principle::0460
+  - community::principle::0461
+  - community::principle::0470
+  - community::principle::0483
+  - community::principle::0484
+  - community::principle::0496
+  - community::principle::0502
+  - community::principle::0580
+  - community::principle::0581
+  - community::principle::0582
+  - community::principle::0583
+  - community::principle::0584
+  - community::principle::0585
+  - community::principle::0586
+  - community::principle::0592
+  - community::principle::0647
+  - community::principle::0657
+  - community::principle::0713
+  - community::principle::0714
+  - community::principle::0715
+  - community::principle::0877
+  - community::principle::0878
+  - community::principle::0917
+  - community::principle::0918
+  - community::principle::0919
+  - community::principle::0935
+  - community::principle::0964
+  - community::principle::0965
+  - community::principle::0966
+  - community::principle::0967
+  - community::principle::0968
+  - community::principle::0970
+  - community::principle::1159
+  - community::principle::1160
+  - community::principle::1162
+  - community::principle::1163
+  - community::principle::1165
+  - community::principle::1169
+  - community::principle::1170
+  - community::principle::1171
+  - community::principle::1231
+  - community::principle::1232
+  - community::principle::1233
+  - community::principle::1234
+  - community::principle::1235
+  - community::principle::1236
+  - community::principle::1241
+  - community::principle::1242
+  - community::principle::1244
+  - community::principle::1245
+  merged_primary_node_ids:
+  - principle::0012
+  - principle::0153
+  - principle::0417
+  - principle::0426
+  - principle::0429
+  - principle::0435
+  - principle::0436
+  - principle::0439
+  - principle::0458
+  - principle::0460
+  - principle::0461
+  - principle::0470
+  - principle::0484
+  - principle::0502
+  - principle::0580
+  - principle::0582
+  - principle::0657
+  - principle::0714
+  - principle::0877
+  - principle::0917
+  - principle::0918
+  - principle::0935
+  - principle::0965
+  - principle::0966
+  - principle::0970
+  - principle::1159
+  - principle::1162
+  - principle::1169
+  - principle::1170
+  - principle::1171
+  - principle::1231
+  merged_candidate_count: 31
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: workflow_script
+  workflow_cues: 2
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 3
+  evidence_support_count: 46
+  extracted_evidence_support_count: 46
+  tri_state_support_count: 63
+  support_entity_count: 308
+  ambiguous_support_node_count: 14
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 49
+  merged_from_node_ids:
+  - principle::0012
+  - principle::0153
+  - principle::0417
+  - principle::0426
+  - principle::0429
+  - principle::0435
+  - principle::0436
+  - principle::0439
+  - principle::0458
+  - principle::0460
+  - principle::0461
+  - principle::0470
+  - principle::0484
+  - principle::0502
+  - principle::0580
+  - principle::0582
+  - principle::0657
+  - principle::0714
+  - principle::0877
+  - principle::0917
+  - principle::0918
+  - principle::0935
+  - principle::0965
+  - principle::0966
+  - principle::0970
+  - principle::1159
+  - principle::1162
+  - principle::1169
+  - principle::1170
+  - principle::1171
+  - principle::1231
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.2045
+  matched_keywords:
+  - 业务
+  - 如果-则
+  - 步骤
+  - 清单
+  - 输入
+  evidence_chunk_ids:
+  - financial-statement:0443
+  - financial-statement:0444
+  - financial-statement:0456
+  - financial-statement:0612
+  - financial-statement:0614
+  - financial-statement:0703
+  - financial-statement:0940
+  - financial-statement:0991
+  - financial-statement:0992
+  - financial-statement:0993
+  - financial-statement:0994
+  - financial-statement:1021
+  - financial-statement:1296
+  - financial-statement:1297
+  - financial-statement:1300
+  - financial-statement:1301
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 1.0
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: accounting-quality-signal-check
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 1.0
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 46
+    evidence_support_count: 46
+    context_cues: 3
+    workflow_cues: 2
+    tri_state_support_ratio: 0.2045
+    matched_keywords:
+    - 业务
+    - 如果-则
+    - 步骤
+    - 清单
+    - 输入
+    evidence_chunk_ids:
+    - financial-statement:0443
+    - financial-statement:0444
+    - financial-statement:0456
+    - financial-statement:0612
+    - financial-statement:0614
+    - financial-statement:0703
+    - financial-statement:0940
+    - financial-statement:0991
+    - financial-statement:0992
+    - financial-statement:0993
+    - financial-statement:0994
+    - financial-statement:1021
+    - financial-statement:1296
+    - financial-statement:1297
+    - financial-statement:1300
+    - financial-statement:1301
+    supporting_node_count: 171
+    supporting_edge_count: 151
+    community_count: 69
+candidate_kind_before_recovery: workflow_script
+disposition_before_recovery: workflow_script_candidate
+recommended_execution_mode_before_recovery: workflow_script
+action_skill_recovery:
+  schema_version: kiu.action-skill-recovery/v0.1
+  recovered_from_workflow_candidate: true
+  route_reason: action_rich_workflow_misroute_recovered
+  action_skill_identity_score: 0.9883
+  boundary_rule: Recovered only because the candidate has semantic action identity,
+    strong evidence, and judgment/deferral language; deterministic workflows still
+    remain routed out.
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: accounting-quality-signal-check
+  source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0426->case::financial-statement-0456
+    label: derives_case_signal
+    from_label: 超常收益增长模型与剩余收益模型的比较
+    to_label: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5725-5739
+    snippet: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需要根据这些预测值再预计未来的权益账面价值。
+      从结构方面来看，这两个模型是类似的。 剩余收益估值模型以权益的账面价值为起点，然后再将预计收益超出了按必要报酬率计算的账面价值必要报酬的部分作为价值增量。超常收益增长模型以资本化
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0580->case::financial-statement-0612
+    label: derives_case_signal
+    from_label: 9.7 会计信息质量观察
+    to_label: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:7527-7533
+    snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+      我
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0582->case::financial-statement-0614
+    label: derives_case_signal
+    from_label: 会计信息质量观察：股东权益变动表
+    to_label: '| 0 | 1 | |:----------------------|:---------------------------------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:7541-7541
+    snippet: '| 0 | 1 | |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0877->case::financial-statement-0703
+    label: derives_case_signal
+    from_label: 会计信息质量观察
+    to_label: '| 0 | 1 | |:-------------------|:------------------------------------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:8695-8697
+    snippet: '| 0 | 1 | |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0877->case::financial-statement-0940
+    label: derives_case_signal
+    from_label: 会计信息质量观察
+    to_label: 本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:11549-11551
+    snippet: 本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的收益，并对未来收益的预测产生影响。因此，我们将这些问题也归纳到了“会计信息质量观察”栏目中。我们从第9章开始总结“会计信息质量观察”要点，并在第10章和第11章中继续这样做。现在，你已经有了一份有关会计信息质量问题的完整清
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1162->case::financial-statement-1288
+    label: derives_case_signal
+    from_label: M17.1 广告营销、低质量会计信息与估值：电子交易公司
+    to_label: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15809-15815
+    snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+      这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1169->case::financial-statement-1296
+    label: derives_case_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15954-15960
+    snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1169->case::financial-statement-1297
+    label: derives_case_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1170->case::financial-statement-1299
+    label: derives_case_signal
+    from_label: 18.1.1 会计信息质量观察
+    to_label: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15972-15976
+    snippet: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目和金融活动项目（第10章）的不同影响，能帮助我们将经营利润从净利润中分离出来，因为经营利润与预测更加相关，对估值的影响也更为重要；在第13章的财务报表分析中，更是要求我们要排除经营利润中所包含非经常性项目的影响，直达可持续
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1171->case::financial-statement-1300
+    label: derives_case_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::1171->case::financial-statement-1301
+    label: derives_case_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+    label: derives_counter_example_signal
+    from_label: 2.2.7 会计信息质量
+    to_label: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:2085-2089
+    snippet: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利润走势来影响股票价格的走势，请参考阅读材料2-5。非常不幸的是，美国公认会计原则和国际财务报告准则确实在有些地方规定得不是那么完美。很显然，我们不能拿着有问题的财务报表来作为分析的基准，因此，随着本书内容的
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+    label: derives_counter_example_signal
+    from_label: 超常收益增长模型与剩余收益模型的比较
+    to_label: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5741-5749
+    snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------:|
+      | | 1 | 2 | 3 | 4 | 5 | | 剩余收益 | 2.36 | 2.431 | 2.504 | 2.579 | 2.656 | | 剩余收益的变动额
+      | | 0.071 | 0.073'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+    label: derives_counter_example_signal
+    from_label: 9.7 会计信息质量观察
+    to_label: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:7527-7533
+    snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+      我
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+    label: derives_counter_example_signal
+    from_label: 会计信息质量观察
+    to_label: '| 0 | 1 | |:-------------------|:------------------------------------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:8695-8697
+    snippet: '| 0 | 1 | |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+    label: derives_counter_example_signal
+    from_label: 会计信息质量观察
+    to_label: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:9534-9540
+    snippet: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量问题应当注意的观察要点。下面列出的三个项目在本章中都有涉及，然后，我们将对经营活动产生的现金流量数据和它在分析中的应用进行更多的讨论和分析。
+      | 0 | 1 | |:----------------|:--
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+    label: derives_counter_example_signal
+    from_label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+    to_label: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12220-12234
+    snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+      到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+    label: derives_counter_example_signal
+    from_label: 14.4.2 杠杆与超常收益增长估值模型
+    to_label: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12500-12504
+    snippet: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增加普通股权益报酬率ROCE（当然，前提是经营利润率差异为正）一样，金融杠杆同时也能增加企业的每股
+      收益，如果在进行股份回购时加大企业的杠杆水平，还能使每股收益增加更多。在使用超常收益增长估值模型时，我们曾经
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+    label: derives_counter_example_signal
+    from_label: 14.4.2 杠杆与超常收益增长估值模型
+    to_label: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12532-12536
+    snippet: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息费用增加了），但每股收益却增加为
+      0.25 美元。估值结果显示，每股收益的增大并没有改变权益资本的每股价值，因为随着杠杆水平的提高，权益资金的资本成本也增加为 12.5%，所以抵消了每股收益增加的影响。权益
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+    label: derives_counter_example_signal
+    from_label: M17.1 广告营销、低质量会计信息与估值：电子交易公司
+    to_label: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15809-15815
+    snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+      这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+    label: derives_counter_example_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15954-15960
+    snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+    label: derives_counter_example_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+    label: derives_counter_example_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+    label: derives_counter_example_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+    label: derives_counter_example_signal
+    from_label: 18.7 质量分析中的超常收益
+    to_label: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:16654-16666
+    snippet: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些人相信市场是有效率的，他们坚持认为，市场能够看穿企业的会计伎俩，识别企业的真实获利能力。但对于会计信息质量分析人员来说，他们相信通过识别企业的会计操纵手段可以发现错误的定价，从而获得超常的投资回报。
+      请看图
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0417->term::aeg
+    label: derives_term_signal
+    from_label: 6.3.1 超常收益增长的计量
+    to_label: AEG
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5592-5606
+    snippet: 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差： $$ \begin{aligned}
+      超常收益增长 _{t}&= 含息收益 _{t}- 正常收益 _{t}\\&=\left[\text{ 收益 }_{t}+\left(\rho_{E}-1\right)\text{
+      股利 }_{t-1
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0484->term::aeg
+    label: derives_term_signal
+    from_label: 7.2.3 用超常收益增长率模型进行反推
+    to_label: AEG
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:6493-6503
+    snippet: 上面的例题所使用的是第 5 章中所介绍的剩余收益估值模型，其实，我们还可以利用第 6 章中所介绍的超常收益增长模型（AEG）来进行这样的分析。当已知未来两年的预测情况时，可有：
+      $$ V_{0}^{E}=\frac{1}{\rho-1}\left(EPS_{1}+\frac{AEG_{2}}{\rho-g}\right) $$
+      将这个模型分解为两个部分——无
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+    label: derives_term_signal
+    from_label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+    to_label: abnormal operating income growth
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12220-12234
+    snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+      到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0918->term::aoig
+    label: derives_term_signal
+    from_label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+    to_label: AOIG
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12279-12293
+    snippet: 持续价值 $ CV=\frac{61.0}{1.091-1.04}=1196.9 $ 持续价值的现值= $ \frac{1196.9}{1.299}=921.4
+      $ 在持续价值的计算式中，2015年超常增长的经营性收益AOIG预测值为61.0，等于2014年的剩余经营性收益1526百万美元按GDP增长率4%增长后的结果（与表14-2中剩余经营性收益的估值保持
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0918->term::noa
+    label: derives_term_signal
+    from_label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+    to_label: NOA
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12266-12271
+    snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:-------------------------------|:------|:-------|:-------|:-------|:-------|
+      | | 2010A | 2011E | 2012E | 2013E | 2014E | | 经营利润(OI) | | 1950 | 2042 | 21'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::banking-income-for-the-future
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: banking income for the future
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::big-bath-accounting
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: big-bath accounting
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: borrowing income from the future
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::earnings-management
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: earnings management
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::earnings-quality
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: earnings quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15954-15960
+    snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::reversal-property-of-accounting
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: reversal property of accounting
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15954-15960
+    snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1169->term::saving
+    label: derives_term_signal
+    from_label: 18.1 什么是会计信息质量
+    to_label: saving
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::audit-quality
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: audit quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::channel-stuffing
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: channel stuffing
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::disclosure-quality
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: disclosure quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::expenditure-time
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: expenditure time
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::gaap-quality
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: GAAP quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::gapp-application-quality
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: GAPP application quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::pcaob
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: PCAOB
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::revenue-timing
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: revenue timing
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::sec
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: SEC
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::transaction-quality
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: transaction quality
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::transaction-structuring
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: transaction structuring
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::1171->term::transaction-timing
+    label: derives_term_signal
+    from_label: 18.1.2 关于会计信息质量的五个问题
+    to_label: transaction timing
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::financial-statement-0163
+    label: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:2085-2089
+    snippet: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利润走势来影响股票价格的走势，请参考阅读材料2-5。非常不幸的是，美国公认会计原则和国际财务报告准则确实在有些地方规定得不是那么完美。很显然，我们不能拿着有问题的财务报表来作为分析的基准，因此，随着本书内容的
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0457
+    label: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:5741-5749
+    snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------:|
+      | | 1 | 2 | 3 | 4 | 5 | | 剩余收益 | 2.36 | 2.431 | 2.504 | 2.579 | 2.656 | | 剩余收益的变动额
+      | | 0.071 | 0.073'
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0612
+    label: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:7527-7533
+    snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+      我
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0703
+    label: '| 0 | 1 | |:-------------------|:------------------------------------...'
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:8695-8697
+    snippet: '| 0 | 1 | |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------'
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0772
+    label: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:9534-9540
+    snippet: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量问题应当注意的观察要点。下面列出的三个项目在本章中都有涉及，然后，我们将对经营活动产生的现金流量数据和它在分析中的应用进行更多的讨论和分析。
+      | 0 | 1 | |:----------------|:--
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-0992
+    label: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12220-12234
+    snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+      到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1018
+    label: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12500-12504
+    snippet: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增加普通股权益报酬率ROCE（当然，前提是经营利润率差异为正）一样，金融杠杆同时也能增加企业的每股
+      收益，如果在进行股份回购时加大企业的杠杆水平，还能使每股收益增加更多。在使用超常收益增长估值模型时，我们曾经
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1021
+    label: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:12532-12536
+    snippet: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息费用增加了），但每股收益却增加为
+      0.25 美元。估值结果显示，每股收益的增大并没有改变权益资本的每股价值，因为随着杠杆水平的提高，权益资金的资本成本也增加为 12.5%，所以抵消了每股收益增加的影响。权益
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1288
+    label: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15809-15815
+    snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+      这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1296
+    label: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15954-15960
+    snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1297
+    label: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15962-15966
+    snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+      income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1300
+    label: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15980-15990
+    snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1301
+    label: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:15992-16008
+    snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue
+      timing），也可能涉及费用支出时间（expenditure time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::financial-statement-1362
+    label: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+    source_file: sources/财务报表分析_Markdown版.md
+    source_location: sources/财务报表分析_Markdown版.md:16654-16666
+    snippet: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些人相信市场是有效率的，他们坚持认为，市场能够看穿企业的会计伎俩，识别企业的真实获利能力。但对于会计信息质量分析人员来说，他们相信通过识别企业的会计操纵手段可以发现错误的定价，从而获得超常的投资回报。
+      请看图
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: accounting-quality-signal-check
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0007
+      label: 0.1 写作思考 Cluster
+      top_node_id: principle::0006
+      top_node_label: 前言
+      node_count: 7
+    - community_id: community::principle::0012
+      label: 0.1.5 会计信息的质量 Cluster
+      top_node_id: evidence::financial-statement-0010
+      top_node_label: 在简单理解了会计系统的运作方式之后，通过本书，你将能够学会对会计工作成果的质量进行正确的评价。学习完本书后，你将能够识别公司所发布财务报表...
+      node_count: 3
+    - community_id: community::principle::0152
+      label: 2.2.6 会计原则之间的冲突 Cluster
+      top_node_id: case::financial-statement-0162
+      top_node_label: 为正确地计量企业通过销售活动所创造的价值增加额，会计人员需要将相关的费用与收入进行配比，而根据可靠性原则的要求，企业在真正“赢得”客户前，...
+      node_count: 6
+    - community_id: community::principle::0153
+      label: 2.2.7 会计信息质量 Cluster
+      top_node_id: counter-example::financial-statement-0163
+      top_node_label: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+      node_count: 4
+    - community_id: community::principle::0417
+      label: 6.3.1 超常收益增长的计量 Cluster
+      top_node_id: evidence::financial-statement-0443
+      top_node_label: 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差：
+        $$ \beg...
+      node_count: 6
+    - community_id: community::principle::0418
+      label: 6.3.2 一个简单的示例与估值模型 Cluster
+      top_node_id: case::financial-statement-0446
+      top_node_label: '| 0 | 1 | 2 | 3 | 4 | 5 | |:-----------------------------------------...'
+      node_count: 8
+    - community_id: community::principle::0424
+      label: 情景 2 耐克公司 Cluster
+      top_node_id: evidence::financial-statement-0454
+      top_node_label: 在本例中，预计2011年以后的超常收益将按4.5%的速度增长。必要报酬率为9%。 (金额单位：美元) | 0 | 1 |
+        2 | 3 | ...
+      node_count: 6
+    - community_id: community::principle::0426
+      label: 超常收益增长模型与剩余收益模型的比较 Cluster
+      top_node_id: case::financial-statement-0456
+      top_node_label: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需...
+      node_count: 7
+    - community_id: community::principle::0427
+      label: 将分析师的预测转换为估值 Cluster
+      top_node_id: principle::0426
+      top_node_label: 超常收益增长模型与剩余收益模型的比较
+      node_count: 2
+    - community_id: community::principle::0429
+      label: 6.6 超常收益增长模型的特点 Cluster
+      top_node_id: evidence::financial-statement-0462
+      top_node_label: 阅读材料 6-4 列出了超常收益增长模型的优点与不足。阅读时，请注意与股利贴现模型（第 4 章）、贴现现金流量模型（第
+        4 章）和剩余收益...
+      node_count: 4
+    - community_id: community::principle::0430
+      label: 阅读材料 6-4 Cluster
+      top_node_id: principle::0429
+      top_node_label: 6.6 超常收益增长模型的特点
+      node_count: 2
+    - community_id: community::principle::0432
+      label: 优点 Cluster
+      top_node_id: evidence::financial-statement-0289
+      top_node_label: 易于理解：股东能够得到的就是股利，因此，可以通过预测股利来估算股票的价值。 方便预测：在短期内，公司股利一般是比较稳定的，因此方便进行预测...
+      node_count: 12
+    - community_id: community::principle::0433
+      label: 不足 Cluster
+      top_node_id: counter-example::financial-statement-0302
+      top_node_label: 概念可疑：自由现金流量并不能计量企业在短期内的价值增加额；企业所赚得的价值与相应所放弃的价值并没有配比。 将投资作为价值的减损处理。
+        自由...
+      node_count: 9
+    - community_id: community::principle::0435
+      label: 6.6.2 超常收益增长模型与剩余收益估值模型 Cluster
+      top_node_id: evidence::financial-statement-0466
+      top_node_label: 在对价值创造过程的解释这个问题上，超常收益增长模型不如剩余收益模型那么清楚。企业投资于资产，然后通过在经营过程中对这些资产加以利用，从而创...
+      node_count: 3
+    - community_id: community::principle::0436
+      label: 6.6.3 超常收益增长模型不受股利发放、股份发行和股份回购等事件的影响 Cluster
+      top_node_id: evidence::financial-statement-0467
+      top_node_label: 在第 5 章中我们已经看到，剩余收益估值模型对预期的股利发放率、股份发行和股份回购等事件是不敏感的，这一特点同样也是超常收益增长估值模型所...
+      node_count: 3
+    - community_id: community::principle::0439
+      label: 通过会计方法创造收益时的超常收益增长模型估值 Cluster
+      top_node_id: evidence::financial-statement-0469
+      top_node_label: 表 6-2 中列出了利用一家公司的预计收益和收益增长信息，来进行权益估值的过程。现在，假定这家公司的经理决定通过计提第
+        0 年的存货减值 ...
+      node_count: 4
+    - community_id: community::principle::0440
+      label: 对估值的影响 Cluster
+      top_node_id: evidence::financial-statement-0470
+      top_node_label: 由于在第0年计提了8美元的存货减值，因此原来在第0年的收益12美元现在变成了4美元（同时账面价值也由100美元变成了 92美元）。相应地，...
+      node_count: 3
+    - community_id: community::principle::0456
+      label: 练习题 Cluster
+      top_node_id: principle::0451
+      top_node_label: 连贯案例：金佰利公司
+      node_count: 13
+    - community_id: community::principle::0458
+      label: E6.1. 预计收益增长与超常收益增长（简单） Cluster
+      top_node_id: evidence::financial-statement-0485
+      top_node_label: 下面是 2010 年年末做出的某家企业盈利与股利信息预测。这家企业的权益资本必要报酬率为每年 10%。 | 0 | 1
+        | 2 | 3 |...
+      node_count: 3
+    - community_id: community::principle::0460
+      label: E6.3. 根据预计的超常收益增长进行估值（简单） Cluster
+      top_node_id: evidence::financial-statement-0487
+      top_node_label: 假定某位分析人员向你提供了下列预计信息（单位：百万美元），这些信息是他对一家公司在2013～2017年的收益和股利预测数据。他希望你能帮忙...
+      node_count: 3
+    - community_id: community::principle::0461
+      label: E6.4. 超常收益增长估值与目标价格（中等） Cluster
+      top_node_id: evidence::financial-statement-0488
+      top_node_label: 下列某家企业每股收益和每股股利的预测值是在 2012 年年末做出的。 | 0 | 1 | 2 | |:-------|:---------...
+      node_count: 3
+    - community_id: community::principle::0470
+      label: E6.14. 超常收益增长模型估值与会计方法（困难） Cluster
+      top_node_id: evidence::financial-statement-0496
+      top_node_label: 请回到练习题 E6.3。当时，一位分析人员在 2012 年年末根据企业的初步报告，预计该企业能在 2013 年实现收益为
+        3.88 亿美元...
+      node_count: 3
+    - community_id: community::principle::0483
+      label: 7.2.2 检验某只股票定价的合理性 Cluster
+      top_node_id: evidence::financial-statement-0511
+      top_node_label: 谷歌公司的股票在 2011 年 5 月时的交易价格为每股 535 美元，如果按 2010 年年末的每股账面价值 143.92
+        美元计算，市...
+      node_count: 12
+    - community_id: community::principle::0484
+      label: 7.2.3 用超常收益增长率模型进行反推 Cluster
+      top_node_id: evidence::financial-statement-0516
+      top_node_label: 上面的例题所使用的是第 5 章中所介绍的剩余收益估值模型，其实，我们还可以利用第 6 章中所介绍的超常收益增长模型（AEG）来进行这样的分...
+      node_count: 4
+    - community_id: community::principle::0496
+      label: 练习题 Cluster
+      top_node_id: principle::0489
+      top_node_label: 连贯案例：金佰利公司
+      node_count: 11
+    - community_id: community::principle::0502
+      label: E7.5. 用超常收益增长模型进行反推（中等） Cluster
+      top_node_id: evidence::financial-statement-0530
+      top_node_label: 根据分析人员对一家公司的预计，该公司在未来两年内分别实现每股收益2.11美元和2.67美元，这家公司不发放任何股利。假定投资者的必要报酬率...
+      node_count: 3
+    - community_id: community::principle::0580
+      label: 9.7 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-0612
+      top_node_label: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+      node_count: 9
+    - community_id: community::principle::0581
+      label: 阅读材料 9-6 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 2
+    - community_id: community::principle::0582
+      label: 会计信息质量观察：股东权益变动表 Cluster
+      top_node_id: case::financial-statement-0614
+      top_node_label: '| 0 | 1 | |:----------------------|:---------------------------------...'
+      node_count: 8
+    - community_id: community::principle::0583
+      label: 本章小结 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0584
+      label: 关键概念 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0585
+      label: 分析师工具箱 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0586
+      label: 连贯案例：金佰利公司 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 4
+    - community_id: community::principle::0592
+      label: 练习题 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 3
+    - community_id: community::principle::0647
+      label: 10.4 比率分析 Cluster
+      top_node_id: case::financial-statement-0696
+      top_node_label: 根据重构后的财务报表，我们可以计算出两个刻画企业经营活动获利能力和金融活动获利能力的财务指标：净经营性资产报酬率（return
+        on ne...
+      node_count: 7
+    - community_id: community::principle::0657
+      label: 会计信息质量观察 Cluster
+      top_node_id: principle::0647
+      top_node_label: 10.4 比率分析
+      node_count: 2
+    - community_id: community::principle::0713
+      label: 阅读材料 11-4 Cluster
+      top_node_id: framework::0712
+      top_node_label: 11.3 经营活动产生的现金流量
+      node_count: 3
+    - community_id: community::principle::0714
+      label: 会计信息质量观察 Cluster
+      top_node_id: principle::0713
+      top_node_label: 阅读材料 11-4
+      node_count: 3
+    - community_id: community::principle::0715
+      label: 经营活动产生现金流量的质量 Cluster
+      top_node_id: evidence::financial-statement-0773
+      top_node_label: 评论人士有时会用“经营活动产生的现金流量”来判断一家企业经营业绩的好坏，但基本面分析师绝不会这样做。原因如下。
+      node_count: 3
+    - community_id: community::principle::0877
+      label: 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-0703
+      top_node_label: '| 0 | 1 | |:-------------------|:------------------------------------...'
+      node_count: 11
+    - community_id: community::principle::0878
+      label: 关键概念 Cluster
+      top_node_id: principle::0877
+      top_node_label: 会计信息质量观察
+      node_count: 2
+    - community_id: community::principle::0917
+      label: 14.2 超常收益增长预测的修正：经营性收益的超常增长 Cluster
+      top_node_id: evidence::financial-statement-0991
+      top_node_label: 现在我们再来回顾一下权益估值的超常收益增长模型： $$ \begin{aligned}&\mathcal{V}_{0}^{E}=
+        资本化 ...
+      node_count: 4
+    - community_id: community::principle::0918
+      label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利” Cluster
+      top_node_id: counter-example::financial-statement-0992
+      top_node_label: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+      node_count: 13
+    - community_id: community::principle::0919
+      label: 14.2.2 关注未来：可持续的盈利 Cluster
+      top_node_id: evidence::financial-statement-0998
+      top_node_label: 出于估值的目的，我们对未来的剩余经营性收益和超常增长的经营性收益会特别关注，能够对未来产生影响的项目，应当是核心（可持续的）经营利润：
+        $...
+      node_count: 4
+    - community_id: community::principle::0935
+      label: 14.4.2 杠杆与超常收益增长估值模型 Cluster
+      top_node_id: counter-example::financial-statement-1018
+      top_node_label: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+      node_count: 8
+    - community_id: community::principle::0964
+      label: E14.1. 剩余收益与剩余经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1055
+      top_node_label: 以下是一家企业的简要财务报表（单位：百万美元）。 | 0 | 1 | 2 | 3 | |:---------|:---------|:--...
+      node_count: 4
+    - community_id: community::principle::0965
+      label: E14.3. 计算超常增长的经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1056
+      top_node_label: 以下是一家企业财务报表中的汇总数据（单位：百万美元）。 | 0 | 1 | 2 | 3 | 4 | |:-------|:--------...
+      node_count: 3
+    - community_id: community::principle::0966
+      label: E14.4. 剩余经营性收益与超常增长的经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1057
+      top_node_label: 以下是一家企业的财务报表（单位：百万美元）。 | 0 | 1 | 2 | |:-----|:------|:------|
+        | 利润表 |...
+      node_count: 4
+    - community_id: community::principle::0967
+      label: E14.5. 计算资本成本（简单） Cluster
+      top_node_id: evidence::financial-statement-1058
+      top_node_label: 请根据下列数据，计算经营活动的资本成本（WACC）。请使用资本资产定价模型估算权益资本的成本。 | 0 | 1 | |:---------...
+      node_count: 5
+    - community_id: community::principle::0968
+      label: E14.6. 计算股东权益的必要报酬率（中等） Cluster
+      top_node_id: evidence::financial-statement-1059
+      top_node_label: 某家企业的经营活动必要报酬率为10%，负债的账面价值为24.5亿美元，借款成本率为8%，所得税率为37%。这家企业的股东权益价
+        值为 82...
+      node_count: 6
+    - community_id: community::principle::0970
+      label: E14.8. 超常增长的经营性收益估值（简单） Cluster
+      top_node_id: evidence::financial-statement-1061
+      top_node_label: 请利用练习题 E14.7 中的预测数据，预计这家企业超常增长的经营性收益，并根据你的预测结果对这家企业的经营活动和股东权益进行估值。这家企...
+      node_count: 3
+    - community_id: community::principle::1159
+      label: E17.7. 自由现金流量与剩余经营性收益的质量：可口可乐公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1286
+      top_node_label: 可口可乐公司曾经报告过一个被称为“经济利润”的数据，该数据的定义十分类似于本书中的剩余经营性收益。此外，在年度财务数据摘要信息部分，该公司...
+      node_count: 4
+    - community_id: community::principle::1160
+      label: E17.8. 研发支出与估值（中等） Cluster
+      top_node_id: evidence::financial-statement-1287
+      top_node_label: 一家新制药企业拥有一项专利技术，它承诺将根据这项技术，在以后5年内每年支出3.5亿美元，以期能够开发出更多的产品。该计划目前将投入3.5亿...
+      node_count: 4
+    - community_id: community::principle::1162
+      label: M17.1 广告营销、低质量会计信息与估值：电子交易公司 Cluster
+      top_node_id: case::financial-statement-1288
+      top_node_label: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+      node_count: 6
+    - community_id: community::principle::1163
+      label: 在线交易公司 Cluster
+      top_node_id: evidence::financial-statement-1289
+      top_node_label: 1999 年，选择通过互联网在线进行股票交易投资者突然出现了迅速增长。电子交易公司（E*Trade）、宏达证券（TD Waterhouse...
+      node_count: 13
+    - community_id: community::principle::1165
+      label: 第 18 章 分析财务报表的质量 Cluster
+      top_node_id: framework::1161
+      top_node_label: 迷你案例
+      node_count: 4
+    - community_id: community::principle::1169
+      label: 18.1 什么是会计信息质量 Cluster
+      top_node_id: case::financial-statement-1296
+      top_node_label: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+      node_count: 17
+    - community_id: community::principle::1170
+      label: 18.1.1 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-1299
+      top_node_label: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目...
+      node_count: 4
+    - community_id: community::principle::1171
+      label: 18.1.2 关于会计信息质量的五个问题 Cluster
+      top_node_id: principle::1171
+      top_node_label: 18.1.2 关于会计信息质量的五个问题
+      node_count: 20
+    - community_id: community::principle::1231
+      label: 18.7 质量分析中的超常收益 Cluster
+      top_node_id: counter-example::financial-statement-1362
+      top_node_label: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+      node_count: 13
+    - community_id: community::principle::1232
+      label: 本章小结 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1233
+      label: 关键概念 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1234
+      label: 分析师工具箱 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1235
+      label: 思考题 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1236
+      label: 练习题 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 3
+    - community_id: community::principle::1241
+      label: E18.5. 标准化的资产周转率（中等） Cluster
+      top_node_id: evidence::financial-statement-1373
+      top_node_label: 一家企业报告它的税后经营利润为1.36亿美元，较上年1.2亿美元的水平有所增长；同期销售收入也从51.06亿美元上升为57.51亿美元，而...
+      node_count: 3
+    - community_id: community::principle::1242
+      label: E18.6. 资产周转率的变动与盈利质量（中等） Cluster
+      top_node_id: evidence::financial-statement-1374
+      top_node_label: 一家企业报告它的净经营性资产报酬率为19%。这时，有一位分析人员注意到，这家企业的资产周转率在当期已从2.2下降为1.9。要求：
+        a. 计...
+      node_count: 4
+    - community_id: community::principle::1244
+      label: 应用分析 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1245
+      label: E18.8. 收入的质量：博士伦公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1376
+      top_node_label: 博士伦公司（Bausch and Lomb，Inc.）是一家光学产品企业，它在1990～1993年的销售收入与应收账款数据如下（单位：百万...
+      node_count: 4
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - case
+  - counter-example-signal
+  - evidence
+  - framework
+  - principle
+  - term
+  source_node_ids:
+  - principle::1171
+  - case::financial-statement-0456
+  - case::financial-statement-0612
+  - case::financial-statement-0614
+  - case::financial-statement-0703
+  - case::financial-statement-0940
+  - case::financial-statement-1288
+  - case::financial-statement-1296
+  - case::financial-statement-1297
+  - case::financial-statement-1299
+  - case::financial-statement-1300
+  - case::financial-statement-1301
+  - counter-example::financial-statement-0163
+  - counter-example::financial-statement-0457
+  - counter-example::financial-statement-0612
+  - counter-example::financial-statement-0703
+  - counter-example::financial-statement-0772
+  - counter-example::financial-statement-0992
+  - counter-example::financial-statement-1018
+  - counter-example::financial-statement-1021
+  - counter-example::financial-statement-1288
+  - counter-example::financial-statement-1296
+  - counter-example::financial-statement-1297
+  - counter-example::financial-statement-1300
+  - counter-example::financial-statement-1301
+  - counter-example::financial-statement-1362
+  - evidence::financial-statement-0010
+  - evidence::financial-statement-0163
+  - evidence::financial-statement-0443
+  - evidence::financial-statement-0444
+  - evidence::financial-statement-0456
+  - evidence::financial-statement-0457
+  - evidence::financial-statement-0462
+  - evidence::financial-statement-0466
+  - evidence::financial-statement-0467
+  - evidence::financial-statement-0469
+  - evidence::financial-statement-0485
+  - evidence::financial-statement-0487
+  - evidence::financial-statement-0488
+  - evidence::financial-statement-0496
+  - evidence::financial-statement-0516
+  - evidence::financial-statement-0530
+  - evidence::financial-statement-0612
+  - evidence::financial-statement-0613
+  - evidence::financial-statement-0614
+  - evidence::financial-statement-0702
+  - evidence::financial-statement-0703
+  - evidence::financial-statement-0772
+  - evidence::financial-statement-0940
+  - evidence::financial-statement-0991
+  - evidence::financial-statement-0992
+  - evidence::financial-statement-0993
+  - evidence::financial-statement-0994
+  - evidence::financial-statement-0995
+  - evidence::financial-statement-0996
+  - evidence::financial-statement-0997
+  - evidence::financial-statement-1018
+  - evidence::financial-statement-1019
+  - evidence::financial-statement-1020
+  - evidence::financial-statement-1021
+  - evidence::financial-statement-1056
+  - evidence::financial-statement-1057
+  - evidence::financial-statement-1061
+  - evidence::financial-statement-1286
+  - evidence::financial-statement-1288
+  - evidence::financial-statement-1296
+  - evidence::financial-statement-1297
+  - evidence::financial-statement-1298
+  - evidence::financial-statement-1299
+  - evidence::financial-statement-1300
+  - evidence::financial-statement-1301
+  - evidence::financial-statement-1362
+  - framework::0416
+  - framework::0423
+  - framework::0431
+  - framework::0578
+  - framework::0842
+  - framework::0934
+  - framework::1146
+  - framework::1161
+  - framework::1230
+  - principle::0007
+  - principle::0012
+  - principle::0152
+  - principle::0153
+  - principle::0417
+  - principle::0418
+  - principle::0424
+  - principle::0426
+  - principle::0427
+  - principle::0429
+  - principle::0430
+  - principle::0432
+  - principle::0433
+  - principle::0435
+  - principle::0436
+  - principle::0439
+  - principle::0440
+  - principle::0456
+  - principle::0458
+  - principle::0460
+  - principle::0461
+  - principle::0470
+  - principle::0483
+  - principle::0484
+  - principle::0496
+  - principle::0502
+  - principle::0580
+  - principle::0581
+  - principle::0582
+  - principle::0583
+  - principle::0584
+  - principle::0585
+  - principle::0586
+  - principle::0592
+  - principle::0647
+  - principle::0657
+  - principle::0713
+  - principle::0714
+  - principle::0715
+  - principle::0877
+  - principle::0878
+  - principle::0917
+  - principle::0918
+  - principle::0919
+  - principle::0935
+  - principle::0964
+  - principle::0965
+  - principle::0966
+  - principle::0967
+  - principle::0968
+  - principle::0970
+  - principle::1159
+  - principle::1160
+  - principle::1162
+  - principle::1163
+  - principle::1165
+  - principle::1169
+  - principle::1170
+  - principle::1231
+  - principle::1232
+  - principle::1233
+  - principle::1234
+  - principle::1235
+  - principle::1236
+  - principle::1241
+  - principle::1242
+  - principle::1244
+  - principle::1245
+  - term::abnormal-operating-income-growth
+  - term::aeg
+  - term::aoig
+  - term::audit-quality
+  - term::banking-income-for-the-future
+  - term::big-bath-accounting
+  - term::borrowing-income-from-the-future
+  - term::channel-stuffing
+  - term::disclosure-quality
+  - term::earnings-management
+  - term::earnings-quality
+  - term::expenditure-time
+  - term::gaap-quality
+  - term::gapp-application-quality
+  - term::noa
+  - term::pcaob
+  - term::revenue-timing
+  - term::reversal-property-of-accounting
+  - term::saving
+  - term::sec
+  - term::transaction-quality
+  - term::transaction-structuring
+  - term::transaction-timing
+  source_edge_ids:
+  - derives_case_signal::principle::0426->case::financial-statement-0456
+  - derives_case_signal::principle::0580->case::financial-statement-0612
+  - derives_case_signal::principle::0582->case::financial-statement-0614
+  - derives_case_signal::principle::0877->case::financial-statement-0703
+  - derives_case_signal::principle::0877->case::financial-statement-0940
+  - derives_case_signal::principle::1162->case::financial-statement-1288
+  - derives_case_signal::principle::1169->case::financial-statement-1296
+  - derives_case_signal::principle::1169->case::financial-statement-1297
+  - derives_case_signal::principle::1170->case::financial-statement-1299
+  - derives_case_signal::principle::1171->case::financial-statement-1300
+  - derives_case_signal::principle::1171->case::financial-statement-1301
+  - derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+  - derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+  - derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+  - derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+  - derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+  - derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+  - derives_term_signal::principle::0417->term::aeg
+  - derives_term_signal::principle::0484->term::aeg
+  - derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+  - derives_term_signal::principle::0918->term::aoig
+  - derives_term_signal::principle::0918->term::noa
+  - derives_term_signal::principle::1169->term::banking-income-for-the-future
+  - derives_term_signal::principle::1169->term::big-bath-accounting
+  - derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+  - derives_term_signal::principle::1169->term::earnings-management
+  - derives_term_signal::principle::1169->term::earnings-quality
+  - derives_term_signal::principle::1169->term::reversal-property-of-accounting
+  - derives_term_signal::principle::1169->term::saving
+  - derives_term_signal::principle::1171->term::audit-quality
+  - derives_term_signal::principle::1171->term::channel-stuffing
+  - derives_term_signal::principle::1171->term::disclosure-quality
+  - derives_term_signal::principle::1171->term::expenditure-time
+  - derives_term_signal::principle::1171->term::gaap-quality
+  - derives_term_signal::principle::1171->term::gapp-application-quality
+  - derives_term_signal::principle::1171->term::pcaob
+  - derives_term_signal::principle::1171->term::revenue-timing
+  - derives_term_signal::principle::1171->term::sec
+  - derives_term_signal::principle::1171->term::transaction-quality
+  - derives_term_signal::principle::1171->term::transaction-structuring
+  - derives_term_signal::principle::1171->term::transaction-timing
+  - section-parent::framework::0416->principle::0417
+  - section-parent::framework::0423->principle::0429
+  - section-parent::framework::0431->principle::0470
+  - section-parent::framework::0578->principle::0580
+  - section-parent::framework::0842->principle::0877
+  - section-parent::framework::0842->principle::0917
+  - section-parent::framework::0934->principle::0935
+  - section-parent::framework::0934->principle::0966
+  - section-parent::framework::1146->principle::1159
+  - section-parent::framework::1161->principle::1162
+  - section-parent::framework::1161->principle::1171
+  - section-parent::framework::1230->principle::1231
+  - section-parent::principle::0007->principle::0012
+  - section-parent::principle::0152->principle::0153
+  - section-parent::principle::0417->principle::0418
+  - section-parent::principle::0424->principle::0426
+  - section-parent::principle::0426->principle::0427
+  - section-parent::principle::0429->principle::0430
+  - section-parent::principle::0432->principle::0436
+  - section-parent::principle::0432->principle::0439
+  - section-parent::principle::0433->principle::0435
+  - section-parent::principle::0439->principle::0440
+  - section-parent::principle::0456->principle::0458
+  - section-parent::principle::0456->principle::0460
+  - section-parent::principle::0456->principle::0461
+  - section-parent::principle::0483->principle::0484
+  - section-parent::principle::0496->principle::0502
+  - section-parent::principle::0580->principle::0581
+  - section-parent::principle::0580->principle::0582
+  - section-parent::principle::0580->principle::0586
+  - section-parent::principle::0580->principle::0592
+  - section-parent::principle::0582->principle::0583
+  - section-parent::principle::0582->principle::0584
+  - section-parent::principle::0582->principle::0585
+  - section-parent::principle::0647->principle::0657
+  - section-parent::principle::0713->principle::0714
+  - section-parent::principle::0714->principle::0715
+  - section-parent::principle::0877->principle::0878
+  - section-parent::principle::0917->principle::0918
+  - section-parent::principle::0918->principle::0919
+  - section-parent::principle::0964->principle::0965
+  - section-parent::principle::0966->principle::0967
+  - section-parent::principle::0968->principle::0970
+  - section-parent::principle::1159->principle::1160
+  - section-parent::principle::1162->principle::1163
+  - section-parent::principle::1165->principle::1169
+  - section-parent::principle::1169->principle::1170
+  - section-parent::principle::1231->principle::1232
+  - section-parent::principle::1231->principle::1233
+  - section-parent::principle::1231->principle::1234
+  - section-parent::principle::1231->principle::1235
+  - section-parent::principle::1231->principle::1236
+  - section-parent::principle::1231->principle::1241
+  - section-parent::principle::1231->principle::1242
+  - section-parent::principle::1231->principle::1244
+  - section-parent::principle::1231->principle::1245
+  - supported-by::principle::0012->evidence::financial-statement-0010
+  - supported-by::principle::0153->evidence::financial-statement-0163
+  - supported-by::principle::0417->evidence::financial-statement-0443
+  - supported-by::principle::0417->evidence::financial-statement-0444
+  - supported-by::principle::0426->evidence::financial-statement-0456
+  - supported-by::principle::0426->evidence::financial-statement-0457
+  - supported-by::principle::0429->evidence::financial-statement-0462
+  - supported-by::principle::0435->evidence::financial-statement-0466
+  - supported-by::principle::0436->evidence::financial-statement-0467
+  - supported-by::principle::0439->evidence::financial-statement-0469
+  - supported-by::principle::0458->evidence::financial-statement-0485
+  - supported-by::principle::0460->evidence::financial-statement-0487
+  - supported-by::principle::0461->evidence::financial-statement-0488
+  - supported-by::principle::0470->evidence::financial-statement-0496
+  - supported-by::principle::0484->evidence::financial-statement-0516
+  - supported-by::principle::0502->evidence::financial-statement-0530
+  - supported-by::principle::0580->evidence::financial-statement-0612
+  - supported-by::principle::0582->evidence::financial-statement-0613
+  - supported-by::principle::0582->evidence::financial-statement-0614
+  - supported-by::principle::0877->evidence::financial-statement-0702
+  - supported-by::principle::0877->evidence::financial-statement-0703
+  - supported-by::principle::0877->evidence::financial-statement-0772
+  - supported-by::principle::0877->evidence::financial-statement-0940
+  - supported-by::principle::0917->evidence::financial-statement-0991
+  - supported-by::principle::0918->evidence::financial-statement-0992
+  - supported-by::principle::0918->evidence::financial-statement-0993
+  - supported-by::principle::0918->evidence::financial-statement-0994
+  - supported-by::principle::0918->evidence::financial-statement-0995
+  - supported-by::principle::0918->evidence::financial-statement-0996
+  - supported-by::principle::0918->evidence::financial-statement-0997
+  - supported-by::principle::0935->evidence::financial-statement-1018
+  - supported-by::principle::0935->evidence::financial-statement-1019
+  - supported-by::principle::0935->evidence::financial-statement-1020
+  - supported-by::principle::0935->evidence::financial-statement-1021
+  - supported-by::principle::0965->evidence::financial-statement-1056
+  - supported-by::principle::0966->evidence::financial-statement-1057
+  - supported-by::principle::0970->evidence::financial-statement-1061
+  - supported-by::principle::1159->evidence::financial-statement-1286
+  - supported-by::principle::1162->evidence::financial-statement-1288
+  - supported-by::principle::1169->evidence::financial-statement-1296
+  - supported-by::principle::1169->evidence::financial-statement-1297
+  - supported-by::principle::1169->evidence::financial-statement-1298
+  - supported-by::principle::1170->evidence::financial-statement-1299
+  - supported-by::principle::1171->evidence::financial-statement-1300
+  - supported-by::principle::1171->evidence::financial-statement-1301
+  - supported-by::principle::1231->evidence::financial-statement-1362
+  source_locations:
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15978
+      line_end: 15978
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5725
+      line_end: 5739
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7541
+      line_end: 7541
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11549
+      line_end: 11551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15972
+      line_end: 15976
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2085
+      line_end: 2089
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5741
+      line_end: 5749
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9534
+      line_end: 9540
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12500
+      line_end: 12504
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12532
+      line_end: 12536
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16654
+      line_end: 16666
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 153
+      line_end: 153
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2085
+      line_end: 2089
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5592
+      line_end: 5606
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5608
+      line_end: 5608
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5725
+      line_end: 5739
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5741
+      line_end: 5749
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5794
+      line_end: 5796
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5840
+      line_end: 5840
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5844
+      line_end: 5848
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5860
+      line_end: 5864
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6047
+      line_end: 6059
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6071
+      line_end: 6081
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6085
+      line_end: 6097
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6191
+      line_end: 6199
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6493
+      line_end: 6503
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6621
+      line_end: 6625
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7539
+      line_end: 7539
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7541
+      line_end: 7541
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8693
+      line_end: 8693
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9534
+      line_end: 9540
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11549
+      line_end: 11551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12204
+      line_end: 12216
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12236
+      line_end: 12256
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12258
+      line_end: 12264
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12266
+      line_end: 12271
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12273
+      line_end: 12277
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12279
+      line_end: 12293
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12500
+      line_end: 12504
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12506
+      line_end: 12512
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12514
+      line_end: 12530
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12532
+      line_end: 12536
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12905
+      line_end: 12911
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12915
+      line_end: 12925
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12951
+      line_end: 12951
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15775
+      line_end: 15781
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15968
+      line_end: 15968
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15972
+      line_end: 15976
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16654
+      line_end: 16666
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5546
+      line_end: 5546
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5683
+      line_end: 5683
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5800
+      line_end: 5800
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7507
+      line_end: 7507
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11196
+      line_end: 11196
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12437
+      line_end: 12437
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15546
+      line_end: 15546
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15805
+      line_end: 15805
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16618
+      line_end: 16618
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 123
+      line_end: 123
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 151
+      line_end: 151
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2073
+      line_end: 2073
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2083
+      line_end: 2083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5590
+      line_end: 5590
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5610
+      line_end: 5610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5701
+      line_end: 5701
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5723
+      line_end: 5723
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5751
+      line_end: 5751
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5792
+      line_end: 5792
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5798
+      line_end: 5798
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5802
+      line_end: 5802
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5816
+      line_end: 5816
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5838
+      line_end: 5838
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5842
+      line_end: 5842
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5858
+      line_end: 5858
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5866
+      line_end: 5866
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6041
+      line_end: 6041
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6045
+      line_end: 6045
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6069
+      line_end: 6069
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6083
+      line_end: 6083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6189
+      line_end: 6189
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6423
+      line_end: 6423
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6491
+      line_end: 6491
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6589
+      line_end: 6589
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6619
+      line_end: 6619
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7525
+      line_end: 7525
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7535
+      line_end: 7535
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7537
+      line_end: 7537
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7543
+      line_end: 7543
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7551
+      line_end: 7551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7589
+      line_end: 7589
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7610
+      line_end: 7610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7660
+      line_end: 7660
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8583
+      line_end: 8583
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8691
+      line_end: 8691
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9530
+      line_end: 9530
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9532
+      line_end: 9532
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9542
+      line_end: 9542
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11547
+      line_end: 11547
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11553
+      line_end: 11553
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12202
+      line_end: 12202
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12218
+      line_end: 12218
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12295
+      line_end: 12295
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12498
+      line_end: 12498
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12883
+      line_end: 12883
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12903
+      line_end: 12903
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12913
+      line_end: 12913
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12927
+      line_end: 12927
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12935
+      line_end: 12935
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12949
+      line_end: 12949
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15773
+      line_end: 15773
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15783
+      line_end: 15783
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15807
+      line_end: 15807
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15817
+      line_end: 15817
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15902
+      line_end: 15902
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15952
+      line_end: 15952
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15970
+      line_end: 15970
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16652
+      line_end: 16652
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16668
+      line_end: 16668
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16676
+      line_end: 16676
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16718
+      line_end: 16718
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16724
+      line_end: 16724
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16768
+      line_end: 16768
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16808
+      line_end: 16808
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16814
+      line_end: 16814
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16828
+      line_end: 16828
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16830
+      line_end: 16830
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5592
+      line_end: 5606
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12266
+      line_end: 12271
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6909
+      line_end: 6909
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 1566
+      line_end: 1596
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5725
+      line_end: 5739
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7541
+      line_end: 7541
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11549
+      line_end: 11551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15972
+      line_end: 15976
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2085
+      line_end: 2089
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5741
+      line_end: 5749
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9534
+      line_end: 9540
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12500
+      line_end: 12504
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12532
+      line_end: 12536
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16654
+      line_end: 16666
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5592
+      line_end: 5606
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6493
+      line_end: 6503
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12279
+      line_end: 12293
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12266
+      line_end: 12271
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5590
+      line_end: 5590
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5792
+      line_end: 5792
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6189
+      line_end: 6189
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7525
+      line_end: 7525
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11547
+      line_end: 11547
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12202
+      line_end: 12202
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12498
+      line_end: 12498
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12913
+      line_end: 12913
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15773
+      line_end: 15773
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15807
+      line_end: 15807
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15978
+      line_end: 15978
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16652
+      line_end: 16652
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 151
+      line_end: 151
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2083
+      line_end: 2083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5610
+      line_end: 5610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5723
+      line_end: 5723
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5751
+      line_end: 5751
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5798
+      line_end: 5798
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5842
+      line_end: 5842
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5858
+      line_end: 5858
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5838
+      line_end: 5838
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5866
+      line_end: 5866
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6045
+      line_end: 6045
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6069
+      line_end: 6069
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6083
+      line_end: 6083
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6491
+      line_end: 6491
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6619
+      line_end: 6619
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7535
+      line_end: 7535
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7537
+      line_end: 7537
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7610
+      line_end: 7610
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7660
+      line_end: 7660
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7543
+      line_end: 7543
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7551
+      line_end: 7551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7589
+      line_end: 7589
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8691
+      line_end: 8691
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9532
+      line_end: 9532
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9542
+      line_end: 9542
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11553
+      line_end: 11553
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12218
+      line_end: 12218
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12295
+      line_end: 12295
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12903
+      line_end: 12903
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12927
+      line_end: 12927
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12949
+      line_end: 12949
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15783
+      line_end: 15783
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15817
+      line_end: 15817
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15952
+      line_end: 15952
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15970
+      line_end: 15970
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16668
+      line_end: 16668
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16676
+      line_end: 16676
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16718
+      line_end: 16718
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16724
+      line_end: 16724
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16768
+      line_end: 16768
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16808
+      line_end: 16808
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16814
+      line_end: 16814
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16828
+      line_end: 16828
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16830
+      line_end: 16830
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 153
+      line_end: 153
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 2085
+      line_end: 2089
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5592
+      line_end: 5606
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5608
+      line_end: 5608
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5725
+      line_end: 5739
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5741
+      line_end: 5749
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5794
+      line_end: 5796
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5840
+      line_end: 5840
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5844
+      line_end: 5848
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 5860
+      line_end: 5864
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6047
+      line_end: 6059
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6071
+      line_end: 6081
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6085
+      line_end: 6097
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6191
+      line_end: 6199
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6493
+      line_end: 6503
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 6621
+      line_end: 6625
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7527
+      line_end: 7533
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7539
+      line_end: 7539
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 7541
+      line_end: 7541
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8693
+      line_end: 8693
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 8695
+      line_end: 8697
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 9534
+      line_end: 9540
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 11549
+      line_end: 11551
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12204
+      line_end: 12216
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12220
+      line_end: 12234
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12236
+      line_end: 12256
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12258
+      line_end: 12264
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12266
+      line_end: 12271
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12273
+      line_end: 12277
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12279
+      line_end: 12293
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12500
+      line_end: 12504
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12506
+      line_end: 12512
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12514
+      line_end: 12530
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12532
+      line_end: 12536
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12905
+      line_end: 12911
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12915
+      line_end: 12925
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 12951
+      line_end: 12951
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15775
+      line_end: 15781
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15809
+      line_end: 15815
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15954
+      line_end: 15960
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15962
+      line_end: 15966
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15968
+      line_end: 15968
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15972
+      line_end: 15976
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15980
+      line_end: 15990
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 15992
+      line_end: 16008
+  - source_file: sources/财务报表分析_Markdown版.md
+    source_location:
+      line_start: 16654
+      line_end: 16666
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Accounting Quality Signal Check` is distilled from the source excerpt "## 18.1.2
+    关于会计信息质量的五个问题"[^anchor:accounting-quality-signal-check-principle::1171]. The draft
+    treats this as a decision-facing principle rather than a thematic summary: '
+  use_situation_trigger:
+  - accounting_quality_signal_check_decision_required
+  - accounting_quality_signal_check_evidence_grounded
+  anti_misuse_boundary:
+  - scenario_missing_decision_context
+  - accounting_quality_signal_check_boundary_unclear
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - scenario_missing_decision_context
+  - accounting_quality_signal_check_boundary_unclear
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: accounting-quality-signal-check
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

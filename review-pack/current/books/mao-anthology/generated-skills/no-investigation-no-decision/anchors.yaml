@@ -1,0 +1,70 @@
+skill_id: no-investigation-no-decision
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+graph_anchor_sets:
+- anchor_id: no-investigation-no-decision-seed-support
+  node_ids:
+  - situation-strategy::no-investigation-no-decision
+  - evidence::mao-0051
+  - evidence::mao-0057
+  - evidence::mao-0065
+  - evidence::mao-0068
+  - evidence::mao-0106
+  - evidence::mao-0113
+  edge_ids:
+  - situation-strategy-evidence::no-investigation-no-decision::0001
+  - situation-strategy-evidence::no-investigation-no-decision::0002
+  - situation-strategy-evidence::no-investigation-no-decision::0003
+  - situation-strategy-evidence::no-investigation-no-decision::0004
+  - situation-strategy-evidence::no-investigation-no-decision::0005
+  - situation-strategy-evidence::no-investigation-no-decision::0006
+  community_ids: []
+source_anchor_sets:
+- anchor_id: no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  kind: source_excerpt
+  path: ../../sources/mao/004-关于纠正党内的错误思想.md
+  line_start: 63
+  line_end: 65
+  snippet: 主观主义，在某些党员中浓厚地存在，这对分析政治形势和指导工作，都非常不利。因为对于政治形势的主观主义的分析和对于工作的主观主义的指导，其必然的结果，不是机会主义，就是盲动主义。至于党内的主观主义的批评，不要证据的乱说，或互相猜忌，往往酿成党内的无原则纠纷，破坏党的组织。
+    关于党内批评问题，还有一点要说及的，就是有些同志的批评不注意大的方面，只注意小的方面。他们不明白批评的主要任务，是指出政治上的错误和组织上的错误。至于个人缺点，如果不是
+- anchor_id: no-investigation-no-decision-evidence::mao-0051
+  kind: source_excerpt
+  path: ../../sources/mao/004-关于纠正党内的错误思想.md
+  line_start: 63
+  line_end: 65
+  snippet: 主观主义，在某些党员中浓厚地存在，这对分析政治形势和指导工作，都非常不利。因为对于政治形势的主观主义的分析和对于工作的主观主义的指导，其必然的结果，不是机会主义，就是盲动主义。至于党内的主观主义的批评，不要证据的乱说，或互相猜忌，往往酿成党内的无原则纠纷，破坏党的组织。
+    关于党内批评问题，还有一点要说及的，就是有些同志的批评不注意大的方面，只注意小的方面。他们不明白批评的主要任务，是指出政治上的错误和组织上的错误。至于个人缺点，如果不是
+- anchor_id: no-investigation-no-decision-evidence::mao-0057
+  kind: source_excerpt
+  path: ../../sources/mao/005-星星之火，可以燎原.md
+  line_start: 6
+  line_end: 12
+  snippet: 在对于时局的估量和伴随而来的我们的行动问题上，我们党内有一部分同志还缺少正确的认识。他们虽然相信革命高潮不可避免地要到来，却不相信革命高潮有迅速到来的可能。因此他们不赞成争取江西的计划，而只赞成在福建、广东、江西之间的三个边界区域的流动游击，同时也没有在游击区域建立红色政权的深刻的观念，因此也就没有用这种红色政权的巩固和扩大去促进全国革命高潮的深刻的观念。他们似乎认为在距离革命高潮尚远的时期做这种建立政权的艰苦工作为徒劳，而希望用比较轻
+- anchor_id: no-investigation-no-decision-evidence::mao-0065
+  kind: source_excerpt
+  path: ../../sources/mao/006-反对本本主义.md
+  line_start: 24
+  line_end: 26
+  snippet: 以为上了书的就是对的，文化落后的中国农民至今还存着这种心理。不谓共产党内讨论问题，也还有人开口闭口“拿本本来”。我们说上级领导机关的指示是正确的，决不单是因为它出于“上级领导机关”，而是因为它的内容是适合于斗争中客观和主观情势的，是斗争所需要的。不根据实际情况进行讨论和审察，一味盲目执行，这种单纯建立在“上级”观念上的形式主义的态度是很不对的。为什么党的策略路线总是不能深入群众，就是这种形式主义在那里作怪。盲目地表面上完全无异议地执行上
+- anchor_id: no-investigation-no-decision-evidence::mao-0068
+  kind: source_excerpt
+  path: ../../sources/mao/006-反对本本主义.md
+  line_start: 55
+  line_end: 59
+  snippet: 我们的斗争目的是要从民权主义转变到社会主义。我们的任务第一步是，争取工人阶级的大多数，发动农民群众和城市贫民，打倒地主阶级，打倒帝国主义，打倒国民党政权，完成民权主义革命。由这种斗争的发展，跟着就要执行社会主义革命的任务。这些伟大的革命任务的完成不是简单容易的，它全靠无产阶级政党的斗争策略的正确和坚决。倘若无产阶级政党的斗争策略是错误的，或者是动摇犹豫的，那末，革命就非走向暂时的失败不可。须知资产阶级政党也是天天在那里讨论斗争策略的，他
+- anchor_id: no-investigation-no-decision-evidence::mao-0106
+  kind: source_excerpt
+  path: ../../sources/mao/012-中国革命战争的战略问题.md
+  line_start: 170
+  line_end: 203
+  snippet: 当时的情况是弱国抵抗强国。文中指出了战前的政治准备——取信于民，叙述了利于转入反攻的阵地——长勺，叙述了利于开始反攻的时机——彼竭我盈之时，叙述了追击开始的时机——辙乱旗靡之时。虽然是一个不大的战役，却同时是说的战略防御的原则。中国战史中合此原则而取胜的实例是非常之多的。楚汉成皋之战（31）、新汉昆阳之战（32）、袁曹官渡之战（33）、吴魏赤壁之战（34）、吴蜀彝陵之战（35）、秦晋淝水之战（36）等等有名的大战，都是双方强弱不同，弱者
+- anchor_id: no-investigation-no-decision-evidence::mao-0113
+  kind: source_excerpt
+  path: ../../sources/mao/012-中国革命战争的战略问题.md
+  line_start: 298
+  line_end: 352
+  snippet: '------------------ 注　　释 〔1〕 “实际”这一个概念，按照中国文字，有两种含义：一种是指真实的情况，一种是指人们的行动（也即一般人所说的实践）。毛泽东在他的著作中，应用这一个概念，时常是双关的。
+    〔2〕 孙武子即孙武，中国春秋时代的著名军事学家，著《孙子》十三篇。本文引语见《孙子·谋攻》。 〔3〕从一九二一年七月中国共产党成立到一九三六年毛泽东著此文时，正是十五年。
+    〔4〕陈独秀（一八七九——一九四二），安徽怀宁人'

@@ -1,0 +1,17 @@
+{
+  "source_bundle_id": "shiji-source-v0.6",
+  "summary": {
+    "skill_candidates": 3,
+    "workflow_script_candidates": 0,
+    "matched_gold_skills": 0,
+    "missing_gold_skills": 0
+  },
+  "matched_gold_skill_ids": [],
+  "missing_gold_skill_ids": [],
+  "workflow_script_candidate_ids": [],
+  "candidate_ids": [
+    "historical-analogy-transfer-gate",
+    "historical-case-consequence-judgment",
+    "role-boundary-before-action"
+  ]
+}

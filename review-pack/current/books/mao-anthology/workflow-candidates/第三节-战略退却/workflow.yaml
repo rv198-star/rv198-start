@@ -1,0 +1,88 @@
+workflow_id: 第三节-战略退却
+title: 第三节 战略退却
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0089
+  supporting_node_ids:
+  - case::mao-0106
+  - counter-example::mao-0105
+  - counter-example::mao-0106
+  - evidence::mao-0105
+  - evidence::mao-0106
+  - principle::0086
+  supporting_edge_ids:
+  - derives_case_signal::principle::0089->case::mao-0106
+  - derives_counter_example_signal::principle::0089->counter-example::mao-0105
+  - derives_counter_example_signal::principle::0089->counter-example::mao-0106
+  - section-parent::principle::0086->principle::0089
+  - supported-by::principle::0089->evidence::mao-0105
+  - supported-by::principle::0089->evidence::mao-0106
+  community_ids:
+  - community::principle::0086
+  - community::principle::0089
+evidence_anchors:
+  primary_node:
+    id: principle::0089
+    label: 第三节　战略退却
+    type: principle_signal
+  supporting_nodes:
+  - id: case::mao-0106
+    label: 当时的情况是弱国抵抗强国。文中指出了战前的政治准备——取信于民，叙述了利于转入反攻的阵地——长勺，叙述了利于开始反攻的时机——彼竭我盈之时...
+    type: case_signal
+  - id: counter-example::mao-0105
+    label: 战略退却，是劣势军队处在优势军队进攻面前，因为顾到不能迅速地击破其进攻，为了保存军力，待机破敌，而采取的一个有计划的战略步骤。可是，军事冒...
+    type: counter_example_signal
+  - id: counter-example::mao-0106
+    label: 当时的情况是弱国抵抗强国。文中指出了战前的政治准备——取信于民，叙述了利于转入反攻的阵地——长勺，叙述了利于开始反攻的时机——彼竭我盈之时...
+    type: counter_example_signal
+  - id: evidence::mao-0105
+    label: 战略退却，是劣势军队处在优势军队进攻面前，因为顾到不能迅速地击破其进攻，为了保存军力，待机破敌，而采取的一个有计划的战略步骤。可是，军事冒...
+    type: chunk_evidence
+  - id: evidence::mao-0106
+    label: 当时的情况是弱国抵抗强国。文中指出了战前的政治准备——取信于民，叙述了利于转入反攻的阵地——长勺，叙述了利于开始反攻的时机——彼竭我盈之时...
+    type: chunk_evidence
+  - id: principle::0086
+    label: 第五章　战略防御
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0089->case::mao-0106
+    type: derives_case_signal
+    from: principle::0089
+    to: case::mao-0106
+  - id: derives_counter_example_signal::principle::0089->counter-example::mao-0105
+    type: derives_counter_example_signal
+    from: principle::0089
+    to: counter-example::mao-0105
+  - id: derives_counter_example_signal::principle::0089->counter-example::mao-0106
+    type: derives_counter_example_signal
+    from: principle::0089
+    to: counter-example::mao-0106
+  - id: section-parent::principle::0086->principle::0089
+    type: section_parent
+    from: principle::0086
+    to: principle::0089
+  - id: supported-by::principle::0089->evidence::mao-0105
+    type: supported_by_evidence
+    from: principle::0089
+    to: evidence::mao-0105
+  - id: supported-by::principle::0089->evidence::mao-0106
+    type: supported_by_evidence
+    from: principle::0089
+    to: evidence::mao-0106
+  communities:
+  - id: community::principle::0086
+    label: 第五章　战略防御 Cluster
+  - id: community::principle::0089
+    label: 第三节　战略退却 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

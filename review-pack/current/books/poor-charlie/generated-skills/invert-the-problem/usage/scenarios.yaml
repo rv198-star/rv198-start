@@ -1,0 +1,108 @@
+should_trigger:
+- scenario_id: failure-first-planning
+  summary: 当用户主动问“这个计划怎么失败”“最坏会怎样”“有什么漏洞”时触发。
+  prompt_signals:
+  - 最坏会怎样
+  - 有什么漏洞
+  - 怎么会失败
+  boundary_reason: 这是典型的 failure-first 评估窗口，而不是普通创意讨论。
+  next_action_shape: 列出 failure modes、avoid rules、找茬清单和 first preventive action，再决定
+    full_inversion / partial_review / defer。
+  anchor_refs:
+  - invert-source-note
+  - invert-trace-airline
+- scenario_id: team-red-team-review
+  summary: 当团队只看到了机会没看到威胁，希望做系统性红队审查时触发。
+  prompt_signals:
+  - 只看到了机会没看到威胁
+  - 系统性找找茬
+  - 帮我做 pre-mortem
+  boundary_reason: 这类场景需要显式把乐观方案翻译成失败条件，而不是继续扩创意广度。
+  next_action_shape: 输出潜在威胁、失败模式、找茬清单和预防动作，避免只给一句“注意风险”。
+  anchor_refs:
+  - invert-trace-pilot
+  - invert-eval
+- scenario_id: graph-inferred-link-e_invert_margin_complements
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `e_invert_margin_complements`
+    expands trigger language only when a live decision links `Invert the problem`
+    and `Margin of safety sizing`.'
+  prompt_signals:
+  - Invert the problem
+  - Margin of safety sizing
+  - '# Invert the Problem Source Note Skill ID: invert-the-problem Primary Claim:...'
+  - 方案太乐观
+  - 最坏情况
+  - 失败路径
+  - 血本无归
+  - pre-mortem
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: '把目标翻成 failure map：列 failure_modes、avoid_rules、first_preventive_action，并决定
+    full_inversion / partial_review / defer。 Evidence check: verify source_location
+    `sources/invert-the-problem.md:1-9` before expanding the trigger.'
+  anchor_refs:
+  - e_invert_margin_complements
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/invert-the-problem.md:1-9
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: c_error_avoidance
+      label: Error avoidance
+      top_node_id: n_invert_principle
+      top_node_label: Invert the problem
+      node_count: 4
+    suggested_questions:
+    - Why does `Circle of competence` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `Margin of safety sizing` sit at the center of this graph, and what
+      evidence would most change its routing?
+    - What is the operational boundary of `Boundary discipline`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `Error avoidance`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `Boundary discipline`?
+should_not_trigger:
+- scenario_id: pure-brainstorming
+  summary: 纯头脑风暴或创意发散不应触发。
+  prompt_signals:
+  - 头脑风暴
+  - 创意方向
+  - 新产品点子
+  boundary_reason: 逆向思维是保守和防御型工具，不适合拿来替代 ideation。
+  anchor_refs:
+  - invert-source-note
+- scenario_id: concept-definition-query
+  summary: 纯概念定义、历史来源或例子解释不应触发。
+  prompt_signals:
+  - 逆向思维是什么意思
+  - 反过来想有哪些例子
+  - 芒格为什么强调 inversion
+  boundary_reason: 这类请求只是在问概念解释或历史案例，没有真实待决目标、约束和失败路径。
+  anchor_refs:
+  - invert-source-note
+edge_case:
+- scenario_id: medium-stakes-personal-decision
+  summary: 跳槽、搬家、个人计划等中等复杂度决策，只有当用户明确要求扫描失败模式时才部分触发。
+  prompt_signals:
+  - 跳槽会不会踩坑
+  - 有没有没想到的风险
+  - 想先做个 pre-mortem
+  boundary_reason: 这类场景可以做轻量 failure scan，但不应该被升级成重大资本配置级框架。
+  next_action_shape: 先确认是不是在做 failure scan，再给轻量 pre-mortem 与 partial_review，而不是过度重型化。
+  anchor_refs:
+  - invert-eval
+  - invert-real-decision
+refusal:
+- scenario_id: post-hoc-decoration
+  summary: 当结论已经锁死、用户只想事后补一层“逆向思考”装饰时拒绝。
+  prompt_signals:
+  - 已经决定了
+  - 只是想再确认一下
+  - 帮我补充几个风险点
+  boundary_reason: inversion 应该改变决策路径，不应给既定结论补礼貌性风险词。
+  next_action_shape: 明确指出当前更适合执行复盘或一般风险提示，而不是伪装成 full_inversion。
+  anchor_refs:
+  - invert-source-note

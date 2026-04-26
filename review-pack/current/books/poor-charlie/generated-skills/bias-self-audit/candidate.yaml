@@ -1,0 +1,167 @@
+candidate_id: bias-self-audit
+source_bundle_id: poor-charlies-almanack-v0.1
+source_graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+seed:
+  primary_node_id: n_bias_principle
+  supporting_node_ids:
+  - n_bias_us_air_trace
+  - n_circle_principle
+  supporting_edge_ids:
+  - e_bias_us_air_supports
+  - e_circle_bias_complements
+  community_ids:
+  - c_boundary_discipline
+  - c_error_avoidance
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: bias-self-audit
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: manual_override
+  selected_candidate_kind: general_agentic
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9722
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/bias-self-audit.md
+source_location: &id001
+  line_start: 1
+  line_end: 9
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: bias-self-audit
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.9167
+  overall_score: 0.9722
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.9167
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 2
+    evidence_support_count: 2
+    context_cues: 1
+    workflow_cues: 1
+    tri_state_support_ratio: 0.0
+    matched_keywords: []
+    evidence_chunk_ids: []
+    supporting_node_count: 2
+    supporting_edge_count: 2
+    community_count: 2
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: bias-self-audit
+  source_graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: e_circle_bias_complements
+    label: complements
+    from_label: Circle of competence
+    to_label: Bias self audit
+    source_file: sources/circle-of-competence.md
+    source_location: sources/circle-of-competence.md:1-9
+    snippet: '# Circle of Competence Source Note Skill ID: circle-of-competence Primary
+      Claim: Only size into decisions that stay inside a demonstrated circle of understanding.
+      Evidence: - Surfa'
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: 先写 thesis，再命名 triggered_biases，指定 strongest counter-evidence，最后给
+      mitigation_actions 和 next_action。
+  ambiguous_boundary_probes: []
+  source_action_transfer:
+    family: bias-self-audit
+    action_language: 先写 thesis，再命名 triggered_biases，指定 strongest counter-evidence，最后给
+      mitigation_actions 和 next_action。
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: c_boundary_discipline
+      label: Boundary discipline
+      top_node_id: n_bias_principle
+      top_node_label: Bias self audit
+      node_count: 4
+    - community_id: c_error_avoidance
+      label: Error avoidance
+      top_node_id: n_bias_principle
+      top_node_label: Bias self audit
+      node_count: 4
+    suggested_questions:
+    - Why does `Circle of competence` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `Margin of safety sizing` sit at the center of this graph, and what
+      evidence would most change its routing?
+    - What is the operational boundary of `Boundary discipline`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `Error avoidance`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `Boundary discipline`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - principle
+  - usage-trace
+  source_node_ids:
+  - n_bias_principle
+  - n_bias_us_air_trace
+  - n_circle_principle
+  source_edge_ids:
+  - e_bias_us_air_supports
+  - e_circle_bias_complements
+  source_locations:
+  - source_file: sources/bias-self-audit.md
+    source_location: *id001
+  - source_file: traces/canonical/us-air-regret.yaml
+    source_location:
+      line_start: 1
+      line_end: 8
+  - source_file: sources/circle-of-competence.md
+    source_location:
+      line_start: 1
+      line_end: 9
+  - source_file: traces/canonical/us-air-regret.yaml
+    source_location:
+      line_start: 1
+      line_end: 8
+  - source_file: sources/circle-of-competence.md
+    source_location:
+      line_start: 1
+      line_end: 9
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - bias-self-audit
+  use_situation_trigger:
+  - use `bias-self-audit` only for judgment-rich decisions
+  anti_misuse_boundary:
+  - do_not_use_for_summary_translation_fact_lookup_or_stance_commentary
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - material_context_difference_not_checked

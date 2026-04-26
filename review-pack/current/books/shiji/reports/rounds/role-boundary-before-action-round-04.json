@@ -1,0 +1,67 @@
+{
+  "candidate_id": "role-boundary-before-action",
+  "mutation_plan": {
+    "boundary_strength_delta": 0.05,
+    "eval_gain_delta": 0.05,
+    "stability_delta": 0.05,
+    "append_trace_ref": null,
+    "revision_note": "Refinement scheduler round 4 tightened boundary signals and improved evaluation support."
+  },
+  "scorecard": {
+    "nearest_skill_id": "role-boundary-before-action",
+    "boundary_quality": 0.8,
+    "eval_aggregate": 0.99,
+    "cross_subset_stability": 0.99,
+    "overall_quality": 0.9045,
+    "delta_vs_nearest": 0.9045,
+    "delta_vs_bundle": 0.9045,
+    "net_positive_value": 0.9045,
+    "artifact_quality": 0.9458,
+    "artifact_grade": "excellent",
+    "production_quality": 0.9313,
+    "quality_grade": "excellent",
+    "release_ready": true
+  },
+  "decision": {
+    "terminal_state": "pending",
+    "continue_loop": true,
+    "reason": "continue"
+  },
+  "quality_assessment": {
+    "candidate_id": "role-boundary-before-action",
+    "artifact_quality": 0.9458,
+    "artifact_grade": "excellent",
+    "production_quality": 0.9313,
+    "quality_grade": "excellent",
+    "release_ready": true,
+    "loop_overall_quality": 0.9045,
+    "component_scores": {
+      "contract_specificity": 1.0,
+      "rationale_depth": 1.0,
+      "evidence_grounding": 1.0,
+      "usage_readiness": 0.675,
+      "eval_readiness": 0.9458,
+      "revision_traceability": 1.0
+    },
+    "signals": {
+      "trigger_patterns": 3,
+      "intake_fields": 4,
+      "rationale_chars": 2159,
+      "rationale_anchor_refs": 4,
+      "evidence_anchor_refs": 3,
+      "graph_anchor_sets": 1,
+      "source_anchor_sets": 9,
+      "trace_refs": 1,
+      "usage_notes": 9,
+      "eval_cases_total": 3,
+      "passed_kiu_tests": 2,
+      "revision_history_entries": 5
+    },
+    "blockers": [],
+    "notes": [],
+    "thresholds": {
+      "artifact_quality": 0.74,
+      "production_quality": 0.78
+    }
+  }
+}

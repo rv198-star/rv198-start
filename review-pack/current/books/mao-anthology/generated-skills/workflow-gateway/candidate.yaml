@@ -1,0 +1,379 @@
+candidate_id: workflow-gateway
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0322
+  supporting_node_ids:
+  - case::mao-0443
+  - case::mao-0449
+  - case::mao-0453
+  - counter-example::mao-0443
+  - counter-example::mao-0444
+  - counter-example::mao-0445
+  - counter-example::mao-0446
+  - counter-example::mao-0447
+  - counter-example::mao-0448
+  - counter-example::mao-0449
+  supporting_edge_ids:
+  - derives_case_signal::principle::0322->case::mao-0443
+  - derives_case_signal::principle::0322->case::mao-0449
+  - derives_case_signal::principle::0322->case::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  community_ids:
+  - community::principle::0320
+  - community::principle::0322
+  - community::principle::0181
+  - community::principle::0281
+  - community::principle::0110
+  - community::principle::0242
+candidate_kind: workflow_gateway
+workflow_certainty: medium
+context_certainty: medium
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 2
+terminal_state: ready_for_review
+human_gate: skipped
+workflow_gateway:
+  mode: route_to_workflow_candidates
+  routes_to:
+  - 五-全党团结起来-为实现党的任务而斗争
+  - 四-中国革命是世界革命的一部分
+  - 我们的具体纲领
+  - 第三节-战略退却
+  - 第九章-指挥关系
+  - 第四节-重要的问题在善于学习
+  - 结-论
+  - 论认识和实践的关系-知和行的关系
+  boundary_rule: The gateway may choose or sequence workflow candidates, but it must
+    not inline deterministic workflow steps as agentic skill reasoning.
+routing_evidence:
+  inference_mode: workflow_gateway_fallback
+  selected_candidate_kind: workflow_gateway
+  workflow_candidate_count: 8
+  workflow_boundary_preserved: true
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: workflow-gateway
+  passed: true
+  workflow_ready: false
+  corroboration_score: 1.0
+  predictive_usefulness_score: 0.9
+  distinctiveness_score: 0.9
+  overall_score: 0.9333
+  reasons: []
+  evidence:
+    workflow_candidate_count: 8
+    supporting_node_count: 11
+    supporting_edge_count: 12
+    community_count: 6
+boundary_quality: 0.99
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: workflow-gateway
+overall_quality: 0.99
+delta_vs_nearest: 0.99
+delta_vs_bundle: 0.99
+net_positive_value: 0.99
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: workflow-gateway
+  source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0322->case::mao-0443
+    label: derives_case_signal
+    from_label: 我们的具体纲领
+    to_label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:135-143
+    snippet: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各个小的阶段中，情形是变化了和变化着的，我们的具体纲领便不能不有所改变，这是当然的事情。例如，在北伐战争时期，在土地革命战争时期和在抗日战争时期，我们的新民主主义的一般纲领并没有变化，但其具体纲领，三个时期中
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0322->case::mao-0449
+    label: derives_case_signal
+    from_label: 我们的具体纲领
+    to_label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:182-207
+    snippet: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。
+      为什么把目前时代的革命叫做“资产阶级民主主义性质的革命”？这就是说，这个革命的对象不是一般的资产阶级，而是民族压迫和封建压迫；这个革命的措施，不是一般地废除私有财产，而是一般地保护私有财产；这个革命的结果，将
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0322->case::mao-0453
+    label: derives_case_signal
+    from_label: 我们的具体纲领
+    to_label: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:233-243
+    snippet: 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持世界和平的。
+      中国共产党的外交政策的基本原则，是在彻底打倒日本侵略者，保持世界和平，互相尊重国家的独立和平等地位，互相增进国家和人民的利益及友谊这些基础之上，同各国建立并巩固邦交，解决一切相互关系问题，例如配合作战、和平会
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0443
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:135-143
+    snippet: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各个小的阶段中，情形是变化了和变化着的，我们的具体纲领便不能不有所改变，这是当然的事情。例如，在北伐战争时期，在土地革命战争时期和在抗日战争时期，我们的新民主主义的一般纲领并没有变化，但其具体纲领，三个时期中
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0444
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:145-146
+    snippet: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经过南京傀儡政府，也正在和日本密使勾勾搭搭，并未遇到制止。因此，中途妥协的危险并未完全过去。开罗会议又决定将东北四省、台湾、澎湖列岛归还中国，这是很好的。但是根据国民党政府的现行政策，要想依靠它打到鸭绿江边，收复一切失地，是
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0445
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:148-160
+    snippet: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一党专政，实际上是国民党内反人民集团的专政，它是中国民族团结的破坏者，是国民党战场抗日失败的负责者，是动员和统一中国人民抗日力量的根本障碍物。从八年抗日战争的惨痛经验中，中国人民已经深刻地认识了它的罪恶，很自然地要求立即废止
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0446
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:162-166
+    snippet: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这个问题，就不能在全国范围内动员和统一一切抗日的力量。我们在纲领中提出了废止一党专政，成立联合政府，取消特务，取消镇压自由的法令，惩办汉奸、间谍、亲日分子、法西斯分子和贪官污吏，释放政治犯，承认各民主党派的合法地位，撤退包围
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0447
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:168-171
+    snippet: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的统一，还是人民的民主的统一呢？从袁世凯⒄以来，北洋军阀强调专制的统一。但是结果怎么样呢？和这些军阀的志愿相反，所得的不是统一而是分裂，最后是他们自己从台上滚下去。国民党反人民集团抄袭袁世凯的老路，追求专制的统一，打了整整十
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0448
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:173-180
+    snippet: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队，现在还只有解放区的不很大的八路军和新四军，还很不够。可是，国民党内的反人民集团却处心积虑地要破坏和消灭解放区的军队。一九四四年，国民党政府提出了一个所谓“提示案”，叫共产党“限期取消”解放区军队的五分之四。一九四五年，即
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0449
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:182-207
+    snippet: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。
+      为什么把目前时代的革命叫做“资产阶级民主主义性质的革命”？这就是说，这个革命的对象不是一般的资产阶级，而是民族压迫和封建压迫；这个革命的措施，不是一般地废除私有财产，而是一般地保护私有财产；这个革命的结果，将
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0450
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:209-216
+    snippet: 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党统治区内仅有的一点小型工业，也不能不处于大部分破产的状态中。政治不改革，一切生产力都遭到破坏的命运，农业如此，工业也是如此。
+      就整个来说，没有一个独立、自由、民主和统一的中国，不可能发展工业。消灭日本侵略者，这是谋独立。废
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0322->counter-example::mao-0451
+    label: derives_counter_example_signal
+    from_label: 我们的具体纲领
+    to_label: 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:218-225
+    snippet: 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更为深重。为着扫除民族压迫和封建压迫，为着建立新民主主义的国家，需要大批的人民的教育家和教师，人民的科学家、工程师、技师、医生、新闻工作者、著作家、文学家、艺术家和普通文化工作者。他们必须具有为人民服务的精神，从事艰苦的工作
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::mao-0443
+    label: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:135-143
+    snippet: 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各个小的阶段中，情形是变化了和变化着的，我们的具体纲领便不能不有所改变，这是当然的事情。例如，在北伐战争时期，在土地革命战争时期和在抗日战争时期，我们的新民主主义的一般纲领并没有变化，但其具体纲领，三个时期中
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0444
+    label: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:145-146
+    snippet: 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经过南京傀儡政府，也正在和日本密使勾勾搭搭，并未遇到制止。因此，中途妥协的危险并未完全过去。开罗会议又决定将东北四省、台湾、澎湖列岛归还中国，这是很好的。但是根据国民党政府的现行政策，要想依靠它打到鸭绿江边，收复一切失地，是
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0445
+    label: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:148-160
+    snippet: 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一党专政，实际上是国民党内反人民集团的专政，它是中国民族团结的破坏者，是国民党战场抗日失败的负责者，是动员和统一中国人民抗日力量的根本障碍物。从八年抗日战争的惨痛经验中，中国人民已经深刻地认识了它的罪恶，很自然地要求立即废止
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0446
+    label: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:162-166
+    snippet: 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这个问题，就不能在全国范围内动员和统一一切抗日的力量。我们在纲领中提出了废止一党专政，成立联合政府，取消特务，取消镇压自由的法令，惩办汉奸、间谍、亲日分子、法西斯分子和贪官污吏，释放政治犯，承认各民主党派的合法地位，撤退包围
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0447
+    label: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:168-171
+    snippet: 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的统一，还是人民的民主的统一呢？从袁世凯⒄以来，北洋军阀强调专制的统一。但是结果怎么样呢？和这些军阀的志愿相反，所得的不是统一而是分裂，最后是他们自己从台上滚下去。国民党反人民集团抄袭袁世凯的老路，追求专制的统一，打了整整十
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0448
+    label: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:173-180
+    snippet: 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队，现在还只有解放区的不很大的八路军和新四军，还很不够。可是，国民党内的反人民集团却处心积虑地要破坏和消灭解放区的军队。一九四四年，国民党政府提出了一个所谓“提示案”，叫共产党“限期取消”解放区军队的五分之四。一九四五年，即
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::mao-0449
+    label: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+    source_file: sources/mao/082-论联合政府.md
+    source_location: sources/mao/082-论联合政府.md:182-207
+    snippet: 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。
+      为什么把目前时代的革命叫做“资产阶级民主主义性质的革命”？这就是说，这个革命的对象不是一般的资产阶级，而是民族压迫和封建压迫；这个革命的措施，不是一般地废除私有财产，而是一般地保护私有财产；这个革命的结果，将
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: workflow-gateway
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0320
+      label: 四　中国共产党的政策 Cluster
+      top_node_id: principle::0322
+      top_node_label: 我们的具体纲领
+      node_count: 8
+    - community_id: community::principle::0322
+      label: 我们的具体纲领 Cluster
+      top_node_id: principle::0322
+      top_node_label: 我们的具体纲领
+      node_count: 29
+    - community_id: community::principle::0181
+      label: 结　　论 Cluster
+      top_node_id: framework::0160
+      top_node_label: 论持久战
+      node_count: 2
+    - community_id: community::principle::0281
+      label: 结　　论 Cluster
+      top_node_id: case::mao-0216
+      top_node_label: '------------------ 注 释 〔1〕 见本卷《反对日本进攻的方针、办法和前途》注〔1〕。 〔2〕见本书第一卷《中国革命战争...'
+      node_count: 25
+    - community_id: community::principle::0110
+      label: 论认识和实践的关系——知和行的关系 Cluster
+      top_node_id: case::mao-0132
+      top_node_label: 马克思以前的唯物论，离开人的社会性，离开人的历史发展，去观察认识问题，因此不能了解认识对社会实践的依赖关系，即认识对生产和阶级斗争的依赖关...
+      node_count: 8
+    - community_id: community::principle::0242
+      label: 四　中国革命是世界革命的一部分 Cluster
+      top_node_id: counter-example::mao-0296
+      top_node_label: 中国革命的历史特点是分为民主主义和社会主义两个步骤，而其第一步现在已不是一般的民主主义，而是中国式的、特殊的、新式的民主主义，而是新民主主...
+      node_count: 7
+    suggested_questions:
+    - Why does `关于正确处理人民内部矛盾的问题` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `在省市自治区党委书记会议上的讲话` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - What is the operational boundary of `我们的具体纲领 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `结　　论 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `我们的具体纲领 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+gateway_provenance:
+  schema_version: kiu.workflow-gateway-provenance/v0.1
+  routes_to:
+  - 五-全党团结起来-为实现党的任务而斗争
+  - 四-中国革命是世界革命的一部分
+  - 我们的具体纲领
+  - 第三节-战略退却
+  - 第九章-指挥关系
+  - 第四节-重要的问题在善于学习
+  - 结-论
+  - 论认识和实践的关系-知和行的关系
+  source_node_ids:
+  - principle::0322
+  - case::mao-0443
+  - case::mao-0449
+  - case::mao-0453
+  - counter-example::mao-0443
+  - counter-example::mao-0444
+  - counter-example::mao-0445
+  - counter-example::mao-0446
+  - counter-example::mao-0447
+  - counter-example::mao-0448
+  - counter-example::mao-0449
+  boundary: thin_gateway_only_not_cangjie_thick_skill
+artifact_quality: 0.8641
+artifact_grade: good
+production_quality: 0.9082
+quality_grade: excellent
+release_ready: true

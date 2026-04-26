@@ -1,0 +1,56 @@
+{
+  "candidate_count": 6,
+  "terminal_states": {
+    "ready_for_review": 6
+  },
+  "candidates": [
+    {
+      "candidate_id": "no-investigation-no-decision",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "principal-contradiction-focus",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "historical-analogy-transfer-gate",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "historical-case-consequence-judgment",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "role-boundary-before-action",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.927,
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.927
+    },
+    {
+      "candidate_id": "workflow-gateway",
+      "terminal_state": "ready_for_review",
+      "overall_quality": 0.99,
+      "production_quality": 0.9082,
+      "quality_grade": "excellent",
+      "net_positive_value": 0.99
+    }
+  ]
+}

@@ -1,0 +1,531 @@
+workflow_id: 警示案例
+title: 警示案例
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::1221
+  supporting_node_ids:
+  - case::financial-statement-1325
+  - case::financial-statement-1338
+  - case::financial-statement-1342
+  - counter-example::financial-statement-1328
+  - evidence::financial-statement-1317
+  - evidence::financial-statement-1321
+  - evidence::financial-statement-1325
+  - evidence::financial-statement-1328
+  - evidence::financial-statement-1331
+  - evidence::financial-statement-1333
+  - evidence::financial-statement-1334
+  - evidence::financial-statement-1338
+  - evidence::financial-statement-1342
+  - evidence::financial-statement-1346
+  - evidence::financial-statement-1349
+  - framework::1183
+  - framework::1190
+  - framework::1192
+  - principle::1185
+  - principle::1186
+  - principle::1187
+  - principle::1191
+  - principle::1193
+  - principle::1194
+  - principle::1195
+  - principle::1196
+  - principle::1197
+  - principle::1198
+  - principle::1201
+  - principle::1202
+  - principle::1203
+  - principle::1204
+  - principle::1205
+  - principle::1209
+  - principle::1210
+  - principle::1213
+  - principle::1217
+  - principle::1218
+  - principle::1219
+  - principle::1220
+  - principle::1222
+  - principle::1223
+  - principle::1224
+  - term::american-airlines
+  - term::bank-of-america
+  - term::capacity-sway
+  - term::gateway
+  - term::global-crossing
+  - term::sales-type-lease
+  - term::shared-medical-systems
+  supporting_edge_ids:
+  - derives_case_signal::principle::1221->case::financial-statement-1325
+  - derives_case_signal::principle::1221->case::financial-statement-1338
+  - derives_case_signal::principle::1221->case::financial-statement-1342
+  - derives_counter_example_signal::principle::1221->counter-example::financial-statement-1328
+  - derives_term_signal::principle::1221->term::american-airlines
+  - derives_term_signal::principle::1221->term::bank-of-america
+  - derives_term_signal::principle::1221->term::capacity-sway
+  - derives_term_signal::principle::1221->term::gateway
+  - derives_term_signal::principle::1221->term::global-crossing
+  - derives_term_signal::principle::1221->term::sales-type-lease
+  - derives_term_signal::principle::1221->term::shared-medical-systems
+  - section-parent::framework::1183->principle::1185
+  - section-parent::framework::1183->principle::1186
+  - section-parent::framework::1183->principle::1187
+  - section-parent::framework::1190->principle::1191
+  - section-parent::framework::1192->principle::1193
+  - section-parent::framework::1192->principle::1197
+  - section-parent::framework::1192->principle::1201
+  - section-parent::principle::1193->principle::1194
+  - section-parent::principle::1195->principle::1196
+  - section-parent::principle::1197->principle::1198
+  - section-parent::principle::1201->principle::1202
+  - section-parent::principle::1203->principle::1203
+  - section-parent::principle::1204->principle::1204
+  - section-parent::principle::1205->principle::1213
+  - section-parent::principle::1205->principle::1217
+  - section-parent::principle::1205->principle::1218
+  - section-parent::principle::1209->principle::1210
+  - section-parent::principle::1218->principle::1219
+  - section-parent::principle::1218->principle::1220
+  - section-parent::principle::1221->principle::1221
+  - section-parent::principle::1221->principle::1222
+  - section-parent::principle::1221->principle::1223
+  - section-parent::principle::1221->principle::1224
+  - supported-by::principle::1221->evidence::financial-statement-1317
+  - supported-by::principle::1221->evidence::financial-statement-1321
+  - supported-by::principle::1221->evidence::financial-statement-1325
+  - supported-by::principle::1221->evidence::financial-statement-1328
+  - supported-by::principle::1221->evidence::financial-statement-1331
+  - supported-by::principle::1221->evidence::financial-statement-1333
+  - supported-by::principle::1221->evidence::financial-statement-1334
+  - supported-by::principle::1221->evidence::financial-statement-1338
+  - supported-by::principle::1221->evidence::financial-statement-1342
+  - supported-by::principle::1221->evidence::financial-statement-1346
+  - supported-by::principle::1221->evidence::financial-statement-1349
+  community_ids:
+  - community::principle::1185
+  - community::principle::1186
+  - community::principle::1187
+  - community::principle::1191
+  - community::principle::1193
+  - community::principle::1194
+  - community::principle::1195
+  - community::principle::1196
+  - community::principle::1197
+  - community::principle::1198
+  - community::principle::1201
+  - community::principle::1202
+  - community::principle::1203
+  - community::principle::1204
+  - community::principle::1205
+  - community::principle::1209
+  - community::principle::1210
+  - community::principle::1213
+  - community::principle::1217
+  - community::principle::1218
+  - community::principle::1219
+  - community::principle::1220
+  - community::principle::1221
+  - community::principle::1222
+  - community::principle::1223
+  - community::principle::1224
+evidence_anchors:
+  primary_node:
+    id: principle::1221
+    label: 警示案例
+    type: principle_signal
+  supporting_nodes:
+  - id: case::financial-statement-1325
+    label: 思科系统公司为各类互联网企业提供基础设备。截至2001年，该公司都在较低库存的前提下保持了快速的收入增长，例如，在2000财务年度的四个季...
+    type: case_signal
+  - id: case::financial-statement-1338
+    label: 能源企业安然公司的破产同时也导致了它的审计机构——当时全球五大审计师事务所之一的安达信会计师事务所的清算。在此之前，这家企业对它的能源合同...
+    type: case_signal
+  - id: case::financial-statement-1342
+    label: 思科系统公司在 2002 财务年度的第二个季度中，报告它的销售收入在经历了多期下滑之后，终于出现了增长。毛利润也从上一季度的 26.92 ...
+    type: case_signal
+  - id: counter-example::financial-statement-1328
+    label: 电子数据系统公司在过去几年中发生了多次重组支出。这些重组支出的部分原因就在于公司过去所计提的折旧费用不足够。2001年第三季度，电子数据系...
+    type: counter_example_signal
+  - id: evidence::financial-statement-1317
+    label: 2000年，个人电脑制造商盖特威公司（Gateway）决定向被那些外部金融公司都拒绝的高风险客户提供融资销售服务。当年，该公司在扣除了相关...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1321
+    label: 计算机制造商盖特威公司的资产周转率水平一直都比较高。以1999年为例，当年该公司的销售水平为89.65亿美元，对应的净经营性资产周转率为1...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1325
+    label: 思科系统公司为各类互联网企业提供基础设备。截至2001年，该公司都在较低库存的前提下保持了快速的收入增长，例如，在2000财务年度的四个季...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1328
+    label: 电子数据系统公司在过去几年中发生了多次重组支出。这些重组支出的部分原因就在于公司过去所计提的折旧费用不足够。2001年第三季度，电子数据系...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1331
+    label: 医疗分享系统公司（Shared Medical Systems）是一家面向医院和诊所的信息系统供应商，它在1999年第一季度报告的盈利总额...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1333
+    label: 由于向客户提供了升级和附加服务的承诺，微软公司在过去一直将不超过25%的Windows操作系统销售收入递延到售后3～4年内才予以确认。20...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1334
+    label: 所谓递延所得税，是企业在财务报告中所报告的利润（按照美国公认会计原则所计算得到的，称为会计利润）与在纳税申报表中所报告的利润（按照相关税收...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1338
+    label: 能源企业安然公司的破产同时也导致了它的审计机构——当时全球五大审计师事务所之一的安达信会计师事务所的清算。在此之前，这家企业对它的能源合同...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1342
+    label: 思科系统公司在 2002 财务年度的第二个季度中，报告它的销售收入在经历了多期下滑之后，终于出现了增长。毛利润也从上一季度的 26.92 ...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1346
+    label: 卡卡圈坊公司是从地区性的甜甜圈制造商逐渐发展成为一家全国性的美味食品供应商的，它在2000年成功地通过IPO募集股份，变为了一只“热门股”...
+    type: chunk_evidence
+  - id: evidence::financial-statement-1349
+    label: 通用汽车公司在 2003 年报告它在持续经营业务中实现了 36 亿美元的税前利润，业绩极为良好。在财务报告附注中，该公司披露，由于后进先出...
+    type: chunk_evidence
+  - id: framework::1183
+    label: 现金流量表为我们提供的应计项目信息
+    type: framework_signal
+  - id: framework::1190
+    label: 1. 利用标准化的资产周转率来检查净经营性资产的变动
+    type: framework_signal
+  - id: framework::1192
+    label: 2. 了解资产周转率的变化情况
+    type: framework_signal
+  - id: principle::1185
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1186
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1187
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1191
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1193
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1194
+    label: 隐形杀手案例
+    type: principle_signal
+  - id: principle::1195
+    label: 3. 直接对报表“行项目”展开调查
+    type: principle_signal
+  - id: principle::1196
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1197
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1198
+    label: 阅读材料 18-4
+    type: principle_signal
+  - id: principle::1201
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1202
+    label: 提醒案例
+    type: principle_signal
+  - id: principle::1203
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1204
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1205
+    label: 4. 对各个资产负债表项目直接展开调查
+    type: principle_signal
+  - id: principle::1209
+    label: 警惕公允价值会计
+    type: principle_signal
+  - id: principle::1210
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1213
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1217
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1218
+    label: 警示案例
+    type: principle_signal
+  - id: principle::1219
+    label: 18.3.3 核心费用的确认时点
+    type: principle_signal
+  - id: principle::1220
+    label: 18.3.4 释放秘密准备
+    type: principle_signal
+  - id: principle::1222
+    label: 18.3.5 其他核心收益的确认时点
+    type: principle_signal
+  - id: principle::1223
+    label: 18.3.6 非经常损益的确认时点
+    type: principle_signal
+  - id: principle::1224
+    label: 18.3.7 组织的操纵：表外经营
+    type: principle_signal
+  - id: term::american-airlines
+    label: American Airlines
+    type: term_signal
+  - id: term::bank-of-america
+    label: Bank of America
+    type: term_signal
+  - id: term::capacity-sway
+    label: capacity sway
+    type: term_signal
+  - id: term::gateway
+    label: Gateway
+    type: term_signal
+  - id: term::global-crossing
+    label: Global Crossing
+    type: term_signal
+  - id: term::sales-type-lease
+    label: sales-type lease
+    type: term_signal
+  - id: term::shared-medical-systems
+    label: Shared Medical Systems
+    type: term_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::1221->case::financial-statement-1325
+    type: derives_case_signal
+    from: principle::1221
+    to: case::financial-statement-1325
+  - id: derives_case_signal::principle::1221->case::financial-statement-1338
+    type: derives_case_signal
+    from: principle::1221
+    to: case::financial-statement-1338
+  - id: derives_case_signal::principle::1221->case::financial-statement-1342
+    type: derives_case_signal
+    from: principle::1221
+    to: case::financial-statement-1342
+  - id: derives_counter_example_signal::principle::1221->counter-example::financial-statement-1328
+    type: derives_counter_example_signal
+    from: principle::1221
+    to: counter-example::financial-statement-1328
+  - id: derives_term_signal::principle::1221->term::american-airlines
+    type: derives_term_signal
+    from: principle::1221
+    to: term::american-airlines
+  - id: derives_term_signal::principle::1221->term::bank-of-america
+    type: derives_term_signal
+    from: principle::1221
+    to: term::bank-of-america
+  - id: derives_term_signal::principle::1221->term::capacity-sway
+    type: derives_term_signal
+    from: principle::1221
+    to: term::capacity-sway
+  - id: derives_term_signal::principle::1221->term::gateway
+    type: derives_term_signal
+    from: principle::1221
+    to: term::gateway
+  - id: derives_term_signal::principle::1221->term::global-crossing
+    type: derives_term_signal
+    from: principle::1221
+    to: term::global-crossing
+  - id: derives_term_signal::principle::1221->term::sales-type-lease
+    type: derives_term_signal
+    from: principle::1221
+    to: term::sales-type-lease
+  - id: derives_term_signal::principle::1221->term::shared-medical-systems
+    type: derives_term_signal
+    from: principle::1221
+    to: term::shared-medical-systems
+  - id: section-parent::framework::1183->principle::1185
+    type: section_parent
+    from: framework::1183
+    to: principle::1185
+  - id: section-parent::framework::1183->principle::1186
+    type: section_parent
+    from: framework::1183
+    to: principle::1186
+  - id: section-parent::framework::1183->principle::1187
+    type: section_parent
+    from: framework::1183
+    to: principle::1187
+  - id: section-parent::framework::1190->principle::1191
+    type: section_parent
+    from: framework::1190
+    to: principle::1191
+  - id: section-parent::framework::1192->principle::1193
+    type: section_parent
+    from: framework::1192
+    to: principle::1193
+  - id: section-parent::framework::1192->principle::1197
+    type: section_parent
+    from: framework::1192
+    to: principle::1197
+  - id: section-parent::framework::1192->principle::1201
+    type: section_parent
+    from: framework::1192
+    to: principle::1201
+  - id: section-parent::principle::1193->principle::1194
+    type: section_parent
+    from: principle::1193
+    to: principle::1194
+  - id: section-parent::principle::1195->principle::1196
+    type: section_parent
+    from: principle::1195
+    to: principle::1196
+  - id: section-parent::principle::1197->principle::1198
+    type: section_parent
+    from: principle::1197
+    to: principle::1198
+  - id: section-parent::principle::1201->principle::1202
+    type: section_parent
+    from: principle::1201
+    to: principle::1202
+  - id: section-parent::principle::1203->principle::1203
+    type: section_parent
+    from: principle::1203
+    to: principle::1203
+  - id: section-parent::principle::1204->principle::1204
+    type: section_parent
+    from: principle::1204
+    to: principle::1204
+  - id: section-parent::principle::1205->principle::1213
+    type: section_parent
+    from: principle::1205
+    to: principle::1213
+  - id: section-parent::principle::1205->principle::1217
+    type: section_parent
+    from: principle::1205
+    to: principle::1217
+  - id: section-parent::principle::1205->principle::1218
+    type: section_parent
+    from: principle::1205
+    to: principle::1218
+  - id: section-parent::principle::1209->principle::1210
+    type: section_parent
+    from: principle::1209
+    to: principle::1210
+  - id: section-parent::principle::1218->principle::1219
+    type: section_parent
+    from: principle::1218
+    to: principle::1219
+  - id: section-parent::principle::1218->principle::1220
+    type: section_parent
+    from: principle::1218
+    to: principle::1220
+  - id: section-parent::principle::1221->principle::1221
+    type: section_parent
+    from: principle::1221
+    to: principle::1221
+  - id: section-parent::principle::1221->principle::1222
+    type: section_parent
+    from: principle::1221
+    to: principle::1222
+  - id: section-parent::principle::1221->principle::1223
+    type: section_parent
+    from: principle::1221
+    to: principle::1223
+  - id: section-parent::principle::1221->principle::1224
+    type: section_parent
+    from: principle::1221
+    to: principle::1224
+  - id: supported-by::principle::1221->evidence::financial-statement-1317
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1317
+  - id: supported-by::principle::1221->evidence::financial-statement-1321
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1321
+  - id: supported-by::principle::1221->evidence::financial-statement-1325
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1325
+  - id: supported-by::principle::1221->evidence::financial-statement-1328
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1328
+  - id: supported-by::principle::1221->evidence::financial-statement-1331
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1331
+  - id: supported-by::principle::1221->evidence::financial-statement-1333
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1333
+  - id: supported-by::principle::1221->evidence::financial-statement-1334
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1334
+  - id: supported-by::principle::1221->evidence::financial-statement-1338
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1338
+  - id: supported-by::principle::1221->evidence::financial-statement-1342
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1342
+  - id: supported-by::principle::1221->evidence::financial-statement-1346
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1346
+  - id: supported-by::principle::1221->evidence::financial-statement-1349
+    type: supported_by_evidence
+    from: principle::1221
+    to: evidence::financial-statement-1349
+  communities:
+  - id: community::principle::1185
+    label: 警示案例 Cluster
+  - id: community::principle::1186
+    label: 警示案例 Cluster
+  - id: community::principle::1187
+    label: 警示案例 Cluster
+  - id: community::principle::1191
+    label: 警示案例 Cluster
+  - id: community::principle::1193
+    label: 警示案例 Cluster
+  - id: community::principle::1194
+    label: 隐形杀手案例 Cluster
+  - id: community::principle::1195
+    label: 3. 直接对报表“行项目”展开调查 Cluster
+  - id: community::principle::1196
+    label: 警示案例 Cluster
+  - id: community::principle::1197
+    label: 警示案例 Cluster
+  - id: community::principle::1198
+    label: 阅读材料 18-4 Cluster
+  - id: community::principle::1201
+    label: 警示案例 Cluster
+  - id: community::principle::1202
+    label: 提醒案例 Cluster
+  - id: community::principle::1203
+    label: 警示案例 Cluster
+  - id: community::principle::1204
+    label: 警示案例 Cluster
+  - id: community::principle::1205
+    label: 4. 对各个资产负债表项目直接展开调查 Cluster
+  - id: community::principle::1209
+    label: 警惕公允价值会计 Cluster
+  - id: community::principle::1210
+    label: 警示案例 Cluster
+  - id: community::principle::1213
+    label: 警示案例 Cluster
+  - id: community::principle::1217
+    label: 警示案例 Cluster
+  - id: community::principle::1218
+    label: 警示案例 Cluster
+  - id: community::principle::1219
+    label: 18.3.3 核心费用的确认时点 Cluster
+  - id: community::principle::1220
+    label: 18.3.4 释放秘密准备 Cluster
+  - id: community::principle::1221
+    label: 警示案例 Cluster
+  - id: community::principle::1222
+    label: 18.3.5 其他核心收益的确认时点 Cluster
+  - id: community::principle::1223
+    label: 18.3.6 非经常损益的确认时点 Cluster
+  - id: community::principle::1224
+    label: 18.3.7 组织的操纵：表外经营 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

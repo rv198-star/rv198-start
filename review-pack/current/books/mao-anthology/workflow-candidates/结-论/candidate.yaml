@@ -1,0 +1,154 @@
+candidate_id: 结-论
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0281
+  supporting_node_ids:
+  - case::mao-0216
+  - case::mao-0370
+  - case::mao-0371
+  - case::mao-0372
+  - case::mao-0374
+  - case::mao-0375
+  - counter-example::mao-0215
+  - counter-example::mao-0216
+  - counter-example::mao-0369
+  - counter-example::mao-0370
+  - counter-example::mao-0371
+  - counter-example::mao-0372
+  - counter-example::mao-0373
+  - counter-example::mao-0374
+  - evidence::mao-0215
+  - evidence::mao-0216
+  - evidence::mao-0369
+  - evidence::mao-0370
+  - evidence::mao-0371
+  - evidence::mao-0372
+  - evidence::mao-0373
+  - evidence::mao-0374
+  - evidence::mao-0375
+  - framework::0160
+  - framework::0279
+  - principle::0181
+  supporting_edge_ids:
+  - derives_case_signal::principle::0281->case::mao-0216
+  - derives_case_signal::principle::0281->case::mao-0370
+  - derives_case_signal::principle::0281->case::mao-0371
+  - derives_case_signal::principle::0281->case::mao-0372
+  - derives_case_signal::principle::0281->case::mao-0374
+  - derives_case_signal::principle::0281->case::mao-0375
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0215
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0216
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0369
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0370
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0371
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0372
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0373
+  - derives_counter_example_signal::principle::0281->counter-example::mao-0374
+  - section-parent::framework::0160->principle::0181
+  - section-parent::framework::0279->principle::0281
+  - supported-by::principle::0281->evidence::mao-0215
+  - supported-by::principle::0281->evidence::mao-0216
+  - supported-by::principle::0281->evidence::mao-0369
+  - supported-by::principle::0281->evidence::mao-0370
+  - supported-by::principle::0281->evidence::mao-0371
+  - supported-by::principle::0281->evidence::mao-0372
+  - supported-by::principle::0281->evidence::mao-0373
+  - supported-by::principle::0281->evidence::mao-0374
+  - supported-by::principle::0281->evidence::mao-0375
+  community_ids:
+  - community::principle::0181
+  - community::principle::0281
+  merged_primary_node_ids:
+  - principle::0181
+  - principle::0281
+  merged_candidate_count: 2
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: workflow_script
+  workflow_cues: 8
+  agentic_priority: 0
+  case_density_score: 0.5
+  context_cues: 2
+  evidence_support_count: 9
+  extracted_evidence_support_count: 9
+  tri_state_support_count: 22
+  support_entity_count: 50
+  ambiguous_support_node_count: 8
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 14
+  merged_from_node_ids:
+  - principle::0181
+  - principle::0281
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.44
+  matched_keywords:
+  - 先-再
+  - 如果-则
+  - 检查
+  - 目标
+  - 第一步
+  - 输入
+  evidence_chunk_ids:
+  - mao:0215
+  - mao:0216
+  - mao:0370
+  - mao:0371
+  - mao:0372
+  - mao:0373
+  - mao:0375
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 结-论
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 9
+    evidence_support_count: 9
+    context_cues: 2
+    workflow_cues: 8
+    tri_state_support_ratio: 0.44
+    matched_keywords:
+    - 先-再
+    - 如果-则
+    - 检查
+    - 目标
+    - 第一步
+    - 输入
+    evidence_chunk_ids:
+    - mao:0215
+    - mao:0216
+    - mao:0370
+    - mao:0371
+    - mao:0372
+    - mao:0373
+    - mao:0375
+    supporting_node_count: 26
+    supporting_edge_count: 25
+    community_count: 2

@@ -1,0 +1,100 @@
+should_trigger:
+- scenario_id: switch-vs-compounder
+  summary: 当用户在一个新想法和现有最佳资本用途之间做切换或再配置时触发。
+  prompt_signals:
+  - 要不要把仓位换过去
+  - 新机会看起来更刺激
+  - 现有持仓和新想法怎么选
+  boundary_reason: 这是真实的 capital ranking，而不是孤立评估一个新故事。
+  next_action_shape: 把 new idea、next-best existing option、switch costs、tax friction
+    和放弃复利的代价并列写出，再决定 keep / switch / insufficient_information。
+  anchor_refs:
+  - opportunity-source-note
+  - opportunity-trace
+- scenario_id: redeploy-after-friction
+  summary: 当用户考虑卖出现有仓位、收购已有业务或从成熟复利资产切去新标的时触发。
+  prompt_signals:
+  - 税费怎么算
+  - 切换成本
+  - 卖掉现有仓位去买新机会
+  boundary_reason: 机会成本必须带着税、摩擦和放弃的复利来算，不能只看新机会本身。
+  next_action_shape: 先把税、摩擦、时间成本和放弃的 compounding runway 写成 benchmark reason，再判断新想法是否真的胜出。
+  anchor_refs:
+  - opportunity-trace
+  - opportunity-eval
+- scenario_id: graph-inferred-link-e_opportunity_google_inferred_benchmark
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `e_opportunity_google_inferred_benchmark`
+    expands trigger language only when a live decision links `Opportunity cost of
+    the next best idea` and `Google omission`.'
+  prompt_signals:
+  - Opportunity cost of the next best idea
+  - Google omission
+  - '# Opportunity Cost of the Next Best Idea Source Note Skill ID: opportunity-co...'
+  - 下一个最好机会
+  - 把钱放在这个项目还是另一个项目
+  - 机会成本
+  - 错过 Google 这类高质量机会
+  - 切换资本配置
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: '先写 next_best_alternative，再比较 expected_value_delta、irreversibility
+    和 learning_value，最后给 switch / keep / defer。 Evidence check: verify source_location
+    `sources/opportunity-cost-of-the-next-best-idea.md:1-9` before expanding the trigger.'
+  anchor_refs:
+  - e_opportunity_google_inferred_benchmark
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/opportunity-cost-of-the-next-best-idea.md:1-9
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: c_capital_allocation
+      label: Capital allocation
+      top_node_id: n_opportunity_principle
+      top_node_label: Opportunity cost of the next best idea
+      node_count: 3
+    suggested_questions:
+    - Why does `Circle of competence` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `Margin of safety sizing` sit at the center of this graph, and what
+      evidence would most change its routing?
+    - What is the operational boundary of `Boundary discipline`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `Error avoidance`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `Boundary discipline`?
+should_not_trigger:
+- scenario_id: no-live-benchmark
+  summary: 当用户只有一个新想法，却没有真实 next-best alternative 时不应触发为完整基准比较。
+  prompt_signals:
+  - 先看看这个机会怎么样
+  - 暂时没有别的选择
+  - 先不比较现有持仓
+  boundary_reason: 没有 live benchmark，就不是 opportunity-cost judgment，只能先补比较集。
+  anchor_refs:
+  - opportunity-eval
+edge_case:
+- scenario_id: benchmark-exists-but-switch-costs-unclear
+  summary: 用户知道新想法和旧仓位要比，但还没把税费、时间成本和复利中断写清时，只能部分适用。
+  prompt_signals:
+  - 大概能换过去
+  - 税费还没算
+  - 先粗略比较一下
+  boundary_reason: benchmark 在，但 switching friction 还没纳入，结论容易被新故事偷走。
+  next_action_shape: 先补税费、交易摩擦、注意力成本和放弃的复利，再决定是不是继续比较。
+  anchor_refs:
+  - opportunity-source-note
+  - opportunity-eval
+refusal:
+- scenario_id: cash-as-fake-benchmark
+  summary: 当用户把现金、模糊乐观或空白状态当成 next-best benchmark 时拒绝给出胜负结论。
+  prompt_signals:
+  - 反正现在也没买别的
+  - 先和空仓比
+  - 现金放着也没用
+  boundary_reason: 现金不是自动的 next-best idea，除非它真的是当前最优可保留选项。
+  next_action_shape: 明确指出 benchmark 缺失，要求重建 live alternative set，而不是让新想法默认获胜。
+  anchor_refs:
+  - opportunity-source-note
+  - opportunity-eval

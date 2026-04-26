@@ -1,0 +1,84 @@
+skill_id: historical-case-consequence-judgment
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+graph_anchor_sets:
+- anchor_id: historical-case-consequence-judgment-seed-support
+  node_ids:
+  - narrative-pattern::historical-case-consequence-judgment
+  - evidence::mao-0001
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0005
+  - evidence::mao-0007
+  - evidence::mao-0008
+  - evidence::mao-0009
+  - evidence::mao-0010
+  edge_ids:
+  - narrative-pattern-evidence::0001
+  - narrative-pattern-evidence::0002
+  - narrative-pattern-evidence::0003
+  - narrative-pattern-evidence::0004
+  - narrative-pattern-evidence::0005
+  - narrative-pattern-evidence::0006
+  - narrative-pattern-evidence::0007
+  - narrative-pattern-evidence::0008
+  community_ids: []
+source_anchor_sets:
+- anchor_id: historical-case-consequence-judgment-narrative-pattern::historical-case-consequence-judgment
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 2
+  line_end: 4
+  snippet: （一九二五年十二月一日） > 毛泽东此文是为反对当时党内存在着的两种倾向而写的。当时党内的第一种倾向，以陈独秀为代表，只注意同国民党合作，忘记了农民，这是右倾机会主义。第二种倾向，以张国焘为代表，只注意工人运动，同样忘记了农民，这是“左”倾机会主义。这两种机会主义都感觉自己力量不足，而不知道到何处去寻找力量，到何处去取得广大的同盟军。毛泽东指出中国无产阶级的最广大和最忠实的同盟军是农民，这样就解决了中国革命中的最主要的同盟军问题。毛泽东
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0001
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 2
+  line_end: 4
+  snippet: （一九二五年十二月一日） > 毛泽东此文是为反对当时党内存在着的两种倾向而写的。当时党内的第一种倾向，以陈独秀为代表，只注意同国民党合作，忘记了农民，这是右倾机会主义。第二种倾向，以张国焘为代表，只注意工人运动，同样忘记了农民，这是“左”倾机会主义。这两种机会主义都感觉自己力量不足，而不知道到何处去寻找力量，到何处去取得广大的同盟军。毛泽东指出中国无产阶级的最广大和最忠实的同盟军是农民，这样就解决了中国革命中的最主要的同盟军问题。毛泽东
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0002
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 6
+  line_end: 14
+  snippet: 谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。中国过去一切革命斗争成效甚少，其基本原因就是因为不能团结真正的朋友，以攻击真正的敌人。革命党是群众的向导，在革命中未有革命党领错了路而革命不失败的。我们的革命要有不领错路和一定成功的把握，不可不注意团结我们的真正的朋友，以攻击我们的真正的敌人。我们要分辨真正的敌友，不可不将中国社会各阶级的经济地位及其对于革命的态度，作一个大概的分析。
+    中国社会各阶级的情况是怎样的呢？ 地主阶级和
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0003
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 17
+  line_end: 35
+  snippet: '------------------ 注　　释 〔1〕国家主义派指中国青年党，当时以其外围组织“中国国家主义青年团”的名义公开进行活动。组织这个政团的是一些反动政客，他们投靠帝国主义和当权的反动派，把反对中国共产党和苏联当作职业。
+    〔2〕戴季陶（一八九一——一九四九），又名传贤，原籍浙江湖州，生于四川广汉。早年参加中国同盟会，从事过反对清政府和袁世凯的活动。后曾和蒋介石在上海共同经营交易所的投机事业。一九二五年随着孙中山的逝世和革命高潮'
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0005
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 9
+  line_end: 9
+  snippet: 我这回到湖南⑴，实地考察了湘潭、湘乡、衡山、醴陵、长沙五县的情况。从一月四日起至二月五日止，共三十二天，在乡下，在县城，召集有经验的农民和农运工作同志开调查会，仔细听他们的报告，所得材料不少。许多农民运动的道理，和在汉口、长沙从绅士阶级那里听得的道理，完全相反。许多奇事，则见所未见，闻所未闻。我想这些情形，很多地方都有。所有各种反对农民运动的议论，都必须迅速矫正。革命当局对农民运动的各种错误处置，必须迅速变更。这样，才于革命前途有所补益
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0007
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 17
+  line_end: 22
+  snippet: 农民的主要攻击目标是土豪劣绅，不法地主，旁及各种宗法的思想和制度，城里的贪官污吏，乡村的恶劣习惯。这个攻击的形势，简直是急风暴雨，顺之者存，违之者灭。其结果，把几千年封建地主的特权，打得个落花流水。地主的体面威风，扫地以尽。地主权力既倒，农会便成了唯一的权力机关，真正办到了人们所谓“一切权力归农会”。连两公婆吵架的小事，也要到农民协会去解决。一切事情，农会的人不到场，便不能解决。农会在乡村简直独裁一切，真是“说得出，做得到”。外界的人只
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0008
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 26
+  line_end: 26
+  snippet: 农民在乡里造反，搅动了绅士们的酣梦。乡里消息传到城里来，城里的绅士立刻大哗。我初到长沙时，会到各方面的人，听到许多的街谈巷议。从中层以上社会至国民党右派，无不一言以蔽之曰：“糟得很。”即使是很革命的人吧，受了那班“糟得很”派的满城风雨的议论的压迫，他闭眼一想乡村的情况，也就气馁起来，没有法子否认这“糟”字。很进步的人也只是说：“这是革命过程中应有的事，虽则是糟。”总而言之，无论什么人都无法完全否认这“糟”字。实在呢，如前所说，乃是广大的
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0009
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 30
+  line_end: 30
+  snippet: 又有一般人说：“农会虽要办，但是现在农会的举动未免太过分了。”这是中派的议论。实际怎样呢？的确的，农民在乡里颇有一点子“乱来”。农会权力无上，不许地主说话，把地主的威风扫光。这等于将地主打翻在地，再踏上一只脚。“把你入另册！”向土豪劣绅罚款捐款，打轿子。反对农会的土豪劣绅的家里，一群人涌进去，杀猪出谷。土豪劣绅的小姐少奶奶的牙床上，也可以踏上去滚一滚。动不动捉人戴高帽子游乡，“劣绅！今天认得我们！”为所欲为，一切反常，竟在乡村造成一种恐
+- anchor_id: historical-case-consequence-judgment-evidence::mao-0010
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 34
+  line_end: 34
+  snippet: 国民党右派说：“农民运动是痞子运动，是惰农运动。”这种议论，在长沙颇盛行。我跑到乡下，听见绅士们说：“农民协会可以办，但是现在办事人不行，要换人啦！”这种议论，和右派的话是一个意思，都是说农运可做（因农民运动已起来，无人敢说不可做），但是现在做农运的人不行，尤其痛恨下级农民协会办事人，说他们都是些“痞子”。总而言之，一切从前为绅士们看不起的人，一切被绅士们打在泥沟里，在社会上没有了立足地位，没有了发言权的人，现在居然伸起头来了。不但伸起

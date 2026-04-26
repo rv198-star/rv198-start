@@ -1,0 +1,29 @@
+{
+  "source_bundle_id": "mao-source-v0.6",
+  "summary": {
+    "skill_candidates": 6,
+    "workflow_script_candidates": 8,
+    "matched_gold_skills": 0,
+    "missing_gold_skills": 0
+  },
+  "matched_gold_skill_ids": [],
+  "missing_gold_skill_ids": [],
+  "workflow_script_candidate_ids": [
+    "五-全党团结起来-为实现党的任务而斗争",
+    "四-中国革命是世界革命的一部分",
+    "我们的具体纲领",
+    "第三节-战略退却",
+    "第九章-指挥关系",
+    "第四节-重要的问题在善于学习",
+    "结-论",
+    "论认识和实践的关系-知和行的关系"
+  ],
+  "candidate_ids": [
+    "no-investigation-no-decision",
+    "principal-contradiction-focus",
+    "historical-analogy-transfer-gate",
+    "historical-case-consequence-judgment",
+    "role-boundary-before-action",
+    "workflow-gateway"
+  ]
+}

@@ -1,0 +1,404 @@
+should_trigger:
+- scenario_id: choose-workflow-entrypoint
+  summary: 用户拿到一组 workflow candidates，但不知道应该从哪一个开始。
+  prompt_signals:
+  - 应该先跑哪个流程
+  - 这些步骤哪个适合当前目标
+  - 帮我选一个工作流入口
+  boundary_reason: 这是路由问题，不是重新生成领域答案。
+  next_action_shape: 返回 selected_workflow_id、routing_reason、missing_context、next_action。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1336->case::financial-statement-1280
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1336->case::financial-statement-1280`
+    expands trigger language only when a live decision links `思考题` and `C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价...`.'
+  prompt_signals:
+  - 思考题
+  - C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价...
+  - C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价值。这种说法正确...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15634-15664`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1336->case::financial-statement-1280
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15634-15664
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0080
+      label: 了解企业：金佰利公司（股票代码：KMB） Cluster
+      top_node_id: evidence::financial-statement-0084
+      top_node_label: 你多半曾经用过舒洁（Kleenex）这个牌子的纸巾吧？或许在更小的时候，你还用过好奇（Huggies）这个牌子的纸尿裤呢！除了这两个品牌之...
+      node_count: 10
+    - community_id: community::principle::0084
+      label: 思考题 Cluster
+      top_node_id: principle::0080
+      top_node_label: 了解企业：金佰利公司（股票代码：KMB）
+      node_count: 8
+    - community_id: community::principle::0085
+      label: 练习题 Cluster
+      top_node_id: principle::0084
+      top_node_label: 思考题
+      node_count: 2
+    - community_id: community::principle::0086
+      label: 基本练习 Cluster
+      top_node_id: principle::0084
+      top_node_label: 思考题
+      node_count: 2
+    - community_id: community::principle::0087
+      label: E1.1. 计算企业价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0095
+      top_node_label: 某公司的股票市值总额为 12 亿美元，债务的交易总额为 6 亿美元。请问，该公司的市场价值是多少（即企业市值）？
+      node_count: 3
+    - community_id: community::principle::0088
+      label: E1.2. 计算每股价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0096
+      top_node_label: 根据一位分析师的估计，某公司的价值为27亿美元。假定该公司流动在外的负债总值 为9亿美元，流通在外的普通股一共有9亿股，请问，按这位分析师...
+      node_count: 3
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403`
+    expands trigger language only when a live decision links `思考题` and `C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价...`.'
+  prompt_signals:
+  - 思考题
+  - C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价...
+  - C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:5091-5107`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:5091-5107
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484`
+    expands trigger language only when a live decision links `思考题` and `C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？
+    C6.2. 标准普尔 5...`.'
+  prompt_signals:
+  - 思考题
+  - C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 5...
+  - C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 500 指数公司的...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:6005-6039`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:6005-6039
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789`
+    expands trigger language only when a live decision links `思考题` and `C11.1. 请问，现金流量分析对公司估值来说重要吗？
+    C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对...`.'
+  prompt_signals:
+  - 思考题
+  - C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对...
+  - C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对一家纯粹的权益性...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:9648-9666`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:9648-9666
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054`
+    expands trigger language only when a live decision links `思考题` and `C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于
+    0。这种说法正确吗？ C14....`.'
+  prompt_signals:
+  - 思考题
+  - C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14....
+  - C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14.2. 假定有一种...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12851-12877`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12851-12877
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453`
+    expands trigger language only when a live decision links `思考题` and `C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？
+    C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，...`.'
+  prompt_signals:
+  - 思考题
+  - C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，...
+  - C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，就必须先计量无风...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:17800-17818`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:17800-17818
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::boots
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::boots`
+    expands trigger language only when a live decision links `思考题` and `Boots`.'
+  prompt_signals:
+  - 思考题
+  - Boots
+  - C9.1. 为什么我们将资产负债表股东权益部分所报告的盈余项目称为“非清洁盈余”项目？ C9.2. 请问，为什么说如果分析人员直接使用企业所报告的净利润数...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:7634-7656`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::boots
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:7634-7656
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::capm
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::capm`
+    expands trigger language only when a live decision links `思考题` and `CAPM`.'
+  prompt_signals:
+  - 思考题
+  - CAPM
+  - C7.1. 为什么基本面投资者对根据资本资产定价模型（CAPM）计算出来的必要报酬率会持怀疑态度？ C7.2. 为什么估值模型就像是“镜像游戏”一样？ C...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:6565-6587`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::capm
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:6565-6587
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::djia
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::djia`
+    expands trigger language only when a live decision links `思考题` and `DJIA`.'
+  prompt_signals:
+  - 思考题
+  - DJIA
+  - C1.1. 基本面风险与价格风险的区别是什么？ C1.2. α 技术与 β 技术的区别是什么？ C1.3. 请对下面这种说法进行评价：要长期持有股票，因为...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:1420-1448`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::djia
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:1420-1448
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::dupont
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::dupont`
+    expands trigger language only when a live decision links `思考题` and `DuPont`.'
+  prompt_signals:
+  - 思考题
+  - DuPont
+  - C4.1. 作为投资股票的回报，投资者能够收到股利。因此，股票的价值应该等于预期股利的 贴现值。请问这句话是正确的吗？ C4.2. 一些分析人员强调“现金...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:4147-4171`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::dupont
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:4147-4171
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::excite
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::excite`
+    expands trigger language only when a live decision links `思考题` and `Excite`.'
+  prompt_signals:
+  - 思考题
+  - Excite
+  - C18.1. 企业可以通过暂时增大它在本期的坏账准备来为未来储备盈利。这种说法正确吗？ C18.2. 如果本期的折旧费用较低，则意味着将来的利润会受到不良...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:16726-16762`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::excite
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:16726-16762
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1336->term::jetform-corporation
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1336->term::jetform-corporation`
+    expands trigger language only when a live decision links `思考题` and `Jetform Corporation`.'
+  prompt_signals:
+  - 思考题
+  - Jetform Corporation
+  - C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:5091-5107`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1336->term::jetform-corporation
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:5091-5107
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: exact-workflow-already-known
+  summary: 用户已经明确指定 workflow id 时，不需要 gateway 再判断。
+  prompt_signals:
+  - 运行 10-业务流程识别
+  - 打开这个 workflow.yaml
+  boundary_reason: 这时应直接执行对应 workflow，而不是再做 agentic 路由。
+  anchor_refs:
+  - workflow-gateway-primary
+edge_case:
+- scenario_id: goal-too-vague-for-routing
+  summary: 用户只说想分析材料，但没有说明目标、输入或约束。
+  prompt_signals:
+  - 帮我分析一下
+  - 看看这个材料
+  boundary_reason: 目标不足时只能 ask_clarifying_question，不能猜一个 workflow。
+  next_action_shape: 列 missing_context 并提出最少澄清问题。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0403
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0403`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价...
+  - C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:5091-5107`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0403
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:5091-5107
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0484
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0484`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 5...
+  - C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 500 指数公司的...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:6005-6039`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0484
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:6005-6039
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0789
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0789`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对...
+  - C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对一家纯粹的权益性...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:9648-9666`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0789
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:9648-9666
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1054
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1054`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14....
+  - C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14.2. 假定有一种...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:12851-12877`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1054
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:12851-12877
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1453
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1453`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，...
+  - C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，就必须先计量无风...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:17800-17818`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1453
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:17800-17818
+  graph_navigation: *id001
+refusal:
+- scenario_id: agentic-judgment-request
+  summary: 用户要求直接给复杂判断结论，而不是选择 workflow。
+  prompt_signals:
+  - 直接告诉我战略怎么定
+  - 不要流程，给结论
+  boundary_reason: 这超出薄 gateway 职责，应转交厚 skill 或要求新建 agentic candidate。
+  next_action_shape: 说明 gateway 只能路由 workflow，不能替代判断密集型 skill。
+  anchor_refs:
+  - workflow-gateway-primary

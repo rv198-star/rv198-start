@@ -1,0 +1,128 @@
+candidate_id: 4-干系人识别
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0011
+  supporting_node_ids:
+  - case::effective-requirements-0028
+  - case::effective-requirements-0029
+  - case::effective-requirements-0030
+  - counter-example::effective-requirements-0028
+  - counter-example::effective-requirements-0029
+  - counter-example::effective-requirements-0030
+  - evidence::effective-requirements-0027
+  - evidence::effective-requirements-0028
+  - evidence::effective-requirements-0029
+  - evidence::effective-requirements-0030
+  - evidence::effective-requirements-0031
+  - principle::0010
+  - term::rup
+  - term::stakeholder
+  supporting_edge_ids:
+  - derives_case_signal::principle::0011->case::effective-requirements-0028
+  - derives_case_signal::principle::0011->case::effective-requirements-0029
+  - derives_case_signal::principle::0011->case::effective-requirements-0030
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0028
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0029
+  - derives_counter_example_signal::principle::0011->counter-example::effective-requirements-0030
+  - derives_term_signal::principle::0011->term::rup
+  - derives_term_signal::principle::0011->term::stakeholder
+  - section-parent::principle::0010->principle::0011
+  - supported-by::principle::0011->evidence::effective-requirements-0027
+  - supported-by::principle::0011->evidence::effective-requirements-0028
+  - supported-by::principle::0011->evidence::effective-requirements-0029
+  - supported-by::principle::0011->evidence::effective-requirements-0030
+  - supported-by::principle::0011->evidence::effective-requirements-0031
+  community_ids:
+  - community::principle::0010
+  - community::principle::0011
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 5
+  workflow_signal_total: 5
+  context_cues: 5
+  evidence_support_count: 5
+  extracted_evidence_support_count: 5
+  tri_state_support_count: 11
+  support_entity_count: 28
+  tri_state_support_ratio: 0.3929
+  ambiguous_support_node_count: 3
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 8
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 7
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 如果-则
+  - 接口
+  - 步骤
+  - 目标
+  - 第二步
+  evidence_chunk_ids:
+  - effective-requirements:0028
+  - effective-requirements:0029
+  - effective-requirements:0030
+  - effective-requirements:0031
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 1024
+  line_end: 1024
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 4-干系人识别
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 5
+    evidence_support_count: 5
+    context_cues: 5
+    workflow_cues: 5
+    tri_state_support_ratio: 0.3929
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 如果-则
+    - 接口
+    - 步骤
+    - 目标
+    - 第二步
+    evidence_chunk_ids:
+    - effective-requirements:0028
+    - effective-requirements:0029
+    - effective-requirements:0030
+    - effective-requirements:0031
+    supporting_node_count: 14
+    supporting_edge_count: 14
+    community_count: 2

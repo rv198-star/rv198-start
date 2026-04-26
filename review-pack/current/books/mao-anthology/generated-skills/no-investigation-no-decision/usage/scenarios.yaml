@@ -1,0 +1,121 @@
+should_trigger:
+- scenario_id: borrow-source-pattern-for-live-decision
+  summary: No Investigation No Decision fires when the user is about to decide from
+    reports, templates, book claims, or past experience without field evidence.
+  prompt_signals:
+  - 没有现场事实
+  - 只看报告要拍板
+  - 照搬过去经验
+  - 先决定再补材料
+  boundary_reason: There is a live current_decision and the user needs transferable
+    judgment, not source explanation.
+  transfer_conditions:
+  - current_decision_is_explicit
+  - field_evidence_can_change_the_decision
+  - investigation_questions_are_actionable_before_commitment
+  anti_conditions:
+  - context_transfer_abuse
+  - pure_author_position_query
+  - decision_window_already_closed
+  abuse_check: clear
+  next_action_shape: Return investigation_questions, transfer_conditions, anti_conditions,
+    abuse_check, and field_evidence_next_action with verdict go_investigate / partial_judgment
+    / do_not_decide.
+  anchor_refs:
+  - no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  - no-investigation-no-decision-evidence::mao-0051
+should_not_trigger:
+- scenario_id: source-understanding-only
+  summary: Do not fire when the user only asks for summary, translation, fact lookup,
+    biography introduction, author-position query, or stance commentary without a
+    current decision.
+  prompt_signals:
+  - 作者原话是什么
+  - 总结这篇文章
+  - 人物介绍
+  - 评价立场但没有我的决策
+  boundary_reason: These are source/retrieval/QA tasks. The graph layer may extract
+    them, but the judgment skill should not answer them as if they were transfer decisions.
+  transfer_conditions: []
+  anti_conditions:
+  - pure_summary_request
+  - pure_translation_request
+  - fact_lookup_request
+  - biography_intro_request
+  - author_position_query
+  - stance_commentary_without_user_decision
+  abuse_check: insufficient_context
+  anchor_refs:
+  - no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  - no-investigation-no-decision-evidence::mao-0051
+edge_case:
+- scenario_id: partial-transfer-with-material-differences
+  summary: Use partial transfer when the source pattern is useful but actor incentives,
+    constraints, time horizon, institution, or resource conditions differ materially.
+  prompt_signals:
+  - 有点像
+  - 但时代不同
+  - 能借鉴多少
+  - 机制像但条件不一样
+  boundary_reason: Borrow the mechanism only after naming both fit and non-fit conditions.
+  transfer_conditions:
+  - current_decision_is_explicit
+  - field_evidence_can_change_the_decision
+  - investigation_questions_are_actionable_before_commitment
+  anti_conditions:
+  - material_differences_not_named
+  - context_transfer_abuse
+  - pure_author_position_query
+  - decision_window_already_closed
+  abuse_check: insufficient_context
+  next_action_shape: Name fit conditions, non-fit conditions, and a reversible next
+    action before applying the source pattern.
+  anchor_refs:
+  - no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  - no-investigation-no-decision-evidence::mao-0051
+refusal:
+- scenario_id: context-transfer-abuse
+  summary: Refuse when the user wants to copy the book, historical case, competitor,
+    big-company process, or past success without checking context fit.
+  prompt_signals:
+  - 书里这么做成功了
+  - 大公司都这么做
+  - 竞品这样做我们也照搬
+  - 过去成功所以继续照做
+  - 不用看差异
+  boundary_reason: 'This is context_transfer_abuse: source material is being used
+    as permission to bypass current-context judgment.'
+  transfer_conditions: []
+  anti_conditions:
+  - context_transfer_abuse
+  - context_transfer_abuse
+  - pure_author_position_query
+  - decision_window_already_closed
+  abuse_check: context_transfer_abuse
+  next_action_shape: Decline direct transfer and ask for current_decision, source_pattern,
+    fit conditions, non-fit conditions, and disconfirming evidence.
+  anchor_refs:
+  - no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  - no-investigation-no-decision-evidence::mao-0051
+- scenario_id: single-case-overreach
+  summary: Refuse when one attractive story or case is treated as enough proof for
+    a current decision.
+  prompt_signals:
+  - 只凭这个案例
+  - 历史上有人成功
+  - 一个故事就说明
+  - 不用找反例
+  boundary_reason: 'This is single_case_overreach: one case cannot carry a transferable
+    decision without mechanism and counterexample checks.'
+  transfer_conditions: []
+  anti_conditions:
+  - single_case_overreach
+  - context_transfer_abuse
+  - pure_author_position_query
+  - decision_window_already_closed
+  abuse_check: single_case_overreach
+  next_action_shape: Decline broad transfer; require at least mechanism mapping, current
+    context fit, and counter-case search.
+  anchor_refs:
+  - no-investigation-no-decision-situation-strategy::no-investigation-no-decision
+  - no-investigation-no-decision-evidence::mao-0051

@@ -1,0 +1,124 @@
+skill_id: workflow-gateway
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+graph_anchor_sets:
+- anchor_id: workflow-gateway-seed-support
+  node_ids:
+  - principle::1336
+  - case::financial-statement-1280
+  - counter-example::financial-statement-0403
+  - counter-example::financial-statement-0484
+  - counter-example::financial-statement-0789
+  - counter-example::financial-statement-1054
+  - counter-example::financial-statement-1453
+  - evidence::financial-statement-0092
+  - evidence::financial-statement-0093
+  - evidence::financial-statement-0178
+  - evidence::financial-statement-0256
+  edge_ids:
+  - derives_case_signal::principle::1336->case::financial-statement-1280
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0403
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0484
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-0789
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1054
+  - derives_counter_example_signal::principle::1336->counter-example::financial-statement-1453
+  - derives_term_signal::principle::1336->term::boots
+  - derives_term_signal::principle::1336->term::capm
+  - derives_term_signal::principle::1336->term::djia
+  - derives_term_signal::principle::1336->term::dupont
+  - derives_term_signal::principle::1336->term::excite
+  - derives_term_signal::principle::1336->term::jetform-corporation
+  community_ids:
+  - community::principle::0080
+  - community::principle::0084
+  - community::principle::0085
+  - community::principle::0086
+  - community::principle::0087
+  - community::principle::0088
+source_anchor_sets:
+- anchor_id: workflow-gateway-principle::1336
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 18527
+  line_end: 18527
+  snippet: '#### 思考题'
+- anchor_id: workflow-gateway-case::financial-statement-1280
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15634
+  line_end: 15664
+  snippet: C17.1. 如果一家企业的净经营性资产报酬率高于它的经营活动必要报酬率，那么说明这家企业的投资活动是增值的，因此它的价值应当高于其账面价值。这种说法正确吗？
+    C17.2. 为什么说后进先出法和将研发支出费用化等会计处理属于谨慎性的会计政策呢？ C17.3. 请解释谨慎性会计处理方法（例如，将研发支出全部费用化处理）是如何对企业的内在市净率指标产生影响的？
+    C17.4. 在谨慎性会计处理方法下，企业的会计收益率会偏高还是偏低？ C17.
+- anchor_id: workflow-gateway-counter-example::financial-statement-0403
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5091
+  line_end: 5107
+  snippet: C5.1. 假定有信息显示某家公司在将来所有年度中的普通股权益报酬率都大于其权益资本成本率，但这家公司的股票交易价格却还是低于其每股账面价值。那么这说明该公司的股份没有被正确定价。请问这种说法是正确的吗？
+    C5.2. 捷方公司（Jetform Corporation）的股票在1999年5月左右的市净率为1.01，当时它最新披露的普通股权益报酬率ROCE为10.1%，股东权益的必要报酬率为10%。请问，你预计该公司在下一财务年度中的ROC
+- anchor_id: workflow-gateway-counter-example::financial-statement-0484
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6005
+  line_end: 6039
+  snippet: C6.1. 请解释在企业发放股利的情况下，为什么分析人员所预测的每股收益增长往往比投资者所获得的真正价值低一些？ C6.2. 标准普尔 500
+    指数公司的历史盈利增长率 为大约 8.5%，而股票投资者所要求的增长率水平大约为 10%。请问，你能解释这两个数据为什么会不一致吗？ C6.3. 下面这个公式常常被用来对股票进行估值，其中，
+    $ earn_{1} $ 表示下一年度的收益，r 表示资本成本率，g 表示预计的收益增长率。 $$ 股票
+- anchor_id: workflow-gateway-counter-example::financial-statement-0789
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9648
+  line_end: 9666
+  snippet: C11.1. 请问，现金流量分析对公司估值来说重要吗？ C11.2. 在什么样的情况下，预测现金流量会成为一种分析工具？ C11.3. 对一家纯粹的权益性公司（即没有承担任何负债的企业），自由现金流量流向哪里？
+    C11.4. 企业在进行了现金流量表中所披露的那些融资活动后，可以将多余的现金投资于短期证券，作为消化闲余现金的一种方式。上述这种说法哪里存在着问题？ C11.5.
+    关于经营活动现金流量的列报方法，你认为直接法能比间接法提供更多
+- anchor_id: workflow-gateway-counter-example::financial-statement-1054
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12851
+  line_end: 12877
+  snippet: C14.1. 如果资产是按它们的公允（内在）价值计量的，分析人员预测这些资产能够产生的剩余收益必然就会等于 0。这种说法正确吗？ C14.2.
+    假定有一种纯投资基金，只投资于权益性证券，为什么说被投资证券的市场价值并不能代表该投资基金的（内在）价值呢？ C14.3. 能够推动剩余经营性收益增长的因素有哪些？
+    C14.4. 在股东权益资本成本计算式中，融资风险溢价是指什么？在什么样的情况下，融资风险溢价会表现为负数？ C14.5. 如果一
+- anchor_id: workflow-gateway-counter-example::financial-statement-1453
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 17800
+  line_end: 17818
+  snippet: C19.1. 为什么收益率的正态分布并不能完全表示出商业投资的风险特征？ C19.2. 请对下面这种说法进行评价：要计量投资的必要报酬率，就必须先计量无风险报酬率之外的风险溢酬规模，但资本资产定价模型却让这种计量在很大程度上变成了一种猜测游戏。
+    C19.4. 为什么说经营性负债杠杆会增大企业的经营风险？ C19.3. 你能解释分散投资降低风险的原理吗？ C19.5. 为什么成长股常常被看作高风险股票？
+    C19.6. 请解释什么是资产周转
+- anchor_id: workflow-gateway-evidence::financial-statement-0092
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1420
+  line_end: 1448
+  snippet: C1.1. 基本面风险与价格风险的区别是什么？ C1.2. α 技术与 β 技术的区别是什么？ C1.3. 请对下面这种说法进行评价：要长期持有股票，因为从长期来看，股票的报酬率总是高于债券的报酬率。
+    C1.4. 被动投资者与主动投资者之间的区别在哪里？ C1.5. 在 20 世纪 90 年代，市场平均市盈率正处于历史高位。1999 年时，标准普尔 500
+    组合股票的平均市盈率为 33，而在 20 世纪 70 年代，这个均值只有 8。请
+- anchor_id: workflow-gateway-evidence::financial-statement-0093
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1450
+  line_end: 1450
+  snippet: 资料来源：康奈尔大学帕克中心网站。本图最早出现在 C. Lee、J. Myers 和 B. Swaminathan 的论文 “What Is
+    the Intrinsic Value of the Dow?” Journal of Finance, 1999 年 10 月，第 1693～1741 页，并在此基础上进行了数据更新。帕克中心的网页地址为：www2.johnson.cornell.edu/parkercenter/about.h
+- anchor_id: workflow-gateway-evidence::financial-statement-0178
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 2279
+  line_end: 2299
+  snippet: C2.1. 股东权益的变动金额是由当期的盈利总额减去对股东的净支付所决定的，但是，股东权益的变化额并不等于净利润（利润表中报告的）与当期对股东的净支付之差，请问这是为什么？
+    C2.2. 现金股利是可以将现金支付给股东的唯一方式，请问这句话正确吗？ C2.3. 请解释净利润与归属于普通股股东的净利润之间的区别。在计算每股收益这个指标时，应使用哪一个利润概念比较合适？
+    C2.4. 请解释为什么一家企业的市净率会大于1.0。 C2.5. 请解
+- anchor_id: workflow-gateway-evidence::financial-statement-0256
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 3292
+  line_end: 3316
+  snippet: 'C3.1. 你认为导致不同公司之间的市销率出现差异的原因有哪些？ C3.2. 比较企业的市价 – EBIT 比率是很常见的做法。请问，使用这个比率的优势与不足各有哪些？提示：有些东西并没有包含在
+    EBIT 这个指标当中。 C3.3. 比较企业的市价—EBITDA比率也是很常见的。请问，使用这个比率的优势与不足各有哪些？提示：有些东西并没有包含在EBITDA这个指标当中。
+    C3.4. 为什么历史市盈率指标会受股利支付的影响？ C3.5. '

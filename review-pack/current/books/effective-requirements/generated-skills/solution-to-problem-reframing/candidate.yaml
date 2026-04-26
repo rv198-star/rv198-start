@@ -1,0 +1,608 @@
+candidate_id: solution-to-problem-reframing
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0008
+  supporting_node_ids:
+  - case::effective-requirements-0013
+  - case::effective-requirements-0015
+  - case::effective-requirements-0016
+  - case::effective-requirements-0017
+  - case::effective-requirements-0018
+  - case::effective-requirements-0019
+  - case::effective-requirements-0020
+  - counter-example::effective-requirements-0013
+  - counter-example::effective-requirements-0015
+  - evidence::effective-requirements-0012
+  - evidence::effective-requirements-0013
+  - evidence::effective-requirements-0014
+  - evidence::effective-requirements-0015
+  - evidence::effective-requirements-0016
+  - evidence::effective-requirements-0017
+  - evidence::effective-requirements-0018
+  - evidence::effective-requirements-0019
+  - evidence::effective-requirements-0020
+  - principle::0007
+  - term::how
+  - term::who-why
+  supporting_edge_ids:
+  - derives_case_signal::principle::0008->case::effective-requirements-0013
+  - derives_case_signal::principle::0008->case::effective-requirements-0015
+  - derives_case_signal::principle::0008->case::effective-requirements-0016
+  - derives_case_signal::principle::0008->case::effective-requirements-0017
+  - derives_case_signal::principle::0008->case::effective-requirements-0018
+  - derives_case_signal::principle::0008->case::effective-requirements-0019
+  - derives_case_signal::principle::0008->case::effective-requirements-0020
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+  - derives_term_signal::principle::0008->term::how
+  - derives_term_signal::principle::0008->term::who-why
+  - section-parent::principle::0007->principle::0008
+  - supported-by::principle::0008->evidence::effective-requirements-0012
+  - supported-by::principle::0008->evidence::effective-requirements-0013
+  - supported-by::principle::0008->evidence::effective-requirements-0014
+  - supported-by::principle::0008->evidence::effective-requirements-0015
+  - supported-by::principle::0008->evidence::effective-requirements-0016
+  - supported-by::principle::0008->evidence::effective-requirements-0017
+  - supported-by::principle::0008->evidence::effective-requirements-0018
+  - supported-by::principle::0008->evidence::effective-requirements-0019
+  - supported-by::principle::0008->evidence::effective-requirements-0020
+  community_ids:
+  - community::principle::0007
+  - community::principle::0008
+  derived_from_candidate_id: 2-日常需求分析
+  derivation_mode: additional_candidate
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 8
+  case_density_score: 0.5
+  workflow_cues: 9
+  workflow_signal_total: 9
+  context_cues: 15
+  evidence_support_count: 9
+  extracted_evidence_support_count: 9
+  tri_state_support_count: 13
+  support_entity_count: 42
+  tri_state_support_ratio: 0.3095
+  ambiguous_support_node_count: 2
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 11
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 7
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 场景
+  - 如果-则
+  - 步骤
+  - 第一步
+  - 输出
+  evidence_chunk_ids:
+  - effective-requirements:0012
+  - effective-requirements:0013
+  - effective-requirements:0014
+  - effective-requirements:0015
+  - effective-requirements:0016
+  - effective-requirements:0018
+  - effective-requirements:0019
+  - effective-requirements:0020
+  derivation_mode: additional_candidate
+  derived_from_candidate_id: 2-日常需求分析
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 1.0
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location: &id001
+  line_start: 250
+  line_end: 250
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: solution-to-problem-reframing
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 1.0
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 9
+    evidence_support_count: 9
+    context_cues: 15
+    workflow_cues: 9
+    tri_state_support_ratio: 0.3095
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 场景
+    - 如果-则
+    - 步骤
+    - 第一步
+    - 输出
+    evidence_chunk_ids:
+    - effective-requirements:0012
+    - effective-requirements:0013
+    - effective-requirements:0014
+    - effective-requirements:0015
+    - effective-requirements:0016
+    - effective-requirements:0018
+    - effective-requirements:0019
+    - effective-requirements:0020
+    supporting_node_count: 21
+    supporting_edge_count: 21
+    community_count: 2
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: solution-to-problem-reframing
+  source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions:
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0013
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:262-357
+    snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+      案例分析 小王是一名实战经验还很少的需求分析
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0015
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:380-407
+    snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+      (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0016
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:410-439
+    snippet: 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决方案（现状），并对模糊概念进行了澄清。当然，为了给出更准确的解决方案，我们还需要对相关背景进行更进一步的了解。
+      2.了解背景 案例分析（续4） “那么您当时提出做一张平面图，主要还是自己用吧？应该是在办理入住的时候使用吧？
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0017
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:442-465
+    snippet: 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多的建议时，会提升客户的期望值。
+      针对这样的两难问题，我个人的经验是“只挖掘问题，不挖掘方案”。因为对于问题级的探讨，客户是理性的；而对于方案级的探讨，客户是感性的。但无论怎么做，这些工作都需要投入更多的精力和时间，因此在实
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0018
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:468-511
+    snippet: 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引发的后果更严重一些，后者处理不好影响则更小一些。因此，这两个问题未必需要第一时间解决，只是为了让开发人员在设计时考虑到未来实现这种需求。
+      2.提高深度——关联行为纵推法 除了“点状思维”，需求提出者还容易出现“步进性思维”
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0019
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 案例分析（续7） 通过前面的分析，我们完成了需求还原...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:514-545
+    snippet: 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83k43Lz2yp5Lc8557b.jpg)
+      案例分析（续7） 通过前面的分析，我们完成了需求还原——“快速找出多间相邻的客房”，并补充了3条
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_case_signal::principle::0008->case::effective-requirements-0020
+    label: derives_case_signal
+    from_label: 2 日常需求分析
+    to_label: 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:548-571
+    snippet: 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析，有些公司在实践中也采用了厚重的需求规格模板，导致产生了大量无效信息，这里建议使用一个简单的模板，如表2-7所示。
+      ![](https://res.weread.qq.com/wrepub/CB_3300091715_5X
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+    label: derives_counter_example_signal
+    from_label: 2 日常需求分析
+    to_label: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:262-357
+    snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+      案例分析 小王是一名实战经验还很少的需求分析
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+    label: derives_counter_example_signal
+    from_label: 2 日常需求分析
+    to_label: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:380-407
+    snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+      (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0008->term::how
+    label: derives_term_signal
+    from_label: 2 日常需求分析
+    to_label: How
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:370-377
+    snippet: 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、How（解决问题、成本合适的解决方案）；在执行时应该澄清问题(Who+Why)、了解背景（相关的业务场景）、建议并确定解决方案(How)。
+      1.澄清问题 还原需求的核心思路如图2-3所示，澄清问题的思考过程也
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  - id: derives_term_signal::principle::0008->term::who-why
+    label: derives_term_signal
+    from_label: 2 日常需求分析
+    to_label: Who+Why
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:370-377
+    snippet: 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、How（解决问题、成本合适的解决方案）；在执行时应该澄清问题(Who+Why)、了解背景（相关的业务场景）、建议并确定解决方案(How)。
+      1.澄清问题 还原需求的核心思路如图2-3所示，澄清问题的思考过程也
+    extraction_kind: INFERRED
+    trigger_policy: expand_trigger_only_with_live_decision_context
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+  ambiguous_boundary_probes:
+  - id: counter-example::effective-requirements-0013
+    label: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:262-357
+    snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+      案例分析 小王是一名实战经验还很少的需求分析
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  - id: counter-example::effective-requirements-0015
+    label: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+    source_file: sources/有效需求分析（第2版）.md
+    source_location: sources/有效需求分析（第2版）.md:380-407
+    snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+      (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则
+    extraction_kind: AMBIGUOUS
+    boundary_policy: turn_into_edge_case_or_refusal_boundary
+    action_language: name_uncertainty_then_narrow_or_decline
+  source_action_transfer:
+    family: solution-to-problem-reframing
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0007
+      label: 1 软件需求全景图 Cluster
+      top_node_id: principle::0008
+      top_node_label: 2 日常需求分析
+      node_count: 10
+    - community_id: community::principle::0008
+      label: 2 日常需求分析 Cluster
+      top_node_id: principle::0008
+      top_node_label: 2 日常需求分析
+      node_count: 22
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - case
+  - counter-example-signal
+  - evidence
+  - principle
+  - term
+  source_node_ids:
+  - principle::0008
+  - case::effective-requirements-0013
+  - case::effective-requirements-0015
+  - case::effective-requirements-0016
+  - case::effective-requirements-0017
+  - case::effective-requirements-0018
+  - case::effective-requirements-0019
+  - case::effective-requirements-0020
+  - counter-example::effective-requirements-0013
+  - counter-example::effective-requirements-0015
+  - evidence::effective-requirements-0012
+  - evidence::effective-requirements-0013
+  - evidence::effective-requirements-0014
+  - evidence::effective-requirements-0015
+  - evidence::effective-requirements-0016
+  - evidence::effective-requirements-0017
+  - evidence::effective-requirements-0018
+  - evidence::effective-requirements-0019
+  - evidence::effective-requirements-0020
+  - principle::0007
+  - term::how
+  - term::who-why
+  source_edge_ids:
+  - derives_case_signal::principle::0008->case::effective-requirements-0013
+  - derives_case_signal::principle::0008->case::effective-requirements-0015
+  - derives_case_signal::principle::0008->case::effective-requirements-0016
+  - derives_case_signal::principle::0008->case::effective-requirements-0017
+  - derives_case_signal::principle::0008->case::effective-requirements-0018
+  - derives_case_signal::principle::0008->case::effective-requirements-0019
+  - derives_case_signal::principle::0008->case::effective-requirements-0020
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+  - derives_term_signal::principle::0008->term::how
+  - derives_term_signal::principle::0008->term::who-why
+  - section-parent::principle::0007->principle::0008
+  - supported-by::principle::0008->evidence::effective-requirements-0012
+  - supported-by::principle::0008->evidence::effective-requirements-0013
+  - supported-by::principle::0008->evidence::effective-requirements-0014
+  - supported-by::principle::0008->evidence::effective-requirements-0015
+  - supported-by::principle::0008->evidence::effective-requirements-0016
+  - supported-by::principle::0008->evidence::effective-requirements-0017
+  - supported-by::principle::0008->evidence::effective-requirements-0018
+  - supported-by::principle::0008->evidence::effective-requirements-0019
+  - supported-by::principle::0008->evidence::effective-requirements-0020
+  source_locations:
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location: *id001
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 410
+      line_end: 439
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 442
+      line_end: 465
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 468
+      line_end: 511
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 514
+      line_end: 545
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 548
+      line_end: 571
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 252
+      line_end: 259
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 410
+      line_end: 439
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 442
+      line_end: 465
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 468
+      line_end: 511
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 514
+      line_end: 545
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 548
+      line_end: 571
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 100
+      line_end: 100
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 410
+      line_end: 439
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 442
+      line_end: 465
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 468
+      line_end: 511
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 514
+      line_end: 545
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 548
+      line_end: 571
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 250
+      line_end: 250
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 252
+      line_end: 259
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 262
+      line_end: 357
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 370
+      line_end: 377
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 380
+      line_end: 407
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 410
+      line_end: 439
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 442
+      line_end: 465
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 468
+      line_end: 511
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 514
+      line_end: 545
+  - source_file: sources/有效需求分析（第2版）.md
+    source_location:
+      line_start: 548
+      line_end: 571
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Solution To Problem Reframing` is anchored in "### 2 日常需求分析"[^anchor:2-日常需求分析-principle::0008].
+    `在信息化应用相当普及的当下，根据客户、市场、业务部门的需求反馈，针对已发布的产品、已投产的系统进行持续优化，是最典型的需求分析场景。因此，...` adds
+    source context through "在信息化应用相当普及的当下，根据客户、市场、业务部门的需求反馈，针对已发布的产'
+  use_situation_trigger:
+  - solution_level_request_with_unclear_problem
+  - stakeholder_requests_feature_but_business_impact_unknown
+  - implementation_cost_debate_before_problem_recovery
+  anti_misuse_boundary:
+  - workflow_execution_request_only
+  - problem_already_validated_and_solution_selected
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - workflow_execution_request_only
+  - problem_already_validated_and_solution_selected
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: solution-to-problem-reframing
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

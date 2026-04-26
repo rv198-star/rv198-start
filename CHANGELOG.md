@@ -6,6 +6,7 @@
 - Added v0.8 architecture language design for `学以致用`, defining the public flow: 读准原书、提炼判断、生成技能、分流流程、校准应用、验证行动价值.
 - Added first-time-reader project architecture narrative, historical concept glossary, and user-facing evaluation guide with Chinese-first prose.
 - Added a methodology toolbox under `docs/methodologies/`, separating KiU-native methodology from reusable thinking tools: 学以致用方法论, 三层递归五步法, 极限演绎与场景投影法, and 系统效率碾压局部优势.
+- Added `review-pack/current/` with the latest five-book source materials, generated skills, workflow routing artifacts, and internal scorecards for direct reviewer inspection.
 
 ### Changed
 - Refreshed README to lead with Chinese-first v0.8 architecture language instead of release-history or reference-project terminology.

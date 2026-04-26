@@ -1,0 +1,763 @@
+{
+  "run_root": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing",
+  "source_bundle_path": "/tmp/kiu-v075-user-facing-optimization/effective/sources/effective-requirements/bundle",
+  "usage_review_dir": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/usage-review",
+  "pipeline_provenance": {
+    "schema_version": "kiu.pipeline-provenance/v0.1",
+    "pipeline_mode": "raw_book_no_seed_cold_start",
+    "raw_book_no_seed_cold_start": true,
+    "input_kind": "raw_markdown_book",
+    "source_input_path": "examples/有效需求分析（第2版）.md",
+    "source_bundle_root": "/tmp/kiu-v075-user-facing-optimization/effective/sources/effective-requirements/bundle",
+    "run_root": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing",
+    "source_bundle_id": "effective-requirements-source-v0.6",
+    "source_bundle_skill_count": 0,
+    "uses_existing_source_skills": false,
+    "uses_reference_pack_as_generation_input": false,
+    "manual_generated_artifact_patch_allowed": false,
+    "artifact_paths": {
+      "source_chunks": "/tmp/kiu-v075-user-facing-optimization/effective/intermediate/effective-requirements/v075-effective-user-facing/source-chunks.json",
+      "extraction_result": "/tmp/kiu-v075-user-facing-optimization/effective/intermediate/effective-requirements/v075-effective-user-facing/extraction-result.json",
+      "graph": "/tmp/kiu-v075-user-facing-optimization/effective/intermediate/effective-requirements/v075-effective-user-facing/graph.json"
+    },
+    "extraction": {
+      "deterministic_pass": "heuristic-extractors"
+    },
+    "claim_boundary": "This run may be claimed as raw-book no-seed cold start only if raw_book_no_seed_cold_start is true and source_bundle_skill_count is 0."
+  },
+  "cold_start": {
+    "raw_book_no_seed_cold_start": true,
+    "pipeline_mode": "raw_book_no_seed_cold_start",
+    "source_bundle_skill_count": 0,
+    "claim_boundary": "This run may be claimed as raw-book no-seed cold start only if raw_book_no_seed_cold_start is true and source_bundle_skill_count is 0."
+  },
+  "source_bundle": {
+    "score_100": 92.9,
+    "errors": 0,
+    "warnings": 0,
+    "skill_count": 0,
+    "graph": {
+      "node_count": 234,
+      "edge_count": 323,
+      "community_count": 27
+    },
+    "shared_assets": {
+      "trace_count": 44,
+      "evaluation_count": 132,
+      "evaluation_breakdown": {
+        "real_decisions": 44,
+        "synthetic_adversarial": 44,
+        "out_of_distribution": 44
+      }
+    },
+    "source_bundle_kind": "raw_book_source_bundle",
+    "provenance": {
+      "nodes": {
+        "count": 234,
+        "source_file_ratio": 1.0,
+        "source_location_ratio": 1.0,
+        "extraction_kind_ratio": 1.0
+      },
+      "edges": {
+        "count": 323,
+        "source_file_ratio": 1.0,
+        "source_location_ratio": 1.0,
+        "extraction_kind_ratio": 1.0,
+        "confidence_ratio": 1.0
+      },
+      "extraction_kind_counts": {
+        "EXTRACTED": 405,
+        "INFERRED": 98,
+        "AMBIGUOUS": 54
+      }
+    },
+    "tri_state_density_ratio": 0.9898,
+    "tri_state_effectiveness": {
+      "candidate_count": 15,
+      "candidates_using_tri_state": 15,
+      "candidate_coverage_ratio": 1.0,
+      "inferred_node_reference_ratio": 0.0,
+      "inferred_edge_reference_ratio": 0.8878,
+      "ambiguous_node_reference_ratio": 0.8519,
+      "ambiguous_edge_reference_ratio": 0.0,
+      "overall_ratio": 0.5479
+    },
+    "source_structure_quality": {
+      "overall_ratio": 0.75,
+      "mechanism_node_count": 0,
+      "packed_mechanism_node_count": 0,
+      "mechanism_evidence_pack_ratio": 0.0,
+      "navigation_title_count": 0,
+      "navigation_clean_ratio": 1.0,
+      "degenerate_title_count": 0,
+      "heading_clean_ratio": 1.0,
+      "file_count_truth_ratio": 1.0
+    },
+    "graph_report_present": true,
+    "source_chunks_present": true,
+    "source_snapshot_present": true,
+    "notes": [
+      "validator_clean",
+      "graph_report_present",
+      "provenance_graph_complete",
+      "source_ingestion_trace_present",
+      "tri_state_effective",
+      "tri_state_density_partial",
+      "shared_evidence_pool_present"
+    ]
+  },
+  "generated_bundle": {
+    "score_100": 94.3,
+    "errors": 0,
+    "warnings": 0,
+    "skill_count": 3,
+    "workflow_candidate_count": 12,
+    "bundle_quality_grade": "excellent",
+    "minimum_production_quality": 0.9082,
+    "average_production_quality": 0.9327,
+    "verification_gate_present": true,
+    "pseudo_skill_audit": {
+      "chapter_title_rejected_count": 14,
+      "summary_candidate_rejected_count": 0,
+      "workflow_candidate_routed_count": 12,
+      "agentic_skill_accepted_count": 2
+    },
+    "pressure_test_summary": {
+      "skill_count": 2,
+      "probe_count": 10,
+      "pass_ratio": 1.0,
+      "false_positive_count": 0,
+      "failure_owner_counts": {}
+    },
+    "rationale_template_collision": {
+      "schema_version": "kiu.rationale-template-collision/v0.1",
+      "collision_count": 0,
+      "collisions": []
+    },
+    "workflow_verification_ready_ratio": 1.0,
+    "workflow_gateway_boundary_preserved": true,
+    "coverage_readiness": {
+      "schema_version": "kiu.coverage-readiness/v0.1",
+      "coverage_units": [
+        {
+          "unit_id": "community::principle::0008",
+          "label": "2 日常需求分析 Cluster",
+          "node_count": 22,
+          "keywords": [
+            "2",
+            "日常需求分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0023",
+          "label": "13 业务场景分析 Cluster",
+          "node_count": 22,
+          "keywords": [
+            "13",
+            "业务场景分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0010",
+          "label": "3 目标/愿景分析 Cluster",
+          "node_count": 21,
+          "keywords": [
+            "3",
+            "目标",
+            "愿景分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0030",
+          "label": "17 领域建模 Cluster",
+          "node_count": 18,
+          "keywords": [
+            "17",
+            "领域建模"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0011",
+          "label": "4 干系人识别 Cluster",
+          "node_count": 15,
+          "keywords": [
+            "4",
+            "干系人识别"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0020",
+          "label": "10 业务流程识别 Cluster",
+          "node_count": 15,
+          "keywords": [
+            "10",
+            "业务流程识别"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0016",
+          "label": "7 业务子系统划分 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "7",
+            "业务子系统划分"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0021",
+          "label": "11 业务流程分析与优化 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "11",
+            "业务流程分析与优化"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0022",
+          "label": "12 业务场景识别 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "12",
+            "业务场景识别"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0033",
+          "label": "19 质量需求分析 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "19",
+            "质量需求分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0025",
+          "label": "14 管理需求分析 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "14",
+            "管理需求分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0007",
+          "label": "1 软件需求全景图 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "1",
+            "软件需求全景图"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0012",
+          "label": "5 干系人分析 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "5",
+            "干系人分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0018",
+          "label": "功能需求主线子篇——业务支持部分 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "功能需求主线子篇",
+            "业务支持部分"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0035",
+          "label": "20 业务规则分析 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "20",
+            "业务规则分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0013",
+          "label": "6 价值需求分析总结 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "6",
+            "价值需求分析总结"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0017",
+          "label": "8 业务接口分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "8",
+            "业务接口分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0019",
+          "label": "9 业务场景梳理 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "9",
+            "业务场景梳理"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0026",
+          "label": "15 业务报表分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "15",
+            "业务报表分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0028",
+          "label": "16 维护需求分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "16",
+            "维护需求分析"
+          ]
+        }
+      ],
+      "covered_units": [
+        {
+          "unit_id": "community::principle::0008",
+          "label": "2 日常需求分析 Cluster",
+          "node_count": 22,
+          "keywords": [
+            "2",
+            "日常需求分析"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0023",
+          "label": "13 业务场景分析 Cluster",
+          "node_count": 22,
+          "keywords": [
+            "13",
+            "业务场景分析"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0010",
+          "label": "3 目标/愿景分析 Cluster",
+          "node_count": 21,
+          "keywords": [
+            "3",
+            "目标",
+            "愿景分析"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0030",
+          "label": "17 领域建模 Cluster",
+          "node_count": 18,
+          "keywords": [
+            "17",
+            "领域建模"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0011",
+          "label": "4 干系人识别 Cluster",
+          "node_count": 15,
+          "keywords": [
+            "4",
+            "干系人识别"
+          ],
+          "covered_by": "stakeholder-resistance-tradeoff"
+        },
+        {
+          "unit_id": "community::principle::0020",
+          "label": "10 业务流程识别 Cluster",
+          "node_count": 15,
+          "keywords": [
+            "10",
+            "业务流程识别"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0016",
+          "label": "7 业务子系统划分 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "7",
+            "业务子系统划分"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0021",
+          "label": "11 业务流程分析与优化 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "11",
+            "业务流程分析与优化"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0022",
+          "label": "12 业务场景识别 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "12",
+            "业务场景识别"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0033",
+          "label": "19 质量需求分析 Cluster",
+          "node_count": 13,
+          "keywords": [
+            "19",
+            "质量需求分析"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0025",
+          "label": "14 管理需求分析 Cluster",
+          "node_count": 12,
+          "keywords": [
+            "14",
+            "管理需求分析"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0007",
+          "label": "1 软件需求全景图 Cluster",
+          "node_count": 10,
+          "keywords": [
+            "1",
+            "软件需求全景图"
+          ],
+          "covered_by": "solution-to-problem-reframing"
+        },
+        {
+          "unit_id": "community::principle::0012",
+          "label": "5 干系人分析 Cluster",
+          "node_count": 9,
+          "keywords": [
+            "5",
+            "干系人分析"
+          ],
+          "covered_by": "stakeholder-resistance-tradeoff"
+        },
+        {
+          "unit_id": "community::principle::0018",
+          "label": "功能需求主线子篇——业务支持部分 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "功能需求主线子篇",
+            "业务支持部分"
+          ],
+          "covered_by": "workflow-gateway"
+        },
+        {
+          "unit_id": "community::principle::0013",
+          "label": "6 价值需求分析总结 Cluster",
+          "node_count": 6,
+          "keywords": [
+            "6",
+            "价值需求分析总结"
+          ],
+          "covered_by": "workflow-gateway"
+        }
+      ],
+      "uncovered_units": [
+        {
+          "unit_id": "community::principle::0035",
+          "label": "20 业务规则分析 Cluster",
+          "node_count": 7,
+          "keywords": [
+            "20",
+            "业务规则分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0017",
+          "label": "8 业务接口分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "8",
+            "业务接口分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0019",
+          "label": "9 业务场景梳理 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "9",
+            "业务场景梳理"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0026",
+          "label": "15 业务报表分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "15",
+            "业务报表分析"
+          ]
+        },
+        {
+          "unit_id": "community::principle::0028",
+          "label": "16 维护需求分析 Cluster",
+          "node_count": 5,
+          "keywords": [
+            "16",
+            "维护需求分析"
+          ]
+        }
+      ],
+      "coverage_unit_count": 20,
+      "covered_unit_count": 15,
+      "uncovered_unit_count": 5,
+      "published_skill_count": 3,
+      "workflow_candidate_count": 12,
+      "gateway_route_count": 12,
+      "narrow_output_justification": "",
+      "readiness": {
+        "schema_version": "kiu.application-readiness/v0.1",
+        "model": "coverage_model",
+        "status": "warn",
+        "score_100": 75.0,
+        "warning_count": 1,
+        "failure_count": 0,
+        "findings": [
+          {
+            "model": "coverage_model",
+            "severity": "warn",
+            "reason": "narrow_output_without_justification",
+            "evidence": {
+              "coverage_unit_count": 20,
+              "covered_unit_count": 15,
+              "uncovered_unit_count": 5
+            },
+            "recommended_action": "add model-backed coverage, workflow gateway routing, or narrow_output_justification"
+          }
+        ],
+        "claim_boundary": "Internal readiness model evidence; not external validation or domain-expert review."
+      }
+    },
+    "world_alignment": {
+      "schema_version": "kiu.world-alignment-review/v0.1",
+      "bundle_root": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle",
+      "world_alignment_present": false,
+      "source_fidelity_preserved": true,
+      "world_context_isolated": false,
+      "original_source_only_mode_supported": false,
+      "source_pollution_errors": 0,
+      "source_pollution_findings": [],
+      "gate_count": 0,
+      "verdict_counts": {},
+      "scores": {
+        "source_fidelity_score": 100.0,
+        "world_context_isolation_score": 0.0,
+        "application_gate_quality_score": 0.0,
+        "world_alignment_explanation_score": 0.0,
+        "workflow_boundary_resilience_score": 100.0,
+        "world_context_depth_score": 0.0,
+        "source_fit_score": 0.0,
+        "dilution_risk_score": 100.0,
+        "hallucination_risk_score": 100.0
+      },
+      "accepted_pressure_count": 0,
+      "rejected_pressure_count": 0,
+      "no_forced_enhancement_count": 0,
+      "quality_findings": [
+        "world_context_missing"
+      ],
+      "no_web_risk_control": {
+        "passed": false
+      },
+      "world_alignment_score_100": 0.0
+    },
+    "notes": [
+      "production_quality_excellent",
+      "workflow_boundary_preserved",
+      "workflow_gateway_boundary_preserved",
+      "verification_gate_present",
+      "coverage_readiness_warn"
+    ]
+  },
+  "usage_outputs": {
+    "score_100": 97.9,
+    "sample_count": 12,
+    "notes": [
+      "usage_reviews_scored"
+    ],
+    "failure_tag_counts": {},
+    "top_failure_modes": [],
+    "severity_counts": {
+      "none": 12
+    },
+    "critical_failure_count": 0,
+    "usage_gate_ready": true,
+    "usage_gate_reasons": [],
+    "samples": [
+      {
+        "review_case_id": "solution-to-problem-reframing-usage-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/solution-to-problem-reframing/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "solution-to-problem-reframing-usage-defer-boundary",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/solution-to-problem-reframing/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "solution-to-problem-reframing-usage-do-not-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/solution-to-problem-reframing/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "stakeholder-resistance-tradeoff-usage-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/stakeholder-resistance-tradeoff/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "stakeholder-resistance-tradeoff-usage-defer-boundary",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/stakeholder-resistance-tradeoff/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "stakeholder-resistance-tradeoff-usage-do-not-apply",
+        "score_100": 95.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/stakeholder-resistance-tradeoff/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-ask-context",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-do-not-inline",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-refuse-agentic",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-route-by-hint",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-route-primary",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      },
+      {
+        "review_case_id": "workflow-gateway-sequence-two-workflows",
+        "score_100": 100.0,
+        "skill_path": "/tmp/kiu-v075-user-facing-optimization/effective/generated/effective-requirements-source-v0.6/v075-effective-user-facing/bundle/skills/workflow-gateway/SKILL.md",
+        "failure_analysis": {
+          "tags": [],
+          "tag_counts": {},
+          "severity": "none"
+        }
+      }
+    ]
+  },
+  "proxy_usage_outputs": {
+    "schema_version": "kiu.proxy-usage-summary/v0.1",
+    "case_count": 0,
+    "score_100": 0.0,
+    "case_type_counts": {},
+    "failure_tag_counts": {},
+    "gate_ready": false,
+    "gate_reasons": [
+      "no_proxy_usage_cases"
+    ],
+    "cases": []
+  },
+  "practical_effect_outputs": {
+    "schema_version": "kiu.practical-effect-review/v0.1",
+    "score_100": 97.9,
+    "evidence_level": "L3_usage_review",
+    "usage_score_100": 97.9,
+    "proxy_usage_score_100": 0.0,
+    "case_count": 12,
+    "gate_ready": true,
+    "gate_reasons": [],
+    "claim_boundary": "Usage evidence is used as the primary practical-effect signal for this run."
+  },
+  "release_gate": {
+    "source_bundle_ready": true,
+    "generated_bundle_ready": true,
+    "usage_gate_ready": true,
+    "overall_ready": true,
+    "reasons": []
+  },
+  "overall_score_100": 95.0
+}

@@ -1,0 +1,1527 @@
+skill_id: accounting-quality-signal-check
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+graph_anchor_sets:
+- anchor_id: accounting-quality-signal-check-seed-support
+  node_ids:
+  - principle::1171
+  - case::financial-statement-0456
+  - case::financial-statement-0612
+  - case::financial-statement-0614
+  - case::financial-statement-0703
+  - case::financial-statement-0940
+  - case::financial-statement-1288
+  - case::financial-statement-1296
+  - case::financial-statement-1297
+  - case::financial-statement-1299
+  - case::financial-statement-1300
+  - case::financial-statement-1301
+  - counter-example::financial-statement-0163
+  - counter-example::financial-statement-0457
+  - counter-example::financial-statement-0612
+  - counter-example::financial-statement-0703
+  - counter-example::financial-statement-0772
+  - counter-example::financial-statement-0992
+  - counter-example::financial-statement-1018
+  - counter-example::financial-statement-1021
+  - counter-example::financial-statement-1288
+  - counter-example::financial-statement-1296
+  - counter-example::financial-statement-1297
+  - counter-example::financial-statement-1300
+  - counter-example::financial-statement-1301
+  - counter-example::financial-statement-1362
+  - evidence::financial-statement-0010
+  - evidence::financial-statement-0163
+  - evidence::financial-statement-0443
+  - evidence::financial-statement-0444
+  - evidence::financial-statement-0456
+  - evidence::financial-statement-0457
+  - evidence::financial-statement-0462
+  - evidence::financial-statement-0466
+  - evidence::financial-statement-0467
+  - evidence::financial-statement-0469
+  - evidence::financial-statement-0485
+  - evidence::financial-statement-0487
+  - evidence::financial-statement-0488
+  - evidence::financial-statement-0496
+  - evidence::financial-statement-0516
+  - evidence::financial-statement-0530
+  - evidence::financial-statement-0612
+  - evidence::financial-statement-0613
+  - evidence::financial-statement-0614
+  - evidence::financial-statement-0702
+  - evidence::financial-statement-0703
+  - evidence::financial-statement-0772
+  - evidence::financial-statement-0940
+  - evidence::financial-statement-0991
+  - evidence::financial-statement-0992
+  - evidence::financial-statement-0993
+  - evidence::financial-statement-0994
+  - evidence::financial-statement-0995
+  - evidence::financial-statement-0996
+  - evidence::financial-statement-0997
+  - evidence::financial-statement-1018
+  - evidence::financial-statement-1019
+  - evidence::financial-statement-1020
+  - evidence::financial-statement-1021
+  - evidence::financial-statement-1056
+  - evidence::financial-statement-1057
+  - evidence::financial-statement-1061
+  - evidence::financial-statement-1286
+  - evidence::financial-statement-1288
+  - evidence::financial-statement-1296
+  - evidence::financial-statement-1297
+  - evidence::financial-statement-1298
+  - evidence::financial-statement-1299
+  - evidence::financial-statement-1300
+  - evidence::financial-statement-1301
+  - evidence::financial-statement-1362
+  - framework::0416
+  - framework::0423
+  - framework::0431
+  - framework::0578
+  - framework::0842
+  - framework::0934
+  - framework::1146
+  - framework::1161
+  - framework::1230
+  - principle::0007
+  - principle::0012
+  - principle::0152
+  - principle::0153
+  - principle::0417
+  - principle::0418
+  - principle::0424
+  - principle::0426
+  - principle::0427
+  - principle::0429
+  - principle::0430
+  - principle::0432
+  - principle::0433
+  - principle::0435
+  - principle::0436
+  - principle::0439
+  - principle::0440
+  - principle::0456
+  - principle::0458
+  - principle::0460
+  - principle::0461
+  - principle::0470
+  - principle::0483
+  - principle::0484
+  - principle::0496
+  - principle::0502
+  - principle::0580
+  - principle::0581
+  - principle::0582
+  - principle::0583
+  - principle::0584
+  - principle::0585
+  - principle::0586
+  - principle::0592
+  - principle::0647
+  - principle::0657
+  - principle::0713
+  - principle::0714
+  - principle::0715
+  - principle::0877
+  - principle::0878
+  - principle::0917
+  - principle::0918
+  - principle::0919
+  - principle::0935
+  - principle::0964
+  - principle::0965
+  - principle::0966
+  - principle::0967
+  - principle::0968
+  - principle::0970
+  - principle::1159
+  - principle::1160
+  - principle::1162
+  - principle::1163
+  - principle::1165
+  - principle::1169
+  - principle::1170
+  - principle::1231
+  - principle::1232
+  - principle::1233
+  - principle::1234
+  - principle::1235
+  - principle::1236
+  - principle::1241
+  - principle::1242
+  - principle::1244
+  - principle::1245
+  - term::abnormal-operating-income-growth
+  - term::aeg
+  - term::aoig
+  - term::audit-quality
+  - term::banking-income-for-the-future
+  - term::big-bath-accounting
+  - term::borrowing-income-from-the-future
+  - term::channel-stuffing
+  - term::disclosure-quality
+  - term::earnings-management
+  - term::earnings-quality
+  - term::expenditure-time
+  - term::gaap-quality
+  - term::gapp-application-quality
+  - term::noa
+  - term::pcaob
+  - term::revenue-timing
+  - term::reversal-property-of-accounting
+  - term::saving
+  - term::sec
+  - term::transaction-quality
+  - term::transaction-structuring
+  - term::transaction-timing
+  edge_ids:
+  - derives_case_signal::principle::0426->case::financial-statement-0456
+  - derives_case_signal::principle::0580->case::financial-statement-0612
+  - derives_case_signal::principle::0582->case::financial-statement-0614
+  - derives_case_signal::principle::0877->case::financial-statement-0703
+  - derives_case_signal::principle::0877->case::financial-statement-0940
+  - derives_case_signal::principle::1162->case::financial-statement-1288
+  - derives_case_signal::principle::1169->case::financial-statement-1296
+  - derives_case_signal::principle::1169->case::financial-statement-1297
+  - derives_case_signal::principle::1170->case::financial-statement-1299
+  - derives_case_signal::principle::1171->case::financial-statement-1300
+  - derives_case_signal::principle::1171->case::financial-statement-1301
+  - derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+  - derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+  - derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+  - derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+  - derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+  - derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+  - derives_term_signal::principle::0417->term::aeg
+  - derives_term_signal::principle::0484->term::aeg
+  - derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+  - derives_term_signal::principle::0918->term::aoig
+  - derives_term_signal::principle::0918->term::noa
+  - derives_term_signal::principle::1169->term::banking-income-for-the-future
+  - derives_term_signal::principle::1169->term::big-bath-accounting
+  - derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+  - derives_term_signal::principle::1169->term::earnings-management
+  - derives_term_signal::principle::1169->term::earnings-quality
+  - derives_term_signal::principle::1169->term::reversal-property-of-accounting
+  - derives_term_signal::principle::1169->term::saving
+  - derives_term_signal::principle::1171->term::audit-quality
+  - derives_term_signal::principle::1171->term::channel-stuffing
+  - derives_term_signal::principle::1171->term::disclosure-quality
+  - derives_term_signal::principle::1171->term::expenditure-time
+  - derives_term_signal::principle::1171->term::gaap-quality
+  - derives_term_signal::principle::1171->term::gapp-application-quality
+  - derives_term_signal::principle::1171->term::pcaob
+  - derives_term_signal::principle::1171->term::revenue-timing
+  - derives_term_signal::principle::1171->term::sec
+  - derives_term_signal::principle::1171->term::transaction-quality
+  - derives_term_signal::principle::1171->term::transaction-structuring
+  - derives_term_signal::principle::1171->term::transaction-timing
+  - section-parent::framework::0416->principle::0417
+  - section-parent::framework::0423->principle::0429
+  - section-parent::framework::0431->principle::0470
+  - section-parent::framework::0578->principle::0580
+  - section-parent::framework::0842->principle::0877
+  - section-parent::framework::0842->principle::0917
+  - section-parent::framework::0934->principle::0935
+  - section-parent::framework::0934->principle::0966
+  - section-parent::framework::1146->principle::1159
+  - section-parent::framework::1161->principle::1162
+  - section-parent::framework::1161->principle::1171
+  - section-parent::framework::1230->principle::1231
+  - section-parent::principle::0007->principle::0012
+  - section-parent::principle::0152->principle::0153
+  - section-parent::principle::0417->principle::0418
+  - section-parent::principle::0424->principle::0426
+  - section-parent::principle::0426->principle::0427
+  - section-parent::principle::0429->principle::0430
+  - section-parent::principle::0432->principle::0436
+  - section-parent::principle::0432->principle::0439
+  - section-parent::principle::0433->principle::0435
+  - section-parent::principle::0439->principle::0440
+  - section-parent::principle::0456->principle::0458
+  - section-parent::principle::0456->principle::0460
+  - section-parent::principle::0456->principle::0461
+  - section-parent::principle::0483->principle::0484
+  - section-parent::principle::0496->principle::0502
+  - section-parent::principle::0580->principle::0581
+  - section-parent::principle::0580->principle::0582
+  - section-parent::principle::0580->principle::0586
+  - section-parent::principle::0580->principle::0592
+  - section-parent::principle::0582->principle::0583
+  - section-parent::principle::0582->principle::0584
+  - section-parent::principle::0582->principle::0585
+  - section-parent::principle::0647->principle::0657
+  - section-parent::principle::0713->principle::0714
+  - section-parent::principle::0714->principle::0715
+  - section-parent::principle::0877->principle::0878
+  - section-parent::principle::0917->principle::0918
+  - section-parent::principle::0918->principle::0919
+  - section-parent::principle::0964->principle::0965
+  - section-parent::principle::0966->principle::0967
+  - section-parent::principle::0968->principle::0970
+  - section-parent::principle::1159->principle::1160
+  - section-parent::principle::1162->principle::1163
+  - section-parent::principle::1165->principle::1169
+  - section-parent::principle::1169->principle::1170
+  - section-parent::principle::1231->principle::1232
+  - section-parent::principle::1231->principle::1233
+  - section-parent::principle::1231->principle::1234
+  - section-parent::principle::1231->principle::1235
+  - section-parent::principle::1231->principle::1236
+  - section-parent::principle::1231->principle::1241
+  - section-parent::principle::1231->principle::1242
+  - section-parent::principle::1231->principle::1244
+  - section-parent::principle::1231->principle::1245
+  - supported-by::principle::0012->evidence::financial-statement-0010
+  - supported-by::principle::0153->evidence::financial-statement-0163
+  - supported-by::principle::0417->evidence::financial-statement-0443
+  - supported-by::principle::0417->evidence::financial-statement-0444
+  - supported-by::principle::0426->evidence::financial-statement-0456
+  - supported-by::principle::0426->evidence::financial-statement-0457
+  - supported-by::principle::0429->evidence::financial-statement-0462
+  - supported-by::principle::0435->evidence::financial-statement-0466
+  - supported-by::principle::0436->evidence::financial-statement-0467
+  - supported-by::principle::0439->evidence::financial-statement-0469
+  - supported-by::principle::0458->evidence::financial-statement-0485
+  - supported-by::principle::0460->evidence::financial-statement-0487
+  - supported-by::principle::0461->evidence::financial-statement-0488
+  - supported-by::principle::0470->evidence::financial-statement-0496
+  - supported-by::principle::0484->evidence::financial-statement-0516
+  - supported-by::principle::0502->evidence::financial-statement-0530
+  - supported-by::principle::0580->evidence::financial-statement-0612
+  - supported-by::principle::0582->evidence::financial-statement-0613
+  - supported-by::principle::0582->evidence::financial-statement-0614
+  - supported-by::principle::0877->evidence::financial-statement-0702
+  - supported-by::principle::0877->evidence::financial-statement-0703
+  - supported-by::principle::0877->evidence::financial-statement-0772
+  - supported-by::principle::0877->evidence::financial-statement-0940
+  - supported-by::principle::0917->evidence::financial-statement-0991
+  - supported-by::principle::0918->evidence::financial-statement-0992
+  - supported-by::principle::0918->evidence::financial-statement-0993
+  - supported-by::principle::0918->evidence::financial-statement-0994
+  - supported-by::principle::0918->evidence::financial-statement-0995
+  - supported-by::principle::0918->evidence::financial-statement-0996
+  - supported-by::principle::0918->evidence::financial-statement-0997
+  - supported-by::principle::0935->evidence::financial-statement-1018
+  - supported-by::principle::0935->evidence::financial-statement-1019
+  - supported-by::principle::0935->evidence::financial-statement-1020
+  - supported-by::principle::0935->evidence::financial-statement-1021
+  - supported-by::principle::0965->evidence::financial-statement-1056
+  - supported-by::principle::0966->evidence::financial-statement-1057
+  - supported-by::principle::0970->evidence::financial-statement-1061
+  - supported-by::principle::1159->evidence::financial-statement-1286
+  - supported-by::principle::1162->evidence::financial-statement-1288
+  - supported-by::principle::1169->evidence::financial-statement-1296
+  - supported-by::principle::1169->evidence::financial-statement-1297
+  - supported-by::principle::1169->evidence::financial-statement-1298
+  - supported-by::principle::1170->evidence::financial-statement-1299
+  - supported-by::principle::1171->evidence::financial-statement-1300
+  - supported-by::principle::1171->evidence::financial-statement-1301
+  - supported-by::principle::1231->evidence::financial-statement-1362
+  community_ids:
+  - community::principle::0007
+  - community::principle::0012
+  - community::principle::0152
+  - community::principle::0153
+  - community::principle::0417
+  - community::principle::0418
+  - community::principle::0424
+  - community::principle::0426
+  - community::principle::0427
+  - community::principle::0429
+  - community::principle::0430
+  - community::principle::0432
+  - community::principle::0433
+  - community::principle::0435
+  - community::principle::0436
+  - community::principle::0439
+  - community::principle::0440
+  - community::principle::0456
+  - community::principle::0458
+  - community::principle::0460
+  - community::principle::0461
+  - community::principle::0470
+  - community::principle::0483
+  - community::principle::0484
+  - community::principle::0496
+  - community::principle::0502
+  - community::principle::0580
+  - community::principle::0581
+  - community::principle::0582
+  - community::principle::0583
+  - community::principle::0584
+  - community::principle::0585
+  - community::principle::0586
+  - community::principle::0592
+  - community::principle::0647
+  - community::principle::0657
+  - community::principle::0713
+  - community::principle::0714
+  - community::principle::0715
+  - community::principle::0877
+  - community::principle::0878
+  - community::principle::0917
+  - community::principle::0918
+  - community::principle::0919
+  - community::principle::0935
+  - community::principle::0964
+  - community::principle::0965
+  - community::principle::0966
+  - community::principle::0967
+  - community::principle::0968
+  - community::principle::0970
+  - community::principle::1159
+  - community::principle::1160
+  - community::principle::1162
+  - community::principle::1163
+  - community::principle::1165
+  - community::principle::1169
+  - community::principle::1170
+  - community::principle::1171
+  - community::principle::1231
+  - community::principle::1232
+  - community::principle::1233
+  - community::principle::1234
+  - community::principle::1235
+  - community::principle::1236
+  - community::principle::1241
+  - community::principle::1242
+  - community::principle::1244
+  - community::principle::1245
+source_anchor_sets:
+- anchor_id: accounting-quality-signal-check-principle::1171
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15978
+  line_end: 15978
+  snippet: '## 18.1.2 关于会计信息质量的五个问题'
+- anchor_id: accounting-quality-signal-check-case::financial-statement-0456
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5725
+  line_end: 5739
+  snippet: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需要根据这些预测值再预计未来的权益账面价值。
+    从结构方面来看，这两个模型是类似的。 剩余收益估值模型以权益的账面价值为起点，然后再将预计收益超出了按必要报酬率计算的账面价值必要报酬的部分作为价值增量。超常收益增长模型以资本化的次年收益作为起点，然后再以预计（含息）收益超出了按必要报酬率计算的上年收益再投
+- anchor_id: accounting-quality-signal-check-case::financial-statement-0612
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7527
+  line_end: 7533
+  snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+    我们需要理解会计的工作程序，但对于权益分析来说，我们还需要了解会计程序的不足之处。
+- anchor_id: accounting-quality-signal-check-case::financial-statement-0614
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7541
+  line_end: 7541
+  snippet: '| 0 | 1 | |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-case::financial-statement-0703
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8695
+  line_end: 8697
+  snippet: '| 0 | 1 | |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-case::financial-statement-0940
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11549
+  line_end: 11551
+  snippet: '本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的收益，并对未来收益的预测产生影响。因此，我们将这些问题也归纳到了“会计信息质量观察”栏目中。我们从第9章开始总结“会计信息质量观察”要点，并在第10章和第11章中继续这样做。现在，你已经有了一份有关会计信息质量问题的完整清单，可以为学习第18章中正式的会计信息质量分析做好准备了。
+    | 0 | 1 | '
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1288
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15809
+  line_end: 15815
+  snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+    这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必需的。比如，要建立客户基础和确立品牌地位，就注定了企业在广告投放和促销支出方面会
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1296
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15954
+  line_end: 15960
+  snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量（earnings
+    quality）是糟糕的。举例来说，如果在企业所报告的利润中
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1297
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1299
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15972
+  line_end: 15976
+  snippet: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目和金融活动项目（第10章）的不同影响，能帮助我们将经营利润从净利润中分离出来，因为经营利润与预测更加相关，对估值的影响也更为重要；在第13章的财务报表分析中，更是要求我们要排除经营利润中所包含非经常性项目的影响，直达可持续的核心经营利润和核心利润率，后者在预测未来方面显然具有更高的质量标准。此外，在第
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1300
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-case::financial-statement-1301
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0163
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 2085
+  line_end: 2089
+  snippet: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利润走势来影响股票价格的走势，请参考阅读材料2-5。非常不幸的是，美国公认会计原则和国际财务报告准则确实在有些地方规定得不是那么完美。很显然，我们不能拿着有问题的财务报表来作为分析的基准，因此，随着本书内容的深入，我们会逐步提醒大家注意一些应当引起重视的会计质量问题，并告诉大家如何对此进
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0457
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5741
+  line_end: 5749
+  snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------:|
+    | | 1 | 2 | 3 | 4 | 5 | | 剩余收益 | 2.36 | 2.431 | 2.504 | 2.579 | 2.656 | | 剩余收益的变动额
+    | | 0.071 | 0.073 | 0.075 | 0.077 | | 超常收益增长 | | 0.071 | '
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0612
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7527
+  line_end: 7533
+  snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+    我们需要理解会计的工作程序，但对于权益分析来说，我们还需要了解会计程序的不足之处。
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0703
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8695
+  line_end: 8697
+  snippet: '| 0 | 1 | |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0772
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9534
+  line_end: 9540
+  snippet: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量问题应当注意的观察要点。下面列出的三个项目在本章中都有涉及，然后，我们将对经营活动产生的现金流量数据和它在分析中的应用进行更多的讨论和分析。
+    | 0 | 1 | |:----------------|:------------------------------------------
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-0992
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12220
+  line_end: 12234
+  snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+    到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不能只看经营利润，而忽视了本来可以再投资于经营活动，结果却被用于经营活动之外的现金
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1018
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12500
+  line_end: 12504
+  snippet: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增加普通股权益报酬率ROCE（当然，前提是经营利润率差异为正）一样，金融杠杆同时也能增加企业的每股
+    收益，如果在进行股份回购时加大企业的杠杆水平，还能使每股收益增加更多。在使用超常收益增长估值模型时，我们曾经说，对收益的增长应当支付更高的价格，但现在，我们应当为由于杠杆水平的增加而带来的
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1021
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12532
+  line_end: 12536
+  snippet: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息费用增加了），但每股收益却增加为
+    0.25 美元。估值结果显示，每股收益的增大并没有改变权益资本的每股价值，因为随着杠杆水平的提高，权益资金的资本成本也增加为 12.5%，所以抵消了每股收益增加的影响。权益资本的价值——用下一年的每股收益预期值
+    0.25 美元按权益资本成本率 12.5
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1288
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15809
+  line_end: 15815
+  snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+    这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必需的。比如，要建立客户基础和确立品牌地位，就注定了企业在广告投放和促销支出方面会
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1296
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15954
+  line_end: 15960
+  snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量（earnings
+    quality）是糟糕的。举例来说，如果在企业所报告的利润中
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1297
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1300
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1301
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-counter-example::financial-statement-1362
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16654
+  line_end: 16666
+  snippet: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些人相信市场是有效率的，他们坚持认为，市场能够看穿企业的会计伎俩，识别企业的真实获利能力。但对于会计信息质量分析人员来说，他们相信通过识别企业的会计操纵手段可以发现错误的定价，从而获得超常的投资回报。
+    请看图 18-4，它报告了在 1979～2002 年，每年都对高 S 计分值的企业进行
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0010
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 153
+  line_end: 153
+  snippet: 在简单理解了会计系统的运作方式之后，通过本书，你将能够学会对会计工作成果的质量进行正确的评价。学习完本书后，你将能够识别公司所发布财务报表中存在的问题，批判地看待报表编制时所必须遵循的“公认会计原则”和其他信息披露规则。同时，你还会理解报告中
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0163
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 2085
+  line_end: 2089
+  snippet: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利润走势来影响股票价格的走势，请参考阅读材料2-5。非常不幸的是，美国公认会计原则和国际财务报告准则确实在有些地方规定得不是那么完美。很显然，我们不能拿着有问题的财务报表来作为分析的基准，因此，随着本书内容的深入，我们会逐步提醒大家注意一些应当引起重视的会计质量问题，并告诉大家如何对此进
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0443
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5592
+  line_end: 5606
+  snippet: 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差： $$ \begin{aligned}
+    超常收益增长 _{t}&= 含息收益 _{t}- 正常收益 _{t}\\&=\left[\text{ 收益 }_{t}+\left(\rho_{E}-1\right)\text{
+    股利 }_{t-1}\right]-\rho_{E}\text{ 收益 }_{t-1}\end{a
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0444
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5608
+  line_end: 5608
+  snippet: 其中， $ G_{t} $ 等于 1 与当期含息收益增长率之和。即，超常收益增长就是上一年度的含息收益增长超出了必要报酬率所对应收益的那一部分。如果
+    $ G_{t} $ 等于必要报酬率，那么就没有超常收益增长出现。以耐克公司为例，2010 年的含息每股收益为 4.018 美元，因此含息收益增长率为 $ 4.018
+    / 3.07 = 30.88\% $（再加上 1）。所以，由于必要报酬率仅为 9%，耐克公司超常收益增长应为每股 $ 3.0
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0456
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5725
+  line_end: 5739
+  snippet: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需要根据这些预测值再预计未来的权益账面价值。
+    从结构方面来看，这两个模型是类似的。 剩余收益估值模型以权益的账面价值为起点，然后再将预计收益超出了按必要报酬率计算的账面价值必要报酬的部分作为价值增量。超常收益增长模型以资本化的次年收益作为起点，然后再以预计（含息）收益超出了按必要报酬率计算的上年收益再投
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0457
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5741
+  line_end: 5749
+  snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------:|
+    | | 1 | 2 | 3 | 4 | 5 | | 剩余收益 | 2.36 | 2.431 | 2.504 | 2.579 | 2.656 | | 剩余收益的变动额
+    | | 0.071 | 0.073 | 0.075 | 0.077 | | 超常收益增长 | | 0.071 | '
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0462
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5794
+  line_end: 5796
+  snippet: 阅读材料 6-4 列出了超常收益增长模型的优点与不足。阅读时，请注意与股利贴现模型（第 4 章）、贴现现金流量模型（第 4 章）和剩余收益估值模型（第
+    5 章）的特点进行比较。 我们已经强调过，超常收益增长估值模型与剩余收益估值模型一样，能够保护我们避免为盈利的增长而支付过高的价格。在本节中，我们将再讨论该模型的其他一些特点。
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0466
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5840
+  line_end: 5840
+  snippet: 在对价值创造过程的解释这个问题上，超常收益增长模型不如剩余收益模型那么清楚。企业投资于资产，然后通过在经营过程中对这些资产加以利用，从而创造价值。剩余收益估值模型确认了企业对资产的投资，只有当投资的收益率大于必要报酬率时，才确认价值的增加额。因此，剩余收益估值模型能够有利于我们更好地观察企业的价值创造过程，看清楚投资与取得投资回报之间的关系。因此，我们不建议将超常收益增长模型作为战略分析工具来进行使用（但我们认为剩余收益估值模型是适合的
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0467
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5844
+  line_end: 5848
+  snippet: 在第 5 章中我们已经看到，剩余收益估值模型对预期的股利发放率、股份发行和股份回购等事件是不敏感的，这一特点同样也是超常收益增长估值模型所具有的。
+    对于股利，你可以利用表 6-2 中的数据来进行验证。如果不发放股利，将股利按 10% 的报 酬率水平再投资到公司中，那么下一期的收益增加额就等于股利的再投资收益。或者，如果发放股利，那么含息收益（即企业所赚取的收益再加上股东将所得到的股利再投资于公司之外的项目）与股东将这些股利再投资到某个个
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0469
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5860
+  line_end: 5864
+  snippet: 表 6-2 中列出了利用一家公司的预计收益和收益增长信息，来进行权益估值的过程。现在，假定这家公司的经理决定通过计提第 0 年的存货减值 8
+    美元，在第 1 年中报告更多的利润。这一会计调整将使得一些会计数据发生改变，但对企业的权益价值却没有影响。以下是修订后的预计数： 利用会计方法创造收益：计提存货减值后的表
+    6-2 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | |:-----------|:------|:------
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0485
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6047
+  line_end: 6059
+  snippet: 下面是 2010 年年末做出的某家企业盈利与股利信息预测。这家企业的权益资本必要报酬率为每年 10%。 | 0 | 1 | 2 | 3 | |:---------|:-------|:-------|:-------|
+    | | 2011 年 | 2012 年 | 2013 年 | | 每股收益 EPS | 3.00 | 3.60 | 4.10 | | 每股股利 DPS |
+    0.25 | 0.25 | 0.30 | 要求： a. 预计该公
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0487
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6071
+  line_end: 6081
+  snippet: '假定某位分析人员向你提供了下列预计信息（单位：百万美元），这些信息是他对一家公司在2013～2017年的收益和股利预测数据。他希望你能帮忙对这家公司在2012年末的13.8亿股流通在外的股票进行估值。在计算时，假定这家公司的权益资本必要报酬率为10%（这些预测数据与练习题E5.3中的是一样的，但当时是要求使用剩余收益估值模型进行估值）。
+    | 0 | 1 | 2 | 3 | 4 | 5 | |:----|:------|:------|:'
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0488
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6085
+  line_end: 6097
+  snippet: 下列某家企业每股收益和每股股利的预测值是在 2012 年年末做出的。 | 0 | 1 | 2 | |:-------|:---------|:---------|
+    | | 每股收益 EPS | 每股股利 DPS | | 2013 年 | 3.90 | 1.00 | | 2014 年 | 3.70 | 1.00 | |
+    2015 年 | 3.31 | 1.00 | | 2016 年 | 3.59 | 1.00 | | 2017 年 | 3
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0496
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6191
+  line_end: 6199
+  snippet: 请回到练习题 E6.3。当时，一位分析人员在 2012 年年末根据企业的初步报告，预计该企业能在 2013 年实现收益为 3.88 亿美元。
+    不过，当最终的报告公布的时候，分析师发现这家企业在2012年年末对存货计提了1.14亿美元的减值准备（根据成本与市价孰低原则）。分析人员预计，这批计提了减值准备的存货能在2013年全部售出（因此减值会影响到2013年的销货成本），于是，他更正了对该企业2013年的盈利预测数据。在回答下述问题a和问
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0516
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6493
+  line_end: 6503
+  snippet: 上面的例题所使用的是第 5 章中所介绍的剩余收益估值模型，其实，我们还可以利用第 6 章中所介绍的超常收益增长模型（AEG）来进行这样的分析。当已知未来两年的预测情况时，可有：
+    $$ V_{0}^{E}=\frac{1}{\rho-1}\left(EPS_{1}+\frac{AEG_{2}}{\rho-g}\right) $$ 将这个模型分解为两个部分——无增长条件下的估值和增长的价值：
+    $$ V_{0}^{E}=\frac{1}{\r
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0530
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6621
+  line_end: 6625
+  snippet: 根据分析人员对一家公司的预计，该公司在未来两年内分别实现每股收益2.11美元和2.67美元，这家公司不发放任何股利。假定投资者的必要报酬率为9%，请问：
+    a. 如果这家公司目前的股票价格为每股105.69美元，请问，按超常收益增长模型计算，这个价格中所隐含的企业长期增长率为多少？ b. 市场对这家公司在将来第
+    3 年的每股收益预期为多少？
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0612
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7527
+  line_end: 7533
+  snippet: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证券和员工股票期权计划相关的知识点。接下来，我们会建议你参考本书配套网站上的“会计诊所”栏目，以了解更多的相关细节，比如，在会计诊所Ⅲ和会计诊所Ⅳ中，就对本章涉及的有价证券和股份支付内容进行了更多的介绍。
+    我们需要理解会计的工作程序，但对于权益分析来说，我们还需要了解会计程序的不足之处。
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0613
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7539
+  line_end: 7539
+  snippet: 在本章中，我们谈到了美国公认会计原则和国际财务报告准则的一些质量缺陷问题。如果站在股东的立场上进行权益分析，分析人员应当尤其注意下列观察要点，这些问题在美国公认会计原则和国际财务报告准则中共同存在。
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0614
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7541
+  line_end: 7541
+  snippet: '| 0 | 1 | |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0702
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8693
+  line_end: 8693
+  snippet: 在这里，我们接着第9章阅读材料9-6中的介绍，继续我们的会计信息质量观察总结。以下列出了一系列资产负债表中的信息质量观察要点。如下所述，资产负债表中的信息质量同时也会影响利润表中的信息质量。在第11章中，我们还会继续讨论现金流量表中的信息质量问题，而在第13章中对可持续盈利问题进行讨论时，我们还会讨论更深入的盈余质量问题。
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0703
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8695
+  line_end: 8697
+  snippet: '| 0 | 1 | |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0772
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9534
+  line_end: 9540
+  snippet: 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量问题应当注意的观察要点。下面列出的三个项目在本章中都有涉及，然后，我们将对经营活动产生的现金流量数据和它在分析中的应用进行更多的讨论和分析。
+    | 0 | 1 | |:----------------|:------------------------------------------
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0940
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11549
+  line_end: 11551
+  snippet: '本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的收益，并对未来收益的预测产生影响。因此，我们将这些问题也归纳到了“会计信息质量观察”栏目中。我们从第9章开始总结“会计信息质量观察”要点，并在第10章和第11章中继续这样做。现在，你已经有了一份有关会计信息质量问题的完整清单，可以为学习第18章中正式的会计信息质量分析做好准备了。
+    | 0 | 1 | '
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0991
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12204
+  line_end: 12216
+  snippet: 现在我们再来回顾一下权益估值的超常收益增长模型： $$ \begin{aligned}&\mathcal{V}_{0}^{E}= 资本化 \left[
+    下期收益 + 超常收益增长 的现值 \right]\\ &\quad=\frac{1}{\rho_{E}-1}\left(earn_{1}+\frac{AEG_{2}}{\rho_{E}}+\frac{AEG_{3}}{\rho_{E}^{2}}+\frac{AEG_{4}}{\rho_
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0992
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12220
+  line_end: 12234
+  snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+    到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不能只看经营利润，而忽视了本来可以再投资于经营活动，结果却被用于经营活动之外的现金
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0993
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12236
+  line_end: 12256
+  snippet: $$ 超常增长的经营性收益 AOIG_{t}=(G_{t}-\rho_{F})\times 经营利润 _{t-1} $$ 其中， $ G_{t}
+    $ 表示含息经营利润的增长率。 与表 14-1 中对剩余收益的分解类似，表 14-3 列出了与经营利润和金融活动损益相关的超常收益增长计量指标。为了表示完整，在表中也列出了净融资费用的超常增长计算式，但（与剩余净融资费用一样）由于它的期望值为
+    0，所以实际上我们不会用到它（请注意，为了表达的完
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0994
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12258
+  line_end: 12264
+  snippet: 经营业务的价值等于企业权益资本的价值减去净金融性负债的价值。从上面这个公式中可以看出，这个公式的形式与超常收益增长 AEG 模型 [式（14-4）]
+    的形式是一样的，只是用经营利润替代了收益总额，用经营业务的资本成本替代了权益资本成本而成。与剩余经营性收益 ReOI 模型一样，该超常增长的经营性收益模型简化了我们的估值任务，因为我们现在只需要预测企业未来的经营利润就可以了，对于金融活动对企业未来盈利的影响，则可以予以忽略。由于这个模型是
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0995
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12266
+  line_end: 12271
+  snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:-------------------------------|:------|:-------|:-------|:-------|:-------|
+    | | 2010A | 2011E | 2012E | 2013E | 2014E | | 经营利润(OI) | | 1950 | 2042 | 2102
+    | 2146 | | 净经营性资产(NOA) | 5514 | 6287 '
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0996
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12273
+  line_end: 12277
+  snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-0997
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12279
+  line_end: 12293
+  snippet: 持续价值 $ CV=\frac{61.0}{1.091-1.04}=1196.9 $ 持续价值的现值= $ \frac{1196.9}{1.299}=921.4
+    $ 在持续价值的计算式中，2015年超常增长的经营性收益AOIG预测值为61.0，等于2014年的剩余经营性收益1526百万美元按GDP增长率4%增长后的结果（与表14-2中剩余经营性收益的估值保持一致）
+    自由现金流量再投资收益等于上一年度的自由现金流量按必要报酬率9.1%进行
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1018
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12500
+  line_end: 12504
+  snippet: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增加普通股权益报酬率ROCE（当然，前提是经营利润率差异为正）一样，金融杠杆同时也能增加企业的每股
+    收益，如果在进行股份回购时加大企业的杠杆水平，还能使每股收益增加更多。在使用超常收益增长估值模型时，我们曾经说，对收益的增长应当支付更高的价格，但现在，我们应当为由于杠杆水平的增加而带来的
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1019
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12506
+  line_end: 12512
+  snippet: '| 0 | 1 | 2 | 3 | 4 | |:-----------------------------------------------------------------------|:-----------------------------------------------------------------------|:--------------------------------------------------'
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1020
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12514
+  line_end: 12530
+  snippet: 远期市盈率 = 2.00 / 0.20 = 10 B. 应用超常收益增长模型对同一企业进行估值：权益资本成本率 = 9.0% + [300/1
+    200 × (9.0% - 5.0%)] = 10.0% C. 应用超常收益增长模型对同一家企业在利用负债资金进行股份回购后进行估值： 权益资本成本 = 9%
+    + [700/800 × (9% - 5%)] = 12.5% (续) | 0 | 1 | 2 | 3 | 4 | |:--------
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1021
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12532
+  line_end: 12536
+  snippet: 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息费用增加了），但每股收益却增加为
+    0.25 美元。估值结果显示，每股收益的增大并没有改变权益资本的每股价值，因为随着杠杆水平的提高，权益资金的资本成本也增加为 12.5%，所以抵消了每股收益增加的影响。权益资本的价值——用下一年的每股收益预期值
+    0.25 美元按权益资本成本率 12.5
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1056
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12905
+  line_end: 12911
+  snippet: 以下是一家企业财务报表中的汇总数据（单位：百万美元）。 | 0 | 1 | 2 | 3 | 4 | |:-------|:---------|:---------|:---------|:---------|
+    | | 2007年 | 2008年 | 2009年 | 2010年 | | 经营利润 | 187.00 | 200.09 | 214.10 | 229.08
+    | | 净经营性资产 | 1 214.45 | 1 299.46 | 1
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1057
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12915
+  line_end: 12925
+  snippet: 以下是一家企业的财务报表（单位：百万美元）。 | 0 | 1 | 2 | |:-----|:------|:------| | 利润表 | 利润表
+    | 利润表 | | | 2012年 | 2011年 | | 经营利润 | 2700 | 2300 | | 利息费用 | 800 | 500 | | 净利润
+    | 1900 | 1800 | 年末资产负债表 | 0 | 1 | 2 | |:-------|:-------|:-------| |
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1061
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12951
+  line_end: 12951
+  snippet: 请利用练习题 E14.7 中的预测数据，预计这家企业超常增长的经营性收益，并根据你的预测结果对这家企业的经营活动和股东权益进行估值。这家企业经营活动的必要报酬率为
+    10.1%。
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1286
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15775
+  line_end: 15781
+  snippet: 可口可乐公司曾经报告过一个被称为“经济利润”的数据，该数据的定义十分类似于本书中的剩余经营性收益。此外，在年度财务数据摘要信息部分，该公司还报告了自由现金流量的情况。下面给出了可口可乐公司在1992～1999年的相关数据（单位为百万美元），以及该公司所称的“总资本”（类似于我们的净经营性资产）和“总资产报酬率”（类似于净经营性资产收益率）信息。
+    | 0 | 1 | 2 | 3 | 4 | |:-------|:------|:-----
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1288
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15809
+  line_end: 15815
+  snippet: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率都非常高，但实际上，大部分这类企业从销售收入中留下的都只是亏损。
+    这类企业在对媒体的解释中都坚持说，它们的“商业模式”决定了它们在实现未来盈利之前都必然会经历巨额的亏损，因为在前期对基础设施所进行的投资是必需的。比如，要建立客户基础和确立品牌地位，就注定了企业在广告投放和促销支出方面会
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1296
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15954
+  line_end: 15960
+  snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量（earnings
+    quality）是糟糕的。举例来说，如果在企业所报告的利润中
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1297
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1298
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15968
+  line_end: 15968
+  snippet: 业总是高估它的坏账损失（因此总是“谨慎的”），那么它会一直报告较高的净经营性资产报酬率。但是，如果这家企业只是通过暂时地高估或者低估它的坏账损失估计值来影响当期的企业盈利，那么，利用它当期的净经营性资产报酬率去预测未来的盈利水平，可靠性就会大幅度降低。相应地，我们用“激进会计”（aggressive
+    accounting，区别于“自由会计”）这个术语来描述暂时提高盈利的利润操纵手法，而用“洗大澡”（区别于“谨慎性会计”）这个术语来描述暂
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1299
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15972
+  line_end: 15976
+  snippet: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目和金融活动项目（第10章）的不同影响，能帮助我们将经营利润从净利润中分离出来，因为经营利润与预测更加相关，对估值的影响也更为重要；在第13章的财务报表分析中，更是要求我们要排除经营利润中所包含非经常性项目的影响，直达可持续的核心经营利润和核心利润率，后者在预测未来方面显然具有更高的质量标准。此外，在第
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1300
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1301
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-evidence::financial-statement-1362
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16654
+  line_end: 16666
+  snippet: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些人相信市场是有效率的，他们坚持认为，市场能够看穿企业的会计伎俩，识别企业的真实获利能力。但对于会计信息质量分析人员来说，他们相信通过识别企业的会计操纵手段可以发现错误的定价，从而获得超常的投资回报。
+    请看图 18-4，它报告了在 1979～2002 年，每年都对高 S 计分值的企业进行
+- anchor_id: accounting-quality-signal-check-framework::0416
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5546
+  line_end: 5546
+  snippet: '# 6.3 锚定收益的估值模型'
+- anchor_id: accounting-quality-signal-check-framework::0423
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5683
+  line_end: 5683
+  snippet: '# 以你确知的为准，避免投机'
+- anchor_id: accounting-quality-signal-check-framework::0431
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5800
+  line_end: 5800
+  snippet: '# 超常收益增长模型的特点'
+- anchor_id: accounting-quality-signal-check-framework::0578
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7507
+  line_end: 7507
+  snippet: '# 9.5 股东的角度'
+- anchor_id: accounting-quality-signal-check-framework::0842
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11196
+  line_end: 11196
+  snippet: '# 13.3 增长分析'
+- anchor_id: accounting-quality-signal-check-framework::0934
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12437
+  line_end: 12437
+  snippet: '# 2. 荷兰式拍卖要约收购的股份回购'
+- anchor_id: accounting-quality-signal-check-framework::1146
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15546
+  line_end: 15546
+  snippet: '# 17.5 会计方法与预测基准'
+- anchor_id: accounting-quality-signal-check-framework::1161
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15805
+  line_end: 15805
+  snippet: '# 迷你案例'
+- anchor_id: accounting-quality-signal-check-framework::1230
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16618
+  line_end: 16618
+  snippet: '# 18.6 会计信息质量评分'
+- anchor_id: accounting-quality-signal-check-principle::0007
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 123
+  line_end: 123
+  snippet: '### 0.1 写作思考'
+- anchor_id: accounting-quality-signal-check-principle::0012
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 151
+  line_end: 151
+  snippet: '#### 0.1.5 会计信息的质量'
+- anchor_id: accounting-quality-signal-check-principle::0152
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 2073
+  line_end: 2073
+  snippet: '## 2.2.6 会计原则之间的冲突'
+- anchor_id: accounting-quality-signal-check-principle::0153
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 2083
+  line_end: 2083
+  snippet: '#### 2.2.7 会计信息质量'
+- anchor_id: accounting-quality-signal-check-principle::0417
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5590
+  line_end: 5590
+  snippet: '## 6.3.1 超常收益增长的计量'
+- anchor_id: accounting-quality-signal-check-principle::0418
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5610
+  line_end: 5610
+  snippet: '#### 6.3.2 一个简单的示例与估值模型'
+- anchor_id: accounting-quality-signal-check-principle::0424
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5701
+  line_end: 5701
+  snippet: '##### 情景 2 耐克公司'
+- anchor_id: accounting-quality-signal-check-principle::0426
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5723
+  line_end: 5723
+  snippet: '### 超常收益增长模型与剩余收益模型的比较'
+- anchor_id: accounting-quality-signal-check-principle::0427
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5751
+  line_end: 5751
+  snippet: '#### 将分析师的预测转换为估值'
+- anchor_id: accounting-quality-signal-check-principle::0429
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5792
+  line_end: 5792
+  snippet: '## 6.6 超常收益增长模型的特点'
+- anchor_id: accounting-quality-signal-check-principle::0430
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5798
+  line_end: 5798
+  snippet: '### 阅读材料 6-4'
+- anchor_id: accounting-quality-signal-check-principle::0432
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5802
+  line_end: 5802
+  snippet: '##### 优点'
+- anchor_id: accounting-quality-signal-check-principle::0433
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5816
+  line_end: 5816
+  snippet: '##### 不足'
+- anchor_id: accounting-quality-signal-check-principle::0435
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5838
+  line_end: 5838
+  snippet: '#### 6.6.2 超常收益增长模型与剩余收益估值模型'
+- anchor_id: accounting-quality-signal-check-principle::0436
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5842
+  line_end: 5842
+  snippet: '### 6.6.3 超常收益增长模型不受股利发放、股份发行和股份回购等事件的影响'
+- anchor_id: accounting-quality-signal-check-principle::0439
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5858
+  line_end: 5858
+  snippet: '### 通过会计方法创造收益时的超常收益增长模型估值'
+- anchor_id: accounting-quality-signal-check-principle::0440
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5866
+  line_end: 5866
+  snippet: '##### 对估值的影响'
+- anchor_id: accounting-quality-signal-check-principle::0456
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6041
+  line_end: 6041
+  snippet: '#### 练习题'
+- anchor_id: accounting-quality-signal-check-principle::0458
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6045
+  line_end: 6045
+  snippet: '##### E6.1. 预计收益增长与超常收益增长（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0460
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6069
+  line_end: 6069
+  snippet: '##### E6.3. 根据预计的超常收益增长进行估值（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0461
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6083
+  line_end: 6083
+  snippet: '##### E6.4. 超常收益增长估值与目标价格（中等）'
+- anchor_id: accounting-quality-signal-check-principle::0470
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6189
+  line_end: 6189
+  snippet: '## E6.14. 超常收益增长模型估值与会计方法（困难）'
+- anchor_id: accounting-quality-signal-check-principle::0483
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6423
+  line_end: 6423
+  snippet: '## 7.2.2 检验某只股票定价的合理性'
+- anchor_id: accounting-quality-signal-check-principle::0484
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6491
+  line_end: 6491
+  snippet: '#### 7.2.3 用超常收益增长率模型进行反推'
+- anchor_id: accounting-quality-signal-check-principle::0496
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6589
+  line_end: 6589
+  snippet: '#### 练习题'
+- anchor_id: accounting-quality-signal-check-principle::0502
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6619
+  line_end: 6619
+  snippet: '##### E7.5. 用超常收益增长模型进行反推（中等）'
+- anchor_id: accounting-quality-signal-check-principle::0580
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7525
+  line_end: 7525
+  snippet: '## 9.7 会计信息质量观察'
+- anchor_id: accounting-quality-signal-check-principle::0581
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7535
+  line_end: 7535
+  snippet: '### 阅读材料 9-6'
+- anchor_id: accounting-quality-signal-check-principle::0582
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7537
+  line_end: 7537
+  snippet: '### 会计信息质量观察：股东权益变动表'
+- anchor_id: accounting-quality-signal-check-principle::0583
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7543
+  line_end: 7543
+  snippet: '##### 本章小结'
+- anchor_id: accounting-quality-signal-check-principle::0584
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7551
+  line_end: 7551
+  snippet: '#### 关键概念'
+- anchor_id: accounting-quality-signal-check-principle::0585
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7589
+  line_end: 7589
+  snippet: '#### 分析师工具箱'
+- anchor_id: accounting-quality-signal-check-principle::0586
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7610
+  line_end: 7610
+  snippet: '### 连贯案例：金佰利公司'
+- anchor_id: accounting-quality-signal-check-principle::0592
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 7660
+  line_end: 7660
+  snippet: '### 练习题'
+- anchor_id: accounting-quality-signal-check-principle::0647
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8583
+  line_end: 8583
+  snippet: '## 10.4 比率分析'
+- anchor_id: accounting-quality-signal-check-principle::0657
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8691
+  line_end: 8691
+  snippet: '### 会计信息质量观察'
+- anchor_id: accounting-quality-signal-check-principle::0713
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9530
+  line_end: 9530
+  snippet: '### 阅读材料 11-4'
+- anchor_id: accounting-quality-signal-check-principle::0714
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9532
+  line_end: 9532
+  snippet: '### 会计信息质量观察'
+- anchor_id: accounting-quality-signal-check-principle::0715
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 9542
+  line_end: 9542
+  snippet: '#### 经营活动产生现金流量的质量'
+- anchor_id: accounting-quality-signal-check-principle::0877
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11547
+  line_end: 11547
+  snippet: '## 会计信息质量观察'
+- anchor_id: accounting-quality-signal-check-principle::0878
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11553
+  line_end: 11553
+  snippet: '### 关键概念'
+- anchor_id: accounting-quality-signal-check-principle::0917
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12202
+  line_end: 12202
+  snippet: '## 14.2 超常收益增长预测的修正：经营性收益的超常增长'
+- anchor_id: accounting-quality-signal-check-principle::0918
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12218
+  line_end: 12218
+  snippet: '### 14.2.1 经营性收益的超常增长与来自经营活动的“红利”'
+- anchor_id: accounting-quality-signal-check-principle::0919
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12295
+  line_end: 12295
+  snippet: '#### 14.2.2 关注未来：可持续的盈利'
+- anchor_id: accounting-quality-signal-check-principle::0935
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12498
+  line_end: 12498
+  snippet: '## 14.4.2 杠杆与超常收益增长估值模型'
+- anchor_id: accounting-quality-signal-check-principle::0964
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12883
+  line_end: 12883
+  snippet: '#### E14.1. 剩余收益与剩余经营性收益（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0965
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12903
+  line_end: 12903
+  snippet: '##### E14.3. 计算超常增长的经营性收益（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0966
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12913
+  line_end: 12913
+  snippet: '## E14.4. 剩余经营性收益与超常增长的经营性收益（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0967
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12927
+  line_end: 12927
+  snippet: '##### E14.5. 计算资本成本（简单）'
+- anchor_id: accounting-quality-signal-check-principle::0968
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12935
+  line_end: 12935
+  snippet: '##### E14.6. 计算股东权益的必要报酬率（中等）'
+- anchor_id: accounting-quality-signal-check-principle::0970
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12949
+  line_end: 12949
+  snippet: '##### E14.8. 超常增长的经营性收益估值（简单）'
+- anchor_id: accounting-quality-signal-check-principle::1159
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15773
+  line_end: 15773
+  snippet: '## E17.7. 自由现金流量与剩余经营性收益的质量：可口可乐公司（简单）'
+- anchor_id: accounting-quality-signal-check-principle::1160
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15783
+  line_end: 15783
+  snippet: '##### E17.8. 研发支出与估值（中等）'
+- anchor_id: accounting-quality-signal-check-principle::1162
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15807
+  line_end: 15807
+  snippet: '### M17.1 广告营销、低质量会计信息与估值：电子交易公司'
+- anchor_id: accounting-quality-signal-check-principle::1163
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15817
+  line_end: 15817
+  snippet: '#### 在线交易公司'
+- anchor_id: accounting-quality-signal-check-principle::1165
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15902
+  line_end: 15902
+  snippet: '## 第 18 章 分析财务报表的质量'
+- anchor_id: accounting-quality-signal-check-principle::1169
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15952
+  line_end: 15952
+  snippet: '### 18.1 什么是会计信息质量'
+- anchor_id: accounting-quality-signal-check-principle::1170
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15970
+  line_end: 15970
+  snippet: '#### 18.1.1 会计信息质量观察'
+- anchor_id: accounting-quality-signal-check-principle::1231
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16652
+  line_end: 16652
+  snippet: '## 18.7 质量分析中的超常收益'
+- anchor_id: accounting-quality-signal-check-principle::1232
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16668
+  line_end: 16668
+  snippet: '#### 本章小结'
+- anchor_id: accounting-quality-signal-check-principle::1233
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16676
+  line_end: 16676
+  snippet: '### 关键概念'
+- anchor_id: accounting-quality-signal-check-principle::1234
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16718
+  line_end: 16718
+  snippet: '### 分析师工具箱'
+- anchor_id: accounting-quality-signal-check-principle::1235
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16724
+  line_end: 16724
+  snippet: '### 思考题'
+- anchor_id: accounting-quality-signal-check-principle::1236
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16768
+  line_end: 16768
+  snippet: '### 练习题'
+- anchor_id: accounting-quality-signal-check-principle::1241
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16808
+  line_end: 16808
+  snippet: '### E18.5. 标准化的资产周转率（中等）'
+- anchor_id: accounting-quality-signal-check-principle::1242
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16814
+  line_end: 16814
+  snippet: '### E18.6. 资产周转率的变动与盈利质量（中等）'
+- anchor_id: accounting-quality-signal-check-principle::1244
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16828
+  line_end: 16828
+  snippet: '### 应用分析'
+- anchor_id: accounting-quality-signal-check-principle::1245
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 16830
+  line_end: 16830
+  snippet: '### E18.8. 收入的质量：博士伦公司（简单）'
+- anchor_id: accounting-quality-signal-check-term::abnormal-operating-income-growth
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12220
+  line_end: 12234
+  snippet: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低，但股东得
+    到更多的回报后，可以通过将股利进行再投资而赚取更多，所以对增长也是有贡献的。因此，凡是增长方面的分析，都应当关注含息收益的增长。现在，我们要关注企业收益的一个组成部分（经营利润）的增长，同样也不能只看经营利润，而忽视了本来可以再投资于经营活动，结果却被用于经营活动之外的现金
+- anchor_id: accounting-quality-signal-check-term::aeg
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5592
+  line_end: 5606
+  snippet: 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差： $$ \begin{aligned}
+    超常收益增长 _{t}&= 含息收益 _{t}- 正常收益 _{t}\\&=\left[\text{ 收益 }_{t}+\left(\rho_{E}-1\right)\text{
+    股利 }_{t-1}\right]-\rho_{E}\text{ 收益 }_{t-1}\end{a
+- anchor_id: accounting-quality-signal-check-term::aoig
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12266
+  line_end: 12271
+  snippet: '| 0 | 1 | 2 | 3 | 4 | 5 | |:-------------------------------|:------|:-------|:-------|:-------|:-------|
+    | | 2010A | 2011E | 2012E | 2013E | 2014E | | 经营利润(OI) | | 1950 | 2042 | 2102
+    | 2146 | | 净经营性资产(NOA) | 5514 | 6287 '
+- anchor_id: accounting-quality-signal-check-term::audit-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-term::banking-income-for-the-future
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-term::big-bath-accounting
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-term::borrowing-income-from-the-future
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-term::channel-stuffing
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-term::disclosure-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-term::earnings-management
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-term::earnings-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15954
+  line_end: 15960
+  snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量（earnings
+    quality）是糟糕的。举例来说，如果在企业所报告的利润中
+- anchor_id: accounting-quality-signal-check-term::expenditure-time
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-term::gaap-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-term::gapp-application-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-term::noa
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 6909
+  line_end: 6909
+  snippet: 如果 C-I-i d $，借出资金，或赎回自己的债务；如果 $ C-I-i < d $，借入资金，或出售债权性投资。 | 金融性资产（FA）
+    | CI：综合收益 | | 如果 $ C-I-i > d $，借出资金，或赎回自己的债务；如果 $ C-I-i < d $，借入资金，或出售债权性投资。 |
+    金融性负债（FO） | CSE：普通股东权益 | | 会计关系式 | 自由现金流量 | FA：金融性资产 | | 现金恒等式 | 净金融性资
+- anchor_id: accounting-quality-signal-check-term::pcaob
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-term::revenue-timing
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-term::reversal-property-of-accounting
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15954
+  line_end: 15960
+  snippet: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用企业当前的盈利信息和全部财务报表来帮助我们对企业的未来盈利水平进行预测。不过，如果当前的财务报表质量不好，就会误导我们的预测工作。因此，如果当期盈利不能很好地预示未来的盈利水平，投资者就会认为这样的盈余质量（earnings
+    quality）是糟糕的。举例来说，如果在企业所报告的利润中
+- anchor_id: accounting-quality-signal-check-term::saving
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15962
+  line_end: 15966
+  snippet: 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（borrowing
+    income from the future）。借取未来利润总是通过增加销售收入或者减少当期费用来实现的，但这种操纵手段对未来会带来反转影响。此外，利润操纵的方向也不一定总是向上的，我们将低报当期经营利润的操纵手段称为储蓄（saving）或者储备未来利润（banki
+- anchor_id: accounting-quality-signal-check-term::sec
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1566
+  line_end: 1596
+  snippet: 完成本章的学习任务后，你应当能够： · 用资产和负债去解释股东权益； - 根据股东权益变动表来解释当期股东权益所发生的变动； - 利用利润表来解释当期股东权益所发生的变动；
+    - 利用现金流量表来解释当期现金项目的变动； · 计算综合收益； · 计算企业在当期对股东的支付净额； - 针对某一家具体的企业，根据财务报表描述企业的基本情况；
+    - 确认资产负债表中按公允价值计量的项目有哪些； · 计算超过账面价值的溢价； · 计算市场价值增加额
+- anchor_id: accounting-quality-signal-check-term::transaction-quality
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15980
+  line_end: 15990
+  snippet: 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我们利用按照美国公认会计原则编制的会计报表来进行预测，而美国公认会计原则又未能抓住与企业价值相关的全部信息，那么，最后的估值结果就会是有缺陷的。在第9章中我们已经看到，美国公认会计原则未能全面地反映出股份支付的费用；而在第13章中我们也看到，按照美国公认会计原则所报告的盈利中包含了股票市
+- anchor_id: accounting-quality-signal-check-term::transaction-structuring
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业
+- anchor_id: accounting-quality-signal-check-term::transaction-timing
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15992
+  line_end: 16008
+  snippet: a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing），也可能涉及费用支出时间（expenditure
+    time）。操纵收入确认时间，有时也被称为填塞分销渠道（channel stuffing），即根据收入确认规则来安排交易的时间。根据美国公认会计原则，在通常情况下，企业应当在将商品或者服务已经提供给客户之后才确认销售收入。于是，一些企业

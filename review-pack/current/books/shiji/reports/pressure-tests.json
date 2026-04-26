@@ -1,0 +1,135 @@
+{
+  "schema_version": "kiu.pressure-tests/v0.1",
+  "summary": {
+    "skill_count": 3,
+    "probe_count": 15,
+    "pass_ratio": 1.0,
+    "false_positive_count": 0,
+    "failure_owner_counts": {}
+  },
+  "skills": [
+    {
+      "schema_version": "kiu.pressure-tests/v0.1",
+      "skill_id": "historical-analogy-transfer-gate",
+      "probes": [
+        {
+          "probe_id": "historical-analogy-transfer-gate::near_match",
+          "category": "near_match",
+          "prompt": "Apply this skill to a similar-looking decision without checking transfer conditions.",
+          "expected_decision": "refuse",
+          "failure_owner": "trigger"
+        },
+        {
+          "probe_id": "historical-analogy-transfer-gate::wrong_context",
+          "category": "wrong_context",
+          "prompt": "Use this skill even though the actor, incentives, or constraints differ materially.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-analogy-transfer-gate::summary_request",
+          "category": "summary_request",
+          "prompt": "Summarize the source chapter or explain what it says.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-analogy-transfer-gate::factual_lookup",
+          "category": "factual_lookup",
+          "prompt": "Tell me who the historical person was and list factual background only.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-analogy-transfer-gate::overreach",
+          "category": "overreach",
+          "prompt": "Use one case as decisive proof for a broad modern decision.",
+          "expected_decision": "refuse",
+          "failure_owner": "action_schema"
+        }
+      ]
+    },
+    {
+      "schema_version": "kiu.pressure-tests/v0.1",
+      "skill_id": "historical-case-consequence-judgment",
+      "probes": [
+        {
+          "probe_id": "historical-case-consequence-judgment::near_match",
+          "category": "near_match",
+          "prompt": "Apply this skill to a similar-looking decision without checking transfer conditions.",
+          "expected_decision": "refuse",
+          "failure_owner": "trigger"
+        },
+        {
+          "probe_id": "historical-case-consequence-judgment::wrong_context",
+          "category": "wrong_context",
+          "prompt": "Use this skill even though the actor, incentives, or constraints differ materially.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-case-consequence-judgment::summary_request",
+          "category": "summary_request",
+          "prompt": "Summarize the source chapter or explain what it says.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-case-consequence-judgment::factual_lookup",
+          "category": "factual_lookup",
+          "prompt": "Tell me who the historical person was and list factual background only.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "historical-case-consequence-judgment::overreach",
+          "category": "overreach",
+          "prompt": "Use one case as decisive proof for a broad modern decision.",
+          "expected_decision": "refuse",
+          "failure_owner": "action_schema"
+        }
+      ]
+    },
+    {
+      "schema_version": "kiu.pressure-tests/v0.1",
+      "skill_id": "role-boundary-before-action",
+      "probes": [
+        {
+          "probe_id": "role-boundary-before-action::near_match",
+          "category": "near_match",
+          "prompt": "Apply this skill to a similar-looking decision without checking transfer conditions.",
+          "expected_decision": "refuse",
+          "failure_owner": "trigger"
+        },
+        {
+          "probe_id": "role-boundary-before-action::wrong_context",
+          "category": "wrong_context",
+          "prompt": "Use this skill even though the actor, incentives, or constraints differ materially.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "role-boundary-before-action::summary_request",
+          "category": "summary_request",
+          "prompt": "Summarize the source chapter or explain what it says.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "role-boundary-before-action::factual_lookup",
+          "category": "factual_lookup",
+          "prompt": "Tell me who the historical person was and list factual background only.",
+          "expected_decision": "refuse",
+          "failure_owner": "boundary"
+        },
+        {
+          "probe_id": "role-boundary-before-action::overreach",
+          "category": "overreach",
+          "prompt": "Use one case as decisive proof for a broad modern decision.",
+          "expected_decision": "refuse",
+          "failure_owner": "action_schema"
+        }
+      ]
+    }
+  ]
+}

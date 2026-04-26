@@ -1,0 +1,23 @@
+{
+  "source_bundle_id": "financial-statement-source-v0.6",
+  "summary": {
+    "skill_candidates": 3,
+    "workflow_script_candidates": 5,
+    "matched_gold_skills": 0,
+    "missing_gold_skills": 0
+  },
+  "matched_gold_skill_ids": [],
+  "missing_gold_skill_ids": [],
+  "workflow_script_candidate_ids": [
+    "学习目标",
+    "学习能力",
+    "思考题",
+    "本章小结",
+    "警示案例"
+  ],
+  "candidate_ids": [
+    "accounting-quality-signal-check",
+    "business-value-anchor-check",
+    "workflow-gateway"
+  ]
+}

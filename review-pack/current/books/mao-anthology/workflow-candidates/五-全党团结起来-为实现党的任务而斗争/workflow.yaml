@@ -1,0 +1,76 @@
+workflow_id: 五-全党团结起来-为实现党的任务而斗争
+title: 五 全党团结起来 为实现党的任务而斗争
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0326
+  supporting_node_ids:
+  - counter-example::mao-0458
+  - counter-example::mao-0459
+  - evidence::mao-0458
+  - evidence::mao-0459
+  - framework::0304
+  supporting_edge_ids:
+  - derives_counter_example_signal::principle::0326->counter-example::mao-0458
+  - derives_counter_example_signal::principle::0326->counter-example::mao-0459
+  - section-parent::framework::0304->principle::0326
+  - supported-by::principle::0326->evidence::mao-0458
+  - supported-by::principle::0326->evidence::mao-0459
+  community_ids:
+  - community::principle::0326
+evidence_anchors:
+  primary_node:
+    id: principle::0326
+    label: 五　全党团结起来，为实现党的任务而斗争
+    type: principle_signal
+  supporting_nodes:
+  - id: counter-example::mao-0458
+    label: 同志们，我们已经了解了我们的任务和我们为完成这些任务所采取的政策，那末，我们应该用怎样的工作态度去执行这些政策和完成这些任务呢？ 目前国际...
+    type: counter_example_signal
+  - id: counter-example::mao-0459
+    label: '------------------ 注 释 〔1〕 一九三一年九月十八日，日本驻在中国东北境内的“关东军”进攻沈阳，九月十九日晨占领了沈...'
+    type: counter_example_signal
+  - id: evidence::mao-0458
+    label: 同志们，我们已经了解了我们的任务和我们为完成这些任务所采取的政策，那末，我们应该用怎样的工作态度去执行这些政策和完成这些任务呢？ 目前国际...
+    type: chunk_evidence
+  - id: evidence::mao-0459
+    label: '------------------ 注 释 〔1〕 一九三一年九月十八日，日本驻在中国东北境内的“关东军”进攻沈阳，九月十九日晨占领了沈...'
+    type: chunk_evidence
+  - id: framework::0304
+    label: 论联合政府
+    type: framework_signal
+  supporting_edges:
+  - id: derives_counter_example_signal::principle::0326->counter-example::mao-0458
+    type: derives_counter_example_signal
+    from: principle::0326
+    to: counter-example::mao-0458
+  - id: derives_counter_example_signal::principle::0326->counter-example::mao-0459
+    type: derives_counter_example_signal
+    from: principle::0326
+    to: counter-example::mao-0459
+  - id: section-parent::framework::0304->principle::0326
+    type: section_parent
+    from: framework::0304
+    to: principle::0326
+  - id: supported-by::principle::0326->evidence::mao-0458
+    type: supported_by_evidence
+    from: principle::0326
+    to: evidence::mao-0458
+  - id: supported-by::principle::0326->evidence::mao-0459
+    type: supported_by_evidence
+    from: principle::0326
+    to: evidence::mao-0459
+  communities:
+  - id: community::principle::0326
+    label: 五　全党团结起来，为实现党的任务而斗争 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

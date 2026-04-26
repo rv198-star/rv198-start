@@ -1,0 +1,142 @@
+workflow_id: 12-业务场景识别
+title: 12 业务场景识别
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0022
+  supporting_node_ids:
+  - case::effective-requirements-0058
+  - case::effective-requirements-0059
+  - case::effective-requirements-0060
+  - case::effective-requirements-0061
+  - counter-example::effective-requirements-0060
+  - counter-example::effective-requirements-0062
+  - evidence::effective-requirements-0058
+  - evidence::effective-requirements-0059
+  - evidence::effective-requirements-0060
+  - evidence::effective-requirements-0061
+  - evidence::effective-requirements-0062
+  - principle::0018
+  supporting_edge_ids:
+  - derives_case_signal::principle::0022->case::effective-requirements-0058
+  - derives_case_signal::principle::0022->case::effective-requirements-0059
+  - derives_case_signal::principle::0022->case::effective-requirements-0060
+  - derives_case_signal::principle::0022->case::effective-requirements-0061
+  - derives_counter_example_signal::principle::0022->counter-example::effective-requirements-0060
+  - derives_counter_example_signal::principle::0022->counter-example::effective-requirements-0062
+  - section-parent::principle::0018->principle::0022
+  - supported-by::principle::0022->evidence::effective-requirements-0058
+  - supported-by::principle::0022->evidence::effective-requirements-0059
+  - supported-by::principle::0022->evidence::effective-requirements-0060
+  - supported-by::principle::0022->evidence::effective-requirements-0061
+  - supported-by::principle::0022->evidence::effective-requirements-0062
+  community_ids:
+  - community::principle::0018
+  - community::principle::0022
+evidence_anchors:
+  primary_node:
+    id: principle::0022
+    label: 12 业务场景识别
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0058
+    label: 识别出系统相关的业务流程，然后对这些流程进行详细的分析、优化，接下来就需要识别出这些流程中存在哪些和系统相关的业务场景。这也是以业务为中心...
+    type: case_signal
+  - id: case::effective-requirements-0059
+    label: 在一个信息系统中，业务流程是指不同岗位之间通过协作满足外部服务请求的过程；而业务场景则是以某岗位为主完成的、相对独立的、可以汇报的业务活动...
+    type: case_signal
+  - id: case::effective-requirements-0060
+    label: 从上面的案例分析中，大家应该可以理解，这一步骤应沿着流程过程对每个活动、分支、判断点进行分析和思考：哪些业务活动需要系统支持、哪些业务活动...
+    type: case_signal
+  - id: case::effective-requirements-0061
+    label: 在任何时候，Actor与Actor之间都不应直接连接。如果它们之间有协作，那么可以思考这种协作是否与系统有关。如果有关，就在它们之间加一个...
+    type: case_signal
+  - id: counter-example::effective-requirements-0060
+    label: 从上面的案例分析中，大家应该可以理解，这一步骤应沿着流程过程对每个活动、分支、判断点进行分析和思考：哪些业务活动需要系统支持、哪些业务活动...
+    type: counter_example_signal
+  - id: counter-example::effective-requirements-0062
+    label: 如果你分析的是弱流程的信息系统（如POS机系统），那么可以采用“第10章业务流程识别”中的方法标识出服务请求，只不过这些服务请求不再需要进...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0058
+    label: 识别出系统相关的业务流程，然后对这些流程进行详细的分析、优化，接下来就需要识别出这些流程中存在哪些和系统相关的业务场景。这也是以业务为中心...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0059
+    label: 在一个信息系统中，业务流程是指不同岗位之间通过协作满足外部服务请求的过程；而业务场景则是以某岗位为主完成的、相对独立的、可以汇报的业务活动...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0060
+    label: 从上面的案例分析中，大家应该可以理解，这一步骤应沿着流程过程对每个活动、分支、判断点进行分析和思考：哪些业务活动需要系统支持、哪些业务活动...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0061
+    label: 在任何时候，Actor与Actor之间都不应直接连接。如果它们之间有协作，那么可以思考这种协作是否与系统有关。如果有关，就在它们之间加一个...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0062
+    label: 如果你分析的是弱流程的信息系统（如POS机系统），那么可以采用“第10章业务流程识别”中的方法标识出服务请求，只不过这些服务请求不再需要进...
+    type: chunk_evidence
+  - id: principle::0018
+    label: 功能需求主线子篇——业务支持部分
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0022->case::effective-requirements-0058
+    type: derives_case_signal
+    from: principle::0022
+    to: case::effective-requirements-0058
+  - id: derives_case_signal::principle::0022->case::effective-requirements-0059
+    type: derives_case_signal
+    from: principle::0022
+    to: case::effective-requirements-0059
+  - id: derives_case_signal::principle::0022->case::effective-requirements-0060
+    type: derives_case_signal
+    from: principle::0022
+    to: case::effective-requirements-0060
+  - id: derives_case_signal::principle::0022->case::effective-requirements-0061
+    type: derives_case_signal
+    from: principle::0022
+    to: case::effective-requirements-0061
+  - id: derives_counter_example_signal::principle::0022->counter-example::effective-requirements-0060
+    type: derives_counter_example_signal
+    from: principle::0022
+    to: counter-example::effective-requirements-0060
+  - id: derives_counter_example_signal::principle::0022->counter-example::effective-requirements-0062
+    type: derives_counter_example_signal
+    from: principle::0022
+    to: counter-example::effective-requirements-0062
+  - id: section-parent::principle::0018->principle::0022
+    type: section_parent
+    from: principle::0018
+    to: principle::0022
+  - id: supported-by::principle::0022->evidence::effective-requirements-0058
+    type: supported_by_evidence
+    from: principle::0022
+    to: evidence::effective-requirements-0058
+  - id: supported-by::principle::0022->evidence::effective-requirements-0059
+    type: supported_by_evidence
+    from: principle::0022
+    to: evidence::effective-requirements-0059
+  - id: supported-by::principle::0022->evidence::effective-requirements-0060
+    type: supported_by_evidence
+    from: principle::0022
+    to: evidence::effective-requirements-0060
+  - id: supported-by::principle::0022->evidence::effective-requirements-0061
+    type: supported_by_evidence
+    from: principle::0022
+    to: evidence::effective-requirements-0061
+  - id: supported-by::principle::0022->evidence::effective-requirements-0062
+    type: supported_by_evidence
+    from: principle::0022
+    to: evidence::effective-requirements-0062
+  communities:
+  - id: community::principle::0018
+    label: 功能需求主线子篇——业务支持部分 Cluster
+  - id: community::principle::0022
+    label: 12 业务场景识别 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

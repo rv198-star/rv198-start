@@ -1,0 +1,216 @@
+skill_id: solution-to-problem-reframing
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+graph_anchor_sets:
+- anchor_id: solution-to-problem-reframing-seed-support
+  node_ids:
+  - principle::0008
+  - case::effective-requirements-0013
+  - case::effective-requirements-0015
+  - case::effective-requirements-0016
+  - case::effective-requirements-0017
+  - case::effective-requirements-0018
+  - case::effective-requirements-0019
+  - case::effective-requirements-0020
+  - counter-example::effective-requirements-0013
+  - counter-example::effective-requirements-0015
+  - evidence::effective-requirements-0012
+  - evidence::effective-requirements-0013
+  - evidence::effective-requirements-0014
+  - evidence::effective-requirements-0015
+  - evidence::effective-requirements-0016
+  - evidence::effective-requirements-0017
+  - evidence::effective-requirements-0018
+  - evidence::effective-requirements-0019
+  - evidence::effective-requirements-0020
+  - principle::0007
+  - term::how
+  - term::who-why
+  edge_ids:
+  - derives_case_signal::principle::0008->case::effective-requirements-0013
+  - derives_case_signal::principle::0008->case::effective-requirements-0015
+  - derives_case_signal::principle::0008->case::effective-requirements-0016
+  - derives_case_signal::principle::0008->case::effective-requirements-0017
+  - derives_case_signal::principle::0008->case::effective-requirements-0018
+  - derives_case_signal::principle::0008->case::effective-requirements-0019
+  - derives_case_signal::principle::0008->case::effective-requirements-0020
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+  - derives_term_signal::principle::0008->term::how
+  - derives_term_signal::principle::0008->term::who-why
+  - section-parent::principle::0007->principle::0008
+  - supported-by::principle::0008->evidence::effective-requirements-0012
+  - supported-by::principle::0008->evidence::effective-requirements-0013
+  - supported-by::principle::0008->evidence::effective-requirements-0014
+  - supported-by::principle::0008->evidence::effective-requirements-0015
+  - supported-by::principle::0008->evidence::effective-requirements-0016
+  - supported-by::principle::0008->evidence::effective-requirements-0017
+  - supported-by::principle::0008->evidence::effective-requirements-0018
+  - supported-by::principle::0008->evidence::effective-requirements-0019
+  - supported-by::principle::0008->evidence::effective-requirements-0020
+  community_ids:
+  - community::principle::0007
+  - community::principle::0008
+source_anchor_sets:
+- anchor_id: solution-to-problem-reframing-principle::0008
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 250
+  line_end: 250
+  snippet: '### 2 日常需求分析'
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0013
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 262
+  line_end: 357
+  snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+    案例分析 小王是一名实战经验还很少的需求分析师，在一次酒店管理系统的建设项目中，听到酒店前台人员提出一条需求：请在酒店入住界
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0015
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 380
+  line_end: 407
+  snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+    (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则时，风控、审计等相关部门可能是潜在影响者。
+    (3)该需求是否能代表主流用户的声音
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0016
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 410
+  line_end: 439
+  snippet: 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决方案（现状），并对模糊概念进行了澄清。当然，为了给出更准确的解决方案，我们还需要对相关背景进行更进一步的了解。
+    2.了解背景 案例分析（续4） “那么您当时提出做一张平面图，主要还是自己用吧？应该是在办理入住的时候使用吧？”我虽然已经有了十成把握，但还是习惯性地和她进行了确认。得到她的肯定回答之后，我
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0017
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 442
+  line_end: 465
+  snippet: 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多的建议时，会提升客户的期望值。
+    针对这样的两难问题，我个人的经验是“只挖掘问题，不挖掘方案”。因为对于问题级的探讨，客户是理性的；而对于方案级的探讨，客户是感性的。但无论怎么做，这些工作都需要投入更多的精力和时间，因此在实战中要有所取舍。
+    1.提高广度——同类问题横推法 由于很多需求提出者经常会进入“
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0018
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 468
+  line_end: 511
+  snippet: 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引发的后果更严重一些，后者处理不好影响则更小一些。因此，这两个问题未必需要第一时间解决，只是为了让开发人员在设计时考虑到未来实现这种需求。
+    2.提高深度——关联行为纵推法 除了“点状思维”，需求提出者还容易出现“步进性思维”，也就是解决一步是一步，等解决方案上线之后，会马上提出关联的需求。 例如，在本章
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0019
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 514
+  line_end: 545
+  snippet: 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83k43Lz2yp5Lc8557b.jpg)
+    案例分析（续7） 通过前面的分析，我们完成了需求还原——“快速找出多间相邻的客房”，并补充了3条需求：“快速找出噪声小的房间”“快速找出不在楼道尽头的房间”“找出多间相邻的客房
+- anchor_id: solution-to-problem-reframing-case::effective-requirements-0020
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 548
+  line_end: 571
+  snippet: 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析，有些公司在实践中也采用了厚重的需求规格模板，导致产生了大量无效信息，这里建议使用一个简单的模板，如表2-7所示。
+    ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83HB3Lz2yp5Lc77ca4.jpg)
+    ![](
+- anchor_id: solution-to-problem-reframing-counter-example::effective-requirements-0013
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 262
+  line_end: 357
+  snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+    案例分析 小王是一名实战经验还很少的需求分析师，在一次酒店管理系统的建设项目中，听到酒店前台人员提出一条需求：请在酒店入住界
+- anchor_id: solution-to-problem-reframing-counter-example::effective-requirements-0015
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 380
+  line_end: 407
+  snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+    (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则时，风控、审计等相关部门可能是潜在影响者。
+    (3)该需求是否能代表主流用户的声音
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0012
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 252
+  line_end: 259
+  snippet: 在信息化应用相当普及的当下，根据客户、市场、业务部门的需求反馈，针对已发布的产品、已投产的系统进行持续优化，是最典型的需求分析场景。因此，本章就针对这一工作任务进行详细讲解，同时帮助读者建立基本的需求分析观。
+    日常需求分析任务执行指引如图2-1所示。 ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83H93Hr2yp5Lc26ecd.jpg)
+    当我们收到
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0013
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 262
+  line_end: 357
+  snippet: 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想，也就是避免简单地从技术视角展开、细化“方案级需求”，而应该先从用户视角、业务视角探究背后的“问题级需求”，然后找到能够解决问题，并且开发成本更合适的解决方案。
+    案例分析 小王是一名实战经验还很少的需求分析师，在一次酒店管理系统的建设项目中，听到酒店前台人员提出一条需求：请在酒店入住界
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0014
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 370
+  line_end: 377
+  snippet: 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、How（解决问题、成本合适的解决方案）；在执行时应该澄清问题(Who+Why)、了解背景（相关的业务场景）、建议并确定解决方案(How)。
+    1.澄清问题 还原需求的核心思路如图2-3所示，澄清问题的思考过程也就是使用“过去时”回答这个需求要解决“谁”的“什么问题”。
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0015
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 380
+  line_end: 407
+  snippet: 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使用者的真实反馈。
+    (2)该需求是否涉及潜在的影响者？他们有什么不同的想法？通常当需求涉及业务操作流程时，业务的管理者会是影响者；当涉及业务数据时，数据的上游采集者和下游应用者可能是潜在影响者；当涉及业务规则时，风控、审计等相关部门可能是潜在影响者。
+    (3)该需求是否能代表主流用户的声音
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0016
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 410
+  line_end: 439
+  snippet: 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决方案（现状），并对模糊概念进行了澄清。当然，为了给出更准确的解决方案，我们还需要对相关背景进行更进一步的了解。
+    2.了解背景 案例分析（续4） “那么您当时提出做一张平面图，主要还是自己用吧？应该是在办理入住的时候使用吧？”我虽然已经有了十成把握，但还是习惯性地和她进行了确认。得到她的肯定回答之后，我
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0017
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 442
+  line_end: 465
+  snippet: 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多的建议时，会提升客户的期望值。
+    针对这样的两难问题，我个人的经验是“只挖掘问题，不挖掘方案”。因为对于问题级的探讨，客户是理性的；而对于方案级的探讨，客户是感性的。但无论怎么做，这些工作都需要投入更多的精力和时间，因此在实战中要有所取舍。
+    1.提高广度——同类问题横推法 由于很多需求提出者经常会进入“
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0018
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 468
+  line_end: 511
+  snippet: 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引发的后果更严重一些，后者处理不好影响则更小一些。因此，这两个问题未必需要第一时间解决，只是为了让开发人员在设计时考虑到未来实现这种需求。
+    2.提高深度——关联行为纵推法 除了“点状思维”，需求提出者还容易出现“步进性思维”，也就是解决一步是一步，等解决方案上线之后，会马上提出关联的需求。 例如，在本章
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0019
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 514
+  line_end: 545
+  snippet: 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83k43Lz2yp5Lc8557b.jpg)
+    案例分析（续7） 通过前面的分析，我们完成了需求还原——“快速找出多间相邻的客房”，并补充了3条需求：“快速找出噪声小的房间”“快速找出不在楼道尽头的房间”“找出多间相邻的客房
+- anchor_id: solution-to-problem-reframing-evidence::effective-requirements-0020
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 548
+  line_end: 571
+  snippet: 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析，有些公司在实践中也采用了厚重的需求规格模板，导致产生了大量无效信息，这里建议使用一个简单的模板，如表2-7所示。
+    ![](https://res.weread.qq.com/wrepub/CB_3300091715_5XUAMg3fw3fv6L83HB3Lz2yp5Lc77ca4.jpg)
+    ![](
+- anchor_id: solution-to-problem-reframing-principle::0007
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 100
+  line_end: 100
+  snippet: '### 1 软件需求全景图'
+- anchor_id: solution-to-problem-reframing-term::how
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 370
+  line_end: 377
+  snippet: 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、How（解决问题、成本合适的解决方案）；在执行时应该澄清问题(Who+Why)、了解背景（相关的业务场景）、建议并确定解决方案(How)。
+    1.澄清问题 还原需求的核心思路如图2-3所示，澄清问题的思考过程也就是使用“过去时”回答这个需求要解决“谁”的“什么问题”。
+- anchor_id: solution-to-problem-reframing-term::who-why
+  kind: source_excerpt
+  path: ../../sources/有效需求分析（第2版）.md
+  line_start: 370
+  line_end: 377
+  snippet: 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、How（解决问题、成本合适的解决方案）；在执行时应该澄清问题(Who+Why)、了解背景（相关的业务场景）、建议并确定解决方案(How)。
+    1.澄清问题 还原需求的核心思路如图2-3所示，澄清问题的思考过程也就是使用“过去时”回答这个需求要解决“谁”的“什么问题”。

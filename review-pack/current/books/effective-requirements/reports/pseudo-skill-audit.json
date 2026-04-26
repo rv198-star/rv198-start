@@ -1,0 +1,323 @@
+{
+  "schema_version": "kiu.pseudo-skill-audit/v0.1",
+  "chapter_title_rejected": [
+    {
+      "candidate_id": "13-业务场景分析-counter-example",
+      "title": "13 业务场景分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "16-维护需求分析",
+      "title": "16 维护需求分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 3022,
+        "line_end": 3022
+      }
+    },
+    {
+      "candidate_id": "21-约束分析-counter-example",
+      "title": "21 约束分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 3692,
+        "line_end": 3727
+      }
+    },
+    {
+      "candidate_id": "7-业务子系统划分-counter-example",
+      "title": "7 业务子系统划分 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 1614,
+        "line_end": 1661
+      }
+    },
+    {
+      "candidate_id": "10-业务流程识别-counter-example",
+      "title": "10 业务流程识别 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "4-干系人识别-counter-example",
+      "title": "4 干系人识别 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "12-业务场景识别-counter-example",
+      "title": "12 业务场景识别 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "2-日常需求分析-counter-example",
+      "title": "2 日常需求分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "1-软件需求全景图-counter-example",
+      "title": "1 软件需求全景图 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 206,
+        "line_end": 239
+      }
+    },
+    {
+      "candidate_id": "14-管理需求分析-counter-example",
+      "title": "14 管理需求分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 2784,
+        "line_end": 2871
+      }
+    },
+    {
+      "candidate_id": "20-业务规则分析-counter-example",
+      "title": "20 业务规则分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 3656,
+        "line_end": 3689
+      }
+    },
+    {
+      "candidate_id": "5-干系人分析-counter-example",
+      "title": "5 干系人分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 1314,
+        "line_end": 1375
+      }
+    },
+    {
+      "candidate_id": "17-领域建模-counter-example",
+      "title": "17 领域建模 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 3170,
+        "line_end": 3197
+      }
+    },
+    {
+      "candidate_id": "19-质量需求分析-counter-example",
+      "title": "19 质量需求分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/有效需求分析（第2版）.md",
+      "source_location": {
+        "line_start": 3392,
+        "line_end": 3485
+      }
+    }
+  ],
+  "summary_candidate_rejected": [],
+  "workflow_candidate_routed": [
+    {
+      "candidate_id": "13-业务场景分析",
+      "title": "13-业务场景分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "3-目标-愿景分析",
+      "title": "3-目标-愿景分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "2-日常需求分析",
+      "title": "2-日常需求分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "17-领域建模",
+      "title": "17-领域建模",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "10-业务流程识别",
+      "title": "10-业务流程识别",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "7-业务子系统划分",
+      "title": "7-业务子系统划分",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "11-业务流程分析与优化",
+      "title": "11-业务流程分析与优化",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "4-干系人识别",
+      "title": "4-干系人识别",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "12-业务场景识别",
+      "title": "12-业务场景识别",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "19-质量需求分析",
+      "title": "19-质量需求分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "5-干系人分析",
+      "title": "5-干系人分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "14-管理需求分析",
+      "title": "14-管理需求分析",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    }
+  ],
+  "agentic_skill_accepted": [
+    {
+      "candidate_id": "solution-to-problem-reframing",
+      "title": "solution-to-problem-reframing",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "stakeholder-resistance-tradeoff",
+      "title": "stakeholder-resistance-tradeoff",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    }
+  ],
+  "summary": {
+    "chapter_title_rejected_count": 14,
+    "summary_candidate_rejected_count": 0,
+    "workflow_candidate_routed_count": 12,
+    "agentic_skill_accepted_count": 2
+  }
+}

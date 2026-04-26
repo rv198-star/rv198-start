@@ -1,0 +1,136 @@
+candidate_id: 10-业务流程识别
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0020
+  supporting_node_ids:
+  - case::effective-requirements-0048
+  - case::effective-requirements-0049
+  - case::effective-requirements-0050
+  - case::effective-requirements-0051
+  - case::effective-requirements-0052
+  - counter-example::effective-requirements-0048
+  - counter-example::effective-requirements-0051
+  - counter-example::effective-requirements-0052
+  - evidence::effective-requirements-0048
+  - evidence::effective-requirements-0049
+  - evidence::effective-requirements-0050
+  - evidence::effective-requirements-0051
+  - evidence::effective-requirements-0052
+  - principle::0018
+  supporting_edge_ids:
+  - derives_case_signal::principle::0020->case::effective-requirements-0048
+  - derives_case_signal::principle::0020->case::effective-requirements-0049
+  - derives_case_signal::principle::0020->case::effective-requirements-0050
+  - derives_case_signal::principle::0020->case::effective-requirements-0051
+  - derives_case_signal::principle::0020->case::effective-requirements-0052
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0048
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0051
+  - derives_counter_example_signal::principle::0020->counter-example::effective-requirements-0052
+  - section-parent::principle::0018->principle::0020
+  - supported-by::principle::0020->evidence::effective-requirements-0048
+  - supported-by::principle::0020->evidence::effective-requirements-0049
+  - supported-by::principle::0020->evidence::effective-requirements-0050
+  - supported-by::principle::0020->evidence::effective-requirements-0051
+  - supported-by::principle::0020->evidence::effective-requirements-0052
+  community_ids:
+  - community::principle::0018
+  - community::principle::0020
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 7
+  workflow_signal_total: 7
+  context_cues: 12
+  evidence_support_count: 5
+  extracted_evidence_support_count: 5
+  tri_state_support_count: 11
+  support_entity_count: 28
+  tri_state_support_ratio: 0.3929
+  ambiguous_support_node_count: 3
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 8
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 10
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 场景
+  - 如果-则
+  - 步骤
+  - 目标
+  - 职责
+  - 输入
+  - 输出
+  - 边界
+  evidence_chunk_ids:
+  - effective-requirements:0048
+  - effective-requirements:0049
+  - effective-requirements:0050
+  - effective-requirements:0051
+  - effective-requirements:0052
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 1802
+  line_end: 1802
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 10-业务流程识别
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 5
+    evidence_support_count: 5
+    context_cues: 12
+    workflow_cues: 7
+    tri_state_support_ratio: 0.3929
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 场景
+    - 如果-则
+    - 步骤
+    - 目标
+    - 职责
+    - 输入
+    - 输出
+    - 边界
+    evidence_chunk_ids:
+    - effective-requirements:0048
+    - effective-requirements:0049
+    - effective-requirements:0050
+    - effective-requirements:0051
+    - effective-requirements:0052
+    supporting_node_count: 14
+    supporting_edge_count: 14
+    community_count: 2

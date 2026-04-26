@@ -1,0 +1,62 @@
+should_trigger:
+- scenario_id: act-under-ambiguous-mandate
+  summary: The user is considering an intervention, decision, escalation, or refusal
+    under a role where authorization, cross-team responsibility boundaries, and long-term
+    order costs are unclear.
+  prompt_signals:
+  - 我有权限推动
+  - 越过其他团队
+  - 职责边界
+  - 老板让我直接处理
+  - 跨部门冲突
+  - 我该不该介入
+  - 这件事短期做了有效
+  - 破坏长期秩序
+  - 这算不算越界
+  boundary_reason: There is a live action and the user needs role-boundary arbitration,
+    not a role definition; check authority, responsibility, stakeholders, and long-term
+    order cost.
+  next_action_shape: 列出 role_boundary、authority_gap、order_cost，并给 act_with_boundary
+    / ask_or_delegate / refuse。
+  anchor_refs:
+  - role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  - role-boundary-before-action-evidence::shiji-0001
+should_not_trigger:
+- scenario_id: role-definition-or-template-only
+  summary: Do not fire when the user only asks for a concept explanation, meeting
+    template, or mechanical checklist.
+  prompt_signals:
+  - 解释一下职责
+  - 生成会议纪要模板
+  - 给我一个流程清单
+  boundary_reason: No current action under uncertain authorization is being judged.
+  anchor_refs:
+  - role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  - role-boundary-before-action-evidence::shiji-0001
+edge_case:
+- scenario_id: urgent-but-authorization-unknown
+  summary: Use ask_or_delegate when urgency is real but authorization facts are missing
+    or the mandate belongs to another owner.
+  prompt_signals:
+  - 事情很急
+  - 不知道有没有授权
+  - 可能要先斩后奏
+  boundary_reason: Urgency can justify a bounded temporary action but not silent overreach.
+  next_action_shape: 先给 low-regret bounded action，再要求补授权或升级给 owner。
+  anchor_refs:
+  - role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  - role-boundary-before-action-evidence::shiji-0001
+refusal:
+- scenario_id: legal-or-ethics-final-opinion
+  summary: Refuse to provide final legal, compliance, or ethics authorization when
+    the facts require a responsible authority.
+  prompt_signals:
+  - 这合法吗
+  - 能不能规避合规
+  - 不用告诉负责人
+  boundary_reason: The skill can structure the boundary question but cannot replace
+    accountable review.
+  next_action_shape: 说明不能最终授权，列出需提交给合规/负责人确认的问题。
+  anchor_refs:
+  - role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  - role-boundary-before-action-evidence::shiji-0001

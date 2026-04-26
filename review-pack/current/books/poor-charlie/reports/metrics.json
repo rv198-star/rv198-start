@@ -1,0 +1,26 @@
+{
+  "source_bundle_id": "poor-charlies-almanack-v0.1",
+  "summary": {
+    "skill_candidates": 6,
+    "workflow_script_candidates": 0,
+    "matched_gold_skills": 5,
+    "missing_gold_skills": 0
+  },
+  "matched_gold_skill_ids": [
+    "bias-self-audit",
+    "circle-of-competence",
+    "invert-the-problem",
+    "margin-of-safety-sizing",
+    "opportunity-cost-of-the-next-best-idea"
+  ],
+  "missing_gold_skill_ids": [],
+  "workflow_script_candidate_ids": [],
+  "candidate_ids": [
+    "circle-of-competence",
+    "value-assessment-source-note",
+    "bias-self-audit",
+    "margin-of-safety-sizing",
+    "invert-the-problem",
+    "opportunity-cost-of-the-next-best-idea"
+  ]
+}

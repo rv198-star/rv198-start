@@ -1,0 +1,91 @@
+skill_id: role-boundary-before-action
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:4b2ba22745c150e0d943c8a150e57d4b64d1f473ec6f86047eb2b4399888ec5c
+graph_anchor_sets:
+- anchor_id: role-boundary-before-action-seed-support
+  node_ids:
+  - narrative-pattern::role-boundary-before-action
+  - evidence::shiji-0001
+  - evidence::shiji-0002
+  - evidence::shiji-0003
+  - evidence::shiji-0004
+  - evidence::shiji-0005
+  - evidence::shiji-0008
+  - evidence::shiji-0011
+  - evidence::shiji-0012
+  edge_ids:
+  - role-boundary-pattern-evidence::0001
+  - role-boundary-pattern-evidence::0002
+  - role-boundary-pattern-evidence::0003
+  - role-boundary-pattern-evidence::0004
+  - role-boundary-pattern-evidence::0005
+  - role-boundary-pattern-evidence::0006
+  - role-boundary-pattern-evidence::0007
+  - role-boundary-pattern-evidence::0008
+  community_ids:
+  - community::component::01
+source_anchor_sets:
+- anchor_id: role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 5
+  line_end: 19
+  snippet: 昔在颛顼，命南正重以司天，北正黎以司地。唐虞之际，绍重黎之後，使复典之，至于夏商，故重黎氏世序天地。其在周，程伯休甫其後也。当周宣王时，失其守而为司马氏。司马氏世典周史。惠襄之间，司马氏去周適(shì)晋。晋中军随会奔秦，而司马氏入少梁。
+    自司马氏去周適晋，分散，或在卫，或在赵，或在秦。其在卫者，相中山。在赵者，以传剑论显，蒯聩其後也。在秦者名错，与张仪争论，於是惠王使错将伐蜀，遂拔，因而守之。错孙靳，事武安君白起。而少梁更名曰夏阳。靳
+- anchor_id: role-boundary-before-action-evidence::shiji-0001
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 5
+  line_end: 19
+  snippet: 昔在颛顼，命南正重以司天，北正黎以司地。唐虞之际，绍重黎之後，使复典之，至于夏商，故重黎氏世序天地。其在周，程伯休甫其後也。当周宣王时，失其守而为司马氏。司马氏世典周史。惠襄之间，司马氏去周適(shì)晋。晋中军随会奔秦，而司马氏入少梁。
+    自司马氏去周適晋，分散，或在卫，或在赵，或在秦。其在卫者，相中山。在赵者，以传剑论显，蒯聩其後也。在秦者名错，与张仪争论，於是惠王使错将伐蜀，遂拔，因而守之。错孙靳，事武安君白起。而少梁更名曰夏阳。靳
+- anchor_id: role-boundary-before-action-evidence::shiji-0002
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 21
+  line_end: 33
+  snippet: 名家苛察缴绕，使人不得反其意，专决於名而失人情，故曰“使人俭而善失真”。若夫控名责实，参伍不失，此不可不察也。 道家无为，又曰无不为，其实易行，其辞难知。其术以虚无为本，以因循为用。无成埶，无常形，故能究万物之情。不为物先，不为物後，故能为万物主。有法无法，因时为业；有度无度，因物与合。故曰“圣人不朽，时变是守。虚者道之常也，因者君之纲”也。群臣并至，使各自明也。其实中其声者谓之端，实不中其声者谓之窾(kuǎn)。窾言不听，奸乃不生，贤
+- anchor_id: role-boundary-before-action-evidence::shiji-0003
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 35
+  line_end: 39
+  snippet: 上大夫壶遂曰：“昔孔子何为而作春秋哉？”太史公曰：“余闻董生曰：‘周道衰废，孔子为鲁司寇，诸侯害之，大夫壅之。孔子知言之不用，道之不行也，是非二百四十二年之中，以为天下仪表，贬天子，退诸侯，讨大夫，以达王事而已矣。’子曰：‘我欲载之空言，不如见之於行事之深切著明也。’夫春秋，上明三王之道，下辨人事之纪，别嫌疑，明是非，定犹豫，善善恶(wù)恶(è)，贤贤贱不肖，存亡国，继绝世，补敝起废，王道之大者也。易著天地阴阳四时五行，故长於变；礼经
+- anchor_id: role-boundary-before-action-evidence::shiji-0004
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 41
+  line_end: 81
+  snippet: 於是论次其文。七年而太史公遭李陵之祸，幽於缧(léi)绁(xiè)。乃喟然而叹曰：“是余之罪也夫！是余之罪也夫！身毁不用矣。”退而深惟曰：“夫诗书隐约者，欲遂其志之思也。昔西伯拘羑(yǒu)里，演周易；孔子戹陈蔡，作春秋；屈原放逐，著离骚；左丘失明，厥有国语；孙子膑脚，而论兵法；不韦迁蜀，世传吕览；韩非囚秦，说难、孤愤；诗三百篇，大抵贤圣发愤之所为作也。此人皆意有所郁结，不得通其道也，故述往事，思来者。”於是卒述陶唐以来，至于麟止，自黄
+- anchor_id: role-boundary-before-action-evidence::shiji-0005
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 83
+  line_end: 119
+  snippet: 诸侯既强，七国为从，子弟众多，无爵封邑，推恩行义，其埶销弱，德归京师。作《王子侯者年表》第九。 国有贤相良将，民之师表也。维见汉兴以来将相名臣年表，贤者记其治，不贤者彰其事。作《汉兴以来将相名臣年表》第十。
+    维三代之礼，所损益各殊务，然要以近性情，通王道，故礼因人质为之节文，略协古今之变。作《礼书》第一。 乐者，所以移风易俗也。自雅颂声兴，则已好郑卫之音，郑卫之音所从来久矣。人情之所感，远俗则怀。比乐书以述来古，作《乐书》第二。
+    非兵不
+- anchor_id: role-boundary-before-action-evidence::shiji-0008
+  kind: source_excerpt
+  path: ../../sources/shiji/0__卷一百三十__太史公自序第七十.md
+  line_start: 217
+  line_end: 277
+  snippet: 填赵塞常山以广河内，弱楚权，明汉王之信於天下。作《张耳陈馀列传》第二十九。 收西河、上党之兵，从至彭城；越之侵掠梁地以苦项羽。作《魏豹彭越列传》第三十。
+    以淮南叛楚归汉，汉用得大司马殷，卒破子羽于垓下。作《黥布列传》第三十一。 楚人迫我京索，而信拔魏赵，定燕齐，使汉三分天下有其二，以灭项籍。作《淮阴侯列传》第三十二。
+    楚汉相距巩洛，而韩信为填颍川，卢绾绝籍粮饷。作《韩信卢绾列传》第三十三。 诸侯畔项王，唯齐连子羽城阳，汉得以间遂入彭城。
+- anchor_id: role-boundary-before-action-evidence::shiji-0011
+  kind: source_excerpt
+  path: ../../sources/shiji/1__卷一__五帝本纪第一.md
+  line_start: 25
+  line_end: 33
+  snippet: 乃命羲、和，敬顺昊天，数法日月星辰，敬授民时。分命羲仲，居郁夷，曰旸谷。敬道日出，便程东作。日中，星鸟，以殷中春。其民析，鸟兽字微。申命羲叔，居南交。便程南为，敬致。日永，星火，以正中夏。其民因，鸟兽希革。申命和仲，居西土，曰昧谷。敬道日入，便程西成。夜中，星虚，以正中秋。其民夷易，鸟兽毛毨。申命和叔；居北方，曰幽都。便在伏物。日短，星昴，以正中冬。其民燠，鸟兽氄毛。岁三百六十六日，以闰月正四时。信饬百官，众功皆兴。
+    尧曰：“谁可顺此事
+- anchor_id: role-boundary-before-action-evidence::shiji-0012
+  kind: source_excerpt
+  path: ../../sources/shiji/1__卷一__五帝本纪第一.md
+  line_start: 35
+  line_end: 47
+  snippet: 尧立七十年得舜，二十年而老，令舜摄行天子之政，荐之於天。尧辟位凡二十八年而崩。百姓悲哀，如丧父母。三年，四方莫举乐，以思尧。尧知子丹朱之不肖，不足授天下，於是乃权授舜。授舜，则天下得其利而丹朱病；授丹朱，则天下病而丹朱得其利。尧曰“终不以天下之病而利一人”，而卒授舜以天下。尧崩，三年之丧毕，舜让辟丹朱於南河之南。诸侯朝觐者不之丹朱而之舜，狱讼者不之丹朱而之舜，讴歌者不讴歌丹朱而讴歌舜。舜曰“天也夫！”而後之中国践天子位焉，是为帝舜。
+    虞

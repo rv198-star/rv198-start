@@ -1,0 +1,23 @@
+skill_id: opportunity-cost-of-the-next-best-idea
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: Revision 4 is a manual v0.4 content upgrade, not a refinement_scheduler
+    run. The rationale now makes live ranking and switching friction explicit, the
+    evidence summary names three canonical traces directly, and the relations now
+    connect benchmark comparison to inversion and bias review instead of leaving it
+    isolated. The remaining gaps are to propagate the same rewrite depth across the
+    rest of the published bundle and to run a real loop before claiming autonomous
+    refinement. See `iterations/revisions.yaml`.
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Rewrote rationale around live ranking, switching friction, and benchmark reconstruction.
+  - Rewrote evidence summary to name three canonical benchmark traces directly.
+  - Expanded eval failure modes and bumped release metadata to revision 4.
+open_gaps:
+- Add richer real redeployment cases with explicit tax and friction data in future
+  bundle versions.
+- Run a real refinement_scheduler pass before describing this skill as loop-driven.

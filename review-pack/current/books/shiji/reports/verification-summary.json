@@ -1,0 +1,4942 @@
+{
+  "schema_version": "kiu.verification-gate/v0.1",
+  "accepted_candidate_count": 3,
+  "rejected_candidate_count": 102,
+  "accepted": [
+    {
+      "candidate_id": "historical-analogy-transfer-gate",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "historical-analogy-transfer-gate",
+        "passed": true,
+        "workflow_ready": true,
+        "corroboration_score": 1.0,
+        "predictive_usefulness_score": 1.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 1.0,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 1.0,
+          "predictive_action_ratio": 1.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [],
+        "evidence": {
+          "extracted_evidence_support_count": 6,
+          "evidence_support_count": 6,
+          "context_cues": 5,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.0,
+          "matched_keywords": [
+            "anti_conditions",
+            "case_mechanism",
+            "gate",
+            "transfer_conditions"
+          ],
+          "evidence_chunk_ids": [
+            "shiji:0001",
+            "shiji:0002",
+            "shiji:0003",
+            "shiji:0004",
+            "shiji:0005",
+            "shiji:0006"
+          ],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      }
+    },
+    {
+      "candidate_id": "historical-case-consequence-judgment",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "historical-case-consequence-judgment",
+        "passed": true,
+        "workflow_ready": true,
+        "corroboration_score": 1.0,
+        "predictive_usefulness_score": 1.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 1.0,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 1.0,
+          "predictive_action_ratio": 1.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [],
+        "evidence": {
+          "extracted_evidence_support_count": 8,
+          "evidence_support_count": 8,
+          "context_cues": 4,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.0,
+          "matched_keywords": [
+            "boundary",
+            "case_pattern",
+            "consequence",
+            "decision",
+            "decision_boundary",
+            "tradeoff"
+          ],
+          "evidence_chunk_ids": [
+            "shiji:0001",
+            "shiji:0002",
+            "shiji:0003",
+            "shiji:0004",
+            "shiji:0005",
+            "shiji:0006",
+            "shiji:0007",
+            "shiji:0008"
+          ],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      }
+    },
+    {
+      "candidate_id": "role-boundary-before-action",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "role-boundary-before-action",
+        "passed": true,
+        "workflow_ready": true,
+        "corroboration_score": 1.0,
+        "predictive_usefulness_score": 1.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 1.0,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 1.0,
+          "predictive_action_ratio": 1.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [],
+        "evidence": {
+          "extracted_evidence_support_count": 8,
+          "evidence_support_count": 8,
+          "context_cues": 4,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.0,
+          "matched_keywords": [
+            "authority",
+            "boundary",
+            "consequence",
+            "delegation",
+            "overreach_risk",
+            "role",
+            "role_boundary"
+          ],
+          "evidence_chunk_ids": [
+            "shiji:0001",
+            "shiji:0002",
+            "shiji:0003",
+            "shiji:0004",
+            "shiji:0005",
+            "shiji:0008",
+            "shiji:0011",
+            "shiji:0012"
+          ],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "candidate_id": "卷七-项羽本纪第七-counter-example",
+      "title": "卷七 项羽本纪第七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七-项羽本纪第七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 14,
+          "supporting_edge_count": 14,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八-高祖本纪第八-counter-example",
+      "title": "卷八 高祖本纪第八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八-高祖本纪第八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十九-苏秦列传第九-counter-example",
+      "title": "卷六十九 苏秦列传第九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十九-苏秦列传第九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 16,
+          "supporting_edge_count": 16,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十-楚世家第十-counter-example",
+      "title": "卷四十 楚世家第十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十-楚世家第十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 14,
+          "supporting_edge_count": 14,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十七-孔子世家第十七-counter-example",
+      "title": "卷四十七 孔子世家第十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十七-孔子世家第十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 14,
+          "supporting_edge_count": 14,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷九十二-淮阴侯列传第三十二-counter-example",
+      "title": "卷九十二 淮阴侯列传第三十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十二-淮阴侯列传第三十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 14,
+          "supporting_edge_count": 14,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八十六-刺客列传第二十六-counter-example",
+      "title": "卷八十六 刺客列传第二十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十六-刺客列传第二十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷十-孝文本纪第十-counter-example",
+      "title": "卷十 孝文本纪第十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷十-孝文本纪第十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十三-赵世家第十三-counter-example",
+      "title": "卷四十三 赵世家第十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十三-赵世家第十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十三-大宛列传第六十三-counter-example",
+      "title": "卷一百二十三 大宛列传第六十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十三-大宛列传第六十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百五-扁鹊仓公列传第四十五-counter-example",
+      "title": "卷一百五 扁鹊仓公列传第四十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百五-扁鹊仓公列传第四十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百十-匈奴列传第五十-counter-example",
+      "title": "卷一百十 匈奴列传第五十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百十-匈奴列传第五十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八十七-李斯列传第二十七-counter-example",
+      "title": "卷八十七 李斯列传第二十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十七-李斯列传第二十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 12,
+          "supporting_edge_count": 12,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三十九-晋世家第九-counter-example",
+      "title": "卷三十九 晋世家第九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十九-晋世家第九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 10,
+          "supporting_edge_count": 10,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷五-秦本纪第五-counter-example",
+      "title": "卷五 秦本纪第五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五-秦本纪第五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷五十五-留侯世家第二十五-counter-example",
+      "title": "卷五十五 留侯世家第二十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五十五-留侯世家第二十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷五十六-陈丞相世家第二十六-counter-example",
+      "title": "卷五十六 陈丞相世家第二十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五十六-陈丞相世家第二十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六-秦始皇本纪第六-counter-example",
+      "title": "卷六 秦始皇本纪第六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六-秦始皇本纪第六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四-周本纪第四-counter-example",
+      "title": "卷四 周本纪第四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四-周本纪第四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百六-吴王濞列传第四十六-counter-example",
+      "title": "卷一百六 吴王濞列传第四十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百六-吴王濞列传第四十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 10,
+          "supporting_edge_count": 10,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八十一-廉颇蔺相如列传第二十一-counter-example",
+      "title": "卷八十一 廉颇蔺相如列传第二十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十一-廉颇蔺相如列传第二十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百三十-太史公自序第七十-counter-example",
+      "title": "卷一百三十 太史公自序第七十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百三十-太史公自序第七十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十九-货殖列传第六十九-counter-example",
+      "title": "卷一百二十九 货殖列传第六十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十九-货殖列传第六十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷九-吕太后本纪第九-counter-example",
+      "title": "卷九 吕太后本纪第九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九-吕太后本纪第九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷二-夏本纪第二-counter-example",
+      "title": "卷二 夏本纪第二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二-夏本纪第二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷十二-孝武本纪第十二-counter-example",
+      "title": "卷十二 孝武本纪第十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷十二-孝武本纪第十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百-季布栾布列传第四十-counter-example",
+      "title": "卷一百 季布栾布列传第四十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百-季布栾布列传第四十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百一十七-司马相如列传第五十七-counter-example",
+      "title": "卷一百一十七 司马相如列传第五十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十七-司马相如列传第五十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百一十二-平津侯主父列传第五十二-counter-example",
+      "title": "卷一百一十二 平津侯主父列传第五十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十二-平津侯主父列传第五十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百三-万石张叔列传第四十三-counter-example",
+      "title": "卷一百三 万石张叔列传第四十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百三-万石张叔列传第四十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十-张仪列传第十-counter-example",
+      "title": "卷七十 张仪列传第十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十-张仪列传第十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三-殷本纪第三-counter-example",
+      "title": "卷三 殷本纪第三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三-殷本纪第三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/3__卷三__殷本纪第三.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 23
+      }
+    },
+    {
+      "candidate_id": "卷九十五-樊郦滕灌列传第三十五-counter-example",
+      "title": "卷九十五 樊郦滕灌列传第三十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十五-樊郦滕灌列传第三十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷五十-楚元王世家第二十-counter-example",
+      "title": "卷五十 楚元王世家第二十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五十-楚元王世家第二十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/50__卷五十__楚元王世家第二十.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 23
+      }
+    },
+    {
+      "candidate_id": "卷一百二十五-佞幸列传第六十五-counter-example",
+      "title": "卷一百二十五 佞幸列传第六十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十五-佞幸列传第六十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/125__卷一百二十五__佞幸列传第六十五.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 21
+      }
+    },
+    {
+      "candidate_id": "卷一百一十一-卫将军骠骑列传第五十一-counter-example",
+      "title": "卷一百一十一 卫将军骠骑列传第五十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十一-卫将军骠骑列传第五十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百一十三-南越列传第五十三-counter-example",
+      "title": "卷一百一十三 南越列传第五十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十三-南越列传第五十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百一十八-淮南衡山列传第五十八-counter-example",
+      "title": "卷一百一十八 淮南衡山列传第五十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十八-淮南衡山列传第五十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百九-李将军列传第四十九-counter-example",
+      "title": "卷一百九 李将军列传第四十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百九-李将军列传第四十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二-张释之冯唐列传第四十二-counter-example",
+      "title": "卷一百二 张释之冯唐列传第四十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二-张释之冯唐列传第四十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十一-儒林列传第六十一-counter-example",
+      "title": "卷一百二十一 儒林列传第六十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十一-儒林列传第六十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十二-酷吏列传第六十二-counter-example",
+      "title": "卷一百二十二 酷吏列传第六十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十二-酷吏列传第六十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十六-滑稽列传第六十六-counter-example",
+      "title": "卷一百二十六 滑稽列传第六十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十六-滑稽列传第六十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十七-魏公子列传第十七-counter-example",
+      "title": "卷七十七 魏公子列传第十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十七-魏公子列传第十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十三-白起王翦列传第十三-counter-example",
+      "title": "卷七十三 白起王翦列传第十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十三-白起王翦列传第十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十九-范睢蔡泽列传第十九-counter-example",
+      "title": "卷七十九 范睢蔡泽列传第十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十九-范睢蔡泽列传第十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十六-平原君虞卿列传第十六-counter-example",
+      "title": "卷七十六 平原君虞卿列传第十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十六-平原君虞卿列传第十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷九十七-郦生陆贾列传第三十七-counter-example",
+      "title": "卷九十七 郦生陆贾列传第三十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十七-郦生陆贾列传第三十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八十三-鲁仲连邹阳列传第二十三-counter-example",
+      "title": "卷八十三 鲁仲连邹阳列传第二十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十三-鲁仲连邹阳列传第二十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十三-老子韩非列传第三-counter-example",
+      "title": "卷六十三 老子韩非列传第三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十三-老子韩非列传第三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十五-孙子吴起列传第五-counter-example",
+      "title": "卷六十五 孙子吴起列传第五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十五-孙子吴起列传第五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三十-平准书第八-counter-example",
+      "title": "卷三十 平准书第八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十-平准书第八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三十三-鲁周公世家第三-counter-example",
+      "title": "卷三十三 鲁周公世家第三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十三-鲁周公世家第三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三十八-宋微子世家第八-counter-example",
+      "title": "卷三十八 宋微子世家第八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十八-宋微子世家第八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十-三王世家第三十-counter-example",
+      "title": "卷六十 三王世家第三十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十-三王世家第三十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十一-越王句践世家第十一-counter-example",
+      "title": "卷四十一 越王句践世家第十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十一-越王句践世家第十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十二-郑世家第十二-counter-example",
+      "title": "卷四十二 郑世家第十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十二-郑世家第十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十五-韩世家第十五-counter-example",
+      "title": "卷四十五 韩世家第十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十五-韩世家第十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百一十五-朝鲜列传第五十五-counter-example",
+      "title": "卷一百一十五 朝鲜列传第五十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十五-朝鲜列传第五十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百七-魏其武安侯列传第四十七-counter-example",
+      "title": "卷一百七 魏其武安侯列传第四十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百七-魏其武安侯列传第四十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十-汲郑列传第六十-counter-example",
+      "title": "卷一百二十 汲郑列传第六十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十-汲郑列传第六十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十七-日者列传第六十七-counter-example",
+      "title": "卷一百二十七 日者列传第六十七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十七-日者列传第六十七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百二十八-龟策列传第六十八-counter-example",
+      "title": "卷一百二十八 龟策列传第六十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百二十八-龟策列传第六十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 8,
+          "supporting_edge_count": 8,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷一百八-韩长孺列传第四十八-counter-example",
+      "title": "卷一百八 韩长孺列传第四十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百八-韩长孺列传第四十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十五-孟尝君列传第十五-counter-example",
+      "title": "卷七十五 孟尝君列传第十五 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十五-孟尝君列传第十五-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷七十八-春申君列传第十八-counter-example",
+      "title": "卷七十八 春申君列传第十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十八-春申君列传第十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷三十一-吴太伯世家第一-counter-example",
+      "title": "卷三十一 吴太伯世家第一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十一-吴太伯世家第一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/31__卷三十一__吴太伯世家第一.md",
+      "source_location": {
+        "line_start": 71,
+        "line_end": 79
+      }
+    },
+    {
+      "candidate_id": "卷九十一-黥布列传第三十一-counter-example",
+      "title": "卷九十一 黥布列传第三十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十一-黥布列传第三十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷九十三-韩信卢绾列传第三十三-counter-example",
+      "title": "卷九十三 韩信卢绾列传第三十三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十三-韩信卢绾列传第三十三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷九十九-刘敬叔孙通列传第三十九-counter-example",
+      "title": "卷九十九 刘敬叔孙通列传第三十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十九-刘敬叔孙通列传第三十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十七-仲尼弟子列传第七-counter-example",
+      "title": "卷六十七 仲尼弟子列传第七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十七-仲尼弟子列传第七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷六十六-伍子胥列传第六-counter-example",
+      "title": "卷六十六 伍子胥列传第六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十六-伍子胥列传第六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 4,
+          "supporting_edge_count": 4,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷四十九-外戚世家第十九-counter-example",
+      "title": "卷四十九 外戚世家第十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十九-外戚世家第十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/49__卷四十九__外戚世家第十九.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 23
+      }
+    },
+    {
+      "candidate_id": "卷四十八-陈涉世家第十八-counter-example",
+      "title": "卷四十八 陈涉世家第十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十八-陈涉世家第十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/48__卷四十八__陈涉世家第十八.md",
+      "source_location": {
+        "line_start": 17,
+        "line_end": 37
+      }
+    },
+    {
+      "candidate_id": "卷四十六-田敬仲完世家第十六-counter-example",
+      "title": "卷四十六 田敬仲完世家第十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十六-田敬仲完世家第十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/46__卷四十六__田敬仲完世家第十六.md",
+      "source_location": {
+        "line_start": 57,
+        "line_end": 69
+      }
+    },
+    {
+      "candidate_id": "卷四十四-魏世家第十四-counter-example",
+      "title": "卷四十四 魏世家第十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷四十四-魏世家第十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/44__卷四十四__魏世家第十四.md",
+      "source_location": {
+        "line_start": 93,
+        "line_end": 103
+      }
+    },
+    {
+      "candidate_id": "卷一百一十九-循吏列传第五十九-counter-example",
+      "title": "卷一百一十九 循吏列传第五十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十九-循吏列传第五十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/119__卷一百一十九__循吏列传第五十九.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 27
+      }
+    },
+    {
+      "candidate_id": "卷一百一十六-西南夷列传第五十六-counter-example",
+      "title": "卷一百一十六 西南夷列传第五十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十六-西南夷列传第五十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/116__卷一百一十六__西南夷列传第五十六.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 15
+      }
+    },
+    {
+      "candidate_id": "卷一百一十四-东越列传第五十四-counter-example",
+      "title": "卷一百一十四 东越列传第五十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百一十四-东越列传第五十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/114__卷一百一十四·东越列传第五十四.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 17
+      }
+    },
+    {
+      "candidate_id": "卷一百四-田叔列传第四十四-counter-example",
+      "title": "卷一百四 田叔列传第四十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷一百四-田叔列传第四十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/104__卷一百四__田叔列传第四十四.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 17
+      }
+    },
+    {
+      "candidate_id": "卷七十一-樗里子甘茂列传第十一-counter-example",
+      "title": "卷七十一 樗里子甘茂列传第十一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十一-樗里子甘茂列传第十一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/71__卷七十一__樗里子甘茂列传第十一.md",
+      "source_location": {
+        "line_start": 25,
+        "line_end": 29
+      }
+    },
+    {
+      "candidate_id": "卷九十-魏豹彭越列传第三十-counter-example",
+      "title": "卷九十 魏豹彭越列传第三十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十-魏豹彭越列传第三十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/90__卷九十__魏豹彭越列传第三十.md",
+      "source_location": {
+        "line_start": 21,
+        "line_end": 27
+      }
+    },
+    {
+      "candidate_id": "卷二十三-礼书第一-counter-example",
+      "title": "卷二十三 礼书第一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二十三-礼书第一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷二十八-封禅书第六-counter-example",
+      "title": "卷二十八 封禅书第六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二十八-封禅书第六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷二十四-乐书第二-counter-example",
+      "title": "卷二十四 乐书第二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二十四-乐书第二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 6,
+          "supporting_edge_count": 6,
+          "community_count": 1
+        }
+      },
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "卷八十-乐毅列传第二十-counter-example",
+      "title": "卷八十 乐毅列传第二十 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十-乐毅列传第二十-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/80__卷八十__乐毅列传第二十.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 17
+      }
+    },
+    {
+      "candidate_id": "卷八十九-张耳陈馀列传第二十九-counter-example",
+      "title": "卷八十九 张耳陈馀列传第二十九 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十九-张耳陈馀列传第二十九-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/89__卷八十九__张耳陈馀列传第二十九.md",
+      "source_location": {
+        "line_start": 27,
+        "line_end": 33
+      }
+    },
+    {
+      "candidate_id": "卷八十二-田单列传第二十二-counter-example",
+      "title": "卷八十二 田单列传第二十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十二-田单列传第二十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/82__卷八十二__田单列传第二十二.md",
+      "source_location": {
+        "line_start": 21,
+        "line_end": 21
+      }
+    },
+    {
+      "candidate_id": "卷八十八-蒙恬列传第二十八-counter-example",
+      "title": "卷八十八 蒙恬列传第二十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十八-蒙恬列传第二十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/88__卷八十八__蒙恬列传第二十八.md",
+      "source_location": {
+        "line_start": 21,
+        "line_end": 25
+      }
+    },
+    {
+      "candidate_id": "卷六十八-商君列传第八-counter-example",
+      "title": "卷六十八 商君列传第八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷六十八-商君列传第八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/68__卷六十八__商君列传第八.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 9
+      }
+    },
+    {
+      "candidate_id": "卷三十二-齐太公世家第二-counter-example",
+      "title": "卷三十二 齐太公世家第二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷三十二-齐太公世家第二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/32__卷三十二__齐太公世家第二.md",
+      "source_location": {
+        "line_start": 113,
+        "line_end": 123
+      }
+    },
+    {
+      "candidate_id": "卷二十九-河渠书第七-counter-example",
+      "title": "卷二十九 河渠书第七 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二十九-河渠书第七-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/29__卷二十九__河渠书第七.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 19
+      }
+    },
+    {
+      "candidate_id": "卷二十五-律书第三-counter-example",
+      "title": "卷二十五 律书第三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷二十五-律书第三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/25__卷二十五__律书第三.md",
+      "source_location": {
+        "line_start": 41,
+        "line_end": 47
+      }
+    },
+    {
+      "candidate_id": "卷五十二-齐悼惠王世家第二十二-counter-example",
+      "title": "卷五十二 齐悼惠王世家第二十二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五十二-齐悼惠王世家第二十二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/52__卷五十二__齐悼惠王世家第二十二.md",
+      "source_location": {
+        "line_start": 25,
+        "line_end": 43
+      }
+    },
+    {
+      "candidate_id": "卷五十八-梁孝王世家第二十八-counter-example",
+      "title": "卷五十八 梁孝王世家第二十八 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷五十八-梁孝王世家第二十八-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/58__卷五十八__梁孝王世家第二十八.md",
+      "source_location": {
+        "line_start": 23,
+        "line_end": 43
+      }
+    },
+    {
+      "candidate_id": "卷十三-三代世表第一-counter-example",
+      "title": "卷十三 三代世表第一 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷十三-三代世表第一-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/13__卷十三__三代世表第一(略).md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 17
+      }
+    },
+    {
+      "candidate_id": "卷十五-六国年表第三-counter-example",
+      "title": "卷十五 六国年表第三 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷十五-六国年表第三-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/15__卷十五__六国年表第三(略).md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 13
+      }
+    },
+    {
+      "candidate_id": "卷十四-十二诸侯年表第二-counter-example",
+      "title": "卷十四 十二诸侯年表第二 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷十四-十二诸侯年表第二-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/14__卷十四__十二诸侯年表第二(略).md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 9
+      }
+    },
+    {
+      "candidate_id": "卷七十四-孟子荀卿列传第十四-counter-example",
+      "title": "卷七十四 孟子荀卿列传第十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷七十四-孟子荀卿列传第十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/74__卷七十四__孟子荀卿列传第十四.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 15
+      }
+    },
+    {
+      "candidate_id": "卷九十六-张丞相列传第三十六-counter-example",
+      "title": "卷九十六 张丞相列传第三十六 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十六-张丞相列传第三十六-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/96__卷九十六__张丞相列传第三十六.md",
+      "source_location": {
+        "line_start": 5,
+        "line_end": 15
+      }
+    },
+    {
+      "candidate_id": "卷九十四-田儋列传第三十四-counter-example",
+      "title": "卷九十四 田儋列传第三十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷九十四-田儋列传第三十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/94__卷九十四__田儋列传第三十四.md",
+      "source_location": {
+        "line_start": 23,
+        "line_end": 31
+      }
+    },
+    {
+      "candidate_id": "卷八十四-屈原贾生列传第二十四-counter-example",
+      "title": "卷八十四 屈原贾生列传第二十四 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "missing_extracted_evidence",
+        "predictive_usefulness_too_thin",
+        "predictive_action_below_promotion_threshold"
+      ],
+      "verification": {
+        "schema_version": "kiu.verification-gate/v0.1",
+        "candidate_id": "卷八十四-屈原贾生列传第二十四-counter-example",
+        "passed": false,
+        "workflow_ready": false,
+        "corroboration_score": 0.6667,
+        "predictive_usefulness_score": 0.0,
+        "distinctiveness_score": 1.0,
+        "overall_score": 0.5556,
+        "triple_verification": {
+          "schema_version": "kiu.triple-verification/v0.1",
+          "cross_evidence_ratio": 0.6667,
+          "predictive_action_ratio": 0.0,
+          "uniqueness_ratio": 1.0
+        },
+        "reasons": [
+          "missing_extracted_evidence",
+          "predictive_usefulness_too_thin",
+          "predictive_action_below_promotion_threshold"
+        ],
+        "evidence": {
+          "extracted_evidence_support_count": 0,
+          "evidence_support_count": 0,
+          "context_cues": 0,
+          "workflow_cues": 0,
+          "tri_state_support_ratio": 0.5,
+          "matched_keywords": [],
+          "evidence_chunk_ids": [],
+          "supporting_node_count": 2,
+          "supporting_edge_count": 2,
+          "community_count": 1
+        }
+      },
+      "source_file": "sources/shiji/84__卷八十四__屈原贾生列传第二十四.md",
+      "source_location": {
+        "line_start": 43,
+        "line_end": 59
+      }
+    }
+  ],
+  "average_overall_score": 1.0
+}

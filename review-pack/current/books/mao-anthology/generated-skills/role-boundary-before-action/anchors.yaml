@@ -1,0 +1,85 @@
+skill_id: role-boundary-before-action
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+graph_anchor_sets:
+- anchor_id: role-boundary-before-action-seed-support
+  node_ids:
+  - narrative-pattern::role-boundary-before-action
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0006
+  - evidence::mao-0007
+  - evidence::mao-0009
+  - evidence::mao-0011
+  - evidence::mao-0013
+  - evidence::mao-0014
+  edge_ids:
+  - role-boundary-pattern-evidence::0001
+  - role-boundary-pattern-evidence::0002
+  - role-boundary-pattern-evidence::0003
+  - role-boundary-pattern-evidence::0004
+  - role-boundary-pattern-evidence::0005
+  - role-boundary-pattern-evidence::0006
+  - role-boundary-pattern-evidence::0007
+  - role-boundary-pattern-evidence::0008
+  community_ids: []
+source_anchor_sets:
+- anchor_id: role-boundary-before-action-narrative-pattern::role-boundary-before-action
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 6
+  line_end: 14
+  snippet: 谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。中国过去一切革命斗争成效甚少，其基本原因就是因为不能团结真正的朋友，以攻击真正的敌人。革命党是群众的向导，在革命中未有革命党领错了路而革命不失败的。我们的革命要有不领错路和一定成功的把握，不可不注意团结我们的真正的朋友，以攻击我们的真正的敌人。我们要分辨真正的敌友，不可不将中国社会各阶级的经济地位及其对于革命的态度，作一个大概的分析。
+    中国社会各阶级的情况是怎样的呢？ 地主阶级和
+- anchor_id: role-boundary-before-action-evidence::mao-0002
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 6
+  line_end: 14
+  snippet: 谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。中国过去一切革命斗争成效甚少，其基本原因就是因为不能团结真正的朋友，以攻击真正的敌人。革命党是群众的向导，在革命中未有革命党领错了路而革命不失败的。我们的革命要有不领错路和一定成功的把握，不可不注意团结我们的真正的朋友，以攻击我们的真正的敌人。我们要分辨真正的敌友，不可不将中国社会各阶级的经济地位及其对于革命的态度，作一个大概的分析。
+    中国社会各阶级的情况是怎样的呢？ 地主阶级和
+- anchor_id: role-boundary-before-action-evidence::mao-0003
+  kind: source_excerpt
+  path: ../../sources/mao/000-中国社会各阶级的分析.md
+  line_start: 17
+  line_end: 35
+  snippet: '------------------ 注　　释 〔1〕国家主义派指中国青年党，当时以其外围组织“中国国家主义青年团”的名义公开进行活动。组织这个政团的是一些反动政客，他们投靠帝国主义和当权的反动派，把反对中国共产党和苏联当作职业。
+    〔2〕戴季陶（一八九一——一九四九），又名传贤，原籍浙江湖州，生于四川广汉。早年参加中国同盟会，从事过反对清政府和袁世凯的活动。后曾和蒋介石在上海共同经营交易所的投机事业。一九二五年随着孙中山的逝世和革命高潮'
+- anchor_id: role-boundary-before-action-evidence::mao-0006
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 13
+  line_end: 13
+  snippet: 湖南的农民运动，就湘中、湘南已发达的各县来说，大约分为两个时期。去年一月至九月为第一时期，即组织时期。此时期内，一月至六月为秘密活动时期，七月至九月革命军驱逐赵恒惕⑵，为公开活动时期。此时期内，农会会员的人数总计不过三四十万，能直接领导的群众也不过百余万，在农村中还没有什么斗争，因此各界对它也没有什么批评。因为农会会员能作向导，作侦探，作挑夫，北伐军的军官们还有说几句好话的。十月至今年一月为第二时期，即革命时期。农会会员激增到二百万，能
+- anchor_id: role-boundary-before-action-evidence::mao-0007
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 17
+  line_end: 22
+  snippet: 农民的主要攻击目标是土豪劣绅，不法地主，旁及各种宗法的思想和制度，城里的贪官污吏，乡村的恶劣习惯。这个攻击的形势，简直是急风暴雨，顺之者存，违之者灭。其结果，把几千年封建地主的特权，打得个落花流水。地主的体面威风，扫地以尽。地主权力既倒，农会便成了唯一的权力机关，真正办到了人们所谓“一切权力归农会”。连两公婆吵架的小事，也要到农民协会去解决。一切事情，农会的人不到场，便不能解决。农会在乡村简直独裁一切，真是“说得出，做得到”。外界的人只
+- anchor_id: role-boundary-before-action-evidence::mao-0009
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 30
+  line_end: 30
+  snippet: 又有一般人说：“农会虽要办，但是现在农会的举动未免太过分了。”这是中派的议论。实际怎样呢？的确的，农民在乡里颇有一点子“乱来”。农会权力无上，不许地主说话，把地主的威风扫光。这等于将地主打翻在地，再踏上一只脚。“把你入另册！”向土豪劣绅罚款捐款，打轿子。反对农会的土豪劣绅的家里，一群人涌进去，杀猪出谷。土豪劣绅的小姐少奶奶的牙床上，也可以踏上去滚一滚。动不动捉人戴高帽子游乡，“劣绅！今天认得我们！”为所欲为，一切反常，竟在乡村造成一种恐
+- anchor_id: role-boundary-before-action-evidence::mao-0011
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 38
+  line_end: 41
+  snippet: 对于一件事或一种人，有相反的两种看法，便出来相反的两种议论。“糟得很”和“好得很”，“痞子”和“革命先锋”，都是适例。 前面说了农民成就了多年未曾成就的革命事业，农民做了国民革命的重要工作。但是这种革命大业，革命重要工作，是不是农民全体做的呢？不是的。农民中有富农、中农、贫农三种。三种状况不同，对于革命的观感也各别。当第一时期，富农耳里听得的是所谓江西一败如水，蒋介石打伤了脚⑸，坐飞机回广东⑹了。吴佩孚⑺重新占了岳州。农民协会必定立不久
+- anchor_id: role-boundary-before-action-evidence::mao-0013
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 49
+  line_end: 49
+  snippet: 这是农民所做的第一件大事。像湘潭、湘乡、衡山这样的县，差不多所有的农民都组织起来了，几乎没有哪一只“角暗里”的农民没有起来，这是第一等。有些县，农民组织起来了一大部分，尚有一小部分没有组织，如益阳、华容等县，这是第二等。有些县，农民组织起来了一小部分，大部分尚未组织起来，如城步、零陵等县，这是第三等。湘西一带，在袁祖铭⑿势力之下，农会宣传未到，许多县的农民还全未组织起来，这是第四等。大概以长沙为中心的湘中各县最发展，湘南各县次之，湘西还
+- anchor_id: role-boundary-before-action-evidence::mao-0014
+  kind: source_excerpt
+  path: ../../sources/mao/001-湖南农民运动考察报告.md
+  line_start: 53
+  line_end: 62
+  snippet: 农民有了组织之后，第一个行动，便是从政治上把地主阶级特别是土豪劣绅的威风打下去，即是从农村的社会地位上把地主权力打下去，把农民权力长上来。这是一个极严重极紧要的斗争。这个斗争是第二时期即革命时期的中心斗争。这个斗争不胜利，一切减租减息，要求土地及其他生产手段等等的经济斗争，决无胜利之可能。湖南许多地方，像湘乡、衡山、湘潭等县，地主权力完全推翻，形成了农民的独一权力，自无问题。但是醴陵等县，尚有一部分地方（如醴陵之西南两区），表面上地主权

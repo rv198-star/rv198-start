@@ -1,0 +1,438 @@
+should_trigger:
+- scenario_id: choose-workflow-entrypoint
+  summary: 用户拿到一组 workflow candidates，但不知道应该从哪一个开始。
+  prompt_signals:
+  - 应该先跑哪个流程
+  - 这些步骤哪个适合当前目标
+  - 帮我选一个工作流入口
+  boundary_reason: 这是路由问题，不是重新生成领域答案。
+  next_action_shape: 返回 selected_workflow_id、routing_reason、missing_context、next_action。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0322->case::mao-0443
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0322->case::mao-0443`
+    expands trigger language only when a live decision links `我们的具体纲领` and `根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:135-143`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0322->case::mao-0443
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:135-143
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0320
+      label: 四　中国共产党的政策 Cluster
+      top_node_id: principle::0322
+      top_node_label: 我们的具体纲领
+      node_count: 8
+    - community_id: community::principle::0322
+      label: 我们的具体纲领 Cluster
+      top_node_id: principle::0322
+      top_node_label: 我们的具体纲领
+      node_count: 29
+    - community_id: community::principle::0181
+      label: 结　　论 Cluster
+      top_node_id: framework::0160
+      top_node_label: 论持久战
+      node_count: 2
+    - community_id: community::principle::0281
+      label: 结　　论 Cluster
+      top_node_id: case::mao-0216
+      top_node_label: '------------------ 注 释 〔1〕 见本卷《反对日本进攻的方针、办法和前途》注〔1〕。 〔2〕见本书第一卷《中国革命战争...'
+      node_count: 25
+    - community_id: community::principle::0110
+      label: 论认识和实践的关系——知和行的关系 Cluster
+      top_node_id: case::mao-0132
+      top_node_label: 马克思以前的唯物论，离开人的社会性，离开人的历史发展，去观察认识问题，因此不能了解认识对社会实践的依赖关系，即认识对生产和阶级斗争的依赖关...
+      node_count: 8
+    - community_id: community::principle::0242
+      label: 四　中国革命是世界革命的一部分 Cluster
+      top_node_id: counter-example::mao-0296
+      top_node_label: 中国革命的历史特点是分为民主主义和社会主义两个步骤，而其第一步现在已不是一般的民主主义，而是中国式的、特殊的、新式的民主主义，而是新民主主...
+      node_count: 7
+    suggested_questions:
+    - Why does `关于正确处理人民内部矛盾的问题` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `在省市自治区党委书记会议上的讲话` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - What is the operational boundary of `我们的具体纲领 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `结　　论 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `我们的具体纲领 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0322->case::mao-0449
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0322->case::mao-0449`
+    expands trigger language only when a live decision links `我们的具体纲领` and `为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。 为...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:182-207`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0322->case::mao-0449
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:182-207
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0322->case::mao-0453
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0322->case::mao-0453`
+    expands trigger language only when a live decision links `我们的具体纲领` and `中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持...
+  - 中国共产党同意大西洋宪章和莫斯科、开罗、德黑兰、克里米亚各次国际会议(27)的决议，因为这些国际会议的决议都是有利于打败法西斯侵略者和维持世界和平的。 中...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:233-243`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0322->case::mao-0453
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:233-243
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0443`
+    expands trigger language only when a live decision links `我们的具体纲领` and `根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:135-143`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:135-143
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0444`
+    expands trigger language only when a live decision links `我们的具体纲领` and `开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+  - 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经过南京傀儡政府，...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:145-146`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:145-146
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0445`
+    expands trigger language only when a live decision links `我们的具体纲领` and `为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。
+    所谓国民党的一...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+  - 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一党专政，实际上是...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:148-160`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:148-160
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0446`
+    expands trigger language only when a live decision links `我们的具体纲领` and `目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+  - 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这个问题，就不能在...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:162-166`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:162-166
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0447`
+    expands trigger language only when a live decision links `我们的具体纲领` and `为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。
+    但是如何统一呢？独裁者的专制的...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+  - 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的统一，还是人民的...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:168-171`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:168-171
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0448`
+    expands trigger language only when a live decision links `我们的具体纲领` and `中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+  - 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队，现在还只有解放...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:173-180`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:173-180
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0449`
+    expands trigger language only when a live decision links `我们的具体纲领` and `为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。 为...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:182-207`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:182-207
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0450`
+    expands trigger language only when a live decision links `我们的具体纲领` and `为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党...
+  - 为着打败日本侵略者和建设新中国，必须发展工业。但是，在国民党政府统治之下，一切依赖外国，它的财政经济政策是破坏人民的一切经济生活的。国民党统治区内仅有的一...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:209-216`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:209-216
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0322->counter-example::mao-0451`
+    expands trigger language only when a live decision links `我们的具体纲领` and `民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更...`.'
+  prompt_signals:
+  - 我们的具体纲领
+  - 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更...
+  - 民族压迫和封建压迫所给予中国人民的灾难中，包括着民族文化的灾难。特别是具有进步意义的文化事业和教育事业，进步的文化人和教育家，所受灾难，更为深重。为着扫除...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/mao/082-论联合政府.md:218-225`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/mao/082-论联合政府.md:218-225
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: exact-workflow-already-known
+  summary: 用户已经明确指定 workflow id 时，不需要 gateway 再判断。
+  prompt_signals:
+  - 运行 10-业务流程识别
+  - 打开这个 workflow.yaml
+  boundary_reason: 这时应直接执行对应 workflow，而不是再做 agentic 路由。
+  anchor_refs:
+  - workflow-gateway-primary
+edge_case:
+- scenario_id: goal-too-vague-for-routing
+  summary: 用户只说想分析材料，但没有说明目标、输入或约束。
+  prompt_signals:
+  - 帮我分析一下
+  - 看看这个材料
+  boundary_reason: 目标不足时只能 ask_clarifying_question，不能猜一个 workflow。
+  next_action_shape: 列 missing_context 并提出最少澄清问题。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0443
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0443`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是...
+  - 根据上述一般纲领，我们党在各个时期中还应当有具体的纲领。在整个资产阶级民主革命阶段中，在几十年中，我们的新民主主义的一般纲领是不变的。但是在这个大阶段的各...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:135-143`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0443
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:135-143
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0444
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0444`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经...
+  - 开罗会议⒂决定应使日本侵略者无条件投降，这是正确的。但是，现在日本侵略者正在暗地里进行活动，企图获得妥协的和平；国民党政府中的亲日分子，经过南京傀儡政府，...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:145-146`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0444
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:145-146
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0445
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0445`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一...
+  - 为着彻底消灭日本侵略者，必须在全国范围内实行民主改革。而要这样做，不废止国民党的一党专政，建立民主的联合政府，是不可能的。 所谓国民党的一党专政，实际上是...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:148-160`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0445
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:148-160
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0446
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0446`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这...
+  - 目前中国人民争自由的目标，首先地和主要地是向着日本侵略者。但是国民党政府剥夺人民的自由，捆起人民的手足，使他们不能反对日本侵略者。不解决这个问题，就不能在...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:162-166`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0446
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:162-166
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0447
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0447`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的...
+  - 为着消灭日本侵略者，为着防止内战，为着建设新中国，必须将分裂的中国变为统一的中国，这是中国人民的历史任务。 但是如何统一呢？独裁者的专制的统一，还是人民的...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:168-171`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0447
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:168-171
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0448
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0448`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队...
+  - 中国人民要自由，要统一，要联合政府，要彻底地打倒日本侵略者和建设新中国，没有一支站在人民立场上的军队，那是不行的。彻底地站在人民立场的军队，现在还只有解放...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:173-180`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0448
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:173-180
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::mao-0449
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::mao-0449`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的...
+  - 为着消灭日本侵略者和建设新中国，必须实行土地制度的改革，解放农民。孙中山先生的“耕者有其田”的主张，是目前资产阶级民主主义性质的革命时代的正确的主张。 为...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/mao/082-论联合政府.md:182-207`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::mao-0449
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/mao/082-论联合政府.md:182-207
+  graph_navigation: *id001
+refusal:
+- scenario_id: agentic-judgment-request
+  summary: 用户要求直接给复杂判断结论，而不是选择 workflow。
+  prompt_signals:
+  - 直接告诉我战略怎么定
+  - 不要流程，给结论
+  boundary_reason: 这超出薄 gateway 职责，应转交厚 skill 或要求新建 agentic candidate。
+  next_action_shape: 说明 gateway 只能路由 workflow，不能替代判断密集型 skill。
+  anchor_refs:
+  - workflow-gateway-primary

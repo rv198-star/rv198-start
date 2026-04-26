@@ -1,0 +1,32 @@
+skill_id: invert-the-problem
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: 'Revision 6 是一次面向 `v0.6.0` same-source boundary cleanup 的手工补强，不是 refinement_scheduler
+    自动 loop。本轮明确把 concept / definition / history query 排除在 inversion 触发外，避免把“解释逆向思维概念”误判成“帮助真实决策做
+    failure-first planning”。
+
+
+    Revision 5 是一次面向 `v0.5.1` 的手工补强，不是 refinement_scheduler 自动 loop。本轮把正文改成中文 action-facing
+    说明，明确补进了“漏掉重要东西 / 方案太乐观 / 最坏情况 / 系统性找茬 / 血本无归”等触发语言，并把输出落成 failure map、avoid rules、first
+    preventive action 三件套。
+
+
+    同时，这轮也把 concept query、pure brainstorming、低风险边界案例的裁定说明写清楚，并显式加入 `edge_posture =
+    full_inversion / partial_review / defer`，避免通过过度泛化触发来换 benchmark 分数。剩余缺口是继续提高 edge
+    case 的边界稳定性，并补出真实 loop 驱动的修订证据。详见 `iterations/revisions.yaml`。'
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added direct Chinese trigger phrases such as "漏掉了什么重要的东西", "方案太乐观", "最坏的情况", and
+    "系统性找茬".
+  - Reworked the usage and evaluation summaries around explicit failure maps, avoid
+    rules, and first preventive actions.
+  - Clarified non-trigger boundaries for concept queries, pure brainstorming, and
+    lower-stakes edge cases without broadening the skill boundary.
+open_gaps:
+- Continue monitoring concept-query and low-stakes planning boundary stability in
+  same-source benchmarks.
+- Run a real refinement_scheduler pass before describing this skill as loop-driven.

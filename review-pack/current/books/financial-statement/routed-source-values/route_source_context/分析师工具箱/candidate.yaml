@@ -1,0 +1,268 @@
+candidate_id: 分析师工具箱
+source_bundle_id: financial-statement-source-v0.6
+source_graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+seed:
+  primary_node_id: principle::1335
+  supporting_node_ids:
+  - evidence::financial-statement-0168
+  - evidence::financial-statement-0251
+  - evidence::financial-statement-0324
+  - evidence::financial-statement-0400
+  - evidence::financial-statement-0520
+  - evidence::financial-statement-0617
+  - evidence::financial-statement-0708
+  - evidence::financial-statement-0942
+  - evidence::financial-statement-1047
+  - evidence::financial-statement-1102
+  - evidence::financial-statement-1184
+  - evidence::financial-statement-1279
+  - evidence::financial-statement-1366
+  - evidence::financial-statement-1452
+  - evidence::financial-statement-1497
+  - framework::0842
+  - framework::1054
+  - framework::1146
+  - principle::0156
+  - principle::0157
+  - principle::0224
+  - principle::0228
+  - principle::0294
+  - principle::0302
+  - principle::0369
+  - principle::0372
+  - principle::0446
+  - principle::0449
+  - principle::0450
+  - principle::0486
+  - principle::0488
+  - principle::0582
+  - principle::0585
+  - principle::0658
+  - principle::0661
+  - principle::0723
+  - principle::0726
+  - principle::0727
+  - principle::0782
+  - principle::0784
+  - principle::0785
+  - principle::0879
+  - principle::0952
+  - principle::0953
+  - principle::1006
+  - principle::1011
+  - principle::1077
+  - principle::1151
+  - principle::1152
+  - principle::1231
+  - principle::1234
+  - principle::1288
+  - principle::1291
+  - principle::1333
+  - principle::1336
+  - principle::1337
+  - principle::1339
+  - term::bps
+  - term::ebit
+  - term::ebitda
+  - term::eps
+  - term::olev
+  - term::ollev
+  - term::p-b
+  - term::p-e
+  - term::wacc
+  supporting_edge_ids:
+  - derives_term_signal::principle::1335->term::bps
+  - derives_term_signal::principle::1335->term::ebit
+  - derives_term_signal::principle::1335->term::ebitda
+  - derives_term_signal::principle::1335->term::eps
+  - derives_term_signal::principle::1335->term::olev
+  - derives_term_signal::principle::1335->term::ollev
+  - derives_term_signal::principle::1335->term::p-b
+  - derives_term_signal::principle::1335->term::p-e
+  - derives_term_signal::principle::1335->term::wacc
+  - section-parent::framework::0842->principle::0879
+  - section-parent::framework::1054->principle::1077
+  - section-parent::framework::1146->principle::1151
+  - section-parent::principle::0156->principle::0157
+  - section-parent::principle::0224->principle::0228
+  - section-parent::principle::0294->principle::0302
+  - section-parent::principle::0369->principle::0372
+  - section-parent::principle::0446->principle::0449
+  - section-parent::principle::0449->principle::0450
+  - section-parent::principle::0486->principle::0488
+  - section-parent::principle::0582->principle::0585
+  - section-parent::principle::0658->principle::0661
+  - section-parent::principle::0723->principle::0726
+  - section-parent::principle::0726->principle::0727
+  - section-parent::principle::0782->principle::0784
+  - section-parent::principle::0784->principle::0785
+  - section-parent::principle::0952->principle::0953
+  - section-parent::principle::1006->principle::1011
+  - section-parent::principle::1151->principle::1152
+  - section-parent::principle::1231->principle::1234
+  - section-parent::principle::1288->principle::1291
+  - section-parent::principle::1333->principle::1335
+  - section-parent::principle::1335->principle::1336
+  - section-parent::principle::1335->principle::1337
+  - section-parent::principle::1335->principle::1339
+  - supported-by::principle::1335->evidence::financial-statement-0168
+  - supported-by::principle::1335->evidence::financial-statement-0251
+  - supported-by::principle::1335->evidence::financial-statement-0324
+  - supported-by::principle::1335->evidence::financial-statement-0400
+  - supported-by::principle::1335->evidence::financial-statement-0520
+  - supported-by::principle::1335->evidence::financial-statement-0617
+  - supported-by::principle::1335->evidence::financial-statement-0708
+  - supported-by::principle::1335->evidence::financial-statement-0942
+  - supported-by::principle::1335->evidence::financial-statement-1047
+  - supported-by::principle::1335->evidence::financial-statement-1102
+  - supported-by::principle::1335->evidence::financial-statement-1184
+  - supported-by::principle::1335->evidence::financial-statement-1279
+  - supported-by::principle::1335->evidence::financial-statement-1366
+  - supported-by::principle::1335->evidence::financial-statement-1452
+  - supported-by::principle::1335->evidence::financial-statement-1497
+  community_ids:
+  - community::principle::0156
+  - community::principle::0157
+  - community::principle::0224
+  - community::principle::0228
+  - community::principle::0294
+  - community::principle::0302
+  - community::principle::0369
+  - community::principle::0372
+  - community::principle::0446
+  - community::principle::0449
+  - community::principle::0450
+  - community::principle::0486
+  - community::principle::0488
+  - community::principle::0582
+  - community::principle::0585
+  - community::principle::0658
+  - community::principle::0661
+  - community::principle::0723
+  - community::principle::0726
+  - community::principle::0727
+  - community::principle::0782
+  - community::principle::0784
+  - community::principle::0785
+  - community::principle::0879
+  - community::principle::0952
+  - community::principle::0953
+  - community::principle::1006
+  - community::principle::1011
+  - community::principle::1077
+  - community::principle::1151
+  - community::principle::1152
+  - community::principle::1231
+  - community::principle::1234
+  - community::principle::1288
+  - community::principle::1291
+  - community::principle::1333
+  - community::principle::1335
+  - community::principle::1336
+  - community::principle::1337
+  - community::principle::1339
+  merged_primary_node_ids:
+  - principle::0157
+  - principle::0228
+  - principle::0302
+  - principle::0372
+  - principle::0449
+  - principle::0488
+  - principle::0585
+  - principle::0661
+  - principle::0726
+  - principle::0784
+  - principle::0879
+  - principle::0953
+  - principle::1011
+  - principle::1077
+  - principle::1151
+  - principle::1234
+  - principle::1291
+  - principle::1335
+  merged_candidate_count: 18
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: merged_seed_support
+  selected_candidate_kind: general_agentic
+  workflow_cues: 2
+  agentic_priority: 0
+  case_density_score: 0.15
+  context_cues: 1
+  evidence_support_count: 15
+  extracted_evidence_support_count: 15
+  tri_state_support_count: 9
+  support_entity_count: 98
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 9
+  merged_from_node_ids:
+  - principle::0157
+  - principle::0228
+  - principle::0302
+  - principle::0372
+  - principle::0449
+  - principle::0488
+  - principle::0585
+  - principle::0661
+  - principle::0726
+  - principle::0784
+  - principle::0879
+  - principle::0953
+  - principle::1011
+  - principle::1077
+  - principle::1151
+  - principle::1234
+  - principle::1291
+  - principle::1335
+  workflow_promotion_blocked_by_evidence: false
+  tri_state_support_ratio: 0.0918
+  matched_keywords:
+  - 步骤
+  evidence_chunk_ids:
+  - financial-statement:0324
+  - financial-statement:1184
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9167
+  workflow_promotion_blocked_by_verification: false
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 分析师工具箱
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.75
+  overall_score: 0.9167
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.75
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 15
+    evidence_support_count: 15
+    context_cues: 1
+    workflow_cues: 2
+    tri_state_support_ratio: 0.0918
+    matched_keywords:
+    - 步骤
+    evidence_chunk_ids:
+    - financial-statement:0324
+    - financial-statement:1184
+    supporting_node_count: 66
+    supporting_edge_count: 49
+    community_count: 40

@@ -1,0 +1,63 @@
+skill_id: stakeholder-resistance-tradeoff
+bundle_version: 0.2.0
+current_revision: 6
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: Initial requirements-agentic extraction added to separate conflict-sensitive
+    stakeholder tradeoff from deterministic stakeholder inventory workflows.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Preserved deterministic requirement-analysis workflows under workflow_candidates/.
+  - Added a separate llm_agentic candidate only for judgment-rich arbitration.
+  - Bound the candidate to graph/source double anchors and smoke evaluation cases.
+- revision: 2
+  date: '2026-04-26'
+  summary: Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+- revision: 3
+  date: '2026-04-26'
+  summary: Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+- revision: 4
+  date: '2026-04-26'
+  summary: Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 3 tightened boundary signals and improved evaluation
+    support.
+- revision: 5
+  date: '2026-04-26'
+  summary: Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 4 tightened boundary signals and improved evaluation
+    support.
+- revision: 6
+  date: '2026-04-26'
+  summary: Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 5 tightened boundary signals and improved evaluation
+    support.
+open_gaps:
+- Replace generated smoke cases with real project review logs.
+- Verify the skill against mixed stakeholder and scope-trimming cases before broad
+  publication.

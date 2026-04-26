@@ -1,0 +1,1646 @@
+should_trigger:
+- scenario_id: live-decision-window
+  summary: Accounting Quality Signal Check fires when the scenario contains a live
+    decision this principle can materially improve.
+  prompt_signals:
+  - 需要做决定
+  - 如何判断
+  - 下一步怎么做
+  boundary_reason: The scenario already contains a concrete decision boundary.
+  next_action_shape: 输出与该原则相匹配的具体 next action。
+  anchor_refs:
+  - accounting-quality-signal-check-principle::1171
+  - accounting-quality-signal-check-evidence::financial-statement-1300
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0426->case::financial-statement-0456
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0426->case::financial-statement-0456`
+    expands trigger language only when a live decision links `超常收益增长模型与剩余收益模型的比较`
+    and `超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需...`.'
+  prompt_signals:
+  - 超常收益增长模型与剩余收益模型的比较
+  - 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需...
+  - 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需要根据这些预测值...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:5725-5739`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0426->case::financial-statement-0456
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:5725-5739
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0007
+      label: 0.1 写作思考 Cluster
+      top_node_id: principle::0006
+      top_node_label: 前言
+      node_count: 7
+    - community_id: community::principle::0012
+      label: 0.1.5 会计信息的质量 Cluster
+      top_node_id: evidence::financial-statement-0010
+      top_node_label: 在简单理解了会计系统的运作方式之后，通过本书，你将能够学会对会计工作成果的质量进行正确的评价。学习完本书后，你将能够识别公司所发布财务报表...
+      node_count: 3
+    - community_id: community::principle::0152
+      label: 2.2.6 会计原则之间的冲突 Cluster
+      top_node_id: case::financial-statement-0162
+      top_node_label: 为正确地计量企业通过销售活动所创造的价值增加额，会计人员需要将相关的费用与收入进行配比，而根据可靠性原则的要求，企业在真正“赢得”客户前，...
+      node_count: 6
+    - community_id: community::principle::0153
+      label: 2.2.7 会计信息质量 Cluster
+      top_node_id: counter-example::financial-statement-0163
+      top_node_label: 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+      node_count: 4
+    - community_id: community::principle::0417
+      label: 6.3.1 超常收益增长的计量 Cluster
+      top_node_id: evidence::financial-statement-0443
+      top_node_label: 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差：
+        $$ \beg...
+      node_count: 6
+    - community_id: community::principle::0418
+      label: 6.3.2 一个简单的示例与估值模型 Cluster
+      top_node_id: case::financial-statement-0446
+      top_node_label: '| 0 | 1 | 2 | 3 | 4 | 5 | |:-----------------------------------------...'
+      node_count: 8
+    - community_id: community::principle::0424
+      label: 情景 2 耐克公司 Cluster
+      top_node_id: evidence::financial-statement-0454
+      top_node_label: 在本例中，预计2011年以后的超常收益将按4.5%的速度增长。必要报酬率为9%。 (金额单位：美元) | 0 | 1 |
+        2 | 3 | ...
+      node_count: 6
+    - community_id: community::principle::0426
+      label: 超常收益增长模型与剩余收益模型的比较 Cluster
+      top_node_id: case::financial-statement-0456
+      top_node_label: 超常收益增长模型与剩余收益模型看似不同，但实质上却是一回事。它们均以预测的未来收益和股利信息为输入变量，只是剩余收益模型还多了一个步骤，需...
+      node_count: 7
+    - community_id: community::principle::0427
+      label: 将分析师的预测转换为估值 Cluster
+      top_node_id: principle::0426
+      top_node_label: 超常收益增长模型与剩余收益模型的比较
+      node_count: 2
+    - community_id: community::principle::0429
+      label: 6.6 超常收益增长模型的特点 Cluster
+      top_node_id: evidence::financial-statement-0462
+      top_node_label: 阅读材料 6-4 列出了超常收益增长模型的优点与不足。阅读时，请注意与股利贴现模型（第 4 章）、贴现现金流量模型（第
+        4 章）和剩余收益...
+      node_count: 4
+    - community_id: community::principle::0430
+      label: 阅读材料 6-4 Cluster
+      top_node_id: principle::0429
+      top_node_label: 6.6 超常收益增长模型的特点
+      node_count: 2
+    - community_id: community::principle::0432
+      label: 优点 Cluster
+      top_node_id: evidence::financial-statement-0289
+      top_node_label: 易于理解：股东能够得到的就是股利，因此，可以通过预测股利来估算股票的价值。 方便预测：在短期内，公司股利一般是比较稳定的，因此方便进行预测...
+      node_count: 12
+    - community_id: community::principle::0433
+      label: 不足 Cluster
+      top_node_id: counter-example::financial-statement-0302
+      top_node_label: 概念可疑：自由现金流量并不能计量企业在短期内的价值增加额；企业所赚得的价值与相应所放弃的价值并没有配比。 将投资作为价值的减损处理。
+        自由...
+      node_count: 9
+    - community_id: community::principle::0435
+      label: 6.6.2 超常收益增长模型与剩余收益估值模型 Cluster
+      top_node_id: evidence::financial-statement-0466
+      top_node_label: 在对价值创造过程的解释这个问题上，超常收益增长模型不如剩余收益模型那么清楚。企业投资于资产，然后通过在经营过程中对这些资产加以利用，从而创...
+      node_count: 3
+    - community_id: community::principle::0436
+      label: 6.6.3 超常收益增长模型不受股利发放、股份发行和股份回购等事件的影响 Cluster
+      top_node_id: evidence::financial-statement-0467
+      top_node_label: 在第 5 章中我们已经看到，剩余收益估值模型对预期的股利发放率、股份发行和股份回购等事件是不敏感的，这一特点同样也是超常收益增长估值模型所...
+      node_count: 3
+    - community_id: community::principle::0439
+      label: 通过会计方法创造收益时的超常收益增长模型估值 Cluster
+      top_node_id: evidence::financial-statement-0469
+      top_node_label: 表 6-2 中列出了利用一家公司的预计收益和收益增长信息，来进行权益估值的过程。现在，假定这家公司的经理决定通过计提第
+        0 年的存货减值 ...
+      node_count: 4
+    - community_id: community::principle::0440
+      label: 对估值的影响 Cluster
+      top_node_id: evidence::financial-statement-0470
+      top_node_label: 由于在第0年计提了8美元的存货减值，因此原来在第0年的收益12美元现在变成了4美元（同时账面价值也由100美元变成了 92美元）。相应地，...
+      node_count: 3
+    - community_id: community::principle::0456
+      label: 练习题 Cluster
+      top_node_id: principle::0451
+      top_node_label: 连贯案例：金佰利公司
+      node_count: 13
+    - community_id: community::principle::0458
+      label: E6.1. 预计收益增长与超常收益增长（简单） Cluster
+      top_node_id: evidence::financial-statement-0485
+      top_node_label: 下面是 2010 年年末做出的某家企业盈利与股利信息预测。这家企业的权益资本必要报酬率为每年 10%。 | 0 | 1
+        | 2 | 3 |...
+      node_count: 3
+    - community_id: community::principle::0460
+      label: E6.3. 根据预计的超常收益增长进行估值（简单） Cluster
+      top_node_id: evidence::financial-statement-0487
+      top_node_label: 假定某位分析人员向你提供了下列预计信息（单位：百万美元），这些信息是他对一家公司在2013～2017年的收益和股利预测数据。他希望你能帮忙...
+      node_count: 3
+    - community_id: community::principle::0461
+      label: E6.4. 超常收益增长估值与目标价格（中等） Cluster
+      top_node_id: evidence::financial-statement-0488
+      top_node_label: 下列某家企业每股收益和每股股利的预测值是在 2012 年年末做出的。 | 0 | 1 | 2 | |:-------|:---------...
+      node_count: 3
+    - community_id: community::principle::0470
+      label: E6.14. 超常收益增长模型估值与会计方法（困难） Cluster
+      top_node_id: evidence::financial-statement-0496
+      top_node_label: 请回到练习题 E6.3。当时，一位分析人员在 2012 年年末根据企业的初步报告，预计该企业能在 2013 年实现收益为
+        3.88 亿美元...
+      node_count: 3
+    - community_id: community::principle::0483
+      label: 7.2.2 检验某只股票定价的合理性 Cluster
+      top_node_id: evidence::financial-statement-0511
+      top_node_label: 谷歌公司的股票在 2011 年 5 月时的交易价格为每股 535 美元，如果按 2010 年年末的每股账面价值 143.92
+        美元计算，市...
+      node_count: 12
+    - community_id: community::principle::0484
+      label: 7.2.3 用超常收益增长率模型进行反推 Cluster
+      top_node_id: evidence::financial-statement-0516
+      top_node_label: 上面的例题所使用的是第 5 章中所介绍的剩余收益估值模型，其实，我们还可以利用第 6 章中所介绍的超常收益增长模型（AEG）来进行这样的分...
+      node_count: 4
+    - community_id: community::principle::0496
+      label: 练习题 Cluster
+      top_node_id: principle::0489
+      top_node_label: 连贯案例：金佰利公司
+      node_count: 11
+    - community_id: community::principle::0502
+      label: E7.5. 用超常收益增长模型进行反推（中等） Cluster
+      top_node_id: evidence::financial-statement-0530
+      top_node_label: 根据分析人员对一家公司的预计，该公司在未来两年内分别实现每股收益2.11美元和2.67美元，这家公司不发放任何股利。假定投资者的必要报酬率...
+      node_count: 3
+    - community_id: community::principle::0580
+      label: 9.7 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-0612
+      top_node_label: 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+      node_count: 9
+    - community_id: community::principle::0581
+      label: 阅读材料 9-6 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 2
+    - community_id: community::principle::0582
+      label: 会计信息质量观察：股东权益变动表 Cluster
+      top_node_id: case::financial-statement-0614
+      top_node_label: '| 0 | 1 | |:----------------------|:---------------------------------...'
+      node_count: 8
+    - community_id: community::principle::0583
+      label: 本章小结 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0584
+      label: 关键概念 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0585
+      label: 分析师工具箱 Cluster
+      top_node_id: principle::0582
+      top_node_label: 会计信息质量观察：股东权益变动表
+      node_count: 2
+    - community_id: community::principle::0586
+      label: 连贯案例：金佰利公司 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 4
+    - community_id: community::principle::0592
+      label: 练习题 Cluster
+      top_node_id: principle::0580
+      top_node_label: 9.7 会计信息质量观察
+      node_count: 3
+    - community_id: community::principle::0647
+      label: 10.4 比率分析 Cluster
+      top_node_id: case::financial-statement-0696
+      top_node_label: 根据重构后的财务报表，我们可以计算出两个刻画企业经营活动获利能力和金融活动获利能力的财务指标：净经营性资产报酬率（return
+        on ne...
+      node_count: 7
+    - community_id: community::principle::0657
+      label: 会计信息质量观察 Cluster
+      top_node_id: principle::0647
+      top_node_label: 10.4 比率分析
+      node_count: 2
+    - community_id: community::principle::0713
+      label: 阅读材料 11-4 Cluster
+      top_node_id: framework::0712
+      top_node_label: 11.3 经营活动产生的现金流量
+      node_count: 3
+    - community_id: community::principle::0714
+      label: 会计信息质量观察 Cluster
+      top_node_id: principle::0713
+      top_node_label: 阅读材料 11-4
+      node_count: 3
+    - community_id: community::principle::0715
+      label: 经营活动产生现金流量的质量 Cluster
+      top_node_id: evidence::financial-statement-0773
+      top_node_label: 评论人士有时会用“经营活动产生的现金流量”来判断一家企业经营业绩的好坏，但基本面分析师绝不会这样做。原因如下。
+      node_count: 3
+    - community_id: community::principle::0877
+      label: 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-0703
+      top_node_label: '| 0 | 1 | |:-------------------|:------------------------------------...'
+      node_count: 11
+    - community_id: community::principle::0878
+      label: 关键概念 Cluster
+      top_node_id: principle::0877
+      top_node_label: 会计信息质量观察
+      node_count: 2
+    - community_id: community::principle::0917
+      label: 14.2 超常收益增长预测的修正：经营性收益的超常增长 Cluster
+      top_node_id: evidence::financial-statement-0991
+      top_node_label: 现在我们再来回顾一下权益估值的超常收益增长模型： $$ \begin{aligned}&\mathcal{V}_{0}^{E}=
+        资本化 ...
+      node_count: 4
+    - community_id: community::principle::0918
+      label: 14.2.1 经营性收益的超常增长与来自经营活动的“红利” Cluster
+      top_node_id: counter-example::financial-statement-0992
+      top_node_label: 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+      node_count: 13
+    - community_id: community::principle::0919
+      label: 14.2.2 关注未来：可持续的盈利 Cluster
+      top_node_id: evidence::financial-statement-0998
+      top_node_label: 出于估值的目的，我们对未来的剩余经营性收益和超常增长的经营性收益会特别关注，能够对未来产生影响的项目，应当是核心（可持续的）经营利润：
+        $...
+      node_count: 4
+    - community_id: community::principle::0935
+      label: 14.4.2 杠杆与超常收益增长估值模型 Cluster
+      top_node_id: counter-example::financial-statement-1018
+      top_node_label: 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+      node_count: 8
+    - community_id: community::principle::0964
+      label: E14.1. 剩余收益与剩余经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1055
+      top_node_label: 以下是一家企业的简要财务报表（单位：百万美元）。 | 0 | 1 | 2 | 3 | |:---------|:---------|:--...
+      node_count: 4
+    - community_id: community::principle::0965
+      label: E14.3. 计算超常增长的经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1056
+      top_node_label: 以下是一家企业财务报表中的汇总数据（单位：百万美元）。 | 0 | 1 | 2 | 3 | 4 | |:-------|:--------...
+      node_count: 3
+    - community_id: community::principle::0966
+      label: E14.4. 剩余经营性收益与超常增长的经营性收益（简单） Cluster
+      top_node_id: evidence::financial-statement-1057
+      top_node_label: 以下是一家企业的财务报表（单位：百万美元）。 | 0 | 1 | 2 | |:-----|:------|:------|
+        | 利润表 |...
+      node_count: 4
+    - community_id: community::principle::0967
+      label: E14.5. 计算资本成本（简单） Cluster
+      top_node_id: evidence::financial-statement-1058
+      top_node_label: 请根据下列数据，计算经营活动的资本成本（WACC）。请使用资本资产定价模型估算权益资本的成本。 | 0 | 1 | |:---------...
+      node_count: 5
+    - community_id: community::principle::0968
+      label: E14.6. 计算股东权益的必要报酬率（中等） Cluster
+      top_node_id: evidence::financial-statement-1059
+      top_node_label: 某家企业的经营活动必要报酬率为10%，负债的账面价值为24.5亿美元，借款成本率为8%，所得税率为37%。这家企业的股东权益价
+        值为 82...
+      node_count: 6
+    - community_id: community::principle::0970
+      label: E14.8. 超常增长的经营性收益估值（简单） Cluster
+      top_node_id: evidence::financial-statement-1061
+      top_node_label: 请利用练习题 E14.7 中的预测数据，预计这家企业超常增长的经营性收益，并根据你的预测结果对这家企业的经营活动和股东权益进行估值。这家企...
+      node_count: 3
+    - community_id: community::principle::1159
+      label: E17.7. 自由现金流量与剩余经营性收益的质量：可口可乐公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1286
+      top_node_label: 可口可乐公司曾经报告过一个被称为“经济利润”的数据，该数据的定义十分类似于本书中的剩余经营性收益。此外，在年度财务数据摘要信息部分，该公司...
+      node_count: 4
+    - community_id: community::principle::1160
+      label: E17.8. 研发支出与估值（中等） Cluster
+      top_node_id: evidence::financial-statement-1287
+      top_node_label: 一家新制药企业拥有一项专利技术，它承诺将根据这项技术，在以后5年内每年支出3.5亿美元，以期能够开发出更多的产品。该计划目前将投入3.5亿...
+      node_count: 4
+    - community_id: community::principle::1162
+      label: M17.1 广告营销、低质量会计信息与估值：电子交易公司 Cluster
+      top_node_id: case::financial-statement-1288
+      top_node_label: 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+      node_count: 6
+    - community_id: community::principle::1163
+      label: 在线交易公司 Cluster
+      top_node_id: evidence::financial-statement-1289
+      top_node_label: 1999 年，选择通过互联网在线进行股票交易投资者突然出现了迅速增长。电子交易公司（E*Trade）、宏达证券（TD Waterhouse...
+      node_count: 13
+    - community_id: community::principle::1165
+      label: 第 18 章 分析财务报表的质量 Cluster
+      top_node_id: framework::1161
+      top_node_label: 迷你案例
+      node_count: 4
+    - community_id: community::principle::1169
+      label: 18.1 什么是会计信息质量 Cluster
+      top_node_id: case::financial-statement-1296
+      top_node_label: 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+      node_count: 17
+    - community_id: community::principle::1170
+      label: 18.1.1 会计信息质量观察 Cluster
+      top_node_id: case::financial-statement-1299
+      top_node_label: 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目...
+      node_count: 4
+    - community_id: community::principle::1171
+      label: 18.1.2 关于会计信息质量的五个问题 Cluster
+      top_node_id: principle::1171
+      top_node_label: 18.1.2 关于会计信息质量的五个问题
+      node_count: 20
+    - community_id: community::principle::1231
+      label: 18.7 质量分析中的超常收益 Cluster
+      top_node_id: counter-example::financial-statement-1362
+      top_node_label: 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+      node_count: 13
+    - community_id: community::principle::1232
+      label: 本章小结 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1233
+      label: 关键概念 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1234
+      label: 分析师工具箱 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1235
+      label: 思考题 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1236
+      label: 练习题 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 3
+    - community_id: community::principle::1241
+      label: E18.5. 标准化的资产周转率（中等） Cluster
+      top_node_id: evidence::financial-statement-1373
+      top_node_label: 一家企业报告它的税后经营利润为1.36亿美元，较上年1.2亿美元的水平有所增长；同期销售收入也从51.06亿美元上升为57.51亿美元，而...
+      node_count: 3
+    - community_id: community::principle::1242
+      label: E18.6. 资产周转率的变动与盈利质量（中等） Cluster
+      top_node_id: evidence::financial-statement-1374
+      top_node_label: 一家企业报告它的净经营性资产报酬率为19%。这时，有一位分析人员注意到，这家企业的资产周转率在当期已从2.2下降为1.9。要求：
+        a. 计...
+      node_count: 4
+    - community_id: community::principle::1244
+      label: 应用分析 Cluster
+      top_node_id: principle::1231
+      top_node_label: 18.7 质量分析中的超常收益
+      node_count: 2
+    - community_id: community::principle::1245
+      label: E18.8. 收入的质量：博士伦公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1376
+      top_node_label: 博士伦公司（Bausch and Lomb，Inc.）是一家光学产品企业，它在1990～1993年的销售收入与应收账款数据如下（单位：百万...
+      node_count: 4
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0580->case::financial-statement-0612
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0580->case::financial-statement-0612`
+    expands trigger language only when a live decision links `9.7 会计信息质量观察` and `随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...`.'
+  prompt_signals:
+  - 9.7 会计信息质量观察
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:7527-7533`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0580->case::financial-statement-0612
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:7527-7533
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0582->case::financial-statement-0614
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0582->case::financial-statement-0614`
+    expands trigger language only when a live decision links `会计信息质量观察：股东权益变动表` and
+    `| 0 | 1 | |:----------------------|:---------------------------------...`.'
+  prompt_signals:
+  - 会计信息质量观察：股东权益变动表
+  - '| 0 | 1 | |:----------------------|:---------------------------------...'
+  - '| 0 | 1 | |:----------------------|:-----------------------------------------...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:7541-7541`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0582->case::financial-statement-0614
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:7541-7541
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0877->case::financial-statement-0703
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0877->case::financial-statement-0703`
+    expands trigger language only when a live decision links `会计信息质量观察` and `| 0 |
+    1 | |:-------------------|:------------------------------------...`.'
+  prompt_signals:
+  - 会计信息质量观察
+  - '| 0 | 1 | |:-------------------|:------------------------------------...'
+  - '| 0 | 1 | |:-------------------|:--------------------------------------------...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:8695-8697`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0877->case::financial-statement-0703
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:8695-8697
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0877->case::financial-statement-0940
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0877->case::financial-statement-0940`
+    expands trigger language only when a live decision links `会计信息质量观察` and `本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的...`.'
+  prompt_signals:
+  - 会计信息质量观察
+  - 本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的...
+  - 本章提醒分析人员要注意在确认企业的可持续盈利时会碰到的一系列会计问题，这些问题都与会计信息质量有关，因为它们可能导致企业报告“质量不好”的收益，并对未来收...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:11549-11551`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0877->case::financial-statement-0940
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:11549-11551
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1162->case::financial-statement-1288
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1162->case::financial-statement-1288`
+    expands trigger language only when a live decision links `M17.1 广告营销、低质量会计信息与估值：电子交易公司`
+    and `新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...`.'
+  prompt_signals:
+  - M17.1 广告营销、低质量会计信息与估值：电子交易公司
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15809-15815`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1162->case::financial-statement-1288
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15809-15815
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1169->case::financial-statement-1296
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1169->case::financial-statement-1296`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15954-15960`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1169->case::financial-statement-1296
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15954-15960
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1169->case::financial-statement-1297
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1169->case::financial-statement-1297`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1169->case::financial-statement-1297
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1170->case::financial-statement-1299
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1170->case::financial-statement-1299`
+    expands trigger language only when a live decision links `18.1.1 会计信息质量观察` and
+    `显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目...`.'
+  prompt_signals:
+  - 18.1.1 会计信息质量观察
+  - 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目...
+  - 显然，我们在本书中所讨论的绝大部分话题都涉及盈利质量分析。例如，若能识别隐蔽费用（第9章），必然能提高盈利的质量；再比如，区分经营活动项目和金融活动项目（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15972-15976`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1170->case::financial-statement-1299
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15972-15976
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1171->case::financial-statement-1300
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1171->case::financial-statement-1300`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1171->case::financial-statement-1300
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::1171->case::financial-statement-1301
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::1171->case::financial-statement-1301`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::1171->case::financial-statement-1301
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163`
+    expands trigger language only when a live decision links `2.2.7 会计信息质量` and `高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...`.'
+  prompt_signals:
+  - 2.2.7 会计信息质量
+  - 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+  - 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:2085-2089`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0153->counter-example::financial-statement-0163
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:2085-2089
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457`
+    expands trigger language only when a live decision links `超常收益增长模型与剩余收益模型的比较`
+    and `| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------...`.'
+  prompt_signals:
+  - 超常收益增长模型与剩余收益模型的比较
+  - '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------...'
+  - '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:5741-5749`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0426->counter-example::financial-statement-0457
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:5741-5749
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612`
+    expands trigger language only when a live decision links `9.7 会计信息质量观察` and `随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...`.'
+  prompt_signals:
+  - 9.7 会计信息质量观察
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:7527-7533`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0580->counter-example::financial-statement-0612
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:7527-7533
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703`
+    expands trigger language only when a live decision links `会计信息质量观察` and `| 0 |
+    1 | |:-------------------|:------------------------------------...`.'
+  prompt_signals:
+  - 会计信息质量观察
+  - '| 0 | 1 | |:-------------------|:------------------------------------...'
+  - '| 0 | 1 | |:-------------------|:--------------------------------------------...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:8695-8697`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0703
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:8695-8697
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772`
+    expands trigger language only when a live decision links `会计信息质量观察` and `在这里，我们将接着第9章阅读材料9-6
+    和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现...`.'
+  prompt_signals:
+  - 会计信息质量观察
+  - 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现...
+  - 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:9534-9540`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0877->counter-example::financial-statement-0772
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:9534-9540
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992`
+    expands trigger language only when a live decision links `14.2.1 经营性收益的超常增长与来自经营活动的“红利”`
+    and `在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...`.'
+  prompt_signals:
+  - 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+  - 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+  - 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12220-12234`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0918->counter-example::financial-statement-0992
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12220-12234
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018`
+    expands trigger language only when a live decision links `14.4.2 杠杆与超常收益增长估值模型`
+    and `你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...`.'
+  prompt_signals:
+  - 14.4.2 杠杆与超常收益增长估值模型
+  - 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+  - 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12500-12504`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1018
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12500-12504
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021`
+    expands trigger language only when a live decision links `14.4.2 杠杆与超常收益增长估值模型`
+    and `估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不...`.'
+  prompt_signals:
+  - 14.4.2 杠杆与超常收益增长估值模型
+  - 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不...
+  - 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12532-12536`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0935->counter-example::financial-statement-1021
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12532-12536
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288`
+    expands trigger language only when a live decision links `M17.1 广告营销、低质量会计信息与估值：电子交易公司`
+    and `新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...`.'
+  prompt_signals:
+  - M17.1 广告营销、低质量会计信息与估值：电子交易公司
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15809-15815`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1162->counter-example::financial-statement-1288
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15809-15815
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15954-15960`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1296
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15954-15960
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1169->counter-example::financial-statement-1297
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1300
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1171->counter-example::financial-statement-1301
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362`
+    expands trigger language only when a live decision links `18.7 质量分析中的超常收益` and
+    `很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...`.'
+  prompt_signals:
+  - 18.7 质量分析中的超常收益
+  - 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+  - 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:16654-16666`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::1231->counter-example::financial-statement-1362
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:16654-16666
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0417->term::aeg
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0417->term::aeg`
+    expands trigger language only when a live decision links `6.3.1 超常收益增长的计量` and
+    `AEG`.'
+  prompt_signals:
+  - 6.3.1 超常收益增长的计量
+  - AEG
+  - 在储蓄账户的例子中，我们将超常收益增长（AEG）定义为企业的总收益（包含再投资的股利）减去按必要报酬率增长的收益部分之差： $$ \begin{align...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:5592-5606`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0417->term::aeg
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:5592-5606
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0484->term::aeg
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0484->term::aeg`
+    expands trigger language only when a live decision links `7.2.3 用超常收益增长率模型进行反推`
+    and `AEG`.'
+  prompt_signals:
+  - 7.2.3 用超常收益增长率模型进行反推
+  - AEG
+  - 上面的例题所使用的是第 5 章中所介绍的剩余收益估值模型，其实，我们还可以利用第 6 章中所介绍的超常收益增长模型（AEG）来进行这样的分析。当已知未来两...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:6493-6503`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0484->term::aeg
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:6493-6503
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0918->term::abnormal-operating-income-growth`
+    expands trigger language only when a live decision links `14.2.1 经营性收益的超常增长与来自经营活动的“红利”`
+    and `abnormal operating income growth`.'
+  prompt_signals:
+  - 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+  - abnormal operating income growth
+  - 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12220-12234`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0918->term::abnormal-operating-income-growth
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12220-12234
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0918->term::aoig
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0918->term::aoig`
+    expands trigger language only when a live decision links `14.2.1 经营性收益的超常增长与来自经营活动的“红利”`
+    and `AOIG`.'
+  prompt_signals:
+  - 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+  - AOIG
+  - 持续价值 $ CV=\frac{61.0}{1.091-1.04}=1196.9 $ 持续价值的现值= $ \frac{1196.9}{1.299}=92...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12279-12293`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0918->term::aoig
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12279-12293
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0918->term::noa
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0918->term::noa`
+    expands trigger language only when a live decision links `14.2.1 经营性收益的超常增长与来自经营活动的“红利”`
+    and `NOA`.'
+  prompt_signals:
+  - 14.2.1 经营性收益的超常增长与来自经营活动的“红利”
+  - NOA
+  - '| 0 | 1 | 2 | 3 | 4 | 5 | |:-------------------------------|:------|:-------|...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12266-12271`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0918->term::noa
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12266-12271
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::banking-income-for-the-future
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::banking-income-for-the-future`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `banking income for the future`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - banking income for the future
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::banking-income-for-the-future
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::big-bath-accounting
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::big-bath-accounting`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `big-bath accounting`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - big-bath accounting
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::big-bath-accounting
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::borrowing-income-from-the-future`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `borrowing income from the future`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - borrowing income from the future
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::borrowing-income-from-the-future
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::earnings-management
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::earnings-management`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `earnings management`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - earnings management
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::earnings-management
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::earnings-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::earnings-quality`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `earnings quality`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - earnings quality
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15954-15960`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::earnings-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15954-15960
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::reversal-property-of-accounting
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::reversal-property-of-accounting`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `reversal property of accounting`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - reversal property of accounting
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15954-15960`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::reversal-property-of-accounting
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15954-15960
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1169->term::saving
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1169->term::saving`
+    expands trigger language only when a live decision links `18.1 什么是会计信息质量` and
+    `saving`.'
+  prompt_signals:
+  - 18.1 什么是会计信息质量
+  - saving
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15962-15966`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1169->term::saving
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::audit-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::audit-quality`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `audit quality`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - audit quality
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::audit-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::channel-stuffing
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::channel-stuffing`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `channel stuffing`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - channel stuffing
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::channel-stuffing
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::disclosure-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::disclosure-quality`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `disclosure quality`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - disclosure quality
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::disclosure-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::expenditure-time
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::expenditure-time`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `expenditure time`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - expenditure time
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::expenditure-time
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::gaap-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::gaap-quality`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `GAAP quality`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - GAAP quality
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::gaap-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::gapp-application-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::gapp-application-quality`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `GAPP application quality`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - GAPP application quality
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::gapp-application-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::pcaob
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::pcaob`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `PCAOB`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - PCAOB
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::pcaob
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::revenue-timing
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::revenue-timing`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `revenue timing`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - revenue timing
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::revenue-timing
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::sec
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::sec`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `SEC`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - SEC
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::sec
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::transaction-quality
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::transaction-quality`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `transaction quality`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - transaction quality
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15980-15990`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::transaction-quality
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::transaction-structuring
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::transaction-structuring`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `transaction structuring`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - transaction structuring
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::transaction-structuring
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::1171->term::transaction-timing
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::1171->term::transaction-timing`
+    expands trigger language only when a live decision links `18.1.2 关于会计信息质量的五个问题`
+    and `transaction timing`.'
+  prompt_signals:
+  - 18.1.2 关于会计信息质量的五个问题
+  - transaction timing
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:15992-16008`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::1171->term::transaction-timing
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: concept-query-only
+  summary: Do not fire on concept-only questions without a live decision.
+  prompt_signals:
+  - 是什么概念
+  - 怎么定义
+  - 解释一下
+  boundary_reason: The user is learning a concept, not applying a decision principle.
+  anchor_refs:
+  - accounting-quality-signal-check-principle::1171
+  - accounting-quality-signal-check-evidence::financial-statement-1300
+edge_case:
+- scenario_id: partial-fit-boundary
+  summary: Use edge handling when the principle partially fits but the boundary is
+    still ambiguous.
+  prompt_signals:
+  - 有点像
+  - 不确定是否适用
+  boundary_reason: The decision pattern overlaps, but important context is still missing.
+  next_action_shape: 先补关键上下文，再决定 full_apply / partial_review / defer。
+  anchor_refs:
+  - accounting-quality-signal-check-principle::1171
+  - accounting-quality-signal-check-evidence::financial-statement-1300
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0163
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0163`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息...
+  - 高质量的会计信息可以用于检验投机。我们可以依据高质量的会计信息去找出股票价格中所隐含的泡沫，但糟糕的会计信息却只能制造泡沫。糟糕的会计信息通过报告错误的利...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:2085-2089`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0163
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:2085-2089
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0457
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0457`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------...'
+  - '| 0 | 1 | 2 | 3 | 4 | 5 | |:---------|-------:|------:|------:|------:|------...'
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:5741-5749`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0457
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:5741-5749
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0612
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0612`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我...
+  - 随着本书第二部分对财务报表分析介绍的深入，我们将逐步对碰到的会计问题进行强调。本书会对相关的会计工作程序进行大致的讲解，比如，在本章中，我们就介绍了有价证...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:7527-7533`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0612
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:7527-7533
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0703
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0703`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - '| 0 | 1 | |:-------------------|:------------------------------------...'
+  - '| 0 | 1 | |:-------------------|:--------------------------------------------...'
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:8695-8697`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0703
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:8695-8697
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0772
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0772`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现...
+  - 在这里，我们将接着第9章阅读材料9-6 和第 10 章阅读材料 10-8 的会计信息质量观 察要点，继续列出在阅读企业的现金流量表时，对现金流量项目的质量...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:9534-9540`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0772
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:9534-9540
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-0992
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-0992`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收...
+  - 在第 6 章中介绍收益增长时，我们强调（不含息）收益的增长（即分析人员通常预测的增长）并不是我们应当关注的增长。如果企业支付较多的股利，收益增长率就会降低...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:12220-12234`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-0992
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:12220-12234
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1018
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1018`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元...
+  - 你会发现，由于锐步公司回购股份导致金融杠杆加大，预计公司未来的每股收益也相应增加了——从回购前的每股2.30美元变为了回购后的2.56美元。与金融杠杆能增...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:12500-12504`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1018
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:12500-12504
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1021
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1021`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不...
+  - 估值 C 部分与表 14-5 中的情形一样，假定企业利用负债资金进行了股份回购。结果，杠杆水平的改变使得当期盈利水平下降（因为在经营利润不变的情况下，利息...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:12532-12536`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1021
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:12532-12536
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1288
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1288`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务...
+  - 新企业的创立是需要时间的，这对20世纪90年代后期的新兴互联网公司来说也不例外。由于对未来能够实现巨额盈利的预期，互联网门户企业和电子商务企业的股票市销率...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:15809-15815`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1288
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:15809-15815
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1296
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1296`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资...
+  - 由于我们的最终目的是为了估值，因此，会对企业未来的盈利水平特别关心；事实上，在本书所有关注的问题中，“购买未来盈利”一直是我们所遵循的投资者信条。我们利用...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:15954-15960`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1296
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:15954-15960
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1297
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1297`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之...
+  - 一般情况下，我们将企业的盈利操纵行为（礼貌地）称之为盈余管理（earnings management），并将其中虚增当期盈利的操纵行为称之为借取未来利润（...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:15962-15966`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1297
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:15962-15966
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1300
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1300`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有...
+  - 在分析会计信息质量时，分析人员需要回答下面这五个问题。 （1）美国公认会计原则的质量（GAAP quality）：美国公认会计原则本身是有缺陷的吗？如果我...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:15980-15990`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1300
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:15980-15990
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1301
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1301`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue...
+  - a. 安排交易时间（transaction timing）：通过控制交易时间来影响损益报告。这种情况既可能涉及收入确认时间（revenue timing）...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:15992-16008`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1301
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:15992-16008
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1362
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1362`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影...
+  - 很多分析人员认为，市场是被企业报告的收益水平“锁定”了的。市场将企业的盈利水平看为“面值”，于是，管理人员才总是想要通过操纵企业的盈利去影响股票价格。有些...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:16654-16666`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1362
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:16654-16666
+  graph_navigation: *id001
+refusal:
+- scenario_id: missing-decision-context
+  summary: Refuse when the scenario lacks enough decision context or disconfirming
+    evidence.
+  prompt_signals:
+  - 信息还不够
+  - 只是先了解一下
+  boundary_reason: The principle should not fire without a stable decision boundary.
+  anchor_refs:
+  - accounting-quality-signal-check-principle::1171
+  - accounting-quality-signal-check-evidence::financial-statement-1300

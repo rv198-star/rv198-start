@@ -1,0 +1,162 @@
+candidate_id: 我们的具体纲领
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: principle::0322
+  supporting_node_ids:
+  - case::mao-0443
+  - case::mao-0449
+  - case::mao-0453
+  - counter-example::mao-0443
+  - counter-example::mao-0444
+  - counter-example::mao-0445
+  - counter-example::mao-0446
+  - counter-example::mao-0447
+  - counter-example::mao-0448
+  - counter-example::mao-0449
+  - counter-example::mao-0450
+  - counter-example::mao-0451
+  - counter-example::mao-0452
+  - counter-example::mao-0453
+  - counter-example::mao-0454
+  - evidence::mao-0443
+  - evidence::mao-0444
+  - evidence::mao-0445
+  - evidence::mao-0446
+  - evidence::mao-0447
+  - evidence::mao-0448
+  - evidence::mao-0449
+  - evidence::mao-0450
+  - evidence::mao-0451
+  - evidence::mao-0452
+  - evidence::mao-0453
+  - evidence::mao-0454
+  - principle::0320
+  supporting_edge_ids:
+  - derives_case_signal::principle::0322->case::mao-0443
+  - derives_case_signal::principle::0322->case::mao-0449
+  - derives_case_signal::principle::0322->case::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0443
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0444
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0445
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0446
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0447
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0448
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0449
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0450
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0451
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0452
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0453
+  - derives_counter_example_signal::principle::0322->counter-example::mao-0454
+  - section-parent::principle::0320->principle::0322
+  - supported-by::principle::0322->evidence::mao-0443
+  - supported-by::principle::0322->evidence::mao-0444
+  - supported-by::principle::0322->evidence::mao-0445
+  - supported-by::principle::0322->evidence::mao-0446
+  - supported-by::principle::0322->evidence::mao-0447
+  - supported-by::principle::0322->evidence::mao-0448
+  - supported-by::principle::0322->evidence::mao-0449
+  - supported-by::principle::0322->evidence::mao-0450
+  - supported-by::principle::0322->evidence::mao-0451
+  - supported-by::principle::0322->evidence::mao-0452
+  - supported-by::principle::0322->evidence::mao-0453
+  - supported-by::principle::0322->evidence::mao-0454
+  community_ids:
+  - community::principle::0320
+  - community::principle::0322
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 13
+  workflow_signal_total: 13
+  context_cues: 2
+  evidence_support_count: 12
+  extracted_evidence_support_count: 12
+  tri_state_support_count: 27
+  support_entity_count: 56
+  tri_state_support_ratio: 0.4821
+  ambiguous_support_node_count: 12
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 15
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 6
+  matched_keywords:
+  - 先-再
+  - 如果-则
+  - 步骤
+  - 目标
+  - 第一步
+  - 第二步
+  evidence_chunk_ids:
+  - mao:0445
+  - mao:0446
+  - mao:0448
+  - mao:0449
+  - mao:0450
+  - mao:0451
+  - mao:0453
+  - mao:0454
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9167
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/082-论联合政府.md
+source_location:
+  line_start: 133
+  line_end: 133
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 我们的具体纲领
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.75
+  overall_score: 0.9167
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.75
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 12
+    evidence_support_count: 12
+    context_cues: 2
+    workflow_cues: 13
+    tri_state_support_ratio: 0.4821
+    matched_keywords:
+    - 先-再
+    - 如果-则
+    - 步骤
+    - 目标
+    - 第一步
+    - 第二步
+    evidence_chunk_ids:
+    - mao:0445
+    - mao:0446
+    - mao:0448
+    - mao:0449
+    - mao:0450
+    - mao:0451
+    - mao:0453
+    - mao:0454
+    supporting_node_count: 28
+    supporting_edge_count: 28
+    community_count: 2

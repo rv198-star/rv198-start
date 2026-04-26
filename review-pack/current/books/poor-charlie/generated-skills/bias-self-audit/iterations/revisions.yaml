@@ -1,0 +1,25 @@
+skill_id: bias-self-audit
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: 'Revision 5 是一次面向 `v0.5.1` 的手工补强，不是 refinement_scheduler 自动 loop。本轮把正文从英文审计口吻改成中文
+    action-facing 表达，补进了和同源 benchmark 高度相关的触发语：“我觉得这肯定对”“不可能错”“反面意见我都不想听了”“大家都同意”“已经收集了很多支持数据”。
+
+
+    这轮同时把“找最强反面证据”“点名偏差”“给出缓释动作”写成默认输出骨架，并显式加入 `audit_mode = full_audit / partial_review
+    / defer`。为压低误触发，本轮还写明了两类非触发例子：像“达尔文的进化论和自然选择是怎么发展出来的”这种历史/概念查询不触发；像“先帮我收集新能源汽车行业的数据，市场规模、增长率、主要玩家”这种信息收集的早期阶段也不触发，因为用户还没有形成任何观点，不需要证伪。剩余缺口是继续提高低风险场景的拒触发精度，并补出真实
+    loop 驱动的修订记录。详见 `iterations/revisions.yaml`。'
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added direct trigger phrases such as "不可能错", "反面意见我都不想听了", "大家都同意", and "已经收集了很多支持数据".
+  - Reworked the usage summary around thesis naming, bias naming, counter-evidence
+    search, and mitigation actions.
+  - Clarified non-trigger boundaries for early-stage data collection, urgent incidents,
+    and indecision without a formed thesis.
+open_gaps:
+- Continue tightening low-stakes refusal calibration without weakening the current
+  published contract.
+- Run a real refinement_scheduler pass before describing this skill as loop-driven.

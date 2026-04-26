@@ -1,0 +1,146 @@
+candidate_id: 3-目标-愿景分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0010
+  supporting_node_ids:
+  - case::effective-requirements-0021
+  - case::effective-requirements-0022
+  - case::effective-requirements-0023
+  - case::effective-requirements-0024
+  - case::effective-requirements-0025
+  - evidence::effective-requirements-0021
+  - evidence::effective-requirements-0022
+  - evidence::effective-requirements-0023
+  - evidence::effective-requirements-0024
+  - evidence::effective-requirements-0025
+  - evidence::effective-requirements-0026
+  - framework::0009
+  - principle::0011
+  - principle::0012
+  - principle::0013
+  - term::attainable
+  - term::measurable
+  - term::relevant
+  - term::specific
+  - term::time-based
+  supporting_edge_ids:
+  - derives_case_signal::principle::0010->case::effective-requirements-0021
+  - derives_case_signal::principle::0010->case::effective-requirements-0022
+  - derives_case_signal::principle::0010->case::effective-requirements-0023
+  - derives_case_signal::principle::0010->case::effective-requirements-0024
+  - derives_case_signal::principle::0010->case::effective-requirements-0025
+  - derives_term_signal::principle::0010->term::attainable
+  - derives_term_signal::principle::0010->term::measurable
+  - derives_term_signal::principle::0010->term::relevant
+  - derives_term_signal::principle::0010->term::specific
+  - derives_term_signal::principle::0010->term::time-based
+  - section-parent::framework::0009->principle::0010
+  - section-parent::principle::0010->principle::0011
+  - section-parent::principle::0010->principle::0012
+  - section-parent::principle::0010->principle::0013
+  - supported-by::principle::0010->evidence::effective-requirements-0021
+  - supported-by::principle::0010->evidence::effective-requirements-0022
+  - supported-by::principle::0010->evidence::effective-requirements-0023
+  - supported-by::principle::0010->evidence::effective-requirements-0024
+  - supported-by::principle::0010->evidence::effective-requirements-0025
+  - supported-by::principle::0010->evidence::effective-requirements-0026
+  community_ids:
+  - community::principle::0010
+  - community::principle::0011
+  - community::principle::0012
+  - community::principle::0013
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 9
+  workflow_signal_total: 9
+  context_cues: 16
+  evidence_support_count: 6
+  extracted_evidence_support_count: 6
+  tri_state_support_count: 10
+  support_entity_count: 40
+  tri_state_support_ratio: 0.25
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 10
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 7
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 场景
+  - 如果-则
+  - 步骤
+  - 目标
+  - 第一步
+  evidence_chunk_ids:
+  - effective-requirements:0021
+  - effective-requirements:0022
+  - effective-requirements:0023
+  - effective-requirements:0024
+  - effective-requirements:0025
+  - effective-requirements:0026
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9722
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 578
+  line_end: 578
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 3-目标-愿景分析
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.9167
+  overall_score: 0.9722
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.9167
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 6
+    evidence_support_count: 6
+    context_cues: 16
+    workflow_cues: 9
+    tri_state_support_ratio: 0.25
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 场景
+    - 如果-则
+    - 步骤
+    - 目标
+    - 第一步
+    evidence_chunk_ids:
+    - effective-requirements:0021
+    - effective-requirements:0022
+    - effective-requirements:0023
+    - effective-requirements:0024
+    - effective-requirements:0025
+    - effective-requirements:0026
+    supporting_node_count: 20
+    supporting_edge_count: 20
+    community_count: 4

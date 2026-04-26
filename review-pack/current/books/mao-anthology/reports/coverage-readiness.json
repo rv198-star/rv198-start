@@ -1,0 +1,1631 @@
+{
+  "schema_version": "kiu.coverage-readiness/v0.1",
+  "coverage_units": [
+    {
+      "unit_id": "community::principle::0322",
+      "label": "我们的具体纲领 Cluster",
+      "node_count": 29,
+      "keywords": [
+        "我们的具体纲领"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0281",
+      "label": "结　　论 Cluster",
+      "node_count": 25,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0307",
+      "label": "三　抗日战争中的两条路线 Cluster",
+      "node_count": 14,
+      "keywords": [
+        "抗日战争中的两条路线"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0086",
+      "label": "第五章　战略防御 Cluster",
+      "node_count": 12,
+      "keywords": [
+        "第五章",
+        "战略防御"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0161",
+      "label": "问题的提起 Cluster",
+      "node_count": 10,
+      "keywords": [
+        "问题的提起"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0149",
+      "label": "第六章　建立根据地 Cluster",
+      "node_count": 9,
+      "keywords": [
+        "第六章",
+        "建立根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0110",
+      "label": "论认识和实践的关系——知和行的关系 Cluster",
+      "node_count": 8,
+      "keywords": [
+        "论认识和实践的关系",
+        "知和行的关系"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0320",
+      "label": "四　中国共产党的政策 Cluster",
+      "node_count": 8,
+      "keywords": [
+        "中国共产党的政策"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0089",
+      "label": "第三节　战略退却 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "第三节",
+        "战略退却"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0100",
+      "label": "我们的领导责任 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "我们的领导责任"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0118",
+      "label": "七　结　　论 Cluster",
+      "node_count": 7,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0141",
+      "label": "阶级投降主义和民族投降主义的关系 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "阶级投降主义和民族投降主义的关系"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0235",
+      "label": "第七节　中国革命的两重任务和中国共产党 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "第七节",
+        "中国革命的两重任务和中国共产党"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0242",
+      "label": "四　中国革命是世界革命的一部分 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "中国革命是世界革命的一部分"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0253",
+      "label": "一五　民族的科学的大众的文化 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "一五",
+        "民族的科学的大众的文化"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0025",
+      "label": "第十四件　修道路，修塘坝 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第十四件",
+        "修道路",
+        "修塘坝"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0041",
+      "label": "割据地区问题 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "割据地区问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0059",
+      "label": "七　调查的技术 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "调查的技术"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0075",
+      "label": "第一章　如何研究战争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第一章",
+        "如何研究战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0095",
+      "label": "第九节　歼灭战 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第九节",
+        "歼灭战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0108",
+      "label": "为争取千百万群众进入抗日民族统一战线而斗争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "为争取千百万群众进入抗日民族统一战线而斗争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0135",
+      "label": "民主制度和抗日战争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "民主制度和抗日战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0159",
+      "label": "第九章　指挥关系 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第九章",
+        "指挥关系"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0222",
+      "label": "第二章　中国革命 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第二章",
+        "中国革命"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0232",
+      "label": "六　游　　民 Cluster",
+      "node_count": 6,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0280",
+      "label": "引　　言 Cluster",
+      "node_count": 6,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0326",
+      "label": "五　全党团结起来，为实现党的任务而斗争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "全党团结起来",
+        "为实现党的任务而斗争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0351",
+      "label": "——和美国记者斯蒂尔的谈话 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "和美国记者斯蒂尔的谈话"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0408",
+      "label": "诸位代表先生： Cluster",
+      "node_count": 6,
+      "keywords": [
+        "诸位代表先生"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0009",
+      "label": "革命先锋 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "革命先锋"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0012",
+      "label": "第二件　政治上打击地主 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二件",
+        "政治上打击地主"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0019",
+      "label": "第八件　普及政治宣传 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第八件",
+        "普及政治宣传"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0028",
+      "label": "二　中国红色政权⑹发生和存在的原因 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国红色政权",
+        "发生和存在的原因"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0032",
+      "label": "六　军事根据地问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "军事根据地问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0034",
+      "label": "湘赣边界的割据和八月失败 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "湘赣边界的割据和八月失败"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0036",
+      "label": "军事问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "军事问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0039",
+      "label": "党的组织问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "党的组织问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0044",
+      "label": "关于极端民主化 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于极端民主化"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0045",
+      "label": "关于非组织观点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于非组织观点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0050",
+      "label": "关于盲动主义残余 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于盲动主义残余"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0057",
+      "label": "五　社会经济调查，是为了得到正确的阶级估量，接着定出正确的斗争策略 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "社会经济调查",
+        "是为了得到正确的阶级估量",
+        "接着定出正确的斗争策略"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0070",
+      "label": "目前政治形势的特点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "目前政治形势的特点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0073",
+      "label": "国际援助 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "国际援助"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0081",
+      "label": "第三章　中国革命战争的特点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第三章",
+        "中国革命战争的特点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0085",
+      "label": "第四章　“围剿”和反“围剿”——中国内战的主要形式 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四章",
+        "围剿",
+        "和反",
+        "围剿",
+        "中国内战的主要形式"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0088",
+      "label": "第二节　反“围剿”的准备 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "围剿",
+        "的准备"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0090",
+      "label": "第四节　战略反攻 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四节",
+        "战略反攻"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0091",
+      "label": "第五节　反攻开始问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第五节",
+        "反攻开始问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0092",
+      "label": "第六节　集中兵力问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第六节",
+        "集中兵力问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0093",
+      "label": "第七节　运动战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第七节",
+        "运动战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0113",
+      "label": "二　矛盾的普遍性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾的普遍性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0114",
+      "label": "三　矛盾的特殊性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾的特殊性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0115",
+      "label": "四　主要的矛盾和主要的矛盾方面 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "主要的矛盾和主要的矛盾方面"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0116",
+      "label": "五　矛盾诸方面的同一性和斗争性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾诸方面的同一性和斗争性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0123",
+      "label": "这就是方针问题。 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "这就是方针问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0147",
+      "label": "第四章　主动地灵活地有计划地执行防御战中的进攻战、持久战中的速决战、内线作战中的外线作战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四章",
+        "主动地灵活地有计划地执行防御战中的进攻战",
+        "持久战中的速决战",
+        "内线作战中的外线作战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0148",
+      "label": "第五章　和正规战争相配合 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第五章",
+        "和正规战争相配合"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0150",
+      "label": "第一节　几种根据地 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "几种根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0151",
+      "label": "第二节　游击区和根据地 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "游击区和根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0155",
+      "label": "第七章　游击战争的战略防御和战略进攻 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第七章",
+        "游击战争的战略防御和战略进攻"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0156",
+      "label": "第一节　游击战争的战略防御 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "游击战争的战略防御"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0158",
+      "label": "第八章　向运动战发展 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第八章",
+        "向运动战发展"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0163",
+      "label": "驳亡国论 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "驳亡国论"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0166",
+      "label": "为什么是持久战？ Cluster",
+      "node_count": 5,
+      "keywords": [
+        "为什么是持久战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0167",
+      "label": "持久战的三个阶段 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "持久战的三个阶段"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0169",
+      "label": "为永久和平而战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "为永久和平而战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0171",
+      "label": "战争和政治 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "战争和政治"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0174",
+      "label": "防御中的进攻，持久中的速决，内线中的外线 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "防御中的进攻",
+        "持久中的速决",
+        "内线中的外线"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0175",
+      "label": "主动性，灵活性，计划性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "主动性",
+        "灵活性",
+        "计划性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0176",
+      "label": "运动战，游击战，阵地战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "运动战",
+        "游击战",
+        "阵地战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0177",
+      "label": "消耗战，歼灭战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "消耗战",
+        "歼灭战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0178",
+      "label": "乘敌之隙的可能性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "乘敌之隙的可能性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0179",
+      "label": "抗日战争中的决战问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "抗日战争中的决战问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0199",
+      "label": "“一切经过统一战线”是不对的 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "一切经过统一战线",
+        "是不对的"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0201",
+      "label": "一　中国的特点和革命 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国的特点和革命"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0206",
+      "label": "六　注意研究军事问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "注意研究军事问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0218",
+      "label": "第一章　中国社会 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一章",
+        "中国社会"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0221",
+      "label": "第三节　现代的殖民地、半殖民地和半封建社会 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第三节",
+        "现代的殖民地",
+        "半殖民地和半封建社会"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0223",
+      "label": "第一节　百年来的革命运动 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "百年来的革命运动"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0224",
+      "label": "第二节　中国革命的对象 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "中国革命的对象"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0231",
+      "label": "五　无产阶级 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "无产阶级"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0243",
+      "label": "五　新民主主义的政治 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "新民主主义的政治"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0246",
+      "label": "八　驳“左”倾空谈主义 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "倾空谈主义"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0267",
+      "label": "中国共产党中央革命军事委员会发言人对新华社记者的谈话 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国共产党中央革命军事委员会发言人对新华社记者的谈话"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0271",
+      "label": "序 Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0272",
+      "label": "跋 Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0296",
+      "label": "（四） Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0301",
+      "label": "各位劳动英雄，各位模范工作者！ Cluster",
+      "node_count": 5,
+      "keywords": [
+        "各位劳动英雄",
+        "各位模范工作者"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0310",
+      "label": "人民战争 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "人民战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0316",
+      "label": "所谓“不服从政令、军令” Cluster",
+      "node_count": 5,
+      "keywords": [
+        "所谓",
+        "不服从政令",
+        "军令"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0321",
+      "label": "我们的一般纲领 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "我们的一般纲领"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0338",
+      "label": "二　八月十六日的电报 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "八月十六日的电报"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0363",
+      "label": "一　党内反对错误倾向问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "党内反对错误倾向问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0366",
+      "label": "四　在革命统一战线中领导者和被领导者的关系问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "在革命统一战线中领导者和被领导者的关系问题"
+      ]
+    }
+  ],
+  "covered_units": [
+    {
+      "unit_id": "community::principle::0322",
+      "label": "我们的具体纲领 Cluster",
+      "node_count": 29,
+      "keywords": [
+        "我们的具体纲领"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0110",
+      "label": "论认识和实践的关系——知和行的关系 Cluster",
+      "node_count": 8,
+      "keywords": [
+        "论认识和实践的关系",
+        "知和行的关系"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0320",
+      "label": "四　中国共产党的政策 Cluster",
+      "node_count": 8,
+      "keywords": [
+        "中国共产党的政策"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0089",
+      "label": "第三节　战略退却 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "第三节",
+        "战略退却"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0242",
+      "label": "四　中国革命是世界革命的一部分 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "中国革命是世界革命的一部分"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0159",
+      "label": "第九章　指挥关系 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第九章",
+        "指挥关系"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0326",
+      "label": "五　全党团结起来，为实现党的任务而斗争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "全党团结起来",
+        "为实现党的任务而斗争"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0090",
+      "label": "第四节　战略反攻 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四节",
+        "战略反攻"
+      ],
+      "covered_by": "workflow-gateway"
+    },
+    {
+      "unit_id": "community::principle::0221",
+      "label": "第三节　现代的殖民地、半殖民地和半封建社会 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第三节",
+        "现代的殖民地",
+        "半殖民地和半封建社会"
+      ],
+      "covered_by": "workflow-gateway"
+    }
+  ],
+  "uncovered_units": [
+    {
+      "unit_id": "community::principle::0281",
+      "label": "结　　论 Cluster",
+      "node_count": 25,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0307",
+      "label": "三　抗日战争中的两条路线 Cluster",
+      "node_count": 14,
+      "keywords": [
+        "抗日战争中的两条路线"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0086",
+      "label": "第五章　战略防御 Cluster",
+      "node_count": 12,
+      "keywords": [
+        "第五章",
+        "战略防御"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0161",
+      "label": "问题的提起 Cluster",
+      "node_count": 10,
+      "keywords": [
+        "问题的提起"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0149",
+      "label": "第六章　建立根据地 Cluster",
+      "node_count": 9,
+      "keywords": [
+        "第六章",
+        "建立根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0100",
+      "label": "我们的领导责任 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "我们的领导责任"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0118",
+      "label": "七　结　　论 Cluster",
+      "node_count": 7,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0141",
+      "label": "阶级投降主义和民族投降主义的关系 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "阶级投降主义和民族投降主义的关系"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0235",
+      "label": "第七节　中国革命的两重任务和中国共产党 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "第七节",
+        "中国革命的两重任务和中国共产党"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0253",
+      "label": "一五　民族的科学的大众的文化 Cluster",
+      "node_count": 7,
+      "keywords": [
+        "一五",
+        "民族的科学的大众的文化"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0025",
+      "label": "第十四件　修道路，修塘坝 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第十四件",
+        "修道路",
+        "修塘坝"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0041",
+      "label": "割据地区问题 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "割据地区问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0059",
+      "label": "七　调查的技术 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "调查的技术"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0075",
+      "label": "第一章　如何研究战争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第一章",
+        "如何研究战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0095",
+      "label": "第九节　歼灭战 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第九节",
+        "歼灭战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0108",
+      "label": "为争取千百万群众进入抗日民族统一战线而斗争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "为争取千百万群众进入抗日民族统一战线而斗争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0135",
+      "label": "民主制度和抗日战争 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "民主制度和抗日战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0222",
+      "label": "第二章　中国革命 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "第二章",
+        "中国革命"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0232",
+      "label": "六　游　　民 Cluster",
+      "node_count": 6,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0280",
+      "label": "引　　言 Cluster",
+      "node_count": 6,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0351",
+      "label": "——和美国记者斯蒂尔的谈话 Cluster",
+      "node_count": 6,
+      "keywords": [
+        "和美国记者斯蒂尔的谈话"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0408",
+      "label": "诸位代表先生： Cluster",
+      "node_count": 6,
+      "keywords": [
+        "诸位代表先生"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0009",
+      "label": "革命先锋 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "革命先锋"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0012",
+      "label": "第二件　政治上打击地主 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二件",
+        "政治上打击地主"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0019",
+      "label": "第八件　普及政治宣传 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第八件",
+        "普及政治宣传"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0028",
+      "label": "二　中国红色政权⑹发生和存在的原因 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国红色政权",
+        "发生和存在的原因"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0032",
+      "label": "六　军事根据地问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "军事根据地问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0034",
+      "label": "湘赣边界的割据和八月失败 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "湘赣边界的割据和八月失败"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0036",
+      "label": "军事问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "军事问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0039",
+      "label": "党的组织问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "党的组织问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0044",
+      "label": "关于极端民主化 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于极端民主化"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0045",
+      "label": "关于非组织观点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于非组织观点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0050",
+      "label": "关于盲动主义残余 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "关于盲动主义残余"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0057",
+      "label": "五　社会经济调查，是为了得到正确的阶级估量，接着定出正确的斗争策略 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "社会经济调查",
+        "是为了得到正确的阶级估量",
+        "接着定出正确的斗争策略"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0070",
+      "label": "目前政治形势的特点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "目前政治形势的特点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0073",
+      "label": "国际援助 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "国际援助"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0081",
+      "label": "第三章　中国革命战争的特点 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第三章",
+        "中国革命战争的特点"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0085",
+      "label": "第四章　“围剿”和反“围剿”——中国内战的主要形式 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四章",
+        "围剿",
+        "和反",
+        "围剿",
+        "中国内战的主要形式"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0088",
+      "label": "第二节　反“围剿”的准备 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "围剿",
+        "的准备"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0091",
+      "label": "第五节　反攻开始问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第五节",
+        "反攻开始问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0092",
+      "label": "第六节　集中兵力问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第六节",
+        "集中兵力问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0093",
+      "label": "第七节　运动战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第七节",
+        "运动战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0113",
+      "label": "二　矛盾的普遍性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾的普遍性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0114",
+      "label": "三　矛盾的特殊性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾的特殊性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0115",
+      "label": "四　主要的矛盾和主要的矛盾方面 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "主要的矛盾和主要的矛盾方面"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0116",
+      "label": "五　矛盾诸方面的同一性和斗争性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "矛盾诸方面的同一性和斗争性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0123",
+      "label": "这就是方针问题。 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "这就是方针问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0147",
+      "label": "第四章　主动地灵活地有计划地执行防御战中的进攻战、持久战中的速决战、内线作战中的外线作战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第四章",
+        "主动地灵活地有计划地执行防御战中的进攻战",
+        "持久战中的速决战",
+        "内线作战中的外线作战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0148",
+      "label": "第五章　和正规战争相配合 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第五章",
+        "和正规战争相配合"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0150",
+      "label": "第一节　几种根据地 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "几种根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0151",
+      "label": "第二节　游击区和根据地 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "游击区和根据地"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0155",
+      "label": "第七章　游击战争的战略防御和战略进攻 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第七章",
+        "游击战争的战略防御和战略进攻"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0156",
+      "label": "第一节　游击战争的战略防御 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "游击战争的战略防御"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0158",
+      "label": "第八章　向运动战发展 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第八章",
+        "向运动战发展"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0163",
+      "label": "驳亡国论 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "驳亡国论"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0166",
+      "label": "为什么是持久战？ Cluster",
+      "node_count": 5,
+      "keywords": [
+        "为什么是持久战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0167",
+      "label": "持久战的三个阶段 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "持久战的三个阶段"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0169",
+      "label": "为永久和平而战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "为永久和平而战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0171",
+      "label": "战争和政治 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "战争和政治"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0174",
+      "label": "防御中的进攻，持久中的速决，内线中的外线 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "防御中的进攻",
+        "持久中的速决",
+        "内线中的外线"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0175",
+      "label": "主动性，灵活性，计划性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "主动性",
+        "灵活性",
+        "计划性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0176",
+      "label": "运动战，游击战，阵地战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "运动战",
+        "游击战",
+        "阵地战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0177",
+      "label": "消耗战，歼灭战 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "消耗战",
+        "歼灭战"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0178",
+      "label": "乘敌之隙的可能性 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "乘敌之隙的可能性"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0179",
+      "label": "抗日战争中的决战问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "抗日战争中的决战问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0199",
+      "label": "“一切经过统一战线”是不对的 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "一切经过统一战线",
+        "是不对的"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0201",
+      "label": "一　中国的特点和革命 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国的特点和革命"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0206",
+      "label": "六　注意研究军事问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "注意研究军事问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0218",
+      "label": "第一章　中国社会 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一章",
+        "中国社会"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0223",
+      "label": "第一节　百年来的革命运动 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第一节",
+        "百年来的革命运动"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0224",
+      "label": "第二节　中国革命的对象 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "第二节",
+        "中国革命的对象"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0231",
+      "label": "五　无产阶级 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "无产阶级"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0243",
+      "label": "五　新民主主义的政治 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "新民主主义的政治"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0246",
+      "label": "八　驳“左”倾空谈主义 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "倾空谈主义"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0267",
+      "label": "中国共产党中央革命军事委员会发言人对新华社记者的谈话 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "中国共产党中央革命军事委员会发言人对新华社记者的谈话"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0271",
+      "label": "序 Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0272",
+      "label": "跋 Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0296",
+      "label": "（四） Cluster",
+      "node_count": 5,
+      "keywords": []
+    },
+    {
+      "unit_id": "community::principle::0301",
+      "label": "各位劳动英雄，各位模范工作者！ Cluster",
+      "node_count": 5,
+      "keywords": [
+        "各位劳动英雄",
+        "各位模范工作者"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0310",
+      "label": "人民战争 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "人民战争"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0316",
+      "label": "所谓“不服从政令、军令” Cluster",
+      "node_count": 5,
+      "keywords": [
+        "所谓",
+        "不服从政令",
+        "军令"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0321",
+      "label": "我们的一般纲领 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "我们的一般纲领"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0338",
+      "label": "二　八月十六日的电报 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "八月十六日的电报"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0363",
+      "label": "一　党内反对错误倾向问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "党内反对错误倾向问题"
+      ]
+    },
+    {
+      "unit_id": "community::principle::0366",
+      "label": "四　在革命统一战线中领导者和被领导者的关系问题 Cluster",
+      "node_count": 5,
+      "keywords": [
+        "在革命统一战线中领导者和被领导者的关系问题"
+      ]
+    }
+  ],
+  "coverage_unit_count": 94,
+  "covered_unit_count": 9,
+  "uncovered_unit_count": 85,
+  "published_skill_count": 6,
+  "workflow_candidate_count": 8,
+  "gateway_route_count": 8,
+  "narrow_output_justification": "",
+  "readiness": {
+    "schema_version": "kiu.application-readiness/v0.1",
+    "model": "coverage_model",
+    "status": "warn",
+    "score_100": 9.6,
+    "warning_count": 1,
+    "failure_count": 0,
+    "findings": [
+      {
+        "model": "coverage_model",
+        "severity": "warn",
+        "reason": "narrow_output_without_justification",
+        "evidence": {
+          "coverage_unit_count": 94,
+          "covered_unit_count": 9,
+          "uncovered_unit_count": 85
+        },
+        "recommended_action": "add model-backed coverage, workflow gateway routing, or narrow_output_justification"
+      }
+    ],
+    "claim_boundary": "Internal readiness model evidence; not external validation or domain-expert review."
+  }
+}

@@ -1,0 +1,130 @@
+candidate_id: 11-业务流程分析与优化
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0021
+  supporting_node_ids:
+  - case::effective-requirements-0053
+  - case::effective-requirements-0054
+  - case::effective-requirements-0055
+  - case::effective-requirements-0056
+  - counter-example::effective-requirements-0054
+  - counter-example::effective-requirements-0056
+  - evidence::effective-requirements-0053
+  - evidence::effective-requirements-0054
+  - evidence::effective-requirements-0055
+  - evidence::effective-requirements-0056
+  - evidence::effective-requirements-0057
+  - principle::0018
+  supporting_edge_ids:
+  - derives_case_signal::principle::0021->case::effective-requirements-0053
+  - derives_case_signal::principle::0021->case::effective-requirements-0054
+  - derives_case_signal::principle::0021->case::effective-requirements-0055
+  - derives_case_signal::principle::0021->case::effective-requirements-0056
+  - derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0054
+  - derives_counter_example_signal::principle::0021->counter-example::effective-requirements-0056
+  - section-parent::principle::0018->principle::0021
+  - supported-by::principle::0021->evidence::effective-requirements-0053
+  - supported-by::principle::0021->evidence::effective-requirements-0054
+  - supported-by::principle::0021->evidence::effective-requirements-0055
+  - supported-by::principle::0021->evidence::effective-requirements-0056
+  - supported-by::principle::0021->evidence::effective-requirements-0057
+  community_ids:
+  - community::principle::0018
+  - community::principle::0021
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 8
+  workflow_signal_total: 8
+  context_cues: 11
+  evidence_support_count: 5
+  extracted_evidence_support_count: 5
+  tri_state_support_count: 8
+  support_entity_count: 24
+  tri_state_support_ratio: 0.3333
+  ambiguous_support_node_count: 2
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 6
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 9
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 场景
+  - 如果-则
+  - 检查
+  - 步骤
+  - 目标
+  - 职责
+  - 边界
+  evidence_chunk_ids:
+  - effective-requirements:0053
+  - effective-requirements:0054
+  - effective-requirements:0055
+  - effective-requirements:0056
+  - effective-requirements:0057
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 2038
+  line_end: 2038
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 11-业务流程分析与优化
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 5
+    evidence_support_count: 5
+    context_cues: 11
+    workflow_cues: 8
+    tri_state_support_ratio: 0.3333
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 场景
+    - 如果-则
+    - 检查
+    - 步骤
+    - 目标
+    - 职责
+    - 边界
+    evidence_chunk_ids:
+    - effective-requirements:0053
+    - effective-requirements:0054
+    - effective-requirements:0055
+    - effective-requirements:0056
+    - effective-requirements:0057
+    supporting_node_count: 12
+    supporting_edge_count: 12
+    community_count: 2

@@ -1,0 +1,160 @@
+candidate_id: 13-业务场景分析
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+seed:
+  primary_node_id: principle::0023
+  supporting_node_ids:
+  - case::effective-requirements-0064
+  - case::effective-requirements-0066
+  - case::effective-requirements-0067
+  - case::effective-requirements-0068
+  - case::effective-requirements-0069
+  - counter-example::effective-requirements-0064
+  - counter-example::effective-requirements-0066
+  - counter-example::effective-requirements-0067
+  - counter-example::effective-requirements-0068
+  - counter-example::effective-requirements-0069
+  - counter-example::effective-requirements-0070
+  - evidence::effective-requirements-0063
+  - evidence::effective-requirements-0064
+  - evidence::effective-requirements-0065
+  - evidence::effective-requirements-0066
+  - evidence::effective-requirements-0067
+  - evidence::effective-requirements-0068
+  - evidence::effective-requirements-0069
+  - evidence::effective-requirements-0070
+  - principle::0018
+  - term::ui-ue
+  supporting_edge_ids:
+  - derives_case_signal::principle::0023->case::effective-requirements-0064
+  - derives_case_signal::principle::0023->case::effective-requirements-0066
+  - derives_case_signal::principle::0023->case::effective-requirements-0067
+  - derives_case_signal::principle::0023->case::effective-requirements-0068
+  - derives_case_signal::principle::0023->case::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+  - derives_term_signal::principle::0023->term::ui-ue
+  - section-parent::principle::0018->principle::0023
+  - supported-by::principle::0023->evidence::effective-requirements-0063
+  - supported-by::principle::0023->evidence::effective-requirements-0064
+  - supported-by::principle::0023->evidence::effective-requirements-0065
+  - supported-by::principle::0023->evidence::effective-requirements-0066
+  - supported-by::principle::0023->evidence::effective-requirements-0067
+  - supported-by::principle::0023->evidence::effective-requirements-0068
+  - supported-by::principle::0023->evidence::effective-requirements-0069
+  - supported-by::principle::0023->evidence::effective-requirements-0070
+  community_ids:
+  - community::principle::0018
+  - community::principle::0023
+candidate_kind: workflow_script
+workflow_certainty: high
+context_certainty: high
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 0
+terminal_state: pending
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: workflow_script
+  agentic_priority: 0
+  case_density_score: 0.5
+  workflow_cues: 17
+  workflow_signal_total: 17
+  context_cues: 21
+  evidence_support_count: 8
+  extracted_evidence_support_count: 8
+  tri_state_support_count: 18
+  support_entity_count: 42
+  tri_state_support_ratio: 0.4286
+  ambiguous_support_node_count: 6
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 12
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: true
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 12
+  matched_keywords:
+  - 业务
+  - 先-再
+  - 场景
+  - 如果-则
+  - 检查
+  - 步骤
+  - 清单
+  - 第一步
+  - 第二步
+  - 约束
+  - 输入
+  - 输出
+  evidence_chunk_ids:
+  - effective-requirements:0063
+  - effective-requirements:0064
+  - effective-requirements:0065
+  - effective-requirements:0066
+  - effective-requirements:0067
+  - effective-requirements:0068
+  - effective-requirements:0069
+  - effective-requirements:0070
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/有效需求分析（第2版）.md
+source_location:
+  line_start: 2502
+  line_end: 2502
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: 13-业务场景分析
+  passed: true
+  workflow_ready: true
+  corroboration_score: 1.0
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 0.8333
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 1.0
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 0.8333
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 8
+    evidence_support_count: 8
+    context_cues: 21
+    workflow_cues: 17
+    tri_state_support_ratio: 0.4286
+    matched_keywords:
+    - 业务
+    - 先-再
+    - 场景
+    - 如果-则
+    - 检查
+    - 步骤
+    - 清单
+    - 第一步
+    - 第二步
+    - 约束
+    - 输入
+    - 输出
+    evidence_chunk_ids:
+    - effective-requirements:0063
+    - effective-requirements:0064
+    - effective-requirements:0065
+    - effective-requirements:0066
+    - effective-requirements:0067
+    - effective-requirements:0068
+    - effective-requirements:0069
+    - effective-requirements:0070
+    supporting_node_count: 21
+    supporting_edge_count: 21
+    community_count: 2

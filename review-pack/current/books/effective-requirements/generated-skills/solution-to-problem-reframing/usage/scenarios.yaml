@@ -1,0 +1,321 @@
+should_trigger:
+- scenario_id: feature-request-before-problem
+  summary: 客户要求加一个具体功能，但业务影响、真实使用者和替代方案都不清楚。
+  prompt_signals:
+  - 客户说必须加这个按钮
+  - 先别问为什么，赶紧实现
+  - 开发说成本很高
+  boundary_reason: 这需要判断方案级表达背后的问题级需求，不能只执行固定清单。
+  next_action_shape: 输出 reframe_to_problem、problem_level_need、solution_risk、next_question。
+  anchor_refs:
+  - 2-日常需求分析-principle::0008
+  - 2-日常需求分析-evidence::effective-requirements-0012
+  - 2-日常需求分析-evidence::effective-requirements-0013
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0013
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0013`
+    expands trigger language only when a live decision links `2 日常需求分析` and `要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。
+    在上一章中，我们提出了业...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:262-357`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0013
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:262-357
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0007
+      label: 1 软件需求全景图 Cluster
+      top_node_id: principle::0008
+      top_node_label: 2 日常需求分析
+      node_count: 10
+    - community_id: community::principle::0008
+      label: 2 日常需求分析 Cluster
+      top_node_id: principle::0008
+      top_node_label: 2 日常需求分析
+      node_count: 22
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0015
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0015`
+    expands trigger language only when a live decision links `2 日常需求分析` and `在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。
+    (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:380-407`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0015
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:380-407
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0016
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0016`
+    expands trigger language only when a live decision links `2 日常需求分析` and `这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决...
+  - 这段对话是否能够让你对“问题级”需求有更清晰的理解呢？是否让你看到了更清晰的需求呢？在这里我们澄清了问题、了解了当前遇到该问题时的临时解决方案（现状），并...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:410-439`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0016
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:410-439
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0017
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0017`
+    expands trigger language only when a live decision links `2 日常需求分析` and `对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多...
+  - 对于是否应该挖掘、补充需求，有人赞成，认为不考虑周全，客户迟早也会提出，后面开发更麻烦；有人反对，认为很容易产生需求蔓延，而且当你提出更多的建议时，会提升...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:442-465`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0017
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:442-465
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0018
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0018`
+    expands trigger language only when a live decision links `2 日常需求分析` and `在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引...
+  - 在这段对话中，我又得到了两个潜在的可能需要解决的问题：“找到一间不吵的房间”“找到不在楼道尽头的房间”，它们出现的频率更低，前者处理不好引发的后果更严重一...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:468-511`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0018
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:468-511
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0019
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0019`
+    expands trigger language only when a live decision links `2 日常需求分析` and `评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。
+    案例分析（续7） 通过前面的分析，我们完成了需求还原...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 案例分析（续7） 通过前面的分析，我们完成了需求还原...
+  - 评估需求的执行过程如图2-11所示，首先选择评估维度，然后针对每条需求进行逐一评估。 ![](https://res.weread.qq.com/wrep...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:514-545`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0019
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:514-545
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0008->case::effective-requirements-0020
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0008->case::effective-requirements-0020`
+    expands trigger language only when a live decision links `2 日常需求分析` and `在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。
+    针对变更/优化型需求分析...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析...
+  - 在实践中，针对每个变更/优化型需求（也称为日常需求），可以根据需要用“变更/优化型需求分析模板”整理出分析结果。 针对变更/优化型需求分析，有些公司在实践...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:548-571`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0008->case::effective-requirements-0020
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:548-571
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013`
+    expands trigger language only when a live decision links `2 日常需求分析` and `要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。
+    在上一章中，我们提出了业...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:262-357`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0013
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:262-357
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015`
+    expands trigger language only when a live decision links `2 日常需求分析` and `在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。
+    (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:380-407`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0008->counter-example::effective-requirements-0015
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:380-407
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0008->term::how
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0008->term::how`
+    expands trigger language only when a live decision links `2 日常需求分析` and `How`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - How
+  - 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、H...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:370-377`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0008->term::how
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:370-377
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0008->term::who-why
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0008->term::who-why`
+    expands trigger language only when a live decision links `2 日常需求分析` and `Who+Why`.'
+  prompt_signals:
+  - 2 日常需求分析
+  - Who+Why
+  - 日常需求分析这一关键工作任务，可以分为还原需求、补充需求、评估需求三个步骤执行。 还原需求，核心要素有三个：Who（谁的需求）、Why（解决什么问题）、H...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:370-377`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0008->term::who-why
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:370-377
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: routine-template-fill
+  summary: 用户已经确认 Who/Why/How，只要求按模板整理一条日常需求。
+  prompt_signals:
+  - 按变更需求模板整理
+  - 字段都齐了
+  boundary_reason: 这是高 workflow certainty + 高 context certainty，应进入 workflow_candidates/。
+  anchor_refs:
+  - 2-日常需求分析-principle::0008
+  - 2-日常需求分析-evidence::effective-requirements-0012
+  - 2-日常需求分析-evidence::effective-requirements-0013
+edge_case:
+- scenario_id: requester-not-real-user
+  summary: 需求提出者和真实使用者不一致，需要判断当前方案是否误代表真实问题。
+  prompt_signals:
+  - 领导提的需求
+  - 一线用户没参与
+  - 不知道谁真正用
+  boundary_reason: 需要 agentic 判断并补上下文，而不是直接选择流程。
+  next_action_shape: 列出缺失访谈对象和最小验证问题。
+  anchor_refs:
+  - 2-日常需求分析-principle::0008
+  - 2-日常需求分析-evidence::effective-requirements-0012
+  - 2-日常需求分析-evidence::effective-requirements-0013
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0013
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0013`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业...
+  - 要做好日常需求分析工作，核心在于理解业务驱动思想，而该思想的基础就是理解需求的层次、透彻分析需求的价值评估维度。 在上一章中，我们提出了业务驱动的需求思想...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:262-357`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0013
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:262-357
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0015
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0015`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽...
+  - 在明确是“谁”的需求时，不应仅把关注点放在需求提出者身上，还应该思考三个问题。 (1)需求提出者和需求使用者是否一致？如果不一致，则应该尽可能地收集需求使...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:380-407`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0015
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:380-407
+  graph_navigation: *id001
+refusal:
+- scenario_id: solution-already-validated
+  summary: 业务问题、用户和约束都已验证，只剩下执行拆解。
+  prompt_signals:
+  - 目标和用户都确认了
+  - 只要拆任务
+  boundary_reason: 不应把确定性执行伪装成厚 skill。
+  anchor_refs:
+  - 2-日常需求分析-principle::0008
+  - 2-日常需求分析-evidence::effective-requirements-0012
+  - 2-日常需求分析-evidence::effective-requirements-0013

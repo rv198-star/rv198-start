@@ -1,0 +1,26 @@
+skill_id: circle-of-competence
+bundle_version: 0.2.0
+current_revision: 1
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: 'Revision 5 是一次面向 `v0.5.1` 的手工补强，不是 refinement_scheduler 自动 loop。核心改动不是再加结构，而是把此前偏英文、偏审计口吻的正文改成中文、action-facing
+    的使用说明，明确补上了四类触发语（“我可以学 / 应该差不多 / 大家都说 / 说不清楚”）、三分法输出（圈内 / 边界 / 圈外），以及纯概念查询、圈内熟手、可迁移能力边界等非触发或灰区裁定。
+
+
+    这轮修订的目标是缩小和 `cangjie-skill` 在 same-scenario benchmark 上的 lexical / usage gap，但不通过放松边界来换分数。为避免误触发，本轮还额外写明：像“比较
+    Python 和 Go 哪个更适合做微服务”这类客观技术选型或信息比较问题，不属于能力圈资格判断，默认应转去做一般分析，不应强拉进本 skill。剩余缺口仍然是：继续提升跨案例的边界清晰度，并跑出真实
+    loop 驱动的修订记录。详见 `iterations/revisions.yaml`。'
+  graph_hash: sha256:d578eb971f656caa040d8f11dc4a7d473bdd30907420f054433f88fd82005151
+  effective_status: under_evaluation
+  evidence_changes:
+  - Added Chinese trigger phrases such as "我可以学", "应该差不多", "大家都说", and "说不清楚" to the
+    published rationale and usage guidance.
+  - Expanded boundary and evaluation summaries with explicit non-trigger and edge-case
+    rulings for concept queries, in-circle experts, and transferable-skill scenarios.
+  - Kept the existing evidence anchors intact while making next-step outputs more
+    action-facing for benchmarked usage.
+open_gaps:
+- Continue tightening non-trigger boundary phrasing and edge-case handling across
+  the full investing bundle.
+- Run a real refinement_scheduler pass before describing this skill as loop-driven.

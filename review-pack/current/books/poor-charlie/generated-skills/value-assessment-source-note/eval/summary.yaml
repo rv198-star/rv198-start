@@ -1,0 +1,40 @@
+skill_id: value-assessment-source-note
+bundle_version: 0.2.0
+skill_revision: 1
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pending
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases:
+    - ../../../evaluation/value-assessment/real_decisions/value-assessment-price-vs-value.yaml
+    passed: 1
+    total: 1
+    threshold: 0.7
+    status: under_evaluation
+  synthetic_adversarial:
+    cases:
+    - ../../../evaluation/value-assessment/synthetic_adversarial/value-assessment-scale-vs-value-boundary.yaml
+    passed: 1
+    total: 1
+    threshold: 0.85
+    status: under_evaluation
+  out_of_distribution:
+    cases:
+    - ../../../evaluation/value-assessment/out_of_distribution/value-assessment-crypto-no-anchor.yaml
+    passed: 1
+    total: 1
+    threshold: 0.9
+    status: under_evaluation
+key_failure_modes:
+- Valuation can look persuasive while still lacking a defensible business-value anchor.
+- The parent skill must delegate to sizing once the user asks for capital commitment
+  size.
+- The skill must refuse short-term trading and no-value-anchor speculation instead
+  of fabricating a valuation answer.
+references:
+  evaluation_root: ../../../evaluation
+  gold_skill_id: value-assessment
+  prefill_mode: deterministic

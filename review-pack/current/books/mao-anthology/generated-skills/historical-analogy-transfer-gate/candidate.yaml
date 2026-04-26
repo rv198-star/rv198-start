@@ -1,0 +1,254 @@
+candidate_id: historical-analogy-transfer-gate
+source_bundle_id: mao-source-v0.6
+source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+seed:
+  primary_node_id: case-mechanism::historical-analogy-transfer-gate
+  supporting_node_ids:
+  - evidence::mao-0001
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0005
+  - evidence::mao-0007
+  - evidence::mao-0008
+  supporting_edge_ids:
+  - case-mechanism-evidence::0001
+  - case-mechanism-evidence::0002
+  - case-mechanism-evidence::0003
+  - case-mechanism-evidence::0004
+  - case-mechanism-evidence::0005
+  - case-mechanism-evidence::0006
+  community_ids: []
+candidate_kind: general_agentic
+workflow_certainty: medium
+context_certainty: high
+recommended_execution_mode: llm_agentic
+disposition: skill_candidate
+gold_match_hint: null
+drafting_mode: deterministic
+loop_mode: refinement_scheduler
+current_round: 5
+terminal_state: ready_for_review
+human_gate: skipped
+routing_evidence:
+  inference_mode: extraction_derived
+  selected_candidate_kind: general_agentic
+  agentic_priority: 80
+  case_density_score: 0.5
+  workflow_cues: 0
+  workflow_signal_total: 1
+  context_cues: 5
+  evidence_support_count: 6
+  extracted_evidence_support_count: 6
+  tri_state_support_count: 0
+  support_entity_count: 12
+  tri_state_support_ratio: 0.0
+  ambiguous_support_node_count: 0
+  inferred_support_node_count: 0
+  ambiguous_support_edge_count: 0
+  inferred_support_edge_count: 0
+  workflow_promotion_blocked_by_evidence: false
+  workflow_requires_multi_signal: false
+  has_multi_signal_workflow_hint: true
+  matched_keyword_count: 4
+  matched_keywords:
+  - anti_conditions
+  - case_mechanism
+  - gate
+  - transfer_conditions
+  evidence_chunk_ids:
+  - mao:0001
+  - mao:0002
+  - mao:0003
+  - mao:0005
+  - mao:0007
+  - mao:0008
+  verification_passed: true
+  verification_workflow_ready: true
+  verification_overall_score: 0.9444
+  workflow_promotion_blocked_by_verification: false
+source_file: sources/mao/000-中国社会各阶级的分析.md
+source_location: &id001
+  line_start: 2
+  line_end: 4
+verification:
+  schema_version: kiu.verification-gate/v0.1
+  candidate_id: historical-analogy-transfer-gate
+  passed: true
+  workflow_ready: true
+  corroboration_score: 0.8333
+  predictive_usefulness_score: 1.0
+  distinctiveness_score: 1.0
+  overall_score: 0.9444
+  triple_verification:
+    schema_version: kiu.triple-verification/v0.1
+    cross_evidence_ratio: 0.8333
+    predictive_action_ratio: 1.0
+    uniqueness_ratio: 1.0
+  reasons: []
+  evidence:
+    extracted_evidence_support_count: 6
+    evidence_support_count: 6
+    context_cues: 5
+    workflow_cues: 0
+    tri_state_support_ratio: 0.0
+    matched_keywords:
+    - anti_conditions
+    - case_mechanism
+    - gate
+    - transfer_conditions
+    evidence_chunk_ids:
+    - mao:0001
+    - mao:0002
+    - mao:0003
+    - mao:0005
+    - mao:0007
+    - mao:0008
+    supporting_node_count: 6
+    supporting_edge_count: 6
+    community_count: 0
+graph_to_skill_distillation:
+  schema_version: kiu.graph-to-skill-distillation/v0.1
+  candidate_id: historical-analogy-transfer-gate
+  source_graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  source_graph_version: kiu.graph/v0.2
+  rules:
+  - INFERRED graph edges may expand trigger language but must not override boundary
+    rules.
+  - AMBIGUOUS graph nodes or edges must become edge-case/refusal probes, not broad
+    triggers.
+  - source_location must be translated into concrete next-action language, not left
+    as metadata only.
+  - GRAPH_REPORT navigation may guide related-skill handoff but is not independent
+    evidence.
+  inferred_trigger_expansions: []
+  ambiguous_boundary_probes: []
+  source_action_transfer:
+    family: historical-analogy-transfer-gate
+    action_language: Use graph evidence to choose apply / defer / do_not_apply with
+      explicit evidence_to_check.
+    requires_source_location: true
+  graph_navigation:
+    graph_report: GRAPH_REPORT.md
+    communities: []
+    suggested_questions:
+    - Why does `关于正确处理人民内部矛盾的问题` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `在省市自治区党委书记会议上的讲话` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - What is the operational boundary of `我们的具体纲领 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `结　　论 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `我们的具体纲领 Cluster`?
+ria_tv_distillation:
+  schema_version: kiu.ria-tv-distillation/v0.1
+  stage: stage2_skill_distillation
+  mechanism_chain_required: true
+  anti_misuse_boundary_required: true
+ria_tv_provenance:
+  schema_version: kiu.ria-tv-provenance/v0.1
+  available_extractors:
+  - case
+  - evidence
+  source_node_ids:
+  - case-mechanism::historical-analogy-transfer-gate
+  - evidence::mao-0001
+  - evidence::mao-0002
+  - evidence::mao-0003
+  - evidence::mao-0005
+  - evidence::mao-0007
+  - evidence::mao-0008
+  source_edge_ids:
+  - case-mechanism-evidence::0001
+  - case-mechanism-evidence::0002
+  - case-mechanism-evidence::0003
+  - case-mechanism-evidence::0004
+  - case-mechanism-evidence::0005
+  - case-mechanism-evidence::0006
+  source_locations:
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location: *id001
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 2
+      line_end: 4
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 6
+      line_end: 14
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 17
+      line_end: 35
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 9
+      line_end: 9
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 17
+      line_end: 22
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 26
+      line_end: 26
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 2
+      line_end: 4
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 6
+      line_end: 14
+  - source_file: sources/mao/000-中国社会各阶级的分析.md
+    source_location:
+      line_start: 17
+      line_end: 35
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 9
+      line_end: 9
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 17
+      line_end: 22
+  - source_file: sources/mao/001-湖南农民运动考察报告.md
+    source_location:
+      line_start: 26
+      line_end: 26
+distillation_contract:
+  schema_version: kiu.distillation-contract/v0.1
+  mechanism_chain:
+  - '`Historical Analogy Transfer Gate` is a borrowed-value judgment skill anchored
+    in "（一九二五年十二月一日） > 毛泽东此文是为反对当时党内存在着的两种倾向而写的。当时党内的第一种倾向，以陈独秀为代表，只注意同国民党合作，忘记了农民，这是右倾机会主义。第二种倾向，以张国焘为代表，只注意工人运动，同样忘记了农民，这是“左”倾机会主义。这两种机会主义都感觉自己力量不足，而不知道到何处去寻找力量，到何'
+  use_situation_trigger:
+  - user_wants_to_transfer_case_or_history_to_current_decision
+  - single_case_overreach_risk
+  - analogy_needs_mechanism_not_story_mapping
+  anti_misuse_boundary:
+  - pure_summary_request
+  - pure_translation_request
+  - fact_lookup_request
+  - biography_intro_request
+  - author_position_query
+  transfer_conditions:
+  - source_pattern_matches_current_decision_mechanism
+  anti_conditions:
+  - pure_summary_request
+  - pure_translation_request
+  - fact_lookup_request
+  - biography_intro_request
+  - author_position_query
+boundary_quality: 0.85
+eval_aggregate: 0.99
+cross_subset_stability: 0.99
+nearest_skill_id: historical-analogy-transfer-gate
+overall_quality: 0.927
+delta_vs_nearest: 0.927
+delta_vs_bundle: 0.927
+net_positive_value: 0.927
+artifact_quality: 0.9545
+artifact_grade: excellent
+production_quality: 0.9449
+quality_grade: excellent
+release_ready: true

@@ -1,0 +1,538 @@
+skill_id: business-value-anchor-check
+bundle_version: 0.2.0
+skill_revision: 1
+graph_version: kiu.graph/v0.2
+graph_hash: sha256:66330781ff41041428d6a8007e37a49979b2307648431096019c85b1f36ad13c
+graph_anchor_sets:
+- anchor_id: business-value-anchor-check-seed-support
+  node_ids:
+  - principle::1098
+  - case::financial-statement-1070
+  - case::financial-statement-1071
+  - counter-example::financial-statement-1038
+  - evidence::financial-statement-0095
+  - evidence::financial-statement-0099
+  - evidence::financial-statement-0364
+  - evidence::financial-statement-0365
+  - evidence::financial-statement-0410
+  - evidence::financial-statement-0668
+  - evidence::financial-statement-1011
+  - evidence::financial-statement-1038
+  - evidence::financial-statement-1060
+  - evidence::financial-statement-1070
+  - evidence::financial-statement-1071
+  - evidence::financial-statement-1072
+  - evidence::financial-statement-1202
+  - evidence::financial-statement-1231
+  - framework::0075
+  - framework::0293
+  - framework::0358
+  - framework::1004
+  - framework::1054
+  - principle::0084
+  - principle::0087
+  - principle::0092
+  - principle::0093
+  - principle::0094
+  - principle::0095
+  - principle::0343
+  - principle::0385
+  - principle::0627
+  - principle::0629
+  - principle::0908
+  - principle::0909
+  - principle::0910
+  - principle::0911
+  - principle::0932
+  - principle::0933
+  - principle::0947
+  - principle::0948
+  - principle::0968
+  - principle::0969
+  - principle::0977
+  - principle::0981
+  - principle::1044
+  - principle::1045
+  - principle::1048
+  - principle::1049
+  - principle::1099
+  - principle::1101
+  - principle::1102
+  - principle::1103
+  - principle::1119
+  - principle::1121
+  - principle::1122
+  - term::hewlett-packard
+  - term::hurricane-katrina
+  - term::john-hancock-mutual-life-insurance
+  - term::metropolitan-life-insurance
+  edge_ids:
+  - derives_case_signal::principle::0981->case::financial-statement-1070
+  - derives_case_signal::principle::0981->case::financial-statement-1071
+  - derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+  - derives_term_signal::principle::0092->term::hewlett-packard
+  - derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+  - derives_term_signal::principle::0343->term::metropolitan-life-insurance
+  - derives_term_signal::principle::0981->term::hurricane-katrina
+  - section-parent::framework::0075->principle::0092
+  - section-parent::framework::0293->principle::0343
+  - section-parent::framework::0358->principle::0385
+  - section-parent::framework::1004->principle::1044
+  - section-parent::framework::1054->principle::1098
+  - section-parent::principle::0084->principle::0087
+  - section-parent::principle::0092->principle::0093
+  - section-parent::principle::0092->principle::0094
+  - section-parent::principle::0092->principle::0095
+  - section-parent::principle::0627->principle::0629
+  - section-parent::principle::0908->principle::0909
+  - section-parent::principle::0909->principle::0910
+  - section-parent::principle::0909->principle::0911
+  - section-parent::principle::0932->principle::0933
+  - section-parent::principle::0947->principle::0948
+  - section-parent::principle::0968->principle::0969
+  - section-parent::principle::0977->principle::0981
+  - section-parent::principle::1044->principle::1045
+  - section-parent::principle::1044->principle::1048
+  - section-parent::principle::1044->principle::1049
+  - section-parent::principle::1098->principle::1099
+  - section-parent::principle::1098->principle::1101
+  - section-parent::principle::1098->principle::1102
+  - section-parent::principle::1098->principle::1103
+  - section-parent::principle::1119->principle::1121
+  - section-parent::principle::1121->principle::1122
+  - supported-by::principle::0087->evidence::financial-statement-0095
+  - supported-by::principle::0092->evidence::financial-statement-0099
+  - supported-by::principle::0343->evidence::financial-statement-0364
+  - supported-by::principle::0343->evidence::financial-statement-0365
+  - supported-by::principle::0385->evidence::financial-statement-0410
+  - supported-by::principle::0629->evidence::financial-statement-0668
+  - supported-by::principle::0933->evidence::financial-statement-1011
+  - supported-by::principle::0948->evidence::financial-statement-1038
+  - supported-by::principle::0969->evidence::financial-statement-1060
+  - supported-by::principle::0981->evidence::financial-statement-1070
+  - supported-by::principle::0981->evidence::financial-statement-1071
+  - supported-by::principle::0981->evidence::financial-statement-1072
+  - supported-by::principle::1098->evidence::financial-statement-1202
+  - supported-by::principle::1121->evidence::financial-statement-1231
+  community_ids:
+  - community::principle::0084
+  - community::principle::0087
+  - community::principle::0092
+  - community::principle::0093
+  - community::principle::0094
+  - community::principle::0095
+  - community::principle::0343
+  - community::principle::0385
+  - community::principle::0627
+  - community::principle::0629
+  - community::principle::0908
+  - community::principle::0909
+  - community::principle::0910
+  - community::principle::0911
+  - community::principle::0932
+  - community::principle::0933
+  - community::principle::0947
+  - community::principle::0948
+  - community::principle::0968
+  - community::principle::0969
+  - community::principle::0977
+  - community::principle::0981
+  - community::principle::1044
+  - community::principle::1045
+  - community::principle::1048
+  - community::principle::1049
+  - community::principle::1098
+  - community::principle::1099
+  - community::principle::1101
+  - community::principle::1102
+  - community::principle::1103
+  - community::principle::1119
+  - community::principle::1121
+  - community::principle::1122
+source_anchor_sets:
+- anchor_id: business-value-anchor-check-principle::1098
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14838
+  line_end: 14838
+  snippet: '## E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）'
+- anchor_id: business-value-anchor-check-case::financial-statement-1070
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13073
+  line_end: 13083
+  snippet: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保险和得克萨斯太平洋保险公司等多个子公司。
+    公司的保险业务运作主要分为三个部分。丘博商业保险面向商业用户提供全方位的产品服务，包括综合保险、意外险、员工薪酬险和财产与海上保险等，它主要通过代理商和经理人为各类商业组织提供各种不同的保险政策。丘博专业保险主要为私有和公众持股公司、金融机构、
+- anchor_id: business-value-anchor-check-case::financial-statement-1071
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13085
+  line_end: 13103
+  snippet: '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| | |
+    2010年 | 2009年 | 2008年 | 2007年 | | 损失比率（%） | 58.1 | 55.4 | 58.5 | 52.8 | | 费用比率（%）
+    | 31.2 | 30.6 | 30.2 | 30.1 | | 合并比率（%） | 89.3 | 86.0 | 88.7 | 82.9 '
+- anchor_id: business-value-anchor-check-counter-example::financial-statement-1038
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12687
+  line_end: 12687
+  snippet: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 中，你可能还注意到，随着杠杆水平的增大，市盈率指标却下降了，从
+    10 变成了 8。不过，在这两种情况下，权益的价值都没有发生改变。这意味着，我们最好不要排除杠杆的影响来考察市净率和市盈率。
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0095
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1460
+  line_end: 1460
+  snippet: 某公司的股票市值总额为 12 亿美元，债务的交易总额为 6 亿美元。请问，该公司的市场价值是多少（即企业市值）？
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0099
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1480
+  line_end: 1496
+  snippet: a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列信息（金额单位：百万美元）。
+    | 0 | 1 | |:-----|:--------| | 短期借款 | 1 342.6 | | 长期负债 | 5 542.5 | | 股东权益 | 6
+    616.2 | 其中，短期借款和长期负债的资产负债表价值与市值基本相当，在年报公布日，这家公司共有6.448亿股普通
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0364
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4612
+  line_end: 4628
+  snippet: 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan Life
+    Insurance）在内的很多大型保险公司，目前都已从政策持有人所有的互助保险企业转型为由股东所持有的股份制企业。在这些企业“股份化”的过程中，需要向原政策持有人发行股份和通过初始公开募集向新投资者发行股份。
+    这两家保险企业在进行股份化时，分析师曾经猜想它们会按照账面价值发行股份。当时，这
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0365
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4630
+  line_end: 4634
+  snippet: 图 5-3 市值在 2 亿美元以上的全部美国上市公司的普通股权益报酬率百分位分布情况（1963～2010 年） 注：公司在全部年份中普通股权益报酬率的中位数为13.7%。
+    资料来源：标准普尔公司 COMPUSTAT 数据库。
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0410
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5185
+  line_end: 5191
+  snippet: 一家新开业的公司宣布它将每年完成1.5亿美元的项目投资，这些项目的投资回报率均为15%（按每期期初的账面价值进行计算），寿命均为5年，项目投资的必要报酬率为12%。假定这家公司对全部投资项目都按直线法计算折旧，要求：
+    a. 在此项投资战略的指导下，这家公司的价值是多少？你认为这里的估值是属于“情景1”“情景2”还是“情景3”？ b. 此项投资战略在初始投资额 1.5 亿美元之后能实现的价值增加额是多少？
+    c. 为什么价值增加额大于初始投
+- anchor_id: business-value-anchor-check-evidence::financial-statement-0668
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8214
+  line_end: 8214
+  snippet: 如果某家企业的权益市价已经低于了其净金融性资产的价值，就意味着市场认为这家企业的经营价值已经成为负数。所以，在正常情况下，企业的权益价值至少是大于等于其净金融性资产价值的，于是，可将企业的货币资金水平作为估值的底限（即不考虑任何经营价值的条件下的企业价值）。举例来说，戴尔公司的股票在2011年2月的交易价格为每股14.25美元，在它的战略资产负债表中，净金融性资产为90.32亿美元，流通在外的股份数量为19.18亿股，因此，该公司的每股
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1011
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12435
+  line_end: 12435
+  snippet: 在锐步公司1996年的财务报表附注2中，披露了如下信息。
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1038
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12687
+  line_end: 12687
+  snippet: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 中，你可能还注意到，随着杠杆水平的增大，市盈率指标却下降了，从
+    10 变成了 8。不过，在这两种情况下，权益的价值都没有发生改变。这意味着，我们最好不要排除杠杆的影响来考察市净率和市盈率。
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1060
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12943
+  line_end: 12947
+  snippet: 下面是 2012 年年末对某家企业做出的一些预测数据，这家企业的净经营性资产为 1135 百万美元，净金融性负债为 720 百万美元（单位：百万美元）。
+    | 0 | 1 | 2 | 3 | 4 | |:-------|:---------|:---------|:---------|:---------| |
+    | 2013E | 2014E | 2015E | 2016E | | 经营利润 | 187.00 | 200.09 | 214
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1070
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13073
+  line_end: 13083
+  snippet: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保险和得克萨斯太平洋保险公司等多个子公司。
+    公司的保险业务运作主要分为三个部分。丘博商业保险面向商业用户提供全方位的产品服务，包括综合保险、意外险、员工薪酬险和财产与海上保险等，它主要通过代理商和经理人为各类商业组织提供各种不同的保险政策。丘博专业保险主要为私有和公众持股公司、金融机构、
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1071
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13085
+  line_end: 13103
+  snippet: '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| | |
+    2010年 | 2009年 | 2008年 | 2007年 | | 损失比率（%） | 58.1 | 55.4 | 58.5 | 52.8 | | 费用比率（%）
+    | 31.2 | 30.6 | 30.2 | 30.1 | | 合并比率（%） | 89.3 | 86.0 | 88.7 | 82.9 '
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1072
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13105
+  line_end: 13113
+  snippet: 5. 权益性投资； 6. 净经营性资产； 7. 所得税费用的分配。 c. 保险公司很有可能会对它的投资进行“择优出售”，你打算怎样处理这种情况呢？
+    d. 在根据财务报表进行估值时，丘博公司的哪些会计特点（以及作为保险公司的一般特点）会让你认为是比较特殊的？
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1202
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14840
+  line_end: 14844
+  snippet: 在本章的阅读材料 16-4 中，使用剩余经营性收益模型对耐克公司的股份进行了估值。接下来，请完成下列要求： a. 对阅读材料 16-4 中的预计数据进行修正，计算预计超常增长的经营性收益为多少，然后再对耐克公司的股份进行估值。
+    b. 同时考虑短期和长期的增长率情况，应用简单估值模型 [式（15-5）] 对耐克公司的股份进行估值，可参考阅读材料 15-4 中的内容。
+- anchor_id: business-value-anchor-check-evidence::financial-statement-1231
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15173
+  line_end: 15173
+  snippet: 17.1 节中的例子只涉及一个简单项目的估值，但其实，如果一家持续经营的企业总是坚持将它的账面价值保持在较低（或较高）水平，也能观察到类似的结果。本书再一次强调估值是不受会计方法的选择影响的，但是，市净率和市盈率却会受到影响，且受影响的程度将取决于投资规模的增长速度。下面我们首先考察在投资无增长情况下的估值，然后在考察当企业加大投资规模情况下的估值问题。
+- anchor_id: business-value-anchor-check-framework::0075
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1239
+  line_end: 1239
+  snippet: '# 1.7 如何使用本书'
+- anchor_id: business-value-anchor-check-framework::0293
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4020
+  line_end: 4020
+  snippet: '# 2. 投资'
+- anchor_id: business-value-anchor-check-framework::0358
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4942
+  line_end: 4942
+  snippet: '# 更多书籍请搜索 挥剑斩浮云 ，微信公众号微博：挥剑斩浮云hjzfycom'
+- anchor_id: business-value-anchor-check-framework::1004
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13430
+  line_end: 13430
+  snippet: '# 15.3 将简单估值作为一个分析工具'
+- anchor_id: business-value-anchor-check-framework::1054
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14158
+  line_end: 14158
+  snippet: '# 完全信息预测：耐克公司'
+- anchor_id: business-value-anchor-check-principle::0084
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1418
+  line_end: 1418
+  snippet: '#### 思考题'
+- anchor_id: business-value-anchor-check-principle::0087
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1458
+  line_end: 1458
+  snippet: '##### E1.1. 计算企业价值（简单）'
+- anchor_id: business-value-anchor-check-principle::0092
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1478
+  line_end: 1478
+  snippet: '## E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）'
+- anchor_id: business-value-anchor-check-principle::0093
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1498
+  line_end: 1498
+  snippet: '#### 迷你案例'
+- anchor_id: business-value-anchor-check-principle::0094
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1500
+  line_end: 1500
+  snippet: '### M1.1 对一份权益分析报告的批评：美国在线公司'
+- anchor_id: business-value-anchor-check-principle::0095
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1528
+  line_end: 1528
+  snippet: '### 第 2 章 财务报表简介'
+- anchor_id: business-value-anchor-check-principle::0343
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4610
+  line_end: 4610
+  snippet: '## 保险公司的股份化：这些企业的价值大于它们的账面价值吗'
+- anchor_id: business-value-anchor-check-principle::0385
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 5183
+  line_end: 5183
+  snippet: '## E5.7. 利用会计技术来计量持续经营的价值增加额（中等）'
+- anchor_id: business-value-anchor-check-principle::0627
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8206
+  line_end: 8206
+  snippet: '#### 将金融性资产水平作为估值底限'
+- anchor_id: business-value-anchor-check-principle::0629
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 8212
+  line_end: 8212
+  snippet: '##### =净经营性资产的价值+净金融性资产的价值'
+- anchor_id: business-value-anchor-check-principle::0908
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11963
+  line_end: 11963
+  snippet: '## 预测与估值分析'
+- anchor_id: business-value-anchor-check-principle::0909
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11991
+  line_end: 11991
+  snippet: '### 第 14 章 经营价值与市净率和市盈率评价'
+- anchor_id: business-value-anchor-check-principle::0910
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11993
+  line_end: 11993
+  snippet: '#### 分析师备忘录'
+- anchor_id: business-value-anchor-check-principle::0911
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 11995
+  line_end: 11995
+  snippet: '#### 学习目标'
+- anchor_id: business-value-anchor-check-principle::0932
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12431
+  line_end: 12431
+  snippet: '##### 阅读材料 14-4'
+- anchor_id: business-value-anchor-check-principle::0933
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12433
+  line_end: 12433
+  snippet: '#### 锐步国际公司：股份回购和借款对企业价值和权益价值的影响'
+- anchor_id: business-value-anchor-check-principle::0947
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12668
+  line_end: 12668
+  snippet: '## 更多书籍请搜索 挥剑斩浮云 ，微信公众号微博：挥剑斩浮云hj zfycom'
+- anchor_id: business-value-anchor-check-principle::0948
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12685
+  line_end: 12685
+  snippet: '### 14.6 企业估值乘数'
+- anchor_id: business-value-anchor-check-principle::0968
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12935
+  line_end: 12935
+  snippet: '##### E14.6. 计算股东权益的必要报酬率（中等）'
+- anchor_id: business-value-anchor-check-principle::0969
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 12941
+  line_end: 12941
+  snippet: '##### E14.7. 剩余经营性收益估值（简单）'
+- anchor_id: business-value-anchor-check-principle::0977
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13019
+  line_end: 13019
+  snippet: '## E14.15. 剩余经营性收益与企业乘数：通用磨坊公司（简单）'
+- anchor_id: business-value-anchor-check-principle::0981
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13071
+  line_end: 13071
+  snippet: '### M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司'
+- anchor_id: business-value-anchor-check-principle::1044
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13987
+  line_end: 13987
+  snippet: '## 耐克公司与可口可乐公司：品牌企业的价值影响因素历史水平分布'
+- anchor_id: business-value-anchor-check-principle::1045
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13989
+  line_end: 13989
+  snippet: '#### 耐克公司'
+- anchor_id: business-value-anchor-check-principle::1048
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14013
+  line_end: 14013
+  snippet: '### 阅读材料 16-3'
+- anchor_id: business-value-anchor-check-principle::1049
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14015
+  line_end: 14015
+  snippet: '### 重要影响因素'
+- anchor_id: business-value-anchor-check-principle::1099
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14846
+  line_end: 14846
+  snippet: '##### E16.14. 对公司合并进行评价：PPE 公司（困难）'
+- anchor_id: business-value-anchor-check-principle::1101
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14865
+  line_end: 14865
+  snippet: '### M16.1 全面预测与估值：宝洁公司VI'
+- anchor_id: business-value-anchor-check-principle::1102
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14875
+  line_end: 14875
+  snippet: '### M16.2 戴尔公司的股票价格合理吗'
+- anchor_id: business-value-anchor-check-principle::1103
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 14887
+  line_end: 14887
+  snippet: '### 经营战略'
+- anchor_id: business-value-anchor-check-principle::1119
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15151
+  line_end: 15151
+  snippet: '##### 会计影响'
+- anchor_id: business-value-anchor-check-principle::1121
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15171
+  line_end: 15171
+  snippet: '### 17.2 会计方法、市净率、市盈率与持续经营估值'
+- anchor_id: business-value-anchor-check-principle::1122
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 15175
+  line_end: 15175
+  snippet: '#### 17.2.1 投资规模既定水平下的会计方法影响'
+- anchor_id: business-value-anchor-check-term::hewlett-packard
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 1480
+  line_end: 1496
+  snippet: a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列信息（金额单位：百万美元）。
+    | 0 | 1 | |:-----|:--------| | 短期借款 | 1 342.6 | | 长期负债 | 5 542.5 | | 股东权益 | 6
+    616.2 | 其中，短期借款和长期负债的资产负债表价值与市值基本相当，在年报公布日，这家公司共有6.448亿股普通
+- anchor_id: business-value-anchor-check-term::hurricane-katrina
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 13073
+  line_end: 13083
+  snippet: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保险和得克萨斯太平洋保险公司等多个子公司。
+    公司的保险业务运作主要分为三个部分。丘博商业保险面向商业用户提供全方位的产品服务，包括综合保险、意外险、员工薪酬险和财产与海上保险等，它主要通过代理商和经理人为各类商业组织提供各种不同的保险政策。丘博专业保险主要为私有和公众持股公司、金融机构、
+- anchor_id: business-value-anchor-check-term::john-hancock-mutual-life-insurance
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4612
+  line_end: 4628
+  snippet: 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan Life
+    Insurance）在内的很多大型保险公司，目前都已从政策持有人所有的互助保险企业转型为由股东所持有的股份制企业。在这些企业“股份化”的过程中，需要向原政策持有人发行股份和通过初始公开募集向新投资者发行股份。
+    这两家保险企业在进行股份化时，分析师曾经猜想它们会按照账面价值发行股份。当时，这
+- anchor_id: business-value-anchor-check-term::metropolitan-life-insurance
+  kind: source_excerpt
+  path: ../../sources/财务报表分析_Markdown版.md
+  line_start: 4612
+  line_end: 4628
+  snippet: 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan Life
+    Insurance）在内的很多大型保险公司，目前都已从政策持有人所有的互助保险企业转型为由股东所持有的股份制企业。在这些企业“股份化”的过程中，需要向原政策持有人发行股份和通过初始公开募集向新投资者发行股份。
+    这两家保险企业在进行股份化时，分析师曾经猜想它们会按照账面价值发行股份。当时，这

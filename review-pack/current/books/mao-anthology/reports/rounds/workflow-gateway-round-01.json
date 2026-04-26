@@ -1,0 +1,69 @@
+{
+  "candidate_id": "workflow-gateway",
+  "mutation_plan": {
+    "boundary_strength_delta": 0.05,
+    "eval_gain_delta": 0.05,
+    "stability_delta": 0.05,
+    "append_trace_ref": null,
+    "revision_note": "Refinement scheduler round 1 tightened boundary signals and improved evaluation support."
+  },
+  "scorecard": {
+    "nearest_skill_id": "workflow-gateway",
+    "boundary_quality": 0.98,
+    "eval_aggregate": 0.95,
+    "cross_subset_stability": 0.95,
+    "overall_quality": 0.9635,
+    "delta_vs_nearest": 0.9635,
+    "delta_vs_bundle": 0.9635,
+    "net_positive_value": 0.9635,
+    "artifact_quality": 0.8641,
+    "artifact_grade": "good",
+    "production_quality": 0.8989,
+    "quality_grade": "good",
+    "release_ready": true
+  },
+  "decision": {
+    "terminal_state": "pending",
+    "continue_loop": true,
+    "reason": "continue"
+  },
+  "quality_assessment": {
+    "candidate_id": "workflow-gateway",
+    "artifact_quality": 0.8641,
+    "artifact_grade": "good",
+    "production_quality": 0.8989,
+    "quality_grade": "good",
+    "release_ready": true,
+    "loop_overall_quality": 0.9635,
+    "component_scores": {
+      "contract_specificity": 1.0,
+      "rationale_depth": 1.0,
+      "evidence_grounding": 0.85,
+      "usage_readiness": 0.675,
+      "eval_readiness": 0.604,
+      "revision_traceability": 1.0
+    },
+    "signals": {
+      "trigger_patterns": 2,
+      "intake_fields": 3,
+      "rationale_chars": 1230,
+      "rationale_anchor_refs": 2,
+      "evidence_anchor_refs": 1,
+      "graph_anchor_sets": 1,
+      "source_anchor_sets": 11,
+      "trace_refs": 1,
+      "usage_notes": 26,
+      "eval_cases_total": 0,
+      "passed_kiu_tests": 3,
+      "revision_history_entries": 2
+    },
+    "blockers": [
+      "eval_cases_missing"
+    ],
+    "notes": [],
+    "thresholds": {
+      "artifact_quality": 0.74,
+      "production_quality": 0.78
+    }
+  }
+}

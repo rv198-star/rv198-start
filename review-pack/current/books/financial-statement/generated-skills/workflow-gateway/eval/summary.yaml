@@ -1,0 +1,34 @@
+skill_id: workflow-gateway
+bundle_version: 0.2.0
+skill_revision: 3
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases: []
+    passed: 0
+    total: 0
+    threshold: 0.0
+    status: under_evaluation
+  synthetic_adversarial:
+    cases: []
+    passed: 0
+    total: 0
+    threshold: 0.0
+    status: under_evaluation
+  out_of_distribution:
+    cases: []
+    passed: 0
+    total: 0
+    threshold: 0.0
+    status: under_evaluation
+key_failure_modes:
+- 把 workflow 步骤内联成 agentic skill。
+- 在目标和上下文不足时猜测 workflow。
+references:
+  evaluation_root: ../../../evaluation
+  prefill_mode: deterministic
+  gold_skill_id: null

@@ -1,0 +1,142 @@
+workflow_id: 7-业务子系统划分
+title: 7 业务子系统划分
+source_bundle_id: effective-requirements-source-v0.6
+source_graph_hash: sha256:7fa2442a974c4df8e4e0cd6ae0cd3ba9d7631ed01579521f0e19837c0487bcd7
+recommended_execution_mode: workflow_script
+disposition: workflow_script_candidate
+workflow_certainty: high
+context_certainty: high
+objective: Run a deterministic preflight before execution when the control pattern
+  is better served by a fixed workflow than an agentic skill.
+seed:
+  primary_node_id: principle::0016
+  supporting_node_ids:
+  - case::effective-requirements-0039
+  - case::effective-requirements-0040
+  - case::effective-requirements-0041
+  - case::effective-requirements-0042
+  - counter-example::effective-requirements-0042
+  - evidence::effective-requirements-0038
+  - evidence::effective-requirements-0039
+  - evidence::effective-requirements-0040
+  - evidence::effective-requirements-0041
+  - evidence::effective-requirements-0042
+  - evidence::effective-requirements-0043
+  - principle::0015
+  supporting_edge_ids:
+  - derives_case_signal::principle::0016->case::effective-requirements-0039
+  - derives_case_signal::principle::0016->case::effective-requirements-0040
+  - derives_case_signal::principle::0016->case::effective-requirements-0041
+  - derives_case_signal::principle::0016->case::effective-requirements-0042
+  - derives_counter_example_signal::principle::0016->counter-example::effective-requirements-0042
+  - section-parent::principle::0015->principle::0016
+  - supported-by::principle::0016->evidence::effective-requirements-0038
+  - supported-by::principle::0016->evidence::effective-requirements-0039
+  - supported-by::principle::0016->evidence::effective-requirements-0040
+  - supported-by::principle::0016->evidence::effective-requirements-0041
+  - supported-by::principle::0016->evidence::effective-requirements-0042
+  - supported-by::principle::0016->evidence::effective-requirements-0043
+  community_ids:
+  - community::principle::0015
+  - community::principle::0016
+evidence_anchors:
+  primary_node:
+    id: principle::0016
+    label: 7 业务子系统划分
+    type: principle_signal
+  supporting_nodes:
+  - id: case::effective-requirements-0039
+    label: 从技术实现角度来划分子系统是比较典型和常见的做法，但这种做法并不利于“业务驱动”“以用户为中心”思想的落地。理解为什么要根据业务划分子系统...
+    type: case_signal
+  - id: case::effective-requirements-0040
+    label: 对于相对复杂的新开发系统而言，最常用的策略包括按业务职能分解、按产品/服务分解、双维度划分、按关键特性分解。而对于基于遗留系统开发的系统而...
+    type: case_signal
+  - id: case::effective-requirements-0041
+    label: 2.按产品/服务分解 案例分析 在大家接触和使用过的网上银行中，哪家的用户体验最好呢？我发现很多人会提到招商银行，而“四大行”反而并没有太...
+    type: case_signal
+  - id: case::effective-requirements-0042
+    label: 完成前两步分析之后，我们需要选择一种合适的方法来呈现这种划分。当然，我们也可以直接使用文字列出划分结果，如下所示。 体检医院管理系统由以下...
+    type: case_signal
+  - id: counter-example::effective-requirements-0042
+    label: 完成前两步分析之后，我们需要选择一种合适的方法来呈现这种划分。当然，我们也可以直接使用文字列出划分结果，如下所示。 体检医院管理系统由以下...
+    type: counter_example_signal
+  - id: evidence::effective-requirements-0038
+    label: 待开发的系统有时相当复杂，涉及多种不同的业务，为了控制分析的复杂度，我们通常需要先将其分解成更小的部分。可以根据实现结构来划分，但在需求分...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0039
+    label: 从技术实现角度来划分子系统是比较典型和常见的做法，但这种做法并不利于“业务驱动”“以用户为中心”思想的落地。理解为什么要根据业务划分子系统...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0040
+    label: 对于相对复杂的新开发系统而言，最常用的策略包括按业务职能分解、按产品/服务分解、双维度划分、按关键特性分解。而对于基于遗留系统开发的系统而...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0041
+    label: 2.按产品/服务分解 案例分析 在大家接触和使用过的网上银行中，哪家的用户体验最好呢？我发现很多人会提到招商银行，而“四大行”反而并没有太...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0042
+    label: 完成前两步分析之后，我们需要选择一种合适的方法来呈现这种划分。当然，我们也可以直接使用文字列出划分结果，如下所示。 体检医院管理系统由以下...
+    type: chunk_evidence
+  - id: evidence::effective-requirements-0043
+    label: 第二部分则是对模型中的业务子系统、服务接口的简要说明。业务子系统说明分为三部分，如表7-2所示。 (1)业务子系统：填写业务子系统的名称。...
+    type: chunk_evidence
+  - id: principle::0015
+    label: 系统分解子篇
+    type: principle_signal
+  supporting_edges:
+  - id: derives_case_signal::principle::0016->case::effective-requirements-0039
+    type: derives_case_signal
+    from: principle::0016
+    to: case::effective-requirements-0039
+  - id: derives_case_signal::principle::0016->case::effective-requirements-0040
+    type: derives_case_signal
+    from: principle::0016
+    to: case::effective-requirements-0040
+  - id: derives_case_signal::principle::0016->case::effective-requirements-0041
+    type: derives_case_signal
+    from: principle::0016
+    to: case::effective-requirements-0041
+  - id: derives_case_signal::principle::0016->case::effective-requirements-0042
+    type: derives_case_signal
+    from: principle::0016
+    to: case::effective-requirements-0042
+  - id: derives_counter_example_signal::principle::0016->counter-example::effective-requirements-0042
+    type: derives_counter_example_signal
+    from: principle::0016
+    to: counter-example::effective-requirements-0042
+  - id: section-parent::principle::0015->principle::0016
+    type: section_parent
+    from: principle::0015
+    to: principle::0016
+  - id: supported-by::principle::0016->evidence::effective-requirements-0038
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0038
+  - id: supported-by::principle::0016->evidence::effective-requirements-0039
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0039
+  - id: supported-by::principle::0016->evidence::effective-requirements-0040
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0040
+  - id: supported-by::principle::0016->evidence::effective-requirements-0041
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0041
+  - id: supported-by::principle::0016->evidence::effective-requirements-0042
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0042
+  - id: supported-by::principle::0016->evidence::effective-requirements-0043
+    type: supported_by_evidence
+    from: principle::0016
+    to: evidence::effective-requirements-0043
+  communities:
+  - id: community::principle::0015
+    label: 系统分解子篇 Cluster
+  - id: community::principle::0016
+    label: 7 业务子系统划分 Cluster
+checklist_sections:
+- Scope
+- Rollback
+- Reversibility
+- Evidence Anchors

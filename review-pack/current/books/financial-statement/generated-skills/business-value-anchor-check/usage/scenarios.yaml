@@ -1,0 +1,394 @@
+should_trigger:
+- scenario_id: live-decision-window
+  summary: Business Value Anchor Check fires when the scenario contains a live decision
+    this principle can materially improve.
+  prompt_signals:
+  - 需要做决定
+  - 如何判断
+  - 下一步怎么做
+  boundary_reason: The scenario already contains a concrete decision boundary.
+  next_action_shape: 输出与该原则相匹配的具体 next action。
+  anchor_refs:
+  - business-value-anchor-check-principle::1098
+  - business-value-anchor-check-evidence::financial-statement-1202
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0981->case::financial-statement-1070
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0981->case::financial-statement-1070`
+    expands trigger language only when a live decision links `M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司`
+    and `丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、...`.'
+  prompt_signals:
+  - M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+  - 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、...
+  - 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:13073-13083`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0981->case::financial-statement-1070
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:13073-13083
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0084
+      label: 思考题 Cluster
+      top_node_id: principle::0080
+      top_node_label: 了解企业：金佰利公司（股票代码：KMB）
+      node_count: 8
+    - community_id: community::principle::0087
+      label: E1.1. 计算企业价值（简单） Cluster
+      top_node_id: evidence::financial-statement-0095
+      top_node_label: 某公司的股票市值总额为 12 亿美元，债务的交易总额为 6 亿美元。请问，该公司的市场价值是多少（即企业市值）？
+      node_count: 3
+    - community_id: community::principle::0092
+      label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等） Cluster
+      top_node_id: evidence::financial-statement-0099
+      top_node_label: a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列...
+      node_count: 7
+    - community_id: community::principle::0093
+      label: 迷你案例 Cluster
+      top_node_id: principle::0092
+      top_node_label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+      node_count: 2
+    - community_id: community::principle::0094
+      label: M1.1 对一份权益分析报告的批评：美国在线公司 Cluster
+      top_node_id: case::financial-statement-0100
+      top_node_label: 如本章所介绍的，1998年、1999年和2000年的美国股票市场一直被互联网泡沫所包围。网络公司股票的市盈率和市销率已经严重偏离了股票市场...
+      node_count: 12
+    - community_id: community::principle::0095
+      label: 第 2 章 财务报表简介 Cluster
+      top_node_id: principle::0092
+      top_node_label: E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+      node_count: 3
+    - community_id: community::principle::0343
+      label: 保险公司的股份化：这些企业的价值大于它们的账面价值吗 Cluster
+      top_node_id: evidence::financial-statement-0364
+      top_node_label: 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan...
+      node_count: 6
+    - community_id: community::principle::0385
+      label: E5.7. 利用会计技术来计量持续经营的价值增加额（中等） Cluster
+      top_node_id: evidence::financial-statement-0410
+      top_node_label: 一家新开业的公司宣布它将每年完成1.5亿美元的项目投资，这些项目的投资回报率均为15%（按每期期初的账面价值进行计算），寿命均为5年，项目...
+      node_count: 3
+    - community_id: community::principle::0627
+      label: 将金融性资产水平作为估值底限 Cluster
+      top_node_id: evidence::financial-statement-0667
+      top_node_label: 本杰明·格雷厄姆先生在20世纪30年代经济大萧条最严重的时候曾经提出，那些市场价格已经低于其货币资金价值的企业（与目前相比，这种现象在当时...
+      node_count: 5
+    - community_id: community::principle::0629
+      label: =净经营性资产的价值+净金融性资产的价值 Cluster
+      top_node_id: evidence::financial-statement-0668
+      top_node_label: 如果某家企业的权益市价已经低于了其净金融性资产的价值，就意味着市场认为这家企业的经营价值已经成为负数。所以，在正常情况下，企业的权益价值至...
+      node_count: 3
+    - community_id: community::principle::0908
+      label: 预测与估值分析 Cluster
+      top_node_id: evidence::financial-statement-0976
+      top_node_label: 经营活动的估值与金融活动的估值有什么不同？ 根据估值进行交易 外部投资者： 比较价值与价格，决定 买入、卖出或者持有 内部投资者：
+        比较价...
+      node_count: 4
+    - community_id: community::principle::0909
+      label: 第 14 章 经营价值与市净率和市盈率评价 Cluster
+      top_node_id: principle::0908
+      top_node_label: 预测与估值分析
+      node_count: 4
+    - community_id: community::principle::0910
+      label: 分析师备忘录 Cluster
+      top_node_id: principle::0909
+      top_node_label: 第 14 章 经营价值与市净率和市盈率评价
+      node_count: 2
+    - community_id: community::principle::0911
+      label: 学习目标 Cluster
+      top_node_id: principle::0909
+      top_node_label: 第 14 章 经营价值与市净率和市盈率评价
+      node_count: 3
+    - community_id: community::principle::0932
+      label: 阅读材料 14-4 Cluster
+      top_node_id: principle::0931
+      top_node_label: 14.4.1 杠杆与剩余收益估值模型
+      node_count: 3
+    - community_id: community::principle::0933
+      label: 锐步国际公司：股份回购和借款对企业价值和权益价值的影响 Cluster
+      top_node_id: evidence::financial-statement-1011
+      top_node_label: 在锐步公司1996年的财务报表附注2中，披露了如下信息。
+      node_count: 3
+    - community_id: community::principle::0947
+      label: 更多书籍请搜索 挥剑斩浮云 ，微信公众号微博：挥剑斩浮云hj zfycom Cluster
+      top_node_id: case::financial-statement-1037
+      top_node_label: 这里所进行的调整只是一个大致数。首先，利用布莱克－斯科尔斯期权估值模型本身只能得到大致的估值。由于员工期权与标准的交易期权还是有着不同的特...
+      node_count: 10
+    - community_id: community::principle::0948
+      label: 14.6 企业估值乘数 Cluster
+      top_node_id: counter-example::financial-statement-1038
+      top_node_label: 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表
+        14-6 ...
+      node_count: 4
+    - community_id: community::principle::0968
+      label: E14.6. 计算股东权益的必要报酬率（中等） Cluster
+      top_node_id: evidence::financial-statement-1059
+      top_node_label: 某家企业的经营活动必要报酬率为10%，负债的账面价值为24.5亿美元，借款成本率为8%，所得税率为37%。这家企业的股东权益价
+        值为 82...
+      node_count: 6
+    - community_id: community::principle::0969
+      label: E14.7. 剩余经营性收益估值（简单） Cluster
+      top_node_id: evidence::financial-statement-1060
+      top_node_label: 下面是 2012 年年末对某家企业做出的一些预测数据，这家企业的净经营性资产为 1135 百万美元，净金融性负债为 720
+        百万美元（单位...
+      node_count: 3
+    - community_id: community::principle::0977
+      label: E14.15. 剩余经营性收益与企业乘数：通用磨坊公司（简单） Cluster
+      top_node_id: evidence::financial-statement-1067
+      top_node_label: 在第 10 章的表 10-5 和表 10-11 中，分别列出了通用磨坊公司在 2010 财务年度的重构资产负债表和重构利润表。当该公司的
+        ...
+      node_count: 5
+    - community_id: community::principle::0981
+      label: M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司 Cluster
+      top_node_id: case::financial-statement-1070
+      top_node_label: 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、...
+      node_count: 8
+    - community_id: community::principle::1044
+      label: 耐克公司与可口可乐公司：品牌企业的价值影响因素历史水平分布 Cluster
+      top_node_id: framework::1004
+      top_node_label: 15.3 将简单估值作为一个分析工具
+      node_count: 5
+    - community_id: community::principle::1045
+      label: 耐克公司 Cluster
+      top_node_id: evidence::financial-statement-0907
+      top_node_label: 耐克公司的净经营性资产报酬率 RNOA 在 2009 财务年度为 28.4%，到 2010 财务年度，增加为 30.6%，增加了
+        2.2%...
+      node_count: 6
+    - community_id: community::principle::1048
+      label: 阅读材料 16-3 Cluster
+      top_node_id: principle::1044
+      top_node_label: 耐克公司与可口可乐公司：品牌企业的价值影响因素历史水平分布
+      node_count: 2
+    - community_id: community::principle::1049
+      label: 重要影响因素 Cluster
+      top_node_id: evidence::financial-statement-1141
+      top_node_label: 特定行业的重要影响因素 | 0 | 1 | 2 | |:-------|:----------------|:--------------...
+      node_count: 4
+    - community_id: community::principle::1098
+      label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等） Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 7
+    - community_id: community::principle::1099
+      label: E16.14. 对公司合并进行评价：PPE 公司（困难） Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 6
+    - community_id: community::principle::1101
+      label: M16.1 全面预测与估值：宝洁公司VI Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 5
+    - community_id: community::principle::1102
+      label: M16.2 戴尔公司的股票价格合理吗 Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 4
+    - community_id: community::principle::1103
+      label: 经营战略 Cluster
+      top_node_id: principle::1098
+      top_node_label: E16.13. 根据经营性收益增长预测进行估值：耐克公司（中等）
+      node_count: 5
+    - community_id: community::principle::1119
+      label: 会计影响 Cluster
+      top_node_id: framework::1118
+      top_node_label: 项目会计核算方法的影响
+      node_count: 5
+    - community_id: community::principle::1121
+      label: 17.2 会计方法、市净率、市盈率与持续经营估值 Cluster
+      top_node_id: evidence::financial-statement-1231
+      top_node_label: 17.1 节中的例子只涉及一个简单项目的估值，但其实，如果一家持续经营的企业总是坚持将它的账面价值保持在较低（或较高）水平，也能观察到类似...
+      node_count: 4
+    - community_id: community::principle::1122
+      label: 17.2.1 投资规模既定水平下的会计方法影响 Cluster
+      top_node_id: evidence::financial-statement-1232
+      top_node_label: 持续经营假定意味着我们需要不断重复地进行投资。表 17-2 是一套由五份表格所组成系列表格中的第一份，说明了一家企业在
+        2010 年投资 ...
+      node_count: 9
+    suggested_questions:
+    - Why does `关键概念` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - Why does `学习能力` sit at the center of this graph, and what evidence would most
+      change its routing?
+    - What is the operational boundary of `关键概念 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - What is the operational boundary of `学习能力 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `关键概念 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0981->case::financial-statement-1071
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0981->case::financial-statement-1071`
+    expands trigger language only when a live decision links `M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司`
+    and `| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| | |...`.'
+  prompt_signals:
+  - M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+  - '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| | |...'
+  - '| 0 | 1 | 2 | 3 | 4 | |:--------|:------|:------|:------|:------| | | 2010年 |...'
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:13085-13103`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0981->case::financial-statement-1071
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:13085-13103
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038`
+    expands trigger language only when a live decision links `14.6 企业估值乘数` and `在表
+    14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 ...`.'
+  prompt_signals:
+  - 14.6 企业估值乘数
+  - 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 ...
+  - 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 中，你可能还注意...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:12687-12687`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0948->counter-example::financial-statement-1038
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:12687-12687
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0092->term::hewlett-packard
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0092->term::hewlett-packard`
+    expands trigger language only when a live decision links `E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）`
+    and `Hewlett-Packard`.'
+  prompt_signals:
+  - E1.5. 企业的市场价值：通用磨坊公司和惠普公司（中等）
+  - Hewlett-Packard
+  - a. 通用磨坊公司（General Mills, Inc.）是一家大型包装食品制造商，在截至2011年5月29日的年度报告中，它报告了下列信息（金额单位：...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:1480-1496`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0092->term::hewlett-packard
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:1480-1496
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance`
+    expands trigger language only when a live decision links `保险公司的股份化：这些企业的价值大于它们的账面价值吗`
+    and `John Hancock Mutual Life insurance`.'
+  prompt_signals:
+  - 保险公司的股份化：这些企业的价值大于它们的账面价值吗
+  - John Hancock Mutual Life insurance
+  - 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan Life In...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:4612-4628`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0343->term::john-hancock-mutual-life-insurance
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:4612-4628
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0343->term::metropolitan-life-insurance
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0343->term::metropolitan-life-insurance`
+    expands trigger language only when a live decision links `保险公司的股份化：这些企业的价值大于它们的账面价值吗`
+    and `Metropolitan Life Insurance`.'
+  prompt_signals:
+  - 保险公司的股份化：这些企业的价值大于它们的账面价值吗
+  - Metropolitan Life Insurance
+  - 包括恒康人寿保险公司（John Hancock Mutual Life insurance）和大都会人寿保险公司（Metropolitan Life In...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:4612-4628`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0343->term::metropolitan-life-insurance
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:4612-4628
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0981->term::hurricane-katrina
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0981->term::hurricane-katrina`
+    expands trigger language only when a live decision links `M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司`
+    and `Hurricane Katrina`.'
+  prompt_signals:
+  - M14.1 对一家财产保险公司的经营和投资进行估值：丘博公司
+  - Hurricane Katrina
+  - 丘博公司是一家财险控股公司，它的分支机构遍布美国、加拿大、欧洲和部分拉丁美洲与亚洲国家，旗下拥有联邦保险、思危保险、太平洋保险、大北保险、丘博国际、丘博保...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/财务报表分析_Markdown版.md:13073-13083`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0981->term::hurricane-katrina
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/财务报表分析_Markdown版.md:13073-13083
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: concept-query-only
+  summary: Do not fire on concept-only questions without a live decision.
+  prompt_signals:
+  - 是什么概念
+  - 怎么定义
+  - 解释一下
+  boundary_reason: The user is learning a concept, not applying a decision principle.
+  anchor_refs:
+  - business-value-anchor-check-principle::1098
+  - business-value-anchor-check-evidence::financial-statement-1202
+edge_case:
+- scenario_id: partial-fit-boundary
+  summary: Use edge handling when the principle partially fits but the boundary is
+    still ambiguous.
+  prompt_signals:
+  - 有点像
+  - 不确定是否适用
+  boundary_reason: The decision pattern overlaps, but important context is still missing.
+  next_action_shape: 先补关键上下文，再决定 full_apply / partial_review / defer。
+  anchor_refs:
+  - business-value-anchor-check-principle::1098
+  - business-value-anchor-check-evidence::financial-statement-1202
+- scenario_id: graph-ambiguous-boundary-counter-example::financial-statement-1038
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::financial-statement-1038`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 ...
+  - 在表 14-5 金融杠杆影响的例题中，你也许已经发现，随着杠杆程度的增加，市净率也增大了，从 1.2 变为了 1.33。而在表 14-6 中，你可能还注意...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/财务报表分析_Markdown版.md:12687-12687`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - counter-example::financial-statement-1038
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/财务报表分析_Markdown版.md:12687-12687
+  graph_navigation: *id001
+refusal:
+- scenario_id: missing-decision-context
+  summary: Refuse when the scenario lacks enough decision context or disconfirming
+    evidence.
+  prompt_signals:
+  - 信息还不够
+  - 只是先了解一下
+  boundary_reason: The principle should not fire without a stable decision boundary.
+  anchor_refs:
+  - business-value-anchor-check-principle::1098
+  - business-value-anchor-check-evidence::financial-statement-1202

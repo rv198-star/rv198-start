@@ -1,0 +1,405 @@
+should_trigger:
+- scenario_id: choose-workflow-entrypoint
+  summary: 用户拿到一组 workflow candidates，但不知道应该从哪一个开始。
+  prompt_signals:
+  - 应该先跑哪个流程
+  - 这些步骤哪个适合当前目标
+  - 帮我选一个工作流入口
+  boundary_reason: 这是路由问题，不是重新生成领域答案。
+  next_action_shape: 返回 selected_workflow_id、routing_reason、missing_context、next_action。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0023->case::effective-requirements-0064
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0023->case::effective-requirements-0064`
+    expands trigger language only when a live decision links `13 业务场景分析` and `当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2510-2573`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0023->case::effective-requirements-0064
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2510-2573
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: community::principle::0018
+      label: 功能需求主线子篇——业务支持部分 Cluster
+      top_node_id: principle::0023
+      top_node_label: 13 业务场景分析
+      node_count: 7
+    - community_id: community::principle::0023
+      label: 13 业务场景分析 Cluster
+      top_node_id: principle::0023
+      top_node_label: 13 业务场景分析
+      node_count: 22
+    - community_id: community::principle::0010
+      label: 3 目标/愿景分析 Cluster
+      top_node_id: case::effective-requirements-0021
+      top_node_label: 项目目标也可以称为愿景，是组织应用类软件系统项目、产品的灵魂，是对于出资人（或发起人、属主）而言价值的体现。但在很多需求实践中，目标、愿景...
+      node_count: 21
+    - community_id: community::principle::0011
+      label: 4 干系人识别 Cluster
+      top_node_id: case::effective-requirements-0028
+      top_node_label: “干系人”的英文原词是Stakeholder，在各种中文文献中还常被译作涉众(RUP)、相关人员、利益相关者、风险承担人。而在金山词霸中给...
+      node_count: 15
+    - community_id: community::principle::0012
+      label: 5 干系人分析 Cluster
+      top_node_id: case::effective-requirements-0033
+      top_node_label: 很多干系人分析实践都侧重于他们的关注点，也就是正需求；但实际上他们的阻力点（或称之为担心点，即负需求）分析也是十分重要的。理解“干系人负需...
+      node_count: 9
+    - community_id: community::principle::0013
+      label: 6 价值需求分析总结 Cluster
+      top_node_id: case::effective-requirements-0036
+      top_node_label: 前面我们分别针对价值需求分析的“目标/愿景分析”、“干系人识别”和“干系人分析”三个子任务进行了详细讲解；但在实际的需求分析过程中，这三个...
+      node_count: 6
+    suggested_questions:
+    - Why does `13 业务场景分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - Why does `2 日常需求分析` sit at the center of this graph, and what evidence would
+      most change its routing?
+    - What is the operational boundary of `13 业务场景分析 Cluster`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `2 日常需求分析 Cluster`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `13 业务场景分析 Cluster`?
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0023->case::effective-requirements-0066
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0023->case::effective-requirements-0066`
+    expands trigger language only when a live decision links `13 业务场景分析` and `“这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。
+    “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2596-2637`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0023->case::effective-requirements-0066
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2596-2637
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0023->case::effective-requirements-0067
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0023->case::effective-requirements-0067`
+    expands trigger language only when a live decision links `13 业务场景分析` and `具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。
+    1.重在人机交...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2642-2687`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0023->case::effective-requirements-0067
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2642-2687
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0023->case::effective-requirements-0068
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0023->case::effective-requirements-0068`
+    expands trigger language only when a live decision links `13 业务场景分析` and `相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。 案例分...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2690-2697`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0023->case::effective-requirements-0068
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2690-2697
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_case_signal::principle::0023->case::effective-requirements-0069
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_case_signal::principle::0023->case::effective-requirements-0069`
+    expands trigger language only when a live decision links `13 业务场景分析` and `在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2700-2725`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_case_signal::principle::0023->case::effective-requirements-0069
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2700-2725
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064`
+    expands trigger language only when a live decision links `13 业务场景分析` and `当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2510-2573`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0064
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2510-2573
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066`
+    expands trigger language only when a live decision links `13 业务场景分析` and `“这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。
+    “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2596-2637`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0066
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2596-2637
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067`
+    expands trigger language only when a live decision links `13 业务场景分析` and `具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。
+    1.重在人机交...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2642-2687`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0067
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2642-2687
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068`
+    expands trigger language only when a live decision links `13 业务场景分析` and `相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。 案例分...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2690-2697`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0068
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2690-2697
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069`
+    expands trigger language only when a live decision links `13 业务场景分析` and `在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2700-2725`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0069
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2700-2725
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070`
+    expands trigger language only when a live decision links `13 业务场景分析` and `质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。
+    ...`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。 ...
+  - 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。 (1)性能相关：...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2728-2767`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_counter_example_signal::principle::0023->counter-example::effective-requirements-0070
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2728-2767
+  graph_navigation: *id001
+- scenario_id: graph-inferred-link-derives_term_signal::principle::0023->term::ui-ue
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `derives_term_signal::principle::0023->term::ui-ue`
+    expands trigger language only when a live decision links `13 业务场景分析` and `UI/UE`.'
+  prompt_signals:
+  - 13 业务场景分析
+  - UI/UE
+  - 质量要求和约束是有局限性的，在分析一个业务场景时，还应该考虑到环境、业务特点给系统实现带来的要求和影响。通常可以从以下几个方面着手分析。 (1)性能相关：...
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: 'Use the inferred relation to choose apply / defer / do_not_apply
+    with explicit evidence_to_check. Evidence check: verify source_location `sources/有效需求分析（第2版）.md:2728-2767`
+    before expanding the trigger.'
+  anchor_refs:
+  - derives_term_signal::principle::0023->term::ui-ue
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/有效需求分析（第2版）.md:2728-2767
+  graph_navigation: *id001
+should_not_trigger:
+- scenario_id: exact-workflow-already-known
+  summary: 用户已经明确指定 workflow id 时，不需要 gateway 再判断。
+  prompt_signals:
+  - 运行 10-业务流程识别
+  - 打开这个 workflow.yaml
+  boundary_reason: 这时应直接执行对应 workflow，而不是再做 agentic 路由。
+  anchor_refs:
+  - workflow-gateway-primary
+edge_case:
+- scenario_id: goal-too-vague-for-routing
+  summary: 用户只说想分析材料，但没有说明目标、输入或约束。
+  prompt_signals:
+  - 帮我分析一下
+  - 看看这个材料
+  boundary_reason: 目标不足时只能 ask_clarifying_question，不能猜一个 workflow。
+  next_action_shape: 列 missing_context 并提出最少澄清问题。
+  anchor_refs:
+  - workflow-gateway-primary
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0064
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0064`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景...
+  - 当识别出业务场景之后，还应该细化业务场景的事件流，从而实现以用户视角发现系统应该提供的功能。要执行好这个任务，则应该深入理解用户视角的场景描述、场景—挑战...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:2510-2573`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0064
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:2510-2573
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0066
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0066`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我...
+  - “这个方案不错，我回头告诉我朋友，仔细讨论一下技术可行性。”小李显得相当开心。 “怎么样？这就是场景—挑战—方案的逻辑，你有体会了吧？”我顺势做了一个总结...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:2596-2637`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0066
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:2596-2637
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0067
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0067`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交...
+  - 具体的梳理方法我们已经在第13.2.2节“场景—挑战—方案”中列举过例子了，在这里不再重复，仅对一些写作要点进行补充说明。 1.重在人机交互而非人机界面，...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:2642-2687`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0067
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:2642-2687
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0068
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0068`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件...
+  - 相信大家从上面的案例中可以得出结论：不要用“如果……那么……”之类的结构，改用扩展事件流表示；不要用“重复执行……”之类的结构，改用子事件流表示。 案例分...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:2690-2697`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0068
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:2690-2697
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-counter-example::effective-requirements-0069
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `counter-example::effective-requirements-0069`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分...
+  - 在用例分析的方法中，用例描述通常就是细化业务步骤，但这样的写法与要实现的功能并没有形成有机的关联。因此，我们建议在此基础上通过“遍历步骤分析困难”的方法，...
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `sources/有效需求分析（第2版）.md:2700-2725`, name
+    the boundary uncertainty, and either narrow the output or decline with a concrete
+    decline_reason.
+  anchor_refs:
+  - counter-example::effective-requirements-0069
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: sources/有效需求分析（第2版）.md:2700-2725
+  graph_navigation: *id001
+refusal:
+- scenario_id: agentic-judgment-request
+  summary: 用户要求直接给复杂判断结论，而不是选择 workflow。
+  prompt_signals:
+  - 直接告诉我战略怎么定
+  - 不要流程，给结论
+  boundary_reason: 这超出薄 gateway 职责，应转交厚 skill 或要求新建 agentic candidate。
+  next_action_shape: 说明 gateway 只能路由 workflow，不能替代判断密集型 skill。
+  anchor_refs:
+  - workflow-gateway-primary

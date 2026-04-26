@@ -1,0 +1,34 @@
+skill_id: workflow-gateway
+bundle_version: 0.2.0
+current_revision: 3
+history:
+- revision: 1
+  date: '2026-04-26'
+  summary: Initial thin workflow gateway generated because all accepted candidates
+    were deterministic workflow candidates.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Preserved workflow candidates outside bundle/skills.
+  - Added one llm_agentic router skill as an installable entrypoint.
+- revision: 2
+  date: '2026-04-26'
+  summary: Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 1 tightened boundary signals and improved evaluation
+    support.
+- revision: 3
+  date: '2026-04-26'
+  summary: Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+  graph_hash: sha256:58d9dbaa74d6ef14137efb10a473d151d9c2e1945e51522751719e1827067313
+  effective_status: under_evaluation
+  evidence_changes:
+  - Refinement scheduler round 2 tightened boundary signals and improved evaluation
+    support.
+open_gaps:
+- Replace smoke usage review with real user routing logs before publication.
+- Confirm whether each routed workflow should later gain a dedicated agentic wrapper.

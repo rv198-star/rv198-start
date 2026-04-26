@@ -1,0 +1,38 @@
+skill_id: business-value-anchor-check
+bundle_version: 0.2.0
+skill_revision: 6
+status: under_evaluation
+kiu_test:
+  trigger_test: pass
+  fire_test: pass
+  boundary_test: pass
+subsets:
+  real_decisions:
+    cases:
+    - evaluation/real_decisions/business-value-anchor-check-real_decision_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  synthetic_adversarial:
+    cases:
+    - evaluation/synthetic_adversarial/business-value-anchor-check-adversarial_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+  out_of_distribution:
+    cases:
+    - evaluation/out_of_distribution/business-value-anchor-check-ood_smoke.yaml
+    passed: 1
+    total: 1
+    threshold: 1.0
+    status: pass
+key_failure_modes:
+- If `scenario_missing_decision_context` remains true, defer the skill instead of
+  firing.
+- If `disconfirming_evidence_present` is observed, treat the evidence as conflicting.
+references:
+  evaluation_root: ../../../evaluation
+  prefill_mode: deterministic
+  gold_skill_id: null

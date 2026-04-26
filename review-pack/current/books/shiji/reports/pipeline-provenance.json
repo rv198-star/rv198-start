@@ -1,0 +1,23 @@
+{
+  "schema_version": "kiu.pipeline-provenance/v0.1",
+  "pipeline_mode": "raw_book_no_seed_cold_start",
+  "raw_book_no_seed_cold_start": true,
+  "input_kind": "raw_markdown_book",
+  "source_input_path": "examples/shiji_md/resource",
+  "source_bundle_root": "/tmp/kiu-v075-user-facing-optimization/shiji/sources/shiji/bundle",
+  "run_root": "/tmp/kiu-v075-user-facing-optimization/shiji/generated/shiji-source-v0.6/v075-shiji-user-facing",
+  "source_bundle_id": "shiji-source-v0.6",
+  "source_bundle_skill_count": 0,
+  "uses_existing_source_skills": false,
+  "uses_reference_pack_as_generation_input": false,
+  "manual_generated_artifact_patch_allowed": false,
+  "artifact_paths": {
+    "source_chunks": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/source-chunks.json",
+    "extraction_result": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/extraction-result.json",
+    "graph": "/tmp/kiu-v075-user-facing-optimization/shiji/intermediate/shiji/v075-shiji-user-facing/graph.json"
+  },
+  "extraction": {
+    "deterministic_pass": "heuristic-extractors"
+  },
+  "claim_boundary": "This run may be claimed as raw-book no-seed cold start only if raw_book_no_seed_cold_start is true and source_bundle_skill_count is 0."
+}

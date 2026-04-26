@@ -1,0 +1,3968 @@
+{
+  "schema_version": "kiu.pseudo-skill-audit/v0.1",
+  "chapter_title_rejected": [
+    {
+      "candidate_id": "4-1-股利贴现模型",
+      "title": "4 1 股利贴现模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3656,
+        "line_end": 3656
+      }
+    },
+    {
+      "candidate_id": "3-投资活动与经营活动",
+      "title": "3 投资活动与经营活动",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3134,
+        "line_end": 3134
+      }
+    },
+    {
+      "candidate_id": "4-对各个资产负债表项目直接展开调查",
+      "title": "4 对各个资产负债表项目直接展开调查",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16418,
+        "line_end": 16418
+      }
+    },
+    {
+      "candidate_id": "0-1-6-财务与会计的整合",
+      "title": "0 1 6 财务与会计的整合",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 159,
+        "line_end": 159
+      }
+    },
+    {
+      "candidate_id": "12-4-2-周转率的影响因素",
+      "title": "12 4 2 周转率的影响因素",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10273,
+        "line_end": 10273
+      }
+    },
+    {
+      "candidate_id": "13-2-直达核心-可持续盈利",
+      "title": "13 2 直达核心 可持续盈利",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10889,
+        "line_end": 10889
+      }
+    },
+    {
+      "candidate_id": "10-2-重构利润表",
+      "title": "10 2 重构利润表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8216,
+        "line_end": 8216
+      }
+    },
+    {
+      "candidate_id": "13-3-2-经营杠杆的影响",
+      "title": "13 3 2 经营杠杆的影响",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11248,
+        "line_end": 11248
+      }
+    },
+    {
+      "candidate_id": "20-1-信贷供应商",
+      "title": "20 1 信贷供应商",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18021,
+        "line_end": 18021
+      }
+    },
+    {
+      "candidate_id": "1-1-投资风格与基本面分析",
+      "title": "1 1 投资风格与基本面分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 773,
+        "line_end": 773
+      }
+    },
+    {
+      "candidate_id": "1-6-选择估值技术",
+      "title": "1 6 选择估值技术",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1115,
+        "line_end": 1115
+      }
+    },
+    {
+      "candidate_id": "10-5-搭建你自己的分析工具",
+      "title": "10 5 搭建你自己的分析工具",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8699,
+        "line_end": 8699
+      }
+    },
+    {
+      "candidate_id": "4-3-现金流量表",
+      "title": "4 3 现金流量表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3894,
+        "line_end": 3894
+      }
+    },
+    {
+      "candidate_id": "9-2-非清洁盈余会计",
+      "title": "9 2 非清洁盈余会计",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7200,
+        "line_end": 7200
+      }
+    },
+    {
+      "candidate_id": "1-2-泡沫-陷阱和麻烦",
+      "title": "1 2 泡沫 陷阱和麻烦",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 823,
+        "line_end": 823
+      }
+    },
+    {
+      "candidate_id": "19-5-1-市场无效风险",
+      "title": "19 5 1 市场无效风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17554,
+        "line_end": 17554
+      }
+    },
+    {
+      "candidate_id": "19-6-6-不确定情况下的期望收益率",
+      "title": "19 6 6 不确定情况下的期望收益率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17708,
+        "line_end": 17708
+      }
+    },
+    {
+      "candidate_id": "2-2-1-市净率",
+      "title": "2 2 1 市净率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1777,
+        "line_end": 1777
+      }
+    },
+    {
+      "candidate_id": "6-8-peg-比率",
+      "title": "6 8 Peg 比率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5934,
+        "line_end": 5934
+      }
+    },
+    {
+      "candidate_id": "1-2-1-泡沫的机理",
+      "title": "1 2 1 泡沫的机理",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 837,
+        "line_end": 837
+      }
+    },
+    {
+      "candidate_id": "19-2-1-收益率分布",
+      "title": "19 2 1 收益率分布",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17287,
+        "line_end": 17287
+      }
+    },
+    {
+      "candidate_id": "0-3-5-配套网站资料",
+      "title": "0 3 5 配套网站资料",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 275,
+        "line_end": 275
+      }
+    },
+    {
+      "candidate_id": "14-6-2-企业市盈率",
+      "title": "14 6 2 企业市盈率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12729,
+        "line_end": 12729
+      }
+    },
+    {
+      "candidate_id": "17-2-2-投资规模变动水平下的会计方法影响",
+      "title": "17 2 2 投资规模变动水平下的会计方法影响",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15244,
+        "line_end": 15244
+      }
+    },
+    {
+      "candidate_id": "2-1-1-耐克公司简介",
+      "title": "2 1 1 耐克公司简介",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1610,
+        "line_end": 1610
+      }
+    },
+    {
+      "candidate_id": "2-1-3-利润表",
+      "title": "2 1 3 利润表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1690,
+        "line_end": 1690
+      }
+    },
+    {
+      "candidate_id": "3-1-乘数分析",
+      "title": "3 1 乘数分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2682,
+        "line_end": 2682
+      }
+    },
+    {
+      "candidate_id": "5-2-1-项目估值",
+      "title": "5 2 1 项目估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4441,
+        "line_end": 4441
+      }
+    },
+    {
+      "candidate_id": "7-2-2-检验某只股票定价的合理性",
+      "title": "7 2 2 检验某只股票定价的合理性",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6423,
+        "line_end": 6423
+      }
+    },
+    {
+      "candidate_id": "0-1-写作思考",
+      "title": "0 1 写作思考",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 123,
+        "line_end": 123
+      }
+    },
+    {
+      "candidate_id": "1-2-3-更多的陷阱和麻烦",
+      "title": "1 2 3 更多的陷阱和麻烦",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 887,
+        "line_end": 887
+      }
+    },
+    {
+      "candidate_id": "14-3-3-经营风险-财务风险与权益资本成本",
+      "title": "14 3 3 经营风险 财务风险与权益资本成本",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12381,
+        "line_end": 12381
+      }
+    },
+    {
+      "candidate_id": "19-4-1-适应选择力与增长选择力",
+      "title": "19 4 1 适应选择力与增长选择力",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17516,
+        "line_end": 17516
+      }
+    },
+    {
+      "candidate_id": "8-错误的配比",
+      "title": "8 错误的配比",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9578,
+        "line_end": 9578
+      }
+    },
+    {
+      "candidate_id": "1-5-1-战略与估值",
+      "title": "1 5 1 战略与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 991,
+        "line_end": 991
+      }
+    },
+    {
+      "candidate_id": "10-2-2-重构利润表时应注意的问题",
+      "title": "10 2 2 重构利润表时应注意的问题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8311,
+        "line_end": 8311
+      }
+    },
+    {
+      "candidate_id": "19-2-2-分散投资与风险",
+      "title": "19 2 2 分散投资与风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17319,
+        "line_end": 17319
+      }
+    },
+    {
+      "candidate_id": "5-7-6-剩余收益估值模型的不足",
+      "title": "5 7 6 剩余收益估值模型的不足",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5037,
+        "line_end": 5037
+      }
+    },
+    {
+      "candidate_id": "7-2-检验市场价格中的投机成分",
+      "title": "7 2 检验市场价格中的投机成分",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6337,
+        "line_end": 6337
+      }
+    },
+    {
+      "candidate_id": "9-4-隐蔽的非清洁盈余",
+      "title": "9 4 隐蔽的非清洁盈余",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7314,
+        "line_end": 7314
+      }
+    },
+    {
+      "candidate_id": "0-1-7-主动者的视角",
+      "title": "0 1 7 主动者的视角",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 163,
+        "line_end": 163
+      }
+    },
+    {
+      "candidate_id": "0-3-6-教师资源",
+      "title": "0 3 6 教师资源",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 295,
+        "line_end": 295
+      }
+    },
+    {
+      "candidate_id": "1-4-2-企业内部投资-内部分析师",
+      "title": "1 4 2 企业内部投资 内部分析师",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 963,
+        "line_end": 963
+      }
+    },
+    {
+      "candidate_id": "10-4-比率分析",
+      "title": "10 4 比率分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8583,
+        "line_end": 8583
+      }
+    },
+    {
+      "candidate_id": "13-4-2-历史市盈率与暂时性盈利",
+      "title": "13 4 2 历史市盈率与暂时性盈利",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11489,
+        "line_end": 11489
+      }
+    },
+    {
+      "candidate_id": "15-2-简单预测-添加信息到财务报表中",
+      "title": "15 2 简单预测 添加信息到财务报表中",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13343,
+        "line_end": 13343
+      }
+    },
+    {
+      "candidate_id": "15-3-2-反向挑战市场价格",
+      "title": "15 3 2 反向挑战市场价格",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13454,
+        "line_end": 13454
+      }
+    },
+    {
+      "candidate_id": "16-1-财务报表分析-关注商业的透镜",
+      "title": "16 1 财务报表分析 关注商业的透镜",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13815,
+        "line_end": 13815
+      }
+    },
+    {
+      "candidate_id": "16-3-股份交易所创造的价值",
+      "title": "16 3 股份交易所创造的价值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14343,
+        "line_end": 14343
+      }
+    },
+    {
+      "candidate_id": "3-3-基本面分析",
+      "title": "3 3 基本面分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2945,
+        "line_end": 2945
+      }
+    },
+    {
+      "candidate_id": "3-4-1-期限投资与持续投资",
+      "title": "3 4 1 期限投资与持续投资",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2997,
+        "line_end": 2997
+      }
+    },
+    {
+      "candidate_id": "9-4-1-在经营过程中发行股份",
+      "title": "9 4 1 在经营过程中发行股份",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7318,
+        "line_end": 7318
+      }
+    },
+    {
+      "candidate_id": "0-1-4-基于会计的估值方法",
+      "title": "0 1 4 基于会计的估值方法",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 145,
+        "line_end": 145
+      }
+    },
+    {
+      "candidate_id": "0-3-3-章末材料",
+      "title": "0 3 3 章末材料",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 267,
+        "line_end": 267
+      }
+    },
+    {
+      "candidate_id": "1-5-商业分析",
+      "title": "1 5 商业分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 979,
+        "line_end": 979
+      }
+    },
+    {
+      "candidate_id": "1-预计分析与违约预测",
+      "title": "1 预计分析与违约预测",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18309,
+        "line_end": 18309
+      }
+    },
+    {
+      "candidate_id": "14-3-1-经营活动的资本成本",
+      "title": "14 3 1 经营活动的资本成本",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12309,
+        "line_end": 12309
+      }
+    },
+    {
+      "candidate_id": "14-4-4-负债与税",
+      "title": "14 4 4 负债与税",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12630,
+        "line_end": 12630
+      }
+    },
+    {
+      "candidate_id": "15-1-3-增长条件下的预测与估值",
+      "title": "15 1 3 增长条件下的预测与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13247,
+        "line_end": 13247
+      }
+    },
+    {
+      "candidate_id": "15-1-简单预测与估值",
+      "title": "15 1 简单预测与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13163,
+        "line_end": 13163
+      }
+    },
+    {
+      "candidate_id": "17-2-1-投资规模既定水平下的会计方法影响",
+      "title": "17 2 1 投资规模既定水平下的会计方法影响",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15175,
+        "line_end": 15175
+      }
+    },
+    {
+      "candidate_id": "2-1-5-股东权益变动表",
+      "title": "2 1 5 股东权益变动表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1726,
+        "line_end": 1726
+      }
+    },
+    {
+      "candidate_id": "2-2-3-利润表中的计量问题",
+      "title": "2 2 3 利润表中的计量问题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1909,
+        "line_end": 1909
+      }
+    },
+    {
+      "candidate_id": "3-1-2-乘数筛选法",
+      "title": "3 1 2 乘数筛选法",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2806,
+        "line_end": 2806
+      }
+    },
+    {
+      "candidate_id": "9-3-1-股利发放率和收益留存率",
+      "title": "9 3 1 股利发放率和收益留存率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7256,
+        "line_end": 7256
+      }
+    },
+    {
+      "candidate_id": "9-4-4-无效市场中的股份交易",
+      "title": "9 4 4 无效市场中的股份交易",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7481,
+        "line_end": 7481
+      }
+    },
+    {
+      "candidate_id": "第4章",
+      "title": "第4章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2568,
+        "line_end": 2568
+      }
+    },
+    {
+      "candidate_id": "10-3-2-趋势分析",
+      "title": "10 3 2 趋势分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8545,
+        "line_end": 8545
+      }
+    },
+    {
+      "candidate_id": "13-1-什么是增长",
+      "title": "13 1 什么是增长",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10829,
+        "line_end": 10829
+      }
+    },
+    {
+      "candidate_id": "13-4-1-市净率与历史市盈率",
+      "title": "13 4 1 市净率与历史市盈率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11411,
+        "line_end": 11411
+      }
+    },
+    {
+      "candidate_id": "14-6-1-企业市净率",
+      "title": "14 6 1 企业市净率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12689,
+        "line_end": 12689
+      }
+    },
+    {
+      "candidate_id": "15-1-2-无增长条件下的预测与估值",
+      "title": "15 1 2 无增长条件下的预测与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13200,
+        "line_end": 13200
+      }
+    },
+    {
+      "candidate_id": "16-4-财务报表指标与警示信号",
+      "title": "16 4 财务报表指标与警示信号",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14404,
+        "line_end": 14404
+      }
+    },
+    {
+      "candidate_id": "17-1-价值创造与剩余收益创造",
+      "title": "17 1 价值创造与剩余收益创造",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15133,
+        "line_end": 15133
+      }
+    },
+    {
+      "candidate_id": "17-5-2-增长-风险与估值",
+      "title": "17 5 2 增长 风险与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15588,
+        "line_end": 15588
+      }
+    },
+    {
+      "candidate_id": "19-4-2-战略与风险",
+      "title": "19 4 2 战略与风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17532,
+        "line_end": 17532
+      }
+    },
+    {
+      "candidate_id": "19-6-4-在风险等级内进行投资",
+      "title": "19 6 4 在风险等级内进行投资",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17666,
+        "line_end": 17666
+      }
+    },
+    {
+      "candidate_id": "2-1-2-资产负债表",
+      "title": "2 1 2 资产负债表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1678,
+        "line_end": 1678
+      }
+    },
+    {
+      "candidate_id": "2-1-4-现金流量表",
+      "title": "2 1 4 现金流量表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1716,
+        "line_end": 1716
+      }
+    },
+    {
+      "candidate_id": "20-2-从信用评价角度进行财务报表分析",
+      "title": "20 2 从信用评价角度进行财务报表分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18037,
+        "line_end": 18037
+      }
+    },
+    {
+      "candidate_id": "3-4-6-估值模型-必要报酬率与资产定价模型",
+      "title": "3 4 6 估值模型 必要报酬率与资产定价模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3144,
+        "line_end": 3144
+      }
+    },
+    {
+      "candidate_id": "4-3-2-预测自由现金流量",
+      "title": "4 3 2 预测自由现金流量",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3953,
+        "line_end": 3953
+      }
+    },
+    {
+      "candidate_id": "5-2-估值的原理",
+      "title": "5 2 估值的原理",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4433,
+        "line_end": 4433
+      }
+    },
+    {
+      "candidate_id": "5-6-将模型应用于项目估值和战略估值",
+      "title": "5 6 将模型应用于项目估值和战略估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4887,
+        "line_end": 4887
+      }
+    },
+    {
+      "candidate_id": "5-7-剩余收益估值模型的特点",
+      "title": "5 7 剩余收益估值模型的特点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4944,
+        "line_end": 4944
+      }
+    },
+    {
+      "candidate_id": "6-2-2-历史市盈率的正常水平",
+      "title": "6 2 2 历史市盈率的正常水平",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5512,
+        "line_end": 5512
+      }
+    },
+    {
+      "candidate_id": "6-3-2-一个简单的示例与估值模型",
+      "title": "6 3 2 一个简单的示例与估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5610,
+        "line_end": 5610
+      }
+    },
+    {
+      "candidate_id": "7-1-基本面投资者的工作方式",
+      "title": "7 1 基本面投资者的工作方式",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6277,
+        "line_end": 6277
+      }
+    },
+    {
+      "candidate_id": "7-2-1-对标准普尔-500-指数进行反推",
+      "title": "7 2 1 对标准普尔 500 指数进行反推",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6381,
+        "line_end": 6381
+      }
+    },
+    {
+      "candidate_id": "1-4-1-对企业的投资-外部分析师",
+      "title": "1 4 1 对企业的投资 外部分析师",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 957,
+        "line_end": 957
+      }
+    },
+    {
+      "candidate_id": "1-4-证券分析业务-专业分析师",
+      "title": "1 4 证券分析业务 专业分析师",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 951,
+        "line_end": 951
+      }
+    },
+    {
+      "candidate_id": "1-低市净率-低市盈率组合",
+      "title": "1 低市净率 低市盈率组合",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11483,
+        "line_end": 11483
+      }
+    },
+    {
+      "candidate_id": "1-信用评分模型",
+      "title": "1 信用评分模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18253,
+        "line_end": 18253
+      }
+    },
+    {
+      "candidate_id": "12-4-第三层分解",
+      "title": "12 4 第三层分解",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10255,
+        "line_end": 10255
+      }
+    },
+    {
+      "candidate_id": "13-3-1-通过获利实现的增长",
+      "title": "13 3 1 通过获利实现的增长",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11204,
+        "line_end": 11204
+      }
+    },
+    {
+      "candidate_id": "13-4-增长-可持续盈利与市净率和市盈率评价",
+      "title": "13 4 增长 可持续盈利与市净率和市盈率评价",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11350,
+        "line_end": 11350
+      }
+    },
+    {
+      "candidate_id": "15-3-1-敏感性分析",
+      "title": "15 3 1 敏感性分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13434,
+        "line_end": 13434
+      }
+    },
+    {
+      "candidate_id": "16-1-2-关注变动情况",
+      "title": "16 1 2 关注变动情况",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13861,
+        "line_end": 13861
+      }
+    },
+    {
+      "candidate_id": "16-2-1-预测模板",
+      "title": "16 2 1 预测模板",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14213,
+        "line_end": 14213
+      }
+    },
+    {
+      "candidate_id": "16-2-3-会计估值模型的特点",
+      "title": "16 2 3 会计估值模型的特点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14321,
+        "line_end": 14321
+      }
+    },
+    {
+      "candidate_id": "16-3-1-企业合并",
+      "title": "16 3 1 企业合并",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14347,
+        "line_end": 14347
+      }
+    },
+    {
+      "candidate_id": "16-3-2-股份回购与股票收购",
+      "title": "16 3 2 股份回购与股票收购",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14390,
+        "line_end": 14390
+      }
+    },
+    {
+      "candidate_id": "16-5-1-模糊战略",
+      "title": "16 5 1 模糊战略",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14522,
+        "line_end": 14522
+      }
+    },
+    {
+      "candidate_id": "18-3-找出被操控的交易",
+      "title": "18 3 找出被操控的交易",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16506,
+        "line_end": 16506
+      }
+    },
+    {
+      "candidate_id": "19-5-价格风险",
+      "title": "19 5 价格风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17550,
+        "line_end": 17550
+      }
+    },
+    {
+      "candidate_id": "19-6-1-增长-报酬特征",
+      "title": "19 6 1 增长 报酬特征",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17638,
+        "line_end": 17638
+      }
+    },
+    {
+      "candidate_id": "2-2-2-资产负债表中的计量问题",
+      "title": "2 2 2 资产负债表中的计量问题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1815,
+        "line_end": 1815
+      }
+    },
+    {
+      "candidate_id": "20-2-2-短期流动性比率",
+      "title": "20 2 2 短期流动性比率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18113,
+        "line_end": 18113
+      }
+    },
+    {
+      "candidate_id": "20-3-2-财务比率分析与信用评分",
+      "title": "20 3 2 财务比率分析与信用评分",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18227,
+        "line_end": 18227
+      }
+    },
+    {
+      "candidate_id": "3-4-基本面分析的骨架-估值模型",
+      "title": "3 4 基本面分析的骨架 估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2989,
+        "line_end": 2989
+      }
+    },
+    {
+      "candidate_id": "5-4-1-预测期与持续价值的计算",
+      "title": "5 4 1 预测期与持续价值的计算",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4730,
+        "line_end": 4730
+      }
+    },
+    {
+      "candidate_id": "第一部分-财务报表与估值",
+      "title": "第一部分 财务报表与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 433,
+        "line_end": 433
+      }
+    },
+    {
+      "candidate_id": "1-2-4-稳定投资者的基本面分析",
+      "title": "1 2 4 稳定投资者的基本面分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 895,
+        "line_end": 895
+      }
+    },
+    {
+      "candidate_id": "1-5-4-财务报表-商业的透镜",
+      "title": "1 5 4 财务报表 商业的透镜",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1107,
+        "line_end": 1107
+      }
+    },
+    {
+      "candidate_id": "10-2-3-战略资产负债表中的价值增加",
+      "title": "10 2 3 战略资产负债表中的价值增加",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8408,
+        "line_end": 8408
+      }
+    },
+    {
+      "candidate_id": "11-1-计算自由现金流量",
+      "title": "11 1 计算自由现金流量",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9261,
+        "line_end": 9261
+      }
+    },
+    {
+      "candidate_id": "12-2-2-经营性负债杠杆",
+      "title": "12 2 2 经营性负债杠杆",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10065,
+        "line_end": 10065
+      }
+    },
+    {
+      "candidate_id": "12-2-4-净经营性资产报酬率与总资产报酬率",
+      "title": "12 2 4 净经营性资产报酬率与总资产报酬率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10155,
+        "line_end": 10155
+      }
+    },
+    {
+      "candidate_id": "12-4-3-关键影响因素",
+      "title": "12 4 3 关键影响因素",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10332,
+        "line_end": 10332
+      }
+    },
+    {
+      "candidate_id": "13-2-1-核心经营利润",
+      "title": "13 2 1 核心经营利润",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10897,
+        "line_end": 10897
+      }
+    },
+    {
+      "candidate_id": "13-2-2-确认核心经营利润时应注意的问题",
+      "title": "13 2 2 确认核心经营利润时应注意的问题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10945,
+        "line_end": 10945
+      }
+    },
+    {
+      "candidate_id": "13-3-3-融资变化分析",
+      "title": "13 3 3 融资变化分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11270,
+        "line_end": 11270
+      }
+    },
+    {
+      "candidate_id": "14-3-资本成本与估值",
+      "title": "14 3 资本成本与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12303,
+        "line_end": 12303
+      }
+    },
+    {
+      "candidate_id": "14-4-1-杠杆与剩余收益估值模型",
+      "title": "14 4 1 杠杆与剩余收益估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12403,
+        "line_end": 12403
+      }
+    },
+    {
+      "candidate_id": "15-2-1-增长率的加权平均预测水平",
+      "title": "15 2 1 增长率的加权平均预测水平",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13351,
+        "line_end": 13351
+      }
+    },
+    {
+      "candidate_id": "15-2-2-已知短期和长期增长率条件下的简单估值",
+      "title": "15 2 2 已知短期和长期增长率条件下的简单估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13363,
+        "line_end": 13363
+      }
+    },
+    {
+      "candidate_id": "16-1-3-关注重要影响因素",
+      "title": "16 1 3 关注重要影响因素",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14007,
+        "line_end": 14007
+      }
+    },
+    {
+      "candidate_id": "16-1-4-关注其他选项和条件",
+      "title": "16 1 4 关注其他选项和条件",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14055,
+        "line_end": 14055
+      }
+    },
+    {
+      "candidate_id": "16-5-2-情景分析",
+      "title": "16 5 2 情景分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14536,
+        "line_end": 14536
+      }
+    },
+    {
+      "candidate_id": "18-2-4-判断销售收入的真实性",
+      "title": "18 2 4 判断销售收入的真实性",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16216,
+        "line_end": 16216
+      }
+    },
+    {
+      "candidate_id": "19-1-必要报酬率与期望收益率",
+      "title": "19 1 必要报酬率与期望收益率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17249,
+        "line_end": 17249
+      }
+    },
+    {
+      "candidate_id": "19-2-3-资产定价模型",
+      "title": "19 2 3 资产定价模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17339,
+        "line_end": 17339
+      }
+    },
+    {
+      "candidate_id": "19-2-风险的本质",
+      "title": "19 2 风险的本质",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17261,
+        "line_end": 17261
+      }
+    },
+    {
+      "candidate_id": "19-5-2-流动性风险",
+      "title": "19 5 2 流动性风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17586,
+        "line_end": 17586
+      }
+    },
+    {
+      "candidate_id": "2-2-6-会计原则之间的冲突",
+      "title": "2 2 6 会计原则之间的冲突",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2073,
+        "line_end": 2073
+      }
+    },
+    {
+      "candidate_id": "2-预测误差分析",
+      "title": "2 预测误差分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18291,
+        "line_end": 18291
+      }
+    },
+    {
+      "candidate_id": "20-3-1-预测的前奏-背景调查",
+      "title": "20 3 1 预测的前奏 背景调查",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18207,
+        "line_end": 18207
+      }
+    },
+    {
+      "candidate_id": "3-谨慎看待养老金资产的预期报酬率",
+      "title": "3 谨慎看待养老金资产的预期报酬率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11049,
+        "line_end": 11049
+      }
+    },
+    {
+      "candidate_id": "5-2-2-储蓄账户估值",
+      "title": "5 2 2 储蓄账户估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4479,
+        "line_end": 4479
+      }
+    },
+    {
+      "candidate_id": "5-3-2-一个简单的示例与估值模型",
+      "title": "5 3 2 一个简单的示例与估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4636,
+        "line_end": 4636
+      }
+    },
+    {
+      "candidate_id": "5-4-3-将分析师的预测转换为估值",
+      "title": "5 4 3 将分析师的预测转换为估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4828,
+        "line_end": 4828
+      }
+    },
+    {
+      "candidate_id": "6-1-2-从市净率估值到市盈率估值",
+      "title": "6 1 2 从市净率估值到市盈率估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5411,
+        "line_end": 5411
+      }
+    },
+    {
+      "candidate_id": "6-2-1-远期市盈率的正常水平",
+      "title": "6 2 1 远期市盈率的正常水平",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5502,
+        "line_end": 5502
+      }
+    },
+    {
+      "candidate_id": "8-1-企业的活动-现金流量",
+      "title": "8 1 企业的活动 现金流量",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6867,
+        "line_end": 6867
+      }
+    },
+    {
+      "candidate_id": "9-4-2-在筹资活动中发行股份",
+      "title": "9 4 2 在筹资活动中发行股份",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7420,
+        "line_end": 7420
+      }
+    },
+    {
+      "candidate_id": "前言",
+      "title": "前言",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 113,
+        "line_end": 113
+      }
+    },
+    {
+      "candidate_id": "第2章",
+      "title": "第2章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18698,
+        "line_end": 18698
+      }
+    },
+    {
+      "candidate_id": "第6章",
+      "title": "第6章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "0-1-1-概念框架",
+      "title": "0 1 1 概念框架",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 125,
+        "line_end": 125
+      }
+    },
+    {
+      "candidate_id": "0-1-2-实践工具",
+      "title": "0 1 2 实践工具",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 135,
+        "line_end": 135
+      }
+    },
+    {
+      "candidate_id": "0-3-1-背景要求",
+      "title": "0 3 1 背景要求",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 257,
+        "line_end": 257
+      }
+    },
+    {
+      "candidate_id": "0-3-4-连贯案例",
+      "title": "0 3 4 连贯案例",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 271,
+        "line_end": 271
+      }
+    },
+    {
+      "candidate_id": "1-5-3-关键问题-比较优势的可持续性",
+      "title": "1 5 3 关键问题 比较优势的可持续性",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1097,
+        "line_end": 1097
+      }
+    },
+    {
+      "candidate_id": "1-6-1-指导原则",
+      "title": "1 6 1 指导原则",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1161,
+        "line_end": 1161
+      }
+    },
+    {
+      "candidate_id": "1-养老基金的投资收益对当期盈利的影响可能极大",
+      "title": "1 养老基金的投资收益对当期盈利的影响可能极大",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11019,
+        "line_end": 11019
+      }
+    },
+    {
+      "candidate_id": "10-1-2-战略资产负债表",
+      "title": "10 1 2 战略资产负债表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8112,
+        "line_end": 8112
+      }
+    },
+    {
+      "candidate_id": "10-1-重构资产负债表",
+      "title": "10 1 重构资产负债表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7934,
+        "line_end": 7934
+      }
+    },
+    {
+      "candidate_id": "10-2-4-来自经营活动的剩余收益",
+      "title": "10 2 4 来自经营活动的剩余收益",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8479,
+        "line_end": 8479
+      }
+    },
+    {
+      "candidate_id": "11-2-1-对现金交易进行重新分类",
+      "title": "11 2 1 对现金交易进行重新分类",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9363,
+        "line_end": 9363
+      }
+    },
+    {
+      "candidate_id": "12-2-1-金融杠杆",
+      "title": "12 2 1 金融杠杆",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9943,
+        "line_end": 9943
+      }
+    },
+    {
+      "candidate_id": "12-4-1-经营利润率的影响因素",
+      "title": "12 4 1 经营利润率的影响因素",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10257,
+        "line_end": 10257
+      }
+    },
+    {
+      "candidate_id": "14-4-3-促进收益增长的杠杆",
+      "title": "14 4 3 促进收益增长的杠杆",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12538,
+        "line_end": 12538
+      }
+    },
+    {
+      "candidate_id": "15-1-1-ppe-公司简介",
+      "title": "15 1 1 Ppe 公司简介",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13181,
+        "line_end": 13181
+      }
+    },
+    {
+      "candidate_id": "17-4-1-后进先出法与先进先出法比较",
+      "title": "17 4 1 后进先出法与先进先出法比较",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15474,
+        "line_end": 15474
+      }
+    },
+    {
+      "candidate_id": "17-4-6-经济增加值计量指标",
+      "title": "17 4 6 经济增加值计量指标",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15542,
+        "line_end": 15542
+      }
+    },
+    {
+      "candidate_id": "17-4-实务中的谨慎性与自由会计",
+      "title": "17 4 实务中的谨慎性与自由会计",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15450,
+        "line_end": 15450
+      }
+    },
+    {
+      "candidate_id": "18-2-2-质量分析的前奏",
+      "title": "18 2 2 质量分析的前奏",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16076,
+        "line_end": 16076
+      }
+    },
+    {
+      "candidate_id": "18-2-6-判断非经常项目的真实性",
+      "title": "18 2 6 判断非经常项目的真实性",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16478,
+        "line_end": 16478
+      }
+    },
+    {
+      "candidate_id": "18-3-7-组织的操纵-表外经营",
+      "title": "18 3 7 组织的操纵 表外经营",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16570,
+        "line_end": 16570
+      }
+    },
+    {
+      "candidate_id": "19-3-2-增长的风险",
+      "title": "19 3 2 增长的风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17433,
+        "line_end": 17433
+      }
+    },
+    {
+      "candidate_id": "19-4-3-风险价值的贴现",
+      "title": "19 4 3 风险价值的贴现",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17540,
+        "line_end": 17540
+      }
+    },
+    {
+      "candidate_id": "19-6-2-处理必要报酬率问题",
+      "title": "19 6 2 处理必要报酬率问题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17658,
+        "line_end": 17658
+      }
+    },
+    {
+      "candidate_id": "19-6-5-谨慎为有风险的增长而买单",
+      "title": "19 6 5 谨慎为有风险的增长而买单",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17692,
+        "line_end": 17692
+      }
+    },
+    {
+      "candidate_id": "2-2-4-市盈率",
+      "title": "2 2 4 市盈率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1999,
+        "line_end": 1999
+      }
+    },
+    {
+      "candidate_id": "2-债务融资活动",
+      "title": "2 债务融资活动",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3126,
+        "line_end": 3126
+      }
+    },
+    {
+      "candidate_id": "20-2-1-重构的财务报表",
+      "title": "20 2 1 重构的财务报表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18041,
+        "line_end": 18041
+      }
+    },
+    {
+      "candidate_id": "20-2-4-经营效率比率",
+      "title": "20 2 4 经营效率比率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18195,
+        "line_end": 18195
+      }
+    },
+    {
+      "candidate_id": "20-3-4-必要报酬率-期望收益率与主动的债券投资",
+      "title": "20 3 4 必要报酬率 期望收益率与主动的债券投资",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18383,
+        "line_end": 18383
+      }
+    },
+    {
+      "candidate_id": "4-4-1-利润与现金流量",
+      "title": "4 4 1 利润与现金流量",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3985,
+        "line_end": 3985
+      }
+    },
+    {
+      "candidate_id": "4-4-现金流量-企业盈利与权责发生制会计",
+      "title": "4 4 现金流量 企业盈利与权责发生制会计",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3979,
+        "line_end": 3979
+      }
+    },
+    {
+      "candidate_id": "5-2-3-市净率的正常水平",
+      "title": "5 2 3 市净率的正常水平",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4508,
+        "line_end": 4508
+      }
+    },
+    {
+      "candidate_id": "5-3-1-剩余收益的来源与价值创造",
+      "title": "5 3 1 剩余收益的来源与价值创造",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4550,
+        "line_end": 4550
+      }
+    },
+    {
+      "candidate_id": "5-3-锚定账面价值的估值模型",
+      "title": "5 3 锚定账面价值的估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4514,
+        "line_end": 4514
+      }
+    },
+    {
+      "candidate_id": "6-2-3-一个效果不佳的市盈率模型",
+      "title": "6 2 3 一个效果不佳的市盈率模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5532,
+        "line_end": 5532
+      }
+    },
+    {
+      "candidate_id": "6-5-搭建你自己的估值工具",
+      "title": "6 5 搭建你自己的估值工具",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5780,
+        "line_end": 5780
+      }
+    },
+    {
+      "candidate_id": "9-1-1-以耐克公司的报表数据为例进行分析",
+      "title": "9 1 1 以耐克公司的报表数据为例进行分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7141,
+        "line_end": 7141
+      }
+    },
+    {
+      "candidate_id": "9-1-重构股东权益变动表",
+      "title": "9 1 重构股东权益变动表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7127,
+        "line_end": 7127
+      }
+    },
+    {
+      "candidate_id": "第3章",
+      "title": "第3章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2564,
+        "line_end": 2564
+      }
+    },
+    {
+      "candidate_id": "第7章",
+      "title": "第7章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2580,
+        "line_end": 2580
+      }
+    },
+    {
+      "candidate_id": "第三部分-预测与估值分析",
+      "title": "第三部分 预测与估值分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 633,
+        "line_end": 633
+      }
+    },
+    {
+      "candidate_id": "第二部分",
+      "title": "第二部分",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "0-1-10-本书概况",
+      "title": "0 1 10 本书概况",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 201,
+        "line_end": 201
+      }
+    },
+    {
+      "candidate_id": "0-1-8-与市场先生谈判",
+      "title": "0 1 8 与市场先生谈判",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 167,
+        "line_end": 167
+      }
+    },
+    {
+      "candidate_id": "0-1-9-第-5-版的新变化",
+      "title": "0 1 9 第 5 版的新变化",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 173,
+        "line_end": 173
+      }
+    },
+    {
+      "candidate_id": "11-2-2-综述",
+      "title": "11 2 2 综述",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9475,
+        "line_end": 9475
+      }
+    },
+    {
+      "candidate_id": "12-2-5-金融杠杆与负债权益比",
+      "title": "12 2 5 金融杠杆与负债权益比",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 10187,
+        "line_end": 10187
+      }
+    },
+    {
+      "candidate_id": "13-4-4-市净率与增长",
+      "title": "13 4 4 市净率与增长",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11517,
+        "line_end": 11517
+      }
+    },
+    {
+      "candidate_id": "14-2-2-关注未来-可持续的盈利",
+      "title": "14 2 2 关注未来 可持续的盈利",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12295,
+        "line_end": 12295
+      }
+    },
+    {
+      "candidate_id": "14-5-盯市会计-在股票期权估值中引入负债的工具",
+      "title": "14 5 盯市会计 在股票期权估值中引入负债的工具",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12660,
+        "line_end": 12660
+      }
+    },
+    {
+      "candidate_id": "16-5-商业战略分析与预计财务报表分析",
+      "title": "16 5 商业战略分析与预计财务报表分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14510,
+        "line_end": 14510
+      }
+    },
+    {
+      "candidate_id": "18-3-2-核心收入的结构",
+      "title": "18 3 2 核心收入的结构",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16514,
+        "line_end": 16514
+      }
+    },
+    {
+      "candidate_id": "18-3-3-核心费用的确认时点",
+      "title": "18 3 3 核心费用的确认时点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16534,
+        "line_end": 16534
+      }
+    },
+    {
+      "candidate_id": "2-1-6-财务报表附注与补充资料",
+      "title": "2 1 6 财务报表附注与补充资料",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1740,
+        "line_end": 1740
+      }
+    },
+    {
+      "candidate_id": "2-养老金资产的收益能产生-连锁信-效应",
+      "title": "2 养老金资产的收益能产生 连锁信 效应",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11039,
+        "line_end": 11039
+      }
+    },
+    {
+      "candidate_id": "4-3-1-国际财务报告准则下的现金流量表",
+      "title": "4 3 1 国际财务报告准则下的现金流量表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3941,
+        "line_end": 3941
+      }
+    },
+    {
+      "candidate_id": "4-4-2-应计项目-投资与资产负债表",
+      "title": "4 4 2 应计项目 投资与资产负债表",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4048,
+        "line_end": 4048
+      }
+    },
+    {
+      "candidate_id": "5-4-2-不要为增长而支付过高的价格",
+      "title": "5 4 2 不要为增长而支付过高的价格",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4820,
+        "line_end": 4820
+      }
+    },
+    {
+      "candidate_id": "6-1-1-不要为盈利增长而支付过高的价格",
+      "title": "6 1 1 不要为盈利增长而支付过高的价格",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5405,
+        "line_end": 5405
+      }
+    },
+    {
+      "candidate_id": "6-3-3-根据当前的收益情况进行估值",
+      "title": "6 3 3 根据当前的收益情况进行估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5643,
+        "line_end": 5643
+      }
+    },
+    {
+      "candidate_id": "6-6-4-会计方法与估值",
+      "title": "6 6 4 会计方法与估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5850,
+        "line_end": 5850
+      }
+    },
+    {
+      "candidate_id": "6-7-fed-模型",
+      "title": "6 7 Fed 模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5888,
+        "line_end": 5888
+      }
+    },
+    {
+      "candidate_id": "7-1-2-应用基本面投资信条",
+      "title": "7 1 2 应用基本面投资信条",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 6313,
+        "line_end": 6313
+      }
+    },
+    {
+      "candidate_id": "9-3-3-增长比率",
+      "title": "9 3 3 增长比率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7294,
+        "line_end": 7294
+      }
+    },
+    {
+      "candidate_id": "9-6-搭建你自己的分析工具",
+      "title": "9 6 搭建你自己的分析工具",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7517,
+        "line_end": 7517
+      }
+    },
+    {
+      "candidate_id": "0-1-3-估值与战略",
+      "title": "0 1 3 估值与战略",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 141,
+        "line_end": 141
+      }
+    },
+    {
+      "candidate_id": "0-2-装配组合-为分析人员和管理人员而备的工具箱",
+      "title": "0 2 装配组合 为分析人员和管理人员而备的工具箱",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 215,
+        "line_end": 215
+      }
+    },
+    {
+      "candidate_id": "1-2-2-泡沫时期的分析师",
+      "title": "1 2 2 泡沫时期的分析师",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 845,
+        "line_end": 845
+      }
+    },
+    {
+      "candidate_id": "1-5-2-把握细节",
+      "title": "1 5 2 把握细节",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1011,
+        "line_end": 1011
+      }
+    },
+    {
+      "candidate_id": "10-2-1-税费分配-counter-example",
+      "title": "10 2 1 税费分配 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "10-3-1-共同比分析",
+      "title": "10 3 1 共同比分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 8501,
+        "line_end": 8501
+      }
+    },
+    {
+      "candidate_id": "12-1-分解普通股权益报酬率",
+      "title": "12 1 分解普通股权益报酬率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9925,
+        "line_end": 9925
+      }
+    },
+    {
+      "candidate_id": "13-1-什么是增长-counter-example",
+      "title": "13 1 什么是增长 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "13-2-3-核心经营业务的获利能力",
+      "title": "13 2 3 核心经营业务的获利能力",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11158,
+        "line_end": 11158
+      }
+    },
+    {
+      "candidate_id": "13-3-4-股东权益增长分析",
+      "title": "13 3 4 股东权益增长分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11322,
+        "line_end": 11322
+      }
+    },
+    {
+      "candidate_id": "13-4-3-市盈率与盈利的可持续性分析",
+      "title": "13 4 3 市盈率与盈利的可持续性分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11509,
+        "line_end": 11509
+      }
+    },
+    {
+      "candidate_id": "14-3-2-负债的资本成本",
+      "title": "14 3 2 负债的资本成本",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12371,
+        "line_end": 12371
+      }
+    },
+    {
+      "candidate_id": "15-2-3-将销售增长率作为简单预测的增长率",
+      "title": "15 2 3 将销售增长率作为简单预测的增长率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13399,
+        "line_end": 13399
+      }
+    },
+    {
+      "candidate_id": "17-4-5-20世纪90年代的企业获利能力",
+      "title": "17 4 5 20世纪90年代的企业获利能力",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15530,
+        "line_end": 15530
+      }
+    },
+    {
+      "candidate_id": "18-3-1-核心收入的确认时点",
+      "title": "18 3 1 核心收入的确认时点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16510,
+        "line_end": 16510
+      }
+    },
+    {
+      "candidate_id": "18-3-5-其他核心收益的确认时点",
+      "title": "18 3 5 其他核心收益的确认时点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16558,
+        "line_end": 16558
+      }
+    },
+    {
+      "candidate_id": "18-3-6-非经常损益的确认时点",
+      "title": "18 3 6 非经常损益的确认时点",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16566,
+        "line_end": 16566
+      }
+    },
+    {
+      "candidate_id": "19-3-1-普通股投资报酬的风险",
+      "title": "19 3 1 普通股投资报酬的风险",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17403,
+        "line_end": 17403
+      }
+    },
+    {
+      "candidate_id": "19-3-基本面风险-counter-example",
+      "title": "19 3 基本面风险 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "19-6-3-用风险价值特征来评价隐含的期望报酬率",
+      "title": "19 6 3 用风险价值特征来评价隐含的期望报酬率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17662,
+        "line_end": 17662
+      }
+    },
+    {
+      "candidate_id": "2-1-财务报表的形式",
+      "title": "2 1 财务报表的形式",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 1600,
+        "line_end": 1600
+      }
+    },
+    {
+      "candidate_id": "2-2-1-市净率-counter-example",
+      "title": "2 2 1 市净率 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "20-3-3-完全信息预测",
+      "title": "20 3 3 完全信息预测",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18305,
+        "line_end": 18305
+      }
+    },
+    {
+      "candidate_id": "3-4-3-适用于持续投资的估值模型",
+      "title": "3 4 3 适用于持续投资的估值模型",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3048,
+        "line_end": 3048
+      }
+    },
+    {
+      "candidate_id": "4-3-现金流量表-counter-example",
+      "title": "4 3 现金流量表 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "6-6-1-购买盈利",
+      "title": "6 6 1 购买盈利",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5832,
+        "line_end": 5832
+      }
+    },
+    {
+      "candidate_id": "7-资本化政策也会影响经营活动的现金流量",
+      "title": "7 资本化政策也会影响经营活动的现金流量",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9574,
+        "line_end": 9574
+      }
+    },
+    {
+      "candidate_id": "9-3-2-股东获利率",
+      "title": "9 3 2 股东获利率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7282,
+        "line_end": 7282
+      }
+    },
+    {
+      "candidate_id": "9-3-比率分析",
+      "title": "9 3 比率分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 7250,
+        "line_end": 7250
+      }
+    },
+    {
+      "candidate_id": "第一部分",
+      "title": "第一部分",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "0-3-怎样利用本书",
+      "title": "0 3 怎样利用本书",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 255,
+        "line_end": 255
+      }
+    },
+    {
+      "candidate_id": "1-重组支出",
+      "title": "1 重组支出",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17047,
+        "line_end": 17047
+      }
+    },
+    {
+      "candidate_id": "13-2-4-核心借款成本",
+      "title": "13 2 4 核心借款成本",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 11186,
+        "line_end": 11186
+      }
+    },
+    {
+      "candidate_id": "14-4-4-负债与税-counter-example",
+      "title": "14 4 4 负债与税 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12632,
+        "line_end": 12640
+      }
+    },
+    {
+      "candidate_id": "14-4-财务风险-收益与权益估值",
+      "title": "14 4 财务风险 收益与权益估值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12401,
+        "line_end": 12401
+      }
+    },
+    {
+      "candidate_id": "14-6-企业估值乘数-counter-example",
+      "title": "14 6 企业估值乘数 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 12687,
+        "line_end": 12687
+      }
+    },
+    {
+      "candidate_id": "15-2-4-分析师预测报告中包含的信息",
+      "title": "15 2 4 分析师预测报告中包含的信息",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 13426,
+        "line_end": 13426
+      }
+    },
+    {
+      "candidate_id": "16-5-1-模糊战略-counter-example",
+      "title": "16 5 1 模糊战略 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 14524,
+        "line_end": 14532
+      }
+    },
+    {
+      "candidate_id": "18-2-3-质量诊断-counter-example",
+      "title": "18 2 3 质量诊断 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16180,
+        "line_end": 16192
+      }
+    },
+    {
+      "candidate_id": "18-2-5-判断核心费用的真实性",
+      "title": "18 2 5 判断核心费用的真实性",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 16264,
+        "line_end": 16264
+      }
+    },
+    {
+      "candidate_id": "19-4-风险价值-counter-example",
+      "title": "19 4 风险价值 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17504,
+        "line_end": 17514
+      }
+    },
+    {
+      "candidate_id": "19-5-价格风险-counter-example",
+      "title": "19 5 价格风险 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17552,
+        "line_end": 17552
+      }
+    },
+    {
+      "candidate_id": "2-债务融资活动-counter-example",
+      "title": "2 债务融资活动 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3128,
+        "line_end": 3132
+      }
+    },
+    {
+      "candidate_id": "2-融资性应收款-净值",
+      "title": "2 融资性应收款 净值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17063,
+        "line_end": 17063
+      }
+    },
+    {
+      "candidate_id": "2-预测误差分析-counter-example",
+      "title": "2 预测误差分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18293,
+        "line_end": 18303
+      }
+    },
+    {
+      "candidate_id": "20-2-3-长期清算能力比率",
+      "title": "20 2 3 长期清算能力比率",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18165,
+        "line_end": 18165
+      }
+    },
+    {
+      "candidate_id": "3-3-基本面分析-counter-example",
+      "title": "3 3 基本面分析 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 2947,
+        "line_end": 2947
+      }
+    },
+    {
+      "candidate_id": "3-4-5-什么在创造价值",
+      "title": "3 4 5 什么在创造价值",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3064,
+        "line_end": 3064
+      }
+    },
+    {
+      "candidate_id": "3-存货",
+      "title": "3 存货",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17071,
+        "line_end": 17071
+      }
+    },
+    {
+      "candidate_id": "4-长期股权投资-权益法",
+      "title": "4 长期股权投资 权益法",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17077,
+        "line_end": 17077
+      }
+    },
+    {
+      "candidate_id": "5-分部报告",
+      "title": "5 分部报告",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17095,
+        "line_end": 17095
+      }
+    },
+    {
+      "candidate_id": "5-非现金交易的影响",
+      "title": "5 非现金交易的影响",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9566,
+        "line_end": 9566
+      }
+    },
+    {
+      "candidate_id": "6-2-估值的原理-counter-example",
+      "title": "6 2 估值的原理 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 5462,
+        "line_end": 5474
+      }
+    },
+    {
+      "candidate_id": "6-结构化融资",
+      "title": "6 结构化融资",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9570,
+        "line_end": 9570
+      }
+    },
+    {
+      "candidate_id": "8-错误的配比-counter-example",
+      "title": "8 错误的配比 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 9580,
+        "line_end": 9580
+      }
+    },
+    {
+      "candidate_id": "第1章",
+      "title": "第1章",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 18694,
+        "line_end": 18694
+      }
+    },
+    {
+      "candidate_id": "第五部分-风险与收益分析",
+      "title": "第五部分 风险与收益分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 751,
+        "line_end": 751
+      }
+    },
+    {
+      "candidate_id": "1-应计项目-counter-example",
+      "title": "1 应计项目 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 4010,
+        "line_end": 4018
+      }
+    },
+    {
+      "candidate_id": "1-权益融资活动-counter-example",
+      "title": "1 权益融资活动 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 3072,
+        "line_end": 3080
+      }
+    },
+    {
+      "candidate_id": "2-财务风险-counter-example",
+      "title": "2 财务风险 Counter Example",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 17427,
+        "line_end": 17431
+      }
+    },
+    {
+      "candidate_id": "第四部分",
+      "title": "第四部分",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [
+        "chapter_title_requires_explicit_hygiene_override"
+      ],
+      "source_file": "sources/财务报表分析_Markdown版.md",
+      "source_location": {
+        "line_start": 15033,
+        "line_end": 15033
+      }
+    }
+  ],
+  "summary_candidate_rejected": [],
+  "workflow_candidate_routed": [
+    {
+      "candidate_id": "accounting-quality-signal-check",
+      "title": "accounting-quality-signal-check",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "思考题",
+      "title": "思考题",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "学习能力",
+      "title": "学习能力",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "本章小结",
+      "title": "本章小结",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "学习目标",
+      "title": "学习目标",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "警示案例",
+      "title": "警示案例",
+      "candidate_kind": "workflow_script",
+      "disposition": "workflow_script_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    }
+  ],
+  "agentic_skill_accepted": [
+    {
+      "candidate_id": "关键概念",
+      "title": "关键概念",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "练习题",
+      "title": "练习题",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "自主练习",
+      "title": "自主练习",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "分析师工具箱",
+      "title": "分析师工具箱",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "business-value-anchor-check",
+      "title": "business-value-anchor-check",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "基本练习",
+      "title": "基本练习",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "应用分析",
+      "title": "应用分析",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    },
+    {
+      "candidate_id": "迷你案例",
+      "title": "迷你案例",
+      "candidate_kind": "general_agentic",
+      "disposition": "skill_candidate",
+      "reasons": [],
+      "source_file": null,
+      "source_location": null
+    }
+  ],
+  "summary": {
+    "chapter_title_rejected_count": 275,
+    "summary_candidate_rejected_count": 0,
+    "workflow_candidate_routed_count": 6,
+    "agentic_skill_accepted_count": 8
+  }
+}

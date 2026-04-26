@@ -1,0 +1,134 @@
+{
+  "candidate_count": 3,
+  "artifact_release_ready": true,
+  "behavior_release_ready": true,
+  "release_ready": true,
+  "release_gate_reasons": [],
+  "bundle_quality_grade": "excellent",
+  "average_artifact_quality": 0.9244,
+  "average_production_quality": 0.9327,
+  "minimum_artifact_quality": 0.8641,
+  "minimum_production_quality": 0.9082,
+  "grade_counts": {
+    "excellent": 3
+  },
+  "thresholds": {
+    "artifact_quality": 0.74,
+    "production_quality": 0.78
+  },
+  "skills": [
+    {
+      "candidate_id": "solution-to-problem-reframing",
+      "artifact_quality": 0.9545,
+      "artifact_grade": "excellent",
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.927,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 0.675,
+        "eval_readiness": 1.0,
+        "revision_traceability": 1.0
+      },
+      "signals": {
+        "trigger_patterns": 3,
+        "intake_fields": 5,
+        "rationale_chars": 1985,
+        "rationale_anchor_refs": 4,
+        "evidence_anchor_refs": 3,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 22,
+        "trace_refs": 1,
+        "usage_notes": 21,
+        "eval_cases_total": 3,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 6
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.74,
+        "production_quality": 0.78
+      }
+    },
+    {
+      "candidate_id": "stakeholder-resistance-tradeoff",
+      "artifact_quality": 0.9545,
+      "artifact_grade": "excellent",
+      "production_quality": 0.9449,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.927,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 1.0,
+        "usage_readiness": 0.675,
+        "eval_readiness": 1.0,
+        "revision_traceability": 1.0
+      },
+      "signals": {
+        "trigger_patterns": 3,
+        "intake_fields": 5,
+        "rationale_chars": 1782,
+        "rationale_anchor_refs": 4,
+        "evidence_anchor_refs": 3,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 9,
+        "trace_refs": 1,
+        "usage_notes": 12,
+        "eval_cases_total": 3,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 6
+      },
+      "blockers": [],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.74,
+        "production_quality": 0.78
+      }
+    },
+    {
+      "candidate_id": "workflow-gateway",
+      "artifact_quality": 0.8641,
+      "artifact_grade": "good",
+      "production_quality": 0.9082,
+      "quality_grade": "excellent",
+      "release_ready": true,
+      "loop_overall_quality": 0.99,
+      "component_scores": {
+        "contract_specificity": 1.0,
+        "rationale_depth": 1.0,
+        "evidence_grounding": 0.85,
+        "usage_readiness": 0.675,
+        "eval_readiness": 0.604,
+        "revision_traceability": 1.0
+      },
+      "signals": {
+        "trigger_patterns": 2,
+        "intake_fields": 3,
+        "rationale_chars": 1227,
+        "rationale_anchor_refs": 2,
+        "evidence_anchor_refs": 1,
+        "graph_anchor_sets": 1,
+        "source_anchor_sets": 11,
+        "trace_refs": 1,
+        "usage_notes": 24,
+        "eval_cases_total": 0,
+        "passed_kiu_tests": 3,
+        "revision_history_entries": 3
+      },
+      "blockers": [
+        "eval_cases_missing"
+      ],
+      "notes": [],
+      "thresholds": {
+        "artifact_quality": 0.74,
+        "production_quality": 0.78
+      }
+    }
+  ]
+}

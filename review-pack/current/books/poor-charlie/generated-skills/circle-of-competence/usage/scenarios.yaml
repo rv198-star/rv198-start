@@ -1,0 +1,195 @@
+should_trigger:
+- scenario_id: domain-transfer-boundary
+  summary: 当用户准备进入陌生行业、陌生资产或陌生岗位，并出现“应该差不多能搞明白”“我可以边做边学”这类语言时触发。
+  prompt_signals:
+  - 我可以学
+  - 应该差不多
+  - 没做过但想试试
+  boundary_reason: 这是在判断自己是否有资格独立下判断，而不是做概念解释或客观技术比较。
+  next_action_shape: 区分可迁移能力与缺失的专业知识边界，给出 in_circle / edge_of_circle / outside_circle，并写出
+    proceed / study_more / decline。
+  anchor_refs:
+  - circle-source-note
+  - circle-trace-dotcom
+- scenario_id: social-proof-fomo
+  summary: 当用户把“大家都说这是好机会”当成理解替代品时触发。
+  prompt_signals:
+  - 大家都说这是好机会
+  - 想先投一点试试
+  - 搞不太懂但感觉会涨
+  boundary_reason: 这类场景需要先验证独立理解，而不是让社交证明替代能力圈。
+  next_action_shape: 要求用户解释核心运作逻辑、失败路径和关键证伪点，再决定 study_more 还是 decline。
+  anchor_refs:
+  - circle-trace-crypto
+  - circle-eval
+- scenario_id: graph-inferred-link-e_circle_bias_complements
+  summary: 'Graph-to-skill distillation: `INFERRED` edge `e_circle_bias_complements`
+    expands trigger language only when a live decision links `Circle of competence`
+    and `Bias self audit`.'
+  prompt_signals:
+  - Circle of competence
+  - Bias self audit
+  - '# Circle of Competence Source Note Skill ID: circle-of-competence Primary Cla...'
+  - 不熟悉领域
+  - 我应该差不多能搞明白
+  - Web3 或 AI 新领域
+  - 底层技术搞不懂
+  - 自媒体变现说不清
+  boundary_reason: This relation is INFERRED, so it can widen trigger recall only
+    with concrete decision context, explicit source evidence, and the existing do_not_fire_when
+    boundary still active.
+  next_action_shape: '先做能力边界测试：列出 missing_knowledge、判断 in_circle / edge_of_circle
+    / outside_circle，再给 study_more 或 decline。 Evidence check: verify source_location
+    `sources/circle-of-competence.md:1-9` before expanding the trigger.'
+  anchor_refs:
+  - e_circle_bias_complements
+  distillation_role: trigger_expansion
+  extraction_kind: INFERRED
+  source_location: sources/circle-of-competence.md:1-9
+  graph_navigation: &id001
+    graph_report: GRAPH_REPORT.md
+    communities:
+    - community_id: c_boundary_discipline
+      label: Boundary discipline
+      top_node_id: n_circle_principle
+      top_node_label: Circle of competence
+      node_count: 4
+    suggested_questions:
+    - Why does `Circle of competence` sit at the center of this graph, and what evidence
+      would most change its routing?
+    - Why does `Margin of safety sizing` sit at the center of this graph, and what
+      evidence would most change its routing?
+    - What is the operational boundary of `Boundary discipline`, and should it stay
+      agentic or downgrade to workflow?
+    - What is the operational boundary of `Error avoidance`, and should it stay agentic
+      or downgrade to workflow?
+    - Which missing evidence would most improve confidence for `Boundary discipline`?
+should_not_trigger:
+- scenario_id: concept-or-objective-comparison
+  summary: 纯概念查询或客观比较问题不应触发，例如解释能力圈概念，或比较 Python 和 Go 的工程适配性。
+  prompt_signals:
+  - 能力圈是什么意思
+  - Python 和 Go 哪个更适合做微服务
+  boundary_reason: 这不是资格判断，而是概念学习或客观分析。
+  anchor_refs:
+  - circle-source-note
+edge_case:
+- scenario_id: transferable-skill-vs-domain-gap
+  summary: 用户拥有可迁移通用能力，但缺少行业专有知识时，应用边界态而不是直接判圈内或圈外。
+  prompt_signals:
+  - 做了5年产品经理
+  - 完全不同行业
+  - 怕自己搞不定
+  boundary_reason: 一部分能力可迁移，但真正的行业风险点仍可能在圈外。
+  next_action_shape: 拆出哪些能力在圈内、哪些行业知识在圈外，再决定是否先小规模试错或找第二意见。
+  anchor_refs:
+  - circle-real-decision
+  - circle-eval
+- scenario_id: graph-ambiguous-boundary-n_eval_ood_career_offer
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `n_eval_ood_career_offer`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - Career offer OOD case
+  - 'case_id: career-offer-choice subset: out_of_distribution primary_skill: circl...'
+  - 不熟悉领域
+  - 我应该差不多能搞明白
+  - Web3 或 AI 新领域
+  - 底层技术搞不懂
+  - 自媒体变现说不清
+  - 餐饮连锁或跨界项目
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `evaluation/out_of_distribution/career-offer-choice.yaml:1-8`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - n_eval_ood_career_offer
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: evaluation/out_of_distribution/career-offer-choice.yaml:1-8
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-n_eval_surface_familiarity
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `n_eval_surface_familiarity`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - Surface familiarity trap
+  - 'case_id: tsla-surface-familiarity subset: synthetic_adversarial primary_skill...'
+  - 不熟悉领域
+  - 我应该差不多能搞明白
+  - Web3 或 AI 新领域
+  - 底层技术搞不懂
+  - 自媒体变现说不清
+  - 餐饮连锁或跨界项目
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml:1-8`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - n_eval_surface_familiarity
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml:1-8
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-e_circle_ood_boundary_ambiguous
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `e_circle_ood_boundary_ambiguous`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - boundary_probe
+  - 'case_id: career-offer-choice subset: out_of_distribution primary_skill: circl...'
+  - 不熟悉领域
+  - 我应该差不多能搞明白
+  - Web3 或 AI 新领域
+  - 底层技术搞不懂
+  - 自媒体变现说不清
+  - 餐饮连锁或跨界项目
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `evaluation/out_of_distribution/career-offer-choice.yaml:1-8`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - e_circle_ood_boundary_ambiguous
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: evaluation/out_of_distribution/career-offer-choice.yaml:1-8
+  graph_navigation: *id001
+- scenario_id: graph-ambiguous-boundary-e_circle_surface_boundary_ambiguous
+  summary: 'Graph-to-skill distillation: `AMBIGUOUS` signal `e_circle_surface_boundary_ambiguous`
+    is a boundary probe, not a permission to fire broadly.'
+  prompt_signals:
+  - boundary_probe
+  - 'case_id: tsla-surface-familiarity subset: synthetic_adversarial primary_skill...'
+  - 不熟悉领域
+  - 我应该差不多能搞明白
+  - Web3 或 AI 新领域
+  - 底层技术搞不懂
+  - 自媒体变现说不清
+  - 餐饮连锁或跨界项目
+  boundary_reason: Because this graph signal is AMBIGUOUS, the skill should use partial_review
+    or defer unless live decision context, source evidence, and disconfirming evidence
+    are explicit.
+  next_action_shape: Check source_location `evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml:1-8`,
+    name the boundary uncertainty, and either narrow the output or decline with a
+    concrete decline_reason.
+  anchor_refs:
+  - e_circle_surface_boundary_ambiguous
+  distillation_role: boundary_probe
+  extraction_kind: AMBIGUOUS
+  source_location: evaluation/synthetic_adversarial/tsla-surface-familiarity.yaml:1-8
+  graph_navigation: *id001
+refusal:
+- scenario_id: cannot-explain-business-clearly
+  summary: 当用户说“好像懂了，但说不清楚怎么变现/怎么失败”时，应拒绝给出圈内判断。
+  prompt_signals:
+  - 说不清楚怎么变现
+  - 好像懂了
+  - 具体失败点还没想清楚
+  boundary_reason: 说不清商业逻辑和失败机制，本身就是还不在圈内的证据。
+  next_action_shape: 列出真正理解和不理解的部分，先 study_more，再决定是否投入或直接 decline。
+  anchor_refs:
+  - circle-trace-google
+  - circle-trace-crypto
