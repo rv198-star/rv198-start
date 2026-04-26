@@ -16,6 +16,30 @@ Required rules:
 - Do not rename historical release evidence retroactively; older artifacts may remain
   under `Knowledge in Use` / `KiU` wording for provenance clarity.
 
+## v0.8 Language Migration Boundary
+
+Starting with v0.8, new mainline project documents should explain KiU through
+the `学以致用` architecture language before using historical release or
+reference-project terminology.
+
+Required rules:
+
+- Do not rewrite historical reports, release evidence, old plans, or attribution
+  records just to rename terms.
+- Keep historical terms available in `docs/concept-language-glossary.md` for
+  traceability.
+- New public-facing docs should lead with: 读准原书, 提炼判断, 生成技能,
+  分流流程, 校准应用, and 验证价值.
+- Historical terms such as Graphify absorption, cangjie methodology absorption,
+  RIA-TV++, C-class, and world alignment may appear in new docs only when
+  explicitly labeled as historical/internal terminology or when required for
+  attribution.
+- Use `技能不是摘要` and `用而不染` as the two preferred memorable phrases.
+  Do not introduce additional branded terminology unless it removes more
+  confusion than it adds.
+- README and release notes should lead with the new architecture language, not
+  release-history vocabulary.
+
 ## World Alignment Isolation Boundary
 
 KiU `v0.7` world alignment follows `isolation enhancement`, not `fusion rewrite`.
