@@ -15,7 +15,14 @@ KiU 是 `Knowledge in Use` 的缩写，中文名是 `学以致用`。
 
 ## 安装 Skills
 
-安装 KiU 项目 Skill，让 Codex/Agent 知道如何使用 KiU 生成、评审、导出和安装书籍 Skills：
+KiU 的安装指引只回答两件事：
+
+- 去哪里拿到 skill 目录
+- 下载或解压后放到哪个平台目录
+
+### Codex
+
+安装 KiU 项目 Skill：
 
 ```text
 $skill-installer install https://github.com/rv198-star/KiU/tree/master/skills/kiu
@@ -27,15 +34,45 @@ $skill-installer install https://github.com/rv198-star/KiU/tree/master/skills/ki
 $skill-installer install https://github.com/rv198-star/KiU/tree/master/installable-skills/<skill-name>
 ```
 
-可安装生成物位于 `installable-skills/`。例如：
+例如：
 
 ```text
 $skill-installer install https://github.com/rv198-star/KiU/tree/master/installable-skills/kiu-poor-charlie-circle-of-competence
 ```
 
-正式发布后，也可以把 URL 中的 `master` 替换为具体版本标签，例如 `v0.8.3`，以固定安装版本。
+如果网络环境对 zip 下载不稳定，可以改用仓库克隆方式：
 
-`review-pack/current` 是审查包，不是安装包。
+```bash
+python3 /Users/william/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --url https://github.com/rv198-star/KiU/tree/master/skills/kiu \
+  --method git
+```
+
+### Claude Code
+
+下载或解压后，把 skill 目录放到：
+
+- `~/.claude/skills/`
+- 或项目内 `.claude/skills/`
+
+更细的加载与调用规则请直接看官方文档：
+- `https://code.claude.com/docs/en/claude-directory`
+- `https://code.claude.com/docs/en/slash-commands`
+
+### OpenCode
+
+下载或解压后，把 skill 目录放到：
+
+- `~/.config/opencode/skills/`
+- 或项目内 `.opencode/skills/`
+- 如果想跨平台共用，也可以统一放在 `.claude/skills/`
+
+更细的兼容路径和发现规则请直接看官方文档：
+- `https://opencode.ai/docs/skills`
+
+正式发布后，也可以把 `master` 替换为具体版本标签，例如 `v0.8.3`，以固定版本；如果使用 `git clone`，则改成克隆对应 tag。
+
+`review-pack/current` 是审查包，不是安装包。可安装生成物位于 `installable-skills/`。
 
 ## 架构
 
