@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def _tracked_paths() -> list[str]:
     result = subprocess.run(
-        ["git", "ls-tree", "-r", "-z", "--name-only", "HEAD"],
+        ["git", "ls-files", "-z"],
         cwd=ROOT,
         check=True,
         capture_output=True,
@@ -28,10 +28,12 @@ class RepositoryStructureTests(unittest.TestCase):
             "docs",
             "evidence",
             "examples",
+            "installable-skills",
             "review-pack",
             "schemas",
             "scripts",
             "shared_profiles",
+            "skills",
             "src",
             "tests",
         }

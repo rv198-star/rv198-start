@@ -42,6 +42,22 @@ KiU 是 `Knowledge in Use` 的缩写，中文名是 `学以致用`。
 - [参考 bundle](bundles/poor-charlies-almanack-v0.1/manifest.yaml)
 - [工程参考 bundle](bundles/engineering-postmortem-v0.1/manifest.yaml)
 
+## 安装 Skills
+
+安装 KiU 项目 Skill：
+
+```text
+$skill-installer install https://github.com/rv198-star/KiU/tree/v0.8.3/skills/kiu
+```
+
+安装 KiU 生成的单个 Skill：
+
+```text
+$skill-installer install https://github.com/rv198-star/KiU/tree/v0.8.3/installable-skills/<skill-name>
+```
+
+`review-pack/current` 是审查包，不是安装包。可安装生成物位于 `installable-skills/`。
+
 ## 当前证据边界
 
 v0.8.2 是当前阶段性结案基线。仓库保留最新版可审查产物：

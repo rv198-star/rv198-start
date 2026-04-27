@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+## [0.8.3] - 2026-04-27
+
+### Added
+- Added KiU itself as an installable GitHub-path skill under `skills/kiu`.
+- Added deterministic export of KiU-generated skills into globally unique installable skill directories under `installable-skills/`.
+- Added installability tests and local skills-home smoke coverage for 1 project skill plus 21 generated skills.
+
+### Boundary
+- v0.8.3 does not claim official curated marketplace acceptance. It claims GitHub-path installability and local skills-home structure compatibility.
+
 ## [0.8.2] - 2026-04-27
 
 ### Changed

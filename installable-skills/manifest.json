@@ -1,0 +1,176 @@
+{
+  "schema_version": "kiu.installable-skills/v0.1",
+  "project": "KiU / Knowledge in Use / 学以致用",
+  "source_review_pack": "review-pack/current",
+  "skill_count": 21,
+  "skills": [
+    {
+      "install_name": "kiu-financial-statement-accounting-quality-signal-check",
+      "source_book_id": "financial-statement",
+      "source_book_title": "Financial Statement Analysis",
+      "original_skill_id": "accounting-quality-signal-check",
+      "path": "kiu-financial-statement-accounting-quality-signal-check/SKILL.md",
+      "provenance": "kiu-financial-statement-accounting-quality-signal-check/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-financial-statement-business-value-anchor-check",
+      "source_book_id": "financial-statement",
+      "source_book_title": "Financial Statement Analysis",
+      "original_skill_id": "business-value-anchor-check",
+      "path": "kiu-financial-statement-business-value-anchor-check/SKILL.md",
+      "provenance": "kiu-financial-statement-business-value-anchor-check/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-financial-statement-workflow-gateway",
+      "source_book_id": "financial-statement",
+      "source_book_title": "Financial Statement Analysis",
+      "original_skill_id": "workflow-gateway",
+      "path": "kiu-financial-statement-workflow-gateway/SKILL.md",
+      "provenance": "kiu-financial-statement-workflow-gateway/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-effective-requirements-solution-to-problem-reframing",
+      "source_book_id": "effective-requirements",
+      "source_book_title": "Effective Requirements Analysis",
+      "original_skill_id": "solution-to-problem-reframing",
+      "path": "kiu-effective-requirements-solution-to-problem-reframing/SKILL.md",
+      "provenance": "kiu-effective-requirements-solution-to-problem-reframing/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-effective-requirements-stakeholder-resistance-tradeoff",
+      "source_book_id": "effective-requirements",
+      "source_book_title": "Effective Requirements Analysis",
+      "original_skill_id": "stakeholder-resistance-tradeoff",
+      "path": "kiu-effective-requirements-stakeholder-resistance-tradeoff/SKILL.md",
+      "provenance": "kiu-effective-requirements-stakeholder-resistance-tradeoff/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-effective-requirements-workflow-gateway",
+      "source_book_id": "effective-requirements",
+      "source_book_title": "Effective Requirements Analysis",
+      "original_skill_id": "workflow-gateway",
+      "path": "kiu-effective-requirements-workflow-gateway/SKILL.md",
+      "provenance": "kiu-effective-requirements-workflow-gateway/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-historical-analogy-transfer-gate",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "historical-analogy-transfer-gate",
+      "path": "kiu-mao-anthology-historical-analogy-transfer-gate/SKILL.md",
+      "provenance": "kiu-mao-anthology-historical-analogy-transfer-gate/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-historical-case-consequence-judgment",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "historical-case-consequence-judgment",
+      "path": "kiu-mao-anthology-historical-case-consequence-judgment/SKILL.md",
+      "provenance": "kiu-mao-anthology-historical-case-consequence-judgment/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-no-investigation-no-decision",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "no-investigation-no-decision",
+      "path": "kiu-mao-anthology-no-investigation-no-decision/SKILL.md",
+      "provenance": "kiu-mao-anthology-no-investigation-no-decision/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-principal-contradiction-focus",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "principal-contradiction-focus",
+      "path": "kiu-mao-anthology-principal-contradiction-focus/SKILL.md",
+      "provenance": "kiu-mao-anthology-principal-contradiction-focus/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-role-boundary-before-action",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "role-boundary-before-action",
+      "path": "kiu-mao-anthology-role-boundary-before-action/SKILL.md",
+      "provenance": "kiu-mao-anthology-role-boundary-before-action/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-mao-anthology-workflow-gateway",
+      "source_book_id": "mao-anthology",
+      "source_book_title": "Mao Anthology",
+      "original_skill_id": "workflow-gateway",
+      "path": "kiu-mao-anthology-workflow-gateway/SKILL.md",
+      "provenance": "kiu-mao-anthology-workflow-gateway/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-bias-self-audit",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "bias-self-audit",
+      "path": "kiu-poor-charlie-bias-self-audit/SKILL.md",
+      "provenance": "kiu-poor-charlie-bias-self-audit/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-circle-of-competence",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "circle-of-competence",
+      "path": "kiu-poor-charlie-circle-of-competence/SKILL.md",
+      "provenance": "kiu-poor-charlie-circle-of-competence/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-invert-the-problem",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "invert-the-problem",
+      "path": "kiu-poor-charlie-invert-the-problem/SKILL.md",
+      "provenance": "kiu-poor-charlie-invert-the-problem/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-margin-of-safety-sizing",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "margin-of-safety-sizing",
+      "path": "kiu-poor-charlie-margin-of-safety-sizing/SKILL.md",
+      "provenance": "kiu-poor-charlie-margin-of-safety-sizing/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-opportunity-cost-of-the-next-best-idea",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "opportunity-cost-of-the-next-best-idea",
+      "path": "kiu-poor-charlie-opportunity-cost-of-the-next-best-idea/SKILL.md",
+      "provenance": "kiu-poor-charlie-opportunity-cost-of-the-next-best-idea/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-poor-charlie-value-assessment-source-note",
+      "source_book_id": "poor-charlie",
+      "source_book_title": "Poor Charlie's Almanack",
+      "original_skill_id": "value-assessment-source-note",
+      "path": "kiu-poor-charlie-value-assessment-source-note/SKILL.md",
+      "provenance": "kiu-poor-charlie-value-assessment-source-note/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-shiji-historical-analogy-transfer-gate",
+      "source_book_id": "shiji",
+      "source_book_title": "Shiji",
+      "original_skill_id": "historical-analogy-transfer-gate",
+      "path": "kiu-shiji-historical-analogy-transfer-gate/SKILL.md",
+      "provenance": "kiu-shiji-historical-analogy-transfer-gate/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-shiji-historical-case-consequence-judgment",
+      "source_book_id": "shiji",
+      "source_book_title": "Shiji",
+      "original_skill_id": "historical-case-consequence-judgment",
+      "path": "kiu-shiji-historical-case-consequence-judgment/SKILL.md",
+      "provenance": "kiu-shiji-historical-case-consequence-judgment/references/provenance.md"
+    },
+    {
+      "install_name": "kiu-shiji-role-boundary-before-action",
+      "source_book_id": "shiji",
+      "source_book_title": "Shiji",
+      "original_skill_id": "role-boundary-before-action",
+      "path": "kiu-shiji-role-boundary-before-action/SKILL.md",
+      "provenance": "kiu-shiji-role-boundary-before-action/references/provenance.md"
+    }
+  ]
+}
